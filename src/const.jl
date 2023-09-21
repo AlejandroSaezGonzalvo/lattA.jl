@@ -28,4 +28,9 @@ const vrw = Dict(
 const hc = 197.3269804 #MeV fm
 #const Mpi = uwreal([134.9768,0.0005],"mpi PDG") #MeV
 
+const ens_obs = Dict(
+    #"ens_id"=>[t0,mpi,mk,m12,m13,fpi,fk]
+    "H101"     => [1.0,0.18,1.0,1.0,1.0,1.0,1.0]
+)
+
 const b_values = [3.40, 3.46, 3.55, 3.70, 3.85]

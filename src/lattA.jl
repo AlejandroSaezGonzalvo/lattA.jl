@@ -6,6 +6,4 @@ export EnsInfo
 include("reader.jl")
 export get_corr
 
-include("const.jl")
-
 end
