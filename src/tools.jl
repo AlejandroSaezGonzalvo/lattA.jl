@@ -1,4 +1,4 @@
-using ADerrors, LsqFit, ForwardDiff
+using ADerrors, LsqFit, ForwardDiff, LinearAlgebra
 
 function fit_defs(f::Function,x,W) ## uncorrelated fit
 	chisq(p,d) = sum((d .- f(x,p)).^2 .* W)
