@@ -3,7 +3,7 @@ include("const.jl");
 
 function get_m(corr::juobs.Corr, id::String; tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
     corr_d = corr.obs
-    m_dat = 0.5 .* log.((corr_d[1:end-1] ./ corr_d[2:end]) .^ 2)
+    m_dat = 0.5 .* log.((corr_d[2:end-2] ./ corr_d[3:end-1]) .^ 2)
     y0 = corr.y0
     T = length(corr_d) - y0
     

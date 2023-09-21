@@ -1,4 +1,9 @@
-using ADerrors
+using ADerrors, LsqFit
+
+function fit_defs(f::Function,x,W) ## uncorrelated fit
+	chisq(p,d) = sum((d .- f(x,p)).^2 .* W)
+	return chisq
+end
 
 function model_av(f::Function, y::Vector{uwreal}, guess::Float64; tm::Vector{Int64}, tM::Vector{Int64}, k::Int64, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing) 
     pval = Array{Float64,1}()
