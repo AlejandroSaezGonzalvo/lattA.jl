@@ -1,5 +1,7 @@
 module lattA
 
+import juobs
+
 include("types.jl")
 export EnsInfo
 
