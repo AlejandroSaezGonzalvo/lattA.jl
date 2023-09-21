@@ -1,0 +1,18 @@
+name = "lattA"
+uuid = "63ab756d-bc69-4492-81fb-72f33c5fa424"
+authors = ["Alejandro Saez-Gonzalvo"]
+version = "1.0.0-DEV"
+
+[deps]
+ADerrors = "5e92007d-7bf1-471c-8ceb-4591b8b567a9"
+BDIO = "375f315e-f2c4-11e9-2ef9-134f02f79e27"
+juobs = "3399d769-80ea-4938-a2f8-b7fb0ead32c9"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
