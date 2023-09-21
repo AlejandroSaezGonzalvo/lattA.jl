@@ -31,8 +31,8 @@ function model_av(f::Function, y::Vector{uwreal}, guess::Float64; tm::Vector{Int
     TIC = TIC .- minimum(TIC)
     weight = exp.(-0.5 .* TIC) ./ sum(exp.(-0.5 .* TIC))
     p_av = sum(p_1 .* weight)
-    syst2 = sum(p_1 .^ 2 .* weight) .- p_av ^ 2
-    return p_av, syst2, p_1, weight, pval
+    syst = sqrt(sum(p_1 .^ 2 .* weight) - p_av ^ 2)
+    return p_av, syst, p_1, weight, pval
 end
 
 @doc raw"""

@@ -7,8 +7,10 @@ version = "1.0.0-DEV"
 ADerrors = "5e92007d-7bf1-471c-8ceb-4591b8b567a9"
 BDIO = "375f315e-f2c4-11e9-2ef9-134f02f79e27"
 ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 LsqFit = "2fda8390-95c7-5789-9bda-21331edee243"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 juobs = "3399d769-80ea-4938-a2f8-b7fb0ead32c9"
 
 [compat]

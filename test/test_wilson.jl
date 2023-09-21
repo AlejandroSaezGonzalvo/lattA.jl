@@ -1,6 +1,6 @@
-#import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
+import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
-using lattA, juobs, ADerrors
+using Revise, lattA, juobs, ADerrors
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 
