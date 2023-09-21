@@ -14,14 +14,15 @@ function model_av(f::Function, y::Vector{uwreal}, guess::Float64; tm::Vector{Int
     for i in tm
         for j in tM
             x = collect(i:j)
-            dy = err.(y)
+            y_aux = y[i:j]
+            dy = err.(y_aux)
             W = 1 ./ dy .^ 2
             p0 = [guess; [0.5 for i in 1:k-1]]
             chisq = fit_defs(f,x,W)
-            fit = curve_fit(f,x,value.(y),W,p0)
+            fit = curve_fit(f,x,value.(y_aux),W,p0)
             chi2 = sum(fit.resid .^ 2)
-            isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,coef(fit),y) : (up,chi_exp) = fit_error(chisq,coef(fit),y,wpm)
-            isnothing(wpm) ? push!(pval, pvalue(chisq,chi2,value.(up),y)) : push!(pval, pvalue(chisq,chi2,value.(up),y,wpm=wpm))
+            isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,coef(fit),y_aux) : (up,chi_exp) = fit_error(chisq,coef(fit),y_aux,wpm)
+            isnothing(wpm) ? push!(pval, pvalue(chisq,chi2,value.(up),y_aux)) : push!(pval, pvalue(chisq,chi2,value.(up),y_aux,wpm=wpm))
             push!(TIC, chi2 - 2*chi_exp)
             push!(p_1, up[1])
         end
