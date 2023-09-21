@@ -1,4 +1,5 @@
 using juobs
+include("const.jl");
 
 function get_m(corr::juobs.Corr, id::String; tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
     corr_d = corr.obs
