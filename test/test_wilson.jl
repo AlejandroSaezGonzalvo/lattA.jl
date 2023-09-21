@@ -1,5 +1,4 @@
-import Pkg
-Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
+#import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using lattA, juobs
 

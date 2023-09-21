@@ -4,6 +4,6 @@ include("types.jl")
 export EnsInfo
 
 include("reader.jl")
-export get_corr
+export get_corr_wil
 
 end
