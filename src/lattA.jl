@@ -1,6 +1,6 @@
 module lattA
 
-import juobs
+import juobs, ADerrors
 
 include("types.jl")
 export EnsInfo
