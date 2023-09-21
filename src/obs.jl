@@ -1,7 +1,8 @@
-function get_m(corr::Corr, id::String; tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
-    m_dat = 0.5 .* log.((corr[1:end-1] ./ corr[2:end]) .^ 2)
+function get_m(corr::juobs.Corr, id::String; tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+    corr_d = corr.obs
+    m_dat = 0.5 .* log.((corr_d[1:end-1] ./ corr_d[2:end]) .^ 2)
     y0 = corr.y0
-    T = length(corr) - y0
+    T = length(corr_d) - y0
     
     isnothing(tm) ? tm = [y0+10, y0+15, y0+20, y0+25] : tm=tm
     isnothing(tM) ? tM = [T-10, T-15, T-20, T-25] : tM=tM
