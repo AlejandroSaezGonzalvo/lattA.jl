@@ -12,6 +12,6 @@ include("obs.jl")
 export get_m
 
 include("tools.jl")
-export model_av
+export model_av, pvalue
 
 end
