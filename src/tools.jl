@@ -9,7 +9,7 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vecto
     isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
     W = 1 ./ err.(y) .^ 2
     chisq = fit_defs(f,x,W)
-    isnothing(guess) ? p0 = [0.5 for i in 1:n] : [guess; [0.5] for i in 1:n-1]
+    isnothing(guess) ? p0 = [0.5 for i in 1:n] : p0 = [guess; [0.5 for i in 1:n-1]]
     fit = curve_fit(f,x,value.(y),W,p0)
     chi2 = sum(fit.resid .^ 2)
     isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,coef(fit),y) : (up,chi_exp) = fit_error(chisq,coef(fit),y,wpm)
