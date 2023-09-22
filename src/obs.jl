@@ -7,8 +7,8 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String; tm::Union{Vector{Int6
     y0 = corr.y0
     T = length(corr_d) - 1 - y0
     
-    isnothing(tm) ? tm = [y0+10,y0+12,y0+14,y0+20,y0+25,y0+30] : tm=tm
-    isnothing(tM) ? tM = [T-10,T-12,T-14,T-20,T-25,T-30] : tM=tM
+    isnothing(tm) ? tm = [y0+10,y0+12,y0+14] : tm=tm
+    isnothing(tM) ? tM = [T-10,T-12,T-14] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
@@ -33,7 +33,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String; tm::Union{Vector{Int6
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
         ylabel(L"$m_\mathrm{eff}$")
         xlabel(L"$x_0$")
-        ylim(v-20*e, v+50*e)
+        ylim(v-10*e, v+10*e)
 
 	subplot(412)
 	ylabel(L"$m_i$")
