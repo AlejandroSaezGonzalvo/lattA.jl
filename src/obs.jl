@@ -8,7 +8,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     corr_d = corr.obs
     m_dat = 0.5 .* log.((corr_d[2:end-2] ./ corr_d[3:end-1]) .^ 2)
     y0 = corr.y0
-    T = length(corr_d) - 1 - y0
+    T = length(corr_d) -1 - y0
     
     isnothing(tm) ? tm = [y0+10,y0+12,y0+14] : tm=tm
     isnothing(tM) ? tM = [T-10,T-12,T-14] : tM=tM
@@ -74,7 +74,7 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
     mpcac_dat = der_ap ./ pp_dat[3:end-2]
     
     y0 = corr_pp.y0
-    T = length(pp_dat) - y0
+    T = length(pp_dat) - 1 - y0
 
     isnothing(tm) ? tm = [y0+10,y0+12,y0+14] : tm=tm
     isnothing(tM) ? tM = [T-10,T-12,T-14] : tM=tM
@@ -149,7 +149,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
 
     isnothing(tm) ? tm = [y0+10,y0+12,y0+14] : tm=tm
     isnothing(tM) ? tM = [T-10,T-12,T-14] : tM=tM
-    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-y0-x))
+    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
     k2 = 5
@@ -223,7 +223,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
 
     isnothing(tm) ? tm = [y0+10,y0+12,y0+14] : tm=tm
     isnothing(tM) ? tM = [T-10,T-12,T-14] : tM=tM
-    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-y0-x))
+    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
     k2 = 5
@@ -285,7 +285,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
 
     isnothing(tm) ? tm = [y0+10,y0+12,y0+14] : tm=tm
     isnothing(tM) ? tM = [T-10,T-12,T-14] : tM=tM
-    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-y0-x))
+    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
     k2 = 5
@@ -348,7 +348,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
 
     isnothing(tm) ? tm = [y0+10,y0+12,y0+14] : tm=tm
     isnothing(tM) ? tM = [T-10,T-12,T-14] : tM=tM
-    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-y0-x))
+    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
     k2 = 5
