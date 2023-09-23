@@ -51,7 +51,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
 	ylabel("p-value")
 	bar(1:length(m_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/m_",ens.id,"_",R,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/m_",ens.id,"_",PS,".pdf"))
         close("all")
     end
 
@@ -63,15 +63,15 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
     impr::Bool=true, pl::Bool=false, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
 
-    ap_dat = -corr_ap.obs
-    pp_dat = corr_pp.obs
+    ap_dat = -corr_ap.obs[2:end-1] 
+    pp_dat = corr_pp.obs[2:end-1] 
     der_ap = (ap_dat[3:end] .- ap_dat[1:end-2]) / 2
     if impr == true
         ca = ens.ca
-        der2_pp = (pp_dat[1:end-4] - 2*pp_dat[3:end-2] + pp_dat[5:end]) / 4
-        der_ap = der_ap[2:end-1] + ca * der2_pp
+        der2_pp = pp_dat[1:end-2] + pp_dat[3:end] - 2*pp_dat[2:end-1]	
+        der_ap = der_ap + ca*der2_pp
     end
-    mpcac_dat = der_ap ./ pp_dat[3:end-2]
+    mpcac_dat = der_ap ./ (2*pp_dat[2:end-1])
     
     y0 = corr_pp.y0
     T = length(pp_dat) - 1 - y0
@@ -107,18 +107,18 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
 
         subplot(412)
         ylabel(L"$mpcac_i$")
-        fill_between(1:length(m_i), v-e, v+e, color="green", alpha=0.5)
-        errorbar(1:length(m_i), value.(m_i), err.(m_i), fmt="x", color="black")
+        fill_between(1:length(mpcac_i), v-e, v+e, color="green", alpha=0.5)
+        errorbar(1:length(mpcac_i), value.(mpcac_i), err.(mpcac_i), fmt="x", color="black")
 
         subplot(413)
         ylabel(L"$W_i$")
-        bar(1:length(m_i), weight, color="green")
+        bar(1:length(mpcac_i), weight, color="green")
 
         subplot(414)
         ylabel("p-value")
-        bar(1:length(m_i), pval, color="green")
+        bar(1:length(mpcac_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/mpcac_",ens.id,"_",R,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/mpcac_",ens.id,"_",PS,".pdf"))
         close("all")
     end
 
