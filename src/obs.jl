@@ -144,7 +144,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
     else
         aux = exp.((collect(0:T-1) .- (T-1)/2) .* [m for k = 1:T])
     end
-    R_dat = ap_dat .* aux ./ [((pp_dat[T-y0])^2)^(1/4) for k = 1:length(pp_dat)]
+    R_dat = ap_dat .* aux ./ [((pp_dat[T-y0])^2)^(1/4) for k = 1:length(ap_dat)]
     #f_dat = [sqrt(2) * sqrt(R_dat[i] ^ 2) / sqrt(m) for i in 1:length(R_dat)]
 
     isnothing(tm) ? tm = [y0+10,y0+12,y0+14] : tm=tm
@@ -190,7 +190,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
         ylabel("p-value")
         bar(1:length(R_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",ens.id,"_",PS,".pdf"))
         close("all")
     end
     
@@ -264,7 +264,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
         ylabel("p-value")
         bar(1:length(R_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",ens.id,"_",PS,".pdf"))
         close("all")
     end
         
@@ -326,7 +326,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         ylabel("p-value")
         bar(1:length(R_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",ens.id,"_",PS,".pdf"))
         close("all")
     end
 
@@ -389,7 +389,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
         ylabel("p-value")
         bar(1:length(R_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",ens.id,"_",PS,".pdf"))
         close("all")
     end
 
@@ -446,6 +446,10 @@ function get_t0(Y::Vector{juobs.YData}, plat::Vector{Int64}, ens::EnsInfo;
     Y_aux = Matrix{uwreal}(undef, xmax, 2*dt0+1)
 
     if !isnothing(rw)
+        path_rw = joinpath(path, ens.id, "rwf")
+        path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+        rw = read_ms1.(path_rw)
+
         Ysl_r, W = juobs.apply_rw(Ysl, rw)
         tmp_r = Ysl_r[1]
         tmp_W = W[1]
@@ -510,7 +514,7 @@ function get_t0(Y::Vector{juobs.YData}, plat::Vector{Int64}, ens::EnsInfo;
                 ylabel("p-value")
                 bar(1:length(t2E_aux_i), pval, color="green")
 
-                savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/t2E_",id,".pdf"))
+                savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/t2E_",ens.id,".pdf"))
                 close("all")
             end
         else 

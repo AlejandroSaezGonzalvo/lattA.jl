@@ -20,14 +20,14 @@ println("mpi = ", mpi[1])
 m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true)
 m13 = m12
 println("m12 = ", m12[1])
-fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil")
+fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true)
 fk = fpi
 println("fpi = ", fpi[1])
-#t0 = get_t0()
 
 #mpi, fpi, fk = fve(mpi[1], mk[1], fpi[1], fk[1], ens)
 
-
+t1 = read_ms.(path_ms, dtr=2) 
+#t0_obs = get_t0(t1, [40,60], ens, rw=true, info=true)
 
 
 
