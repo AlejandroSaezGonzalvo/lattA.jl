@@ -5,7 +5,7 @@ mutable struct EnsInfo
     ca::Float64
     dtr::Int64
     vrw::String
-    function EnsInfo(ens_id::String, info::Vector{Float64})
+    function EnsInfo(ens_id::String, info::Vector{Any})
         id = ens_id
         L = info[1]
         beta = info[2]
