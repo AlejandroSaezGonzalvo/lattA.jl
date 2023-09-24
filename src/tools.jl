@@ -53,13 +53,9 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64; tm::
 end
 
 @doc raw"""
-    pvalue(chisq::Function,
-    chi2::Float64,
-    xp::Vector{Float64}, 
-    data::Vector{uwreal},
-    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} = Dict{Int64,Vector{Float64}}();
-    W::Union{Vector{Float64},Array{Float64,2}} = Vector{Float64}(),
-    nmc::Int64 = 5000)
+    pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vector{uwreal};
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} = Dict{String,Vector{Float64}}(),
+    W::Union{Vector{Float64},Array{Float64,2}} = Vector{Float64}(), nmc::Int64 = 5000)
 
 Computes the p-value of a previously done fit, using as input the `\chi^2` observed from the fit, the fit parameters and the fitted data. 
 The p-value for a given `\chi^2` is the probability of, given the data you have, finding such a `\chi^2` or worse from a fit, and still
@@ -79,18 +75,14 @@ fit = curve_fit(fun, x, value.(y), 1.0 ./ err.(y) .^ 2, [0.5, 0.5])
 
 wpm = Dict{Int64,Vector{Float64}}()
 wpm[1] = [-1.0,-1.0,4-0,-1.0]
-Q = pvalue(chisq, chi2, value.(up), y, wpm; W = 1.0 ./ err.(y) .^ 2, nmc=10000)
+Q = pvalue(chisq, chi2, value.(up), y, wpm=wpm; W = 1.0 ./ err.(y) .^ 2, nmc=10000)
 #Q = pvalue(chisq, chi2, value.(up), y; W = 1.0 ./ err.(y) .^ 2, nmc=10000)
 #Q = pvalue(chisq, chi2, value.(up), y)
 ```
 """
-function pvalue(chisq::Function,
-    chi2::Float64,
-    xp::Vector{Float64}, 
-    data::Vector{uwreal},
-    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} = Dict{Int64,Vector{Float64}}();
-    W::Union{Vector{Float64},Array{Float64,2}} = Vector{Float64}(),
-    nmc::Int64 = 5000)
+function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vector{uwreal};
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=Dict{String,Vector{Float64}}(),
+    W::Union{Vector{Float64},Array{Float64,2}} = Vector{Float64}(), nmc::Int64=5000)
 
     n = length(xp)   # Number of fit parameters
     m = length(data) # Number of data

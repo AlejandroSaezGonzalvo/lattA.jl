@@ -396,11 +396,15 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
     return f, syst, R_i, weight, pval
 end
 
-function get_t0(Y::Vector{juobs.YData}, plat::Vector{Int64}, ens::EnsInfo; 
+function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64}; dtr=1,
     tm::Union{Array{Int64}, Nothing}=nothing, tM::Union{Array{Int64}, Nothing}=nothing, pl::Bool=false, 
-    rw::Union{Vector{Matrix{Float64}}, Nothing}=nothing, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg, 
+    rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing, 
     info::Bool=false)
+
+    path_ms = joinpath(path, ens.id, "gf")
+    path_ms = filter(x->occursin(".dat", x), readdir(path_ms, join=true))
+    Y = read_ms.(path_ms, dtr=dtr) 
 
     nr = length(Y)
     Ysl = getfield.(Y, :obs)
@@ -411,7 +415,7 @@ function get_t0(Y::Vector{juobs.YData}, plat::Vector{Int64}, ens::EnsInfo;
 
     L = ens.L
     id = ens.id
-    T = length(Y_aux[:,1]) - y0
+    #T = length(Y[:,1]) - y0
     y0 = 1 ## assumes this is the case, hardcoded, some ensembles will not fulfil !
     println("WARNING!: make sure t_src is 1 in this ensemble")
 
@@ -441,16 +445,17 @@ function get_t0(Y::Vector{juobs.YData}, plat::Vector{Int64}, ens::EnsInfo;
     [tmp = cat(tmp, Ysl[k], dims=1) for k = 2:nr]
     nt0 = juobs.t0_guess(t, tmp, plat, L)
     xmax = size(tmp, 2)
+    T = xmax - 1 - y0
 
     dt0 = iseven(npol) ? Int64(npol / 2) : Int64((npol+1) / 2)
     Y_aux = Matrix{uwreal}(undef, xmax, 2*dt0+1)
 
-    if !isnothing(rw)
+    if rw
         path_rw = joinpath(path, ens.id, "rwf")
         path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
-        rw = read_ms1.(path_rw)
+        rwf = read_ms1.(path_rw)
 
-        Ysl_r, W = juobs.apply_rw(Ysl, rw)
+        Ysl_r, W = juobs.apply_rw(Ysl, rwf)
         tmp_r = Ysl_r[1]
         tmp_W = W[1]
         [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]
@@ -461,7 +466,7 @@ function get_t0(Y::Vector{juobs.YData}, plat::Vector{Int64}, ens::EnsInfo;
     for i = 1:xmax
         k = 1
         for j = nt0-dt0:nt0+dt0
-            if isnothing(rw)
+            if !rw
                 Y_aux[i, k] = uwreal(tmp[:, i, j], id, replica)
             else
                 WY_aux[i, k] = uwreal(tmp_r[:, i, j], id, replica)
@@ -552,9 +557,9 @@ function get_t0(Y::Vector{juobs.YData}, plat::Vector{Int64}, ens::EnsInfo;
         close("all")
     end
 
-    if info && !isnothing(rw)
+    if info && rw
         return t0, WY_aux, W_obs
-    elseif info && isnothing(rw)
+    elseif info && !rw
         return t0, Y_aux
     else
         return t0

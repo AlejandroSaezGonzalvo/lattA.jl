@@ -1,3 +1,5 @@
+ensemble = ["H101", "H102r001"]
+
 const ens_db = Dict(
     #"ens_id"=>[L, beta]
     "H101"     => [32, 3.4],
