@@ -10,13 +10,13 @@ mutable struct EnsInfo
         L = info[1]
         beta = info[2]
         dtr = info[3]
-        vrf = info[4]
+        vrw = info[4]
 
         p0 = 9.2056
         p1 = -13.9847
         g2 = 6 ./ beta 
         ca = - 0.006033 .* g2 .*( 1 .+exp.(p0 .+ p1./g2)) 
-        return new(id, L, beta, ca, dtr)
+        return new(id, L, beta, ca, dtr, vrw)
     end
 end
     

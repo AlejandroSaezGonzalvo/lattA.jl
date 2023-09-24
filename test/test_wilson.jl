@@ -32,7 +32,7 @@ fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true)
 fk = fpi
 println("fpi = ", fpi[1])
 
-#mpi, fpi, fk = fve(mpi[1], mk[1], fpi[1], fk[1], ens)
+mpi, fpi, fk = fve(mpi[1], mk[1], fpi[1], fk[1], ens)
 
 #======== compute t0/a² ===============#
 
