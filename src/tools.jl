@@ -20,16 +20,16 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vecto
     isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
     W = 1 ./ err.(y) .^ 2
     chisq = fit_defs(f,x,W)
-    lb = [-Inf for i in 1:n]
-	ub = [+Inf for i in 1:n]
+    #lb = [-Inf for i in 1:n]
+	#ub = [+Inf for i in 1:n]
     if guess == nothing
         p0 = [.5 for i in 1:n]
     else
         p0 = [guess; [1. for i in 1:n-1]]
-        lb[1] = .9 * guess  
-        ub[1] = 1.1 * guess
+        #lb[1] = .9 * guess  
+        #ub[1] = 1.1 * guess
     end
-    fit = curve_fit(f,x,value.(y),W,p0,lower=lb,upper=ub)
+    fit = curve_fit(f,x,value.(y),W,p0)#,lower=lb,upper=ub)
     chi2 = sum(fit.resid .^ 2)
     isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,coef(fit),y) : (up,chi_exp) = fit_error(chisq,coef(fit),y,wpm)
     isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y) : pval = pvalue(chisq,chi2,value.(up),y,wpm=wpm)
