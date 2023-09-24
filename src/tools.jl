@@ -25,8 +25,8 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vecto
         p0 = [.5 for i in 1:n]
     else
         p0 = [guess; [1. for i in 1:n-1]]
-        lb[1] = .8 * guess  
-        ub[1] = 1.2 * guess
+        lb[1] = .9 * guess  
+        ub[1] = 1.1 * guess
     end
     fit = curve_fit(f,x,value.(y),W,p0,lower=lb,upper=ub)
     chi2 = sum(fit.resid .^ 2)

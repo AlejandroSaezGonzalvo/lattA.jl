@@ -21,7 +21,7 @@ ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)-1];
 #======== compute observables ========#
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true)
-mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true)
+mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm)
 m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true)
 m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true)
 fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true)
