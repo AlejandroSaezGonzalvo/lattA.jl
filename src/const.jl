@@ -1,4 +1,7 @@
-ensemble = ["H101", "H102r001"]
+ensemble = ["H101", "H102r001", "H102r002", "H105", "H105r005",
+            "H400",
+            "N200", "N202", "N203", "D200",
+            "N300", "J303"]
 
 const ens_db = Dict(
     #"ens_id"=>[L, beta, dtr, vrw]
@@ -28,3 +31,6 @@ const ens_obs = Dict(
     #"ens_id"=>[t0,mpi,mk,m12,m13,fpi,fk]
     "H101"     => [2.86, 0.18, 0.18, 0.0092, 0.0092, 0.083, 0.083]
 )
+
+wpm = Dict{String, Vector{Float64}}()
+for e in ensemble wpm[e] = [-1.0, -1.0, 4.0, -1.0] end
