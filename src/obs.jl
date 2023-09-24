@@ -10,8 +10,8 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     y0 = corr.y0
     T = length(corr_d) -1 - y0
     
-    isnothing(tm) ? tm = [y0+10,y0+12,y0+14,y0+30] : tm=tm
-    isnothing(tM) ? tM = [T-10,T-12,T-14,T-30] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
@@ -76,8 +76,8 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
     y0 = corr_pp.y0
     T = length(pp_dat) - 1 - y0
 
-    isnothing(tm) ? tm = [y0+10,y0+12,y0+14,y0+30] : tm=tm
-    isnothing(tM) ? tM = [T-10,T-12,T-14,T-30] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
@@ -147,8 +147,8 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
     R_dat = ap_dat .* aux ./ [((pp_dat[T-y0])^2)^(1/4) for k = 1:length(ap_dat)]
     #f_dat = [sqrt(2) * sqrt(R_dat[i] ^ 2) / sqrt(m) for i in 1:length(R_dat)]
 
-    isnothing(tm) ? tm = [y0+10,y0+12,y0+14,y0+30] : tm=tm
-    isnothing(tM) ? tM = [T-10,T-12,T-14,T-30] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
@@ -221,8 +221,8 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
     R_dat = ((apL_dat .* apR_dat ./ f1).^2).^(1/4)
     #f_dat = [sqrt(2) * sqrt(R_dat[i] ^ 2) / sqrt(m) for i in 1:length(R_dat)]
 
-    isnothing(tm) ? tm = [y0+10,y0+12,y0+14,y0+30] : tm=tm
-    isnothing(tM) ? tM = [T-10,T-12,T-14,T-30] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
@@ -283,8 +283,8 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
     aux = exp.((collect(1:T-1) .- (T-1)/2 ) .* [m for k in 1:T])
     R_dat = pp_dat .* aux ./ [((pp_dat[T-y0])^2)^(1/4) for k = 1:T]
 
-    isnothing(tm) ? tm = [y0+10,y0+12,y0+14,y0+30] : tm=tm
-    isnothing(tM) ? tM = [T-10,T-12,T-14,T-30] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
@@ -346,8 +346,8 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
     f1 = [ppL_dat[T - y0] for k = 1:Tt]
     R_dat = ((ppL_dat .* ppR_dat ./ f1).^2).^(1/4)
 
-    isnothing(tm) ? tm = [y0+10,y0+12,y0+14,y0+30] : tm=tm
-    isnothing(tM) ? tM = [T-10,T-12,T-14,T-30] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1
@@ -476,8 +476,8 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         end
     end
 
-    isnothing(tm) ? tm = [y0+10,y0+12,y0+14,y0+30] : tm=tm
-    isnothing(tM) ? tM = [T-10,T-12,T-14,T-30] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 1

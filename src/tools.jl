@@ -44,17 +44,17 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64;
 
     isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
     for ind in 1:length(fun)
-    f = fun[ind]
-    for i in tm
-        for j in tM
-            x = collect(i:j)
-            y_aux = y[i:j]
-	    up, chi2, chi_exp, pval_i = fit_alg(f,x,y_aux,k[ind],guess,wpm=wpm)
-            push!(pval, pval_i)
-            push!(TIC, chi2 - 2*chi_exp)
-            push!(p_1, up[1])
+        f = fun[ind]
+        for i in tm[ind]
+            for j in tM[ind]
+                x = collect(i:j)
+                y_aux = y[i:j]
+                up, chi2, chi_exp, pval_i = fit_alg(f,x,y_aux,k[ind],guess,wpm=wpm)
+                push!(pval, pval_i)
+                push!(TIC, chi2 - 2*chi_exp)
+                push!(p_1, up[1])
+            end
         end
-    end
     end
 
     TIC = TIC .- minimum(TIC)
