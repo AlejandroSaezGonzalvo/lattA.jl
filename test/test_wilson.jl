@@ -13,10 +13,14 @@ ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
+#======== read correlators ===========#
+
 pp, ppw, w = get_corr_wil(path, ens, "G5", "G5", rw=true, info=true, legacy=true);
 pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in 1:2:length(pp)-1];
 ap, apw, w = get_corr_wil(path, ens, "G5", "G0G5", rw=true, info=true, legacy=true);
 ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)-1];
+
+#======== compute observables ========#
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true)
 mk = mpi
@@ -30,7 +34,9 @@ println("fpi = ", fpi[1])
 
 #mpi, fpi, fk = fve(mpi[1], mk[1], fpi[1], fk[1], ens)
 
-t0, YW, WY = get_t0(path, ens, [40,60], dtr=2, rw=true, info=true)
+#======== compute t0/a² ===============#
+
+t0, YW, WY = get_t0(path, ens, [40,60], dtr=2, rw=true, info=true, wpm=wpm)
 
 
 

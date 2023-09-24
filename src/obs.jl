@@ -396,7 +396,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
     return f, syst, R_i, weight, pval
 end
 
-function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64}; dtr=1,
+function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     tm::Union{Array{Int64}, Nothing}=nothing, tM::Union{Array{Int64}, Nothing}=nothing, pl::Bool=false, 
     rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing, 
@@ -404,7 +404,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64}; dtr=1,
 
     path_ms = joinpath(path, ens.id, "gf")
     path_ms = filter(x->occursin(".dat", x), readdir(path_ms, join=true))
-    Y = read_ms.(path_ms, dtr=dtr) 
+    Y = read_ms.(path_ms, dtr=ens.dtr) 
 
     nr = length(Y)
     Ysl = getfield.(Y, :obs)
