@@ -14,8 +14,8 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
-    k1 = 1
-    k2 = 5
+    k1 = 5
+    k2 = 1
     
     if PS == "pion_wil" || PS == "pion_tm"
         guess = ens_obs[ens.id][2]
@@ -80,8 +80,8 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
     isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
-    k1 = 1
-    k2 = 5
+    k1 = 5
+    k2 = 1
     
     if PS == "pion_wil" || PS == "pion_tm"
         guess = ens_obs[ens.id][4]
@@ -151,8 +151,8 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
     isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
-    k1 = 1
-    k2 = 5
+    k1 = 5
+    k2 = 1
     
     if PS == "pion_wil" 
         guess = ens_obs[ens.id][6]
@@ -225,8 +225,8 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
     isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
-    k1 = 1
-    k2 = 5
+    k1 = 5
+    k2 = 1
     
     if PS == "pion_wil"
         guess = ens_obs[ens.id][6]
@@ -287,8 +287,8 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
     isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
-    k1 = 1
-    k2 = 5
+    k1 = 5
+    k2 = 1
     
     if PS == "pion_tm"
         guess = ens_obs[ens.id][6]
@@ -350,8 +350,8 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
     isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
-    k1 = 1
-    k2 = 5
+    k1 = 5
+    k2 = 1
     
     if PS == "pion_tm"
         guess = ens_obs[ens.id][6]
@@ -480,8 +480,8 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
-    k1 = 1
-    k2 = 5
+    k1 = 5
+    k2 = 1
 
     x = t[nt0-dt0:nt0+dt0]
     t2E_i = Array{uwreal,1}()
