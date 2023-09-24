@@ -52,7 +52,12 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64;
     TIC = TIC .- minimum(TIC)
     weight = exp.(-0.5 .* TIC) ./ sum(exp.(-0.5 .* TIC))
     p_av = sum(p_1 .* weight)
-    syst = sqrt(sum(p_1 .^ 2 .* weight) - p_av ^ 2)
+    syst2 = sum(p_1 .^ 2 .* weight) - p_av ^ 2
+    if sign(syst2) == 1
+        syst = sqrt(syst2)
+    else
+        syst = sqrt(-syst2)
+        println("WARNING!: syst2 is negative")
     return p_av, syst, p_1, weight, pval
 end
 
