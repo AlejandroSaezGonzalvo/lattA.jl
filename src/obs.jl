@@ -2,7 +2,7 @@ using juobs, LaTeXStrings, PyPlot, ADerrors
 include("const.jl");
 
 function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String; 
-    tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
+    tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, 
     pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
     
     corr_d = corr.obs
@@ -59,7 +59,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
 end
 
 function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::String; 
-    tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
+    tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, 
     impr::Bool=true, pl::Bool=false, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
 
@@ -127,7 +127,7 @@ end
 
 
 function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
-    tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
+    tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, 
     impr::Bool=true, pl::Bool=false, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
 
@@ -272,7 +272,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
 end
 
 function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
-    tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
+    tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, 
     pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
     
     T = length(corr_pp.obs)
@@ -334,7 +334,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
 end
 
 function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
-    tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
+    tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, 
     pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
     
     T = length(corr_ppL.obs)
