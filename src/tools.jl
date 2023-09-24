@@ -19,8 +19,16 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vecto
     isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
     W = 1 ./ err.(y) .^ 2
     chisq = fit_defs(f,x,W)
-    isnothing(guess) ? p0 = [0.5 for i in 1:n] : p0 = [guess; [0.5 for i in 1:n-1]]
-    fit = curve_fit(f,x,value.(y),W,p0)
+    lb = [-Inf for i in 1:length(p00)]
+	ub = [+Inf for i in 1:length(p00)]
+    if guess == nothing
+        p0 = [.5 for i in 1:n]
+    else
+        p0 = [guess; [1. for i in 1:n-1]]
+        lb[1] = .8 * guess  
+        ub[1] = 1.2 * guess
+    end
+    fit = curve_fit(f,x,value.(y),W,p0,lower=lb,upper=ub)
     chi2 = sum(fit.resid .^ 2)
     isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,coef(fit),y) : (up,chi_exp) = fit_error(chisq,coef(fit),y,wpm)
     isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y) : pval = pvalue(chisq,chi2,value.(up),y,wpm=wpm)
@@ -52,13 +60,7 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64;
     TIC = TIC .- minimum(TIC)
     weight = exp.(-0.5 .* TIC) ./ sum(exp.(-0.5 .* TIC))
     p_av = sum(p_1 .* weight)
-    syst2 = sum(p_1 .^ 2 .* weight) - p_av ^ 2
-    if sign(syst2) == 1
-        syst = sqrt(syst2)
-    else
-        syst = sqrt(-syst2)
-        println("WARNING!: syst2 is negative")
-    end
+    syst = sqrt(sum(p_1 .^ 2 .* weight) - p_av ^ 2)
     return p_av, syst, p_1, weight, pval
 end
 
