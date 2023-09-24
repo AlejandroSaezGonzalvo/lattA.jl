@@ -22,7 +22,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     elseif PS == "kaon_wil" || PS == "kaon_tm"
 	guess = ens_obs[ens.id][3]
     end
-    m, syst, m_i, weight, pval = model_av([fit_const, fit_exp], m_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+    m, syst, m_i, weight, pval = model_av([fit_exp, fit_const], m_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     if pl == true
         isnothing(wpm) ? uwerr(m) : uwerr(m, wpm)                       
 	isnothing(wpm) ? uwerr.(m_dat) : [uwerr(m_dat[i], wpm) for i in 1:length(m_dat)]
@@ -88,7 +88,7 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
     elseif PS == "kaon_wil" || PS == "kaon_tm"
 	    guess = ens_obs[ens.id][5]
     end
-    mpcac, syst, mpcac_i, weight, pval = model_av([fit_const, fit_exp], mpcac_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+    mpcac, syst, mpcac_i, weight, pval = model_av([fit_exp, fit_const], mpcac_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     
     if pl == true
         isnothing(wpm) ? uwerr(mpcac) : uwerr(mpcac, wpm)                       
@@ -160,7 +160,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
 	    guess = ens_obs[ens.id][7]
     end
     
-    R, syst, R_i, weight, pval = model_av([fit_const, fit_exp], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+    R, syst, R_i, weight, pval = model_av([fit_exp, fit_const], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     f = sqrt(2) * sqrt(R^2) / sqrt(m)
     if pl == true
         isnothing(wpm) ? uwerr(R) : uwerr(R, wpm)                       
@@ -234,7 +234,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
 	    guess = ens_obs[ens.id][7]
     end
     
-    R, syst, R_i, weight, pval = model_av([fit_const, fit_exp], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+    R, syst, R_i, weight, pval = model_av([fit_exp, fit_const], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     f = sqrt(2) * sqrt(R^2) / sqrt(m)
     if pl == true
         isnothing(wpm) ? uwerr(R) : uwerr(R, wpm)                       
@@ -296,7 +296,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
 	    guess = ens_obs[ens.id][7]
     end
 
-    R, syst, R_i, weight, pval = model_av([fit_const, fit_exp], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+    R, syst, R_i, weight, pval = model_av([fit_exp, fit_const], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     f = sqrt(2) * (mu[1] + mu[2]) * R / m^1.5
     if pl == true
         isnothing(wpm) ? uwerr(R) : uwerr(R, wpm)                       
@@ -359,7 +359,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
 	    guess = ens_obs[ens.id][7]
     end
 
-    R, syst, R_i, weight, pval = model_av([fit_const, fit_exp], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+    R, syst, R_i, weight, pval = model_av([fit_exp, fit_const], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     f = sqrt(2) * (mu[1] + mu[2]) * R / m^1.5
     if pl == true
         isnothing(wpm) ? uwerr(R) : uwerr(R, wpm)                       
@@ -490,7 +490,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         i = Int(round(dt0+0.5))
         dat = Y_aux[:,j].* x[j].^2 / L^3
         if j == i            
-            t2E_aux, syst_aux, t2E_aux_i, weight, pval = model_av([fit_const, fit_exp], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+            t2E_aux, syst_aux, t2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
             if pl == true
                 isnothing(wpm) ? uwerr(t2E_aux) : uwerr(t2E_aux, wpm)                       
                 isnothing(wpm) ? uwerr.(dat) : [uwerr(dat[i], wpm) for i in 1:length(dat)]
@@ -523,7 +523,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 close("all")
             end
         else 
-            t2E_aux, syst_aux, t2E_aux_i, weight, pval = model_av([fit_const, fit_exp], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+            t2E_aux, syst_aux, t2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
         end
         push!(t2E_i, t2E_aux)
         push!(syst_i, syst_aux)
