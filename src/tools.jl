@@ -13,7 +13,9 @@ function fit_defs(f::Function,x,W) ## uncorrelated fit
 	return chisq
 end
 
-function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vector{uwreal}, n::Int64, guess::Union{Float64, Nothing}=nothing; wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vector{uwreal}, 
+    n::Int64, guess::Union{Float64, Nothing}=nothing; 
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
     isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
     W = 1 ./ err.(y) .^ 2
     chisq = fit_defs(f,x,W)
@@ -25,7 +27,9 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vecto
     return up, chi2, chi_exp, pval
 end
 
-function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64; tm::Vector{Int64}, tM::Vector{Int64}, k::Vector{Int64}, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing) 
+function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64; 
+    tm::Vector{Int64}, tM::Vector{Int64}, k::Vector{Int64}, 
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing) 
     pval = Array{Float64,1}()
     p_1 = Array{uwreal,1}()
     TIC = Array{Float64,1}()
