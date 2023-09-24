@@ -397,7 +397,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
 end
 
 function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
-    tm::Union{Array{Int64}, Nothing}=nothing, tM::Union{Array{Int64}, Nothing}=nothing, pl::Bool=false, 
+    tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, pl::Bool=false, 
     rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing, 
     info::Bool=false)

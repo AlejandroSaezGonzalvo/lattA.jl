@@ -125,7 +125,7 @@ function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vecto
         for i in 1:m
             Px[i,i] = Ww[i] + Px[i,i]
         end
-        C = cov(data) 
+        C = cov(data, wpm) 
         
         nu = sqrt(C) * Px * sqrt(C)
         
