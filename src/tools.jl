@@ -19,8 +19,8 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vecto
     isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
     W = 1 ./ err.(y) .^ 2
     chisq = fit_defs(f,x,W)
-    lb = [-Inf for i in 1:length(p00)]
-	ub = [+Inf for i in 1:length(p00)]
+    lb = [-Inf for i in 1:n]
+	ub = [+Inf for i in 1:n]
     if guess == nothing
         p0 = [.5 for i in 1:n]
     else
