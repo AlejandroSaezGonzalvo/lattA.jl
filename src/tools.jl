@@ -16,6 +16,7 @@ end
 function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vector{uwreal}, 
     n::Int64, guess::Union{Float64, Nothing}=nothing; 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+    
     isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
     W = 1 ./ err.(y) .^ 2
     chisq = fit_defs(f,x,W)
@@ -65,34 +66,6 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64;
     return p_av, syst, p_1, weight, pval
 end
 
-@doc raw"""
-    pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vector{uwreal};
-    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} = Dict{String,Vector{Float64}}(),
-    W::Union{Vector{Float64},Array{Float64,2}} = Vector{Float64}(), nmc::Int64 = 5000)
-
-Computes the p-value of a previously done fit, using as input the `\chi^2` observed from the fit, the fit parameters and the fitted data. 
-The p-value for a given `\chi^2` is the probability of, given the data you have, finding such a `\chi^2` or worse from a fit, and still
-have the data well described by the fit function. `nmc` is the number of MC samples used to estimate the p-value integral, default is 5000.
-By now it only works with a vector for weights (containing the diagonal of W)
-
-```@example
-function fit_defs(f::Function,x,W)
-    chisq(p,d)=sum((d-f(x,p)).^2 .*W)
-    return chisq
-end
-
-@.fun(x,p) = p[1] + p[2] * x
-chisq = fit_defs(fun, x, 1.0 ./ err.(y) .^ 2)
-fit = curve_fit(fun, x, value.(y), 1.0 ./ err.(y) .^ 2, [0.5, 0.5])
-(up, chiexp) = fit_error(chisq, coef(fit), y)
-
-wpm = Dict{Int64,Vector{Float64}}()
-wpm[1] = [-1.0,-1.0,4-0,-1.0]
-Q = pvalue(chisq, chi2, value.(up), y, wpm=wpm; W = 1.0 ./ err.(y) .^ 2, nmc=10000)
-#Q = pvalue(chisq, chi2, value.(up), y; W = 1.0 ./ err.(y) .^ 2, nmc=10000)
-#Q = pvalue(chisq, chi2, value.(up), y)
-```
-"""
 function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vector{uwreal};
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=Dict{String,Vector{Float64}}(),
     W::Union{Vector{Float64},Array{Float64,2}} = Vector{Float64}(), nmc::Int64=5000)
