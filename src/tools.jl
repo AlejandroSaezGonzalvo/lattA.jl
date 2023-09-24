@@ -58,6 +58,7 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64;
     else
         syst = sqrt(-syst2)
         println("WARNING!: syst2 is negative")
+    end
     return p_av, syst, p_1, weight, pval
 end
 
