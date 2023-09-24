@@ -36,7 +36,7 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vecto
 end
 
 function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64; 
-    tm::Vector{Int64}, tM::Vector{Int64}, k::Vector{Int64}, 
+    tm::Vector{Vector{Int64}}, tM::Vector{Vector{Int64}}, k::Vector{Int64}, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing) 
     pval = Array{Float64,1}()
     p_1 = Array{uwreal,1}()
