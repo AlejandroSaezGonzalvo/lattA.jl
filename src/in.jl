@@ -10,6 +10,6 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 #BDIO_seek!(fb, 2)  
 #t0_ph = read_uwreal(fb)
 
-sqrt_t0_ph = uwreal([0.1445,0.0006],"phi4_ph")
+sqrt_t0_ph = uwreal([0.1445,0.0],"t0_ph")
 
 phi4_ph = 8 * t0_ph * (MK ^ 2 + 0.5 * Mpi ^ 2) / hc ^ 2
