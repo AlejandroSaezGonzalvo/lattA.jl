@@ -51,6 +51,19 @@ end
 phi4_d = 2*phi4_s1 + phi4_s2 + phi4_v1 + phi4_v2
 dm = (phi4_ph - phi4) / phi4_d			
 
-
+obs_sh = Array{uwreal,1}()
+for a in obs
+    md_s = [md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]
+    md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
+    v1 = v2 = s1 = s2 = 0
+    for i in 1:length(md_v)
+        v1 += md_v[i][1]
+        v2 += md_v[i][2]
+        v1 += md_s[i][1]
+        s2 += md_s[i][2]
+    end
+    md = 2*s1 + s2 + v1 + v2
+    push!(obs_sh, a + dm * md)
+end
 
 			
