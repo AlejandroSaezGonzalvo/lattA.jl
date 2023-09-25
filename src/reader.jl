@@ -29,7 +29,9 @@ function get_dSdm(path::String, ens::EnsInfo)
     return dSdm
 end
 
-function get_YW(path::String, ens::EnsInfo; rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg)
+function get_YW(path::String, ens::EnsInfo, plat::Vector{Int64}; rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg)
+
+    println("WARNING!: You must use the same plat here than the one used to compute t0")
 
     path_ms = joinpath(path, ens.id, "gf")
     path_ms = filter(x->occursin(".dat", x), readdir(path_ms, join=true))
