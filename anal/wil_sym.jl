@@ -32,7 +32,7 @@ mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
 
 #======== compute t0/a² ===============#
 
-t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm)
+t0 = get_t0(path, ens, [40,60], rw=true, wpm=wpm)
 
 #======== save BDIO ===================#
 
