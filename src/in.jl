@@ -1,0 +1,11 @@
+using juobs, BDIO, ADerrors
+
+include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
+
+#phi4_ph = uwreal([1.098,0.010],"phi4_ph")
+fb = BDIO_open("/home/asaez/cls_ens/results/t0.bdio", "r") 
+BDIO_seek!(fb) 
+BDIO_seek!(fb, 2)
+BDIO_seek!(fb, 2)  
+t0_ph = read_uwreal(fb)
+phi4_ph = 8 * t0_ph * (MK ^ 2 + 0.5 * Mpi ^ 2) / hc ^ 2
