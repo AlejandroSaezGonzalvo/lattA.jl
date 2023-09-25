@@ -38,10 +38,15 @@ t0, mpi, mk, m12, m13, fpi, fk = obs
 #======== get dm ===============================#
 
 phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
-phi4_s = [md_sea(phi4, dSdm, corrw[i], w) for i in 1:length(corrw)] + md_sea(phi4, dSdm, YW, WY)
+phi4_s = [[md_sea(phi4, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(phi4, dSdm, YW, WY)]
 phi4_v = [md_val(phi4, corr[i], corr_val[i]) for i in 1:length(corr)]
 phi4_v1 = phi4_v2 = phi4_s1 = phi4_s2 = 0
-for i in 1:length(phi4_v) phi4_v1 += phi4_v[i][1]; phi4_v2 += phi4_v[i][2] end
+for i in 1:length(phi4_v) 
+    phi4_v1 += phi4_v[i][1] 
+    phi4_v2 += phi4_v[i][2] 
+    phi4_s1 += phi4_v[i][1]
+    phi4_s2 += phi4_v[i][2] 
+end
 phi4_d = 2*phi4_s1 + phi4_s2 + phi4_v1 + phi4_v2
 dm = (phi4_ph - phi4) / phi4_d			
 
