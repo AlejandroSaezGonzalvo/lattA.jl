@@ -54,7 +54,7 @@ fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_un.bdio"
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
-#======== get dm ===============================#
+#======== get dm ======================#
 
 phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
 phi4_s = [[md_sea(phi4, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(phi4, dSdm, YW, WY)]
