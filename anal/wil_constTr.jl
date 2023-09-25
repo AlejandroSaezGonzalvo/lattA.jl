@@ -3,6 +3,7 @@ import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 using Revise, lattA, juobs, ADerrors, BDIO
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
+include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
