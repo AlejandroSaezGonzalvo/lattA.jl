@@ -42,6 +42,7 @@ fk = fpi
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
+fk = fpi ## need to "impose" this after fve in case of sym ens
 
 #======== compute t0/a² ===============#
 
@@ -51,38 +52,33 @@ t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm)
 
 obs = [t0, mpi, mk, m12, m13, fpi, fk]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_un.bdio"), "w")
-for a in obs write_uwreal(a, fb, i) end
+for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
-#======== get dm & mass shift obs =====#
+#============ get md ==================#
 
 phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
-phi4_s = [[md_sea(phi4, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(phi4, dSdm, YW, WY)]
-phi4_v = [md_val(phi4, corr[i], corr_val[i]) for i in 1:length(corr)]
-phi4_v1 = phi4_v2 = phi4_s1 = phi4_s2 = 0
-for i in 1:length(phi4_v) 
-    phi4_v1 += phi4_v[i][1] 
-    phi4_v2 += phi4_v[i][2] 
-    phi4_s1 += phi4_v[i][1]
-    phi4_s2 += phi4_v[i][2] 
-end
-phi4_d = 2*phi4_s1 + phi4_s2 + phi4_v1 + phi4_v2
-dm = (phi4_ph - phi4) / phi4_d	
-
-obs_sh = Array{uwreal,1}()
-for a in obs
-    md_s = [md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]
+obs_md = Array{uwreal,1}()
+for a in [phi4; obs]
+    md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
     md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
     v1 = v2 = s1 = s2 = 0
     for i in 1:length(md_v)
         v1 += md_v[i][1]
         v2 += md_v[i][2]
-        v1 += md_s[i][1]
+        s1 += md_s[i][1]
         s2 += md_s[i][2]
     end
-    md = 2*s1 + s2 + v1 + v2
-    push!(obs_sh, a + dm * md)
+    s1 += md_s[end][1]
+    s2 += md_s[end][2]
+    push!(obs_md, 2*s1 + s2 + v1 + v2)
 end
+
+#======== save BDIO ===================#
+
+fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_md_wil.bdio"), "w")
+for i in 1:length(obs_md) write_uwreal(obs_md[i], fb, i) end
+BDIO_close!(fb)
 
 
 
