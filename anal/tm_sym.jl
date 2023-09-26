@@ -15,9 +15,9 @@ path = "/home/asaez/cls_ens/data"
 #======== read correlators ===========#
 
 pp, ppw, w = get_corr_tm(path, ens, "G5", "G5", rw=true, info=true, legacy=true);
-pp_sym = [corr_sym(pp[i], pp[i+9], +1) for i in 1:2:length(pp)-1];
+pp_sym = [corr_sym(pp[i], pp[i+9], +1) for i in 1:9];
 ap, apw, w = get_corr_tm(path, ens, "G5", "G0G5", rw=true, info=true, legacy=true);
-ap_sym = [corr_sym(ap[i], ap[i+9], -1) for i in 1:2:length(ap)-1];
+ap_sym = [corr_sym(ap[i], ap[i+9], -1) for i in 1:9];
 
 dSdm = get_dSdm(path, ens)
 
@@ -25,13 +25,15 @@ corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
 
 #======== compute observables ========#
 
-mpi = fpi = m12 = Array{uwreal,1}()
+mpi = Array{uwreal,1}()
+m12 = Array{uwreal,1}()
+fpi = Array{uwreal,1}()
 for i in 1:length(pp_sym)
     mpi_aux = get_m(pp_sym[1], ens, "pion_tm")
     push!(mpi, mpi_aux[1])
     m12_aux = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_tm")
     push!(m12, m12_aux[1])
-    fpi_aux = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_tm")
+    fpi_aux = get_f_tm(pp_sym[1], mpi[1], ens, "pion_tm")
     push!(fpi, fpi_aux[1])
 end
 

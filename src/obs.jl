@@ -280,7 +280,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
     mu = corr_pp.mu
 
     pp_dat = corr_pp.obs
-    aux = exp.((collect(1:T-1) .- (T-1)/2 ) .* [m for k in 1:T])
+    aux = exp.((collect(1:T) .- (T-1)/2 ) .* [m for k in 1:T])
     R_dat = pp_dat .* aux ./ [((pp_dat[T-y0])^2)^(1/4) for k = 1:T]
 
     isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
@@ -343,7 +343,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
 
     ppL_dat = corr_ppL.obs
     ppR_dat = corr_ppR.obs
-    f1 = [ppL_dat[T - y0] for k = 1:Tt]
+    f1 = [ppL_dat[T - y0] for k = 1:T]
     R_dat = ((ppL_dat .* ppR_dat ./ f1).^2).^(1/4)
 
     isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
