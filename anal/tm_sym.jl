@@ -2,7 +2,7 @@ import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO
 
-include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
+#include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
@@ -29,42 +29,51 @@ mpi = Array{uwreal,1}()
 m12 = Array{uwreal,1}()
 fpi = Array{uwreal,1}()
 for i in 1:length(pp_sym)
-    mpi_aux = get_m(pp_sym[1], ens, "pion_tm")
+    mpi_aux = get_m(pp_sym[i], ens, "pion_tm")
     push!(mpi, mpi_aux[1])
-    m12_aux = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_tm")
+    m12_aux = get_mpcac(pp_sym[i], ap_sym[i], ens, "pion_tm")
     push!(m12, m12_aux[1])
-    fpi_aux = get_f_tm(pp_sym[1], mpi[1], ens, "pion_tm")
+    fpi_aux = get_f_tm(pp_sym[i], mpi[i], ens, "pion_tm", wpm=wpm)
     push!(fpi, fpi_aux[1])
 end
+fk = fpi
+mk = mpi
 
-mpi, fpi, fk = fve.(mpi, mk, fpi, fk, ens)
+for i in 1:length(mpi) mpi[i], fpi[i], fk[i] = fve(mpi[i], mk[i], fpi[i], fk[i], ens) end
 fk = fpi ## need to "impose" this after fve in case of sym ens
 
 #======== save BDIO ===================#
 
-obs = [t0, mpi, mk, m12, m13, fpi, fk]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_tm_un.bdio"), "w")
-for a in obs write_uwreal(a, fb, i) end
-BDIO_close!(fb)
+obs = [mpi, m12, fpi]
+obs_st = ["mpi", "m12", "fpi"]
+for j in 1:length(obs_st)
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_st[j],"_tm_un.bdio"), "w")
+    for i in 1:length(obs[1]) write_uwreal(obs[1][i], fb, i) end
+    BDIO_close!(fb)
+end
 
 #============ get md ==================#
 
-obs_md = Array{uwreal,1}()
-for a in obs
-    md_s = [md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]
-    s1 = s2 = 0
-    for i in 1:length(md_v)
-        s1 += md_s[i][1]
-        s2 += md_s[i][2]
+obs_md = [Array{uwreal,1}() for a in obs]
+for i in 1:length(obs)
+    for a in obs[i]
+        md_s = [md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]
+        s1 = s2 = 0
+        for i in 1:length(md_s)
+            s1 += md_s[i][1]
+            s2 += md_s[i][2]
+        end
+        push!(obs_md[i], 2*s1 + s2)
     end
-    push!(obs_md, 2*s1 + s2)
 end
 
 #======== save BDIO ===================#
 
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_md_tm.bdio"), "w")
-for i in 1:length(obs_md) write_uwreal(obs_md[i], fb, i) end
-BDIO_close!(fb)
+for j in 1:length(obs_st)
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_st[j],"_md_tm.bdio"), "w")
+    for i in 1:length(obs[j]) write_uwreal(obs_md[j][i], fb, i) end
+    BDIO_close!(fb)
+end
 
 
 
