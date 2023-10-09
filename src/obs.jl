@@ -411,10 +411,11 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     t = getfield.(Y, :t)
     t = t[1]
     id = getfield.(Y, :id)
+    id = id[1]
     replica = size.(Ysl, 1)
 
     L = ens.L
-    id = ens.id
+    id = getfield.(Y, :id)
     #T = length(Y[:,1]) - y0
     y0 = 1 ## assumes this is the case, hardcoded, some ensembles will not fulfil !
     println("WARNING!: make sure t_src is 1 in this ensemble")

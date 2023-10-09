@@ -44,6 +44,10 @@ mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
 fk = fpi ## need to "impose" this after fve in case of sym ens
 
+bAtil = 1 + 0.0472 * (6 / ens.beta)
+fpi = (1 + bAtil * m12) * fpi
+fk = (1 + bAtil * m13) * fk
+
 #======== compute t0/a² ===============#
 
 t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm)
@@ -73,6 +77,22 @@ for a in [phi4; obs]
     s2 += md_s[end][2]
     push!(obs_md, 2*s1 + s2 + v1 + v2)
 end
+
+## now compute only strange derivatives wrt phi4 to interpolate as in Ben Strassberger's Thesis
+phi2 = 8 * t0 * mpi ^ 2
+t0fpik = sqrt(8 * t0) * 2/3 * (fk + 0.5 * fpi)
+for a in [phi4; phi2; t0fpik]
+    md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
+    md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
+    v2 = s2 = 0
+    for i in 1:length(md_v)
+        v2 += md_v[i][2]
+        s2 += md_s[i][2]
+    end
+    s2 += md_s[end][2]
+    push!(obs_md, s2 + v2)
+end
+obs_md[end-1] = obs_md[end-1] / obs_md[end-2]; obs_md[end] = obs_md[end] / obs_md[end-2]
 
 #======== save BDIO ===================#
 
