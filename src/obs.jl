@@ -404,7 +404,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
 
     path_ms = joinpath(path, ens.id, "gf")
     path_ms = filter(x->occursin(".dat", x), readdir(path_ms, join=true))
-    Y = read_ms.(path_ms, dtr=ens.dtr) 
+    Y = read_ms.(path_ms, id=ens.id, dtr=ens.dtr) 
 
     nr = length(Y)
     Ysl = getfield.(Y, :obs)
@@ -415,7 +415,6 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     replica = size.(Ysl, 1)
 
     L = ens.L
-    id = getfield.(Y, :id)
     #T = length(Y[:,1]) - y0
     y0 = 1 ## assumes this is the case, hardcoded, some ensembles will not fulfil !
     println("WARNING!: make sure t_src is 1 in this ensemble")
