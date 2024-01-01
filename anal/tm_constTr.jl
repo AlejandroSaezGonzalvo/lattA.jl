@@ -17,9 +17,9 @@ const md_meas = false
 #======== read correlators ===========#
 
 pp, ppw, w = get_corr_tm(path, ens, "G5", "G5", rw=true, info=true, legacy=true);
-pp_sym = [corr_sym(pp[i], pp[i+24], +1) for i in 1:2:length(pp)-1];
+pp_sym = [corr_sym(pp[i], pp[i+24], +1) for i in 1:24];
 ap, apw, w = get_corr_tm(path, ens, "G5", "G0G5", rw=true, info=true, legacy=true);
-ap_sym = [corr_sym(ap[i], ap[i+24], -1) for i in 1:2:length(ap)-1];
+ap_sym = [corr_sym(ap[i], ap[i+24], -1) for i in 1:24];
 
 dSdm = get_dSdm(path, ens)
 
@@ -27,14 +27,34 @@ corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
 
 #======== compute observables ========#
 
-mpi = fpi = m12 = Array{uwreal,1}()
-for i in 1:length(pp_sym)
-    mpi_aux = get_m(pp_sym[1], ens, "pion_tm")
-    push!(mpi, mpi_aux[1])
-    m12_aux = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_tm")
-    push!(m12, m12_aux[1])
-    fpi_aux = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_tm")
-    push!(fpi, fpi_aux[1])
+mpi = Array{uwreal,1}()
+m12 = Array{uwreal,1}()
+fpi = Array{uwreal,1}()
+mk = Array{uwreal,1}()
+m13 = Array{uwreal,1}()
+fk = Array{uwreal,1}()
+m34 = Array{uwreal,1}()
+for i in 1:8:length(pp_sym)
+    for j in 0:1
+        mpi_aux = get_m(pp_sym[i+j], ens, "pion_tm", wpm=wpm)
+        push!(mpi, mpi_aux[1])
+        m12_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm)
+        push!(m12, m12_aux[1])
+        m34_aux = get_mpcac(pp_sym[i+j+6], ap_sym[i+j+6], ens, "ss_tm", wpm=wpm)
+        push!(m34, m34_aux[1])
+        fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm)
+        push!(fpi, fpi_aux[1])
+    end
+end
+for i in 3:8:length(pp_sym)
+    for j in 0:3
+        mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm)
+        push!(mk, mk_aux[1])
+        m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "kaon_tm", wpm=wpm)
+        push!(m13, m13_aux[1])
+        fk_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "kaon_tm", wpm=wpm)
+        push!(fk, fk_aux[1])
+    end
 end
 
 mpi, fpi, fk = fve.(mpi, mk, fpi, fk, ens)

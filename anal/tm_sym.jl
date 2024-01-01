@@ -62,14 +62,14 @@ phi4_w = 8 * t0 * (mk_w ^ 2 + 0.5 * mpi_w ^ 2)
 phi2_w = 8 * t0 * mpi_w ^ 2
 
 ZP = beta_ZP[ens.beta]
-phi2 = [8 * t0 * mpi[i] ^ 2 for i in 1:lenght(mpi)]
-phi4 = [8 * t0 * (mk[i] ^ 2 + 0.5 * mpi[i] ^ 2) for i in 1:lenght(mpi)]
-fpik = [sqrt(t0) * 2/3 * (fk[i] + 0.5 * fpi[i]) for i in 1:lenght(mpi)]
+phi2 = [8 * t0 * mpi[i] ^ 2 for i in 1:length(mpi)]
+phi4 = [8 * t0 * (mk[i] ^ 2 + 0.5 * mpi[i] ^ 2) for i in 1:length(mpi)]
+fpik = [sqrt(t0) * 2/3 * (fk[i] + 0.5 * fpi[i]) for i in 1:length(mpi)]
 
-fpik_sh = fpik .+ (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[10:12])
-phi2_sh = phi2 .+ (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[13:15])
-phi4_sh = phi4 .+ (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[16:18])
-m12_sh = m12 .+ (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[19:23]) * ZP / sqrt(t0)
+fpik_sh = [fpik[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[10:12]) for i in 1:length(fpik)]
+phi2_sh = [phi2[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[13:15]) for i in 1:length(phi2)]
+phi4_sh = [phi4[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[16:18]) for i in 1:length(phi4)]
+m12_sh = [m12[i] + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[19:23]) * ZP / sqrt(t0) for i in 1:length(m12)]
 
 #======== save BDIO ===================#
 
@@ -84,7 +84,7 @@ end
 obs = [phi2_sh, phi4_sh, m12_sh, fpik_sh]
 obs_str = ["phi2", "phi4", "m12", "fpik"]
 for j in 1:length(obs_str)
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
     for i in 1:length(obs[1]) write_uwreal(obs[1][i], fb, i) end
     BDIO_close!(fb)
 end

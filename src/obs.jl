@@ -87,6 +87,8 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
         guess = ens_obs[ens.id][4]
     elseif PS == "kaon_wil" || PS == "kaon_tm"
 	    guess = ens_obs[ens.id][5]
+    elseif PS == "ss_wil" || PS == "ss_tm"
+        guess = 2 * ens_obs[ens.id][5] - ens_obs[ens.id][4]
     end
     mpcac, syst, mpcac_i, weight, pval = model_av([fit_exp, fit_const], mpcac_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     
