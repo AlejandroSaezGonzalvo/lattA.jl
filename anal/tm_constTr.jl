@@ -12,6 +12,8 @@ ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
+const md_meas = false
+
 #======== read correlators ===========#
 
 pp, ppw, w = get_corr_tm(path, ens, "G5", "G5", rw=true, info=true, legacy=true);
@@ -37,6 +39,14 @@ end
 
 mpi, fpi, fk = fve.(mpi, mk, fpi, fk, ens)
 
+#======== mass shift with fit =========#
+
+par = Array{uwreal,1}()
+fb = BDIO_open("/home/asaez/cls_ens/results/der_1q.bdio", "r")
+BDIO_seek!(fb); push!(par, read_uwreal(fb))
+while BDIO_seek!(fb, 2) == true push!(par, read_uwreal(fb)) end 
+BDIO_close!(fb)
+
 #======== save BDIO ===================#
 
 obs = [t0, mpi, mk, m12, m13, fpi, fk]
@@ -46,21 +56,27 @@ BDIO_close!(fb)
 
 #============ get md ==================#
 
-obs_md = Array{uwreal,1}()
-for a in obs
-    md_s = [md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]
-    s2 = 0
-    for i in 1:length(md_v) s2 += md_s[i][2] end
-    push!(obs_md, s2)
+if md_meas == true
+    obs_md = [Array{uwreal,1}() for a in obs]
+    for i in 1:length(obs)
+        for a in obs[i]
+            md_s = [md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]
+            s1 = s2 = 0
+            for i in 1:length(md_s)
+                s1 += md_s[i][1]
+                s2 += md_s[i][2]
+            end
+            push!(obs_md[i], 2*s1 + s2)
+        end
+    end
+
+
+    for j in 1:length(obs_st)
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_st[j],"_md_tm.bdio"), "w")
+        for i in 1:length(obs[j]) write_uwreal(obs_md[j][i], fb, i) end
+        BDIO_close!(fb)
+    end
 end
-
-#======== save BDIO ===================#
-
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_md_tm.bdio"), "w")
-for i in 1:length(obs_md) write_uwreal(obs_md[i], fb, i) end
-BDIO_close!(fb)
-
-
 
 
 

@@ -14,4 +14,7 @@ export get_m, get_mpcac, get_f_wil, get_f_tm, get_t0
 include("tools.jl")
 export model_av, pvalue, get_model, fve, fit_alg, fit_defs
 
+include("fit_funs.jl")
+export md_1, md_2
+
 end
