@@ -9,19 +9,15 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     m_dat = 0.5 .* log.((corr_d[2:end-2] ./ corr_d[3:end-1]) .^ 2)
     y0 = corr.y0
     T = length(corr_d) -1 - y0
-    
-    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
-    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
+
+    isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 5
     k2 = 1
     
-    if PS == "pion_wil" || PS == "pion_tm"
-        guess = ens_obs[ens.id][2]
-    elseif PS == "kaon_wil" || PS == "kaon_tm"
-	guess = ens_obs[ens.id][3]
-    end
+    guess = value(m_dat[Int64(round(T / 2))])
     m, syst, m_i, weight, pval = model_av([fit_exp, fit_const], m_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     if pl == true
         isnothing(wpm) ? uwerr(m) : uwerr(m, wpm)                       
@@ -76,20 +72,14 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
     y0 = corr_pp.y0
     T = length(pp_dat) - 1 - y0
 
-    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
-    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 5
     k2 = 1
     
-    if PS == "pion_wil" || PS == "pion_tm"
-        guess = ens_obs[ens.id][4]
-    elseif PS == "kaon_wil" || PS == "kaon_tm"
-	    guess = ens_obs[ens.id][5]
-    elseif PS == "ss_wil" || PS == "ss_tm"
-        guess = 2 * ens_obs[ens.id][5] - ens_obs[ens.id][4]
-    end
+    guess = value(mpcac_dat[Int64(round(T / 2))])
     mpcac, syst, mpcac_i, weight, pval = model_av([fit_exp, fit_const], mpcac_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     
     if pl == true
@@ -149,19 +139,14 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
     R_dat = ap_dat .* aux ./ [((pp_dat[T-y0])^2)^(1/4) for k = 1:length(ap_dat)]
     #f_dat = [sqrt(2) * sqrt(R_dat[i] ^ 2) / sqrt(m) for i in 1:length(R_dat)]
 
-    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
-    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 5
     k2 = 1
     
-    if PS == "pion_wil" 
-        guess = ens_obs[ens.id][6]
-    elseif PS == "kaon_wil"
-	    guess = ens_obs[ens.id][7]
-    end
-    
+    guess = value(R_dat[Int64(round(T / 2))])
     R, syst, R_i, weight, pval = model_av([fit_exp, fit_const], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     f = sqrt(2) * sqrt(R^2) / sqrt(m)
     if pl == true
@@ -223,19 +208,14 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
     R_dat = ((apL_dat .* apR_dat ./ f1).^2).^(1/4)
     #f_dat = [sqrt(2) * sqrt(R_dat[i] ^ 2) / sqrt(m) for i in 1:length(R_dat)]
 
-    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
-    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 5
     k2 = 1
     
-    if PS == "pion_wil"
-        guess = ens_obs[ens.id][6]
-    elseif PS == "kaon_wil"
-	    guess = ens_obs[ens.id][7]
-    end
-    
+    guess = value(R_dat[Int64(round(T / 2))])
     R, syst, R_i, weight, pval = model_av([fit_exp, fit_const], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     f = sqrt(2) * sqrt(R^2) / sqrt(m)
     if pl == true
@@ -348,19 +328,14 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
     f1 = [ppL_dat[T - y0] for k = 1:T]
     R_dat = ((ppL_dat .* ppR_dat ./ f1).^2).^(1/4)
 
-    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
-    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 5
     k2 = 1
     
-    if PS == "pion_tm"
-        guess = ens_obs[ens.id][6]
-    elseif PS == "kaon_tm"
-	    guess = ens_obs[ens.id][7]
-    end
-
+    guess = value(R_dat[Int64(round(T / 2))])
     R, syst, R_i, weight, pval = model_av([fit_exp, fit_const], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     f = sqrt(2) * (mu[1] + mu[2]) * R / m^1.5
     if pl == true
@@ -478,8 +453,8 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         end
     end
 
-    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
-    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 5
