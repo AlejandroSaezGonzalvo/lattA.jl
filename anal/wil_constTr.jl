@@ -35,12 +35,15 @@ corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
 
 #======== compute observables ========#
 
-mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm)
-mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm)
-m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm)
-m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm)
-fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm)
-fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm)
+tm = [collect(10:5:div(ens.T,2)-5), collect(10:5:div(ens.T,2)-5)]
+tM = [collect(div(ens.T,2)+5:5:ens.T-10), collect(div(ens.T,2)+5:5:ens.T-10)]
+
+mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)

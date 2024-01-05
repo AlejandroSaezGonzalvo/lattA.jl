@@ -9,3 +9,11 @@ function md_2(x1,x2,p)
     ## mass derivative for 1 / ZP * m_{12}^{\rm (v)} * \sqrt{t0}
    return p[1] + p[2] * x1 + p[3] * x1 ^ 2 + p[4] * x1 + p[5] * x1 * x2
 end
+
+function match_sym(x,p)
+    ## m12:
+    f = [p[3] * (1/x[i,1] - 1/p[1]) + p[4] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
+    ## phi4:
+    h = [p[5]* (1/ x[i,1] - 1/p[1]) ^ 2 / x[i,2] + p[6] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
+    return [f;h]
+end
