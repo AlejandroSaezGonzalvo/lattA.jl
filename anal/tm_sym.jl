@@ -80,7 +80,7 @@ obs = [mpi, m12, fpi]
 obs_str = ["mpi", "m12", "fpi"]
 for j in 1:length(obs_str)
     fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "w")
-    for i in 1:length(obs[1]) write_uwreal(obs[1][i], fb, i) end
+    for i in 1:length(obs[j]) write_uwreal(obs[j][i], fb, i) end
     BDIO_close!(fb)
 end
 
@@ -88,7 +88,7 @@ obs = [phi2_sh, phi4_sh, m12_sh, fpik_sh]
 obs_str = ["phi2", "phi4", "m12", "fpik"]
 for j in 1:length(obs_str)
     fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
-    for i in 1:length(obs[1]) write_uwreal(obs[1][i], fb, i) end
+    for i in 1:length(obs[j]) write_uwreal(obs[j][i], fb, i) end
     BDIO_close!(fb)
 end
 

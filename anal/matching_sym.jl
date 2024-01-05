@@ -40,8 +40,7 @@ fpik = obs[4]
 
 y = [m12; phi4]
 target_m12 = 0 .* m12
-target_phi4 = [phi4_ph for i in 1:length(phi4)]
-target = [target_m12; target_phi4]
+target = [target_m12; [phi4_ph for i in 1:length(phi4)]]
 y = y .- target
 uwerr.(y)
 W = 1 ./ err.(y) .^2

@@ -15,6 +15,6 @@ include("tools.jl")
 export model_av, pvalue, get_model, fve, fit_alg, fit_defs
 
 include("fit_funs.jl")
-export md_1, md_2
+export md_1, md_2, match_sym
 
 end
