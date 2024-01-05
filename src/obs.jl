@@ -265,8 +265,8 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
     aux = exp.((collect(0:T-1) .- (T-1)/2 ) .* [m for k in 1:T])
     R_dat = pp_dat .* aux ./ [((pp_dat[T-y0])^2)^(1/4) for k = 1:T]
 
-    isnothing(tm) ? tm = [[y0+10,y0+12,y0+14], [y0+30,y0+35,y0+40]] : tm=tm
-    isnothing(tM) ? tM = [[T-10,T-12,T-14], [T-30,T-35,T-40]] : tM=tM
+    isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+    isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-1-y0-x))
     @.fit_const(x,p) = p[1] * x ^ 0
     k1 = 5

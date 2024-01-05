@@ -51,7 +51,10 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64;
             for j in tM[ind]
                 x = collect(i:j)
                 y_aux = y[i:j]
-                up, chi2, chi_exp, pval_i = fit_alg(f,x,y_aux,k[ind],guess,wpm=wpm)
+                try 
+                    up, chi2, chi_exp, pval_i = fit_alg(f,x,y_aux,k[ind],guess,wpm=wpm)
+                catch e 
+                end
                 push!(pval, pval_i)
                 push!(TIC, chi2 - 2*chi_exp)
                 push!(p_1, up[1])
