@@ -1,6 +1,6 @@
 import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
-using Revise, lattA, juobs, ADerrors, BDIO
+using Revise, lattA, juobs, ADerrors, BDIO, PyPlot
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -22,6 +22,8 @@ BDIO_close!(fb)
 t0, mpi_w, mk_w = obs
 phi4_w = 8 * t0 * (mk_w ^ 2 + 0.5 * mpi_w ^ 2)
 phi2_w = 8 * t0 * mpi_w ^ 2
+uwerr(phi2_w)
+uwerr(phi4_w)
 
 obs = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 obs_str = ["phi2", "phi4", "m12", "fpik"]
@@ -35,17 +37,29 @@ phi2 = obs[1]
 phi4 = obs[2]
 m12 = obs[3]
 fpik = obs[4]
+uwerr.(phi2)
+uwerr.(phi4)
+uwerr.(m12)
+uwerr.(fpik)
 
 #========= match & full twist =========#
 
 y = [m12; phi4]
-target_m12 = 0 .* m12
-target = [target_m12; [phi4_ph for i in 1:length(phi4)]]
+target = [0 .* m12; [phi4_ph for i in 1:length(phi4)]]
 y = y .- target
-uwerr.(y)
-W = 1 ./ err.(y) .^2
 
 kappa, mul = ens_kappa[id], ens_mul[id]
 x = [[[kappa[1] for i in 1:3]; [kappa[2] for i in 1:3]; [kappa[3] for i in 1:3]] [mul; mul; mul]]
 
 up, chi2, chi_exp, pv = fit_alg(match_sym,x,y,6,[kappa[2], mul[2]],wpm=wpm) ##kappa->up[1], mul->up[2]
+
+matching_sym_plot()
+
+#========= interpolate fpik ===========#
+
+y = fpik
+up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x,y,4,rand(4),wpm=wpm) ##kappa->up[1], mul->up[2]
+fpik_matched = interp_fpik_sym([up[1] up[2]],up_fpik)[1]
+uwerr(fpik_matched)
+
+interp_fpik_sym_plot()

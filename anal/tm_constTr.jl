@@ -16,14 +16,8 @@ const md_meas = false
 
 #======== read correlators ===========#
 
-pp, ppw, w = get_corr_tm(path, ens, "G5", "G5", rw=true, info=true, legacy=true);
-pp_sym = [corr_sym(pp[i], pp[i+24], +1) for i in 1:24];
-ap, apw, w = get_corr_tm(path, ens, "G5", "G0G5", rw=true, info=true, legacy=true);
-ap_sym = [corr_sym(ap[i], ap[i+24], -1) for i in 1:24];
-
-dSdm = get_dSdm(path, ens)
-
-corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
+pp_sym, ap_sym, corrw, dSdm = read_ens_tm(path, ens, legacy=true)
+#pp_sym, ap_sym = read_ens_csv(path, ens)
 
 #======== compute observables ========#
 

@@ -51,6 +51,89 @@ function get_dSdm(path::String, ens::EnsInfo)
     return dSdm
 end
 
+function read_ens_wil(path::String, ens::EnsInfo; legacy=false, fs=false)
+    pp, ppw, w = get_corr_wil(path, ens, "G5", "G5", rw=true, info=true, legacy=legacy);
+    pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in 1:2:length(pp)-1];
+    ap, apw, w = get_corr_wil(path, ens, "G5", "G0G5", rw=true, info=true, legacy=legacy);
+    ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)-1];
+
+    pp_d1 = get_corr_wil(path, ens, "G5_d1", "G5_d1", rw=true, legacy=legacy);
+    pp_d2 = get_corr_wil(path, ens, "G5_d2", "G5_d2", rw=true, legacy=legacy);
+    ap_d1 = get_corr_wil(path, ens, "G5_d1", "G0G5_d1", rw=true, legacy=legacy);
+    ap_d2 = get_corr_wil(path, ens, "G5_d2", "G0G5_d2", rw=true, legacy=legacy);
+    dSdm = get_dSdm(path, ens)
+
+    pp_val = [[pp_d1[i], pp_d2[i]] for i in 1:length(pp_d1)];
+    ap_val = [[ap_d1[i], ap_d2[i]] for i in 1:length(ap_d1)];
+    corr = [[pp[i] for i in 1:length(pp)]; [ap[i] for i in 1:length(ap)]];
+    corr_val = [[pp_val[i] for i in 1:length(pp)]; [ap_val[i] for i in 1:length(ap)]];
+    corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
+
+    return pp_sym, ap_sym, corr, corr_val, corrw, dSdm
+end
+
+function read_ens_tm(path::String, ens::EnsInfo; legacy=false, fs=false)
+    pp, ppw, w = get_corr_tm(path, ens, "G5", "G5", rw=true, info=true, legacy=legacy);
+    pp_sym = [corr_sym(pp[i], pp[i+9], +1) for i in 1:9];
+    ap, apw, w = get_corr_tm(path, ens, "G5", "G0G5", rw=true, info=true, legacy=legacy);
+    ap_sym = [corr_sym(ap[i], ap[i+9], -1) for i in 1:9];
+
+    dSdm = get_dSdm(path, ens)
+
+    corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
+
+    return pp_sym, ap_sym, corrw, dSdm
+end
+
+function read_ens_csv(path::String, ens::EnsInfo)
+    ix = ensemble_inv[ens.id]
+    path_ll = Path_ll[ix]
+    path_ls = Path_ls[ix]
+    path_ss = Path_ss[ix]
+    path_ll_sym = Path_ll_sym[ix]
+    path_ls_sym = Path_ls_sym[ix]
+    path_ss_sym = Path_ss_sym[ix]
+    path2_ll = Path2_ll[ix]
+    path2_ls = Path2_ls[ix]
+    path2_ss = Path2_ss[ix]
+    path2_ll_sym = Path2_ll_sym[ix]
+    path2_ls_sym = Path2_ls_sym[ix]
+    path2_ss_sym = Path2_ss_sym[ix]
+
+    pp_ll = [csv2Corr(path_ll[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ll)]
+	pp_ls = [csv2Corr.(path_ls[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ls)]
+    pp_ss = [csv2Corr.(path_ss[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ss)]
+    ap_ll = [csv2Corr.(path2_ll[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ll)] 
+	ap_ls = [csv2Corr.(path2_ls[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ls)] 
+    ap_ss = [csv2Corr.(path2_ss[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ss)]
+
+    pp_ll_2 = [csv2Corr.(path_ll_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ll_sym)] 
+	pp_ls_2 = [csv2Corr.(path_ls_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ls_sym)]
+    pp_ss_2 = [csv2Corr.(path_ss_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ss_sym)]
+    ap_ll_2 = [csv2Corr.(path2_ll_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ll_sym)] 
+	ap_ls_2 = [csv2Corr.(path2_ls_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ls_sym)]
+	ap_ss_2 = [csv2Corr.(path2_ss_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ss_sym)]
+
+	pp_ll_sym = [corr_sym(pp_ll[i],pp_ll_2[i],+1) for i in 1:1:length(pp_ll)]
+	pp_ls_sym = [corr_sym(pp_ls[i],pp_ls_2[i],+1) for i in 1:1:length(pp_ls)]
+	ap_ll_sym = [corr_sym(ap_ll[i],ap_ll_2[i],-1) for i in 1:1:length(ap_ll)]
+	ap_ls_sym = [corr_sym(ap_ls[i],ap_ls_2[i],-1) for i in 1:1:length(ap_ls)]
+	pp_ss_sym = [corr_sym(pp_ss[i],pp_ss_2[i],+1) for i in 1:1:length(pp_ss)]
+	ap_ss_sym = [corr_sym(ap_ss[i],ap_ss_2[i],-1) for i in 1:1:length(ap_ss)]
+
+    i=j=1
+    pp_sym = Array{juobs.Corr}()
+    ap_sym = Array{juobs.Corr}()
+    while i < length(pp_ll_sym)
+        push!(pp_sym, [pp_ll_sym[i:i+1]; pp_ls_sym[j:j+3]; pp_ss_sym[i:i+1]])
+        push!(ap_sym, [ap_ll_sym[i:i+1]; ap_ls_sym[j:j+3]; ap_ss_sym[i:i+1]])
+        i+=2
+        j+=4
+    end
+
+    return pp_sym, ap_sym
+end
+
 function get_YW(path::String, ens::EnsInfo, plat::Vector{Int64}; rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg)
 
     println("WARNING!: You must use the same plat here than the one used to compute t0")

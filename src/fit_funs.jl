@@ -17,3 +17,11 @@ function match_sym(x,p)
     h = [p[5]* (1/ x[i,1] - 1/p[1]) ^ 2 / x[i,2] + p[6] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
     return [f;h]
 end
+
+function interp_fpik_sym(x,p)
+    return [p[1] + p[2] * x[i,2] + p[3] / x[i,1] + p[4] / x[i,1] ^ 2 for i in 1:length(x[:,1])]
+end
+
+function interp_fpik(x,p)
+    return [p[1] + p[2] * x[i,2] + p[3] * x[i,3] + p[4] / x[i,1] + p[5] / x[i,1] ^ 2 for i in 1:length(x[:,1])]
+end

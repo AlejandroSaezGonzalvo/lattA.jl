@@ -16,22 +16,7 @@ const md_meas = false
 
 #======== read correlators ===========#
 
-pp, ppw, w = get_corr_wil(path, ens, "G5", "G5", rw=true, info=true, legacy=true);
-pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in 1:2:length(pp)-1];
-ap, apw, w = get_corr_wil(path, ens, "G5", "G0G5", rw=true, info=true, legacy=true);
-ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)-1];
-
-pp_d1 = get_corr_wil(path, ens, "G5_d1", "G5_d1", rw=true, legacy=true);
-pp_d2 = get_corr_wil(path, ens, "G5_d2", "G5_d2", rw=true, legacy=true);
-ap_d1 = get_corr_wil(path, ens, "G5_d1", "G0G5_d1", rw=true, legacy=true);
-ap_d2 = get_corr_wil(path, ens, "G5_d2", "G0G5_d2", rw=true, legacy=true);
-dSdm = get_dSdm(path, ens)
-
-pp_val = [[pp_d1[i], pp_d2[i]] for i in 1:length(pp_d1)];
-ap_val = [[ap_d1[i], ap_d2[i]] for i in 1:length(ap_d1)];
-corr = [[pp[i] for i in 1:length(pp)]; [ap[i] for i in 1:length(ap)]];
-corr_val = [[pp_val[i] for i in 1:length(pp)]; [ap_val[i] for i in 1:length(ap)]];
-corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
+pp_sym, ap_sym, corr, corr_val, corrw, dSdm = read_ens_wil(path, ens, legacy=true)
 
 #======== compute observables ========#
 

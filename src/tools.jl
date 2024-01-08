@@ -25,7 +25,7 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}, Matrix{Fl
     if guess == nothing
         p0 = [.5 for i in 1:n]
     else
-        p0 = [guess; [1. for i in 1:n-1]]
+        p0 = [guess; [1. for i in 1:n-length(guess)]]
         #lb[1] = .9 * guess  
         #ub[1] = 1.1 * guess
     end
