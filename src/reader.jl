@@ -72,11 +72,24 @@ function read_ens_wil(path::String, ens::EnsInfo; legacy=false, fs=false)
     return pp_sym, ap_sym, corr, corr_val, corrw, dSdm
 end
 
-function read_ens_tm(path::String, ens::EnsInfo; legacy=false, fs=false)
+function read_ens_tm_sym(path::String, ens::EnsInfo; legacy=false)
     pp, ppw, w = get_corr_tm(path, ens, "G5", "G5", rw=true, info=true, legacy=legacy);
     pp_sym = [corr_sym(pp[i], pp[i+9], +1) for i in 1:9];
     ap, apw, w = get_corr_tm(path, ens, "G5", "G0G5", rw=true, info=true, legacy=legacy);
     ap_sym = [corr_sym(ap[i], ap[i+9], -1) for i in 1:9];
+
+    dSdm = get_dSdm(path, ens)
+
+    corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
+
+    return pp_sym, ap_sym, corrw, dSdm
+end
+
+function read_ens_tm(path::String, ens::EnsInfo; legacy=false)
+    pp, ppw, w = get_corr_tm(path, ens, "G5", "G5", rw=true, info=true, legacy=legacy);
+    pp_sym = [corr_sym(pp[i], pp[i+24], +1) for i in 1:24];
+    ap, apw, w = get_corr_tm(path, ens, "G5", "G0G5", rw=true, info=true, legacy=legacy);
+    ap_sym = [corr_sym(ap[i], ap[i+24], -1) for i in 1:24];
 
     dSdm = get_dSdm(path, ens)
 
@@ -100,19 +113,19 @@ function read_ens_csv(path::String, ens::EnsInfo)
     path2_ls_sym = Path2_ls_sym[ix]
     path2_ss_sym = Path2_ss_sym[ix]
 
-    pp_ll = [csv2Corr(path_ll[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ll)]
-	pp_ls = [csv2Corr.(path_ls[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ls)]
-    pp_ss = [csv2Corr.(path_ss[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ss)]
-    ap_ll = [csv2Corr.(path2_ll[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ll)] 
-	ap_ls = [csv2Corr.(path2_ls[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ls)] 
-    ap_ss = [csv2Corr.(path2_ss[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ss)]
+    pp_ll = [csv2Corr(path_ll[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path_ll)]
+	pp_ls = [csv2Corr(path_ls[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path_ls)]
+    pp_ss = [csv2Corr(path_ss[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path_ss)]
+    ap_ll = [csv2Corr(path2_ll[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path2_ll)] 
+	ap_ls = [csv2Corr(path2_ls[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path2_ls)] 
+    ap_ss = [csv2Corr(path2_ss[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path2_ss)]
 
-    pp_ll_2 = [csv2Corr.(path_ll_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ll_sym)] 
-	pp_ls_2 = [csv2Corr.(path_ls_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ls_sym)]
-    pp_ss_2 = [csv2Corr.(path_ss_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path_ss_sym)]
-    ap_ll_2 = [csv2Corr.(path2_ll_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ll_sym)] 
-	ap_ls_2 = [csv2Corr.(path2_ls_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ls_sym)]
-	ap_ss_2 = [csv2Corr.(path2_ss_sym[i], ens_cnfg[ens.id], ens.cnfg, id=ens.id) for i in 1:length(path2_ss_sym)]
+    pp_ll_2 = [csv2Corr(path_ll_sym[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path_ll_sym)] 
+	pp_ls_2 = [csv2Corr(path_ls_sym[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path_ls_sym)]
+    pp_ss_2 = [csv2Corr(path_ss_sym[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path_ss_sym)]
+    ap_ll_2 = [csv2Corr(path2_ll_sym[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path2_ll_sym)] 
+	ap_ls_2 = [csv2Corr(path2_ls_sym[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path2_ls_sym)]
+	ap_ss_2 = [csv2Corr(path2_ss_sym[i], ens_cnfg[ens.id], trunc=ens.cnfg, id=ens.id) for i in 1:length(path2_ss_sym)]
 
 	pp_ll_sym = [corr_sym(pp_ll[i],pp_ll_2[i],+1) for i in 1:1:length(pp_ll)]
 	pp_ls_sym = [corr_sym(pp_ls[i],pp_ls_2[i],+1) for i in 1:1:length(pp_ls)]
@@ -122,13 +135,13 @@ function read_ens_csv(path::String, ens::EnsInfo)
 	ap_ss_sym = [corr_sym(ap_ss[i],ap_ss_2[i],-1) for i in 1:1:length(ap_ss)]
 
     i=j=1
-    pp_sym = Array{juobs.Corr}()
-    ap_sym = Array{juobs.Corr}()
+    pp_sym = Array{juobs.Corr,1}()
+    ap_sym = Array{juobs.Corr,1}()
     while i < length(pp_ll_sym)
-        push!(pp_sym, [pp_ll_sym[i:i+1]; pp_ls_sym[j:j+3]; pp_ss_sym[i:i+1]])
-        push!(ap_sym, [ap_ll_sym[i:i+1]; ap_ls_sym[j:j+3]; ap_ss_sym[i:i+1]])
-        i+=2
-        j+=4
+        pp_sym = vcat(pp_sym, [pp_ll_sym[i:i+2]; pp_ls_sym[j:j+8]; pp_ss_sym[i:i+2]])
+        ap_sym = vcat(ap_sym, [ap_ll_sym[i:i+2]; ap_ls_sym[j:j+8]; ap_ss_sym[i:i+2]])
+        i+=3
+        j+=9
     end
 
     return pp_sym, ap_sym

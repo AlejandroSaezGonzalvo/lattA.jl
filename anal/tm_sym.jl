@@ -16,7 +16,7 @@ const md_meas = false
 
 #======== read correlators ===========#
 
-pp_sym, ap_sym, corrw, dSdm = read_ens_tm(path, ens, legacy=true)
+pp_sym, ap_sym, corrw, dSdm = read_ens_tm_sym(path, ens, legacy=true)
 
 #======== compute observables ========#
 
