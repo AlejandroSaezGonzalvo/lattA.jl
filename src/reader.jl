@@ -1,5 +1,7 @@
 using juobs
 
+include("/home/asaez/cls_ens/codes/lattA.jl/src/path_csv.jl");
+
 function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=false, info=false, legacy=false, fs=false)
     path_rw = joinpath(path, ens.id, "rwf")
     path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))

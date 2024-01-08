@@ -272,11 +272,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
     k1 = 5
     k2 = 1
     
-    if PS == "pion_tm"
-        guess = ens_obs[ens.id][6]
-    elseif PS == "kaon_tm"
-	    guess = ens_obs[ens.id][7]
-    end
+    guess = value(R_dat[Int64(round(T / 2))])
 
     R, syst, R_i, weight, pval = model_av([fit_exp, fit_const], R_dat, guess, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
     f = sqrt(2) * (mu[1] + mu[2]) * R / m^1.5
