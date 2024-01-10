@@ -18,15 +18,15 @@ const md_meas = false
 #======== read correlators ===========#
 
 if ens.id in ["H102r001", "H102r002", "H105", "H105r005", "N203", "N200"]
-    pp_sym, ap_sym = read_ens_csv(path, ens)
+    pp_sym, ap_sym = read_ens_csv(ens)
 else
     pp_sym, ap_sym, corrw, dSdm = read_ens_tm(path, ens, legacy=true)
 end
 
 #======== compute observables ========#
 
-tm = [collect(10:5:div(ens.T,2)-5), collect(10:5:div(ens.T,2)-5)]
-tM = [collect(div(ens.T,2)+5:5:ens.T-10), collect(div(ens.T,2)+5:5:ens.T-10)]
+tm = [[10], collect(20:5:div(ens.T,2)-5)]
+tM = [[ens.T-10], collect(div(ens.T,2)+5:5:ens.T-20)]
 
 mpi = Array{uwreal,1}()
 m12 = Array{uwreal,1}()
@@ -37,6 +37,7 @@ fk = Array{uwreal,1}()
 m34 = Array{uwreal,1}()
 for i in 1:15:length(pp_sym)
     for j in 0:2
+        println(i, " ", j)
         mpi_aux = get_m(pp_sym[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
         push!(mpi, mpi_aux[1])
         m12_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
@@ -49,11 +50,12 @@ for i in 1:15:length(pp_sym)
 end
 for i in 4:15:length(pp_sym)
     for j in 0:8
+        println(i, " ", j)
         mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
         push!(mk, mk_aux[1])
         m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
         push!(m13, m13_aux[1])
-        fk_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+        fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
         push!(fk, fk_aux[1])
     end
 end

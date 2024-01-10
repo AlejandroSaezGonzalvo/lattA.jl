@@ -100,7 +100,7 @@ function read_ens_tm(path::String, ens::EnsInfo; legacy=false)
     return pp_sym, ap_sym, corrw, dSdm
 end
 
-function read_ens_csv(path::String, ens::EnsInfo)
+function read_ens_csv(ens::EnsInfo)
     ix = ensemble_inv[ens.id]
     path_ll = Path_ll[ix]
     path_ls = Path_ls[ix]

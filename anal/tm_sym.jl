@@ -20,13 +20,14 @@ pp_sym, ap_sym, corrw, dSdm = read_ens_tm_sym(path, ens, legacy=true)
 
 #======== compute observables ========#
 
-tm = [collect(10:5:div(ens.T,2)-5), collect(10:5:div(ens.T,2)-5)]
-tM = [collect(div(ens.T,2)+5:5:ens.T-10), collect(div(ens.T,2)+5:5:ens.T-10)]
+tm = [[10], collect(20:5:div(ens.T,2)-5)]
+tM = [[ens.T-10], collect(div(ens.T,2)+5:5:ens.T-20)]
 
 mpi = Array{uwreal,1}()
 m12 = Array{uwreal,1}()
 fpi = Array{uwreal,1}()
 for i in 1:length(pp_sym)
+    println(i, " ", j)
     mpi_aux = get_m(pp_sym[i], ens, "pion_tm", tm=tm, tM=tM)
     push!(mpi, mpi_aux[1])
     m12_aux = get_mpcac(pp_sym[i], ap_sym[i], ens, "pion_tm", tm=tm, tM=tM)

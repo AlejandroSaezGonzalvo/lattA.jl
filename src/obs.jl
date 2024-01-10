@@ -8,7 +8,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     corr_d = corr.obs
     m_dat = 0.5 .* log.((corr_d[2:end-2] ./ corr_d[3:end-1]) .^ 2)
     y0 = corr.y0
-    T = length(corr_d) -1 - y0
+    T = length(corr_d) - 1 - y0
 
     isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
     isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
