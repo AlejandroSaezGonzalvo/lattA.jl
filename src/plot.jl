@@ -205,24 +205,24 @@ function matching_constTr_plot()
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [1 0 0]
     [xp[i,2] = value(up[2]) for i in 1:length(xp[:,1])]
     [xp[i,3] = value(up[3]) for i in 1:length(xp[:,1])]
-    ylabel(L"$\phi_4^{\rm (v)}$")  
+    ylabel(L"$\phi_2^{\rm (v)}$")  
     xlabel(L"$1/\kappa^{\rm(v)}$")   
-    vect =  match_phi4(xp, up) .+ [phi4_ph for i in 1:length(xp[:,1])]
+    vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
     e = err.(vect)
-    phi4_target = [phi4_ph for i in 1:length(xp[:,1])]
-    uwerr.(phi4_target)
-    v2 = value.(phi4_target)
-    e2 = err.(phi4_target)
+    phi2_target = [phi2_w_sh for i in 1:length(xp[:,1])]
+    uwerr.(phi2_target)
+    v2 = value.(phi2_target)
+    e2 = err.(phi2_target)
     fill_between(1 ./ xp[:,1], v-e, v+e, color="orange", alpha=0.5)
     fill_between(1 ./ xp[:,1], v2-e2, v2+e2, color="gray", alpha=0.5)
-    errorbar(1 ./ x_s[1:3:9,1], value.(phi4_sh[1:3:9]), err.(phi4_sh[1:3:9]), fmt="x", color="purple", label=L"$a\mu_l^{\rm(v)}=???$") ## mus is fixed
-    errorbar(1 ./ x_s[2:3:9,1], value.(phi4_sh[2:3:9]), err.(phi4_sh[2:3:9]), fmt="x", color="green", label=L"$a\mu_l^{\rm(v)}=???$")
-    errorbar(1 ./ x_s[3:3:9,1], value.(phi4_sh[3:3:9]), err.(phi4_sh[3:3:9]), fmt="x", color="blue", label=L"$a\mu_l^{\rm(v)}=???$")
+    errorbar(1 ./ x_l[1:3:9,1], value.(phi2_sh[1:3:9]), err.(phi2_sh[1:3:9]), fmt="x", color="purple", label=L"$a\mu_l^{\rm(v)}=???$") ## mus is fixed
+    errorbar(1 ./ x_l[2:3:9,1], value.(phi2_sh[2:3:9]), err.(phi2_sh[2:3:9]), fmt="x", color="green", label=L"$a\mu_l^{\rm(v)}=???$")
+    errorbar(1 ./ x_l[3:3:9,1], value.(phi2_sh[3:3:9]), err.(phi2_sh[3:3:9]), fmt="x", color="blue", label=L"$a\mu_l^{\rm(v)}=???$")
     kappa_target = 1 / up[1]; uwerr(kappa_target)
-    errorbar(value(kappa_target), value(phi4_target[1]), err(phi4_target[2]), err(kappa_target), fmt="x", color="black")
-    ax[:set_ylim]([value(phi4_sh[1])*0.97, value(phi4_sh[end])*1.03])
+    errorbar(value(kappa_target), value(phi2_target[1]), err(phi2_target[2]), err(kappa_target), fmt="x", color="black")
+    ax[:set_ylim]([value(phi2_sh[1])*0.97, value(phi2_sh[end])*1.03])
     xticks(rotation=60)
     #legend()
 
@@ -234,22 +234,22 @@ function matching_constTr_plot()
     [xp[i,3] = value(up[3]) for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
     xlabel(L"$\mu_l^{\rm(v)}$")   
-    vect =  match_phi4(xp, up) .+ [phi4_ph for i in 1:length(xp[:,1])]
+    vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
     e = err.(vect)
-    phi4_target = [phi4_ph for i in 1:length(xp[:,1])]
-    uwerr.(phi4_target)
-    v2 = value.(phi4_target)
-    e2 = err.(phi4_target)
+    phi2_target = [phi2_w_sh for i in 1:length(xp[:,1])]
+    uwerr.(phi2_target)
+    v2 = value.(phi2_target)
+    e2 = err.(phi2_target)
     fill_between(xp[:,2], v-e, v+e, color="orange", alpha=0.5)
     fill_between(xp[:,2], v2-e2, v2+e2, color="gray", alpha=0.5)
-    errorbar(x_s[1:3,2], value.(phi4_sh[1:3]), err.(phi4_sh[1:3]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$")
-    errorbar(x_s[4:6,2], value.(phi4_sh[4:6]), err.(phi4_sh[4:6]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
-    errorbar(x_s[7:9,2], value.(phi4_sh[7:9]), err.(phi4_sh[7:9]), fmt="x", color="blue", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_l[1:3,2], value.(phi2_sh[1:3]), err.(phi2_sh[1:3]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_l[4:6,2], value.(phi2_sh[4:6]), err.(phi2_sh[4:6]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_l[7:9,2], value.(phi2_sh[7:9]), err.(phi2_sh[7:9]), fmt="x", color="blue", label=L"$\kappa^{\rm(v)}=???$")
     mul_target = up[2]; uwerr(mul_target)
-    errorbar(value(mul_target), value(phi4_target[1]), err(phi4_target[2]), err(mul_target), fmt="x", color="black")
-    ax[:set_ylim]([value(phi4_sh[1])*0.97, value(phi4_sh[end])*1.03])
+    errorbar(value(mul_target), value(phi2_target[1]), err(phi2_target[2]), err(mul_target), fmt="x", color="black")
+    ax[:set_ylim]([value(phi2_sh[1])*0.97, value(phi2_sh[end])*1.03])
     setp(ax.get_yticklabels(),visible=false)
     xticks(rotation=60)
 
@@ -274,9 +274,9 @@ function interp_fpik_constTr_plot()
     v = value.(vect)
     e = err.(vect)
     fill_between(1 ./ xp[:,1], v-e, v+e, color="orange", alpha=0.5)
-    errorbar(1 ./ x_s[1:3:9,1], value.(fpik_sh[1:3:9]), err.(fpik_sh[1:3:9]), fmt="x", color="purple", label=L"$a\mu_l^{\rm(v)}=???$") ## mus is fixed
-    errorbar(1 ./ x_s[2:3:9,1], value.(fpik_sh[2:3:9]), err.(fpik_sh[2:3:9]), fmt="x", color="green", label=L"$a\mu_l^{\rm(v)}=???$")
-    errorbar(1 ./ x_s[3:3:9,1], value.(fpik_sh[3:3:9]), err.(fpik_sh[3:3:9]), fmt="x", color="blue", label=L"$a\mu_l^{\rm(v)}=???$")
+    errorbar(1 ./ x_s[1:9:27,1], value.(fpik_sh[1:9:27]), err.(fpik_sh[1:9:27]), fmt="x", color="purple", label=L"$a\mu_l^{\rm(v)}=???$") ## mus is fixed
+    errorbar(1 ./ x_s[4:9:27,1], value.(fpik_sh[4:9:27]), err.(fpik_sh[4:9:27]), fmt="x", color="green", label=L"$a\mu_l^{\rm(v)}=???$")
+    errorbar(1 ./ x_s[7:9:27,1], value.(fpik_sh[7:9:27]), err.(fpik_sh[7:9:27]), fmt="x", color="blue", label=L"$a\mu_l^{\rm(v)}=???$")
     kappa_target = 1 / up[1]; uwerr(kappa_target)
     errorbar(value(kappa_target), value(fpik_matched), err(fpik_matched), err(kappa_target), fmt="x", color="black")
     ax[:set_ylim]([value(fpik_sh[1])*0.97, value(fpik_sh[end])*1.03])
@@ -296,9 +296,9 @@ function interp_fpik_constTr_plot()
     v = value.(vect)
     e = err.(vect)
     fill_between(xp[:,2], v-e, v+e, color="orange", alpha=0.5)
-    errorbar(x_s[1:3,2], value.(fpik_sh[1:3]), err.(fpik_sh[1:3]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$")
-    errorbar(x_s[4:6,2], value.(fpik_sh[4:6]), err.(fpik_sh[4:6]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
-    errorbar(x_s[7:9,2], value.(fpik_sh[7:9]), err.(fpik_sh[7:9]), fmt="x", color="blue", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[1:3:9,2], value.(fpik_sh[1:3:9]), err.(fpik_sh[1:3:9]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$") ## mus is fixed
+    errorbar(x_s[10:3:18,2], value.(fpik_sh[10:3:18]), err.(fpik_sh[10:3:18]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[19:3:27,2], value.(fpik_sh[19:3:27]), err.(fpik_sh[19:3:27]), fmt="x", color="blue", label=L"$\kappa^{\rm(v)}=???$")
     mul_target = up[2]; uwerr(mul_target)
     errorbar(value(mul_target), value(fpik_matched), err(fpik_matched), err(mul_target), fmt="x", color="black")
     ax[:set_ylim]([value(fpik_sh[1])*0.97, value(fpik_sh[end])*1.03])
