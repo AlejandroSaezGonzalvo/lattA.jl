@@ -17,9 +17,6 @@ export model_av, pvalue, get_model, fve, fit_alg, fit_defs
 include("fit_funs.jl")
 export md_1, md_2, match_m12_sym, match_phi2_sym, match_m12, match_phi2, match_phi4, interp_fpik_sym, interp_fpik_constTr
 
-include("plot.jl")
-export matching_sym_plot, interp_fpik_sym_plot, matching_constTr_plot, interp_fpik_constTr_plot
-
 include("csv_tools.jl")
 export csv2Corr
 

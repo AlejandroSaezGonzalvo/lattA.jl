@@ -4,6 +4,7 @@ using Revise, lattA, juobs, ADerrors, BDIO, PyPlot
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
+include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
