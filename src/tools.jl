@@ -1,4 +1,4 @@
-using ADerrors, LsqFit, ForwardDiff, LinearAlgebra, SpecialFunctions
+using ADerrors, LsqFit, ForwardDiff, LinearAlgebra, SpecialFunctions, Optim
 
 function get_model(x, p, n)
     s = 0.0
@@ -13,7 +13,7 @@ function fit_defs(f::Function,x,W) ## uncorrelated fit
 	return chisq
 end
 
-function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}, Matrix{Float64}}, y::Vector{uwreal}, 
+function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vector{uwreal}, 
     n::Int64, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
     
@@ -33,6 +33,36 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}, Matrix{Fl
     chi2 = sum(fit.resid .^ 2)
     isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,coef(fit),y) : (up,chi_exp) = fit_error(chisq,coef(fit),y,wpm)
     isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y) : pval = pvalue(chisq,chi2,value.(up),y,wpm=wpm)
+    return up, chi2, chi_exp, pval
+end
+
+function fit_alg(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vector{uwreal}}, 
+    n::Int64, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+    
+    y_n = y[1]
+    x_n = x[1]
+    for i in 2:length(x)
+        y_n = vcat(y_n, y[i])
+        x_n = vcat(x_n, x[i])
+    end
+    idx = [collect(1:size(x[i],1)) for i in 1:length(x)]
+    [idx[i] = idx[i] .+ idx[i-1][end] for i in 2:length(idx)]
+
+    isnothing(wpm) ? [uwerr.(y[i]) for i in 1:length(y)] : [[uwerr(y[i][j], wpm) for j in 1:length(y[i])] for i in 1:length(y)]
+    W = [1 ./ err.(y[i]) .^ 2 for i in 1:length(y)]
+
+    chisq = (par, y_n) -> sum([sum((y_n[idx[i]] .- f[i](x[i], par)) .^ 2 .* W[i]) for i in 1:length(x)])
+    min_fun(t) = chisq(t, value.(y_n))
+    if guess == nothing
+        p0 = [.5 for i in 1:n]
+    else
+        p0 = [guess; [1. for i in 1:n-length(guess)]]
+    end
+    sol = optimize(min_fun, p0, LBFGS()) 
+    chi2 = min_fun(sol.minimizer)
+    isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n) : (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n,wpm)
+    isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y_n) : pval = pvalue(chisq,chi2,value.(up),y_n,wpm=wpm)
     return up, chi2, chi_exp, pval
 end
 

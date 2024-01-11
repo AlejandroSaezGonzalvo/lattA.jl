@@ -79,14 +79,14 @@ uwerr.(m12_sh)
 
 #======== match & full twist =======#
 
-y = [m12_sh; phi4_sh]
-target = [0 .* m12_sh; [phi4_ph for i in 1:length(phi4)]]
+y = [m12_sh, 2/3 .* phi4_sh]
+target = [0 .* m12_sh, [2/3 * phi4_ph for i in 1:length(phi4)]]
 y = y .- target
 
 kappa, mul = ens_kappa[id], ens_mul[id]
 x = [[[kappa[1] for i in 1:3]; [kappa[2] for i in 1:3]; [kappa[3] for i in 1:3]] [mul; mul; mul]]
 
-up, chi2, chi_exp, pv = fit_alg(match_sym,x,y,6,[kappa[2], mul[2]],wpm=wpm) ##kappa->up[1], mul->up[2]
+up, chi2, chi_exp, pv = fit_alg([match_m12_sym, match_phi2_sym],[x, x],y,6,[kappa[2], mul[2]],wpm=wpm) ##kappa->up[1], mul->up[2]
 
 matching_sym_plot()
 

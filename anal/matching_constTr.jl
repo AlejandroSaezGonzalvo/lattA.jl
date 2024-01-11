@@ -91,8 +91,8 @@ uwerr.(m12_sh)
 
 #======== match & full twist =======#
 
-y = [m12_sh; phi2_sh; phi4_sh]
-target = [0 .* m12_sh; [phi2_w_sh for i in 1:length(phi2)]; [phi4_ph for i in 1:length(phi4)]]
+y = [m12_sh, phi2_sh, phi4_sh]
+target = [0 .* m12_sh, [phi2_w_sh for i in 1:length(phi2)], [phi4_ph for i in 1:length(phi4)]]
 y = y .- target
 
 kappa, mul, mus = ens_kappa[id], ens_mul[id], ens_mus[id]
@@ -101,9 +101,9 @@ mul_aux = [[mul[1] for i in 1:3]; [mul[2] for i in 1:3]; [mul[3] for i in 1:3]]
 mus_aux = [mus; mus; mus]
 x_l = [[[kappa[1] for i in 1:3]; [kappa[2] for i in 1:3]; [kappa[3] for i in 1:3]] [mul; mul; mul] [mul; mul; mul]]
 x_s = [kappa_aux [mul_aux; mul_aux; mul_aux] [mus_aux; mus_aux; mus_aux]]
-x = [x_l; x_l; x_s]
+x = [x_l, x_l, x_s]
 
-up, chi2, chi_exp, pv = fit_alg(match_constTr,x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 
 matching_constTr_plot()
 

@@ -10,22 +10,24 @@ function md_2(x1,x2,p)
    return p[1] + p[2] * x1 + p[3] * x1 ^ 2 + p[4] * x1 + p[5] * x1 * x2
 end
 
-function match_sym(x,p)
-    ## m12:
-    f = [p[3] * (1/x[i,1] - 1/p[1]) + p[4] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
-    ## phi4:
-    g = [p[5]* (1/ x[i,1] - 1/p[1]) ^ 2 / x[i,2] + p[6] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
-    return [f;g]
+function match_m12_sym(x,p)
+    return [p[3] * (1/x[i,1] - 1/p[1]) + p[4] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
 end
 
-function match_constTr(x,p)
-    ## m12:
-    f = [p[4] * (1/x[i,1] - 1/p[1]) + p[5] * (x[i,2] - p[2]) for i in 1:length(x_l[:,1])]
-    ## phi2:
-    g = [p[6]* (1/x[i,1] - 1/p[1]) ^ 2 / x[i,2] + p[7] * (x[i,2] - p[2]) for i in length(x_l[:,1])+1:2*length(x_l[:,1])]
-    ## phi4:
-    h = [p[8]* (1/x[i,1] - 1/p[1]) ^ 2 / x[i,2] + p[9] * (1/x[i,1] - 1/p[1]) ^ 2 / x[i,3] + p[10] * (x[i,2] - p[2]) + p[11] * (x[i,3]-p[3]) for i in 2*length(x_l[:,1])+1:2*length(x_l[:,1])+length(x_s[:,1])]
-    return [f;g;h]
+function match_phi2_sym(x,p)
+    return [p[5]* (1/ x[i,1] - 1/p[1]) ^ 2 / x[i,2] + p[6] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
+end
+
+function match_m12(x,p)
+    return [p[4] * (1/x[i,1] - 1/p[1]) + p[5] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
+end
+
+function match_phi2(x,p)
+    return [p[6]* (1/ x[i,1] - 1/p[1]) ^ 2 / x[i,2] + p[7] * (x[i,2] - p[2]) for i in 1:length(x[:,1])]
+end
+
+function match_phi4(x,p)
+    return [p[8]* (1/x[i,1] - 1/p[1]) ^ 2 / x[i,2] + p[9] * (1/x[i,1] - 1/p[1]) ^ 2 / x[i,3] + p[10] * (x[i,2] - p[2]) + p[11] * (x[i,3]-p[3]) for i in 1:length(x[:,1])]
 end
 
 function interp_fpik_sym(x,p)
