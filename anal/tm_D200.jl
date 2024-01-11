@@ -56,8 +56,6 @@ for i in 3:8:length(pp_sym)
     end
 end
 
-mpi, fpi, fk = fve.(mpi, mk, fpi, fk, ens)
-
 #======== mass shift with fit =========#
 
 par = Array{uwreal,1}()

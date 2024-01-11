@@ -33,40 +33,19 @@ fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, t
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
 
+ZA = beta_ZA[ens.beta]
 bAtil = 1 + 0.0472 * (6 / ens.beta)
-fpi = (1 + bAtil * m12) * fpi
-fk = (1 + bAtil * m13) * fk
+fpi = ZA * (1 + bAtil * m12) * fpi
+fk = ZA * (1 + bAtil * m13) * fk 
 
 #======== compute t0/a² ===============#
 
-t0, YW, WY = get_t0(path, ens, [40,80], rw=true, info=true, wpm=wpm)
-
-#======== mass shift with fit =========#
-
-par = Array{uwreal,1}()
-fb = BDIO_open("/home/asaez/cls_ens/results/der_1q.bdio", "r")
-BDIO_seek!(fb); push!(par, read_uwreal(fb))
-while BDIO_seek!(fb, 2) == true push!(par, read_uwreal(fb)) end 
-BDIO_close!(fb)
-
-ZA = beta_ZA[ens.beta]
-phi2 = 8 * t0 * mpi ^ 2
-phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
-fpik = ZA * sqrt(t0) * 2/3 * (fk + 0.5 * fpi)
-
-fpik_sh = fpik + (phi4_ph - phi4) * md_1(phi2, 1/t0, par[1:3])
-phi2_sh = phi2 + (phi4_ph - phi4) * md_1(phi2, 1/t0, par[4:6])
-t0_sh = t0 + (phi4_ph - phi4) * md_1(phi2, 1/t0, par[7:9])
+t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)
 
 #======== save BDIO ===================#
 
 obs = [t0, mpi, mk, m12, m13, fpi, fk]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_un.bdio"), "w")
-for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
-BDIO_close!(fb)
-
-obs = [t0_sh, phi2_sh, fpik_sh]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 

@@ -60,55 +60,14 @@ for i in 4:15:length(pp_sym)
     end
 end
 
-mpi, fpi, fk = fve.(mpi, mk, fpi, fk, ens)
-
-#======== mass shift with fit =========#
-
-par = Array{uwreal,1}()
-fb = BDIO_open("/home/asaez/cls_ens/results/der_1q.bdio", "r")
-BDIO_seek!(fb); push!(par, read_uwreal(fb))
-while BDIO_seek!(fb, 2) == true push!(par, read_uwreal(fb)) end 
-BDIO_close!(fb)
-
-obs = Array{uwreal,1}()
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_un.bdio"), "r")
-BDIO_seek!(fb); push!(obs, read_uwreal(fb))
-for i in 2:3 BDIO_seek!(fb, 2); push!(obs, read_uwreal(fb)) end
-t0, mpi_w, mk_w = obs
-phi4_w = 8 * t0 * (mk_w ^ 2 + 0.5 * mpi_w ^ 2)
-phi2_w = 8 * t0 * mpi_w ^ 2
-
-ZP = beta_ZP[ens.beta]
-phi2 = [8 * t0 * mpi[i] ^ 2 for i in 1:length(mpi)]
-
-c=0
-for i in 1:length(mpi)
-    for j in 2*i-1+c:2*i+1+c
-        push!(phi4, 8 * t0 * (mk[j] ^ 2 + 0.5 * mpi[i] ^ 2))
-        push!(fpik, sqrt(t0) * 2/3 * (fk[j] + 0.5 * fpi[i]))
-    end
-    c+=1
-end
-
-fpik_sh = [fpik[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[10:12]) for i in 1:length(fpik)]
-phi2_sh = [phi2[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[13:15]) for i in 1:length(phi2)]
-phi4_sh = [phi4[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[16:18]) for i in 1:length(phi4)]
-m12_sh = [m12[i] + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[19:23]) * ZP / sqrt(t0) for i in 1:length(m12)]
+## TODO: how to correct for FVE in grid, with several kaons for one single pion???
 
 #======== save BDIO ===================#
 
-obs = [t0, mpi, mk, m12, m13, fpi, fk]
-obs_str = ["t0", "mpi", "mk", "m12", "m13", "fpi", "fk"]
+obs = [mpi, mk, m12, m13, fpi, fk]
+obs_str = ["mpi", "mk", "m12", "m13", "fpi", "fk"]
 for j in 1:length(obs_str)
     fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "w")
-    for i in 1:length(obs[j]) write_uwreal(obs[j][i], fb, i) end
-    BDIO_close!(fb)
-end
-
-obs = [phi2_sh, phi4_sh, m12_sh, fpik_sh]
-obs_str = ["phi2", "phi4", "m12", "fpik"]
-for j in 1:length(obs_str)
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
     for i in 1:length(obs[j]) write_uwreal(obs[j][i], fb, i) end
     BDIO_close!(fb)
 end
