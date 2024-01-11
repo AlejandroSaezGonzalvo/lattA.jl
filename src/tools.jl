@@ -13,7 +13,7 @@ function fit_defs(f::Function,x,W) ## uncorrelated fit
 	return chisq
 end
 
-function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}}, y::Vector{uwreal}, 
+function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}, Matrix{Float64}}, y::Vector{uwreal}, 
     n::Int64, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
     
