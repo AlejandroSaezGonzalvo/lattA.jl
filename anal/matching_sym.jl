@@ -93,7 +93,7 @@ matching_sym_plot()
 #========= interpolate fpik ========#
 
 y = fpik_sh
-up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x,y,4,ens_up_fpik[ens.id],wpm=wpm) ##kappa->up[1], mul->up[2]
+up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x,y,4,ens_up_fpik[ens.id],wpm=wpm)
 fpik_matched = interp_fpik_sym([up[1] up[2]],up_fpik)[1]
 uwerr(fpik_matched)
 

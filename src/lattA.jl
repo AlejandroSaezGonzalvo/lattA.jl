@@ -15,7 +15,7 @@ include("tools.jl")
 export model_av, pvalue, get_model, fve, fit_alg, fit_defs
 
 include("fit_funs.jl")
-export md_1, md_2, match_sym, interp_fpik, interp_fpik_sym
+export md_1, md_2, match_sym, match_constTr, interp_fpik_sym, interp_fpik_constTr
 
 include("plot.jl")
 export matching_sym_plot, interp_fpik_sym_plot

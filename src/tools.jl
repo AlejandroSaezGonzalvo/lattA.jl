@@ -152,7 +152,6 @@ function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vecto
 end
 
 function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
-
     mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
 	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
