@@ -98,7 +98,7 @@ function matching_sym_plot()
     #legend(bbox_to_anchor=(0.5, 0.7))
 
     tight_layout()
-    savefig(string("/home/asaez/cls_ens/results/plots/matching_",id,".pdf"))
+    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/matching_",id,".pdf"))
     close("all")
 end
 
@@ -148,7 +148,7 @@ function interp_fpik_sym_plot()
     #legend(bbox_to_anchor=(0.5, 0.7))
 
     tight_layout()
-    savefig(string("/home/asaez/cls_ens/results/plots/interp_fpik_",id,".pdf"))
+    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/interp_fpik_",id,".pdf"))
     close("all")
 end
 
@@ -256,7 +256,7 @@ function matching_constTr_plot()
     #legend(bbox_to_anchor=(0.5, 0.7))
 
     tight_layout()
-    savefig(string("/home/asaez/cls_ens/results/plots/matching_",id,".pdf"))
+    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/matching_",id,".pdf"))
     close("all")
 end
 
@@ -308,6 +308,6 @@ function interp_fpik_constTr_plot()
     #legend(bbox_to_anchor=(0.5, 0.7))
 
     tight_layout()
-    savefig(string("/home/asaez/cls_ens/results/plots/interp_fpik_",id,".pdf"))
+    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/interp_fpik_",id,".pdf"))
     close("all")
 end

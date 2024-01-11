@@ -47,7 +47,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
 	ylabel("p-value")
 	bar(1:length(m_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/m_",ens.id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/m_",ens.id,"_",PS,".pdf"))
         close("all")
     end
 
@@ -110,7 +110,7 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
         ylabel("p-value")
         bar(1:length(mpcac_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/mpcac_",ens.id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/mpcac_",ens.id,"_",PS,".pdf"))
         close("all")
     end
 
@@ -177,7 +177,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
         ylabel("p-value")
         bar(1:length(R_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",ens.id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,".pdf"))
         close("all")
     end
     
@@ -246,7 +246,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
         ylabel("p-value")
         bar(1:length(R_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",ens.id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,".pdf"))
         close("all")
     end
         
@@ -304,7 +304,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         ylabel("p-value")
         bar(1:length(R_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",ens.id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,".pdf"))
         close("all")
     end
 
@@ -362,7 +362,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
         ylabel("p-value")
         bar(1:length(R_i), pval, color="green")
 
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/R_",ens.id,"_",PS,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,".pdf"))
         close("all")
     end
 
@@ -492,7 +492,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 ylabel("p-value")
                 bar(1:length(t2E_aux_i), pval, color="green")
 
-                savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/t2E_",ens.id,".pdf"))
+                savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t2E_",ens.id,".pdf"))
                 close("all")
             end
         else 
@@ -526,7 +526,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         errorbar(value(t0), 0.3, xerr=err(t0), fmt="x")
         ylabel(L"$t^2E$")
         xlabel(L"$t/a^2$")
-        savefig(string("/home/asaez/cls_ens/codes/analysis_cls/plots/t0_",id,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_",id,".pdf"))
         close("all")
     end
 
