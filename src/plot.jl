@@ -3,7 +3,7 @@ function matching_sym_plot()
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,2] = (up[2]) for i in 1:length(xp[:,1])]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
     ylabel(L"$am_{12}^{\rm (v)}$")  
     #xlabel(L"$1/\kappa^{\rm(v)}$")   
     vect = match_m12_sym(xp, up)
@@ -26,7 +26,7 @@ function matching_sym_plot()
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux")]
-    [xp[i,1] = (up[1]) for i in 1:length(xp[:,1])]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     #ylabel(L"$am_{12}^{\rm (v)}$")  
     #xlabel(L"$\mu_l^{\rm(v)}$")   
     vect = match_m12_sym(xp, up)
@@ -49,7 +49,7 @@ function matching_sym_plot()
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,2] = (up[2]) for i in 1:length(xp[:,1])]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
     ylabel(L"$\phi_2^{\rm (v)}$")  
     xlabel(L"$1/\kappa^{\rm(v)}$")   
     vect = match_phi2_sym(xp, up) .+ 2/3 .* [phi4_ph for i in 1:length(xp[:,1])]
@@ -76,7 +76,7 @@ function matching_sym_plot()
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux")]
-    [xp[i,1] = (up[1]) for i in 1:length(xp[:,1])]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
     xlabel(L"$\mu_l^{\rm(v)}$")   
     vect = match_phi2_sym(xp, up) .+ 2/3 .* [phi4_ph for i in 1:length(xp[:,1])]
@@ -111,7 +111,7 @@ function interp_fpik_sym_plot()
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,2] = (up[2]) for i in 1:length(xp[:,1])]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
     ylabel(L"$\sqrt{t_0}f_{\pi K}^{\rm (v)}$")  
     xlabel(L"$1/\kappa^{\rm(v)}$")   
     vect = interp_fpik_sym(xp, up_fpik) 
@@ -133,7 +133,7 @@ function interp_fpik_sym_plot()
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux")]
-    [xp[i,1] = (up[1]) for i in 1:length(xp[:,1])]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
     xlabel(L"$\mu_l^{\rm(v)}$")   
     vect = interp_fpik_sym(xp, up_fpik) 
@@ -163,8 +163,8 @@ function matching_constTr_plot()
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,2] = (up[2]) for i in 1:length(xp[:,1])]
-    [xp[i,3] = (up[3]) for i in 1:length(xp[:,1])]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     ylabel(L"$am_{12}^{\rm (v)}$")  
     #xlabel(L"$1/\kappa^{\rm(v)}$")   
     vect = match_m12(xp, up)
@@ -187,8 +187,8 @@ function matching_constTr_plot()
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,1] = (up[1]) for i in 1:length(xp[:,1])]
-    [xp[i,3] = (up[3]) for i in 1:length(xp[:,1])]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$am_{12}^{\rm (v)}$")  
     #xlabel(L"$\mu_l^{\rm(v)}$")   
     vect = match_m12(xp, up)
@@ -211,8 +211,8 @@ function matching_constTr_plot()
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,2] = (up[2]) for i in 1:length(xp[:,1])]
-    [xp[i,3] = (up[3]) for i in 1:length(xp[:,1])]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     ylabel(L"$\phi_2^{\rm (v)}$")  
     xlabel(L"$1/\kappa^{\rm(v)}$")   
     vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
@@ -239,8 +239,8 @@ function matching_constTr_plot()
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,1] = (up[1]) for i in 1:length(xp[:,1])]
-    [xp[i,3] = (up[3]) for i in 1:length(xp[:,1])]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
     xlabel(L"$\mu_l^{\rm(v)}$")   
     vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
@@ -275,8 +275,8 @@ function interp_fpik_constTr_plot()
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,2] = (up[2]) for i in 1:length(xp[:,1])]
-    [xp[i,3] = (up[3]) for i in 1:length(xp[:,1])]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     ylabel(L"$\sqrt{t_0}f_{\pi K}^{\rm (v)}$")  
     xlabel(L"$1/\kappa^{\rm(v)}$")   
     vect = interp_fpik_constTr(xp, up_fpik) 
@@ -298,8 +298,8 @@ function interp_fpik_constTr_plot()
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
-    [xp[i,1] = (up[1]) for i in 1:length(xp[:,1])]
-    [xp[i,3] = (up[3]) for i in 1:length(xp[:,1])]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
     xlabel(L"$\mu_l^{\rm(v)}$")   
     vect = interp_fpik_constTr(xp, up_fpik) 
