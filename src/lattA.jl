@@ -18,7 +18,7 @@ include("fit_funs.jl")
 export md_1, md_2, match_sym, match_constTr, interp_fpik_sym, interp_fpik_constTr
 
 include("plot.jl")
-export matching_sym_plot, interp_fpik_sym_plot
+export matching_sym_plot, interp_fpik_sym_plot, matching_constTr_plot, interp_fpik_constTr_plot
 
 include("csv_tools.jl")
 export csv2Corr
