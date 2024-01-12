@@ -56,6 +56,12 @@
         13:15 -> phi2 wtm (grid)
         16:18 -> phi4 wtm (grid)
         19:23 -> sqrt(t0)m12pcac/ZP wtm (grid)
+        24:26 -> sqrt(t0)fpi wilson (impr & ren) 
+        27:29 -> sqrt(t0)fk wilson               
+        30:34 -> sqrt(t0)m12 wilson (unimpr but ren)
+        35:39 -> sqrt(t0)m13 wilson
+        40:42 -> sqrt(t0)fpi wtm (no need for improvement or renormalization since wtm)
+        43:45 -> sqrt(t0)fk wtm 
     ## update w/ m12 wilson, m13 wilson, sqrt(t0)fpi wilson & wtm, sqrt(t0)fk wilson & wtm
 
 6) der_ens_1q.bdio
@@ -64,8 +70,8 @@
         1 -> derivative of sqrt(t0)fpik wilson (improved and renormalized) wrt phi4_wilson
         2 -> ... of phi2 wilson ...
         3 -> t0
-        4 -> sqrt(t0)fpi wilson (impr and ren)
-        5 -> sqrt(t0)fk wilson (impr and ren)
+        4 -> sqrt(t0)fpi wilson (impr and ren) -> check, non-sym ens big errors
+        5 -> sqrt(t0)fk wilson (impr and ren)  -> check, non-sym ens big errors
         6 -> sqrt(t0)m12pcac wilson -> unimproved and unrenormalized -> before extrapolating in beta and phi2, need to renormalize (ZA/ZP) to be phys.
         7 -> sqrt(t0)m13pcac wilson ...
 

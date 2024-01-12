@@ -65,15 +65,18 @@ fpik_w = sqrt(t0) * 2/3 * (fk_w + 0.5 * fpi_w)
 fpik_w_sh = fpik_w + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[1:3]) ## already improved and renormalized
 phi2_w_sh = phi2_w + (phi4_ph - phi4_w) * 2 / 3 ## symmetric point definition
 t0_sh = t0 + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[7:9])
-#m12_w_sh = m12_w + (phi4_ph - phi4_w) * md_?(phi2_w, 1/t0, par[???]) * ZP / sqrt(t0) ## not improved, not renormalized
-#m12_w_sh = (1 + beta_bap[ens.beta] * m12_w_sh) * m12_w_sh
-#m12_w = (1 + beta_bap[ens.beta] * m12_w) * m12_w
+m12_w_sh = m12_w + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[30:34]) * ZP / sqrt(t0) / ZA ## not improved, not renormalized
+m12_w_sh_I = (1 + beta_bap[ens.beta] * m12_w_sh) * m12_w_sh
+m12_w_I = (1 + beta_bap[ens.beta] * m12_w) * m12_w
+fpi_w_sh = fpi_w + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[24:26]) / sqrt(t0)
 
 fpik_sh = [fpik[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[10:12]) for i in 1:length(fpik)]
+fpi_sh = [fpi[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[40:42]) for i in 1:length(fpi)]
 phi2_sh = [phi2[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[13:15]) for i in 1:length(phi2)]
 phi4_sh = [phi4[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[16:18]) for i in 1:length(phi4)]
 m12_sh = [m12[i] + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[19:23]) * ZP / sqrt(t0) for i in 1:length(m12)]
 uwerr.(fpik_sh)
+uwerr.(fpi_sh)
 uwerr.(phi2_sh)
 uwerr.(phi4_sh)
 uwerr.(m12_sh)
@@ -102,12 +105,12 @@ interp_fpik_sym_plot()
 
 #========= save bdio ===============#
 
-obs = [t0_sh, phi2_w_sh, fpik_w_sh]
+obs = [t0_sh, phi2_w_sh, m12_w_sh_I, fpi_w_sh, fpik_w_sh]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
-obs = [up[1], up[2], up[2], fpik_matched]
+obs = [up[1], up[2], up[2], fpik_matched, fpik_matched]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)

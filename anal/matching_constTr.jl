@@ -75,17 +75,26 @@ uwerr(phi4_w)
 fpik_w = sqrt(t0) * 2/3 * (fk_w + 0.5 * fpi_w)
 
 fpik_w_sh = fpik_w + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[1:3]) ## already improved and renormalized
+fpi_w_sh = fpi_w + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[24:26]) / sqrt(t0)
+fk_w_sh = fk_w + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[27:29]) / sqrt(t0) 
 phi2_w_sh = phi2_w + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[4:6])
 t0_sh = t0 + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[7:9])
-#m12_w_sh = m12_w + (phi4_ph - phi4_w) * md_?(phi2_w, 1/t0, par[???]) * ZP / sqrt(t0) ## not improved, not renormalized
-#m12_w_sh = (1 + beta_bap[ens.beta] * m12_w_sh) * m12_w_sh
-#m12_w = (1 + beta_bap[ens.beta] * m12_w) * m12_w
+m12_w_sh = m12_w + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[30:34]) * ZP / sqrt(t0) / ZA ## not improved, not renormalized
+m12_w_sh_I = (1 + beta_bap[ens.beta] * m12_w_sh) * m12_w_sh
+m12_w_I = (1 + beta_bap[ens.beta] * m12_w) * m12_w
+m13_w_sh = m13_w + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[35:39]) * ZP / sqrt(t0) / ZA ## not improved, not renormalized
+m13_w_sh_I = (1 + beta_bap[ens.beta] * m13_w_sh) * m13_w_sh
+m13_w_I = (1 + beta_bap[ens.beta] * m13_w) * m13_w
 
 fpik_sh = [fpik[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[10:12]) for i in 1:length(fpik)]
+fpi_sh = [fpi[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[40:42]) for i in 1:length(fpi)]
+fk_sh = [fk[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[43:45]) for i in 1:length(fk)]
 phi2_sh = [phi2[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[13:15]) for i in 1:length(phi2)]
 phi4_sh = [phi4[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[16:18]) for i in 1:length(phi4)]
 m12_sh = [m12[i] + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[19:23]) * ZP / sqrt(t0) for i in 1:length(m12)]
 uwerr.(fpik_sh)
+uwerr.(fpi_sh)
+uwerr.(fk_sh)
 uwerr.(phi2_sh)
 uwerr.(phi4_sh)
 uwerr.(m12_sh)
@@ -104,7 +113,8 @@ x_l = [[[kappa[1] for i in 1:3]; [kappa[2] for i in 1:3]; [kappa[3] for i in 1:3
 x_s = [kappa_aux [mul_aux; mul_aux; mul_aux] [mus_aux; mus_aux; mus_aux]]
 x = [x_l, x_l, x_s]
 
-up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+#up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 
 matching_constTr_plot()
 
@@ -117,14 +127,24 @@ uwerr(fpik_matched)
 
 interp_fpik_constTr_plot()
 
+y = fk_sh
+up_fk, chi2, chi_exp, pv = fit_alg(interp_fpik_constTr,x_s,y,5,rand(5),wpm=wpm) 
+fk_matched = interp_fpik_constTr([up[1] up[2] up[3]],up_fk)[1]
+uwerr(fk_matched)
+
+y = fpi_sh
+up_fpi, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x_l,y,4,rand(4),wpm=wpm)
+fpi_matched = interp_fpik_sym([up[1] up[2]],up_fpi)[1]
+uwerr(fpi_matched)
+
 #========= save bdio ===============#
 
-obs = [t0_sh, phi2_w_sh, fpik_w_sh]
+obs = [t0_sh, phi2_w_sh, m12_w_sh_I, m13_w_sh_I, fpi_w_sh, fk_w_sh, fpik_w_sh]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
-obs = [up[1], up[2], up[3], fpik_matched]
+obs = [up[1], up[2], up[3], fpi_matched, fk_matched, fpik_matched]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
