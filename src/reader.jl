@@ -54,9 +54,10 @@ function get_corr_tm(path::String, ens::EnsInfo, g1::String, g2::String; rw=fals
         concat_data!(dat,dat_3)
         concat_data!(dat,dat_2)
     elseif ens.id == "N300"
+        rwf = read_ms1.(path_rw, v=ens.vrw)
         dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
         dat = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
-        truncate_data!(dat,199)
+        truncate_data!(dat,[199])
         concat_data!(dat,dat_1)
     else
         rwf = read_ms1.(path_rw, v=ens.vrw)
