@@ -12,9 +12,9 @@ function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
         rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
         rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
         rwf = [hcat(rwf_1[1],rwf_2[1])]
-        dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
+        dat = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
         dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
-        concat_data!(dat_1,dat_2)
+        concat_data!(dat,dat_2)
     else
         rwf = read_ms1.(path_rw, v=ens.vrw)
         dat = read_mesons([path[i] for i in 1:length(path)], g1, g2, legacy=legacy, id=ens.id)
@@ -41,23 +41,23 @@ function get_corr_tm(path::String, ens::EnsInfo, g1::String, g2::String; rw=fals
 
     if ens.id == "J303"
         rwf = read_ms1.(path_rw, v=ens.vrw)
-        dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
+        dat = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
         dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
-        concat_data!(dat_1,dat_2)
+        concat_data!(dat,dat_2)
     elseif ens.id == "D200"
         rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
         rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
         rwf = [hcat(rwf_2[1],rwf_1[1])]
-        dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
+        dat = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
         dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
         dat_3 = read_mesons([path[3]], g1, g2, legacy=legacy, id=ens.id)
-        concat_data!(dat_1,dat_3)
-        concat_data!(dat_1,dat_2)
+        concat_data!(dat,dat_3)
+        concat_data!(dat,dat_2)
     elseif ens.id == "N300"
         dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
-        dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
-        truncate_data!(dat_2,199)
-        concat_data!(dat_2,dat_1)
+        dat = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
+        truncate_data!(dat,199)
+        concat_data!(dat,dat_1)
     else
         rwf = read_ms1.(path_rw, v=ens.vrw)
         dat = read_mesons([path[i] for i in 1:length(path)], g1, g2, legacy=legacy, id=ens.id)
@@ -259,3 +259,36 @@ function get_YW(path::String, ens::EnsInfo, plat::Vector{Int64}; rw=false, npol:
 
     return WY_aux, W_obs
 end
+
+function concat_data!(data1::Vector{CData}, data2::Vector{CData})
+    N = length(data1)
+    if length(data1) != length(data2) 
+        error("number of correlators do not match")
+    end
+    for k = 1:N
+        data1[k].vcfg = vcat(data1[k].vcfg, data2[k].vcfg)
+        data1[k].re_data = vcat(data1[k].re_data, data2[k].re_data)
+        data1[k].im_data = vcat(data1[k].im_data, data2[k].im_data)
+    end
+    return nothing
+end
+
+function concat_data!(data1::Vector{Vector{CData}}, data2::Vector{Vector{CData}})
+    N = length(data1)
+    if length(data1) != length(data2) 
+        error("number of correlators do not match")
+    end
+    R = length(data1[1])
+    if length(data1[1]) != length(data2[1])
+        error("number of replicas do not match")
+    end
+    for k = 1:N
+        for r = 1:R
+            data1[k][r].vcfg = vcat(data1[k][r].vcfg, data2[k][r].vcfg)
+            data1[k][r].re_data = vcat(data1[k][r].re_data, data2[k][r].re_data)
+            data1[k][r].im_data = vcat(data1[k][r].im_data, data2[k][r].im_data)
+        end
+    end
+    return nothing
+end
+
