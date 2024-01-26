@@ -260,7 +260,7 @@ function get_YW(path::String, ens::EnsInfo, plat::Vector{Int64}; rw=false, npol:
     return WY_aux, W_obs
 end
 
-function concat_data!(data1::Vector{CData}, data2::Vector{CData})
+function concat_data!(data1::Vector{juobs.CData}, data2::Vector{juobs.CData})
     N = length(data1)
     if length(data1) != length(data2) 
         error("number of correlators do not match")
@@ -273,7 +273,7 @@ function concat_data!(data1::Vector{CData}, data2::Vector{CData})
     return nothing
 end
 
-function concat_data!(data1::Vector{Vector{CData}}, data2::Vector{Vector{CData}})
+function concat_data!(data1::Vector{Vector{juobs.CData}}, data2::Vector{Vector{juobs.CData}})
     N = length(data1)
     if length(data1) != length(data2) 
         error("number of correlators do not match")
