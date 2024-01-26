@@ -426,7 +426,13 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     if rw
         path_rw = joinpath(path, ens.id, "rwf")
         path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
-        rwf = read_ms1.(path_rw, v=ens.vrw)
+        if ens.id == "D200"
+            rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
+            rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
+            rwf = [hcat(rwf_2[1],rwf_1[1])]
+        else
+            rwf = read_ms1.(path_rw, v=ens.vrw)
+        end
 
         Ysl_r, W = juobs.apply_rw(Ysl, rwf)
         tmp_r = Ysl_r[1]
