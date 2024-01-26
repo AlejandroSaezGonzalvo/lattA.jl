@@ -74,7 +74,7 @@ fpik_sh = [fpik[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[10:12]) for i i
 fpi_sh = [fpi[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[40:42]) for i in 1:length(fpi)]
 phi2_sh = [phi2[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[13:15]) for i in 1:length(phi2)]
 phi4_sh = [phi4[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[16:18]) for i in 1:length(phi4)]
-m12_sh = [m12[i] + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[19:23]) * ZP / sqrt(t0) for i in 1:length(m12)]
+m12_sh = [m12[i] + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[19:23]) * ZP / sqrt(t0) / ZA for i in 1:length(m12)]
 uwerr.(fpik_sh)
 uwerr.(fpi_sh)
 uwerr.(phi2_sh)

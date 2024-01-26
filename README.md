@@ -55,7 +55,7 @@
         10:12 -> sqrt(t0)fpik wtm (no need for improvement or renormalization since wtm)
         13:15 -> phi2 wtm (grid)
         16:18 -> phi4 wtm (grid)
-        19:23 -> sqrt(t0)m12pcac/ZP wtm (grid)
+        19:23 -> ZA*sqrt(t0)m12pcac/ZP wtm (grid)
         24:26 -> sqrt(t0)fpi wilson (impr & ren) 
         27:29 -> sqrt(t0)fk wilson               
         30:34 -> sqrt(t0)m12 wilson (unimpr but ren)
@@ -81,6 +81,6 @@
         1 -> sqrt(t0)fpik wtm (wtm thus unimpr and unren, but no need, already physical)
         2 -> phi2 wtm
         3 -> phi4 wtm
-        4 -> sqrt(t0)m12pcac wtm -> before extrapolating in beta and phi2, need to renormalize with 1/ZP to be physical
+        4 -> sqrt(t0)m12pcac wtm -> before extrapolating in beta and phi2, need to renormalize with ZA/ZP to be physical
         5 -> sqrt(t0)fpi wtm
         6 -> sqrt(t0)fk wtm
