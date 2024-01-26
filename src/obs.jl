@@ -426,7 +426,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     if rw
         path_rw = joinpath(path, ens.id, "rwf")
         path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
-        rwf = read_ms1.(path_rw)
+        rwf = read_ms1.(path_rw, v=ens.vrw)
 
         Ysl_r, W = juobs.apply_rw(Ysl, rwf)
         tmp_r = Ysl_r[1]

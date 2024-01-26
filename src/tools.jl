@@ -96,8 +96,8 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64;
     TIC = TIC .- minimum(TIC)
     weight = exp.(-0.5 .* TIC) ./ sum(exp.(-0.5 .* TIC))
     p_av = sum(p_1 .* weight)
-    syst = sqrt(sum(p_1 .^ 2 .* weight) - p_av ^ 2)
-    return p_av, syst, p_1, weight, pval
+    syst2 = sum(p_1 .^ 2 .* weight) - p_av ^ 2
+    return p_av, syst2, p_1, weight, pval
 end
 
 function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vector{uwreal};
