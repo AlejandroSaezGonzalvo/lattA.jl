@@ -8,9 +8,18 @@ function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
     path = joinpath(path, ens.id, "wil")
     path = filter(x->occursin(".mesons.dat", x), readdir(path, join=true))
 
-    rwf = read_ms1.(path_rw, v=ens.vrw)
-    dat = read_mesons([path[i] for i in 1:length(path)], g1, g2, legacy=legacy, id=ens.id)
-    truncate_data!(dat,ens.cnfg)
+    if ens.id == "D200"
+        rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
+        rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
+        rwf = [hcat(rwf_1[1],rwf_2[1])]
+        dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
+        dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
+        concat_data!(dat_1,dat_2)
+    else
+        rwf = read_ms1.(path_rw, v=ens.vrw)
+        dat = read_mesons([path[i] for i in 1:length(path)], g1, g2, legacy=legacy, id=ens.id)
+        truncate_data!(dat,ens.cnfg)
+    end
 
     rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=L[index], info=info, flag_strange=fs) for i in 1:length(dat)]
 
@@ -30,9 +39,30 @@ function get_corr_tm(path::String, ens::EnsInfo, g1::String, g2::String; rw=fals
     path = joinpath(path, ens.id, "tm")
     path = filter(x->occursin(".mesons.dat", x), readdir(path, join=true))
 
-    rwf = read_ms1.(path_rw, v=ens.vrw)
-    dat = read_mesons([path[i] for i in 1:length(path)], g1, g2, legacy=legacy, id=ens.id)
-    truncate_data!(dat,ens.cnfg)
+    if ens.id == "J303"
+        rwf = read_ms1.(path_rw, v=ens.vrw)
+        dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
+        dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
+        concat_data!(dat_1,dat_2)
+    elseif ens.id == "D200"
+        rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
+        rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
+        rwf = [hcat(rwf_2[1],rwf_1[1])]
+        dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
+        dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
+        dat_3 = read_mesons([path[3]], g1, g2, legacy=legacy, id=ens.id)
+        concat_data!(dat_1,dat_3)
+        concat_data!(dat_1,dat_2)
+    elseif ens.id == "N300"
+        dat_1 = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
+        dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
+        truncate_data!(dat_2,199)
+        concat_data!(dat_2,dat_1)
+    else
+        rwf = read_ms1.(path_rw, v=ens.vrw)
+        dat = read_mesons([path[i] for i in 1:length(path)], g1, g2, legacy=legacy, id=ens.id)
+        truncate_data!(dat,ens.cnfg)
+    end
 
     rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=L[index], info=info, flag_strange=fs) for i in 1:length(dat)]
 
