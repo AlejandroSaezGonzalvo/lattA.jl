@@ -323,3 +323,53 @@ function interp_fpik_constTr_plot()
     savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/interp_fpik_",id,".pdf"))
     close("all")
 end
+
+function t0_model_av(ix::Int64) ## ix -> 1: Wtm, 2:Wilson, 3:combined
+    #mods = mods_346
+
+    str = ["wtm", "wilson", "combined"]
+    sqrt_t0_vec = sqrt_t0_ph_vec[ix]
+    sqrt_t0 = sqrt_t0_ph[ix]
+    W = W_aux[ix]
+    pval = pval_aux[ix]
+
+    fig = figure(str[ix],figsize=(5,5))
+    rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+    rcParams["font.size"] = 12
+
+    subplot(311) 
+    #mods = collect(1:length(sqrt_t0_vec))
+    x = collect(1:1:length(mods))
+    ax = gca() 
+    ylabel(L"$\sqrt{t_0}\;\;[fm]$")   
+    v = [value(sqrt_t0) for i in 1:length(sqrt_t0_vec)]
+    e = [err(sqrt_t0) for i in 1:length(sqrt_t0_vec)]
+    fill_between(x, v-e, v+e, color="deepskyblue", alpha=0.75)
+    errorbar(x, value.(sqrt_t0_vec), err.(sqrt_t0_vec), fmt="x", color="black")
+    ax[:set_ylim]([0.139, 0.1477])
+    ax[:set_xlim]([0, length(mods)+1])
+    plt.xticks(x, mods)
+    setp(ax.get_xticklabels(),visible=false)
+
+    subplot(312) 
+    bar(x, pval, color="deepskyblue")
+    ylabel("p-value")
+    ax = gca()
+    #ax[:set_ylim]([0.0, 0.40])
+    plt.xticks(x, mods)
+    #ax.set_yscale("log")
+    ax[:set_xlim]([0, length(mods)+1])
+    setp(ax.get_xticklabels(),visible=false)
+
+    subplot(313) 
+    ax = gca()
+    bar(x, W, color="deepskyblue")
+    #ax[:set_ylim]([0.0, 0.1])
+    ylabel("W")
+    plt.xticks(x, mods)
+    xticks(rotation=90)
+    ax[:set_xlim]([0, length(mods)+1])
+
+    tight_layout()
+    subplots_adjust(hspace=0.15) 
+end

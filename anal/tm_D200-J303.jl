@@ -8,7 +8,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "D200"
+id = "J303"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -17,7 +17,11 @@ const md_meas = false
 
 #======== read correlators ===========#
 
-pp_sym, ap_sym, corrw, dSdm = read_ens_tm(path, ens, legacy=true)
+if ens.id in ["H102r001", "H102r002", "H105", "H105r005", "N203", "N200"]
+    pp_sym, ap_sym = read_ens_csv(ens)
+else
+    pp_sym, ap_sym, corrw, dSdm = read_ens_tm(path, ens, legacy=true)
+end
 
 #======== compute observables ========#
 
@@ -51,25 +55,22 @@ for i in 3:8:length(pp_sym)
         push!(mk, mk_aux[1])
         m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
         push!(m13, m13_aux[1])
-        fk_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+        fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
         push!(fk, fk_aux[1])
     end
 end
 
-#======== mass shift with fit =========#
-
-par = Array{uwreal,1}()
-fb = BDIO_open("/home/asaez/cls_ens/results/der_1q.bdio", "r")
-BDIO_seek!(fb); push!(par, read_uwreal(fb))
-while BDIO_seek!(fb, 2) == true push!(par, read_uwreal(fb)) end 
-BDIO_close!(fb)
+## TODO: how to correct for FVE in grid, with several kaons for one single pion???
 
 #======== save BDIO ===================#
 
-obs = [t0, mpi, mk, m12, m13, fpi, fk]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_tm_un.bdio"), "w")
-for a in obs write_uwreal(a, fb, i) end
-BDIO_close!(fb)
+obs = [mpi, mk, m12, m13, fpi, fk]
+obs_str = ["mpi", "mk", "m12", "m13", "fpi", "fk"]
+for j in 1:length(obs_str)
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "w")
+    for i in 1:length(obs[j]) write_uwreal(obs[j][i], fb, i) end
+    BDIO_close!(fb)
+end
 
 #============ get md ==================#
 
