@@ -8,7 +8,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H101"
+id = "N202"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -16,7 +16,7 @@ path = "/home/asaez/cls_ens/data"
 #=========== read bdio ================#
 
 obs = Array{uwreal,1}()
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_un.bdio"), "r")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_obs_wil_un.bdio"), "r")
 BDIO_seek!(fb); push!(obs, read_uwreal(fb))
 for i in 2:7 BDIO_seek!(fb, 2); push!(obs, read_uwreal(fb)) end
 BDIO_close!(fb)
@@ -29,7 +29,7 @@ uwerr(phi4_w)
 obs = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 obs_str = ["mpi", "m12", "fpi"]
 for j in 1:length(obs_str)
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "r")
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "r")
     BDIO_seek!(fb); push!(obs[j], read_uwreal(fb))
     while BDIO_seek!(fb, 2) == true push!(obs[j], read_uwreal(fb)) end 
     BDIO_close!(fb)
@@ -106,11 +106,11 @@ interp_fpik_sym_plot()
 #========= save bdio ===============#
 
 obs = [t0_sh, phi2_w_sh, m12_w_sh_I, fpi_w_sh, fpik_w_sh]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
 obs = [up[1], up[2], up[2], fpik_matched, fpik_matched]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
