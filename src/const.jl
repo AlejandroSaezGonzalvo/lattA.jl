@@ -1,3 +1,5 @@
+using LaTeXStrings
+
 const ensemble = Dict(
     1  => "H101",
     2  => "H102r001",

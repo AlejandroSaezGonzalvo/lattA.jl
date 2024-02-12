@@ -16,7 +16,7 @@ const md_meas = false
 
 #======== read correlators ===========#
 
-pp_sym, ap_sym, corr, corr_val, corrw, dSdm = read_ens_wil(path, ens, legacy=true)
+pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=true)
 
 #======== compute observables ========#
 
@@ -49,7 +49,26 @@ fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_obs_wil_un.bdio"
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
-#============ get md ==================#
+#============ get md & dm =============#
+
+phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
+a = phi4
+md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
+md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
+v1 = v2 = s1 = s2 = 0
+for i in 1:length(md_v)
+    v1 += md_v[i][1]
+    v2 += md_v[i][2]
+    s1 += md_s[i][1]
+    s2 += md_s[i][2]
+end
+s1 += md_s[end][1]
+s2 += md_s[end][2]
+dm = (phi4_ph - phi4) / (s2 + v2)
+
+fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/dm_", ens.id, "_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+write_uwreal(dm, fb, 1) end
+BDIO_close!(fb)
 
 if md_meas == true
     phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)

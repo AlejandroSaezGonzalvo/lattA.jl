@@ -102,7 +102,7 @@ function read_ens_wil(path::String, ens::EnsInfo; legacy=false, fs=false)
     corr_val = [[pp_val[i] for i in 1:length(pp)]; [ap_val[i] for i in 1:length(ap)]];
     corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
 
-    return pp_sym, ap_sym, corr, corr_val, corrw, dSdm
+    return pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w
 end
 
 function read_ens_tm_sym(path::String, ens::EnsInfo; legacy=false)
