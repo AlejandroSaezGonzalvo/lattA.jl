@@ -94,7 +94,14 @@ function read_ens_wil(path::String, ens::EnsInfo; legacy=false, fs=false)
     pp_d2 = get_corr_wil(path, ens, "G5_d2", "G5_d2", rw=true, legacy=legacy);
     ap_d1 = get_corr_wil(path, ens, "G5_d1", "G0G5_d1", rw=true, legacy=legacy);
     ap_d2 = get_corr_wil(path, ens, "G5_d2", "G0G5_d2", rw=true, legacy=legacy);
-    dSdm = get_dSdm(path, ens)
+    if ens.id == "D200"
+        dSdm = get_dSdm(path, ens)
+        aux = [hcat(dSdm[3], dSdm[1])]
+        aux = [hcat(aux[1], dSdm[2])]
+        dSdm = aux
+    else
+        dSdm = get_dSdm(path, ens)
+    end
 
     pp_val = [[pp_d1[i], pp_d2[i]] for i in 1:length(pp_d1)];
     ap_val = [[ap_d1[i], ap_d2[i]] for i in 1:length(ap_d1)];
