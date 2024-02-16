@@ -90,5 +90,5 @@ function csv2Corr(path::String, ivrep::Union{Nothing, Vector{Int64}}=nothing; tr
         obs = [uwreal(aux_data[:, k], id, aux_ivrep) for k = 1:size(data, 2)]
     end    
 
-    return juobs.Corr(obs, k, mu, gamma, y0)
+    return juobs.Corr(obs, k, mu, gamma, y0, [.0,.0,.0], [.0,.0,.0])
 end
