@@ -30,7 +30,8 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
         ylabel(L"$m_\mathrm{eff}$")
         xlabel(L"$x_0$")
-        ylim(v-10*e, v+20*e)
+        ylim(v-5*e, v+20*e)
+        tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/m_",ens.id,"_",PS,"_plat.pdf"))
         
@@ -102,6 +103,7 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
         ylabel(L"$m_\mathrm{pcac}$")
         xlabel(L"$x_0$")
         ylim(v-10*e, v+20*e)
+        tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/mpcac_",ens.id,"_",PS,"_plat.pdf"))
         
@@ -176,7 +178,8 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
-        ylim(v-10*e, v+20*e)
+        ylim(v-100*e, v+20*e)
+        tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
         
@@ -253,7 +256,8 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
-        ylim(v-10*e, v+20*e)
+        ylim(v-100*e, v+20*e)
+        tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
         
@@ -319,7 +323,8 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
-        ylim(v-10*e, v+20*e)
+        ylim(v-100*e, v+20*e)
+        tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
         
@@ -385,7 +390,8 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
-        ylim(v-10*e, v+20*e)
+        ylim(v-100*e, v+20*e)
+        tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
         
@@ -530,6 +536,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 ylabel(L"$t^2\left<E\right>$")
                 xlabel(L"$x_0$")
                 ylim(v-5*e, v+20*e)
+                tight_layout()
 
                 savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t2E_",ens.id,"_plat.pdf"))
                 

@@ -45,7 +45,7 @@ fk = ZA * (1 + bAtil * m13) * fk
 
 #======== compute t0/a² ===============#
 
-t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)
+t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM, pl=true)
 
 #======== save BDIO ===================#
 
