@@ -44,8 +44,18 @@ function fit_alg(model::Function, xdata::Array{<:Real}, ydata::Array{uwreal}, pa
     return upar, chi_exp, chi2, pval, doff 
 end
 
-function model_continuum(x,p)
+function SU3_continuum(x,p)
     f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) for i in 1:length(x[:,1])]
+    return f
+end
+
+function Tay_continuum(x,p)
+    f = [p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2 for i in 1:length(x[:,1])]
+    return f
+end
+
+function Tay4_continuum(x,p)
+    f = [p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2 + p[3] * (x[i,2] - x[i,4]) ^ 4 for i in 1:length(x[:,1])]
     return f
 end
 
@@ -54,52 +64,47 @@ function alphas(x)
     return f
 end
 
-function cutoff(x)
-    f = [1 + x[i,1] / 8 * Lambda ^ 2 * 8 * pi * b0 * alphas(x[i,1]) ^ G1 + x[i,1] / 8 * Lambda ^ 2 * 8 * pi * b0 * alphas(x[i,1]) ^ G2 - (x[i,1] / 8) ^ 2 for i in 1:length(x[:,1])]
+function cutoff_true(x)
+    f = [1 + x[i,1] / 8 * Lambda ^ 2 * 8 * pi * b0 * alphas(x[i,1]) ^ G1 + 0 * x[i,1] / 8 * Lambda ^ 2 * 8 * pi * b0 * alphas(x[i,1]) ^ G2 - 0 * (x[i,1] / 8) ^ 2 for i in 1:length(x[:,1])]
     return f
 end
 
 function model_true(x,p)
-    return model_continuum(x,p) .* cutoff(x)
+    return SU3_continuum(x,p) .* cutoff_true(x)
 end
 
-function model2_ChPT_a1(x,p) 
-    f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,1] for i in 1:length(x[:,1])]
+function ChPT_a2(x,p) 
+    f = SU3_continuum(x,p) .* [1 + p[3] * x[i,1] / 8 for i in 1:length(x[:,1])]
     return f
 end
 
-function model2_ChPT_a4(x,p) 
-    f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,2] * x[i,1] + p[4] * x[i,1] for i in 1:length(x[:,1])]
+function ChPT_a2alphas(x,p) 
+    f = SU3_continuum(x,p) .* [1 + p[3] * x[i,1] / 8 * alphas(x[i,1]) ^ p[4] for i in 1:length(x[:,1])]
     return f
 end
 
-function model2_Taylor_a1(x,p) 
-    f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * x[i,1] for i in 1:length(x[:,1])]
+function ChPT_a2phi2(x,p) 
+    f = SU3_continuum(x,p) .* [1 + p[3] * x[i,1] / 8 + p[4] * x[i,1] / 8 * x[i,2] for i in 1:length(x[:,1])]
     return f
 end
 
-function model2_Taylor4_a1(x,p) 
-    f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * (x[i,2] - x[i,4]) ^ 4 + p[4] * x[i,1] for i in 1:length(x[:,1])]
+function Taylor2_a2(x,p) 
+    f = Tay_continuum(x,p) .* [1 + p[3] * x[i,1] / 8 for i in 1:length(x[:,1])]
     return f
 end
 
-function model2_Taylor4_a4(x,p) 
-    f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * (x[i,2] - x[i,4]) ^ 4 + p[4] * x[i,1] + p[5] * x[i,1] * x[i,2] for i in 1:length(x[:,1])]
+function Taylor2_a2phi2(x,p) 
+    f = Tay_continuum(x,p) .* [1 + p[3] * x[i,1] / 8 + p[4] * x[i,1] / 8 * x[i,2] for i in 1:length(x[:,1])]
     return f
 end
 
-function model2_Taylor_a4(x,p) 
-    f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * x[i,2] * x[i,1] + p[4] * x[i,1] for i in 1:length(x[:,1])]
+function Taylor4_a2(x,p) 
+    f = Tay4_continuum(x,p) .* [1 + p[4] * x[i,1] / 8 for i in 1:length(x[:,1])]
     return f
 end
 
-function model2_Taylor_a5(x,p) 
-    f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * x[i,2] * x[i,1] + p[4] * x[i,1] + p[5] * x[i,1] ^ 2 for i in 1:length(x[:,1])]
-    return f
-end
-
-function model2_Taylor4_a5(x,p) 
-    f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] *  (x[i,2] - x[i,4]) ^ 4 + p[4] * x[i,2] * x[i,1] + p[5] * x[i,1] + p[6] * x[i,1] ^ 2 for i in 1:length(x[:,1])]
+function Taylor4_a4(x,p) 
+    f = Tay4_continuum(x,p) .* [1 + p[4] * x[i,1] / 8 + p[5] * (x[i,1] / 8) ^ 2  for i in 1:length(x[:,1])]
     return f
 end
 
@@ -144,8 +149,8 @@ cut = [collect(1:n), [collect(1:11); collect(13:22); collect(24:33); collect(35:
 y = [dat[cut[i]] for i in 1:length(cut)];
 xcut = [x[cut[i],:] for i in 1:length(cut)];
 
-models = [model2_ChPT_a1; model2_ChPT_a4; model2_Taylor_a1; model2_Taylor4_a1; model2_Taylor_a4; model2_Taylor_a5; model2_Taylor4_a5; model2_Taylor4_a4]
-params = [3,4,3,4,4,5,6,5]
+models = [ChPT_a2; ChPT_a2phi2; ChPT_a2alphas; Taylor2_a2; Taylor2_a2phi2; Taylor4_a2; Taylor4_a4]
+params = [3,4,4,3,4,4,5]
 
 TIC = Array{Float64,1}()
 pval_vec = Array{Float64,1}()

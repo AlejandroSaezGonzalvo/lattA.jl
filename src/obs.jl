@@ -35,26 +35,51 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/m_",ens.id,"_",PS,"_plat.pdf"))
         
+        models = Array{String,1}()
+        for i in 1:length(tm[1])
+            for j in 1:length(tM[1])
+            push!(models, string("[",tm[1][i],",",tM[1][j],"]"))
+            end
+        end
+        for i in 1:length(tm[2])
+            for j in 1:length(tM[2])
+            push!(models, string("[",tm[2][i],",",tM[2][j],"]"))
+            end
+        end
+
         figure()
 	    subplot(411)
         fill_between(1:length(m_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
         ylabel(L"$m_\mathrm{eff}$")
         xlabel(L"$x_0$")
-        ylim(v-100*e, v+100*e)
+        ylim(v-10*e, v+20*e)
+        ax = gca()
+        setp(ax.get_xticklabels(),visible=false)
 
         subplot(412)
         ylabel(L"$m_i$")
         fill_between(1:length(m_i), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(m_i), value.(m_i), err.(m_i), fmt="x", color="black")
+        ax = gca()
+        ax[:set_xlim]([0, length(models)+1])
+        setp(ax.get_xticklabels(),visible=false)
 
         subplot(413)
         ylabel(L"$W_i$")
         bar(1:length(m_i), weight, color="green")
+        ax = gca()
+        ax[:set_xlim]([0, length(models)+1])
+        setp(ax.get_xticklabels(),visible=false)
 
         subplot(414)
         ylabel("p-value")
         bar(1:length(m_i), pval, color="green")
+        ax = gca()
+        ax[:set_xlim]([0, length(models)+1])
+        plt.xticks(collect(1:length(m_i)), models)
+        xticks(rotation=90)
+        tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/m_",ens.id,"_",PS,".pdf"))
         close("all")

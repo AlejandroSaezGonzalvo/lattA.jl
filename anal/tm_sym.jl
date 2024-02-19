@@ -23,9 +23,6 @@ pp_sym, ap_sym, corrw, dSdm = read_ens_tm_sym(path, ens, legacy=true)
 tm = [[10], collect(20:5:div(ens.T,2)-5)]
 tM = [[ens.T-10], collect(div(ens.T,2)+5:5:ens.T-20)]
 
-#tm = [[30], [30]]
-#tM = [[60], [60]]
-
 mpi = Array{uwreal,1}()
 m12 = Array{uwreal,1}()
 fpi = Array{uwreal,1}()
