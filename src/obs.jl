@@ -30,7 +30,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
         ylabel(L"$m_\mathrm{eff}$")
         xlabel(L"$x_0$")
-        ylim(v-5*e, v+20*e)
+        ylim(v-7*e, v+20*e)
         tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/m_",ens.id,"_",PS,"_plat.pdf"))
