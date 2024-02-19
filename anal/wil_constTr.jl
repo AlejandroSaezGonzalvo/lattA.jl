@@ -67,7 +67,7 @@ s2 += md_s[end][2]
 dm = (phi4_ph - phi4) / (s2 + v2)
 
 fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/dm_", ens.id, "_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
-write_uwreal(dm, fb, 1) end
+write_uwreal(dm, fb, 1)
 BDIO_close!(fb)
 
 if md_meas == true

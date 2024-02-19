@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H101"
+id = "N302"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -16,29 +16,27 @@ const md_meas = false
 
 #======== read correlators ===========#
 
-pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=true)
+#pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=true)
 
 #======== compute observables ========#
 
 tm = [[10], collect(20:5:div(ens.T,2)-5)]
 tM = [[ens.T-10], collect(div(ens.T,2)+5:5:ens.T-20)]
 
-mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
-mk = mpi
-m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
-m13 = m12
-fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
-fk = fpi
+mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
-fk = fpi ## need to "impose" this after fve in case of sym ens
-mk = mpi
 
 ZA = beta_ZA[ens.beta]
 bAtil = 1 + 0.0472 * (6 / ens.beta)
 fpi = ZA * (1 + bAtil * m12) * fpi
-fk = ZA * (1 + bAtil * m13) * fk
+fk = ZA * (1 + bAtil * m13) * fk 
 
 #======== compute t0/a² ===============#
 
@@ -66,13 +64,14 @@ for i in 1:length(md_v)
 end
 s1 += md_s[end][1]
 s2 += md_s[end][2]
-dm = (phi4_ph - phi4) / (2*s1 + s2 + v1 + v2)
+dm = (phi4_ph - phi4) / (s2 + v2)
 
 fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/dm_", ens.id, "_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 write_uwreal(dm, fb, 1)
 BDIO_close!(fb)
 
 if md_meas == true
+    phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
     obs_md = Array{uwreal,1}()
     for a in [phi4; obs]
         md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
@@ -86,7 +85,7 @@ if md_meas == true
         end
         s1 += md_s[end][1]
         s2 += md_s[end][2]
-        push!(obs_md, 2*s1 + s2 + v1 + v2)
+        push!(obs_md, s2 + v2)
     end
 
     ## now compute only strange derivatives wrt phi4 to interpolate as in Ben Strassberger's Thesis
@@ -109,3 +108,10 @@ if md_meas == true
     for i in 1:length(obs_md) write_uwreal(obs_md[i], fb, i) end
     BDIO_close!(fb)
 end
+
+
+
+
+
+
+

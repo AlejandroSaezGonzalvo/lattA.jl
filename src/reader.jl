@@ -277,6 +277,10 @@ function concat_data!(data1::Vector{juobs.CData}, data2::Vector{juobs.CData})
         data1[k].vcfg = vcat(data1[k].vcfg, data2[k].vcfg)
         data1[k].re_data = vcat(data1[k].re_data, data2[k].re_data)
         data1[k].im_data = vcat(data1[k].im_data, data2[k].im_data)
+        idx = sortperm(data1[k].vcfg)
+        data1[k].vcfg = data1[k].vcfg[idx]
+        data1[k].re_data = data1[k].re_data[idx, :] 
+        data1[k].im_data = data1[k].im_data[idx, :] 
     end
     return nothing
 end
@@ -295,6 +299,11 @@ function concat_data!(data1::Vector{Vector{juobs.CData}}, data2::Vector{Vector{j
             data1[k][r].vcfg = vcat(data1[k][r].vcfg, data2[k][r].vcfg)
             data1[k][r].re_data = vcat(data1[k][r].re_data, data2[k][r].re_data)
             data1[k][r].im_data = vcat(data1[k][r].im_data, data2[k][r].im_data)
+            idx = sortperm(data1[k][r].vcfg)
+            data1[k][r].vcfg = data1[k][r].vcfg[idx]
+            data1[k][r].re_data = data1[k][r].re_data[idx, :] 
+            data1[k][r].im_data = data1[k][r].im_data[idx, :] 
+
         end
     end
     return nothing
