@@ -17,6 +17,7 @@ const md_meas = false
 #======== read correlators ===========#
 
 pp_sym, ap_sym = read_ens_TSM(path, ens) 
+#pp_sym, ap_sym = get_corr_TSM_multichunks(path, ens)
 
 #======== compute observables ========#
 

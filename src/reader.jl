@@ -84,16 +84,16 @@ function read_mesons_correction_multichunks(path::String, ens::String, g1::Strin
 end
 
 function get_corr_TSM_multichunks(path::String, ens::EnsInfo; rw=false, info=false, legacy=false)
-    path = joinpath(path, id)
+    path = joinpath(path, ens.id)
     path_sl = joinpath.(path, "sloppy")
     path_c = joinpath.(path, "correc")
     path_rw = joinpath.(path, "rwf")
     path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
 
-    pp_dat = read_mesons_multichunks(path_sl, id, "G5", "G5")
-    ap_dat = read_mesons_multichunks(path_sl, id, "G5", "G0G5")
-    pp_dat_c = read_mesons_correction_multichunks(path_c, id, "G5", "G5")
-    ap_dat_c = read_mesons_correction_multichunks(path_c, id, "G5", "G0G5")
+    pp_dat = read_mesons_multichunks(path_sl, ens.id, "G5", "G5")
+    ap_dat = read_mesons_multichunks(path_sl, ens.id, "G5", "G0G5")
+    pp_dat_c = read_mesons_correction_multichunks(path_c, ens.id, "G5", "G5")
+    ap_dat_c = read_mesons_correction_multichunks(path_c, ens.id, "G5", "G0G5")
 
     rwf = [read_ms1(path_rw[i], v=ens.vrw[i]) for i in 1:length(ens.vrw)]
     cnfg_rw = size.(rwf,2)
@@ -110,7 +110,7 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; rw=false, info=fal
     truncate_data!(pp_dat_c[2:2:end], cnfg_trunc_ts190_c)
     truncate_data!(ap_dat_c[2:2:end], cnfg_trunc_ts190_c)
 
-    if sym_bool[id] == true
+    if sym_bool[ens.id] == true
         pp = corr_obs_TSM.(pp_dat[1:length(ap_dat_c)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
         ap = corr_obs_TSM.(ap_dat[1:length(ap_dat_c)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
     
