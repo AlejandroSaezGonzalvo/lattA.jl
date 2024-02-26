@@ -111,16 +111,16 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; rw=false, info=fal
     truncate_data!(ap_dat_c[2:2:end], cnfg_trunc_ts190_c)
 
     if sym_bool[ens.id] == true
-        pp = corr_obs_TSM.(pp_dat[1:length(ap_dat_c)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
-        ap = corr_obs_TSM.(ap_dat[1:length(ap_dat_c)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        pp = corr_obs_TSM.(pp_dat[1:length(ap_dat_c)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        ap = corr_obs_TSM.(ap_dat[1:length(ap_dat_c)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
     
         pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in 1:2:length(ap)]
         ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)]
     else
-        pp_ts001 = corr_obs_TSM.(pp_dat[1:2:length(ap_dat)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
-        ap_ts001 = corr_obs_TSM.(ap_dat[1:2:length(ap_dat)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
-        pp_tsT = corr_obs.(pp_dat[2:2:length(ap_dat)], rw=rwf, L=L, info=false, replica=ens.cnfg, nms=sum(ens.cnfg))
-        ap_tsT = corr_obs.(ap_dat[2:2:length(ap_dat)], rw=rwf, L=L, info=false, replica=ens.cnfg, nms=sum(ens.cnfg))
+        pp_ts001 = corr_obs_TSM.(pp_dat[1:2:length(ap_dat)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        ap_ts001 = corr_obs_TSM.(ap_dat[1:2:length(ap_dat)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        pp_tsT = corr_obs.(pp_dat[2:2:length(ap_dat)], rw=rwf, L=ens.L, info=false, replica=ens.cnfg, nms=sum(ens.cnfg))
+        ap_tsT = corr_obs.(ap_dat[2:2:length(ap_dat)], rw=rwf, L=ens.L, info=false, replica=ens.cnfg, nms=sum(ens.cnfg))
     
         pp_sym = [corr_sym(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
         ap_sym = [corr_sym(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
@@ -141,7 +141,7 @@ function get_corr_TSM(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
     dat_sl = read_mesons([path_sl[i] for i in 1:length(path_sl)], g1, g2, legacy=legacy, id=ens.id)
     dat_c = read_mesons_correction([path_c[i] for i in 1:length(path_c)], g1, g2, legacy=legacy, id=ens.id)
 
-    rw ? corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat_sl)] : corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=L[index], info=info, flag_strange=fs) for i in 1:length(dat_sl)]
+    rw ? corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat_sl)] : corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=ens.L, info=info, flag_strange=fs) for i in 1:length(dat_sl)]
 
     if info == false
         return corr
@@ -172,7 +172,7 @@ function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
         truncate_data!(dat,ens.cnfg)
     end
 
-    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=L[index], info=info, flag_strange=fs) for i in 1:length(dat)]
+    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=ens.L, info=info, flag_strange=fs) for i in 1:length(dat)]
 
     if info == false
         return corr
@@ -216,7 +216,7 @@ function get_corr_tm(path::String, ens::EnsInfo, g1::String, g2::String; rw=fals
         truncate_data!(dat,ens.cnfg)
     end
 
-    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=L[index], info=info, flag_strange=fs) for i in 1:length(dat)]
+    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=ens.L, info=info, flag_strange=fs) for i in 1:length(dat)]
 
     if info == false
         return corr
