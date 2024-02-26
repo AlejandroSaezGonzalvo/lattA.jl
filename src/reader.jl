@@ -125,6 +125,8 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; rw=false, info=fal
         pp_sym = [corr_sym(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
         ap_sym = [corr_sym(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
     end
+    
+    return pp_sym, ap_sym
 end
 
 function get_corr_TSM(path::String, ens::EnsInfo, g1::String, g2::String; rw=false, info=false, legacy=false, fs=false)

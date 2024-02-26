@@ -6,7 +6,7 @@ include("types.jl")
 export EnsInfo
 
 include("reader.jl")
-export get_corr_wil, get_corr_tm, get_dSdm, get_YW, read_ens_wil, read_ens_tm, read_ens_tm_sym, read_ens_csv, concat_data, read_mesons_correction_multichunks, read_mesons_multichunks
+export get_corr_wil, get_corr_tm, get_dSdm, get_YW, read_ens_wil, read_ens_tm, read_ens_tm_sym, read_ens_csv, concat_data, read_mesons_correction_multichunks, read_mesons_multichunks, get_corr_TSM_multichunks, get_corr_TSM
 
 include("obs.jl")
 export get_m, get_mpcac, get_f_wil, get_f_tm, get_t0
