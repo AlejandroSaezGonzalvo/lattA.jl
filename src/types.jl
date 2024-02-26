@@ -5,7 +5,7 @@ mutable struct EnsInfo
     beta::Float64
     ca::Float64
     dtr::Int64
-    vrw::String
+    vrw::Union{String, Vector{String}}
     cnfg::Vector{Int64}
     function EnsInfo(ens_id::String, info::Vector{Any})
         id = ens_id
@@ -14,7 +14,7 @@ mutable struct EnsInfo
         beta = info[3]
         dtr = info[4]
         vrw = info[5]
-	cnfg = info[6]
+	    cnfg = info[6]
 
         p0 = 9.2056
         p1 = -13.9847

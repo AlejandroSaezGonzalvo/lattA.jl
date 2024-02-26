@@ -2,6 +2,155 @@ using juobs
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/path_csv.jl");
 
+
+function read_mesons_multichunks(path::String, ens::String, g1::String="G5", g2::String="G5"; legacy::Bool=false)
+    idx_ts001 = findall(x->occursin("ts001",x), db[ens])
+    idx_tsT = findall(x->!occursin("ts001",x), db[ens])
+
+    store_cdata_aux = []
+    for i in db[ens]
+        aux = filter(x->occursin(i, x), readdir(path, join=true))
+        data_chunk = read_mesons(aux, g1, g2, legacy=legacy);
+        push!(store_cdata_aux, data_chunk)
+    end
+
+    #=
+    if ens == "E300"
+        for i in 1:length(idx_ts001)-1
+            concat_data!(store_cdata_aux[idx_ts001[1]][1:2:end], store_cdata_aux[idx_ts001[i+1]])    
+        end
+        concat_data!(store_cdata_aux[idx_tsT[1]], store_cdata_aux[idx_ts001[1]][2:2:end]) 
+        for i in 1:length(idx_tsT)-1
+            concat_data!(store_cdata_aux[idx_tsT[1]], store_cdata_aux[idx_tsT[i+1]])    
+        end
+        store_cdata_aux[idx_ts001[1]] = store_cdata_aux[idx_ts001[1]][1:2:end]
+    else
+        for i in 1:length(idx_ts001)-1
+            concat_data!(store_cdata_aux[idx_ts001[1]], store_cdata_aux[idx_ts001[i+1]])    
+        end
+        for i in 1:length(idx_tsT)-1
+            concat_data!(store_cdata_aux[idx_tsT[1]], store_cdata_aux[idx_tsT[i+1]])    
+        end
+    end
+    =#
+    for i in 1:length(idx_ts001)-1
+        concat_data!(store_cdata_aux[idx_ts001[1]], store_cdata_aux[idx_ts001[i+1]])    
+    end
+    for i in 1:length(idx_tsT)-1
+        concat_data!(store_cdata_aux[idx_tsT[1]], store_cdata_aux[idx_tsT[i+1]])    
+    end
+    dat_ts001 = store_cdata_aux[idx_ts001[1]]
+    dat_ts190 = store_cdata_aux[idx_tsT[1]]
+    
+    dat = Vector{Vector{juobs.CData}}()
+    for i in 1:length(dat_ts001)
+        push!(dat, dat_ts001[i])
+        push!(dat, dat_ts190[i])
+    end
+
+    return dat
+end
+
+function read_mesons_correction_multichunks(path::String, ens::String, g1::String="G5", g2::String="G5"; legacy::Bool=false)
+    idx_ts001 = findall(x->occursin("ts001",x), db_c[ens])
+    idx_tsT = findall(x->!occursin("ts001",x), db_c[ens])
+
+    store_cdata_aux = []
+    for i in db_c[ens]
+        aux = filter(x->occursin(i, x), readdir(path, join=true))
+        data_chunk = read_mesons_correction(aux, g1, g2, legacy=legacy);
+        push!(store_cdata_aux, data_chunk)
+    end
+
+    for i in 1:length(idx_ts001)-1
+        concat_data!(store_cdata_aux[idx_ts001[1]], store_cdata_aux[idx_ts001[i+1]])    
+    end
+    for i in 1:length(idx_tsT)-1
+        concat_data!(store_cdata_aux[idx_tsT[1]], store_cdata_aux[idx_tsT[i+1]])    
+    end
+    dat_ts001 = store_cdata_aux[idx_ts001[1]]
+    if length(idx_tsT) >= 1
+        dat_ts190 = store_cdata_aux[idx_tsT[1]]
+        dat = Vector{Vector{juobs.CData}}()
+        for i in 1:length(dat_ts001)
+            push!(dat, dat_ts001[i])
+            push!(dat, dat_ts190[i])
+        end
+    else
+        dat = dat_ts001
+    end
+
+    return dat
+end
+
+function get_corr_TSM_multichunks(path::String, ens::EnsInfo; rw=false, info=false, legacy=false)
+    path = joinpath(path, id)
+    path_sl = joinpath.(path, "sloppy")
+    path_c = joinpath.(path, "correc")
+    path_rw = joinpath.(path, "rwf")
+    path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+
+    pp_dat = read_mesons_multichunks(path_sl, id, "G5", "G5")
+    ap_dat = read_mesons_multichunks(path_sl, id, "G5", "G0G5")
+    pp_dat_c = read_mesons_correction_multichunks(path_c, id, "G5", "G5")
+    ap_dat_c = read_mesons_correction_multichunks(path_c, id, "G5", "G0G5")
+
+    rwf = [read_ms1(path_rw[i], v=ens.vrw[i]) for i in 1:length(ens.vrw)]
+    cnfg_rw = size.(rwf,2)
+    cnfg_trunc_ts001 = [findall(pp_dat[1][i].vcfg .< cnfg_rw[i])[end] for i in 1:length(cnfg_rw)] ## rwf missing some configs at the end
+    cnfg_trunc_ts001_c = [findall(pp_dat_c[1][i].vcfg .< cnfg_rw[i])[end] for i in 1:length(cnfg_rw)]
+    cnfg_trunc_ts190 = [findall(pp_dat[2][i].vcfg .< cnfg_rw[i])[end] for i in 1:length(cnfg_rw)] ## rwf missing some configs at the end
+    cnfg_trunc_ts190_c = [findall(pp_dat_c[2][i].vcfg .< cnfg_rw[i])[end] for i in 1:length(cnfg_rw)]
+    truncate_data!(pp_dat[1:2:end], cnfg_trunc_ts001)
+    truncate_data!(ap_dat[1:2:end], cnfg_trunc_ts001)
+    truncate_data!(pp_dat_c[1:2:end], cnfg_trunc_ts001_c)
+    truncate_data!(ap_dat_c[1:2:end], cnfg_trunc_ts001_c)
+    truncate_data!(pp_dat[2:2:end], cnfg_trunc_ts190) 
+    truncate_data!(ap_dat[2:2:end], cnfg_trunc_ts190)
+    truncate_data!(pp_dat_c[2:2:end], cnfg_trunc_ts190_c)
+    truncate_data!(ap_dat_c[2:2:end], cnfg_trunc_ts190_c)
+
+    if sym_bool[id] == true
+        pp = corr_obs_TSM.(pp_dat[1:length(ap_dat_c)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        ap = corr_obs_TSM.(ap_dat[1:length(ap_dat_c)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+    
+        pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in 1:2:length(ap)]
+        ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)]
+    else
+        pp_ts001 = corr_obs_TSM.(pp_dat[1:2:length(ap_dat)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        ap_ts001 = corr_obs_TSM.(ap_dat[1:2:length(ap_dat)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        pp_tsT = corr_obs.(pp_dat[2:2:length(ap_dat)], rw=rwf, L=L, info=false, replica=ens.cnfg, nms=sum(ens.cnfg))
+        ap_tsT = corr_obs.(ap_dat[2:2:length(ap_dat)], rw=rwf, L=L, info=false, replica=ens.cnfg, nms=sum(ens.cnfg))
+    
+        pp_sym = [corr_sym(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
+        ap_sym = [corr_sym(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
+    end
+end
+
+function get_corr_TSM(path::String, ens::EnsInfo, g1::String, g2::String; rw=false, info=false, legacy=false, fs=false)
+    path_rw = joinpath(path, ens.id, "rwf")
+    path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+    path_sl = joinpath(path, ens.id, "sloppy")
+    path_sl = filter(x->occursin(".mesons.dat", x), readdir(path_sl, join=true))
+    path_c = joinpath(path, ens.id, "correc")
+    path_c = filter(x->occursin(".mesons.dat", x), readdir(path_c, join=true))
+
+    rwf = read_ms1.(path_rw, v=ens.vrw)
+    dat_sl = read_mesons([path_sl[i] for i in 1:length(path_sl)], g1, g2, legacy=legacy, id=ens.id)
+    dat_c = read_mesons_correction([path_c[i] for i in 1:length(path_c)], g1, g2, legacy=legacy, id=ens.id)
+
+    rw ? corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat_sl)] : corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=L[index], info=info, flag_strange=fs) for i in 1:length(dat_sl)]
+
+    if info == false
+        return corr
+    else
+        pp = getindex.(corr,1)
+        ppw = getindex.(corr,2)
+        w = getindex.(corr,3)
+        return pp, ppw, w[1]
+    end
+end
+
 function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=false, info=false, legacy=false, fs=false)
     path_rw = joinpath(path, ens.id, "rwf")
     path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
@@ -82,6 +231,23 @@ function get_dSdm(path::String, ens::EnsInfo)
     path = filter(x->occursin(".dat", x), readdir(path, join=true))
     dSdm = read_md.(path)
     return dSdm
+end
+
+function read_ens_TSM(path::String, ens::EnsInfo; legacy=false, fs=false)
+    pp = get_corr_TSM(path, ens, "G5", "G5", rw=true, info=false, legacy=legacy);
+    ap = get_corr_TSM(path, ens, "G5", "G0G5", rw=true, info=false, legacy=legacy);
+    idx_wil = findall([pp[i].mu == [.0,.0] for i in 1:length(pp)]);
+    idx_tm = findall([pp[i].mu[1] != .0 for i in 1:length(pp)]);
+
+    pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in idx_wil[1]:2:idx_wil[end]-1];
+    ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in idx_wil[1]:2:idx_wil[end]-1];
+    pp_tm_sym = [corr_sym(pp[i], pp[i+div(length(idx_tm),2)], +1) for i in idx_tm[1]:idx_tm[1]+div(length(idx_tm),2)-1];
+    ap_tm_sym = [corr_sym(ap[i], ap[i+div(length(idx_tm),2)], -1) for i in idx_tm[1]:idx_tm[1]+div(length(idx_tm),2)-1];
+
+    pp_sym = [pp_sym[1:3]; pp_tm_sym]
+    ap_sym = [ap_sym[1:3]; ap_tm_sym]
+
+    return pp_sym, ap_sym
 end
 
 function read_ens_wil(path::String, ens::EnsInfo; legacy=false, fs=false)

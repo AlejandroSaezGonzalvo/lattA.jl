@@ -1,5 +1,7 @@
 using juobs, ADerrors, LsqFit, PyPlot
 
+## some inputs
+
 hc = 197.3269804 ## 1 MeV * fm = 1/hc
 Lambda = 0.4841473 / hc * 1000
 Nf = 3
@@ -13,6 +15,8 @@ fk_exp = uwreal([157.2,0.2],"fk_expp") + uwreal([0.0,0.2],"fk QEDD") + uwreal([0
 fpik_exp = (2/3) * ( 0.5 * fpi_exp + fk_exp )
 fpik_exp = fpik_exp / hc
 uwerr(fpik_exp)
+
+## some defs for fitting
 
 function fit_defs(f::Function,x,W) 
 	chisq(p,d) = sum((d .- f(x,p)).^2 .* W)
@@ -44,6 +48,8 @@ function fit_alg(model::Function, xdata::Array{<:Real}, ydata::Array{uwreal}, pa
     return upar, chi_exp, chi2, pval, doff 
 end
 
+## true model and models to fit
+
 function SU3_continuum(x,p)
     f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) for i in 1:length(x[:,1])]
     return f
@@ -65,7 +71,7 @@ function alphas(x)
 end
 
 function cutoff_true(x)
-    f = [1 + x[i,1] / 8 * Lambda ^ 2 * 8 * pi * b0 * alphas(x[i,1]) ^ G1 + 0 * x[i,1] / 8 * Lambda ^ 2 * 8 * pi * b0 * alphas(x[i,1]) ^ G2 - 0 * (x[i,1] / 8) ^ 2 for i in 1:length(x[:,1])]
+    f = [1 + x[i,1] / 8 * Lambda ^ 2 * 8 * pi * b0 * alphas(x[i,1]) ^ G1 + x[i,1] / 8 * Lambda ^ 2 * 8 * pi * b0 * alphas(x[i,1]) ^ G2 - (x[i,1] / 8) ^ 2 for i in 1:length(x[:,1])]
     return f
 end
 
@@ -110,6 +116,8 @@ end
 
 ################################################################
 
+## mock data: define phi2 and t0, then build x -> matrix with 1/t0, phi2, phi4=1.1, phi2_sym
+
 phi2beta1 = [0.078, 0.1, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.74];
 phi2beta2 = [0.08, 0.1, 0.15, 0.2, 0.3, 0.33, 0.4, 0.45, 0.5, 0.52, 0.74];
 phi2beta3 = [0.078, 0.18, 0.25, 0.3, 0.35, 0.38, 0.4, 0.45, 0.52, 0.6, 0.65, 0.73];
@@ -122,13 +130,23 @@ x = [[[1 / t0[1] for i in 1:length(phi2beta1)] phi2beta1 [1.1 for i in 1:length(
      [[1 / t0[4] for i in 1:length(phi2beta4)] phi2beta4 [1.1 for i in 1:length(phi2beta4)] [0.73 for i in 1:length(phi2beta4)]];
      [[1 / t0[5] for i in 1:length(phi2beta5)] phi2beta5 [1.1 for i in 1:length(phi2beta5)] [0.73 for i in 1:length(phi2beta5)]]];
 
+## some true parameters for SU3 continuum, motivated by the analysis of the actual data
+
 ptrue = [4.77,-0.45];
+
+## physical point definition xph: a²/t0, phi2_ph, phi4_ph=1.1, phi2_sym
+
 xph = [0.0 0.078 1.1 0.73];
 
+## generate mock data with 1% gaussian errors
+
 n = length(x[:,1]);
-dat = model_true(x,ptrue) .+ model_true(x,ptrue) .* [uwreal(randn(10000), i) for i in 1:n] ## 1% errors
+seed = 1234
+dat = model_true(x,ptrue) .+ model_true(x,ptrue) .* [uwreal(randn(MersenneTwister(seed), Float64, 10000), i) for i in 1:n] ## 1% errors
 dat_ref = deepcopy(dat)
 uwerr.(dat);
+
+## plot
 
 #=
 fig = figure("large")
@@ -144,10 +162,17 @@ tight_layout()
 #close("all")
 =#
 
+## define cuts to be explored in the model variation: select which x's you want to select: light pions, finer lattice spacings,...
+
 cut = [collect(1:n), [collect(1:11); collect(13:22); collect(24:33); collect(35:44); collect(46:56)], [collect(1:8); collect(13:20); collect(24:31); collect(35:42); collect(46:54)], collect(13:n), [collect(13:22); collect(24:33); collect(35:44); collect(46:56)]]
+#cut = [collect(1:n)]
+
+## do not touch this, if you want to modify the cuts to be explored modify "cut" above:
 
 y = [dat[cut[i]] for i in 1:length(cut)];
 xcut = [x[cut[i],:] for i in 1:length(cut)];
+
+## models to be explored and their number of parameters
 
 models = [ChPT_a2; ChPT_a2phi2; ChPT_a2alphas; Taylor2_a2; Taylor2_a2phi2; Taylor4_a2; Taylor4_a4]
 params = [3,4,4,3,4,4,5]
@@ -156,6 +181,7 @@ TIC = Array{Float64,1}()
 pval_vec = Array{Float64,1}()
 dof_vec = Array{Float64,1}()
 yph = Array{uwreal,1}()
+pp = Vector{Array{uwreal,1}}() ## here save parameters of each model
 
 for j in 1:length(cut)
     for i in 1:length(models)
@@ -164,9 +190,13 @@ for j in 1:length(cut)
         push!(dof_vec, doff)
         push!(yph, models[i](xph, upar)[1])
         push!(pval_vec, pval)
+        push!(pp, upar)
         println(i, " ", j)
     end
 end
+
+## weights, systematic, model average,...
+
 W = exp.(-0.5 .* TIC) ./ sum(exp.(-0.5 .* TIC));
 W1 = deepcopy(W)
 pv1 = deepcopy(pval_vec)
@@ -176,6 +206,8 @@ syst2 = sum(yph .^ 2 .* W) - yph_av ^ 2;
 dof1 = deepcopy(dof_vec)
 
 ################################################################
+
+## add systematic uncertainty and plot
 
 yph_av = yph_av + uwreal([0.0,value(sqrt(syst2))], "syst")
 uwerr(yph_av)
