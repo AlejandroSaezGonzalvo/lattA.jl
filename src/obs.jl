@@ -511,6 +511,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
             rwf = [hcat(rwf_2[1],rwf_1[1])]
         elseif ens.id in ["E250", "E300", "J500", "J501"]
             rwf = [read_ms1(path_rw[i], v=ens.vrw[i]) for i in 1:length(ens.vrw)]
+            [Ysl[k] = Ysl[k][1:size(rwf[k],2), :, :] for k in 1:length(Ysl)]
         else
             rwf = read_ms1.(path_rw, v=ens.vrw)
         end
@@ -520,7 +521,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         tmp_W = W[1]
         [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]
         [tmp_W = cat(tmp_W, W[k], dims=1) for k = 2:nr]
-        W_obs = uwreal(tmp_W, id, replica)
+        W_obs = uwreal(tmp_W, id, replica, collect(1:length(tmp_W)), sum(replica))
         WY_aux = Matrix{uwreal}(undef, xmax, 2*dt0+1)
     end
     for i = 1:xmax
@@ -529,7 +530,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
             if !rw
                 Y_aux[i, k] = uwreal(tmp[:, i, j], id, replica)
             else
-                WY_aux[i, k] = uwreal(tmp_r[:, i, j], id, replica)
+                WY_aux[i, k] = uwreal(tmp_r[:, i, j], id, replica, collect(1:length(tmp_W)), sum(replica))
                 Y_aux[i, k] = WY_aux[i, k] / W_obs
             end
             k = k + 1
