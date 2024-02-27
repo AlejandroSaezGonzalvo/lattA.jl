@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "D200"
+id = "J303"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -70,7 +70,7 @@ s1 += md_s[end][1]
 s2 += md_s[end][2]
 dm = (phi4_ph - phi4) / (s2 + v2)
 
-fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/dm_", ens.id, "_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/dm_", ens.id, "_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 write_uwreal(dm, fb, 1)
 BDIO_close!(fb)
 

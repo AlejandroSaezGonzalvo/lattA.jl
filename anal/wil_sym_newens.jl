@@ -24,8 +24,8 @@ end
 
 #======== compute observables ========#
 
-tm = [[10], collect(20:10:div(ens.T,2)-10)]
-tM = [[ens.T-10], collect(div(ens.T,2)+10:10:ens.T-20)]
+tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+tM = [[ens.T-10], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
 mk = mpi

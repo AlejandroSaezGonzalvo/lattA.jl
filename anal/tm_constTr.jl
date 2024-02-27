@@ -67,7 +67,7 @@ end
 obs = [mpi, mk, m12, m13, fpi, fk]
 obs_str = ["mpi", "mk", "m12", "m13", "fpi", "fk"]
 for j in 1:length(obs_str)
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "w")
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "w")
     for i in 1:length(obs[j]) write_uwreal(obs[j][i], fb, i) end
     BDIO_close!(fb)
 end
