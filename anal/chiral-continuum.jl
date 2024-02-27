@@ -6,44 +6,44 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
-ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300r002", "N302", "J303", "E300", "J500", "J501", "E250"]
-ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300r002", "N302", "J303"]
-ens_new = ["E300", "J500", "J501", "E250"]
-ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300r002", "N302", "J303", "E300", "J500", "J501", "E250"]
-ens_sym = ["H101", "H400", "N202", "N300r002", "J500"]
-ens_nosym = ["H102", "H105", "N203", "N200", "D200", "N302", "J303", "E300", "J501", "E250"]
-ens_nosym355 = ["N203", "N200", "D200", "N302", "J303", "E300", "J501", "E250"]
-ens_41 = ["H101", "H102", "H400", "N202", "N203", "N200", "D200", "N300r002", "N302", "J303", "E300", "J500", "J501"]
-ens_42 = ["H101", "H102", "H400", "N202", "N203", "N200", "D200", "N300r002", "N302", "E300", "J500", "J501"]
+ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+ens_new = []
+ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+ens_sym = ["H101", "H400", "N202", "N300"]
+ens_nosym = ["H102", "H105", "N203", "N200", "D200", "J303"]
+ens_nosym355 = ["N203", "N200", "D200", "J303"]
+ens_41 = ["H101", "H102", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+ens_42 = ["H101", "H102", "H400", "N202", "N203", "N200", "D200", "N300"]
 ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
 ens_346 = findall(x -> x in ["H400"], ens_av)
-ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200", "E250"], ens_av)
-ens_370 = findall(x -> x in ["N300r002", "N302", "J303", "E300"], ens_av)
-ens_385 = findall(x -> x in ["J500", "J501"], ens_av)
+ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200"], ens_av)
+ens_370 = findall(x -> x in ["N300", "J303"], ens_av)
+ens_385 = findall(x -> x in [], ens_av)
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
-ind_phi204 = findall(x -> x in ["H105", "H105r005", "N200", "D200", "J303", "E300", "E250"], ens_av)
+ind_phi204 = findall(x -> x in ["H105", "H105r005", "N200", "D200", "J303"], ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
 #============================== read BDIO =====================================================================================#
 
-    obs = [Array{uwreal,1}() for i in 1:length(ensemble)]
-    obs_sh = [Array{uwreal,1}() for i in 1:length(ensemble)]
-    obs_tm_sh = [Array{uwreal,1}() for i in 1:length(ensemble)]
-    for i in 1:length(ensemble)
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/", ensemble[i], "_obs_wil_un.bdio"), "r")
+    obs = [Array{uwreal,1}() for i in 1:length(ens)]
+    obs_sh = [Array{uwreal,1}() for i in 1:length(ens)]
+    obs_tm_sh = [Array{uwreal,1}() for i in 1:length(ens)]
+    for i in 1:length(ens)
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens[i], "_obs_wil_un.bdio"), "r")
         BDIO_seek!(fb); push!(obs[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/", ensemble[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/", ensemble[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_tm_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_tm_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
@@ -56,34 +56,36 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     fpi = [obs[i][6] for i in 1:length(obs)]
     fk = [obs[i][7] for i in 1:length(obs)]
     t0_sh = [obs_sh[i][1] for i in 1:length(obs)]
-    mpi_sh = [obs_sh[i][2] for i in 1:length(obs)]
-    mk_sh = [obs_sh[i][3] for i in 1:length(obs)]
-    m12_sh = [obs_sh[i][4] for i in 1:length(obs)]
-    m13_sh = [obs_sh[i][5] for i in 1:length(obs)]
-    fpi_sh = [obs_sh[i][6] for i in 1:length(obs)]
-    fk_sh = [obs_sh[i][7] for i in 1:length(obs)]
+    phi2_sh = [obs_sh[i][2] for i in 1:length(obs)]
+    m12_sh = [obs_sh[i][3] for i in 1:length(obs)]
+    m13_sh = [obs_sh[i][4] for i in 1:length(obs)]
+    fpi_sh = [obs_sh[i][5] for i in 1:length(obs)]
+    fk_sh = [obs_sh[i][6] for i in 1:length(obs)]
+    t0fpik_st_sh = [obs_sh[i][7] for i in 1:length(obs)]
     kappa = [obs_tm_sh[i][1] for i in 1:length(obs_tm_sh)]
     mul = [obs_tm_sh[i][2] for i in 1:length(obs_tm_sh)]
     muls = [obs_tm_sh[i][3] for i in 1:length(obs_tm_sh)]
     fpi_matched = [obs_tm_sh[i][4] for i in 1:length(obs_tm_sh)]
     fk_matched = [obs_tm_sh[i][5] for i in 1:length(obs_tm_sh)]
+    t0fpik_sh = [obs_tm_sh[i][6] for i in 1:length(obs_tm_sh)]
 
     ind = ensemble_inv["H102r002"]
     t0_sh[ind-1] = plat_av(t0_sh, [ind-1,ind]); deleteat!(t0_sh, ind)
-    mpi_sh[ind-1] = plat_av(mpi_sh, [ind-1,ind]); deleteat!(mpi_sh, ind)
-    mk_sh[ind-1] = plat_av(mk_sh, [ind-1,ind]); deleteat!(mk_sh, ind)
+    phi2_sh[ind-1] = plat_av(phi2_sh, [ind-1,ind]); deleteat!(phi2_sh, ind)
     m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
     m13_sh[ind-1] = plat_av(m13_sh, [ind-1,ind]); deleteat!(m13_sh, ind)
     mul[ind-1] = plat_av(mul, [ind-1,ind]); deleteat!(mul, ind)
     muls[ind-1] = plat_av(muls, [ind-1,ind]); deleteat!(muls, ind)
     fpi_sh[ind-1] = plat_av(fpi_sh, [ind-1,ind]); deleteat!(fpi_sh, ind)
     fk_sh[ind-1] = plat_av(fk_sh, [ind-1,ind]); deleteat!(fk_sh, ind)
+    t0fpik_st_sh[ind-1] = plat_av(t0fpik_st_sh, [ind-1,ind]); deleteat!(t0fpik_st_sh, ind)
     fpi_matched[ind-1] = plat_av(fpi_matched, [ind-1,ind]); deleteat!(fpi_matched, ind)
     fk_matched[ind-1] = plat_av(fk_matched, [ind-1,ind]); deleteat!(fk_matched, ind)
+    t0fpik_sh[ind-1] = plat_av(t0fpik_sh, [ind-1,ind]); deleteat!(t0fpik_sh, ind)
 
     ind = ensemble_inv["H105r005"] - 1
     t0_sh[ind-1] = plat_av(t0_sh, [ind-1,ind]); deleteat!(t0_sh, ind)
-    mpi_sh[ind-1] = plat_av(mpi_sh, [ind-1,ind]); deleteat!(mpi_sh, ind)
+    phi2_sh[ind-1] = plat_av(phi2_sh, [ind-1,ind]); deleteat!(phi2_sh, ind)
     mk_sh[ind-1] = plat_av(mk_sh, [ind-1,ind]); deleteat!(mk_sh, ind)
     m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
     m13_sh[ind-1] = plat_av(m13_sh, [ind-1,ind]); deleteat!(m13_sh, ind)
@@ -91,65 +93,21 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     muls[ind-1] = plat_av(muls, [ind-1,ind]); deleteat!(muls, ind)
     fpi_sh[ind-1] = plat_av(fpi_sh, [ind-1,ind]); deleteat!(fpi_sh, ind)
     fk_sh[ind-1] = plat_av(fk_sh, [ind-1,ind]); deleteat!(fk_sh, ind)
+    t0fpik_st_sh[ind-1] = plat_av(t0fpik_st_sh, [ind-1,ind]); deleteat!(t0fpik_st_sh, ind)
     fpi_matched[ind-1] = plat_av(fpi_matched, [ind-1,ind]); deleteat!(fpi_matched, ind)
     fk_matched[ind-1] = plat_av(fk_matched, [ind-1,ind]); deleteat!(fk_matched, ind)
-
-    phi2_sh = 8 * t0_sh .* mpi_sh .^2
-    t0fpik_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_matched .+ fk_matched)
-    t0fpik_st_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_sh .+ fk_sh) 
-
-    for bla in ens_new
-        fb = BDIO_open(string("./results_phi4=", round(value(phi4_guess), digits=4),"_TIC/", bla, "_", round(value(phi4_guess), digits=4), "_newphi4_1q.bdio"), "r") 
-        BDIO_seek!(fb) 
-        push!(t0_sh, read_uwreal(fb))
-        BDIO_seek!(fb, 2)              
-        push!(phi2_sh, read_uwreal(fb))  
-        BDIO_seek!(fb, 2)              
-        push!(m12_I_sh, read_uwreal(fb))  
-        BDIO_seek!(fb, 2)              
-        push!(m13_I_sh, read_uwreal(fb))  
-        BDIO_seek!(fb, 2)              
-        push!(fpi_sh, read_uwreal(fb))  
-        BDIO_seek!(fb, 2)              
-        push!(fk_sh, read_uwreal(fb))  
-        BDIO_seek!(fb, 2)        
-        push!(t0fpik_st_sh, read_uwreal(fb)) 
-        if bla == "J500"
-            BDIO_seek!(fb, 2)              
-            push!(fpi_extrap, read_uwreal(fb))  
-            BDIO_seek!(fb, 2)              
-            push!(fk_extrap, read_uwreal(fb))  
-            fpi_extrap[end] = fpi_extrap[end] / sqrt(8 * t0_sh[end])
-            fk_extrap[end] = fk_extrap[end] / sqrt(8 * t0_sh[end])
-        else
-            BDIO_seek!(fb, 2)              
-            push!(fpi_extrap, read_uwreal(fb))  
-            BDIO_seek!(fb, 2)              
-            push!(fk_extrap, read_uwreal(fb))  
-        end
-        BDIO_seek!(fb, 2)              
-        push!(t0fpik_sh, read_uwreal(fb))
-        BDIO_seek!(fb, 2)  
-        push!(kappa_c, read_uwreal(fb)) 
-        BDIO_seek!(fb, 2)                    
-        push!(m12_extrap, read_uwreal(fb))
-        BDIO_seek!(fb, 2)              
-        push!(m13_extrap, read_uwreal(fb))  
-        BDIO_seek!(fb, 2)                           
-        BDIO_close!(fb)
-    end
+    t0fpik_sh[ind-1] = plat_av(t0fpik_sh, [ind-1,ind]); deleteat!(t0fpik_sh, ind)
 
     uwerr.(phi2_sh)
-    phi4_sh = [phi4_guess for i in 1:length(phi2_sh)]
+    phi4_sh = [phi4_ph for i in 1:length(phi2_sh)]
     phi2_sym = 2 / 3 * phi4_sh
-    phi2_sym_ph = 2 / 3 * phi4_guess
+    phi2_sym_ph = 2 / 3 * phi4_ph
     t0fpi_st_sh = sqrt.(8 * t0_sh) .* fpi_sh
     t0fk_st_sh = sqrt.(8 * t0_sh) .* fk_sh
     t0fpi_sh = sqrt.(8 * t0_sh) .* fpi_matched
     t0fk_sh = sqrt.(8 * t0_sh) .* fk_matched
-
-    phi4_sh_aux = 8 .* t0_sh[1:length(mpi_sh)] .* (mk_sh .^ 2 .+ 0.5 .* mpi_sh .^ 2)
-    uwerr.(phi4_sh_aux)
+    t0fpik_sh = sqrt(8) .* t0fpik_sh
+    t0fpik_st_sh = sqrt(8) .* t0fpik_st_sh
 
 #==============================================================================================================================#
 
@@ -384,11 +342,11 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT_a1; model2_ChPT_a2; model2_ChPT_a4; model2_Taylor_a1; model2_Taylor4_a1; model2_Taylor_a2; model2_Taylor_a4]
-    models_combined = [model2_ChPT_a1_combined; model2_ChPT_a2_combined; model2_ChPT_a4_combined; model2_Taylor_a1_combined; model2_Taylor4_a1_combined; model2_Taylor_a2_combined; model2_Taylor_a4_combined]
+    models = [model2_ChPT_a1; model2_ChPT_a4; model2_Taylor_a1; model2_Taylor4_a1; model2_Taylor_a4]
+    models_combined = [model2_ChPT_a1_combined; model2_ChPT_a4_combined; model2_Taylor_a1_combined; model2_Taylor4_a1_combined; model2_Taylor_a4_combined]
     models = [models, models, models_combined]
-    param = [3,3,4,3,4,3,4]
-    param_combined = [4,4,5,4,5,4,5]
+    param = [3,4,3,4,4]
+    param_combined = [4,5,4,5,5]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
@@ -609,14 +567,14 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         xlabel(L"$\phi_2$")
         ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot(x_plot,uprm) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         i = 1
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot(x_plot,uprm) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -637,14 +595,14 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         errorbar(value.(phi2_sh[ens_385]), value.(t0fpik_st_sh[ens_385]), err.(t0fpik_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
         xlabel(L"$\phi_2$")
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot(x_plot,uprm_st) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         i = 1
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot(x_plot,uprm_st) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -671,7 +629,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         for ind in ind_sym
             list = [1,2,4]
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot(x_plot,uprm_combined[list]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -679,7 +637,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot(x_plot,uprm_combined) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
@@ -687,7 +645,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         for ind in ind_sym
             list = [1,2,3]
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot(x_plot,uprm_combined[list]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -721,14 +679,14 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         xlabel(L"$\phi_2$")
         ylabel(L"$\sqrt{8t_0}f_{\pi}$")
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot_SU2_pi(x_plot,uprm) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         i = 1
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_pi(x_plot,uprm) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -749,14 +707,14 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         errorbar(value.(phi2_sh[ens_385]), value.(t0fpi_st_sh[ens_385]), err.(t0fpi_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
         xlabel(L"$\phi_2$")
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot_SU2_pi(x_plot,uprm_st) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         i = 1
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_pi(x_plot,uprm_st) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -783,7 +741,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         for ind in ind_sym
             list = [1,2,3,4,7,8]
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_pi(x_plot,uprm_combined[list]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -791,7 +749,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot_SU2_pi(x_plot,uprm_combined) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
@@ -799,7 +757,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         for ind in ind_sym
             list = [1,2,3,4,5,6]
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_pi(x_plot,uprm_combined[list]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -833,14 +791,14 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         xlabel(L"$\phi_2$")
         ylabel(L"$\sqrt{8t_0}f_{K}$")
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot_SU2_k(x_plot,uprm) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         i = 1
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_k(x_plot,uprm) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -861,14 +819,14 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         errorbar(value.(phi2_sh[ens_385]), value.(t0fk_st_sh[ens_385]), err.(t0fk_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
         xlabel(L"$\phi_2$")
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot_SU2_k(x_plot,uprm_st) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         i = 1
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_k(x_plot,uprm_st) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -895,7 +853,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         for ind in ind_sym
             list = [1,2,3,4,7,8]
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_k(x_plot,uprm_combined[list]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -903,7 +861,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot_SU2_k(x_plot,uprm_combined) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
@@ -911,7 +869,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         for ind in ind_sym
             list = [1,2,3,4,5,6]
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_k(x_plot,uprm_combined[list]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
@@ -951,7 +909,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         xlabel(L"$a^2/8t_0$")
         ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
         x_prime = [i for i in 0.0:0.001:0.05]
-        x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot(x_plot,uprm_combined[[1,2,4]]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
@@ -968,7 +926,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         xlabel(L"$a^2/8t_0$")
         ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
         x_prime = [i for i in 0.0:0.001:0.05]
-        x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_guess) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot(x_plot,uprm_combined[[1,2,3]]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)

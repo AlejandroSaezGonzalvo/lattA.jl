@@ -15,7 +15,7 @@ include("tools.jl")
 export model_av, pvalue, get_model, fve, fit_alg, fit_defs
 
 include("fit_funs.jl")
-export md_1, md_2, match_m12_sym, match_phi2_sym, match_m12, match_phi2, match_phi4, interp_fpik_sym, interp_fpik_constTr
+export md_1, md_2, match_m12_sym, match_phi2_sym, match_m12, match_phi2, match_phi4, interp_fpik_sym, interp_fpik_constTr, model2_ChPT_a1, model2_ChPT_a4, model2_Taylor_a1, model2_Taylor4_a1, model2_Taylor_a4, model2_ChPT_a1_combined, model2_ChPT_a4_combined, model2_Taylor_a1_combined, model2_Taylor4_a1_combined, model2_Taylor_a4_combined, model2_ChPT2_a1, model2_ChPT2_a1_combined
 
 include("csv_tools.jl")
 export csv2Corr

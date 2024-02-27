@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "N302"
+id = "E300"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -16,13 +16,16 @@ const md_meas = false
 
 #======== read correlators ===========#
 
-pp_sym, ap_sym = read_ens_TSM(path, ens) 
-#pp_sym, ap_sym = get_corr_TSM_multichunks(path, ens)
+if id == "N302"
+    pp_sym, ap_sym = read_ens_TSM(path, ens) 
+else
+    pp_sym, ap_sym = get_corr_TSM_multichunks(path, ens)
+end
 
 #======== compute observables ========#
 
-tm = [[10], collect(20:5:div(ens.T,2)-5)]
-tM = [[ens.T-10], collect(div(ens.T,2)+5:5:ens.T-20)]
+tm = [[10], collect(20:10:div(ens.T,2)-10)]
+tM = [[ens.T-10], collect(div(ens.T,2)+10:10:ens.T-20)]
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)

@@ -8,7 +8,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "N300"
+id = "H400"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -105,12 +105,12 @@ interp_fpik_sym_plot()
 
 #========= save bdio ===============#
 
-obs = [t0_sh, phi2_w_sh, m12_w_sh_I, fpi_w_sh, fpik_w_sh]
+obs = [t0_sh, phi2_w_sh, m12_w_sh_I, m12_w_sh_I, fpi_w_sh, fpi_w_sh, fpik_w_sh]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
-obs = [up[1], up[2], up[2], fpik_matched, fpik_matched]
+obs = [up[1], up[2], up[2], fpik_matched / sqrt(t0_sh), fpik_matched / sqrt(t0_sh), fpik_matched]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
