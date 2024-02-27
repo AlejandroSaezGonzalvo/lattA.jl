@@ -1,5 +1,7 @@
 module lattA
 
+using ADerrors: err
+
 import juobs, ADerrors
 
 include("types.jl")

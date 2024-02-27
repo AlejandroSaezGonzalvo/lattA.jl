@@ -20,11 +20,8 @@ pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=
 
 #======== compute observables ========#
 
-tm = [[10], collect(20:5:div(ens.T,2)-5)]
-tM = [[ens.T-10], collect(div(ens.T,2)+5:5:ens.T-20)]
-
-#tm = [[30], [30]]
-#tM = [[60], [60]]
+tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+tM = [[ens.T-10], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM, wpm=wpm)
 mk = mpi
