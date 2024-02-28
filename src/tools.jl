@@ -201,8 +201,8 @@ function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
     mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
 	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
-    jipi = value(mpi) / (4*pi*fpi) ^ 2
-    jik = value(mk) / (4*pi*fk) ^ 2
+    jipi = value(mpi) ^ 2 / (4*pi*fpi) ^ 2
+    jik = value(mk) ^ 2 / (4*pi*fk) ^ 2
     mpiL = value(mpi) * ens.L
     mkL = value(mk) * ens.L
     lampi = mpiL * sqrt.(nn)
@@ -218,4 +218,10 @@ function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
     fk = fk / (1+fve_fk)
 
     return mpi, fpi, fk
+end
+
+function corr_sym_E250(corr1::juobs.Corr, corr2::juobs.Corr, parity::Int64=1)
+    corr = [corr1[1:3]; (corr1[4:98] .+ parity * corr2[192:-1:98]) / 2]
+
+    return juobs.Corr(corr, corr1.kappa, corr1.mu, corr1.gamma, corr1.y0, corr1.theta1, corr1.theta2)
 end

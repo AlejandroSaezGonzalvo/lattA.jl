@@ -27,12 +27,31 @@ end
 tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
 tM = [[ens.T-10], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
 
-mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+if ens.id == "J501"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [50,52,59,68,79]], tM=[[ens.T-10], [85,92,100,102,111,126,144]])
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], [50,52,59,68,79]], tM=[[ens.T-10], [85,92,100,102,111,126,144]])
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [12,16,25]], tM=[[ens.T-10], [150,160,175]])
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], [12,16,25]], tM=[[ens.T-10], [150,160,175]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
+    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
+elseif ens.id == "E300"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [40,45,50,60,75]], tM=[[ens.T-10], [110,120,124,128]])
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], [35,40,55,65,90]], tM=[[ens.T-10], [105,112,129,139,154]])
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [12,16,25]], tM=[[ens.T-10], [150,160,175]])
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], [12,16,25]], tM=[[ens.T-10], [150,160,175]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
+    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
+elseif ens.id == "N302"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+elseif ens.id == "E250"
+    ##TODO
+    aux = 1
+end
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
@@ -44,7 +63,11 @@ fk = ZA * (1 + bAtil * m13) * fk
 
 #======== compute t0/a² ===============#
 
-t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)
+if ens.id in ["E300", "J501", "E250"]
+    t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)
+elseif ens.id == "N302"
+    t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=[[10], [10,20,30,40,50]], tM=[[ens.T-10], [90,100,110]])
+end
 
 #======== save BDIO ===================#
 

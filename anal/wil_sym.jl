@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "N300"
+id = "H101"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -20,8 +20,8 @@ pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=
 
 #======== compute observables ========#
 
-tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-tM = [[ens.T-10], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+tm = [[10], collect(10:10:div(ens.T,2)-5)]
+tM = [[11], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM, wpm=wpm)
 mk = mpi

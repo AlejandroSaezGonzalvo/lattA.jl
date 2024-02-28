@@ -83,7 +83,7 @@ function read_mesons_correction_multichunks(path::String, ens::String, g1::Strin
     return dat
 end
 
-function get_corr_TSM_multichunks(path::String, ens::EnsInfo; rw=false, info=false, legacy=false)
+function get_corr_TSM_multichunks(path::String, ens::EnsInfo; info=false)
     path = joinpath(path, ens.id)
     path_sl = joinpath.(path, "sloppy")
     path_c = joinpath.(path, "correc")
@@ -111,19 +111,29 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; rw=false, info=fal
     truncate_data!(ap_dat_c[2:2:end], cnfg_trunc_ts190_c)
 
     if sym_bool[ens.id] == true
-        pp = corr_obs_TSM.(pp_dat[1:length(ap_dat_c)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
-        ap = corr_obs_TSM.(ap_dat[1:length(ap_dat_c)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        pp = corr_obs_TSM.(pp_dat[1:length(ap_dat_c)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=info, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        ap = corr_obs_TSM.(ap_dat[1:length(ap_dat_c)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=info, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
     
-        pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in 1:2:length(ap)]
-        ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)]
+        if ens.id == "E250"
+            pp_sym = [corr_sym_E250(pp[i], pp[i+1], +1) for i in 1:2:length(ap)]
+            ap_sym = [corr_sym_E250(ap[i], ap[i+1], -1) for i in 1:2:length(ap)]
+        else
+            pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in 1:2:length(ap)]
+            ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)]
+        end
     else
-        pp_ts001 = corr_obs_TSM.(pp_dat[1:2:length(ap_dat)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
-        ap_ts001 = corr_obs_TSM.(ap_dat[1:2:length(ap_dat)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=false, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
-        pp_tsT = corr_obs.(pp_dat[2:2:length(ap_dat)], rw=rwf, L=ens.L, info=false, replica=ens.cnfg, nms=sum(ens.cnfg))
-        ap_tsT = corr_obs.(ap_dat[2:2:length(ap_dat)], rw=rwf, L=ens.L, info=false, replica=ens.cnfg, nms=sum(ens.cnfg))
+        pp_ts001 = corr_obs_TSM.(pp_dat[1:2:length(ap_dat)], pp_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=info, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        ap_ts001 = corr_obs_TSM.(ap_dat[1:2:length(ap_dat)], ap_dat_c[1:length(ap_dat_c)], rw=rwf, L=ens.L, info=info, replica_sl=ens.cnfg, nms=sum(ens.cnfg))
+        pp_tsT = corr_obs.(pp_dat[2:2:length(ap_dat)], rw=rwf, L=ens.L, info=info, replica=ens.cnfg, nms=sum(ens.cnfg))
+        ap_tsT = corr_obs.(ap_dat[2:2:length(ap_dat)], rw=rwf, L=ens.L, info=info, replica=ens.cnfg, nms=sum(ens.cnfg))
     
-        pp_sym = [corr_sym(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
-        ap_sym = [corr_sym(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
+        if ens.id == "E250"
+            pp_sym = [corr_sym_E250(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
+            ap_sym = [corr_sym_E250(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
+        else
+            pp_sym = [corr_sym(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
+            ap_sym = [corr_sym(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
+        end
     end
     
     return pp_sym, ap_sym

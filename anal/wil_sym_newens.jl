@@ -27,12 +27,14 @@ end
 tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
 tM = [[ens.T-10], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
 
-mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
-mk = mpi
-m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
-m13 = m12
-fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
-fk = fpi
+if ens.id == "J500"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
+    mk = mpi
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, tm=[[10], [12,16,24]], tM=[[ens.T-10], [150,168,175]])
+    m13 = m12
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
+    fk = fpi
+end
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)

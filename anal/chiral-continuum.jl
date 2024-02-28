@@ -33,17 +33,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     obs_sh = [Array{uwreal,1}() for i in 1:length(ens)]
     obs_tm_sh = [Array{uwreal,1}() for i in 1:length(ens)]
     for i in 1:length(ens)
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens[i], "_obs_wil_un.bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux/unshifted/", ens[i], "_obs_wil_un.bdio"), "r")
         BDIO_seek!(fb); push!(obs[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux/shifted/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux/shifted/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_tm_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_tm_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
