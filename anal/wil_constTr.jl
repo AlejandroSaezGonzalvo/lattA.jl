@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "D200"
+id = "J303"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -20,8 +20,10 @@ pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=
 
 #======== compute observables ========#
 
-tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+#tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+tm = [[10], collect(10:10:div(ens.T,2)-5)]
+tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
@@ -41,6 +43,9 @@ ZA = beta_ZA[ens.beta]
 bAtil = 1 + 0.0472 * (6 / ens.beta)
 fpi = ZA * (1 + bAtil * m12) * fpi
 fk = ZA * (1 + bAtil * m13) * fk 
+
+m12_I = (1 + beta_bap[ens.beta] * m12) * m12
+m13_I = (1 + beta_bap[ens.beta] * m13) * m13
 
 #======== compute t0/a² ===============#
 

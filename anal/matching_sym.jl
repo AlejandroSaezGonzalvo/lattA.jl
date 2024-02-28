@@ -37,6 +37,7 @@ end
 mpi = obs[1]
 m12 = obs[2] ## not improved, not renormalized
 fpi = obs[3] ## improved & renormalized
+
 phi2 = [8 * t0 * mpi[i] ^ 2 for i in 1:length(mpi)]
 phi4 = [8 * t0 * (mpi[i] ^ 2 + 0.5 * mpi[i] ^ 2) for i in 1:length(mpi)]
 fpik = [sqrt(t0) * 2/3 * (fpi[i] + 0.5 * fpi[i]) for i in 1:length(mpi)]

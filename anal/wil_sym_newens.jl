@@ -24,8 +24,10 @@ end
 
 #======== compute observables ========#
 
-tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-tM = [[ens.T-10], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+#tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+tm = [[10], collect(10:10:div(ens.T,2)-5)]
+tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 if ens.id == "J500"
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
@@ -45,6 +47,8 @@ ZA = beta_ZA[ens.beta]
 bAtil = 1 + 0.0472 * (6 / ens.beta)
 fpi = ZA * (1 + bAtil * m12) * fpi
 fk = ZA * (1 + bAtil * m13) * fk
+
+m12_I = (1 + beta_bap[ens.beta] * m12) * m12
 
 #======== compute t0/a² ===============#
 

@@ -25,8 +25,10 @@ end
 
 #======== compute observables ========#
 
-tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-tM = [[ens.T-10], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+#tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+tm = [[10], collect(10:10:div(ens.T,2)-5)]
+tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 mpi = Array{uwreal,1}()
 m12 = Array{uwreal,1}()
@@ -60,7 +62,20 @@ for i in 3:8:length(pp_sym)
     end
 end
 
-## TODO: how to correct for FVE in grid, with several kaons for one single pion???
+obs = Array{uwreal,1}()
+fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_obs_wil_un.bdio"), "r")
+BDIO_seek!(fb); push!(obs, read_uwreal(fb))
+for i in 2:7 BDIO_seek!(fb, 2); push!(obs, read_uwreal(fb)) end
+BDIO_close!(fb)
+t0, mpi_w, mk_w, m12_w, m13_w, fpi_w, fk_w = obs
+
+for i in 1:length(mpi)
+    mpi[i] = fve_mpi_tm(mpi[i], mpi_w, fpi_w, mk_w, fk_w, ens)
+    fpi[i] = fve_mpi_tm(fpi[i], mpi_w, fpi_w, mk_w, fk_w, ens)
+end
+for i in 1:length(fk)
+    fk[i] = fve_fk_tm(fk[i], mpi_w, fpi_w, mk_w, fk_w, ens)
+end
 
 #======== save BDIO ===================#
 

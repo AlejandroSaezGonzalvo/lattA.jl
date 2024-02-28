@@ -33,17 +33,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     obs_sh = [Array{uwreal,1}() for i in 1:length(ens)]
     obs_tm_sh = [Array{uwreal,1}() for i in 1:length(ens)]
     for i in 1:length(ens)
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux/unshifted/", ens[i], "_obs_wil_un.bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens[i], "_obs_wil_un.bdio"), "r")
         BDIO_seek!(fb); push!(obs[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux/shifted/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux/shifted/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_tm_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_tm_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
@@ -64,7 +64,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     t0fpik_st_sh = [obs_sh[i][7] for i in 1:length(obs)]
     kappa = [obs_tm_sh[i][1] for i in 1:length(obs_tm_sh)]
     mul = [obs_tm_sh[i][2] for i in 1:length(obs_tm_sh)]
-    muls = [obs_tm_sh[i][3] for i in 1:length(obs_tm_sh)]
+    mus = [obs_tm_sh[i][3] for i in 1:length(obs_tm_sh)]
     fpi_matched = [obs_tm_sh[i][4] for i in 1:length(obs_tm_sh)]
     fk_matched = [obs_tm_sh[i][5] for i in 1:length(obs_tm_sh)]
     t0fpik_sh = [obs_tm_sh[i][6] for i in 1:length(obs_tm_sh)]
@@ -75,7 +75,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
     m13_sh[ind-1] = plat_av(m13_sh, [ind-1,ind]); deleteat!(m13_sh, ind)
     mul[ind-1] = plat_av(mul, [ind-1,ind]); deleteat!(mul, ind)
-    muls[ind-1] = plat_av(muls, [ind-1,ind]); deleteat!(muls, ind)
+    mus[ind-1] = plat_av(mus, [ind-1,ind]); deleteat!(mus, ind)
     fpi_sh[ind-1] = plat_av(fpi_sh, [ind-1,ind]); deleteat!(fpi_sh, ind)
     fk_sh[ind-1] = plat_av(fk_sh, [ind-1,ind]); deleteat!(fk_sh, ind)
     t0fpik_st_sh[ind-1] = plat_av(t0fpik_st_sh, [ind-1,ind]); deleteat!(t0fpik_st_sh, ind)
@@ -90,7 +90,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
     m13_sh[ind-1] = plat_av(m13_sh, [ind-1,ind]); deleteat!(m13_sh, ind)
     mul[ind-1] = plat_av(mul, [ind-1,ind]); deleteat!(mul, ind)
-    muls[ind-1] = plat_av(muls, [ind-1,ind]); deleteat!(muls, ind)
+    mus[ind-1] = plat_av(mus, [ind-1,ind]); deleteat!(mus, ind)
     fpi_sh[ind-1] = plat_av(fpi_sh, [ind-1,ind]); deleteat!(fpi_sh, ind)
     fk_sh[ind-1] = plat_av(fk_sh, [ind-1,ind]); deleteat!(fk_sh, ind)
     t0fpik_st_sh[ind-1] = plat_av(t0fpik_st_sh, [ind-1,ind]); deleteat!(t0fpik_st_sh, ind)

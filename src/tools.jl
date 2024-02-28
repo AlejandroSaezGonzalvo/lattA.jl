@@ -220,6 +220,59 @@ function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
     return mpi, fpi, fk
 end
 
+function fve_mpi_tm(mpi::uwreal, mpi_w::uwreal, mk_w::uwreal, fpi_w::uwreal, fk_w::uwreal, ens::EnsInfo)
+    mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
+	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+
+    jipi = value(mpi_w) ^ 2 / (4*pi*fpi_w) ^ 2
+    mpiL = value(mpi_w) * ens.L
+    lampi = mpiL * sqrt.(nn)
+    g1pi = sum(4 .* mm ./ lampi .* besselk.(1, lampi))
+    fve_mpi = 0.5 * jipi * g1pi
+
+    mpi = mpi / (1+fve_mpi)
+
+    return mpi
+end
+
+function fve_fpi_tm(fpi::uwreal, mpi_w::uwreal, mk_w::uwreal, fpi_w::uwreal, fk_w::uwreal, ens::EnsInfo)
+    mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
+	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+
+    jipi = value(mpi_w) ^ 2 / (4*pi*fpi_w) ^ 2
+    jik = value(mk_w) ^ 2 / (4*pi*fk_w) ^ 2
+    mpiL = value(mpi_w) * ens.L
+    mkL = value(mk_w) * ens.L
+    lampi = mpiL * sqrt.(nn)
+    lamk = mkL * sqrt.(nn)
+    g1pi = sum(4 .* mm ./ lampi .* besselk.(1, lampi))
+    g1k = sum(4 .* mm ./ lamk .* besselk.(1, lamk))
+    fve_fpi = -2 * jipi * g1pi - jik * g1k
+
+    fpi = fpi / (1+fve_fpi)
+
+    return fpi
+end
+
+function fve_fk_tm(fk::uwreal, mpi_w::uwreal, mk_w::uwreal, fpi_w::uwreal, fk_w::uwreal, ens::EnsInfo)
+    mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
+	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+
+    jipi = value(mpi_w) ^ 2 / (4*pi*fpi_w) ^ 2
+    jik = value(mk_w) ^ 2 / (4*pi*fk_w) ^ 2
+    mpiL = value(mpi_w) * ens.L
+    mkL = value(mk_w) * ens.L
+    lampi = mpiL * sqrt.(nn)
+    lamk = mkL * sqrt.(nn)
+    g1pi = sum(4 .* mm ./ lampi .* besselk.(1, lampi))
+    g1k = sum(4 .* mm ./ lamk .* besselk.(1, lamk))
+    fve_fk = -3/4 * jipi *g1pi - 3/2 * jik * g1k
+
+    fk = fk / (1+fve_fk)
+
+    return fk
+end
+
 function corr_sym_E250(corr1::juobs.Corr, corr2::juobs.Corr, parity::Int64=1)
     corr = [corr1[1:3]; (corr1[4:98] .+ parity * corr2[192:-1:98]) / 2]
 
