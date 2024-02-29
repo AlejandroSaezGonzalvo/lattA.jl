@@ -62,20 +62,17 @@ for i in 3:8:length(pp_sym)
     end
 end
 
-obs = Array{uwreal,1}()
-fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_obs_wil_un.bdio"), "r")
-BDIO_seek!(fb); push!(obs, read_uwreal(fb))
-for i in 2:7 BDIO_seek!(fb, 2); push!(obs, read_uwreal(fb)) end
-BDIO_close!(fb)
-t0, mpi_w, mk_w, m12_w, m13_w, fpi_w, fk_w = obs
-
+#=
+c=0
 for i in 1:length(mpi)
-    mpi[i] = fve_mpi_tm(mpi[i], mpi_w, fpi_w, mk_w, fk_w, ens)
-    fpi[i] = fve_mpi_tm(fpi[i], mpi_w, fpi_w, mk_w, fk_w, ens)
+    for j in i+c:i+c+1
+        global a, b, fk[j] = fve(mpi[i], mk[j], fpi[i], fk[j], ens)
+    end
+    mpi[i] = a
+    fpi[i] = b
+    c+=1
 end
-for i in 1:length(fk)
-    fk[i] = fve_fk_tm(fk[i], mpi_w, fpi_w, mk_w, fk_w, ens)
-end
+=#
 
 #======== save BDIO ===================#
 

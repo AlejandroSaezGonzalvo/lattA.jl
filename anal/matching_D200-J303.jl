@@ -1,6 +1,7 @@
 import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO, PyPlot
+using ADerrors: err
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -114,7 +115,11 @@ x_s = [kappa_aux [mul_aux; mul_aux; mul_aux] [mus_aux; mus_aux; mus_aux]]
 x = [x_l, x_l, x_s]
 
 #up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
-up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+if ens.id == "J303"
+    up, chi2, chi_exp, pv = fit_alg_LBFGS([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+else
+    up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+end
 
 #matching_constTr_plot()
 

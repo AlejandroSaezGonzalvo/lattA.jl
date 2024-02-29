@@ -14,7 +14,7 @@ include("obs.jl")
 export get_m, get_mpcac, get_f_wil, get_f_tm, get_t0
 
 include("tools.jl")
-export model_av, pvalue, get_model, fve, fve_mpi_tm, fve_fpi_tm, fve_fk_tm, fit_alg, fit_defs, corr_sym_E250
+export model_av, pvalue, get_model, fve, fve_mpi_tm, fve_fpi_tm, fve_fk_tm, fit_alg, fit_alg_LBFGS, fit_defs, corr_sym_E250
 
 include("fit_funs.jl")
 export md_1, md_2, match_m12_sym, match_phi2_sym, match_m12, match_phi2, match_phi4, interp_fpik_sym, interp_fpik_constTr, model2_ChPT_a1, model2_ChPT_a4, model2_Taylor_a1, model2_Taylor4_a1, model2_Taylor_a4, model2_ChPT_a1_combined, model2_ChPT_a4_combined, model2_Taylor_a1_combined, model2_Taylor4_a1_combined, model2_Taylor_a4_combined, model2_ChPT2_a1, model2_ChPT2_a1_combined

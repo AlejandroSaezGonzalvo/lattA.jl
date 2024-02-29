@@ -82,6 +82,36 @@ function fit_alg(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vect
     return up, chi2, chi_exp, pval
 end
 
+function fit_alg_LBFGS(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vector{uwreal}}, 
+    n::Int64, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+    
+    y_n = y[1]
+    x_n = x[1]
+    for i in 2:length(x)
+        y_n = vcat(y_n, y[i])
+        x_n = vcat(x_n, x[i])
+    end
+    idx = [collect(1:size(x[i],1)) for i in 1:length(x)]
+    [idx[i] = idx[i] .+ idx[i-1][end] for i in 2:length(idx)]
+
+    isnothing(wpm) ? [uwerr.(y[i]) for i in 1:length(y)] : [[uwerr(y[i][j], wpm) for j in 1:length(y[i])] for i in 1:length(y)]
+    W = [1 ./ err.(y[i]) .^ 2 for i in 1:length(y)]
+
+    chisq = (par, y_n) -> sum([sum((y_n[idx[i]] .- f[i](x[i], par)) .^ 2 .* W[i]) for i in 1:length(x)])
+    min_fun(t) = chisq(t, value.(y_n))
+    if guess == nothing
+        p0 = [.5 for i in 1:n]
+    else
+        p0 = [guess; [1. for i in 1:n-length(guess)]]
+    end
+    sol = optimize(min_fun, p0, LBFGS()) 
+    chi2 = min_fun(sol.minimizer)
+    isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n) : (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n,wpm)
+    isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y_n) : pval = pvalue(chisq,chi2,value.(up),y_n,wpm=wpm)
+    return up, chi2, chi_exp, pval
+end
+
 function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64; 
     tm::Vector{Vector{Int64}}, tM::Vector{Vector{Int64}}, k::Vector{Int64}, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing) 
@@ -213,64 +243,11 @@ function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
     fve_fpi = -2 * jipi * g1pi - jik * g1k
     fve_fk = -3/4 * jipi *g1pi - 3/2 * jik * g1k
 
-    mpi = mpi / (1+fve_mpi)
-    fpi = fpi / (1+fve_fpi)
-    fk = fk / (1+fve_fk)
+    mpi_infty = mpi / (1+fve_mpi)
+    fpi_infty = fpi / (1+fve_fpi)
+    fk_infty = fk / (1+fve_fk)
 
-    return mpi, fpi, fk
-end
-
-function fve_mpi_tm(mpi::uwreal, mpi_w::uwreal, mk_w::uwreal, fpi_w::uwreal, fk_w::uwreal, ens::EnsInfo)
-    mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
-	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-
-    jipi = value(mpi_w) ^ 2 / (4*pi*fpi_w) ^ 2
-    mpiL = value(mpi_w) * ens.L
-    lampi = mpiL * sqrt.(nn)
-    g1pi = sum(4 .* mm ./ lampi .* besselk.(1, lampi))
-    fve_mpi = 0.5 * jipi * g1pi
-
-    mpi = mpi / (1+fve_mpi)
-
-    return mpi
-end
-
-function fve_fpi_tm(fpi::uwreal, mpi_w::uwreal, mk_w::uwreal, fpi_w::uwreal, fk_w::uwreal, ens::EnsInfo)
-    mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
-	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-
-    jipi = value(mpi_w) ^ 2 / (4*pi*fpi_w) ^ 2
-    jik = value(mk_w) ^ 2 / (4*pi*fk_w) ^ 2
-    mpiL = value(mpi_w) * ens.L
-    mkL = value(mk_w) * ens.L
-    lampi = mpiL * sqrt.(nn)
-    lamk = mkL * sqrt.(nn)
-    g1pi = sum(4 .* mm ./ lampi .* besselk.(1, lampi))
-    g1k = sum(4 .* mm ./ lamk .* besselk.(1, lamk))
-    fve_fpi = -2 * jipi * g1pi - jik * g1k
-
-    fpi = fpi / (1+fve_fpi)
-
-    return fpi
-end
-
-function fve_fk_tm(fk::uwreal, mpi_w::uwreal, mk_w::uwreal, fpi_w::uwreal, fk_w::uwreal, ens::EnsInfo)
-    mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
-	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-
-    jipi = value(mpi_w) ^ 2 / (4*pi*fpi_w) ^ 2
-    jik = value(mk_w) ^ 2 / (4*pi*fk_w) ^ 2
-    mpiL = value(mpi_w) * ens.L
-    mkL = value(mk_w) * ens.L
-    lampi = mpiL * sqrt.(nn)
-    lamk = mkL * sqrt.(nn)
-    g1pi = sum(4 .* mm ./ lampi .* besselk.(1, lampi))
-    g1k = sum(4 .* mm ./ lamk .* besselk.(1, lamk))
-    fve_fk = -3/4 * jipi *g1pi - 3/2 * jik * g1k
-
-    fk = fk / (1+fve_fk)
-
-    return fk
+    return mpi_infty, fpi_infty, fk_infty
 end
 
 function corr_sym_E250(corr1::juobs.Corr, corr2::juobs.Corr, parity::Int64=1)

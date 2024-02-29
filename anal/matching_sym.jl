@@ -1,6 +1,7 @@
 import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO, PyPlot
+using ADerrors: err
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -8,7 +9,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H400"
+id = "N300"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
