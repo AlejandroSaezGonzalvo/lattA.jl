@@ -53,12 +53,21 @@ end
 for i in 3:8:length(pp_sym)
     for j in 0:3
         println(i, " ", j)
-        mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=[[10], [20,30,33,40,60]], tM=[[ens.T-10], [80,84,100]])
-        push!(mk, mk_aux[1])
-        m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=[[10], [30,40,50]], tM=[[ens.T-10], [70,80,90,110]])
-        push!(m13, m13_aux[1])
-        fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[[10], [40,45,50,55]], tM=[[ens.T-10], [92,95,100,105]])
-        push!(fk, fk_aux[1])
+        if ens.id == "D200"
+            mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=[[10], [20,30,33,40,60]], tM=[[ens.T-10], [80,84,100]])
+            push!(mk, mk_aux[1])
+            m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=[[10], [30,40,50]], tM=[[ens.T-10], [70,80,90,110]])
+            push!(m13, m13_aux[1])
+            fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[[10], [40,45,50,55]], tM=[[ens.T-10], [92,95,100,105]])
+            push!(fk, fk_aux[1])
+        else
+            mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(mk, mk_aux[1])
+            m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(m13, m13_aux[1])
+            fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(fk, fk_aux[1])
+        end
     end
 end
 
