@@ -251,7 +251,7 @@ function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
 end
 
 function corr_sym_E250(corr1::juobs.Corr, corr2::juobs.Corr, parity::Int64=1)
-    corr = [corr1[1:3]; (corr1[4:98] .+ parity * corr2[192:-1:98]) / 2]
+    corr = [corr1.obs[1:3]; (corr1.obs[4:98] .+ parity * corr2.obs[192:-1:98]) / 2]
 
     return juobs.Corr(corr, corr1.kappa, corr1.mu, corr1.gamma, corr1.y0, corr1.theta1, corr1.theta2)
 end

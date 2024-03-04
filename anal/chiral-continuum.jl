@@ -1,10 +1,12 @@
 import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO, PyPlot, LsqFit, LinearAlgebra
+using ADerrors: err
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
+include("/home/asaez/cls_ens/codes/lattA.jl/src/fit_funs.jl");
 
 ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
 ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]

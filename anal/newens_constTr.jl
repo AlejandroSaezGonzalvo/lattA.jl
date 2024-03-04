@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "E300"
+id = "J501"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -22,7 +22,7 @@ else
     pp_sym, ap_sym = get_corr_TSM_multichunks(path, ens)
 end
 
-#======== compute observables ========#
+#======== Wilson =====================#
 
 #tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
 #tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
@@ -81,46 +81,73 @@ fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_obs_wi
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
-#============ get md ==================#
+#=========== Wtm ======================#
 
-if md_meas == true
-    phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
-    obs_md = Array{uwreal,1}()
-    for a in [phi4; obs]
-        md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
-        md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
-        v1 = v2 = s1 = s2 = 0
-        for i in 1:length(md_v)
-            v1 += md_v[i][1]
-            v2 += md_v[i][2]
-            s1 += md_s[i][1]
-            s2 += md_s[i][2]
-        end
-        s1 += md_s[end][1]
-        s2 += md_s[end][2]
-        push!(obs_md, s2 + v2)
+if ens.id in ["E300", "J501"]
+    pp_tm = pp_sym[10:end]
+    ap_tm = ap_sym[10:end]
+elseif ens.id in ["N302"]
+    pp_tm = pp_sym[4:end]
+    ap_tm = ap_sym[4:end]
+end
+
+mpi = Array{uwreal,1}()
+m12 = Array{uwreal,1}()
+fpi = Array{uwreal,1}()
+mk = Array{uwreal,1}()
+m13 = Array{uwreal,1}()
+fk = Array{uwreal,1}()
+m34 = Array{uwreal,1}()
+for i in 1:8:length(pp_tm)
+    for j in 0:1
+        println(i, " ", j)
+        mpi_aux = get_m(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+        push!(mpi, mpi_aux[1])
+        m12_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+        push!(m12, m12_aux[1])
+        m34_aux = get_mpcac(pp_tm[i+j+6], ap_tm[i+j+6], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+        push!(m34, m34_aux[1])
+        fpi_aux = get_f_tm(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+        push!(fpi, fpi_aux[1])
     end
-
-    ## now compute only strange derivatives wrt phi4 to interpolate as in Ben Strassberger's Thesis
-    phi2 = 8 * t0 * mpi ^ 2
-    t0fpik = sqrt(8 * t0) * 2/3 * (fk + 0.5 * fpi)
-    for a in [phi4; phi2; t0fpik]
-        md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
-        md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
-        v2 = s2 = 0
-        for i in 1:length(md_v)
-            v2 += md_v[i][2]
-            s2 += md_s[i][2]
-        end
-        s2 += md_s[end][2]
-        push!(obs_md, s2 + v2)
+end
+for i in 3:8:length(pp_tm)
+    for j in 0:3
+        println(i, " ", j)
+        mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+        push!(mk, mk_aux[1])
+        m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+        push!(m13, m13_aux[1])
+        fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+        push!(fk, fk_aux[1])
     end
-    obs_md[end-1] = obs_md[end-1] / obs_md[end-2]; obs_md[end] = obs_md[end] / obs_md[end-2]
+end
 
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_md_wil.bdio"), "w")
-    for i in 1:length(obs_md) write_uwreal(obs_md[i], fb, i) end
+#=
+c=0
+for i in 1:length(mpi)
+    for j in i+c:i+c+1
+        global a, b, fk[j] = fve(mpi[i], mk[j], fpi[i], fk[j], ens)
+    end
+    mpi[i] = a
+    fpi[i] = b
+    c+=1
+end
+=#
+
+#======== save BDIO ===================#
+
+obs = [mpi, mk, m12, m13, fpi, fk]
+obs_str = ["mpi", "mk", "m12", "m13", "fpi", "fk"]
+for j in 1:length(obs_str)
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "w")
+    for i in 1:length(obs[j]) write_uwreal(obs[j][i], fb, i) end
     BDIO_close!(fb)
 end
+
+
+
+
 
 
 
