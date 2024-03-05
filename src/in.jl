@@ -19,3 +19,7 @@ phi2_ph = 8 * sqrt_t0_ph ^ 2 * Mpi ^ 2 / hc ^ 2
 fpik_exp = (2/3) * (0.5 * Fpi + FK)
 fpik_exp = fpik_exp / hc
 uwerr(fpik_exp)
+
+t0_old = t0_ph
+LambdaQCD = 340 ## in Mev
+Lam = LambdaQCD / hc

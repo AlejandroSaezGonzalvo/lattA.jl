@@ -344,11 +344,11 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT_a1; model2_ChPT_a4; model2_Taylor_a1; model2_Taylor4_a1; model2_Taylor_a4]
-    models_combined = [model2_ChPT_a1_combined; model2_ChPT_a4_combined; model2_Taylor_a1_combined; model2_Taylor4_a1_combined; model2_Taylor_a4_combined]
+    models = [model2_ChPT_a1; model2_ChPT_a2; model2_ChPT_a4; model2_Taylor_a1; model2_Taylor_a2; model2_Taylor_a4]
+    models_combined = [model2_ChPT_a1_combined; model2_ChPT_a2_combined; model2_ChPT_a4_combined; model2_Taylor_a1_combined; model2_Taylor_a2_combined; model2_Taylor_a4_combined]
     models = [models, models, models_combined]
-    param = [3,4,3,4,4]
-    param_combined = [4,5,4,5,5]
+    param = [3,3,4,3,3,4]
+    param_combined = [4,4,5,4,4,5]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
@@ -483,7 +483,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
                 y = set_y[k][j]
                 global L1 = length(set_y[1][j])
                 global L2 = length(set_y[1][j])
-                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], guess=[-0.04,3.2,-0.06,0.3])
+                uprm, chi_exp, chi2, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 if k == 3
@@ -498,8 +498,9 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         end
     end
 
+    TIC = [TIC[k] .- minimum.(TIC)[k] for k in 1:length(TIC)]
     W = [exp.(-0.5 * TIC[k]) ./ sum(exp.(-0.5 * TIC[k])) for k in 1:length(TIC)]
-    t0fpik_ph_vec = [[t0fpik_ph_vec[k]; 2/3 * (t0fk_ph_vec .+ 0.5 * t0fpi_ph_vec)[k]] for k in 1:length(t0fpik_ph_vec)]
+    #t0fpik_ph_vec = [[t0fpik_ph_vec[k]; 2/3 * (t0fk_ph_vec .+ 0.5 * t0fpi_ph_vec)[k]] for k in 1:length(t0fpik_ph_vec)]
     t0fpik_ph = [sum(t0fpik_ph_vec[k] .* W[k]) for k in 1:length(TIC)]
     syst = [sqrt(sum(t0fpik_ph_vec[k] .^ 2 .* W[k]) - (sum(t0fpik_ph_vec[k] .* W[k])) ^ 2) for k in 1:length(TIC)]
     t0fpik_ph = t0fpik_ph .+ [uwreal([0.0, value(syst[k])], string("syst chiral ", k, " 3rd")) for k in 1:length(TIC)]
