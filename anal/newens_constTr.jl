@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "J501"
+id = "E250"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -52,7 +52,15 @@ elseif ens.id == "N302"
     fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 elseif ens.id == "E250"
     ##TODO
-    aux = 1
+    tm = [[10], collect(10:10:div(ens.T,2)-5)]
+    tM = [[94], [94]]
+
+    mpi = get_m_pbc(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="cosh")
+    mk = get_m_pbc(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="cosh")
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    fpi = get_f_wil_pbc(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
+    fk = get_f_wil_pbc(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
 end
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]

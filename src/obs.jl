@@ -88,6 +88,43 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     return m, syst, m_i, weight, pval
 end
 
+function get_m_pbc(corr::juobs.Corr, ens::EnsInfo, PS::String; 
+    tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
+    pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing,
+    method::String="cosh")
+    
+    corr_d = corr.obs
+
+    m_dat = 0.5 .* log.((corr_d[2:end-2] ./ corr_d[3:end-1]) .^ 2)
+    guess = value(m_dat[Int64(round(T / 3))])
+
+    isnothing(tm) ? tm = [y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40] : tm=tm
+    isnothing(tM) ? tM = [96] : tM=tM
+
+    aux = [corr_d[i] / corr_d[i+1] for i in 2:length(corr_d)-1]
+    global T = 96
+    @.fit_fun(x,p) = cosh(p[1] * (x-T)) / cosh(p[1] * (x+1-T))
+    k1 = 1
+
+    aux2 = corr_d
+    global T2 = 192
+    @.fit_fun2(x,p) = p[2] * exp(-p[1] * (x-1)) + p[2] * exp(-p[1] * (T2+1-x))
+    k2 = 2
+
+    if method == "cosh"
+        m, syst, m_i, weight, pval = model_av(fit_fun, aux, guess, tm=tm, tM=tM, k=k, wpm=wpm)
+    elseif method == "corr"
+        m, syst, m_i, weight, pval = model_av(fit_fun2, aux2, guess, tm=tm, tM=tM, k=k2, wpm=wpm)
+    end
+
+    if pl == true
+        ##TODO
+        bla = 1
+    end
+
+    return m, syst, m_i, weight, pval
+end
+
 function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::String; 
     tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, 
     impr::Bool=true, pl::Bool=false, 
@@ -234,6 +271,40 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
     end
     
     return f, syst, R_i, weight, pval    
+end
+
+function get_f_wil_pbc(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
+    tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
+    impr::Bool=true, pl::Bool=false, 
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+
+    ap_dat = -corr_ap.obs
+    pp_dat = corr_pp.obs
+    T = 192
+
+    if impr == true
+        ca = ens.ca
+        der_pp = (pp_dat[3:end] .- pp_dat[1:end-2]) / 2
+        ap_dat = ap_dat[2:end-1] + ca * der_pp
+        pp_dat = pp_dat[2:end-1]
+    end
+    R_dat = ap_dat ./ sqrt.(pp_dat)
+
+    isnothing(tm) ? tm = [y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40] : tm=tm
+    isnothing(tM) ? tM = [96] : tM=tM
+    @.fit_fun(x,p) = p[1] * (-exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x))) / sqrt(exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x))) 
+    k = 1
+    
+    R, syst, R_i, weight, pval = model_av(fit_fun, R_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
+    f_i = sqrt.(2 ./ [m for i in 1:length(R_i)]) .* R_i 
+    f = sqrt(2 / m) * R 
+
+    if pl == true
+        ##TODO
+        bla = 1
+    end
+    
+    return f, syst, f_i, weight, pval    
 end
 
 function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.Corr, corr_apR::juobs.Corr, 

@@ -112,6 +112,36 @@ function fit_alg_LBFGS(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vecto
     return up, chi2, chi_exp, pval
 end
 
+function model_av(fun::Function, y::Vector{uwreal}, guess::Float64; 
+    tm::Vector{Int64}, tM::Vector{Int64}, k::Int64, 
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing) 
+    
+    pval = Array{Float64,1}()
+    p_1 = Array{uwreal,1}()
+    TIC = Array{Float64,1}()
+
+    isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
+    for i in tm
+        for j in tM
+            x = collect(i:j)
+            y_aux = y[i:j]
+            try 
+                up, chi2, chi_exp, pval_i = fit_alg(fun,x,y_aux,k,guess,wpm=wpm)
+                push!(pval, pval_i)
+                push!(TIC, chi2 - 2*chi_exp)
+                push!(p_1, up[1])
+            catch e 
+            end
+        end
+    end
+
+    TIC = TIC .- minimum(TIC)
+    weight = exp.(-0.5 .* TIC) ./ sum(exp.(-0.5 .* TIC))
+    p_av = sum(p_1 .* weight)
+    syst2 = sum(p_1 .^ 2 .* weight) - p_av ^ 2
+    return p_av, syst2, p_1, weight, pval
+end
+
 function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64; 
     tm::Vector{Vector{Int64}}, tM::Vector{Vector{Int64}}, k::Vector{Int64}, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing) 
@@ -251,7 +281,10 @@ function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
 end
 
 function corr_sym_E250(corr1::juobs.Corr, corr2::juobs.Corr, parity::Int64=1)
-    corr = [corr1.obs[1:3]; (corr1.obs[4:98] .+ parity * corr2.obs[192:-1:98]) / 2]
+    aux = [corr2.obs[97:end]; corr2.obs[1:96]]
+    corr2_sym = juobs.Corr(aux, corr2.kappa, corr2.mu, corr2.gamma, corr1.y0, corr2.theta1, corr2.theta2)
+
+    corr = [corr1.obs[1:3]; (corr1.obs[4:98] .+ parity * corr2_sym.obs[192:-1:98]) / 2]
 
     return juobs.Corr(corr, corr1.kappa, corr1.mu, corr1.gamma, corr1.y0, corr1.theta1, corr1.theta2)
 end
