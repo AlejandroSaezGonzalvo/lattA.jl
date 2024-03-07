@@ -243,7 +243,7 @@ function pvalue(chisq::Function,
         eig = eig .* (eig .> eps)
 
         aux = eig' * (z .^ 2)
-        Q = 1.0 - juobs.mean(aux .< chi2)
+        global Q = 1.0 - juobs.mean(aux .< chi2)
 
         x = chi2 .- eig[2:end]' * (z[2:end,:].^2)
         x = x / eig[1]
@@ -307,7 +307,7 @@ function pvalue(chisq::Function,
         eig = eig .* (eig .> eps)
 
         aux = eig' * (z .^ 2)
-        Q = 1.0 - juobs.mean(aux .< chi2)
+        global Q = 1.0 - juobs.mean(aux .< chi2)
 
         x = chi2 .- eig[2:end]' * (z[2:end,:].^2)
         x = x / eig[1]
