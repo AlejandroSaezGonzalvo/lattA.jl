@@ -111,6 +111,10 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     t0fpik_sh = sqrt(8) .* t0fpik_sh
     t0fpik_st_sh = sqrt(8) .* t0fpik_st_sh
 
+    t0_sh_sym = [[t0_sh[1] for i in 1:3]; [t0_sh[4]]; [t0_sh[5] for i in 5:8]; [t0_sh[9] for i in 9:10]]
+    #t0fpik_sh = t0fpik_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
+    #t0fpik_st_sh = t0fpik_st_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
+
 #==============================================================================================================================#
 
 #============================== plots =========================================================================================#
@@ -947,5 +951,27 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         delta_a = (y_aux[end-1] - y_cont) / err(y_cont); uwerr(delta_a); delta_a
         delta_a_st = (y_aux_st[end-1] - y_cont) / err(y_cont); uwerr(delta_a_st); delta_a_st
     ##
+
+#==============================================================================================================================#
+
+#============================== t0 sym à la Strassberger ======================================================================#
+
+    y = sqrt.(t0_sh ./ t0_sh_sym)
+    x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
+    list = [2,3,6,7,8,10]
+    y = y[list]
+    x = x[list,:]
+    Wm = inv(Symmetric(cov(y)))
+    Wm = convert(Matrix{Float64}, Wm)
+
+    function fun(x,p)
+        return [sqrt(1 + p[1] * (x[i,2] - x[i,4])) for i in 1:length(x[:,1])]
+    end
+    uprm, chi_exp, chi2, pval_aux, doff = fit_alg(fun, value.(x), y, 1, Wm)
+    sqrt_t0_star = sqrt_t0_ph[3] / fun(x_ph,uprm)[1]
+
+    fb = BDIO_open("/home/asaez/cls_ens/results/t0_sym_combined.bdio", "w")
+    write_uwreal(sqrt_t0_star ^ 2, fb, 1)
+    BDIO_close!(fb)
 
 #==============================================================================================================================#

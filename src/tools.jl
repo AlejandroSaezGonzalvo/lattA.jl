@@ -45,7 +45,7 @@ function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64
     up, chi_exp = fit_error(chisq_corr, coef(fit), y, W=W)
     uwerr.(up)
     chi2 = sum(fit.resid .^ 2)
-    pval = pvalue(chisq_corr, sum(fit.resid .^ 2), value.(up), y)
+    pval = pvalue(chisq_corr, sum(fit.resid .^ 2), value.(up), y; W)
     doff = dof(fit)
 
     return up, chi_exp, chi2, pval, doff
@@ -175,9 +175,13 @@ function model_av(fun::Vector{Function}, y::Vector{uwreal}, guess::Float64;
     return p_av, syst2, p_1, weight, pval
 end
 
-function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vector{uwreal};
-    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=Dict{String,Vector{Float64}}(),
-    W::Union{Vector{Float64},Array{Float64,2}} = Vector{Float64}(), nmc::Int64=5000)
+function pvalue(chisq::Function,
+    chi2::Float64,
+    xp::Vector{Float64}, 
+    data::Vector{uwreal};
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} =  Dict{Int64,Vector{Float64}}(),
+    W::Vector{Float64} = Vector{Float64}(),
+    nmc::Int64 = 5000)
 
     n = length(xp)   # Number of fit parameters
     m = length(data) # Number of data
@@ -198,14 +202,13 @@ function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vecto
         
     hess = Array{Float64}(undef, n+m, n+m)
     ForwardDiff.hessian!(hess, ccsq, xav, cfg)
-        
-    cse = 0.0
-    Q = dQ = 0.0
+
     if (m-n > 0)
         if (length(W) == 0)
             Ww = zeros(Float64, m)
             for i in 1:m
                 if (data[i].err == 0.0)
+                    #isnothing(wpm) ? wuerr(data[i]) : uwerr(data[i], wpm)
                     uwerr(data[i], wpm)
                     if (data[i].err == 0.0)
                         error("Zero error in fit data")
@@ -213,28 +216,26 @@ function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vecto
                 end
                 Ww[i] = 1.0 / data[i].err^2
             end
-        else
-            Ww = W
+            W = Ww
         end
-        #cse = chiexp(hess, data, Ww, wpm)
 
         m = length(data)
         n = size(hess, 1) - m
 
         hm = view(hess, 1:n, n+1:n+m)
         sm = Array{Float64, 2}(undef, n, m)
-
         for i in 1:n, j in 1:m
-            sm[i,j] = hm[i,j] / sqrt.(Ww[j])
+            sm[i,j] = hm[i,j] / sqrt.(W[j])
         end
         maux = sm * sm'
         hi   = LinearAlgebra.pinv(maux)
         Px   = -hm' * hi * hm
 
         for i in 1:m
-            Px[i,i] = Ww[i] + Px[i,i]
+            Px[i,i] = W[i] + Px[i,i]
         end
-        C = cov(data, wpm) 
+
+        C = cov(data) 
         
         nu = sqrt(C) * Px * sqrt(C)
         
@@ -253,8 +254,71 @@ function pvalue(chisq::Function, chi2::Float64, xp::Vector{Float64}, data::Vecto
         #dQ = juobs.mean((x .> 0) .* exp.(-x * 0.5) * 0.5 ./ sqrt.(abs.(x)))
         #dQ = err(cse)/value(cse) * dQ
     end
+    return Q
+end
 
-    return Q #uwreal([Q,dQ],"")
+function pvalue(chisq::Function,
+    chi2::Float64,
+    xp::Vector{Float64}, 
+    data::Vector{uwreal};
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} =  Dict{Int64,Vector{Float64}}(),
+    W::Array{Float64,2},
+    nmc::Int64 = 5000)
+
+    n = length(xp)   # Number of fit parameters
+    m = length(data) # Number of data
+
+    xav = zeros(Float64, n+m)
+    for i in 1:n
+        xav[i] = xp[i]
+    end
+    for i in n+1:n+m
+        xav[i] = data[i-n].mean
+    end
+    ccsq(x::Vector) = chisq(view(x, 1:n), view(x, n+1:n+m)) 
+    if (n+m < 4)
+        cfg = ForwardDiff.HessianConfig(ccsq, xav, ADerrors.Chunk{1}());
+    else
+        cfg = ForwardDiff.HessianConfig(ccsq, xav, ADerrors.Chunk{4}());
+    end
+        
+    hess = Array{Float64}(undef, n+m, n+m)
+    ForwardDiff.hessian!(hess, ccsq, xav, cfg)
+
+    if (m-n > 0)
+        m = length(data)
+        n = size(hess, 1) - m
+        
+        Lm = LinearAlgebra.cholesky(LinearAlgebra.Symmetric(W))
+        Li = LinearAlgebra.inv(Lm.L)
+        
+        hm = view(hess, 1:n, n+1:n+m)
+        sm = hm * Li'
+        
+        maux = sm * sm'
+        hi   = LinearAlgebra.pinv(maux)
+        Px   = W - hm' * hi * hm
+        
+        C = cov(data) 
+        
+        nu = sqrt(C) * Px * sqrt(C)
+        
+        N = length(nu[1,:])
+        z = randn(N, nmc)
+
+        eig = abs.(eigvals(nu))
+        eps = 1e-14 * maximum(eig)
+        eig = eig .* (eig .> eps)
+
+        aux = eig' * (z .^ 2)
+        Q = 1.0 - juobs.mean(aux .< chi2)
+
+        x = chi2 .- eig[2:end]' * (z[2:end,:].^2)
+        x = x / eig[1]
+        #dQ = juobs.mean((x .> 0) .* exp.(-x * 0.5) * 0.5 ./ sqrt.(abs.(x)))
+        #dQ = err(cse)/value(cse) * dQ
+    end
+    return Q
 end
 
 function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
