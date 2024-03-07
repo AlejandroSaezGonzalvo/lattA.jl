@@ -45,7 +45,7 @@ function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64
     up, chi_exp = fit_error(chisq_corr, coef(fit), y, W=W)
     uwerr.(up)
     chi2 = sum(fit.resid .^ 2)
-    pval = pvalue(chisq_corr, sum(fit.resid .^ 2), value.(up), y; W)
+    pval = pvalue(chisq_corr, sum(fit.resid .^ 2), value.(up), y, W)
     doff = dof(fit)
 
     return up, chi_exp, chi2, pval, doff
@@ -180,7 +180,6 @@ function pvalue(chisq::Function,
     xp::Vector{Float64}, 
     data::Vector{uwreal};
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} =  Dict{Int64,Vector{Float64}}(),
-    W::Vector{Float64} = Vector{Float64}(),
     nmc::Int64 = 5000)
 
     n = length(xp)   # Number of fit parameters
@@ -204,8 +203,7 @@ function pvalue(chisq::Function,
     ForwardDiff.hessian!(hess, ccsq, xav, cfg)
 
     if (m-n > 0)
-        if (length(W) == 0)
-            Ww = zeros(Float64, m)
+        W = zeros(Float64, m)
             for i in 1:m
                 if (data[i].err == 0.0)
                     #isnothing(wpm) ? wuerr(data[i]) : uwerr(data[i], wpm)
@@ -214,10 +212,8 @@ function pvalue(chisq::Function,
                         error("Zero error in fit data")
                     end
                 end
-                Ww[i] = 1.0 / data[i].err^2
+                global W[i] = 1.0 / data[i].err^2
             end
-            W = Ww
-        end
 
         m = length(data)
         n = size(hess, 1) - m
@@ -260,9 +256,9 @@ end
 function pvalue(chisq::Function,
     chi2::Float64,
     xp::Vector{Float64}, 
-    data::Vector{uwreal};
+    data::Vector{uwreal},
+    W::Array{Float64,2};
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} =  Dict{Int64,Vector{Float64}}(),
-    W::Array{Float64,2},
     nmc::Int64 = 5000)
 
     n = length(xp)   # Number of fit parameters
@@ -320,6 +316,7 @@ function pvalue(chisq::Function,
     end
     return Q
 end
+
 
 function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
     mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
