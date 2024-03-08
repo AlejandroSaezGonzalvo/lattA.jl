@@ -25,10 +25,10 @@ end
 
 #======== compute observables ========#
 
-#tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
-tm = [[10], collect(10:10:div(ens.T,2)-5)]
-tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
+tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+#tm = [[10], collect(10:10:div(ens.T,2)-5)]
+#tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 mpi = Array{uwreal,1}()
 m12 = Array{uwreal,1}()

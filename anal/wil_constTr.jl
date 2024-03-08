@@ -20,17 +20,17 @@ pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=
 
 #======== compute observables ========#
 
-#tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
-tm = [[10], collect(10:10:div(ens.T,2)-5)]
-tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
+tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+#tm = [[10], collect(10:10:div(ens.T,2)-5)]
+#tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 if ens.id == "J303"
-    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [20,25,28,29,30,31,32,35,40,45]], tM=[[ens.T-10], [60,65,70,75,80]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [20,25,28,29,30,31,32,35,40,45]], tM=[[11], [60,65,70,75,80]])
 else
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
 end

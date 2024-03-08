@@ -24,15 +24,15 @@ end
 
 #=========== Wilson ==================#
 
-#tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
-tm = [[10], collect(10:10:div(ens.T,2)-5)]
-tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
+tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+#tm = [[10], collect(10:10:div(ens.T,2)-5)]
+#tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 if ens.id == "J500"
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
     mk = mpi
-    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, tm=[[10], [12,16,24]], tM=[[11], [150,168,175]])
     m13 = m12
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
     fk = fpi
@@ -75,11 +75,11 @@ fk = Array{uwreal,1}()
 m34 = Array{uwreal,1}()
 for i in 1:length(pp_tm)
     println(i)
-    mpi_aux = get_m(pp_tm[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
+    mpi_aux = get_m(pp_tm[i], ens, "pion_tm", tm=[[10], [30,40,50,90]], tM=[[11], [100,120,130,140,160]], wpm=wpm)
     push!(mpi, mpi_aux[1])
-    m12_aux = get_mpcac(pp_tm[i], ap_tm[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
+    m12_aux = get_mpcac(pp_tm[i], ap_tm[i], ens, "pion_tm", tm=[[10], [30,50,60]], tM=[[11], [120,150,160]], wpm=wpm)
     push!(m12, m12_aux[1])
-    fpi_aux = get_f_tm(pp_tm[i], mpi[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
+    fpi_aux = get_f_tm(pp_tm[i], mpi[i], ens, "pion_tm", tm=[[10], [35,40,55]], tM=[[11], [120,130,151,160]], wpm=wpm)
     push!(fpi, fpi_aux[1])
 end
 fk = fpi
