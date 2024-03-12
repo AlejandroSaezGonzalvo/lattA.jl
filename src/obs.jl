@@ -96,6 +96,7 @@ function get_m_pbc(corr::juobs.Corr, ens::EnsInfo, PS::String;
     corr_d = corr.obs
 
     m_dat = 0.5 .* log.((corr_d[2:end-2] ./ corr_d[3:end-1]) .^ 2)
+    T = 192
     guess = value(m_dat[Int64(round(T / 3))])
 
     isnothing(tm) ? tm = [y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40] : tm=tm
