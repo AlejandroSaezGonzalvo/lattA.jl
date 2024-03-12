@@ -88,7 +88,6 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     ind = ensemble_inv["H105r005"] - 1
     t0_sh[ind-1] = plat_av(t0_sh, [ind-1,ind]); deleteat!(t0_sh, ind)
     phi2_sh[ind-1] = plat_av(phi2_sh, [ind-1,ind]); deleteat!(phi2_sh, ind)
-    mk_sh[ind-1] = plat_av(mk_sh, [ind-1,ind]); deleteat!(mk_sh, ind)
     m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
     m13_sh[ind-1] = plat_av(m13_sh, [ind-1,ind]); deleteat!(m13_sh, ind)
     mul[ind-1] = plat_av(mul, [ind-1,ind]); deleteat!(mul, ind)

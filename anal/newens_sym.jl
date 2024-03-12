@@ -30,11 +30,11 @@ tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
 #tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 if ens.id == "J500"
-    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, tm=tm, tM=tM)
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM)
     mk = mpi
-    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, tm=[[10], [12,16,24]], tM=[[11], [150,168,175]])
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=[[10], [12,16,24]], tM=[[11], [150,168,175]])
     m13 = m12
-    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
     fk = fpi
 end
 
@@ -52,7 +52,7 @@ m12_I = (1 + beta_bap[ens.beta] * m12) * m12
 
 #======== compute t0/a² ===============#
 
-t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM, pl=true)
+t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM, pl=false)
 
 #======== save BDIO ===================#
 

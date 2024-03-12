@@ -30,26 +30,26 @@ tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
 #tM = [[ens.T-10], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 if ens.id == "J501"
-    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [50,52,59,68,79]], tM=[[11], [85,92,100,102,111,126,144]])
-    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], [50,52,59,68,79]], tM=[[11], [85,92,100,102,111,126,144]])
-    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
-    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
-    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
-    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [50,52,59,68,79]], tM=[[11], [85,92,100,102,111,126,144]])
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [50,52,59,68,79]], tM=[[11], [85,92,100,102,111,126,144]])
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
+    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
 elseif ens.id == "E300"
-    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [40,45,50,60,75]], tM=[[11], [110,120,124,128]])
-    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], [35,40,55,65,90]], tM=[[11], [105,112,129,139,154]])
-    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
-    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
-    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
-    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [40,45,50,60,75]], tM=[[11], [110,120,124,128]])
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [35,40,55,65,90]], tM=[[11], [105,112,129,139,154]])
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
+    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
 elseif ens.id == "N302"
-    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
 elseif ens.id == "E250"
     ##TODO
 
@@ -58,8 +58,8 @@ elseif ens.id == "E250"
 
     mpi = get_m_pbc(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="cosh")
     mk = get_m_pbc(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="cosh")
-    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
-    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=true, wpm=wpm, tm=tm, tM=tM)
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
     fpi = get_f_wil_pbc(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
     fk = get_f_wil_pbc(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
 end
@@ -110,25 +110,45 @@ m34 = Array{uwreal,1}()
 for i in 1:8:length(pp_tm)
     for j in 0:1
         println(i, " ", j)
-        mpi_aux = get_m(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_mpi[end.id], tM=tM_mpi[end.id])
-        push!(mpi, mpi_aux[1])
-        m12_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_m12[end.id], tM=tM_m12[end.id])
-        push!(m12, m12_aux[1])
-        m34_aux = get_mpcac(pp_tm[i+j+6], ap_tm[i+j+6], ens, "pion_tm", wpm=wpm, tm=tm_m12[end.id], tM=tM_m12[end.id])
-        push!(m34, m34_aux[1])
-        fpi_aux = get_f_tm(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm_fpi[end.id], tM=tM_fpi[end.id])
-        push!(fpi, fpi_aux[1])
+        if ens.id == "N302"
+            mpi_aux = get_m(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(mpi, mpi_aux[1])
+            m12_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(m12, m12_aux[1])
+            m34_aux = get_mpcac(pp_tm[i+j+6], ap_tm[i+j+6], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(m34, m34_aux[1])
+            fpi_aux = get_f_tm(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(fpi, fpi_aux[1])
+        else
+            mpi_aux = get_m(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_mpi[ens.id], tM=tM_mpi[ens.id])
+            push!(mpi, mpi_aux[1])
+            m12_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_m12[ens.id], tM=tM_m12[ens.id])
+            push!(m12, m12_aux[1])
+            m34_aux = get_mpcac(pp_tm[i+j+6], ap_tm[i+j+6], ens, "pion_tm", wpm=wpm, tm=tm_m12[ens.id], tM=tM_m12[ens.id])
+            push!(m34, m34_aux[1])
+            fpi_aux = get_f_tm(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm_fpi[ens.id], tM=tM_fpi[ens.id])
+            push!(fpi, fpi_aux[1])
+        end
     end
 end
 for i in 3:8:length(pp_tm)
     for j in 0:3
         println(i, " ", j)
-        mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm_mk[end.id], tM=tM_mk[end.id])
-        push!(mk, mk_aux[1])
-        m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_m13[end.id], tM=tM_m13[end.id])
-        push!(m13, m13_aux[1])
-        fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm_fk[end.id], tM=tM_fk[end.id])
-        push!(fk, fk_aux[1])
+        if ens.id == "N302"
+            mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(mk, mk_aux[1])
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(m13, m13_aux[1])
+            fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(fk, fk_aux[1])
+        else
+            mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm_mk[ens.id], tM=tM_mk[ens.id])
+            push!(mk, mk_aux[1])
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_m13[ens.id], tM=tM_m13[ens.id])
+            push!(m13, m13_aux[1])
+            fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm_fk[ens.id], tM=tM_fk[ens.id])
+            push!(fk, fk_aux[1])
+        end
     end
 end
 
