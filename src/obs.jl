@@ -88,7 +88,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     return m, syst, m_i, weight, pval
 end
 
-function lattA.get_m_pbc(corr::juobs.Corr, ens::EnsInfo, PS::String; 
+function get_m_pbc(corr::juobs.Corr, ens::EnsInfo, PS::String; 
     tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
     pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing,
     method::String="cosh")
