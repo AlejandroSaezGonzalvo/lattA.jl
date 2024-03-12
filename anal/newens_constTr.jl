@@ -92,7 +92,7 @@ BDIO_close!(fb)
 
 #=========== Wtm ======================#
 
-if ens.id in ["E300", "J501"]
+if ens.id in ["E250", "E300", "J501"]
     pp_tm = pp_sym[10:end]
     ap_tm = ap_sym[10:end]
 elseif ens.id in ["N302"]
