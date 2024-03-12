@@ -88,7 +88,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
     return m, syst, m_i, weight, pval
 end
 
-function get_m_pbc(corr::juobs.Corr, ens::EnsInfo, PS::String; 
+function lattA.get_m_pbc(corr::juobs.Corr, ens::EnsInfo, PS::String; 
     tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
     pl::Bool=false, wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing,
     method::String="cosh")
@@ -113,7 +113,7 @@ function get_m_pbc(corr::juobs.Corr, ens::EnsInfo, PS::String;
     k2 = 2
 
     if method == "cosh"
-        m, syst, m_i, weight, pval = model_av(fit_fun, aux, guess, tm=tm, tM=tM, k=k, wpm=wpm)
+        m, syst, m_i, weight, pval = model_av(fit_fun, aux, guess, tm=tm, tM=tM, k=k1, wpm=wpm)
     elseif method == "corr"
         m, syst, m_i, weight, pval = model_av(fit_fun2, aux2, guess, tm=tm, tM=tM, k=k2, wpm=wpm)
     end
