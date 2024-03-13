@@ -34,7 +34,7 @@ if ens.id == "J500"
     mk = mpi
     m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=[[10], [12,16,24]], tM=[[11], [150,168,175]])
     m13 = m12
-    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[ens.T-10], 96 .+ [10,15,20,25,40]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
     fk = fpi
 end
 
