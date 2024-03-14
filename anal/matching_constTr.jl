@@ -9,7 +9,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "N200"
+id = "H105r005"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -17,7 +17,7 @@ path = "/home/asaez/cls_ens/data"
 #=========== read bdio ================#
 
 obs = Array{uwreal,1}()
-fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_obs_wil_un.bdio"), "r")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/unshifted/", ens.id, "_obs_wil_un.bdio"), "r")
 BDIO_seek!(fb); push!(obs, read_uwreal(fb))
 for i in 2:7 BDIO_seek!(fb, 2); push!(obs, read_uwreal(fb)) end
 BDIO_close!(fb)
@@ -30,7 +30,7 @@ uwerr(phi4_w)
 obs = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 obs_str = ["mpi", "mk", "m12", "m13", "fpi", "fk"]
 for j in 1:length(obs_str)
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "r")
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/unshifted/", ens.id, "_", obs_str[j], "_tm_un.bdio"), "r")
     BDIO_seek!(fb); push!(obs[j], read_uwreal(fb))
     while BDIO_seek!(fb, 2) == true push!(obs[j], read_uwreal(fb)) end 
     BDIO_close!(fb)
@@ -115,8 +115,12 @@ x_s = [kappa_aux [mul_aux; mul_aux; mul_aux] [mus_aux; mus_aux; mus_aux]]
 x = [x_l, x_l, x_s]
 
 #up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
-if ens.id in ["H102r001", "H102r002"]
+if ens.id in ["H102r001"]
     up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[1], mul[1], mus[1]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+elseif ens.id in ["H102r002"]
+    up, chi2, chi_exp, pv = fit_alg_LBFGS([match_m12, match_phi2, match_phi4],x,y,11,[kappa[1], mul[1], mus[1]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+elseif ens.id in ["N200"]
+    up, chi2, chi_exp, pv = fit_alg_LBFGS([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 else
     up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 end
@@ -178,12 +182,12 @@ uwerr(fk_matched)
 #========= save bdio ===============#
 
 obs = [t0_sh, phi2_w_sh, m12_w_sh_I, m13_w_sh_I, fpi_w_sh, fk_w_sh, fpik_w_sh]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
 obs = [up[1], up[2], up[3], fpi_matched, fk_matched, fpik_matched]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 

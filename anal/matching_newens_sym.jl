@@ -92,9 +92,9 @@ y = y .- target
 kappa, mul = ens_kappa[id], ens_mul[id]
 x = [[[kappa[1] for i in 1:2]; [kappa[2] for i in 1:2]] [mul; mul]]
 
-up, chi2, chi_exp, pv = fit_alg([match_m12_sym, match_phi2_sym],[x, x],y,6,[kappa[2], mul[2]],wpm=wpm) ##kappa->up[1], mul->up[2]
+up, chi2, chi_exp, pv = fit_alg_LBFGS([match_m12_sym, match_phi2_sym],[x, x],y,6,[kappa[2], mul[2]],wpm=wpm) ##kappa->up[1], mul->up[2]
 
-matching_sym_plot()
+#matching_sym_plot()
 
 #========= interpolate fpik ========#
 
@@ -103,16 +103,16 @@ up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x,y,4,ens_up_fpik[ens.id],w
 fpik_matched = interp_fpik_sym([up[1] up[2]],up_fpik)[1]
 uwerr(fpik_matched)
 
-interp_fpik_sym_plot()
+#interp_fpik_sym_plot()
 
 #========= save bdio ===============#
 
 obs = [t0_sh, phi2_w_sh, m12_w_sh_I, m12_w_sh_I, fpi_w_sh, fpi_w_sh, fpik_w_sh]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens.id, "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
 obs = [up[1], up[2], up[2], fpik_matched / sqrt(t0_sh), fpik_matched / sqrt(t0_sh), fpik_matched]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens.id, "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)

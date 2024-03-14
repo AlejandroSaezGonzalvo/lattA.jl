@@ -6,11 +6,11 @@ using ADerrors: err
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
-include("/home/asaez/cls_ens/codes/lattA.jl/src/fit_funs.jl");
+include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
 ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
 ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
-ens_new = []
+ens_new = ["E300", "J500"]
 ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
 ens_sym = ["H101", "H400", "N202", "N300"]
 ens_nosym = ["H102", "H105", "N203", "N200", "D200", "J303"]
@@ -35,17 +35,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     obs_sh = [Array{uwreal,1}() for i in 1:length(ens)]
     obs_tm_sh = [Array{uwreal,1}() for i in 1:length(ens)]
     for i in 1:length(ens)
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens[i], "_obs_wil_un.bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/unshifted/", ens[i], "_obs_wil_un.bdio"), "r")
         BDIO_seek!(fb); push!(obs[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/shifted/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_tm_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_tm_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
@@ -131,9 +131,10 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     errorbar(value.(phi2_sh[ens_370]), value.(t0fpik_sh[ens_370]), err.(t0fpik_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
     errorbar(value.(phi2_sh[ens_385]), value.(t0fpik_sh[ens_385]), err.(t0fpik_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
     ax = gca()
-    #ax[:set_ylim]([0.295, 0.325])
+    ax[:set_ylim]([0.285, 0.325])
     #legend()
     tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fpik_tm.pdf")
 
     uwerr.(t0fpik_st_sh)
     uwerr.(phi2_sh)
@@ -148,9 +149,10 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     errorbar(value.(phi2_sh[ens_370]), value.(t0fpik_st_sh[ens_370]), err.(t0fpik_st_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
     errorbar(value.(phi2_sh[ens_385]), value.(t0fpik_st_sh[ens_385]), err.(t0fpik_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
     ax = gca()
-    #ax[:set_ylim]([0.295, 0.325])
+    ax[:set_ylim]([0.285, 0.325])
     #legend()
     tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fpik_st.pdf")
 
     #t0fpi_st_sh = sqrt.(t0_sh) .* fpi_sh
     uwerr.(t0fpi_st_sh)
