@@ -354,7 +354,7 @@ end
 
 function get_f_wil_pbc(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
     tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
-    impr::Bool=true, pl::Bool=false, 
+    impr::Bool=true, pl::Bool=false, method::String="ratio",
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
 
     ap_dat = -corr_ap.obs
@@ -371,12 +371,37 @@ function get_f_wil_pbc(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens:
 
     isnothing(tm) ? tm = [y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40] : tm=tm
     isnothing(tM) ? tM = [96] : tM=tM
+    
     @.fit_fun(x,p) = p[1] * (-exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x))) / sqrt(exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x))) 
+    @.fit_fun_ap(x,p) = p[1] * (-exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x)))
+    @.fit_fun_pp(x,p) = p[1] * (exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x)))
+    @.fit_const(x,p) = p[1] * x ^ 0
     k = 1
     
-    R, syst, R_i, weight, pval = model_av(fit_fun, R_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
-    f_i = sqrt.(2 ./ [m for i in 1:length(R_i)]) .* R_i 
-    f = sqrt(2 / m) * R 
+    if method == "ratio"
+        R, syst, R_i, weight, pval = model_av(fit_fun, R_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
+        f_i = sqrt.(2 ./ [m for i in 1:length(R_i)]) .* R_i 
+        f = sqrt(2 / m) * R 
+    elseif method == "corr"
+        cap, syst_ap, cap_i, weight_ap, pval_ap = model_av(fit_fun_ap, ap_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
+        cpp, syst_pp, cpp_i, weight_pp, pval_pp = model_av(fit_fun_pp, pp_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
+        f_i = sqrt.(2 ./ [m for i in 1:length(cap_i)]) .* cap_i ./ sqrt.(cpp_i) 
+        f = sqrt(2 / m) * cap / sqrt(cpp)
+        syst = [syst_ap, syst_pp]
+        pval = [pval_ap, pval_pp]
+        weight = [weight_ap, weight_pp]
+    elseif method == "pcac"
+        if impr == false
+            error("pcac method implemented only for improved axial current, set impr=true")
+        end
+        cpp, syst_pp, cap_i, weight, pval = model_av(fit_fun_pp, pp_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
+        der_ap = (ap_dat[3:end] .- ap_dat[1:end-2]) / 2
+        der2_pp = pp_dat[1:end-2] + pp_dat[3:end] - 2*pp_dat[2:end-1]	
+        der_ap = der_ap + ca*der2_pp
+        mpcac_dat = der_ap ./ (2*pp_dat[2:end-1])
+        f_dat = [sqrt(8 / m ^ 3 * cpp) for i in 1:length(mpcac_dat)] .* mpcac_dat
+        f, syst, f_i, weight, pval = model_av(fit_const, f_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
+    end
 
     if pl == true
         ##TODO
@@ -520,6 +545,35 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
     end
 
     return f, syst, R_i, weight, pval
+end
+
+function get_f_tm_pbc(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
+    tm::Union{Vector{Int64}, Nothing}=nothing, tM::Union{Vector{Int64}, Nothing}=nothing, 
+    pl::Bool=false,
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+
+    pp_dat = corr_pp.obs
+    mu = corr_pp.mu
+    T = 192
+
+    R_dat = sqrt.(pp_dat)
+
+    isnothing(tm) ? tm = [y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40] : tm=tm
+    isnothing(tM) ? tM = [96] : tM=tM
+    
+    @.fit_fun_pp(x,p) = p[1] * (exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x)))
+    k = 1
+    
+    cpp, syst, cpp_i, weight, pval = model_av(fit_fun_pp, pp_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
+    f_i = [sqrt(2) * (mu[1] + mu[2]) / m ^ 1.5 for i in 1:length(cap_i)] .* sqrt.(cpp_i) 
+    f = sqrt(2) * (mu[1] + mu[2]) / m ^ 1.5 * sqrt(cpp)
+
+    if pl == true
+        ##TODO
+        bla = 1
+    end
+    
+    return f, syst, f_i, weight, pval    
 end
 
 function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};

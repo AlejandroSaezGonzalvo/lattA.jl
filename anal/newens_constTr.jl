@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "J501"
+id = "E250"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -34,8 +34,8 @@ if ens.id == "J501"
     mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [20,30,40,50,60]], tM=[[180], [130,140,150,160]])
     m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
     m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
-    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
-    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], 96 .- [10,15,20,25,40]], tM=[[180], 96 .+ [10,15,20,25,40]])
+    fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], 96 .- [10,15,20,25,40]], tM=[[180], 96 .+ [10,15,20,25,40]])
 elseif ens.id == "E300"
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [40,45,50,60,75]], tM=[[11], [110,120,124,128]])
     mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [35,40,55,65,90]], tM=[[11], [105,112,129,139,154]])
@@ -57,11 +57,11 @@ elseif ens.id == "E250"
     tM = [[94], [94]]
 
     mpi = get_m_pbc(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="cosh")
-    mk = get_m_pbc(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="cosh")
+    mk = get_m_pbc(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[70,80,96], method="cosh")
     m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
     m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
-    fpi = get_f_wil_pbc(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
-    fk = get_f_wil_pbc(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
+    fpi = get_f_wil_pbc(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[5,10,15,20], tM=[96], method="ratio")
+    fk = get_f_wil_pbc(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20], tM=[96], method="ratio")
 end
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
@@ -119,6 +119,15 @@ for i in 1:8:length(pp_tm)
             push!(m34, m34_aux[1])
             fpi_aux = get_f_tm(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
             push!(fpi, fpi_aux[1])
+        elseif ens.id == "E250"
+            mpi_aux = get_m_pbc(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="corr")
+            push!(mpi, mpi_aux[1])
+            m12_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(m12, m12_aux[1])
+            m34_aux = get_mpcac(pp_tm[i+j+6], ap_tm[i+j+6], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(m34, m34_aux[1])
+            fpi_aux = get_f_tm_pbc(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
+            push!(fpi, fpi_aux[1])
         else
             mpi_aux = get_m(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_mpi[ens.id], tM=tM_mpi[ens.id])
             push!(mpi, mpi_aux[1])
@@ -140,6 +149,13 @@ for i in 3:8:length(pp_tm)
             m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(fk, fk_aux[1])
+        elseif ens.id == "E250"
+            mk_aux = get_m_pbc(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="corr")
+            push!(mk, mk_aux[1])
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            push!(m13, m13_aux[1])
+            fk_aux = get_f_tm_pbc(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
             push!(fk, fk_aux[1])
         else
             mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm_mk[ens.id], tM=tM_mk[ens.id])
