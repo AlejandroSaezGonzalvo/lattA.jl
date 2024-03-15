@@ -28,6 +28,10 @@ tm = [[1], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
 tM = [[80], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
 #tm = [[1], collect(10:10:div(ens.T,2)-5)]
 #tM = [[80], collect(ens.T-10:-10:div(ens.T,2)+5)]
+if ens.id == "E250"
+    tm = [[10], collect(10:10:div(ens.T,2)-5)]
+    tM = [[94], [94]]
+end
 
 if ens.id == "J501"
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [20,30,40,50,60]], tM=[[180], [130,140,150,160]])
@@ -51,11 +55,6 @@ elseif ens.id == "N302"
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
     fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
 elseif ens.id == "E250"
-    ##TODO
-
-    tm = [[10], collect(10:10:div(ens.T,2)-5)]
-    tM = [[94], [94]]
-
     mpi = get_m_pbc(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96], method="cosh")
     mk = get_m_pbc(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[70,80,96], method="cosh")
     m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
@@ -126,7 +125,7 @@ for i in 1:8:length(pp_tm)
             push!(m12, m12_aux[1])
             m34_aux = get_mpcac(pp_tm[i+j+6], ap_tm[i+j+6], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
             push!(m34, m34_aux[1])
-            fpi_aux = get_f_tm_pbc(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
+            fpi_aux = get_f_tm_pbc(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[5,10,15,20], tM=[96])
             push!(fpi, fpi_aux[1])
         else
             mpi_aux = get_m(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_mpi[ens.id], tM=tM_mpi[ens.id])
@@ -138,6 +137,7 @@ for i in 1:8:length(pp_tm)
             fpi_aux = get_f_tm(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm_fpi[ens.id], tM=tM_fpi[ens.id])
             push!(fpi, fpi_aux[1])
         end
+        println(value(fpi[end]))
     end
 end
 for i in 3:8:length(pp_tm)
@@ -155,7 +155,7 @@ for i in 3:8:length(pp_tm)
             push!(mk, mk_aux[1])
             m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
             push!(m13, m13_aux[1])
-            fk_aux = get_f_tm_pbc(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[5,10,15,20,25,30,40,50,60], tM=[96])
+            fk_aux = get_f_tm_pbc(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[5,10,15,20], tM=[96])
             push!(fk, fk_aux[1])
         else
             mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm_mk[ens.id], tM=tM_mk[ens.id])
@@ -165,6 +165,7 @@ for i in 3:8:length(pp_tm)
             fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm_fk[ens.id], tM=tM_fk[ens.id])
             push!(fk, fk_aux[1])
         end
+        println(value(fk[end]))
     end
 end
 

@@ -96,14 +96,24 @@ function get_m_pbc(corr::juobs.Corr, ens::EnsInfo, PS::String;
     corr_d = corr.obs
 
     m_dat = 0.5 .* log.((corr_d[2:end-2] ./ corr_d[3:end-1]) .^ 2)
-    T = 192
+    if ens.id == "E250"
+        global T = 192
+        global Thalf = 96
+    elseif ens.id == "D450"
+        global T = 128
+        global Thalf = 64
+    end
     guess = value(m_dat[Int64(round(T / 3))])
 
     isnothing(tm) ? tm = [y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40] : tm=tm
-    isnothing(tM) ? tM = [96] : tM=tM
+    isnothing(tM) ? tM = [Thalf] : tM=tM
 
     aux = [corr_d[i] / corr_d[i+1] for i in 2:length(corr_d)-1]
-    global T = 96
+    if ens.id == "E250"
+        global T = 96
+    elseif ens.id == "D450"
+        global T = 64
+    end
     @.fit_fun(x,p) = cosh(p[1] * (x-T)) / cosh(p[1] * (x+1-T))
     k1 = 1
 
@@ -359,7 +369,13 @@ function get_f_wil_pbc(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens:
 
     ap_dat = -corr_ap.obs
     pp_dat = corr_pp.obs
-    T = 192
+    if ens.id == "E250"
+        global T = 192
+        global Thalf = 96
+    elseif ens.id == "D450"
+        global T = 128
+        global Thalf = 64
+    end
 
     if impr == true
         ca = ens.ca
@@ -370,13 +386,19 @@ function get_f_wil_pbc(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens:
     R_dat = ap_dat ./ sqrt.(pp_dat)
 
     isnothing(tm) ? tm = [y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40] : tm=tm
-    isnothing(tM) ? tM = [96] : tM=tM
+    isnothing(tM) ? tM = [Thalf] : tM=tM
     
     @.fit_fun(x,p) = p[1] * (-exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x))) / sqrt(exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x))) 
     @.fit_fun_ap(x,p) = p[1] * (-exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x)))
     @.fit_fun_pp(x,p) = p[1] * (exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x)))
     @.fit_const(x,p) = p[1] * x ^ 0
     k = 1
+
+    function fit_corr_sim(x,p)
+		f = [p[1] * (-exp(-value(m) * x[i]) + exp(-value(m) * (T - x[i]))) for i in 1:div(length(x),2)]
+		g = [p[2] * (exp(-value(m) * x[i]) + exp(-value(m) * (T - x[i]))) for i in div(length(x),2)+1:length(x)]
+		return [f;g]
+	end
     
     if method == "ratio"
         R, syst, R_i, weight, pval = model_av(fit_fun, R_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
@@ -390,6 +412,29 @@ function get_f_wil_pbc(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens:
         syst = [syst_ap, syst_pp]
         pval = [pval_ap, pval_pp]
         weight = [weight_ap, weight_pp]
+    elseif method == "corr_sim"
+        pval = Array{Float64,1}()
+        TIC = Array{Float64,1}()
+        cap_i = Array{uwreal,1}()
+        cpp_i = Array{uwreal,1}()
+        for i in tm
+            y = [ap_dat[i:end]; pp_dat[i:end]]
+            x = collect(i:length(ap_dat))
+            x = [x; x]
+            uwerr.(y)
+            W = 1 ./ ADerrors.err.(y) .^ 2
+            uprm, chi2, chi_exp, pv = fit_alg(fit_corr_sim, x, y, 2, [.5, .5])
+            push!(cap_i, uprm[1])
+            push!(cpp_i, uprm[2])
+            push!(pval, pv)
+            push!(TIC, chi2 - 2 * chi_exp)
+        end
+        weight = exp.(-0.5 * TIC) ./ sum(exp.(-0.5 * TIC))
+        R_i = cap_i ./ sqrt.(cpp_i)
+        R_av = sum(R_i .* weight)
+        syst = sum(R_i .^ 2 .* weight) - R_av ^ 2
+        f_i = sqrt.(2 ./ [m for i in 1:length(cap_i)]) .* R_i
+        f = sqrt(2 / m) * R_av
     elseif method == "pcac"
         if impr == false
             error("pcac method implemented only for improved axial current, set impr=true")
@@ -552,20 +597,24 @@ function get_f_tm_pbc(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
     pl::Bool=false,
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
 
-    pp_dat = corr_pp.obs
+    pp_dat = corr_pp.obs[2:end]
     mu = corr_pp.mu
-    T = 192
-
-    R_dat = sqrt.(pp_dat)
+    if ens.id == "E250"
+        global T = 192
+        global Thalf = 96
+    elseif ens.id == "D450"
+        global T = 128
+        global Thalf = 64
+    end
 
     isnothing(tm) ? tm = [y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40] : tm=tm
-    isnothing(tM) ? tM = [96] : tM=tM
+    isnothing(tM) ? tM = [Thalf] : tM=tM
     
     @.fit_fun_pp(x,p) = p[1] * (exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x)))
     k = 1
     
     cpp, syst, cpp_i, weight, pval = model_av(fit_fun_pp, pp_dat, .5, tm=tm, tM=tM, k=k, wpm=wpm)
-    f_i = [sqrt(2) * (mu[1] + mu[2]) / m ^ 1.5 for i in 1:length(cap_i)] .* sqrt.(cpp_i) 
+    f_i = [sqrt(2) * (mu[1] + mu[2]) / m ^ 1.5 for i in 1:length(cpp_i)] .* sqrt.(cpp_i) 
     f = sqrt(2) * (mu[1] + mu[2]) / m ^ 1.5 * sqrt(cpp)
 
     if pl == true
