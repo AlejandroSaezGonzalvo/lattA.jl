@@ -349,3 +349,12 @@ function corr_sym_E250(corr1::juobs.Corr, corr2::juobs.Corr, parity::Int64=1)
 
     return juobs.Corr(corr, corr1.kappa, corr1.mu, corr1.gamma, corr1.y0, corr1.theta1, corr1.theta2)
 end
+
+function corr_sym_D450(corr1::juobs.Corr, corr2::juobs.Corr, parity::Int64=1)
+    aux = [corr2.obs[65:end]; corr2.obs[1:64]]
+    corr2_sym = juobs.Corr(aux, corr2.kappa, corr2.mu, corr2.gamma, corr1.y0, corr2.theta1, corr2.theta2)
+
+    corr = [corr1.obs[1:3]; (corr1.obs[4:65] .+ parity * corr2_sym.obs[128:-1:65]) / 2]
+
+    return juobs.Corr(corr, corr1.kappa, corr1.mu, corr1.gamma, corr1.y0, corr1.theta1, corr1.theta2)
+end

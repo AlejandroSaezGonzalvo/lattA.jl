@@ -117,6 +117,9 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; info=false)
         if ens.id == "E250"
             pp_sym = [corr_sym_E250(pp[i], pp[i+1], +1) for i in 1:2:length(ap)]
             ap_sym = [corr_sym_E250(ap[i], ap[i+1], -1) for i in 1:2:length(ap)]
+        elseif ens.id == "D450"
+            pp_sym = [corr_sym_D450(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
+            ap_sym = [corr_sym_D450(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
         else
             pp_sym = [corr_sym(pp[i], pp[i+1], +1) for i in 1:2:length(ap)]
             ap_sym = [corr_sym(ap[i], ap[i+1], -1) for i in 1:2:length(ap)]
@@ -130,6 +133,9 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; info=false)
         if ens.id == "E250"
             pp_sym = [corr_sym_E250(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
             ap_sym = [corr_sym_E250(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
+        elseif ens.id == "D450"
+            pp_sym = [corr_sym_D450(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
+            ap_sym = [corr_sym_D450(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
         else
             pp_sym = [corr_sym(pp_ts001[i], pp_tsT[i], +1) for i in 1:length(pp_ts001)]
             ap_sym = [corr_sym(ap_ts001[i], ap_tsT[i], -1) for i in 1:length(pp_ts001)]
