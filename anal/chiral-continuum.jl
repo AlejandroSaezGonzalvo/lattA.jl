@@ -8,24 +8,24 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
-ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]
 ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
-ens_new = ["E300", "J500"]
-ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
-ens_sym = ["H101", "H400", "N202", "N300"]
-ens_nosym = ["H102", "H105", "N203", "N200", "D200", "J303"]
-ens_nosym355 = ["N203", "N200", "D200", "J303"]
-ens_41 = ["H101", "H102", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
-ens_42 = ["H101", "H102", "H400", "N202", "N203", "N200", "D200", "N300"]
+ens_new = ["D450", "E250", "N302", "E300", "J500"]
+ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]
+ens_sym = ["H101", "H400", "N202", "N300", "J500"]
+ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]
+ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300"]
+ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500"]
+ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500"]
 ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
-ens_346 = findall(x -> x in ["H400"], ens_av)
-ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200"], ens_av)
-ens_370 = findall(x -> x in ["N300", "J303"], ens_av)
-ens_385 = findall(x -> x in [], ens_av)
+ens_346 = findall(x -> x in ["H400", "D450"], ens_av)
+ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200", "E250"], ens_av)
+ens_370 = findall(x -> x in ["N300", "N302", "J303", "E300"], ens_av)
+ens_385 = findall(x -> x in ["J500"], ens_av)
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
-ind_phi204 = findall(x -> x in ["H105", "H105r005", "N200", "D200", "J303"], ens_av)
+ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "N200", "D200", "E250", "J303", "E300"], ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
@@ -161,16 +161,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
     rcParams["font.size"] = 20
     xlabel(L"$\phi_2$")
-    ylabel(L"$\sqrt{t_0}f_{\pi}$")
+    ylabel(L"$\sqrt{8t_0}f_{\pi}$")
     errorbar(value.(phi2_sh[ens_340]), value.(t0fpi_st_sh[ens_340]), err.(t0fpi_st_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
     errorbar(value.(phi2_sh[ens_346]), value.(t0fpi_st_sh[ens_346]), err.(t0fpi_st_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
     errorbar(value.(phi2_sh[ens_355]), value.(t0fpi_st_sh[ens_355]), err.(t0fpi_st_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
     errorbar(value.(phi2_sh[ens_370]), value.(t0fpi_st_sh[ens_370]), err.(t0fpi_st_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
     errorbar(value.(phi2_sh[ens_385]), value.(t0fpi_st_sh[ens_385]), err.(t0fpi_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
     ax = gca()
-    #ax[:set_ylim]([0.08, 0.115])
+    ax[:set_ylim]([0.24, 0.321])
     #legend()
     tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fpi_st.pdf")
 
     #t0fk_st_sh = sqrt.(t0_sh) .* fk_sh
     uwerr.(t0fk_st_sh)
@@ -179,16 +180,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
     rcParams["font.size"] = 20
     xlabel(L"$\phi_2$")
-    ylabel(L"$\sqrt{t_0}f_{\pi}$")
+    ylabel(L"$\sqrt{8t_0}f_{\pi}$")
     errorbar(value.(phi2_sh[ens_340]), value.(t0fk_st_sh[ens_340]), err.(t0fk_st_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
     errorbar(value.(phi2_sh[ens_346]), value.(t0fk_st_sh[ens_346]), err.(t0fk_st_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
     errorbar(value.(phi2_sh[ens_355]), value.(t0fk_st_sh[ens_355]), err.(t0fk_st_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
     errorbar(value.(phi2_sh[ens_370]), value.(t0fk_st_sh[ens_370]), err.(t0fk_st_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
     errorbar(value.(phi2_sh[ens_385]), value.(t0fk_st_sh[ens_385]), err.(t0fk_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
     ax = gca()
-    #ax[:set_ylim]([0.1, 0.12])
+    ax[:set_ylim]([0.3, 0.34])
     #legend()
     tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fk_tm.pdf")
 
     #t0fpi_sh = sqrt.(t0_sh) .* fpi_extrap
     uwerr.(t0fpi_sh)
@@ -197,16 +199,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
     rcParams["font.size"] = 20
     xlabel(L"$\phi_2$")
-    ylabel(L"$\sqrt{t_0}f_{\pi}$")
+    ylabel(L"$\sqrt{8t_0}f_{\pi}$")
     errorbar(value.(phi2_sh[ens_340]), value.(t0fpi_sh[ens_340]), err.(t0fpi_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
     errorbar(value.(phi2_sh[ens_346]), value.(t0fpi_sh[ens_346]), err.(t0fpi_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
     errorbar(value.(phi2_sh[ens_355]), value.(t0fpi_sh[ens_355]), err.(t0fpi_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
     errorbar(value.(phi2_sh[ens_370]), value.(t0fpi_sh[ens_370]), err.(t0fpi_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
     errorbar(value.(phi2_sh[ens_385]), value.(t0fpi_sh[ens_385]), err.(t0fpi_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
     ax = gca()
-    #ax[:set_ylim]([0.295, 0.325])
+    ax[:set_ylim]([0.24, 0.321])
     #legend()
     tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fpi_tm.pdf")
 
     #t0fk_sh = sqrt.(t0_sh) .* fk_extrap
     uwerr.(t0fk_sh)
@@ -215,16 +218,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
     rcParams["font.size"] = 20
     xlabel(L"$\phi_2$")
-    ylabel(L"$\sqrt{t_0}f_{\pi}$")
+    ylabel(L"$\sqrt{8t_0}f_{\pi}$")
     errorbar(value.(phi2_sh[ens_340]), value.(t0fk_sh[ens_340]), err.(t0fk_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
     errorbar(value.(phi2_sh[ens_346]), value.(t0fk_sh[ens_346]), err.(t0fk_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
     errorbar(value.(phi2_sh[ens_355]), value.(t0fk_sh[ens_355]), err.(t0fk_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
     errorbar(value.(phi2_sh[ens_370]), value.(t0fk_sh[ens_370]), err.(t0fk_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
     errorbar(value.(phi2_sh[ens_385]), value.(t0fk_sh[ens_385]), err.(t0fk_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
     ax = gca()
-    #ax[:set_ylim]([0.295, 0.325])
+    ax[:set_ylim]([0.3, 0.34])
     #legend()
     tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fk_tm.pdf")
 
 #==============================================================================================================================#
 
