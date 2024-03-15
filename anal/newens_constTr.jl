@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "D450"
+id = "E250"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -135,7 +135,7 @@ for i in 1:8:length(pp_tm)
             push!(m12, m12_aux[1])
             m34_aux = get_mpcac(pp_tm[i+j+6], ap_tm[i+j+6], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
             push!(m34, m34_aux[1])
-            fpi_aux = get_f_tm_pbc(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[5,10,15,20], tM=[96])
+            fpi_aux = get_f_tm_pbc(pp_tm[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[5,10,20,30,40,50,60,70,80], tM=[96]) #tm=[5,10,15,20], tM=[96]
             push!(fpi, fpi_aux[1])
         elseif ens.id == "D450"
             mpi_aux = get_m_pbc(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=[5,10,15,20,25,30,40], tM=[64], method="cosh")
@@ -174,7 +174,7 @@ for i in 3:8:length(pp_tm)
             push!(mk, mk_aux[1])
             m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
             push!(m13, m13_aux[1])
-            fk_aux = get_f_tm_pbc(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[5,10,15,20], tM=[96])
+            fk_aux = get_f_tm_pbc(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[5,10,15], tM=[70,80,96])
             push!(fk, fk_aux[1])
         elseif ens.id == "D450"
             mk_aux = get_m_pbc(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=[5,10,15,20,25,30], tM=[40,50,64], method="cosh")

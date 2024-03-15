@@ -190,7 +190,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     ax[:set_ylim]([0.3, 0.34])
     #legend()
     tight_layout()
-    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fk_tm.pdf")
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fk_st.pdf")
 
     #t0fpi_sh = sqrt.(t0_sh) .* fpi_extrap
     uwerr.(t0fpi_sh)

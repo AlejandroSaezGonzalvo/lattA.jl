@@ -620,6 +620,22 @@ function get_f_tm_pbc(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
     if pl == true
         ##TODO
         bla = 1
+
+        x = collect(1:length(pp_dat))
+        R_dat = pp_dat ./ [exp(-value(m) * (x[i]-1)) + exp(-value(m) * (T+1-x[i])) for i in 1:length(x)]
+        isnothing(wpm) ? uwerr(cpp) : uwerr(cpp, wpm)                       
+	    isnothing(wpm) ? uwerr.(R_dat) : [uwerr(R_dat[i], wpm) for i in 1:length(R_dat)]
+        v = value(cpp)
+        e = err(cpp)
+
+        figure()
+        errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
+        ylabel(L"$R_\mathrm{PS}$")
+        xlabel(L"$x_0$")
+        ylim(v-20*e, v+20*e)
+        tight_layout()
+
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
     end
     
     return f, syst, f_i, weight, pval    
