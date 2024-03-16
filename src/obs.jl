@@ -453,7 +453,7 @@ function get_f_wil_pbc(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens:
         bla = 1
 
         x = collect(1:length(R_dat))
-        R_dat = R_dat ./ (-exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x))) / sqrt(exp(-value(m) * (x-1)) + exp(-value(m) * (T+1-x))) 
+        R_dat = R_dat ./ [(-exp(-value(m) * (x[i]-1)) + exp(-value(m) * (T+1-x[i]))) / sqrt(exp(-value(m) * (x[i]-1)) + exp(-value(m) * (T+1-x[i]))) for i in 1:length(x)] 
 
 	    isnothing(wpm) ? uwerr.(R_dat) : [uwerr(R_dat[i], wpm) for i in 1:length(R_dat)]
         v = value(R_dat[40])
@@ -651,7 +651,7 @@ function get_f_tm_pbc(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         ylim(v-20*e, v+20*e)
         tight_layout()
 
-        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_tm_plat.pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
     end
     
     return f, syst, f_i, weight, pval    
