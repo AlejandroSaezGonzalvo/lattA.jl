@@ -638,20 +638,31 @@ function get_f_tm_pbc(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         bla = 1
 
         x = collect(1:length(pp_dat))
-        R_dat = pp_dat ./ [exp(-value(m) * (x[i]-1)) + exp(-value(m) * (T+1-x[i])) for i in 1:length(x)]
+        R_dat = pp_dat #./ [exp(-m * (x[i]-1)) + exp(-m * (T+1-x[i])) for i in 1:length(x)]
+        vec = cpp .* [exp(-m * (x[i]-1)) + exp(-m * (T+1-x[i])) for i in 1:length(x)]
         isnothing(wpm) ? uwerr(cpp) : uwerr(cpp, wpm)                       
 	    isnothing(wpm) ? uwerr.(R_dat) : [uwerr(R_dat[i], wpm) for i in 1:length(R_dat)]
-        v = value(cpp)
-        e = err(cpp)
+        isnothing(wpm) ? uwerr.(vec) : [uwerr(vec[i], wpm) for i in 1:length(vec)]
+        v = value.(vec)
+        e = err.(vec)
+        #v = value(cpp)
+        #e = err(cpp)
 
         figure()
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
+        fill_between(x, v-e, v+e, color="gray", alpha=0.75)
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
-        ylim(v-20*e, v+20*e)
+        #ylim(1e-8, 1e-7)
+        #xlim(0,length(R_dat))
+        yscale("log")
         tight_layout()
-
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
+
+        #@gp x value.(R_dat) err.(R_dat) "w errorbars t ''"
+        #@gp:- x v-e v+e "w filledcurves t ''"
+        #@gp:- "set logscale y"
+        #save(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.gp"))
     end
     
     return f, syst, f_i, weight, pval    
