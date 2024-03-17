@@ -6,7 +6,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 #sqrt_t0_ph = sqrt(phi4_ph / 8 / (MK ^ 2 + 0.5 * Mpi ^ 2) * hc ^ 2)
 #t0_ph = sqrt_t0_ph ^ 2
 
-fb = BDIO_open("/home/asaez/cls_ens/results/t0.bdio", "r") 
+fb = BDIO_open("/home/asaez/cls_ens/results/t0_2nd.bdio", "r") 
 BDIO_seek!(fb) 
 BDIO_seek!(fb, 2)
 BDIO_seek!(fb, 2)  
