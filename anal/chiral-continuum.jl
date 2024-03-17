@@ -249,7 +249,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     aux = model_continuum(x, up[1]) ; uwerr.(aux)
     aux_st = model_continuum(x, up_st[1]) ; uwerr.(aux_st)
 
-    fig = figure("pyplot_subplot_column10",figsize=(5,5))
+    fig = figure("pyplot_subplot_column10")
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
     rcParams["font.size"] = 20
     errorbar(value(x[1]), value(y[1]), err(y[1]), err(x[1]), fmt="s", label=L"$\beta=3.40$", color="rebeccapurple")
@@ -559,12 +559,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
 #============================== plot chiral & continuum =======================================================================#
 
+    uwerr(phi2_ph)
+    [uwerr.(t0fpik_ph_vec[k]) for k in 1:length(TIC)]
+    [uwerr.(t0fpi_ph_vec[k]) for k in 1:length(TIC)]
+    [uwerr.(t0fk_ph_vec[k]) for k in 1:length(TIC)]
+
     #t0fpik SU3
         uprm_combined = uprm_plot[3]
         uprm_st = uprm_plot[2]
         uprm = uprm_plot[1]
 
-        fig = figure("SU3",figsize=(5,5))
+        fig = figure("SU3")
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
 
@@ -669,6 +674,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         ax[:set_ylim]([0.283, 0.325])
         setp(ax.get_yticklabels(),visible=false)
         subplots_adjust(wspace=0.02)
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/SU3.pdf")
     ##
 
     #t0fpi SU2
@@ -676,7 +683,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         uprm_st = uprm_plot_SU2[2]
         uprm = uprm_plot_SU2[1]
 
-        fig = figure("SU2 pion",figsize=(5,5))
+        fig = figure("SU2 pion")
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
 
@@ -781,6 +788,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         ax[:set_ylim]([0.24, 0.33])
         setp(ax.get_yticklabels(),visible=false)
         subplots_adjust(wspace=0.02)
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/SU2_fpi.pdf")
     ##
 
     #t0fk SU2
@@ -788,7 +797,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         uprm_st = uprm_plot_SU2[2]
         uprm = uprm_plot_SU2[1]
 
-        fig = figure("SU2 kaon",figsize=(5,5))
+        fig = figure("SU2 kaon")
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
 
@@ -893,6 +902,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         ax[:set_ylim]([0.3, 0.34])
         setp(ax.get_yticklabels(),visible=false)
         subplots_adjust(wspace=0.02)
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/SU2_fk.pdf")
     ##
     
     #t0fpik SU3 continuum
@@ -906,7 +917,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         Fphi2_st = model_plot([0 ./ t0_sh ./ 8 phi2_sh phi4_sh], uprm_combined[[1,2,3]])
         y_aux_st = t0fpik_st_sh .- (Fphi2_st .- Fph_st)
 
-        fig = figure("SU3",figsize=(5,5))
+        fig = figure("SU3")
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
 

@@ -9,7 +9,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H101"
+#id = "H101"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -99,10 +99,16 @@ matching_sym_plot()
 #========= interpolate fpik ========#
 
 y = fpik_sh
-up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x,y,4,ens_up_fpik[ens.id],wpm=wpm)
-fpik_matched = interp_fpik_sym([up[1] up[2]],up_fpik)[1]
-uwerr(fpik_matched)
-
+cc = 0
+while cc == 0
+    try
+        global up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x,y,4,ens_up_fpik[ens.id] .+ rand(5),wpm=wpm)
+        global fpik_matched = interp_fpik_sym([up[1] up[2]],up_fpik)[1]
+        uwerr(fpik_matched)
+        cc+=1
+    catch e
+    end
+end
 interp_fpik_sym_plot()
 
 #========= save bdio ===============#

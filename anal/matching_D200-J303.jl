@@ -9,7 +9,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "J303"
+#id = "J303"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -126,21 +126,42 @@ end
 #========= interpolate fpik ========#
 
 y = fpik_sh
-up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_constTr,x_s,y,5,ens_up_fpik[ens.id],wpm=wpm) 
-fpik_matched = interp_fpik_constTr([up[1] up[2] up[3]],up_fpik)[1]
-uwerr(fpik_matched)
+cc = 0
+while cc == 0
+    try
+        global up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_constTr,x_s,y,5,ens_up_fpik[ens.id] .+ rand(5),wpm=wpm) 
+        global fpik_matched = interp_fpik_constTr([up[1] up[2] up[3]],up_fpik)[1]
+        uwerr(fpik_matched)
+        cc+=1
+    catch e 
+    end
+end
 
 #interp_fpik_constTr_plot()
 
 y = fpi_sh
-up_fpi, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x_l,y,4,ens_up_fpi[ens.id],wpm=wpm)
-fpi_matched = interp_fpik_sym([up[1] up[2]],up_fpi)[1]
-uwerr(fpi_matched)
+cc = 0
+while cc == 0
+    try
+        global up_fpi, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x_l,y,4,ens_up_fpi[ens.id] .+ rand(4),wpm=wpm)
+        global fpi_matched = interp_fpik_sym([up[1] up[2]],up_fpi)[1]
+        uwerr(fpi_matched)
+        cc+=1
+    catch e 
+    end
+end
 
 y = fk_sh
-up_fk, chi2, chi_exp, pv = fit_alg(interp_fpik_constTr,x_s,y,5,ens_up_fk[ens.id],wpm=wpm) 
-fk_matched = interp_fpik_constTr([up[1] up[2] up[3]],up_fk)[1]
-uwerr(fk_matched)
+cc = 0
+while cc == 0
+    try
+        global up_fk, chi2, chi_exp, pv = fit_alg(interp_fpik_constTr,x_s,y,5,ens_up_fk[ens.id] .+ rand(5),wpm=wpm) 
+        global fk_matched = interp_fpik_constTr([up[1] up[2] up[3]],up_fk)[1]
+        uwerr(fk_matched)
+        cc+=1
+    catch e 
+    end
+end
 
 #========= save bdio ===============#
 
