@@ -337,7 +337,7 @@ function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
     g1k = sum(4 .* mm ./ lamk .* besselk.(1, lamk))
     g1eta = sum(4 .* mm ./ lameta .* besselk.(1, lameta))
     fve_mpi = 1/4 * jipi * g1pi - 1/12 * jieta * g1eta
-    fve_eta = 1/6 * jieta * g1eta
+    fve_mk = 1/6 * jieta * g1eta
     fve_fpi = - jipi * g1pi - 1/2 * jik * g1k
     fve_fk = -3/8 * jipi *g1pi - 3/4 * jik * g1k - 3/8 * jieta * g1eta
 
@@ -368,7 +368,7 @@ function fve_inv(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
     g1k = sum(4 .* mm ./ lamk .* besselk.(1, lamk))
     g1eta = sum(4 .* mm ./ lameta .* besselk.(1, lameta))
     fve_mpi = 1/4 * jipi * g1pi - 1/12 * jieta * g1eta
-    fve_eta = 1/6 * jieta * g1eta
+    fve_mk = 1/6 * jieta * g1eta
     fve_fpi = -1 * jipi * g1pi - 1/2 * jik * g1k
     fve_fk = -3/8 * jipi *g1pi - 3/4 * jik * g1k - 3/8 * jieta * g1eta
 
