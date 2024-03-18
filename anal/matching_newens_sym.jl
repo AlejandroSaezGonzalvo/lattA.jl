@@ -47,6 +47,9 @@ uwerr.(phi4)
 uwerr.(m12)
 uwerr.(fpik)
 
+mpi_w, mk_w, fpi_w, fk_w = fve(mpi_w, mk_w, fpi_w, fk_w, ens)
+for i in 1:4 mpi[i], a, fpi[i], b = fve(mpi[i], mpi[i], fpi[i], fpi[i], ens) end
+
 #========== mass shift =============#
 
 par = Array{uwreal,1}()

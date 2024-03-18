@@ -56,12 +56,6 @@ end
 fk = fpi
 mk = mpi
 
-#=
-for i in 1:length(mpi) mpi[i], fpi[i], fk[i] = fve(mpi[i], mk[i], fpi[i], fk[i], ens) end
-fk = fpi ## need to "impose" this after fve in case of sym ens
-mk = mpi
-=#
-
 #======== save BDIO ===================#
 
 obs = [mpi, m12, fpi]

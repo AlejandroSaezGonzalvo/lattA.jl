@@ -322,23 +322,62 @@ function fve(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
     mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
 	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
+    meta = sqrt(mk ^ 2 - 1/4 * mpi ^ 2)
+
     jipi = value(mpi) ^ 2 / (4*pi*fpi) ^ 2
-    jik = value(mk) ^ 2 / (4*pi*fk) ^ 2
+    jik = value(mk) ^ 2 / (4*pi*fpi) ^ 2
+    jieta = value(meta) ^ 2 / (4*pi*fpi) ^ 2
     mpiL = value(mpi) * ens.L
     mkL = value(mk) * ens.L
+    metaL = value(meta) * ens.L
     lampi = mpiL * sqrt.(nn)
     lamk = mkL * sqrt.(nn)
+    lameta = metaL * sqrt.(nn)
     g1pi = sum(4 .* mm ./ lampi .* besselk.(1, lampi))
     g1k = sum(4 .* mm ./ lamk .* besselk.(1, lamk))
-    fve_mpi = 0.5 * jipi * g1pi
-    fve_fpi = -2 * jipi * g1pi - jik * g1k
-    fve_fk = -3/4 * jipi *g1pi - 3/2 * jik * g1k
+    g1eta = sum(4 .* mm ./ lameta .* besselk.(1, lameta))
+    fve_mpi = 1/4 * jipi * g1pi - 1/12 * jieta * g1eta
+    fve_eta = 1/6 * jieta * g1eta
+    fve_fpi = - jipi * g1pi - 1/2 * jik * g1k
+    fve_fk = -3/8 * jipi *g1pi - 3/4 * jik * g1k - 3/8 * jieta * g1eta
 
     mpi_infty = mpi / (1+fve_mpi)
+    mk_infty = mk / (1+fve_mk)
     fpi_infty = fpi / (1+fve_fpi)
     fk_infty = fk / (1+fve_fk)
 
-    return mpi_infty, fpi_infty, fk_infty
+    return mpi_infty, mk_infty, fpi_infty, fk_infty
+end
+
+function fve_inv(mpi::uwreal, mk::uwreal, fpi::uwreal, fk::uwreal, ens::EnsInfo)
+    mm = [6,12,8,6,24,24,0,12,30,24,24,8,24,48,0,6,48,36,24,24]
+	nn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+
+    meta = sqrt(mk ^ 2 - 1/4 * mpi ^ 2)
+
+    jipi = value(mpi) ^ 2 / (4*pi*fpi) ^ 2
+    jik = value(mk) ^ 2 / (4*pi*fpi) ^ 2
+    jieta = value(meta) ^ 2 / (4*pi*fpi) ^ 2
+    mpiL = value(mpi) * ens.L
+    mkL = value(mk) * ens.L
+    metaL = value(meta) * ens.L
+    lampi = mpiL * sqrt.(nn)
+    lamk = mkL * sqrt.(nn)
+    lameta = metaL * sqrt.(nn)
+    g1pi = sum(4 .* mm ./ lampi .* besselk.(1, lampi))
+    g1k = sum(4 .* mm ./ lamk .* besselk.(1, lamk))
+    g1eta = sum(4 .* mm ./ lameta .* besselk.(1, lameta))
+    fve_mpi = 1/4 * jipi * g1pi - 1/12 * jieta * g1eta
+    fve_eta = 1/6 * jieta * g1eta
+    fve_fpi = -1 * jipi * g1pi - 1/2 * jik * g1k
+    fve_fk = -3/8 * jipi *g1pi - 3/4 * jik * g1k - 3/8 * jieta * g1eta
+
+    mpi_L = mpi * (1+fve_mpi)
+    mk_L = mk * (1+fve_mk)
+    fpi_L = fpi * (1+fve_fpi)
+    fk_L = fk * (1+fve_fk)
+
+    return mpi_L, mk_L, fpi_L, fk_L
 end
 
 function corr_sym_E250(corr1::juobs.Corr, corr2::juobs.Corr, parity::Int64=1)

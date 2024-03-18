@@ -82,18 +82,6 @@ for i in 3:8:length(pp_sym)
     end
 end
 
-#=
-c=0
-for i in 1:length(mpi)
-    for j in i+c:i+c+1
-        global a, b, fk[j] = fve(mpi[i], mk[j], fpi[i], fk[j], ens)
-    end
-    mpi[i] = a
-    fpi[i] = b
-    c+=1
-end
-=#
-
 #======== save BDIO ===================#
 
 obs = [mpi, mk, m12, m13, fpi, fk]

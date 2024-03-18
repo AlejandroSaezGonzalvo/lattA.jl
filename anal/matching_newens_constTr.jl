@@ -58,6 +58,17 @@ uwerr.(phi4)
 uwerr.(m12)
 uwerr.(fpik)
 
+mpi_w, mk_w, fpi_w, fk_w = fve(mpi_w, mk_w, fpi_w, fk_w, ens)
+c=0
+for i in 1:length(mpi)
+    for j in i+c:i+c+1
+        global a, mk[j], b, fk[j] = fve(mpi[i], mk[j], fpi[i], fk[j], ens)
+    end
+    mpi[i] = a
+    fpi[i] = b
+    c+=1
+end
+
 #========== mass shift =============#
 
 par = Array{uwreal,1}()

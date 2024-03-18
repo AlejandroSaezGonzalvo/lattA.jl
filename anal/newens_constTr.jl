@@ -74,7 +74,6 @@ elseif ens.id == "D450"
 end
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
-mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
 
 ZA = beta_ZA[ens.beta]
 bAtil = 1 + 0.0472 * (6 / ens.beta)
@@ -194,18 +193,6 @@ for i in 3:8:length(pp_tm)
         println(value(fk[end]))
     end
 end
-
-#=
-c=0
-for i in 1:length(mpi)
-    for j in i+c:i+c+1
-        global a, b, fk[j] = fve(mpi[i], mk[j], fpi[i], fk[j], ens)
-    end
-    mpi[i] = a
-    fpi[i] = b
-    c+=1
-end
-=#
 
 #======== save BDIO ===================#
 

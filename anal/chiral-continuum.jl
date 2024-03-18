@@ -353,11 +353,11 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT_a1; model2_ChPT_a2; model2_ChPT_a4; model2_Taylor_a1; model2_Taylor_a2; model2_Taylor_a4]
-    models_combined = [model2_ChPT_a1_combined; model2_ChPT_a2_combined; model2_ChPT_a4_combined; model2_Taylor_a1_combined; model2_Taylor_a2_combined; model2_Taylor_a4_combined]
+    models = [model2_ChPT_a1; model2_ChPT_a2; model2_ChPT_a4; model2_Taylor_a1; model2_Taylor4_a1; model2_Taylor_a2; model2_Taylor_a4]
+    models_combined = [model2_ChPT_a1_combined; model2_ChPT_a2_combined; model2_ChPT_a4_combined; model2_Taylor_a1_combined; model2_Taylor4_a1_combined; model2_Taylor_a2_combined; model2_Taylor_a4_combined]
     models = [models, models, models_combined]
-    param = [3,3,4,3,3,4]
-    param_combined = [4,4,5,4,4,5]
+    param = [3,3,4,3,4,3,4]
+    param_combined = [4,4,5,4,5,4,5]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
@@ -478,11 +478,11 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT2_a1]
-    models_combined = [model2_ChPT2_a1_combined]
+    models = [model2_ChPT2_a1, model2_ChPT2_a4]
+    models_combined = [model2_ChPT2_a1_combined, model2_ChPT2_a4_combined]
     models = [models, models, models_combined]
-    param = [6]
-    param_combined = [8]
+    param = [6,8]
+    param_combined = [8,12]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)

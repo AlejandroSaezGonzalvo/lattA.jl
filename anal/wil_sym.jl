@@ -33,9 +33,6 @@ fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=tm, 
 fk = fpi
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
-mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
-fk = fpi ## need to "impose" this after fve in case of sym ens
-mk = mpi
 
 ZA = beta_ZA[ens.beta]
 bAtil = 1 + 0.0472 * (6 / ens.beta)

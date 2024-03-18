@@ -39,7 +39,6 @@ end
 fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
-mpi, fpi, fk = fve(mpi, mk, fpi, fk, ens)
 
 ZA = beta_ZA[ens.beta]
 bAtil = 1 + 0.0472 * (6 / ens.beta)
