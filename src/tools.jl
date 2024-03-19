@@ -40,6 +40,21 @@ function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64
     p00 = [0.5 for i in 1:param]
 
     chisq_corr(par,dat) = juobs.gen_chisq_correlated(model, x, W, par, dat)
+    fit = curve_fit(model,x,value.(y),W,p00)
+    up, chi_exp = fit_error(chisq_corr, coef(fit), y, W=W)
+    uwerr.(up)
+    chi2 = sum(fit.resid .^ 2)
+    pval = pvalue(chisq_corr, sum(fit.resid .^ 2), value.(up), y, W)
+    doff = dof(fit)
+
+    return up, chi_exp, chi2, pval, doff
+end
+
+#=
+function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64,W::Matrix{Float64})
+    p00 = [0.5 for i in 1:param]
+
+    chisq_corr(par,dat) = juobs.gen_chisq_correlated(model, x, W, par, dat)
     f(p) = LsqFit.cholesky(W).U * (model(x, p) - value.(y)) 
     fit = LsqFit.lmfit(f,p00,W) 
     up, chi_exp = fit_error(chisq_corr, coef(fit), y, W=W)
@@ -50,6 +65,7 @@ function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64
 
     return up, chi_exp, chi2, pval, doff
 end
+=#
 
 function fit_alg(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vector{uwreal}}, 
     n::Int64, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
@@ -75,7 +91,6 @@ function fit_alg(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vect
         p0 = [guess; [1. for i in 1:n-length(guess)]]
     end
     sol = optimize(min_fun, p0, GradientDescent(), Optim.Options(g_tol=1e-8, iterations=1000)) 
-    #sol = optimize(min_fun, p0, LBFGS()) 
     chi2 = min_fun(sol.minimizer)
     isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n) : (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n,wpm)
     isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y_n) : pval = pvalue(chisq,chi2,value.(up),y_n,wpm=wpm)

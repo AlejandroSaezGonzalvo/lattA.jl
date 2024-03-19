@@ -29,7 +29,13 @@ mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
 mk = mpi
 m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
 m13 = m12
-fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
+if ens.id == "H400"
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=[[1], [10]], tM=[[80], [76]], wpm=wpm)
+elseif ens.id == "N300"
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=[[1], [30,35,40,45,50]], tM=[[80], [95,98,100]], wpm=wpm)
+else
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
+end
 fk = fpi
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]

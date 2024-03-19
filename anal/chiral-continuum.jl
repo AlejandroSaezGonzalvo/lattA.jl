@@ -246,8 +246,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     up, chi2, chi_exp, pv = fit_alg(model_continuum,value.(x),y,2)
     up_st, chi2_st, chi_exp_st, pv_st = fit_alg(model_continuum,value.(x),y_st,2)
 
-    aux = model_continuum(x, up[1]) ; uwerr.(aux)
-    aux_st = model_continuum(x, up_st[1]) ; uwerr.(aux_st)
+    aux = model_continuum(x, up) ; uwerr.(aux)
+    aux_st = model_continuum(x, up_st) ; uwerr.(aux_st)
 
     fig = figure("pyplot_subplot_column10")
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
@@ -265,8 +265,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     xlabel(L"$a^2/8t_0$")
     ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
     x_plot = [i for i in 0.00:0.0005:0.045]
-    aux = model_continuum(x_plot, up[1]) ; uwerr.(aux)
-    aux_st = model_continuum(x_plot, up_st[1]) ; uwerr.(aux_st)
+    aux = model_continuum(x_plot, up) ; uwerr.(aux)
+    aux_st = model_continuum(x_plot, up_st) ; uwerr.(aux_st)
     v = value.(aux)
     e = err.(aux)
     fill_between(x_plot, v-e, v+e, color="fuchsia", alpha=0.1)
@@ -277,6 +277,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     #ax[:set_ylim]([0.295, 0.325])
     legend()
     tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/continuum_sym.pdf")
 
 #==============================================================================================================================#
 
@@ -367,7 +368,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
                 y = set_y[k][j]
                 global L1 = length(set_y[1][j])
                 global L2 = length(set_y[1][j])
-                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm[k][j])
+                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], diagm(diag(Wm[k][j])))
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
@@ -478,11 +479,11 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT2_a1, model2_ChPT2_a4]
-    models_combined = [model2_ChPT2_a1_combined, model2_ChPT2_a4_combined]
+    models = [model2_ChPT2_a1]
+    models_combined = [model2_ChPT2_a1_combined]
     models = [models, models, models_combined]
-    param = [6,8]
-    param_combined = [8,12]
+    param = [6]
+    param_combined = [8]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
