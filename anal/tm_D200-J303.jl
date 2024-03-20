@@ -43,7 +43,7 @@ for i in 1:8:length(pp_sym)
         if ens.id == "D200"
             mpi_aux = get_m(pp_sym[i+j], ens, "pion_tm", wpm=wpm, tm=[[10], [20,30,36,40,60]], tM=[[11], [80,85,100]])
             push!(mpi, mpi_aux[1])
-            m12_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=[[10], [20,30,40]], tM=[[11], [70,80,90,110]])
+            m12_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=[[1], [60,62,65]], tM=[[11], [70,75,80]])
             push!(m12, m12_aux[1])
             m34_aux = get_mpcac(pp_sym[i+j+6], ap_sym[i+j+6], ens, "pion_tm", wpm=wpm, tm=[[10], [30,40,50]], tM=[[11], [70,80,90,110]])
             push!(m34, m34_aux[1])
