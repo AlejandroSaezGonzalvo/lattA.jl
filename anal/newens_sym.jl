@@ -34,7 +34,7 @@ if ens.id == "J500"
     mk = mpi
     m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=[[10], [12,16,24]], tM=[[11], [150,168,175]])
     m13 = m12
-    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=[[10], 96 .- [10,15,20,25,40]], tM=[[11], 96 .+ [10,15,20,25,40]])
+    fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=[[1], [50]], tM=[[10], [150]])
     fk = fpi
 end
 
@@ -76,7 +76,7 @@ for i in 1:length(pp_tm)
     push!(mpi, mpi_aux[1])
     m12_aux = get_mpcac(pp_tm[i], ap_tm[i], ens, "pion_tm", tm=[[10], [30,50,60]], tM=[[11], [120,150,160]], wpm=wpm)
     push!(m12, m12_aux[1])
-    fpi_aux = get_f_tm(pp_tm[i], mpi[i], ens, "pion_tm", tm=[[10], [35,40,55]], tM=[[11], [120,130,151,160]], wpm=wpm)
+    fpi_aux = get_f_tm(pp_tm[i], mpi[i], ens, "pion_tm", tm=[[10], [75,80]], tM=[[11], [160,170]], wpm=wpm)
     push!(fpi, fpi_aux[1])
 end
 fk = fpi

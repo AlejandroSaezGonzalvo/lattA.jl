@@ -15,6 +15,7 @@ ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200"
 ens_sym = ["H101", "H400", "N202", "N300", "J500"]
 ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]
 ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300"]
+ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]
 ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500"]
 ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500"]
 ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
@@ -26,6 +27,7 @@ ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
 ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "N200", "D200", "E250", "J303", "E300"], ens_av)
+ind_mL_40 = findall(x -> x in ens_40, ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
@@ -109,6 +111,9 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     t0fk_sh = sqrt.(8 * t0_sh) .* fk_matched
     t0fpik_sh = sqrt(8) .* t0fpik_sh
     t0fpik_st_sh = sqrt(8) .* t0fpik_st_sh
+
+    #t0fpik_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_matched .+ fk_matched)
+    #t0fpik_st_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_sh .+ fk_sh) 
 
     t0_sh_sym = [[t0_sh[1] for i in 1:3]; [t0_sh[4]]; [t0_sh[5] for i in 5:8]; [t0_sh[9] for i in 9:10]]
     #t0fpik_sh = t0fpik_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
@@ -302,8 +307,10 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         x_nosym355 = x[ind_nosym355,:]
         x_combined_nosym = [x_nosym; x_nosym]
         x_combined_nosym355 = [x_nosym355; x_nosym355]
+        x_mL_40 = x[ind_mL_40, :]
         x_mL_41 = x[ind_mL_41, :]
         x_mL_42 = x[ind_mL_42, :]
+        x_combined_mL_40 = [x_mL_40; x_mL_40]
         x_combined_mL_41 = [x_mL_41; x_mL_41]
         x_combined_mL_42 = [x_mL_42; x_mL_42]
         x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph)]
@@ -333,19 +340,22 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         y_phi204 = y[ind_phi204]
         y_st_phi204 = y_st[ind_phi204]
         y_combined_phi204 = [y_st_phi204; y_phi204]
+        y_mL_40 = y[ind_mL_40]
         y_mL_41 = y[ind_mL_41]
         y_mL_42 = y[ind_mL_42]
+        y_st_mL_40 = y_st[ind_mL_40]
         y_st_mL_41 = y_st[ind_mL_41]
         y_st_mL_42 = y_st[ind_mL_42]
+        y_combined_mL_40 = [y_st_mL_40; y_mL_40]
         y_combined_mL_41 = [y_st_mL_41; y_mL_41]
         y_combined_mL_42 = [y_st_mL_42; y_mL_42]
 
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_41, y_mL_42]
-        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_41, y_st_mL_42]
-        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_41, y_combined_mL_42]
-        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_41, x_mL_42]
-        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_41, x_mL_42]
-        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_41, x_combined_mL_42]
+        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_40, y_mL_41, y_mL_42]
+        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_40, y_st_mL_41, y_st_mL_42]
+        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_40, y_combined_mL_41, y_combined_mL_42]
+        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_40, x_mL_41, x_mL_42]
+        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_40, x_mL_41, x_mL_42]
+        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_40, x_combined_mL_41, x_combined_mL_42]
 
         set_y = [cuts_y, cuts_y_st, cuts_y_combined]
         set_x = [cuts_x, cuts_x_st, cuts_x_combined]
@@ -354,11 +364,11 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT_a1; model2_ChPT_a2; model2_ChPT_a4; model2_Taylor_a1; model2_Taylor4_a1; model2_Taylor_a2; model2_Taylor_a4]
-    models_combined = [model2_ChPT_a1_combined; model2_ChPT_a2_combined; model2_ChPT_a4_combined; model2_Taylor_a1_combined; model2_Taylor4_a1_combined; model2_Taylor_a2_combined; model2_Taylor_a4_combined]
+    models = [model2_ChPT_a2; model2_ChPT_aas; model2_ChPT_a2phi2; model2_Taylor_a2; model2_Taylor4_a2; model2_Taylor_aas; model2_Taylor_a2phi2]
+    models_combined = [model2_ChPT_a2_combined; model2_ChPT_aas_combined; model2_ChPT_a2phi2_combined; model2_Taylor_a2_combined; model2_Taylor4_a2_combined; model2_Taylor_aas_combined; model2_Taylor_a2phi2_combined]
     models = [models, models, models_combined]
     param = [3,3,4,3,4,3,4]
-    param_combined = [4,4,5,4,5,4,5]
+    param_combined = [4,4,6,4,5,4,6]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
@@ -368,7 +378,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
                 y = set_y[k][j]
                 global L1 = length(set_y[1][j])
                 global L2 = length(set_y[1][j])
-                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], diagm(diag(Wm[k][j])))
+                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], ((Wm[k][j])))
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
@@ -479,8 +489,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT2_a1]
-    models_combined = [model2_ChPT2_a1_combined]
+    models = [model2_ChPT2_a2]
+    models_combined = [model2_ChPT2_a2_combined]
     models = [models, models, models_combined]
     param = [6]
     param_combined = [8]

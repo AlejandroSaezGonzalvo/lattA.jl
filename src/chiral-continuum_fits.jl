@@ -1,5 +1,5 @@
 
-function model2_ChPT_a1_combined(x,p)
+function model2_ChPT_a2_combined(x,p)
     #t0fpik Wilson:
     f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,1] for i in 1:L1]
     #t0fpik Wtm:
@@ -7,7 +7,7 @@ function model2_ChPT_a1_combined(x,p)
     return [f; g]
 end
 
-function model2_ChPT_a2_combined(x,p)
+function model2_ChPT_aas_combined(x,p)
     if x[1,1] == 0
         #t0fpik Wilson:
         f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) for i in 1:L1]
@@ -23,28 +23,20 @@ function model2_ChPT_a2_combined(x,p)
     end
 end
 
-function model2_ChPT_a3_combined(x,p)
+function model2_ChPT_a2phi2_combined(x,p)
     #t0fpik Wilson:
-    f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,1] for i in 1:L1]
+    f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,1] * x[i,2] + p[4] * x[i,1] for i in 1:L1]
     #t0fpik Wtm:
-    g = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[4] * x[i,1] * x[i,2] for i in 1:L2]
+    g = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[5] * x[i,1] * x[i,2] + p[6] * x[i,1] for i in 1:L2]
     return [f; g]
 end
 
-function model2_ChPT_a4_combined(x,p)
-    #t0fpik Wilson:
-    f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,1] for i in 1:L1]
-    #t0fpik Wtm:
-    g = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[4] * x[i,1] * x[i,2] + p[5] * x[i,1] for i in 1:L2]
-    return [f; g]
-end
-
-function model2_ChPT_a1(x,p) 
+function model2_ChPT_a2(x,p) 
     f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,1] for i in 1:L1]
     return f
 end
 
-function model2_ChPT_a2(x,p) 
+function model2_ChPT_aas(x,p) 
     if x[1,1] == 0
         return [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) for i in 1:length(x[:,1])]
     else
@@ -53,17 +45,12 @@ function model2_ChPT_a2(x,p)
     end
 end
 
-function model2_ChPT_a3(x,p) 
-    f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,2] * x[i,1] for i in 1:L1]
-    return f
-end
-
-function model2_ChPT_a4(x,p) 
+function model2_ChPT_a2phi2(x,p) 
     f = [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,2] * x[i,1] + p[4] * x[i,1] for i in 1:L1]
     return f
 end
 
-function model2_Taylor_a1_combined(x,p)
+function model2_Taylor_a2_combined(x,p)
     #t0fpik Wilson:
     f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * x[i,1] for i in 1:L1]
     #t0fpik Wtm:
@@ -71,7 +58,7 @@ function model2_Taylor_a1_combined(x,p)
     return [f; g]
 end
 
-function model2_Taylor4_a1_combined(x,p)
+function model2_Taylor4_a2_combined(x,p)
     #t0fpik Wilson:
     f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * (x[i,2] - x[i,4]) ^ 4 + p[4] * x[i,1] for i in 1:L1]
     #t0fpik Wtm:
@@ -79,7 +66,7 @@ function model2_Taylor4_a1_combined(x,p)
     return [f; g]
 end
 
-function model2_Taylor_a2_combined(x,p)
+function model2_Taylor_aas_combined(x,p)
     if x[1,1] == 0
         #t0fpik Wilson:
         f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) for i in 1:L1]
@@ -95,25 +82,25 @@ function model2_Taylor_a2_combined(x,p)
     end
 end
 
-function model2_Taylor_a4_combined(x,p)
+function model2_Taylor_a2phi2_combined(x,p)
     #t0fpik Wilson:
-    f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * x[i,1] for i in 1:L1]
+    f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * x[i,1] * x[i,2] + p[4] * x[i,1] for i in 1:L1]
     #t0fpik Wtm:
-    g = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[4] * x[i,1] * x[i,2] + p[5] * x[i,1] for i in 1:L2]
+    g = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[5] * x[i,1] * x[i,2] + p[6] * x[i,1] for i in 1:L2]
     return [f; g]
 end
 
-function model2_Taylor_a1(x,p) 
+function model2_Taylor_a2(x,p) 
     f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * x[i,1] for i in 1:L1]
     return f
 end
 
-function model2_Taylor4_a1(x,p) 
+function model2_Taylor4_a2(x,p) 
     f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * (x[i,2] - x[i,4]) ^ 4 + p[4] * x[i,1] for i in 1:L1]
     return f
 end
 
-function model2_Taylor_a2(x,p) 
+function model2_Taylor_aas(x,p) 
     if x[1,1] == 0
         return [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) for i in 1:length(x[:,1])]
     else
@@ -122,18 +109,18 @@ function model2_Taylor_a2(x,p)
     end
 end
 
-function model2_Taylor_a4(x,p) 
+function model2_Taylor_a2phi2(x,p) 
     f = [(p[1] + p[2] * (x[i,2] - x[i,4]) ^ 2) + p[3] * x[i,2] * x[i,1] + p[4] * x[i,1] for i in 1:L1]
     return f
 end
 
-function model2_ChPT2_a1(x,p) 
+function model2_ChPT2_a2(x,p) 
     pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[5] * x[i,1] for i in 1:div(length(x[:,2]),2)]
     kaon = [p[3] * x[i,2] + p[4] * (1 - 3/4 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[6] * x[i,1] for i in 1:div(length(x[:,2]),2)]
     return [pion;kaon]
 end
 
-function model2_ChPT2_a1_combined(x,p)
+function model2_ChPT2_a2_combined(x,p)
     #t0fpik Wilson:
     pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[5] * x[i,1] for i in 1:div(length(x[:,2]),4)]
     kaon = [p[3] * x[i,2] + p[4] * (1 - 3/4 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[6] * x[i,1] for i in 1:div(length(x[:,2]),4)]
@@ -143,11 +130,11 @@ function model2_ChPT2_a1_combined(x,p)
     return [pion; kaon; pi_tm; ka_tm]
 end
 
-function model2_ChPT2_fpi_a1(x,p) 
+function model2_ChPT2_fpi_a2(x,p) 
     return [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,1] for i in 1:length(x[:,2])]
 end
 
-function model2_ChPT2_fpi_a1_combined(x,p)
+function model2_ChPT2_fpi_a2_combined(x,p)
     #t0fpik Wilson:
     pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,1] for i in 1:div(length(x[:,2]),2)]
     #t0fpik Wtm:
