@@ -364,11 +364,11 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT_a2; model2_ChPT_aas; model2_ChPT_a2phi2; model2_Taylor_a2; model2_Taylor4_a2; model2_Taylor_aas; model2_Taylor_a2phi2]
-    models_combined = [model2_ChPT_a2_combined; model2_ChPT_aas_combined; model2_ChPT_a2phi2_combined; model2_Taylor_a2_combined; model2_Taylor4_a2_combined; model2_Taylor_aas_combined; model2_Taylor_a2phi2_combined]
+    models = [model2_ChPT_a2; model2_ChPT_aas; model2_ChPT_a2phi2; model2_Taylor_a2; model2_Taylor_aas; model2_Taylor_a2phi2; model2_Taylor4_a2; model2_Taylor4_a2phi2]
+    models_combined = [model2_ChPT_a2_combined; model2_ChPT_aas_combined; model2_ChPT_a2a2phi2_combined; model2_ChPT_a2phi2a2_combined; model2_ChPT_a2phi2_combined; model2_Taylor_a2_combined; model2_Taylor_aas_combined; model2_Taylor_a2a2phi2_combined; model2_Taylor_a2phi2a2_combined; model2_Taylor_a2phi2_combined; model2_Taylor4_a2_combined; model2_Taylor4_a2a2phi2_combined; model2_Taylor4_a2phi2a2_combined; model2_Taylor4_a2phi2_combined]
     models = [models, models, models_combined]
-    param = [3,3,4,3,4,3,4]
-    param_combined = [4,4,6,4,5,4,6]
+    param = [3,3,4,3,3,4,4,5]
+    param_combined = [4,4,5,5,6,4,4,5,5,6,5,6,6,7]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
