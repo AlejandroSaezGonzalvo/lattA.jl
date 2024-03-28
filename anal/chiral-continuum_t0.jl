@@ -371,6 +371,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     param_combined = [4,4,5,5,6,4,4,5,5,6,5,6,6,7]
     param = [param, param, param_combined]
 
+    switch = 0
     for k in 1:length(set_y)
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
@@ -378,7 +379,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
                 y = set_y[k][j]
                 global L1 = length(set_y[1][j])
                 global L2 = length(set_y[1][j])
-                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], ((Wm[k][j])))
+                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], ((Wm[k][j])) / 1 + switch * ((kron(value.(1 ./ x[:,1])', value.(1 ./ x[:,1])))))
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])

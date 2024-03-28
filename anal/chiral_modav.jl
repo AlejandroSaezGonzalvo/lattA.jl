@@ -55,4 +55,4 @@ ax[:set_xlim]([0, length(mods)+1])
 tight_layout()
 subplots_adjust(hspace=0.15) 
 
-#savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/BMA_tm.pdf")
+#savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/BMA_comb.pdf")

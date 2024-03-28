@@ -82,7 +82,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
         tight_layout()
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/m_",ens.id,"_",PS,".pdf"))
-        close("all")
+        #close("all")
     end
 
     return m, syst, m_i, weight, pval
@@ -202,7 +202,7 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
         bar(1:length(mpcac_i), pval, color="green")
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/mpcac_",ens.id,"_",PS,".pdf"))
-        close("all")
+        #close("all")
     end
 
     return mpcac, syst, mpcac_i, weight, pval        
@@ -278,7 +278,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
         bar(1:length(R_i), pval, color="green")
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,".pdf"))
-        close("all")
+        #close("all")
     end
     
     return f, syst, R_i, weight, pval    
@@ -356,7 +356,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
         bar(1:length(R_i), pval, color="green")
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,".pdf"))
-        close("all")
+        #close("all")
     end
         
     return f, syst, R_i, weight, pval
@@ -535,7 +535,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         bar(1:length(R_i), pval, color="green")
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,".pdf"))
-        close("all")
+        #close("all")
     end
 
     return f, syst, R_i, weight, pval
@@ -602,7 +602,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
         bar(1:length(R_i), pval, color="green")
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,".pdf"))
-        close("all")
+        #close("all")
     end
 
     return f, syst, R_i, weight, pval
@@ -810,7 +810,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 bar(1:length(t2E_aux_i), pval, color="green")
 
                 savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t2E_",ens.id,".pdf"))
-                close("all")
+                #close("all")
             end
         else 
             t2E_aux, syst_aux, t2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
@@ -844,7 +844,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         ylabel(L"$t^2E$")
         xlabel(L"$t/a^2$")
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_",id,".pdf"))
-        close("all")
+        #close("all")
     end
 
     if info && rw
