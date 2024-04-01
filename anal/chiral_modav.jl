@@ -14,6 +14,16 @@ sqrt_t0 = sqrt_t0_ph[ix]
 W = W_aux[ix]
 pval = pval_aux[ix]
 
+if ix == 3
+    for i in 1:length(pval)
+        println(string(mods_c[i], " & ", round(pval[i], digits=4), " & ", round(W[i], digits=4), " & ", round(value(sqrt_t0_ph_vec[ix][i]), digits=4), "(", Int(round(err(sqrt_t0_ph_vec[ix][i]) * 1e4, digits=0)), ") \\\\"))
+    end
+else
+    for i in 1:length(pval)
+        println(string(mods[i], " & ", round(pval[i], digits=4), " & ", round(W[i], digits=4), " & ", round(value(sqrt_t0_ph_vec[ix][i]), digits=4), "(", Int(round(err(sqrt_t0_ph_vec[ix][i]) * 1e4, digits=0)), ") \\\\"))
+    end
+end
+
 ## plot t0 BMA
 fig = figure(str[ix])
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
@@ -56,3 +66,4 @@ tight_layout()
 subplots_adjust(hspace=0.15) 
 
 #savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/BMA_comb.pdf")
+

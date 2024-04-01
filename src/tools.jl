@@ -90,7 +90,7 @@ function fit_alg(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vect
     else
         p0 = [guess; [1. for i in 1:n-length(guess)]]
     end
-    sol = optimize(min_fun, p0, GradientDescent(), Optim.Options(g_tol=1e-8, iterations=1000)) 
+    sol = optimize(min_fun, p0, Optim.Options(g_tol=1e-8, iterations=100000)) 
     chi2 = min_fun(sol.minimizer)
     isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n) : (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n,wpm)
     isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y_n) : pval = pvalue(chisq,chi2,value.(up),y_n,wpm=wpm)

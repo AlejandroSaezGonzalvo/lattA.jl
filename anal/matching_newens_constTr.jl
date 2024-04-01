@@ -134,7 +134,7 @@ else
     up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 end
 
-#matching_constTr_plot()
+#matching_newens_constTr_plot()
 
 #========= interpolate fpik ========#
 
