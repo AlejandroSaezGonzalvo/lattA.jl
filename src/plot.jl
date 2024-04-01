@@ -103,7 +103,7 @@ function matching_sym_plot()
 
     tight_layout()
     savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/matching_",id,".pdf"))
-    close("all")
+    #close("all")
 end
 
 function matching_constTr_plot()
@@ -215,7 +215,7 @@ function matching_constTr_plot()
 
     tight_layout()
     savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/matching_",id,".pdf"))
-    close("all")
+    #close("all")
 end
 
 function matching_D200_J303_plot()
@@ -325,7 +325,7 @@ function matching_D200_J303_plot()
 
     tight_layout()
     savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/matching_",id,".pdf"))
-    close("all")
+    #close("all")
 end
 
 function matching_newens_sym_plot()
@@ -429,7 +429,7 @@ function matching_newens_sym_plot()
 
     tight_layout()
     savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/matching_",id,".pdf"))
-    close("all")
+    #close("all")
 end
 
 function matching_newens_constTr_plot()
@@ -537,7 +537,7 @@ function matching_newens_constTr_plot()
 
     tight_layout()
     savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/matching_",id,".pdf"))
-    close("all")
+    #close("all")
 end
 
 function interp_fpik_sym_plot()
@@ -589,7 +589,7 @@ function interp_fpik_sym_plot()
 
     tight_layout()
     savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/interp_fpik_",id,".pdf"))
-    close("all")
+    #close("all")
 end
 
 function interp_fpik_constTr_plot()
@@ -643,7 +643,7 @@ function interp_fpik_constTr_plot()
 
     tight_layout()
     savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/interp_fpik_",id,".pdf"))
-    close("all")
+    #close("all")
 end
 
 function t0_model_av(ix::Int64) ## ix -> 1: Wtm, 2:Wilson, 3:combined
