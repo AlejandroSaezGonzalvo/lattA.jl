@@ -127,14 +127,18 @@ x = [x_l, x_l, x_s]
 
 #up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 if ens.id == "E300"
-    up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[0.137214,0.00076,0.01132],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
-elseif ens.id == "N302"
+    up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2], 0.31773171018397933, -0.000264588017236073, -70.35615274515222, 158.39403084751487, -0.04214173704892017, -0.12252811003970752, 2.712514933784784, 85.2047801509684],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+elseif ens.id in ["D450", "N302", "J501"]
     up, chi2, chi_exp, pv = fit_alg_LBFGS([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+elseif ens.id == "E250"
+    up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2], 0.12236812816494522, 0.017823858996793042, 3.7429134703157976, 148.578993616638, -1.5027328421538688, 518.8322471024917, 145.24751471368035, 70.84502147151403],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+elseif ens.id == "J501"
+    up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2], 0.5094542235959382, -0.035694493645175976, 68.4751611490159, 222.83461601221845, -9.725423517717157, 4.311196375065772, 211.76756941089675, 109.26741937595635],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 else
     up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 end
 
-#matching_newens_constTr_plot()
+matching_newens_constTr_plot()
 
 #========= interpolate fpik ========#
 

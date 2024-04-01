@@ -97,7 +97,7 @@ x = [[[kappa[1] for i in 1:2]; [kappa[2] for i in 1:2]] [mul; mul]]
 
 up, chi2, chi_exp, pv = fit_alg_LBFGS([match_m12_sym, match_phi2_sym],[x, x],y,6,[kappa[2], mul[2]],wpm=wpm) ##kappa->up[1], mul->up[2]
 
-#matching_sym_plot()
+matching_newens_sym_plot()
 
 #========= interpolate fpik ========#
 
