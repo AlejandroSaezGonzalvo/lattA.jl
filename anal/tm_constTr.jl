@@ -46,7 +46,11 @@ for i in 1:15:length(pp_sym)
         push!(m12, m12_aux[1])
         m34_aux = get_mpcac(pp_sym[i+j+12], ap_sym[i+j+12], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
         push!(m34, m34_aux[1])
-        fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+        if ens.id == "N200"
+            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [42,50,55]], tM=[[10], [78,80,90,100]])
+        else
+            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+        end
         push!(fpi, fpi_aux[1])
     end
 end
@@ -57,7 +61,11 @@ for i in 4:15:length(pp_sym)
         push!(mk, mk_aux[1])
         m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
         push!(m13, m13_aux[1])
-        fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+        if ens.id == "N200"
+            fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[[1],[45,50,55]], tM=[[10],[108,110,117]])
+        else
+            fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+        end
         push!(fk, fk_aux[1])
     end
 end

@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "N300"
+id = "N202"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -50,6 +50,13 @@ for i in 1:length(pp_sym)
         m12_aux = get_mpcac(pp_sym[i], ap_sym[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
         push!(m12, m12_aux[1])
         fpi_aux = get_f_tm(pp_sym[i], mpi[i], ens, "pion_tm", tm=[[1], [52,55,60,65]], tM=[[10], [103,105,108,110]], wpm=wpm)
+        push!(fpi, fpi_aux[1])
+    elseif ens.id == "N202"
+        mpi_aux = get_m(pp_sym[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
+        push!(mpi, mpi_aux[1])
+        m12_aux = get_mpcac(pp_sym[i], ap_sym[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
+        push!(m12, m12_aux[1])
+        fpi_aux = get_f_tm(pp_sym[i], mpi[i], ens, "pion_tm", tm=[[1], [25,30,35,40]], tM=[[10], [90,95,100,110]], wpm=wpm)
         push!(fpi, fpi_aux[1])
     else
         mpi_aux = get_m(pp_sym[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
