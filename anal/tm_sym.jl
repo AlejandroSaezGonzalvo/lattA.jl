@@ -44,6 +44,13 @@ for i in 1:length(pp_sym)
         push!(m12, m12_aux[1])
         fpi_aux = get_f_tm(pp_sym[i], mpi[i], ens, "pion_tm", tm=[[10], [10,20,30,40,50,60]], tM=[[11], [70,80,90,100,110]], wpm=wpm)
         push!(fpi, fpi_aux[1])
+    elseif ens.id == "N300"
+        mpi_aux = get_m(pp_sym[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
+        push!(mpi, mpi_aux[1])
+        m12_aux = get_mpcac(pp_sym[i], ap_sym[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
+        push!(m12, m12_aux[1])
+        fpi_aux = get_f_tm(pp_sym[i], mpi[i], ens, "pion_tm", tm=[[1], [52,55,60,65]], tM=[[10], [103,105,108,110]], wpm=wpm)
+        push!(fpi, fpi_aux[1])
     else
         mpi_aux = get_m(pp_sym[i], ens, "pion_tm", tm=tm, tM=tM, wpm=wpm)
         push!(mpi, mpi_aux[1])
