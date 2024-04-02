@@ -1,7 +1,7 @@
 #mods = mods_346
 #mods = collect(1:length(sqrt_t0_vec))
 
-ix = 3
+#ix = 3
 if ix == 3 ## 1: Wtm, 2:Wilson, 3:combined
     mods = mods_c
 else
@@ -13,6 +13,7 @@ sqrt_t0_vec = sqrt_t0_ph_vec[ix]
 sqrt_t0 = sqrt_t0_ph[ix]
 W = W_aux[ix]
 pval = pval_aux[ix]
+#mods = collect(1:length(pval))
 
 if ix == 3
     for i in 1:length(pval)

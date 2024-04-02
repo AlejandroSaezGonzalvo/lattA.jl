@@ -147,7 +147,7 @@ up_fpik, chi2, chi_exp, pv = fit_alg(interp_fpik_constTr,x_s,y,5,ens_up_fpik[ens
 fpik_matched = interp_fpik_constTr([up[1] up[2] up[3]],up_fpik)[1]
 uwerr(fpik_matched)
 
-#interp_fpik_constTr_plot()
+interp_fpik_newens_constTr_plot()
 
 y = fpi_sh
 up_fpi, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x_l,y,4,ens_up_fpi[ens.id],wpm=wpm)
