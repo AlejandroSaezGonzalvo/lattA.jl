@@ -107,7 +107,7 @@ function matching_sym_plot()
 end
 
 function matching_constTr_plot()
-    subplot(221) # Create the 1st axis of a 3x1 array of axes
+    subplot(321) # Create the 1st axis of a 3x1 array of axes
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
@@ -131,7 +131,7 @@ function matching_constTr_plot()
     setp(ax.get_xticklabels(),visible=false)
     #legend()
 
-    subplot(222) 
+    subplot(322) 
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
@@ -155,14 +155,13 @@ function matching_constTr_plot()
     setp(ax.get_xticklabels(),visible=false)
     setp(ax.get_yticklabels(),visible=false)
     
-    subplot(223) # Create the 1st axis of a 3x1 array of axes
+    subplot(323) # Create the 1st axis of a 3x1 array of axes
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
     [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
     [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$1/\kappa^{\rm(v)}$")   
     vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
@@ -180,17 +179,17 @@ function matching_constTr_plot()
     kappa_target = 1 / up[1]; uwerr(kappa_target)
     errorbar(value(kappa_target), value(phi2_target[1]), err(phi2_target[2]), err(kappa_target), fmt="x", color="black")
     ax[:set_ylim]([value(phi2_sh[1])*0.97, value(phi2_sh[end])*1.03])
+    setp(ax.get_xticklabels(),visible=false)
     xticks(rotation=60)
     #legend()
 
-    subplot(224) 
+    subplot(324) 
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$\mu_l^{\rm(v)}$")   
     vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
@@ -208,6 +207,63 @@ function matching_constTr_plot()
     mul_target = up[2]; uwerr(mul_target)
     errorbar(value(mul_target), value(phi2_target[1]), err(phi2_target[2]), err(mul_target), fmt="x", color="black")
     ax[:set_ylim]([value(phi2_sh[1])*0.97, value(phi2_sh[end])*1.03])
+    setp(ax.get_yticklabels(),visible=false)
+    setp(ax.get_xticklabels(),visible=false)
+    xticks(rotation=60)
+
+    subplot(325) # Create the 1st axis of a 3x1 array of axes
+    ax = gca() # Get the handle of the current axis
+    delta = (kappa[2]-kappa[1])/10
+    xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
+    ylabel(L"$\phi_4^{\rm (v)}$")  
+    xlabel(L"$1/\kappa^{\rm(v)}$")   
+    vect = match_phi4(xp, up) .+ [phi4_ph for i in 1:length(xp[:,1])]
+    uwerr.(vect)
+    v = value.(vect)
+    e = err.(vect)
+    phi4_target = [phi4_ph for i in 1:length(xp[:,1])]
+    uwerr.(phi4_target)
+    v2 = value.(phi4_target)
+    e2 = err.(phi4_target)
+    xp = value.(xp)
+    fill_between(1 ./ xp[:,1], v-e, v+e, color="orange", alpha=0.5)
+    fill_between(1 ./ xp[:,1], v2-e2, v2+e2, color="gray", alpha=0.5)
+    errorbar(1 ./ x_s[1:9:27,1], value.(phi4_sh[1:9:27]), err.(phi4_sh[1:9:27]), fmt="x", color="purple", label=L"$a\mu_l^{\rm(v)}=???$") ## mus is fixed
+    errorbar(1 ./ x_s[4:9:27,1], value.(phi4_sh[4:9:27]), err.(phi4_sh[4:9:27]), fmt="x", color="green", label=L"$a\mu_l^{\rm(v)}=???$")
+    errorbar(1 ./ x_s[7:9:27,1], value.(phi4_sh[7:9:27]), err.(phi4_sh[7:9:27]), fmt="x", color="blue", label=L"$a\mu_l^{\rm(v)}=???$")
+    kappa_target = 1 / up[1]; uwerr(kappa_target)
+    errorbar(value(kappa_target), value(phi4_target[1]), err(phi4_target[1]), err(kappa_target), fmt="x", color="black")
+    ax[:set_ylim]([value(phi4_sh[1])*0.97, value(phi4_sh[end])*1.03])
+    xticks(rotation=60)
+    #legend()
+
+    subplot(326) 
+    ax = gca() 
+    delta = (mul[2]-mul[1])/10
+    xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
+    #ylabel(L"$\phi_2^{\rm (v)}$")  
+    xlabel(L"$\mu_l^{\rm(v)}$")   
+    vect = match_phi4(xp, up) .+ [phi4_ph for i in 1:length(xp[:,1])]
+    uwerr.(vect)
+    v = value.(vect)
+    e = err.(vect)
+    phi4_target = [phi4_ph for i in 1:length(xp[:,1])]
+    uwerr.(phi4_target)
+    v2 = value.(phi4_target)
+    e2 = err.(phi4_target)
+    xp = value.(xp)
+    fill_between(xp[:,2], v-e, v+e, color="orange", alpha=0.5)
+    fill_between(xp[:,2], v2-e2, v2+e2, color="gray", alpha=0.5)
+    errorbar(x_s[1:3:9,2], value.(phi4_sh[1:3:9]), err.(phi4_sh[1:3:9]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$") ## mus is fixed
+    errorbar(x_s[10:3:18,2], value.(phi4_sh[10:3:18]), err.(phi4_sh[10:3:18]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[19:3:27,2], value.(phi4_sh[19:3:27]), err.(phi4_sh[19:3:27]), fmt="x", color="blue", label=L"$\kappa^{\rm(v)}=???$")
+    mul_target = up[2]; uwerr(mul_target)
+    errorbar(value(mul_target), value(phi4_target[1]), err(phi4_target[1]), err(mul_target), fmt="x", color="black")
+    ax[:set_ylim]([value(phi4_sh[1])*0.97, value(phi4_sh[end])*1.03])
     setp(ax.get_yticklabels(),visible=false)
     xticks(rotation=60)
 

@@ -8,7 +8,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "N200"
+id = "H102r002"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -25,10 +25,13 @@ end
 
 #======== compute observables ========#
 
-#tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
-tm = [[10], collect(10:10:div(ens.T,2)-5)]
-tM = [[11], collect(ens.T-10:-10:div(ens.T,2)+5)]
+if ens.id in ["H102r001", "H102r002"]
+    tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+    tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+else
+    tm = [[10], collect(10:10:div(ens.T,2)-5)]
+    tM = [[11], collect(ens.T-10:-10:div(ens.T,2)+5)]
+end
 
 mpi = Array{uwreal,1}()
 m12 = Array{uwreal,1}()
@@ -48,8 +51,12 @@ for i in 1:15:length(pp_sym)
         push!(m34, m34_aux[1])
         if ens.id == "N200"
             fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [42,50,55]], tM=[[10], [78,80,90,100]])
+        elseif ens.id == "H102r002"
+            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [24]], tM=[[10], [39]])
+        elseif ens.id == "H102r001"
+            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [20]], tM=[[10], [65]])
         else
-            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM, pl=true)
         end
         push!(fpi, fpi_aux[1])
     end

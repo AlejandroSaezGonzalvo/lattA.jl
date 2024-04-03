@@ -31,6 +31,8 @@ ind_mL_40 = findall(x -> x in ens_40, ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
+fpik_add = true
+
 #============================== read BDIO =====================================================================================#
 
     obs = [Array{uwreal,1}() for i in 1:length(ens)]
@@ -112,8 +114,10 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     t0fpik_sh = sqrt(8) .* t0fpik_sh
     t0fpik_st_sh = sqrt(8) .* t0fpik_st_sh
 
-    #t0fpik_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_matched .+ fk_matched)
-    #t0fpik_st_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_sh .+ fk_sh) 
+    if fpik_add == true
+        t0fpik_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_matched .+ fk_matched)
+        t0fpik_st_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_sh .+ fk_sh) 
+    end
 
     t0_sh_sym = [[t0_sh[1] for i in 1:3]; [t0_sh[4]]; [t0_sh[5] for i in 5:8]; [t0_sh[9] for i in 9:10]]
     #t0fpik_sh = t0fpik_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
@@ -558,7 +562,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
     ## à la Strassberger:
     ixx = 3
-    ix = findall(pval[i] .> .1)
+    ix = findall(pval[ixx] .> .1)
     a = (maximum(value.(sqrt_t0_ph_vec[ixx][ix])) - minimum(value.(sqrt_t0_ph_vec[ixx][ix]))) / 2
     b = maximum(pval[ixx])
     c = findall(pval[ixx] .>= b)
