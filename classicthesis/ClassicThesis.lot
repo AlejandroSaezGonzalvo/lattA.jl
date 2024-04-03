@@ -21,19 +21,21 @@
 \ttl@tocsep 
 \contentsline {table}{\numberline {3.1}{\ignorespaces Results for the fit parameters in eqs.~(\ref {ch_ma:eq:md_1}-\ref {ch_ma:eq:md_2}) for the lattice observables that will be used in the analysis. The superscript ``W'' refers to the observable being computed in the Wilson unitary setup, while ``tm'' refers to the mixed action setup.\relax }}{44}{table.caption.6}%
 \ttl@tocsep 
-\contentsline {table}{\numberline {4.1}{\ignorespaces Wilson\relax }}{54}{table.4.1}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Wtm\relax }}{56}{table.4.2}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Combined\relax }}{60}{table.4.3}%
 \ttl@tocsep 
 \ttl@tocsep 
 \ttl@tocsep 
 \ttl@tocsep 
-\contentsline {table}{\numberline {A.1}{\ignorespaces List of CLS ensembles~\blx@tocontentsinit {0}\cite {} under study. They use the Lüscher-Weisz gauge action defined in eq.~(\ref {ch_foundation:eq:LW}) and non-perturbatively $\mathcal {O}(a)$ improved $N_f=2+1$ Wilson fermions. All ensembles use open boundary conditions in time except for E250, and periodic boundary conditions for all spatial directions.\relax }}{76}{table.caption.17}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces List of CLS ensembles~\blx@tocontentsinit {0}\cite {} under study. They use the Lüscher-Weisz gauge action defined in eq.~(\ref {ch_foundation:eq:LW}) and non-perturbatively $\mathcal {O}(a)$ improved $N_f=2+1$ Wilson fermions. All ensembles use open boundary conditions in time except for E250, and periodic boundary conditions for all spatial directions.\relax }}{68}{table.caption.17}%
 \ttl@tocsep 
 \ttl@tocsep 
-\contentsline {table}{\numberline {C.1}{\ignorespaces Multiplicities $m(n)$ calculated in~\blx@tocontentsinit {0}\cite {} for $n\leq 20$.\relax }}{80}{table.caption.18}%
+\contentsline {table}{\numberline {C.1}{\ignorespaces Multiplicities $m(n)$ calculated in~\blx@tocontentsinit {0}\cite {} for $n\leq 20$.\relax }}{72}{table.caption.18}%
 \ttl@tocsep 
-\contentsline {table}{\numberline {D.1}{\ignorespaces List of configurations with negative sign of the strange quark determinant for each ensemble.\relax }}{82}{table.caption.19}%
+\contentsline {table}{\numberline {D.1}{\ignorespaces List of configurations with negative sign of the strange quark determinant for each ensemble.\relax }}{74}{table.caption.19}%
 \ttl@tocsep 
+\ttl@tocsep 
+\contentsline {table}{\numberline {F.1}{\ignorespaces Correspondence between each fit model for the chiral-continuum extrapolation of $\sqrt {8t_0}f_{\pi K}$ and the labels used in the corresponding tables and figures. For the combined analysis, we are dealing with two independent cutoff effects, those of the Wilson results and those of the mixed action. In this case we will use two labels for these effects, the first referring to the lattice artifacts explored for the Wilson results, the second one for the mixed action results. If only one label is used it means the same lattice artifacts were explored for both regularizations.\relax }}{77}{table.F.1}%
+\contentsline {table}{\numberline {F.2}{\ignorespaces Model average results for the determination of $\sqrt {t_0}$ at the physical point using the Wilson results. In the first column we label the fit model and data cuts considered. In the second and third columns we show the quality of fits as measured by the p-value~\blx@tocontentsinit {0}\cite {chi_exp} and the assigned weight to each model according to eq.~(\ref {ch_ss:eq:W}), respectively. Finally, in the fourth column we show the results coming from each fit model.\relax }}{79}{table.F.2}%
+\contentsline {table}{\numberline {F.3}{\ignorespaces Model average results for the determination of $\sqrt {t_0}$ at the physical point using the mixed actions results. In the first column we label the fit model and data cuts considered. In the second and third columns we show the quality of fits as measured by the p-value~\blx@tocontentsinit {0}\cite {chi_exp} and the assigned weight to each model according to eq.~(\ref {ch_ss:eq:W}), respectively. Finally, in the fourth column we show the results coming from each fit model.\relax }}{81}{table.F.3}%
+\contentsline {table}{\numberline {F.4}{\ignorespaces Model average results for the determination of $\sqrt {t_0}$ at the physical point using the combined analysis of both Wilson and mixed action results. In the first column we label the fit model and data cuts considered. In the second and third columns we show the quality of fits as measured by the p-value~\blx@tocontentsinit {0}\cite {chi_exp} and the assigned weight to each model according to eq.~(\ref {ch_ss:eq:W}), respectively. Finally, in the fourth column we show the results coming from each fit model.\relax }}{84}{table.F.4}%
 \ttl@tocsep 
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
