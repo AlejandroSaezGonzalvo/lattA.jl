@@ -1,0 +1,42 @@
+\babel@toc {american}{}\relax 
+\deactivateaddvspace 
+\babel@toc {american}{}\relax 
+\ttl@tocsep 
+\babel@toc {spanish}{}\relax 
+\ttl@tocsep 
+\babel@toc {american}{}\relax 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces From (a) to (e) respectively: pion effective mass $m_{\textrm {eff}}$ in eq.~(\ref {ch_observables:eq:meff}), vacuum-to-pion axial matrix element $R_{\textrm {PS}}$ from eq.~(\ref {ch_observables:eq:R}), up-down PCAC quark mass in eq.~(\ref {ch_observables:eq:PCAC}), $t^2E(t)$ for a value of the flow time $t/a^2$ close to $t_0/a^2$ as defined in eq.~(\ref {ch_observables:eq:t0}), and values of $t^2E(t)$ for several flow times $t/a^2$ near $t_0/a^2$ (blue points) and the interpolated result for $t_0/a^2$ (orange point). All results are for ensemble H101 in the Wilson regularization.\relax }}{35}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Model variation for the extraction of the ground state signal in the pion effective mass of ensemble H101 in the Wilson regularization, shown in Fig.~\ref {ch_observables:fig:obs}. From top to bottom we show the ground state signal result from a fit to eq.~(\ref {ch_observables:eq:fit}) for each fit interval choice, the weight associated to each choice according to eq.~(\ref {ch_observables:eq:weight}), and the goodness of fit measured through the p-values defined in~\blx@tocontentsinit {0}\cite {}. We see that the highest weights are associated to a compromise between good fits (in terms of p-values) and fits with large number of points. The right-most models in the plot are heavily penalized even though they have the best p-values, since they cut a large number of points and models with not so severe cuts get also good p-values. The band in the top figure indicates the final weighted average result with the systematic uncertainty in eq.~(\ref {ch_observables:eq:syst}) included.\relax }}{36}{figure.caption.5}%
+\ttl@tocsep 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Derivatives $dO/d\phi _4^{\textrm {(s)}}$ for the Wilson unitary setup for $O=\sqrt {t_0}f_{\pi K},\tmspace +\thickmuskip {.2777em}\phi _2,\tmspace +\thickmuskip {.2777em}\sqrt {t_0}m_{12}^{\textrm {R}},\tmspace +\thickmuskip {.2777em}\sqrt {t_0}m_{13}^{\textrm {R}}$. For the fit eqs.~(\ref {ch_ma:eq:md_1}-\ref {ch_ma:eq:md_2}) were used. Results for the fit parameters are presented in Table~\ref {ch_ma:tab:md}.\relax }}{45}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Derivatives $dO/d\phi _4^{\textrm {(s)}}$ for the mixed action setup for $O=\sqrt {t_0}f_{\pi K},\tmspace +\thickmuskip {.2777em}\phi _2,\tmspace +\thickmuskip {.2777em}\phi _4,\tmspace +\thickmuskip {.2777em}\sqrt {t_0}m_{12}^{\textrm {R}}$. For the fit eqs.~(\ref {ch_ma:eq:md_1}-\ref {ch_ma:eq:md_2}) were used. Results for the fit parameters are presented in Table~\ref {ch_ma:tab:md}.\relax }}{45}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Plot of the matching of sea (gray band) and valence values of $\phi _2$ and tune to full twist $am_{12}^{\textrm {(v)}}=0$ along the grid of valence parameters values. Each point represents a different measurement of a lattice observables in the valence along the grid, and the orange band represents the interpolation. The black point is the target result $\left (\kappa ,\mu _l,\mu _s\right )^{\textrm {(v)*}}$. Here we only show the matching of $\phi _2^{\textrm {(v)}}$ and $am_{12}^{\textrm {(v)}}$, though the matching of $\phi _4^{\textrm {(v)}}$ is done simultaneously.\relax }}{47}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Interpolation of $\sqrt {t_0}f_{\pi K}$ (see eq.~(\ref {ch_ss:eq:fpik})) along the valence grid to the target point $\left (\kappa ,\mu _l,\mu _s\right )^{\textrm {(v)*}}$. The points with different colors represent measurements at different values of the valence parameters.\relax }}{47}{figure.caption.10}%
+\ttl@tocsep 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Continuum limit of symmetric point ensembles for the Wilson unitary results or sea data set (empty points) and for the mixed action results (filled points). A common continuum limit is not imposed. Cutoff effects are parameterized as pure $\mathcal {O}(a^2)$ artifacts.\relax }}{61}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \relax }}{61}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \relax }}{62}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \relax }}{62}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \relax }}{63}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \relax }}{63}{figure.caption.16}%
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\ttl@tocsep 
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
