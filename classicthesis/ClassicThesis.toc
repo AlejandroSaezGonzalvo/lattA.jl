@@ -48,10 +48,14 @@
 \contentsline {chapter}{Conclusions and outlook}{61}{part.4}%
 \contentsline {chapter}{Conclusiones y perspectivas}{63}{part.4}%
 \contentsline {part}{\numberline {v}{Appendix}}{65}{part.5}%
-\contentsline {chapter}{\numberline {A}{Lattice ensembles}}{67}{appendix.A}%
-\contentsline {chapter}{\numberline {B}{Least-squares fitting}}{69}{appendix.B}%
-\contentsline {chapter}{\numberline {C}{Finite Volume Effects}}{71}{appendix.C}%
-\contentsline {chapter}{\numberline {D}{Strange Quark Determinant reweighting}}{73}{appendix.D}%
-\contentsline {chapter}{\numberline {E}{Quark bilinears}}{75}{appendix.E}%
-\contentsline {chapter}{\numberline {F}{$\sqrt {t_0}$: Model variation}}{77}{appendix.F}%
+\contentsline {chapter}{\numberline {A}{Conventions}}{67}{appendix.A}%
+\contentsline {chapter}{\numberline {B}{Simulation details}}{69}{appendix.B}%
+\contentsline {chapter}{\numberline {C}{Solvers}}{71}{appendix.C}%
+\contentsline {chapter}{\numberline {D}{Error analysis}}{73}{appendix.D}%
+\contentsline {chapter}{\numberline {E}{Lattice ensembles}}{77}{appendix.E}%
+\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{79}{appendix.F}%
+\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{81}{appendix.G}%
+\contentsline {chapter}{\numberline {H}{Strange Quark Determinant reweighting}}{83}{appendix.H}%
+\contentsline {chapter}{\numberline {I}{Quark bilinears}}{85}{appendix.I}%
+\contentsline {chapter}{\numberline {J}{$\sqrt {t_0}$: Model variation}}{87}{appendix.J}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

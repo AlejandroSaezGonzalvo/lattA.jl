@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Simulation details}
+\label{apex_simulations}
+
+In this Appendix we discuss the details of the generation of gauge field configurations with dynamical quarks for the study of Lattice QCD. 
+
+All ensembles studied in this thesis were generated using the openQCD software, and hence the details we review here are those of the alorithms implemented for this software~\cite{•}.
+
+Tipically simulations of lattice QCD with dynamical quarks require a large amount of computer resources due to the large number of degrees of freedom, the need for big volumes and small lattice spacings. The constant efforts by the community paved the way for simulations with up to four dynamical quarks. 
+
+As outlined in Sec.~\ref{ch_foundations}, the expectation value of a composite operator $O$ can be computed in the lattice as
+\begin{equation}
+\left<O\right>=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}O[U]\approx\frac{1}{N_{\textrm{cnfg}}}\sum_{i=1}^{N_{\textrm{cnfg}}}O[U_i]+\mathcal{O}\left(\frac{1}{\sqrt{N_{\textrm{cnfg}}}}\right),
+\end{equation}
+where the gauge fields $U_i$ are sampled from the probability density
+\begin{equation}
+\label{appex_simulations:eq:PU}
+dP[U]=\frac{e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}}{\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}}.
+\end{equation}
+
+The central idea is to perform an importance sampling of the distribution eq.~(\ref{appex_simulations:eq:PU}), such that regions of field space with high probability are highly populated with gauge configurations $U_i$.  To achieve this, typically gauge configurations are generated following a Markov chain. This is defined as a sequence $\{U_k\}_{k=1}^{N_{\textrm{cnfg}}}$ such that the $k$-th element is generated from the previous one, with $k$ labelling the Monte Carlo (MC) time. This way, the Markov Chain is generated from the initial state $U_1$ and the transition probability $T(U_{k-1}\rightarrow U_k)$. This way, gauge configurations in one same Markov Chain are highly correlated, issue which we deal with in Appendix~\ref{appex_errors}. The transition probabilities must obey the following conditions:
+\begin{itemize}
+\item Ergodicity: given a subset of states $S$ from the Markov Chain, there are always at least two states $s\in S$ and $s'\notin S$ with $T(s\rightarrow s')>0$. This is of particular importance in the context of Lattice QCD and Lattice Yang-Mills theories in order to ensure that the simulation algorithm is sampling correctly all topological sectors of the theory, which may not always be the case for different algorithms.
+\item Equilibrium: normalizing the transition probability as
+\begin{equation}
+\sum_sT(s\rightarrow s')=1\;\forall s,
+\end{equation}
+then it must hold that
+\begin{equation}
+\sum_sP(s)T(s\rightarrow s')=P(s')\;\forall s',
+\end{equation}
+where $P(s)$ is the equilibrium distribution in eq.~(\ref{appex_simulations:eq:PU}). This ensures that starting from a random configuration, after applying iteratively the transition probability, we asymptotically reach the target equilibrium distribution eq.~(\ref{appex_simulations:eq:PU}). 
+\end{itemize}
+
+Different choices for the transition probability $T(s\rightarrow s')$ satisfying the above conditions define the different sampling algorithms which we go on to review. 
+
+\section{Metropolis algorithm}
+
+The Metropolis algorithm~\cite{•} is one of the most popular choices for generating a Markov Chain of gauge field configurations. Here we will restrict to the case of pure gauge theory, in which the target distribution is
+\begin{equation}
+dP[U]=\frac{e^{-S_{\textrm{G}}[U]}{\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]}}.
+\end{equation}
+The idea is to define an a priori transition probability $T_0(U_i\rightarrow U_j)$ given by a random element $g$ of the SU(N) group close to the identity, and update one single gauge link $U_{\mu}(n)$ as $U_{\mu}(n)'=gU_{\mu}(n)$ such that the new gauge configuration $U_j$ is close to the original one $U_i$. In order for the transition to be symmetric, group elements $g$ and $g^{-1}$ have to be selected with equal probability. Then, the new proposed configuration is accepted as a new element of the Markov Chain with probability
+\begin{gather}
+P_{\textrm{acc}}(i,j)=min\left(1,e^{-\Delta S}\right), \quad \Delta S=S[U_j]-S[U_i].
+\end{gather}
+Then the transition probability is given by 
+\begin{equation}
+T(U_i\rightarrow U_j)=T_0(U_i\rightarrow U_j)P_{\textrm{acc}}(i,j)+\delta_{ij}\sum_kT_0(U_i\rightarrow U_j)(1-P_{\textrm{acc}}(i,j)).
+\end{equation}
+
+The drawback of this algorithm is that it only updates a single gauge link at each step and as such is highly inefficient, particularly for large volume simulations. Over the years new alternatives for pure gauge simulations have been proposed, such as heat bath~\cite{•} and overrelaxation~\cite{•}.
+
+\section{Hybrid Monte Carlo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
