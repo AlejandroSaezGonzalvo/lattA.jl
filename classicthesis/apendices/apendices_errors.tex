@@ -4,7 +4,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Error analysis}
-\label{apex_errors}
+\label{appex_errors}
 
 In this appendix we discuss how to perform the data analysis of correlation functions and the different lattice observables extracted from lattice simulations. 
 
@@ -68,13 +68,13 @@ To estimate it, a truncation in MC time $k$ is needed. The autocorrelation funct
 \end{equation}
 The slowest mode $\tau_0\equiv\tau_{\textrm{exp}}$ is called the exponential autocorrelation time and it gives the decay rate of $\Gamma(k)$. Truncating eq.~(\ref{app_errors:eq:taui}) at MC time $k=W_F^{\alpha}$ introduces a systematic uncertainty of $\mathcal{O}(\exp(-W_F^{\alpha}/\tau_{\textrm{exp}}^{\alpha}))$. The $\Gamma$-method proposes as optimal window that which minimizes the sum of statistical and systematic contributions
 \begin{equation}
-W_F^{\alpha}=min_W\left(e^{-W/\tau_{\textrm{exp}}^{\alpha}}+...?\right).
+W_F^{\alpha}=\textrm{min}_W\left(e^{-W/\tau_{\textrm{exp}}^{\alpha}}+...?\right).
 \end{equation}
 In~\cite{•} it was proposed to set $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$, with $S_{\tau}$ some value between 2 and 5. One can also vary $W_F^{\alpha}$ until saturation in $\tau_{\textrm{int}}^{\alpha}$ is reached. In~\cite{•} it was also proposed to add an exponential tail
 \begin{equation}
 \tau_{\textrm{exp}}^{\alpha}\frac{\Gamma_F^{\alpha}(W_F^{\alpha}+1)}{\Gamma_F^{\alpha}(0)},
 \end{equation}
-to eq.~\ref{app_errors:eq:taui} to account for the systematic effect of truncating the sum over MC time. For this an estimate of $\tau_{\textrm{exp}}^{\alpha}$ is needed for each ensemble. In the case of CLS ensembles an estimation is given in~\cite{}
+to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of truncating the sum over MC time. For this an estimate of $\tau_{\textrm{exp}}^{\alpha}$ is needed for each ensemble. In the case of CLS ensembles an estimation is given in~\cite{}
 \begin{equation}
 \tau_{\textrm{exp}}^{\alpha}=14(3)\frac{t_0}{a^2}.
 \end{equation}

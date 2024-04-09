@@ -119,7 +119,7 @@ fpik_add = true
         t0fpik_st_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_sh .+ fk_sh) 
     end
 
-    t0_sh_sym = [[t0_sh[1] for i in 1:3]; [t0_sh[4]]; [t0_sh[5] for i in 5:8]; [t0_sh[9] for i in 9:10]]
+    t0_sh_sym = [[t0_sh[1] for i in 1:3]; [t0_sh[4] for i in 4:5]; [t0_sh[6] for i in 6:10]; [t0_sh[11] for i in 11:14]; [t0_sh[15]]]
     #t0fpik_sh = t0fpik_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
     #t0fpik_st_sh = t0fpik_st_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
 
@@ -299,6 +299,7 @@ fpik_add = true
         t0fpik_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         pval = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
         uprm_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        uprm_plot2 = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         uprm_plot_SU2 = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 
         x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
@@ -388,6 +389,7 @@ fpik_add = true
                 push!(pval[k], pval_aux)
                 push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
                 if i == j == 1 uprm_plot[k] = uprm end
+                if i == 3 && j == 1 uprm_plot2[k] = uprm end
             end
         end
     end
@@ -1059,7 +1061,9 @@ fpik_add = true
 
     y = sqrt.(t0_sh ./ t0_sh_sym)
     x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
-    list = [2,3,6,7,8,10]
+    list = [2,3,5,7,8,9,10,12,13,14]
+    y_aux = deepcopy(y)
+    x_aux = deepcopy(x)
     y = y[list]
     x = x[list,:]
     Wm = inv(Symmetric(cov(y)))
@@ -1068,8 +1072,32 @@ fpik_add = true
     function fun(x,p)
         return [sqrt(1 + p[1] * (x[i,2] - x[i,4])) for i in 1:length(x[:,1])]
     end
-    uprm, chi_exp, chi2, pval_aux, doff = fit_alg(fun, value.(x), y, 1, Wm)
-    sqrt_t0_star = sqrt_t0_ph[3] / fun(x_ph,uprm)[1]
+    uprm, chi_exp, chi2, pval_aux, doff = fit_alg(fun, value.(x), y, 1, diagm(diag(Wm)))
+
+    ix = 3
+    x_ph_aux = [0.0 8 * sqrt_t0_ph[ix] ^ 2 * Mpi ^ 2 / hc ^ 2 phi4_ph phi2_sym[1]]
+    sqrt_t0_star = sqrt_t0_ph[ix] / fun(x_ph_aux,uprm)[1]
+
+    R = 1 / fun(x_ph_aux,uprm)[1]
+
+    a = sqrt_t0_ph[ix] * R ./ sqrt.(t0_sh_sym[ind_sym])
+
+    x = deepcopy(x_aux); y = deepcopy(y_aux); uwerr.(y); uwerr.(x)
+    errorbar(value.(x[:,2][ens_340]), value.(y[ens_340]), err.(y[ens_340]), err.(x[:,2][ens_340]), fmt="s", color="rebeccapurple")
+    errorbar(value.(x[:,2][ens_346]), value.(y[ens_346]), err.(y[ens_346]), err.(x[:,2][ens_346]), fmt="o", color="green")
+    errorbar(value.(x[:,2][ens_355]), value.(y[ens_355]), err.(y[ens_355]), err.(x[:,2][ens_355]), fmt="<", color="blue")
+    errorbar(value.(x[:,2][ens_370]), value.(y[ens_370]), err.(y[ens_370]), err.(x[:,2][ens_370]), fmt=">", color="darkorange")
+    errorbar(value.(x[:,2][ens_385]), value.(y[ens_385]), err.(y[ens_385]), err.(x[:,2][ens_385]), fmt="^", color="red")
+    xlabel(L"$\phi_2$")
+    ylabel(L"$\sqrt{t_0}/\sqrt{t_0^{\rm sym}}$")
+    x_prime = [i for i in 0.0:0.01:0.75]
+    x_plot = [0 .* x_prime x_prime [(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+    aux = fun(x_plot,uprm) ; uwerr.(aux)
+    v = value.(aux)
+    e = err.(aux)
+    fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.5)
+    tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_sym.pdf")
 
     fb = BDIO_open("/home/asaez/cls_ens/results/t0_sym_combined.bdio", "w")
     write_uwreal(sqrt_t0_star ^ 2, fb, 1)

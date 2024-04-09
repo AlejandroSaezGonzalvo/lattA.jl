@@ -203,4 +203,114 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
 #==============================================================================================================================#
 
+#============================== chiral & continuum limits =====================================================================#
+
+    ## prepare data SU3 & Tay
+        TIC = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
+        chi = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
+        W = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
+        y1_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        y2_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        pval = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
+        uprm_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+
+        x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
+        x_combined = [x; x]
+        x_355 = x[[ens_346; ens_355; ens_370; ens_385],:]
+        x_combined_355 = [x_355; x_355]
+        x_combined_355_only_Wil = [x_355; x]
+        x_combined_355_only_Wtm = [x; x_355]
+        x_nosym = x[ind_nosym,:]
+        x_nosym355 = x[ind_nosym355,:]
+        x_combined_nosym = [x_nosym; x_nosym]
+        x_combined_nosym355 = [x_nosym355; x_nosym355]
+        x_mL_40 = x[ind_mL_40, :]
+        x_mL_41 = x[ind_mL_41, :]
+        x_mL_42 = x[ind_mL_42, :]
+        x_combined_mL_40 = [x_mL_40; x_mL_40]
+        x_combined_mL_41 = [x_mL_41; x_mL_41]
+        x_combined_mL_42 = [x_mL_42; x_mL_42]
+        x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph)]
+        x_3552 = x[[ens_355; ens_370; ens_385],:]
+        x_combined_3552 = [x_3552; x_3552]
+        x_phi204 = x[ind_phi204,:]
+        x_combined_phi204 = [x_phi204; x_phi204]
+
+        y = [y1; y2]
+        y_st = [y1_st; y2_st]
+        y_combined = [y_st; y]
+        y_355 = [y1[[ens_346; ens_355; ens_370; ens_385]]; y2[[ens_346; ens_355; ens_370; ens_385]]]
+        y_st_355 = [y1_st[[ens_346; ens_355; ens_370; ens_385]]; y2_st[[ens_346; ens_355; ens_370; ens_385]]]
+        y_combined_355 = [y_st_355; y_355]
+        y_3552 = [y1[[ens_355; ens_370; ens_385]]; y2[[ens_355; ens_370; ens_385]]]
+        y_st_3552 = [y1_st[[ens_355; ens_370; ens_385]]; y2_st[[ens_355; ens_370; ens_385]]]
+        y_combined_3552 = [y_st_3552; y_3552]
+        y_nosym = [y1[ind_nosym]; y2[ind_nosym]]
+        y_st_nosym = [y1_st[ind_nosym]; y2_st[ind_nosym]]
+        y_combined_nosym = [y_st_nosym; y_nosym]
+        y_nosym355 = [y1[ind_nosym355]; y2[ind_nosym355]]
+        y_st_nosym355 = [y_st[ind_nosym355]; y2_st[ind_nosym355]]
+        y_combined_nosym355 = [y_st_nosym355; y_nosym355]
+        y_phi204 = [y1[ind_phi204]; y2[ind_phi204]]
+        y_st_phi204 = [y1_st[ind_phi204]; y2_st[ind_phi204]]
+        y_combined_phi204 = [y_st_phi204; y_phi204]
+        y_mL_42 = [y1[ind_mL_42]; y2[ind_mL_42]]
+        y_st_mL_42 = [y1_st[ind_mL_42]; y2_st[ind_mL_42]]
+        y_combined_mL_42 = [y_st_mL_42; y_mL_42]
+
+        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
+        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
+        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
+
+        set_y = [cuts_y, cuts_y_st, cuts_y_combined]
+        set_x = [cuts_x, cuts_x_st, cuts_x_combined]
+
+        Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
+        Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
+    ##
+
+    models = [mR_a2; mR_aas; mR_a2phi2; mR_Tay_a2; mR_Tay_aas; mR_Tay_a2phi2]
+    models_combined = [mR_a2_combined; mR_aas_combined; mR_a2phi2_combined; mR_a2a2phi2_combined; mR_a2phi2a2_combined; mR_Tay_a2_combined; mR_Tay_aas_combined; mR_Tay_a2phi2_combined; mR_Tay_a2a2phi2_combined; mR_Tay_a2phi2a2_combined]
+    models = [models, models, models_combined]
+    param = [6,6,8,7,7,9]
+    param_combined = [8,8,12,10,10,9,9,13,11,11]
+    param = [param, param, param_combined]
+
+    for k in 1:length(set_y)
+        for i in 1:length(models[k])
+            for j in 1:length(cuts_y)
+                x = set_x[k][j]
+                y = set_y[k][j]
+                global L1 = length(set_y[1][j])
+                global L2 = length(set_y[1][j])
+                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.([x; x]), y, param[k][i])
+                push!(TIC[k], chi2 - 2 * chi_exp)
+                push!(pval[k], pval_aux)
+                push!(y1_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
+                push!(y2_ph_vec[k], models[k][i]([x_ph;x],uprm)[2])
+                if i == j == 1 uprm_plot[k] = uprm end
+            end
+        end
+    end
+
+    TIC = [TIC[k] .- minimum.(TIC)[k] for k in 1:length(TIC)]
+    W = [exp.(-0.5 * TIC[k]) ./ sum(exp.(-0.5 * TIC[k])) for k in 1:length(TIC)]
+    y1_ph = [sum(y1_ph_vec[k] .* W[k]) for k in 1:length(TIC)]
+    syst1 = [sqrt(sum(y1_ph_vec[k] .^ 2 .* W[k]) - (sum(y1_ph_vec[k] .* W[k])) ^ 2) for k in 1:length(TIC)]
+    y1_ph = y1_ph .+ [uwreal([0.0, value(syst1[k])], string("syst mR chiral ", k, " 3rd")) for k in 1:length(TIC)]
+    uwerr.(y1_ph)
+    y2_ph = [sum(y2_ph_vec[k] .* W[k]) for k in 1:length(TIC)]
+    syst2 = [sqrt(sum(y2_ph_vec[k] .^ 2 .* W[k]) - (sum(y2_ph_vec[k] .* W[k])) ^ 2) for k in 1:length(TIC)]
+    y2_ph = y2_ph .+ [uwreal([0.0, value(syst2[k])], string("syst mR chiral ", k, " 3rd")) for k in 1:length(TIC)]
+    uwerr.(y2_ph)
+
+    W_aux = deepcopy(W)
+    pval_aux = deepcopy(pval)
+    [uwerr.(y1_ph_vec[k]) for k in 1:length(TIC)]
+    [uwerr.(y2_ph_vec[k]) for k in 1:length(TIC)]
+
+    
 

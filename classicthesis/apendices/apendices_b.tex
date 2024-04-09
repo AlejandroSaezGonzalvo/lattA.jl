@@ -19,11 +19,11 @@ We also perform fits for the chiral-continuum extrapolation of $\sqrt{8t_0}f_{\p
 \begin{gather}
 \label{apex_chisq:eq:chisq_generalized}
 \chi^2=\sum_{i,j=1}^{2N_{\textrm{dat}}}\left(Y_i-F(X_i;\vec{p},\vec{q})\right)\mathcal{C}_{ij}^{-1}\left(Y_j-F(X_j;\vec{p},\vec{q})\right), \\
-Y=(x_1,...,x_{N_{\textrm{dat}},y_1,...,y_{N_{\textrm{dat}}}), \quad
+Y=(x_1,...,x_{N_{\textrm{dat}}},y_1,...,y_{N_{\textrm{dat}}}), \quad
 X=(x_1,...,x_{N_{\textrm{dat}}},x_1,...,x_{N_{\textrm{dat}}}), \\
 F(X_i;\vec{p},\vec{q})=\left\{\begin{matrix}
-q_i & \text{ if $1\leq i\leq N_{\textrm{dat}}$} \\ 
-f(x_i;\vec{p}) & \text{ if $N_{\textrm{dat}}+1\leq i\leq 2N_{\textrm{dat}}$}
+q_i & \textrm{ if $1\leq i\leq N_{\textrm{dat}}$} \\ 
+f(x_i;\vec{p}) & \textrm{ if $N_{\textrm{dat}}+1\leq i\leq 2N_{\textrm{dat}}$}
 \end{matrix}\right.,
 \end{gather}
 where $\mathcal{C}$ is now the covariance matrix of the generalized data vector $Y$. Again, since we have 16 different ensembles, a fully correlated fit means that we have $\sim32\times32$ covariance matrices which are hard to invert. For this reason, we use the $\chi^2$ definition in eq.~(\ref{apex_chisq:eq:chisq}) for the chiral-continuum extrapolation, i.e. we neglect the correlation between $\phi_2$ and $\sqrt{8t_0}f_{\pi K}$ in the definition of the $\chi^2$, but we use the full covariance matrix of the $\sqrt{8t_0}f_{\pi K}$ data. Again, to propagate errors we take into account all the correlations between the data, and in particular between $\phi_2$ and $\sqrt{8t_0}f_{\pi K}$.

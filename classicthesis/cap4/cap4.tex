@@ -19,7 +19,7 @@ Our lattice setup is based on a mixed action with Wilson $\mathcal{O}(a)$ improv
 
 For the definition of the mixed action approach, we recall eq.~(\ref{ch_foundation:eq:path_int})
 \begin{align}
-\left<O^{ij}(x_1)\bar{O}^{ij}(x_2)\right>&=-\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}\times\\&{\textrm{tr}}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),\\
+\left<O^{ij}(x_1)O^{ji}(x_2)\right>&=-\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}\times\\&{\textrm{tr}}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),\\
 S_{\textrm{eff}}[U]&=-\sum_i^{N_f}\textrm{log det}(D_i).
 \end{align} 
 We see that the Dirac operator $D$ appears first in the Boltzmann factor $e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}$ with which the set of gauge ensembles is generated, and then in the fermionic observable whose expectation value we are interested in. In particular, it appears in two separate stages of the analysis: one the generation of gauge ensembles, the other the inversion of the Dirac operator on said gauge configurations. This in principle allows for the use of different regularizations of the Dirac operator in these two steps, which is referred to as a mixed action approach.
@@ -40,9 +40,7 @@ The Chapter is structured as follows. In Sec.~\ref{ch_ma:sec:Sea} we discuss the
 \section{Sea sector}
 \label{ch_ma:sec:Sea}
 
-~\cite{CLS}
-
-The gauge ensembles that we employ are CLS ensembles with $N_f=2+1$ non-perturbatively $\mathcal{O}(a)$ improved Wilson fermions (see eq.~(\ref{ch_foundation:eq:DW_impr})). They use the Lüscher-Weisz gauge action~\cite{}, which has reduced $\mathcal{O}(a^2)$ effects and is defined in eqs.~(\ref{ch_foundation:eq:SG_impr}-\ref{ch_foundation:eq:LW}).
+The gauge ensembles that we employ are CLS ensembles~\cite{CLS} with $N_f=2+1$ non-perturbatively $\mathcal{O}(a)$ improved Wilson fermions (see eq.~(\ref{ch_foundation:eq:DW_impr})). They use the Lüscher-Weisz gauge action~\cite{}, which has reduced $\mathcal{O}(a^2)$ effects and is defined in eqs.~(\ref{ch_foundation:eq:SG_impr}-\ref{ch_foundation:eq:LW}).
 
 For most of the ensembles, open boundary conditions (OBC) in time are used for the gauge fields, since it has been shown that with periodic boundary conditions (PBC) autocorrelations increase as one approaches the continuum limit, a problem known as critical slowing down. This is related to the existence of topological disconnected sectors in gauge field space, which avoids the algorithm to sample correctly different topological sectors. In contrast to this, OBC let the topological charge flow through the boundaries and topology freezing is thus avoided. All ensembles use PBC over the spatial volume.
 
@@ -157,12 +155,10 @@ t_0^{\textrm{ph,\;guess}}=0.1445(6),
 \end{equation}
 where the uncertainty keeps all the correlations with the lattice data entering the analysis. Eq.~(\ref{ch_ma:eq:t0_guess}) determines the value of $\phi_4^{\textrm{ph}}$ to which we perform the mass shifts in the subsequent sections, the input values for $m_{\pi}$ and $m_K$ given in eq.~(\ref{ch_ss:eq:isoQCD}). 
 
-\begin{table}
+\begin{longtable}{c | c c c c c}
 \label{ch_ma:tab:md}
-\begin{center}
-    \begin{tabular}{c c c c c c}
     $\mathcal{O}$ & A & B & C & D & E \\
-    \hline
+    \toprule
     $\sqrt{t_0}f_{\pi K}^{\textrm{W}}$ & 0.017(8) & -0.007(10) & - & 0.024(26) & - \\ 
     $\sqrt{t_0}f_{\pi}^{\textrm{W}}$ & 0.006(8) & 0.008(9) & - & 0.020(26) & - \\ 
     $\sqrt{t_0}f_{K}^{\textrm{W}}$ & 0.024(10) & -0.016(11) & - & 0.022(27) & - \\ 
@@ -170,17 +166,16 @@ where the uncertainty keeps all the correlations with the lattice data entering 
     $\sqrt{t_0}m_{13}^{\textrm{W, R}}$ & 0.050(6) & 0.030(17) & -0.066(18) & -0.069(33) & 0.070(45) \\ 
     $\phi_2^{\textrm{W}}$ & 0.004(36) & 0.131(92) & - & 0.874(129) & - \\ 
     $t_0$ & -0.437(84) & 0.214(101) & - & -0.264(274) & - \\ 
-    \hline
+    \midrule
     $\sqrt{t_0}f_{\pi K}^{\textrm{tm}}$ & -0.009(7) & 0.011(8) & - & -0.014(18) & - \\ 
     $\sqrt{t_0}f_{\pi}^{\textrm{tm}}$ & -0.007(6) & 0.013(8) & - & -0.028(18) & - \\ 
     $\sqrt{t_0}f_{K}^{\textrm{tm}}$ & -0.009(8) & 0.010(10) & - & -0.006(18) & - \\ 
     $\sqrt{t_0}m_{12}^{\textrm{tm, R}}$ & -0.004(3) & 0.035(10) & -0.041(9) & 0.020(16) & 0.026(24) \\ 
     $\phi_2^{\textrm{tm}}$ & 0.031(17) & -0.032(23) & - & -0.102(73) & - \\ 
     $\phi_4^{\textrm{tm}}$ & 0.006(37) & 0.050(47) & - & -0.298(126) & - \\ 
-    \end{tabular}
+    \bottomrule
     \caption{Results for the fit parameters in eqs.~(\ref{ch_ma:eq:md_1}-\ref{ch_ma:eq:md_2}) for the lattice observables that will be used in the analysis. The superscript ``W'' refers to the observable being computed in the Wilson unitary setup, while ``tm'' refers to the mixed action setup.}
-\end{center}
-\end{table}
+\end{longtable}
 
 \begin{figure}
     \centering
@@ -232,8 +227,8 @@ To impose eqs.~(\ref{ch_ma:eq:matching}-\ref{ch_ma:eq:full-twist}), we perform i
 \begin{align}
 m_{12}^{\textrm{(v)}}&=p_1\left(\frac{1}{\kappa^{\textrm{(v)}}}-\frac{1}{\kappa^{\textrm{(v)*}}}\right)+p_2\left(\mu_l^{\textrm{(v)}}-\mu_l^{\textrm{(v)*}}\right),\\
 \phi_2^{\textrm{(v)}}&=\frac{p_3}{\mu_l^{\textrm{(v)}}}\left(\frac{1}{\kappa^{\textrm{(v)}}}-\frac{1}{\kappa^{\textrm{(v)*}}}\right)^2+p_4\left(\mu_l^{\textrm{(v)}}-\mu_l^{\textrm{(v)*}}\right)+\phi_2^{\textrm{(s)}},\\
-\phi_4^{\textrm{(v)}}&=\frac{p_5}{\mu_l^{\textrm{(v)}}}\left(\frac{1}{\kappa^{\textrm{(v)}}}-\frac{1}{\kappa^{\textrm{(v)*}}}\right)^2+\frac{p_6}{\mu_s^{\textrm{(v)}}\left(\frac{1}{\kappa^{\textrm{(v)}}}-\frac{1}{\kappa^{\textrm{(v)*}}}\right)^2+p_7\left(\mu_l^{\textrm{(v)}}-\mu_l^{\textrm{(v)*}}\right)\\
-&+p_8\left(\mu_s^{\textrm{(v)}}-\mu_s^{\textrm{(v)*}}\right)+\phi_4^{\textrm{(s)}}.
+\phi_2^{\textrm{(v)}}&=\frac{p_5}{\mu_l^{\textrm{(v)}}}\left(\frac{1}{\kappa^{\textrm{(v)}}}-\frac{1}{\kappa^{\textrm{(v)*}}}\right)^2+\frac{p_6}{\mu_s^{\textrm{(v)}}}\left(\frac{1}{\kappa^{\textrm{(v)}}}-\frac{1}{\kappa^{\textrm{(v)*}}}\right)^2 \\
+&+p_7\left(\mu_l^{\textrm{(v)}}-\mu_l^{\textrm{(v)*}}\right)+p_8\left(\mu_s^{\textrm{(v)}}-\mu_s^{\textrm{(v)*}}\right)+\phi_4^{\textrm{(s)}}.
 \end{align}
 This way, the target point values $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)*}}$ are found as fit parameters. The interpolation is shown in Fig.~\ref{ch_ma:fig:match}. A simultaneous fit of these three quantities is performed.
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  4 APR 2024 14:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  8 APR 2024 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1177,8 +1177,7 @@ Package babel Info: Importing basic data for spanish
 (./apendices/apendices_conventions.aux) (./apendices/apendices_simulations.aux)
 (./apendices/apendices_solvers.aux) (./apendices/apendices_errors.aux)
 (./apendices/apendices_a.aux) (./apendices/apendices_b.aux)
-(./apendices/apendices_c.aux) (./apendices/apendices_d.aux)
-(./apendices/apendices_e.aux) (./apendices/apendices_f.aux)
+(./apendices/apendices_c.aux) (./apendices/apendices_f.aux)
 (./FrontBackmatter/Bibliography.aux) (./FrontBackmatter/Declaration.aux)
 (./FrontBackmatter/Colophon.aux))
 \openout1 = `ClassicThesis.aux'.
@@ -1598,145 +1597,145 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 29
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.19 ...larization.\relax }}{35}{figure.caption.4}
+l.19 ...larization.\relax }}{37}{figure.caption.4}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.19 ...larization.\relax }}{35}{figure.caption.4}
+l.19 ...larization.\relax }}{37}{figure.caption.4}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.20 ...) included.\relax }}{36}{figure.caption.5}
+l.20 ...) included.\relax }}{38}{figure.caption.5}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.20 ...) included.\relax }}{36}{figure.caption.5}
+l.20 ...) included.\relax }}{38}{figure.caption.5}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.22 ...ma:tab:md}.\relax }}{45}{figure.caption.7}
+l.22 ...ma:tab:md}.\relax }}{47}{figure.caption.6}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.22 ...ma:tab:md}.\relax }}{45}{figure.caption.7}
+l.22 ...ma:tab:md}.\relax }}{47}{figure.caption.6}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.23 ...ma:tab:md}.\relax }}{45}{figure.caption.8}
+l.23 ...ma:tab:md}.\relax }}{47}{figure.caption.7}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.23 ...ma:tab:md}.\relax }}{45}{figure.caption.8}
+l.23 ...ma:tab:md}.\relax }}{47}{figure.caption.7}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.24 ...ltaneously.\relax }}{47}{figure.caption.9}
+l.24 ...ltaneously.\relax }}{49}{figure.caption.8}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.24 ...ltaneously.\relax }}{47}{figure.caption.9}
+l.24 ...ltaneously.\relax }}{49}{figure.caption.8}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.25 ...arameters.\relax }}{47}{figure.caption.10}
+l.25 ...parameters.\relax }}{50}{figure.caption.9}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.25 ...arameters.\relax }}{47}{figure.caption.10}
+l.25 ...parameters.\relax }}{50}{figure.caption.9}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.27 ...artifacts.\relax }}{53}{figure.caption.11}
+l.27 ...artifacts.\relax }}{55}{figure.caption.10}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.27 ...artifacts.\relax }}{53}{figure.caption.11}
+l.27 ...artifacts.\relax }}{55}{figure.caption.10}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.28 ...l average.\relax }}{53}{figure.caption.12}
+l.28 ...l average.\relax }}{55}{figure.caption.11}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.28 ...l average.\relax }}{53}{figure.caption.12}
+l.28 ...l average.\relax }}{55}{figure.caption.11}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.29 ... purposes.\relax }}{54}{figure.caption.13}
+l.29 ... purposes.\relax }}{56}{figure.caption.12}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.29 ... purposes.\relax }}{54}{figure.caption.13}
+l.29 ... purposes.\relax }}{56}{figure.caption.12}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.30 ...el_av_t0}.\relax }}{55}{figure.caption.14}
+l.30 ...el_av_t0}.\relax }}{57}{figure.caption.13}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.30 ...el_av_t0}.\relax }}{55}{figure.caption.14}
+l.30 ...el_av_t0}.\relax }}{57}{figure.caption.13}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.31 ...el_av_t0}.\relax }}{55}{figure.caption.15}
+l.31 ...el_av_t0}.\relax }}{57}{figure.caption.14}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.31 ...el_av_t0}.\relax }}{55}{figure.caption.15}
+l.31 ...el_av_t0}.\relax }}{57}{figure.caption.14}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.32 ...el_av_t0}.\relax }}{56}{figure.caption.16}
+l.32 ...el_av_t0}.\relax }}{58}{figure.caption.15}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.32 ...el_av_t0}.\relax }}{56}{figure.caption.16}
+l.32 ...el_av_t0}.\relax }}{58}{figure.caption.15}
                                                   %
 ? 
 )
@@ -1749,121 +1748,121 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 39
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.19 ... {0}\cite {}\relax }}{26}{table.caption.2}
+l.19 ... {0}\cite {}\relax }}{28}{table.caption.2}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.19 ... {0}\cite {}\relax }}{26}{table.caption.2}
+l.19 ... {0}\cite {}\relax }}{28}{table.caption.2}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.20 ...bles:eq:bA})\relax }}{26}{table.caption.3}
+l.20 ...bles:eq:bA})\relax }}{28}{table.caption.3}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.20 ...bles:eq:bA})\relax }}{26}{table.caption.3}
+l.20 ...bles:eq:bA})\relax }}{28}{table.caption.3}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.22 ...ction setup.\relax }}{44}{table.caption.6}
+l.22 ...ixed action setup.\relax }}{46}{table.3.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.22 ...ction setup.\relax }}{44}{table.caption.6}
+l.22 ...ixed action setup.\relax }}{46}{table.3.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.32 ...directions.\relax }}{78}{table.caption.17}
+l.29 ...nt for the effect.\relax }}{76}{table.B.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.32 ...directions.\relax }}{78}{table.caption.17}
+l.29 ...nt for the effect.\relax }}{76}{table.B.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.35 ...$n\leq 20$.\relax }}{82}{table.caption.18}
+l.33 ...patial directions.\relax }}{83}{table.E.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.35 ...$n\leq 20$.\relax }}{82}{table.caption.18}
+l.33 ...patial directions.\relax }}{83}{table.E.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.37 ...h ensemble.\relax }}{84}{table.caption.19}
+l.36 ...{} for $n\leq 20$.\relax }}{88}{table.G.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.37 ...h ensemble.\relax }}{84}{table.caption.19}
+l.36 ...{} for $n\leq 20$.\relax }}{88}{table.G.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.40 ...h regularizations.\relax }}{87}{table.J.1}
+l.38 ...h regularizations.\relax }}{89}{table.H.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.40 ...h regularizations.\relax }}{87}{table.J.1}
+l.38 ...h regularizations.\relax }}{89}{table.H.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.41 ...om each fit model.\relax }}{89}{table.J.2}
+l.39 ...om each fit model.\relax }}{91}{table.H.2}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.41 ...om each fit model.\relax }}{89}{table.J.2}
+l.39 ...om each fit model.\relax }}{91}{table.H.2}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.42 ...om each fit model.\relax }}{91}{table.J.3}
+l.40 ...om each fit model.\relax }}{93}{table.H.3}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.42 ...om each fit model.\relax }}{91}{table.J.3}
+l.40 ...om each fit model.\relax }}{93}{table.H.3}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.43 ...om each fit model.\relax }}{94}{table.J.4}
+l.41 ...om each fit model.\relax }}{96}{table.H.4}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.43 ...om each fit model.\relax }}{94}{table.J.4}
+l.41 ...om each fit model.\relax }}{96}{table.H.4}
                                                   %
 ? 
 )
@@ -2013,6 +2012,11 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [16]
+
+LaTeX Warning: Reference `apex_currents' on page 17 undefined on input line 326
+.
+
+
 Overfull \hbox (14.79276pt too wide) detected at line 335
  $[] \OT1/zplm/m/n/10.95 = [] [] \OT1/pplx/m/n/10.95 .$  
  []
@@ -2040,10 +2044,10 @@ $
  []
 
 
-LaTeX Warning: Reference `ch_ma:sec:sea' on page 21 undefined on input line 455
-.
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
+[21]
 Overfull \hbox (36.5611pt too wide) in paragraph at lines 481--483
 \T1/pplj/m/n/10.95 (-20) with $\OML/zplm/m/it/10.95 c[]$ \T1/pplj/m/n/10.95 (-2
 0) the Sheikholeslami-Wohlert co-ef-fi-cient de-ter-mined non-perturbatively
@@ -2053,29 +2057,40 @@ Overfull \hbox (36.5611pt too wide) in paragraph at lines 481--483
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[21]
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
 [22]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[23])
+[23]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[24]
+[24])
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[25]
 \openout2 = `cap3/observables.aux'.
 
  (./cap3/observables.tex
 Chapter 2.
 
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[26
+
+
+
+
+
+]
+
 Package caption Warning: \label without proper reference on input line 46.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `ch_observables:tab:Z' on page 25 undefined on input l
+LaTeX Warning: Reference `ch_observables:tab:Z' on page 27 undefined on input l
 ine 39.
 
 
@@ -2083,46 +2098,14 @@ Package caption Warning: \label without proper reference on input line 63.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `ch_observables:tab:b' on page 25 undefined on input l
+LaTeX Warning: Reference `ch_observables:tab:b' on page 27 undefined on input l
 ine 39.
 
 
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[25
-
-
-
-
-
-]
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[26]
-
-LaTeX Warning: Reference `' on page 27 undefined on input line 102.
-
-
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
 [27]
-
-Package caption Warning: \label without proper reference on input line 10.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `apex_ensembles:tab:ens' on page 28 undefined on input
- line 129.
-
-
-Overfull \hbox (6.17053pt too wide) detected at line 148
-[]
- []
-
-
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
@@ -2131,9 +2114,8 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [29]
-Overfull \hbox (0.13058pt too wide) in paragraph at lines 215--216
-[]\T1/pplj/m/n/10.95 (-20) In the PBC case, in or-der to iso-late the ma-trix e
-l-e-ment $[] \OML/zplm/m/it/10.95 A[] []$
+Overfull \hbox (6.17053pt too wide) detected at line 148
+[]
  []
 
 
@@ -2145,110 +2127,124 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [31]
-
-LaTeX Warning: Reference `' on page 32 undefined on input line 289.
-
-
-LaTeX Warning: Citation 'flow' on page 32 undefined on input line 299.
-
-
-LaTeX Warning: Reference `ch_foundation:eq:' on page 32 undefined on input line
- 310.
+Overfull \hbox (0.13058pt too wide) in paragraph at lines 213--214
+[]\T1/pplj/m/n/10.95 (-20) In the PBC case, in or-der to iso-late the ma-trix e
+l-e-ment $[] \OML/zplm/m/it/10.95 A[] []$
+ []
 
 
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [32]
-
-Package caption Warning: \label without proper reference on input line 367.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `ch_observables:fig:obs' on page 33 undefined on input
- line 327.
-
-
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [33]
 
-Package caption Warning: \label without proper reference on input line 367.
+LaTeX Warning: Reference `' on page 34 undefined on input line 287.
+
+
+LaTeX Warning: Citation 'flow' on page 34 undefined on input line 297.
+
+
+LaTeX Warning: Reference `ch_foundation:eq:' on page 34 undefined on input line
+ 308.
+
+
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[34]
+
+Package caption Warning: \label without proper reference on input line 365.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `ch_observables:fig:obs' on page 34 undefined on input
- line 362.
+LaTeX Warning: Reference `ch_observables:fig:obs' on page 35 undefined on input
+ line 325.
 
 
-Package caption Warning: \label without proper reference on input line 393.
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[35]
+
+Package caption Warning: \label without proper reference on input line 365.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `ch_observables:fig:model_av' on page 34 undefined on 
-input line 362.
+LaTeX Warning: Reference `ch_observables:fig:obs' on page 36 undefined on input
+ line 360.
 
-<./cap3/figs/m_H101_pion_wil_plat.pdf, id=587, 462.52798pt x 346.89601pt>
+
+Package caption Warning: \label without proper reference on input line 391.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `ch_observables:fig:model_av' on page 36 undefined on 
+input line 360.
+
+<./cap3/figs/m_H101_pion_wil_plat.pdf, id=599, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/m_H101_pion_wil_plat.pdf Graphic file (type pdf)
 <use ./cap3/figs/m_H101_pion_wil_plat.pdf>
 Package pdftex.def Info: ./cap3/figs/m_H101_pion_wil_plat.pdf  used on input li
-ne 370.
+ne 368.
 (pdftex.def)             Requested size: 134.39795pt x 100.7984pt.
-<./cap3/figs/R_H101_pion_wil_plat.pdf, id=588, 462.52798pt x 346.89601pt>
+<./cap3/figs/R_H101_pion_wil_plat.pdf, id=600, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/R_H101_pion_wil_plat.pdf Graphic file (type pdf)
 <use ./cap3/figs/R_H101_pion_wil_plat.pdf>
 Package pdftex.def Info: ./cap3/figs/R_H101_pion_wil_plat.pdf  used on input li
-ne 374.
+ne 372.
 (pdftex.def)             Requested size: 134.39795pt x 100.7984pt.
-<./cap3/figs/mpcac_H101_pion_wil_plat.pdf, id=589, 462.52798pt x 346.89601pt>
+<./cap3/figs/mpcac_H101_pion_wil_plat.pdf, id=601, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/mpcac_H101_pion_wil_plat.pdf Graphic file (type pdf)
 <use ./cap3/figs/mpcac_H101_pion_wil_plat.pdf>
 Package pdftex.def Info: ./cap3/figs/mpcac_H101_pion_wil_plat.pdf  used on inpu
-t line 378.
+t line 376.
 (pdftex.def)             Requested size: 134.39795pt x 100.7984pt.
-<./cap3/figs/t2E_H101_plat.pdf, id=590, 462.52798pt x 346.89601pt>
+<./cap3/figs/t2E_H101_plat.pdf, id=602, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/t2E_H101_plat.pdf Graphic file (type pdf)
 <use ./cap3/figs/t2E_H101_plat.pdf>
-Package pdftex.def Info: ./cap3/figs/t2E_H101_plat.pdf  used on input line 382.
+Package pdftex.def Info: ./cap3/figs/t2E_H101_plat.pdf  used on input line 380.
 
 (pdftex.def)             Requested size: 134.39795pt x 100.7984pt.
-<./cap3/figs/t0_H101.pdf, id=591, 462.52798pt x 346.89601pt>
+<./cap3/figs/t0_H101.pdf, id=603, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/t0_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/t0_H101.pdf>
-Package pdftex.def Info: ./cap3/figs/t0_H101.pdf  used on input line 386.
+Package pdftex.def Info: ./cap3/figs/t0_H101.pdf  used on input line 384.
 (pdftex.def)             Requested size: 134.39795pt x 100.7984pt.
-<./cap3/figs/m_H101_pion_wil.pdf, id=600, 462.52798pt x 346.89601pt>
+<./cap3/figs/m_H101_pion_wil.pdf, id=612, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/m_H101_pion_wil.pdf Graphic file (type pdf)
 <use ./cap3/figs/m_H101_pion_wil.pdf>
 Package pdftex.def Info: ./cap3/figs/m_H101_pion_wil.pdf  used on input line 39
-5.
+3.
 (pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
 
-Package caption Warning: \label without proper reference on input line 367.
+Package caption Warning: \label without proper reference on input line 365.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `ch_observables:fig:obs' on page 34 undefined on input
- line 396.
+LaTeX Warning: Reference `ch_observables:fig:obs' on page 36 undefined on input
+ line 394.
 
 
-Package caption Warning: \label without proper reference on input line 367.
+Package caption Warning: \label without proper reference on input line 365.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `ch_observables:fig:obs' on page 34 undefined on input
- line 396.
+LaTeX Warning: Reference `ch_observables:fig:obs' on page 36 undefined on input
+ line 394.
 
 )
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[34]
+[36]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[35 <./cap3/figs/m_H101_pion_wil_plat.pdf> <./cap3/figs/R_H101_pion_wil_plat.pd
+[37 <./cap3/figs/m_H101_pion_wil_plat.pdf> <./cap3/figs/R_H101_pion_wil_plat.pd
 f
 
 pdfTeX warning: pdflatex (file ./cap3/figs/R_H101_pion_wil_plat.pdf): PDF inclu
@@ -2269,11 +2265,11 @@ e pdfs with page group included in a single page
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[36 <./cap3/figs/m_H101_pion_wil.pdf>]
+[38 <./cap3/figs/m_H101_pion_wil.pdf>]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[37
+[39
 
 
 
@@ -2284,7 +2280,7 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[38]
+[40]
 \openout2 = `cap4/cap4.aux'.
 
  (./cap4/cap4.tex
@@ -2293,127 +2289,25 @@ Chapter 3.
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[39
+[41
 
 
 
 ]
 
-LaTeX Warning: Citation 'CLS' on page 40 undefined on input line 43.
-
-
-Package caption Warning: \label without proper reference on input line 10.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `apex_ensembles:tab:ens' on page 40 undefined on input
- line 49.
-
-
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[40]
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[41]
-
-LaTeX Warning: Citation 'BKS' on page 42 undefined on input line 113.
+LaTeX Warning: Citation 'CLS' on page 42 undefined on input line 43.
 
 
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [42]
-
-Package caption Warning: \label without proper reference on input line 161.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `ch_ma:tab:md' on page 43 undefined on input line 151.
-
-
-
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [43]
-Overfull \hbox (22.77115pt too wide) in paragraph at lines 163--181
- [] 
- []
 
-<./cap4/figs/dt0fpik_w.pdf, id=860, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/dt0fpik_w.pdf Graphic file (type pdf)
-<use ./cap4/figs/dt0fpik_w.pdf>
-Package pdftex.def Info: ./cap4/figs/dt0fpik_w.pdf  used on input line 187.
-(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dphi2_w.pdf, id=861, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/dphi2_w.pdf Graphic file (type pdf)
-<use ./cap4/figs/dphi2_w.pdf>
-Package pdftex.def Info: ./cap4/figs/dphi2_w.pdf  used on input line 188.
-(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dt0m12_w.pdf, id=862, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/dt0m12_w.pdf Graphic file (type pdf)
-<use ./cap4/figs/dt0m12_w.pdf>
-Package pdftex.def Info: ./cap4/figs/dt0m12_w.pdf  used on input line 189.
-(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dt0m13_w.pdf, id=863, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/dt0m13_w.pdf Graphic file (type pdf)
-<use ./cap4/figs/dt0m13_w.pdf>
-Package pdftex.def Info: ./cap4/figs/dt0m13_w.pdf  used on input line 190.
-(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-
-Package caption Warning: \label without proper reference on input line 161.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `ch_ma:tab:md' on page 44 undefined on input line 191.
-
-
-
-Package caption Warning: \label without proper reference on input line 161.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `ch_ma:tab:md' on page 44 undefined on input line 191.
-
-
-<./cap4/figs/dt0fpik_tm.pdf, id=870, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/dt0fpik_tm.pdf Graphic file (type pdf)
-<use ./cap4/figs/dt0fpik_tm.pdf>
-Package pdftex.def Info: ./cap4/figs/dt0fpik_tm.pdf  used on input line 197.
-(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dt0m12_tm.pdf, id=871, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/dt0m12_tm.pdf Graphic file (type pdf)
-<use ./cap4/figs/dt0m12_tm.pdf>
-Package pdftex.def Info: ./cap4/figs/dt0m12_tm.pdf  used on input line 198.
-(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dphi2_tm.pdf, id=872, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/dphi2_tm.pdf Graphic file (type pdf)
-<use ./cap4/figs/dphi2_tm.pdf>
-Package pdftex.def Info: ./cap4/figs/dphi2_tm.pdf  used on input line 199.
-(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dphi4_tm.pdf, id=873, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/dphi4_tm.pdf Graphic file (type pdf)
-<use ./cap4/figs/dphi4_tm.pdf>
-Package pdftex.def Info: ./cap4/figs/dphi4_tm.pdf  used on input line 200.
-(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-
-Package caption Warning: \label without proper reference on input line 161.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `ch_ma:tab:md' on page 44 undefined on input line 201.
-
-
-
-Package caption Warning: \label without proper reference on input line 161.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `ch_ma:tab:md' on page 44 undefined on input line 201.
-
+LaTeX Warning: Citation 'BKS' on page 44 undefined on input line 111.
 
 
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
@@ -2423,51 +2317,52 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[45 <./cap4/figs/dt0fpik_w.pdf> <./cap4/figs/dphi2_w.pdf> <./cap4/figs/dt0m12_w
-.pdf> <./cap4/figs/dt0m13_w.pdf> <./cap4/figs/dt0fpik_tm.pdf> <./cap4/figs/dt0m
-12_tm.pdf> <./cap4/figs/dphi2_tm.pdf> <./cap4/figs/dphi4_tm.pdf>]
+[45]
+Overfull \hbox (23.17114pt too wide) in alignment at lines 158--178
+ [] [] [] [] [] [] 
+ []
 
-LaTeX Warning: Reference `' on page 46 undefined on input line 229.
+<./cap4/figs/dt0fpik_w.pdf, id=873, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/dt0fpik_w.pdf Graphic file (type pdf)
+<use ./cap4/figs/dt0fpik_w.pdf>
+Package pdftex.def Info: ./cap4/figs/dt0fpik_w.pdf  used on input line 182.
+(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
+<./cap4/figs/dphi2_w.pdf, id=874, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/dphi2_w.pdf Graphic file (type pdf)
+<use ./cap4/figs/dphi2_w.pdf>
+Package pdftex.def Info: ./cap4/figs/dphi2_w.pdf  used on input line 183.
+(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
+<./cap4/figs/dt0m12_w.pdf, id=875, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/dt0m12_w.pdf Graphic file (type pdf)
+<use ./cap4/figs/dt0m12_w.pdf>
+Package pdftex.def Info: ./cap4/figs/dt0m12_w.pdf  used on input line 184.
+(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
+<./cap4/figs/dt0m13_w.pdf, id=876, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/dt0m13_w.pdf Graphic file (type pdf)
+<use ./cap4/figs/dt0m13_w.pdf>
+Package pdftex.def Info: ./cap4/figs/dt0m13_w.pdf  used on input line 185.
+(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
+<./cap4/figs/dt0fpik_tm.pdf, id=883, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/dt0fpik_tm.pdf Graphic file (type pdf)
+<use ./cap4/figs/dt0fpik_tm.pdf>
+Package pdftex.def Info: ./cap4/figs/dt0fpik_tm.pdf  used on input line 192.
+(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
+<./cap4/figs/dt0m12_tm.pdf, id=884, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/dt0m12_tm.pdf Graphic file (type pdf)
+<use ./cap4/figs/dt0m12_tm.pdf>
+Package pdftex.def Info: ./cap4/figs/dt0m12_tm.pdf  used on input line 193.
+(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
+<./cap4/figs/dphi2_tm.pdf, id=885, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/dphi2_tm.pdf Graphic file (type pdf)
+<use ./cap4/figs/dphi2_tm.pdf>
+Package pdftex.def Info: ./cap4/figs/dphi2_tm.pdf  used on input line 194.
+(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
+<./cap4/figs/dphi4_tm.pdf, id=886, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/dphi4_tm.pdf Graphic file (type pdf)
+<use ./cap4/figs/dphi4_tm.pdf>
+Package pdftex.def Info: ./cap4/figs/dphi4_tm.pdf  used on input line 195.
+(pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
 
-Runaway argument?
- m_{12}^{\textrm {(v)}}&=p_1\left (\frac {1}{\kappa ^{\textrm {(v)}}}\ETC.
-! Paragraph ended before \align was complete.
-<to be read again> 
-                   \par 
-l.239 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.239 
-      
-? 
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.239 
-      
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \tex_par:D 
-l.239 
-      
-? 
-<./cap4/figs/matching_H105.pdf, id=1183, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/matching_H105.pdf Graphic file (type pdf)
-<use ./cap4/figs/matching_H105.pdf>
-Package pdftex.def Info: ./cap4/figs/matching_H105.pdf  used on input line 249.
-
-(pdftex.def)             Requested size: 302.39795pt x 226.80832pt.
-<./cap4/figs/interp_fpik_H105.pdf, id=1184, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/interp_fpik_H105.pdf Graphic file (type pdf)
-<use ./cap4/figs/interp_fpik_H105.pdf>
-Package pdftex.def Info: ./cap4/figs/interp_fpik_H105.pdf  used on input line 2
-56.
-(pdftex.def)             Requested size: 302.39795pt x 226.80832pt.
-)
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
@@ -2475,39 +2370,57 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[47 <./cap4/figs/matching_H105.pdf> <./cap4/figs/interp_fpik_H105.pdf
+[47 <./cap4/figs/dt0fpik_w.pdf> <./cap4/figs/dphi2_w.pdf> <./cap4/figs/dt0m12_w
+.pdf> <./cap4/figs/dt0m13_w.pdf> <./cap4/figs/dt0fpik_tm.pdf> <./cap4/figs/dt0m
+12_tm.pdf> <./cap4/figs/dphi2_tm.pdf> <./cap4/figs/dphi4_tm.pdf>]
 
-pdfTeX warning: pdflatex (file ./cap4/figs/interp_fpik_H105.pdf): PDF inclusion
-: multiple pdfs with page group included in a single page
->]
+LaTeX Warning: Reference `' on page 48 undefined on input line 224.
+
+
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[48]
+<./cap4/figs/matching_H105.pdf, id=1208, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/matching_H105.pdf Graphic file (type pdf)
+<use ./cap4/figs/matching_H105.pdf>
+Package pdftex.def Info: ./cap4/figs/matching_H105.pdf  used on input line 244.
+
+(pdftex.def)             Requested size: 302.39795pt x 226.80832pt.
+<./cap4/figs/interp_fpik_H105.pdf, id=1209, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/interp_fpik_H105.pdf Graphic file (type pdf)
+<use ./cap4/figs/interp_fpik_H105.pdf>
+Package pdftex.def Info: ./cap4/figs/interp_fpik_H105.pdf  used on input line 2
+51.
+(pdftex.def)             Requested size: 302.39795pt x 226.80832pt.
+)
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[49 <./cap4/figs/matching_H105.pdf>]
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[50 <./cap4/figs/interp_fpik_H105.pdf>]
 \openout2 = `cap5/cap5.aux'.
 
  (./cap5/cap5.tex
 Chapter 4.
 
+LaTeX Warning: Citation 'FLAG21' on page 51 undefined on input line 36.
+
+
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[48
+[51
 
 
 
 
 
 ]
-
-LaTeX Warning: Reference `ch_ma:eq:t0ph' on page 49 undefined on input line 25.
-
-
-
-LaTeX Warning: Citation 'FLAG21' on page 49 undefined on input line 34.
-
-
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[49]
-Overfull \hbox (24.76852pt too wide) detected at line 58
+Overfull \hbox (24.76852pt too wide) detected at line 60
 []
  []
 
@@ -2515,72 +2428,72 @@ Overfull \hbox (24.76852pt too wide) detected at line 58
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[50]
+[52]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[51]
-<./cap5/figs/continuum_sym.pdf, id=1335, 575.99193pt x 437.2335pt>
+[53]
+<./cap5/figs/continuum_sym.pdf, id=1354, 575.99193pt x 437.2335pt>
 File: ./cap5/figs/continuum_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/continuum_sym.pdf>
 Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 131.
 
 (pdftex.def)             Requested size: 336.0pt x 255.06335pt.
-<./cap5/figs/SU3a2_projection.pdf, id=1336, 865.07193pt x 575.99193pt>
+<./cap5/figs/SU3a2_projection.pdf, id=1355, 865.07193pt x 575.99193pt>
 File: ./cap5/figs/SU3a2_projection.pdf Graphic file (type pdf)
 <use ./cap5/figs/SU3a2_projection.pdf>
 Package pdftex.def Info: ./cap5/figs/SU3a2_projection.pdf  used on input line 1
 38.
 (pdftex.def)             Requested size: 336.0pt x 223.7131pt.
-<./cap5/figs/SU3_only_comb.pdf, id=1337, 462.52798pt x 346.89601pt>
+<./cap5/figs/SU3_only_comb.pdf, id=1356, 462.52798pt x 346.89601pt>
 File: ./cap5/figs/SU3_only_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/SU3_only_comb.pdf>
 Package pdftex.def Info: ./cap5/figs/SU3_only_comb.pdf  used on input line 145.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap5/figs/BMA_w.pdf, id=1338, 668.4975pt x 389.5353pt>
+<./cap5/figs/BMA_w.pdf, id=1357, 668.4975pt x 389.5353pt>
 File: ./cap5/figs/BMA_w.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_w.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_w.pdf  used on input line 152.
 (pdftex.def)             Requested size: 336.0pt x 195.79544pt.
 
 
-LaTeX Warning: Citation 'chi_exp' on page 52 undefined on input line 153.
+LaTeX Warning: Citation 'chi_exp' on page 54 undefined on input line 153.
 
 
-LaTeX Warning: Citation 'chi_exp' on page 52 undefined on input line 153.
+LaTeX Warning: Citation 'chi_exp' on page 54 undefined on input line 153.
 
-<./cap5/figs/BMA_tm.pdf, id=1343, 668.4975pt x 389.5353pt>
+<./cap5/figs/BMA_tm.pdf, id=1362, 668.4975pt x 389.5353pt>
 File: ./cap5/figs/BMA_tm.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_tm.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_tm.pdf  used on input line 159.
 (pdftex.def)             Requested size: 336.0pt x 195.79544pt.
 
-LaTeX Warning: Citation 'chi_exp' on page 52 undefined on input line 160.
+LaTeX Warning: Citation 'chi_exp' on page 54 undefined on input line 160.
 
 
-LaTeX Warning: Citation 'chi_exp' on page 52 undefined on input line 160.
+LaTeX Warning: Citation 'chi_exp' on page 54 undefined on input line 160.
 
-<./cap5/figs/BMA_comb.pdf, id=1348, 668.4975pt x 389.5353pt>
+<./cap5/figs/BMA_comb.pdf, id=1367, 668.4975pt x 389.5353pt>
 File: ./cap5/figs/BMA_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_comb.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_comb.pdf  used on input line 166.
 (pdftex.def)             Requested size: 336.0pt x 195.79544pt.
 
-LaTeX Warning: Citation 'chi_exp' on page 52 undefined on input line 167.
+LaTeX Warning: Citation 'chi_exp' on page 54 undefined on input line 167.
 
 
-LaTeX Warning: Citation 'chi_exp' on page 52 undefined on input line 167.
+LaTeX Warning: Citation 'chi_exp' on page 54 undefined on input line 167.
 
 )
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[52]
+[54]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[53 <./cap5/figs/continuum_sym.pdf> <./cap5/figs/SU3a2_projection.pdf
+[55 <./cap5/figs/continuum_sym.pdf> <./cap5/figs/SU3a2_projection.pdf
 
 pdfTeX warning: pdflatex (file ./cap5/figs/SU3a2_projection.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
@@ -2588,11 +2501,11 @@ pdfTeX warning: pdflatex (file ./cap5/figs/SU3a2_projection.pdf): PDF inclusion
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[54 <./cap5/figs/SU3_only_comb.pdf>]
+[56 <./cap5/figs/SU3_only_comb.pdf>]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[55 <./cap5/figs/BMA_w.pdf> <./cap5/figs/BMA_tm.pdf
+[57 <./cap5/figs/BMA_w.pdf> <./cap5/figs/BMA_tm.pdf
 
 pdfTeX warning: pdflatex (file ./cap5/figs/BMA_tm.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
@@ -2600,7 +2513,7 @@ pdfTeX warning: pdflatex (file ./cap5/figs/BMA_tm.pdf): PDF inclusion: multiple
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[56 <./cap5/figs/BMA_comb.pdf>]
+[58 <./cap5/figs/BMA_comb.pdf>]
 \openout2 = `cap6/cap6.aux'.
 
  (./cap6/cap6.tex
@@ -2609,40 +2522,40 @@ Chapter 5.
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[57
-
-
-
-
-
-]
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[58
-
-
-
-
-]
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
 [59
 
 
+
+
+
 ]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[60]
+[60
+
+
+
+
+]
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[61
+
+
+]
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[62]
 \openout2 = `conclusions/conclusions.aux'.
 
  (./conclusions/conclusions.tex)
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[61
+[63
 
 
 
@@ -2653,7 +2566,7 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[62
+[64
 
 
 
@@ -2663,11 +2576,11 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[63]
+[65]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[64
+[66
 
 
 
@@ -2676,14 +2589,14 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[65
+[67
 
 
 ]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[66]
+[68]
 \openout2 = `apendices/apendices_conventions.aux'.
 
  (./apendices/apendices_conventions.tex
@@ -2692,7 +2605,7 @@ Appendix A.
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[67
+[69
 
 
 
@@ -2700,16 +2613,16 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[68]
+[70]
 \openout2 = `apendices/apendices_simulations.aux'.
 
  (./apendices/apendices_simulations.tex
 Appendix B.
 
-LaTeX Warning: Citation '•' on page 69 undefined on input line 11.
+LaTeX Warning: Citation '•' on page 71 undefined on input line 11.
 
 
-LaTeX Warning: Reference `ch_foundations' on page 69 undefined on input line 15
+LaTeX Warning: Reference `ch_foundations' on page 71 undefined on input line 15
 .
 
 
@@ -2721,17 +2634,104 @@ Overfull \hbox (10.12854pt too wide) detected at line 18
 /n/10.95 ] + \OMS/zplm/m/n/10.95 O [] \OT1/pplx/m/n/10.95 ,$  
  []
 
-)
+
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[69
+[71
 
 
 
 
 
 ]
+
+LaTeX Warning: Citation '•' on page 72 undefined on input line 43.
+
+
+Overfull \hbox (3.62988pt too wide) detected at line 54
+ $\OML/zplm/m/it/10.95 T\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 U[] \OMS/zplm
+/m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10.95 ) = \OML/zplm/m/it/10.
+95 T[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 U[] \OMS/zplm/m/n/10.95 ! \OML/
+zplm/m/it/10.95 U[]\OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 P[]\OT1/zplm/m/n/1
+0.95 (\OML/zplm/m/it/10.95 i\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 j\OT1/zp
+lm/m/n/10.95 ) + \OML/zplm/m/it/10.95 ^^N[] [] T[]\OT1/zplm/m/n/10.95 (\OML/zpl
+m/m/it/10.95 U[] \OMS/zplm/m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10
+.95 )(\OT1/pplx/m/n/10.95 1 \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 P[]\OT
+1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 i\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10
+.95 j\OT1/zplm/m/n/10.95 ))\OT1/pplx/m/n/10.95 .$  
+ []
+
+
+LaTeX Warning: Citation '•' on page 72 undefined on input line 57.
+
+
+LaTeX Warning: Citation '•' on page 72 undefined on input line 57.
+
+
+LaTeX Warning: Citation '•' on page 72 undefined on input line 61.
+
+
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[72]
+
+LaTeX Warning: Citation '•' on page 73 undefined on input line 81.
+
+
+LaTeX Warning: Citation '•' on page 73 undefined on input line 87.
+
+
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[73]
+
+LaTeX Warning: Citation '•' on page 74 undefined on input line 106.
+
+
+LaTeX Warning: Citation '•' on page 74 undefined on input line 110.
+
+
+LaTeX Warning: Citation '1206.2809' on page 74 undefined on input line 112.
+
+
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[74]
+Overfull \hbox (10.74318pt too wide) detected at line 120
+[]
+ []
+
+! Undefined control sequence.
+<recently read> \middleline 
+                            
+l.139 \middleline
+                 
+? 
+! Undefined control sequence.
+<recently read> \middleline 
+                            
+l.147 \middleline
+                 
+? 
+! Undefined control sequence.
+<recently read> \middleline 
+                            
+l.149 \middleline
+                 
+? 
+
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[75])
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[76]
 \openout2 = `apendices/apendices_solvers.aux'.
 
  (./apendices/apendices_solvers.tex
@@ -2740,26 +2740,7 @@ Appendix C.
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[70
-
-
-
-
-
-])
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[71]
-\openout2 = `apendices/apendices_errors.aux'.
-
- (./apendices/apendices_errors.tex
-Appendix D.
-
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[72
+[77
 
 
 
@@ -2767,15 +2748,42 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 ]
 
-LaTeX Warning: Citation 'Gamma-method' on page 73 undefined on input line 13.
+LaTeX Warning: Citation '•' on page 78 undefined on input line 56.
+
+
+LaTeX Warning: Citation '•' on page 78 undefined on input line 56.
+
+
+LaTeX Warning: Citation '•' on page 78 undefined on input line 58.
+
+
+LaTeX Warning: Citation '•' on page 78 undefined on input line 58.
+
+)
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[78]
+\openout2 = `apendices/apendices_errors.aux'.
+
+ (./apendices/apendices_errors.tex
+Appendix D.
+
+LaTeX Warning: Citation 'Gamma-method' on page 79 undefined on input line 13.
 
 
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[73]
+[79
 
-LaTeX Warning: Citation '•' on page 74 undefined on input line 65.
+
+
+
+
+]
+
+LaTeX Warning: Citation '•' on page 80 undefined on input line 65.
 
 
 Overfull \hbox (4.95642pt too wide) in paragraph at lines 68--70
@@ -2787,24 +2795,24 @@ cer-tainty of $\OMS/zplm/m/n/10.95 O\OT1/zplm/m/n/10.95 ([](\OMS/zplm/m/n/10.95
  []
 
 
-LaTeX Warning: Citation '•' on page 74 undefined on input line 73.
+LaTeX Warning: Citation '•' on page 80 undefined on input line 73.
 
 
-LaTeX Warning: Citation '•' on page 74 undefined on input line 73.
+LaTeX Warning: Citation '•' on page 80 undefined on input line 73.
 
 
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[74]
+[80]
 
-LaTeX Warning: Citation '•' on page 75 undefined on input line 82.
+LaTeX Warning: Citation '•' on page 81 undefined on input line 82.
 
 )
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[75]
+[81]
 \openout2 = `apendices/apendices_a.aux'.
 
  (./apendices/apendices_a.tex
@@ -2813,198 +2821,77 @@ Appendix E.
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[76
+[82
 
 
 
 
 
 ]
-
-! LaTeX Error: Unknown float option `H'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.9 \begin{table}[H]
-                    
-? 
-
-Overfull \hbox (52.36143pt too wide) in paragraph at lines 12--39
- [] 
+Overfull \hbox (52.36143pt too wide) in alignment at lines 9--37
+ [] [] [] [] [] [] [] [] 
  []
 
 )
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[77]
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[78]
+[83]
 \openout2 = `apendices/apendices_b.aux'.
 
  (./apendices/apendices_b.tex
 Appendix F.
-Runaway argument?
- \label {apex_chisq:eq:chisq_generalized} \chi ^2=\sum _{i,j=1}^{2N_{\ETC.
-! Paragraph ended before \gather was complete.
-<to be read again> 
-                   \par 
-l.30 
-     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.30 
-     
-? 
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.30 
-     
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \tex_par:D 
-l.30 
-     
-? 
 
-LaTeX Warning: Citation 'chi_exp' on page 79 undefined on input line 31.
-
-)
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[79
+[84
 
 
 
 
 
 ]
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[85]
+
+LaTeX Warning: Citation 'chi_exp' on page 86 undefined on input line 31.
+
+)
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[86]
 \openout2 = `apendices/apendices_c.aux'.
 
  (./apendices/apendices_c.tex
 Appendix G.
 
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[80
-
-
-
-
-
-]
-
-Package caption Warning: \label without proper reference on input line 10.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `apex_ensembles:tab:ens' on page 81 undefined on input
- line 9.
-
-
-Package caption Warning: \label without proper reference on input line 31.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `apex_fv:tab:mn' on page 81 undefined on input line 26
-.
-
-
-! LaTeX Error: Unknown float option `H'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.30 \begin{table}[H]
-                     
-? 
-
-Overfull \hbox (137.64986pt too wide) in paragraph at lines 33--39
- [] 
+Overfull \hbox (137.64986pt too wide) in alignment at lines 30--38
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-)
+
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[81]
+[87
+
+
+
+
+
+])
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[82]
-\openout2 = `apendices/apendices_d.aux'.
-
- (./apendices/apendices_d.tex
-Appendix H.
-
-LaTeX Warning: Reference `' on page 83 undefined on input line 9.
-
-
-! LaTeX Error: Unknown float option `H'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11 \begin{table}[H]
-                     
-? 
-)
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[83
-
-
-
-
-
-]
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[84]
-\openout2 = `apendices/apendices_e.aux'.
-
- (./apendices/apendices_e.tex
-Appendix I.
-)
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[85
-
-
-
-
-
-]
+[88]
 \openout2 = `apendices/apendices_f.aux'.
 
  (./apendices/apendices_f.tex
-Appendix J.
-
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[86
-
-
-
-
-
-]
+Appendix H.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 6.
@@ -3021,28 +2908,16 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 6.
 
-! Undefined control sequence.
-<recently read> \middleline 
-                            
-l.16 \middleline
-                
-? 
-! Undefined control sequence.
-<recently read> \middleline 
-                            
-l.20 \middleline
-                
-? 
 
 Overfull \hbox (66.25603pt too wide) in alignment at lines 10--30
  [] [] 
  []
 
 
-LaTeX Warning: Citation 'chi_exp' on page 87 undefined on input line 94.
+LaTeX Warning: Citation 'chi_exp' on page 89 undefined on input line 94.
 
 
-LaTeX Warning: Citation 'chi_exp' on page 87 undefined on input line 94.
+LaTeX Warning: Citation 'chi_exp' on page 89 undefined on input line 94.
 
 
 Overfull \hbox (59.36902pt too wide) in alignment at lines 32--95
@@ -3053,39 +2928,25 @@ Overfull \hbox (59.36902pt too wide) in alignment at lines 32--95
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[87]
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+[89
 
 
-[88]
-
-LaTeX Warning: Citation 'chi_exp' on page 89 undefined on input line 159.
 
 
-LaTeX Warning: Citation 'chi_exp' on page 89 undefined on input line 159.
 
-
-Overfull \hbox (59.36902pt too wide) in alignment at lines 97--160
- [] [] [] [] 
- []
-
-
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[89]
+]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [90]
 
-LaTeX Warning: Citation 'chi_exp' on page 91 undefined on input line 266.
+LaTeX Warning: Citation 'chi_exp' on page 91 undefined on input line 159.
 
 
-LaTeX Warning: Citation 'chi_exp' on page 91 undefined on input line 266.
+LaTeX Warning: Citation 'chi_exp' on page 91 undefined on input line 159.
 
 
-Overfull \hbox (76.0454pt too wide) in alignment at lines 162--267
+Overfull \hbox (59.36902pt too wide) in alignment at lines 97--160
  [] [] [] [] 
  []
 
@@ -3098,14 +2959,34 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [92]
+
+LaTeX Warning: Citation 'chi_exp' on page 93 undefined on input line 266.
+
+
+LaTeX Warning: Citation 'chi_exp' on page 93 undefined on input line 266.
+
+
+Overfull \hbox (76.0454pt too wide) in alignment at lines 162--267
+ [] [] [] [] 
+ []
+
+
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[93])
+[93]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [94]
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[95])
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[96]
 \openout2 = `FrontBackmatter/Bibliography.aux'.
 
  (./FrontBackmatter/Bibliography.tex
@@ -3119,7 +3000,7 @@ LaTeX Warning: Empty bibliography on input line 15.
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[95
+[97
 
 
 
@@ -3136,7 +3017,7 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[96
+[98
 
 
 
@@ -3148,20 +3029,9 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[97
+[99
 
-]
-
-! LaTeX Error: \begin{gather} on input line 19 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \end{document}
-                    
-? 
-(./ClassicThesis.aux (./FrontBackmatter/DirtyTitlepage.aux)
+] (./ClassicThesis.aux (./FrontBackmatter/DirtyTitlepage.aux)
 (./FrontBackmatter/Titlepage.aux) (./FrontBackmatter/Titleback.aux)
 (./FrontBackmatter/Dedication.aux) (./FrontBackmatter/Abstract.aux)
 (./FrontBackmatter/Publications.aux) (./FrontBackmatter/Acknowledgments.aux)
@@ -3172,8 +3042,7 @@ l.136 \end{document}
 (./apendices/apendices_conventions.aux) (./apendices/apendices_simulations.aux)
 (./apendices/apendices_solvers.aux) (./apendices/apendices_errors.aux)
 (./apendices/apendices_a.aux) (./apendices/apendices_b.aux)
-(./apendices/apendices_c.aux) (./apendices/apendices_d.aux)
-(./apendices/apendices_e.aux) (./apendices/apendices_f.aux)
+(./apendices/apendices_c.aux) (./apendices/apendices_f.aux)
 (./FrontBackmatter/Bibliography.aux) (./FrontBackmatter/Declaration.aux)
 (./FrontBackmatter/Colophon.aux))
 
@@ -3389,8 +3258,6 @@ apendices/apendices_errors.tex
 apendices/apendices_a.tex
 apendices/apendices_b.tex
 apendices/apendices_c.tex
-apendices/apendices_d.tex
-apendices/apendices_e.tex
 apendices/apendices_f.tex
 FrontBackmatter/Bibliography.tex
 FrontBackmatter/Declaration.tex
@@ -3411,40 +3278,34 @@ Package biblatex Warning: Please (re)run BibTeX on the file(s):
 Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 \openout1 = `ClassicThesis.run.xml'.
 
- )
-(\end occurred inside a group at level 2)
-
-### semi simple group (level 2) entered at line 19 (\begingroup)
-### semi simple group (level 1) entered at line 232 (\begingroup)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 33304 strings out of 478287
- 644551 string characters out of 5849289
- 1489389 words of memory out of 5000000
- 49600 multiletter control sequences out of 15000+600000
- 619316 words of font info for 627 fonts, out of 8000000 for 9000
+ 33301 strings out of 478287
+ 643020 string characters out of 5849289
+ 1484592 words of memory out of 5000000
+ 49560 multiletter control sequences out of 15000+600000
+ 621561 words of font info for 634 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,23n,106p,10608b,2757s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/mathpazo/fplmbi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/math
-pazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr
-i.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
-/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
->
-Output written on ClassicThesis.pdf (113 pages, 879449 bytes).
+ 108i,23n,106p,10608b,2426s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/euler/eurb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/
+fplmbi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up
+lbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on ClassicThesis.pdf (115 pages, 906833 bytes).
 PDF statistics:
- 2314 PDF objects out of 2487 (max. 8388607)
- 1531 compressed objects within 16 object streams
- 469 named destinations out of 1000 (max. 500000)
- 161932 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 2389 PDF objects out of 2487 (max. 8388607)
+ 1603 compressed objects within 17 object streams
+ 511 named destinations out of 1000 (max. 500000)
+ 163988 words of extra memory for PDF output out of 184870 (max. 10000000)
 

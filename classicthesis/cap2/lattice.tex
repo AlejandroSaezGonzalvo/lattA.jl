@@ -17,9 +17,9 @@
 
 The theory that describes the strong interactions between quarks and gluons is called Quantum Chromodynamics, or QCD. 
 
-QCD has many remarkable properties. Among others, it is an asymptotically free theory, which means that at high energies (or short distances) the fundamental particles interact very weakly and can be treated as free. On the other hand, this implies the phenomenon of confinement at low energies (or large distances), phenomenon by which no color charged particles can be observed in Nature at these energy scales, but only color singlets such as mesons and baryons, which are composite particles made of quarks and gluons. Furthermore, at low energies the coupling constant grows logarithmically and perturbation theory fails to make reliable predictions. Another important feature of QCD is spontaneous chiral symmetry breaking, which is responsible for the light mass of pions, among other phenomena.
+QCD has many remarkable properties. Among others, it is an asymptotically free theory, which means that at high energies (or short distances) the fundamental particles interact very weakly and can be treated as free. On the other hand, this implies the phenomenon of confinement at low energies (or large distances), phenomenon by which no color charged particles can be observed in Nature at these energy scales, but only color singlets. These are composite particles called mesons and baryons, which are made of quarks and gluons. Furthermore, at low energies the coupling constant grows logarithmically and perturbation theory fails to make reliable predictions. Another important feature of QCD is spontaneous chiral symmetry breaking, which is responsible for the light mass of pions, among other phenomena.
 
-QCD is a non-abelian theory associated to the SU($N_c=3$) Lie group. SU(3) rotations are described by unitary $3\times 3$ matrices $\Omega(x)$ with ${\textrm{det}}\left(\Omega(x)\right)=1$ which form the SU(3) group. It is a non-abelian group since its elements do not commute under multiplication. The elements of the group can be written as
+QCD is a non-abelian theory associated to the SU($N_c=3$) Lie group. SU(3) rotations are described by unitary $3\times 3$ matrices $\Omega(x)$ with ${\textrm{det}}\left(\Omega(x)\right)=1$. This is a non-abelian group since its elements do not commute under multiplication. The elements of the group can be written as
 \begin{equation}
 \Omega(x)=e^{i\alpha^{(a)}(x)T^{(a)}},
 \end{equation}
@@ -73,11 +73,11 @@ Finally, we have used the euclidean Dirac matrices $\gamma_{\mu}$, which fulfill
 \{\gamma_{\mu},\gamma_{\nu}\}=2\delta_{\mu\nu}.
 \end{equation}
 
-In order for the QCD action to be invariant under SU(3) rotations, we require the gauge fields to transform as
+In order for the QCD action to be invariant under SU(3) rotations, the gauge fields must transform as
 \begin{equation}
 A_{\mu}(x)\to\Omega(x)A_{\mu}(x)\Omega^{\dagger}(x)+i\left(\partial_{\mu}\Omega(x)\right)\Omega^{\dagger}(x),
 \end{equation}
-and thus we obtain the transformation relations
+and so they are in the adjoint representation. From this we obtain the transformation relations
 \begin{align}
 D_{\mu}(x)&\to\Omega(x)D_{\mu}(x)\Omega^{\dagger}(x), \\
 F_{\mu\nu}(x)&\to\Omega(x)F_{\mu\nu}(x)\Omega^{\dagger}(x).
@@ -89,17 +89,17 @@ As mentioned above, at low energies or large distances QCD cannot be studied usi
 \end{equation} 
 where $a$ is the lattice spacing between two adjacent sites, and $L,T$ are the spatial and temporal lattice extents (in physical units) respectively. The discretization of spacetime and introduction of a finite lattice spacing $a$ provides a natural energy cutoff for momenta $\sim a^{-1}$, removing UV divergences. On the other hand, the finite volume lattice ensures the absence of IR divergences. This means that the lattice formulation can be seen as a way to regularize any particular Quantum Field Theory. However, this also implies the presence of finite volume and discretization effects, which should be removed from the results. To do this, after having computed the physical observables in the lattice setup, one must perform a continuum extrapolation to obtain results at $a\rightarrow0$ and simulate large enough volumes in order to be able to neglect the effects associated with finite volume. If the theory is renormalizable, physical quantities will remain finite in the continuum limit.
 
-Having discretized spacetime, fields are placed at the lattice sites $n$. Fermions for example,
+Having discretized spacetime, fields are placed at the lattice sites $n\in\Lambda$. Fermions thus look like
 \begin{gather}
 \psi(n),\bar{\psi}(n), \quad
 n\in\Lambda.
 \end{gather}
-For the gauge fields, it will be helpful to use the definition of a parallel transporter in SU(N). An $N$-component unit vector $\boldsymbol{v}$ is parallel transported along a curve parameterized by $z_{\mu}(t)$ from point $z_{\mu}(a)=x$ to $z_{\mu}(b)=y$ as
+For the gauge fields, it will be helpful to use the definition of a parallel transporter in SU($N$). An $N$-component unit vector $\boldsymbol{v}$ is parallel transported along a curve parameterized by $z_{\mu}(t)$ from point $z_{\mu}(a)=x$ to $z_{\mu}(b)=y$ as
 \begin{align}
 \boldsymbol{v}(b)&=P(y,x)\boldsymbol{v}(a),\\
 P(y,x)&=e^{i\int_x^yA_{\mu}(z)dz_{\mu}},
 \end{align}
-with $A_{\mu}$ the SU(N) gauge fields. This parallel transporter is called a gauge link and its discrete version will be the variable to be used in the lattice for the gauge fields. It transforms in the fundamental representation of SU(N),
+with $A_{\mu}$ the SU($N$) gauge fields. This means that a fermion in the fundamental representation picks up a phase of $P(y,x)$ when going from $x$ to $y$. This parallel transporter is called a gauge link and its discrete version will be the variable to be used in the lattice for the gauge fields. It transforms in the fundamental representation of SU($N$),
 \begin{equation}
 P(x,y)\to\Omega(x)P(x,y)\Omega^{\dagger}(y).
 \end{equation}
@@ -156,7 +156,7 @@ where we introduced the inverse coupling
 \end{equation}
 Taking the continuum limit $a^4\sum_x\rightarrow\int d^4x$ we recover the continuum Yang-Mills action.
 
-Eq.~(\ref{ch_foundation:eq:YM-latt}) shows that the effects related to the discretization of spacetime are of order $\mathcal{O}(a^2)$ for the Wilson gauge action. The discretization of the SU(3) pure Yang-Mills action is not unique, and different choices can result in different cutoff effects.
+Eq.~(\ref{ch_foundation:eq:YM-latt}) shows that the effects related to the discretization of spacetime are of order $\mathcal{O}(a^2)$ for the Wilson gauge action. The discretization of the SU(3) pure Yang-Mills action is not unique, and different choices result in different cutoff effects.
 
 The $\mathcal{O}(a^2)$ cutoff effects present in the Wilson regularization of the gauge action can be further reduced by adding additional terms that respect the symmetries of the theory following the Symanzik improvement program. One such choice is the Lüscher-Weisz action~\cite{}, which we discuss in Sec.~\ref{ch_foundation:sec:impr}.
 
@@ -179,7 +179,7 @@ To discretize the continuum fermionic action in the absence of gauge fields, con
 \begin{equation}
 S_{\textrm{F}}=\int d^4x\bar{\psi}(x)\left(\gamma_{\mu}\partial_{\mu}+m\right)\psi(x),
 \end{equation}
-the derivative $\partial_{\mu}$ needs to be discretize, which can be done easily by
+the derivative $\partial_{\mu}$ needs to take a discrete form, which can be done easily by
 \begin{equation}
 \partial_{\mu}\psi(x)\rightarrow\hat{\partial}_{\mu}\psi(x)=\frac{1}{2a}\left(\psi(x+\hat{\mu})-\psi(x-\hat{\mu})\right).
 \end{equation}
@@ -371,21 +371,21 @@ S_{\textrm{eff}}[U]&=-\sum_{i=1}^{N_f}{\textrm{log}}\;{\textrm{det}}\left(D+m_i\
 
 In order to compute meson observables we will use meson interpolators, which are composite fermionic observables that share the same quantum numbers as the desired meson state. A generic meson interpolator has the form
 \begin{equation}
-O^{ij}(x)=\bar{\psi}^i(x)\Gamma\psi^j(x),
+\mathcal{O}_A^{ij}(x)=\bar{\psi}^i(x)\Gamma_A\psi^j(x),
 \end{equation}	
-with $\Gamma$ a spin matrix. This way, a meson two-point function reads
+with $\Gamma_A$ a Gamma matrix. This way, a meson two-point function reads
 \begin{align}
 \label{ch_foundation:eq:path_int}
-\left<O^{ij}(x_1)\bar{O}^{ij}(x_2)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\times\\&\left<\bar{\psi}^i(x_1)\Gamma\psi^j(x_1)\psi^i(x_2)\Gamma\bar{\psi}^j(x_2)\right>_{\textrm F} \\
-&=-\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\times\\&{\textrm{tr}}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),
+\left<\mathcal{O}_A^{ij}(x_1)\mathcal{O}_B^{ji}(x_2)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\times\\&\left<\bar{\psi}^i(x_1)\Gamma_A\psi^j(x_1)\psi^i(x_2)\Gamma_B\bar{\psi}^j(x_2)\right>_{\textrm F} \\
+&=-\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\times\\&{\textrm{tr}}\left(\Gamma_AD_i^{-1}(x_1,x_2)\Gamma_BD_j^{-1}(x_2,x_1)\right),
 \end{align}
-where the trace is over spin indices and $D_i$ the massive Dirac operator for flavor $i$. In order to perform this integral numerically, using the connection with statistical mechanics, a finite set of $N_{\textrm{cnfg}}$ gauge configurations is generated with Boltzmann distribution $e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}$ following a Markov process. Then, measurements of the quantity
+where the trace is over spin indices and $D_i$ the massive Dirac operator for flavor $i$. In order to perform this integral numerically, using the connection with statistical mechanics, a finite set of $N_{\textrm{cnfg}}$ gauge configurations is generated with Boltzmann distribution $e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}$ following a Markov process (see Appendices~\ref{appex_simulations},~\ref{appex_errors}). Then, measurements of the quantity
 \begin{equation}
-\theta=-{\textrm tr}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),
+O=-{\textrm{tr}}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),
 \end{equation}
 are taken in each of these configurations, and the expectation value is computed as
 \begin{equation}
-\left<\theta\right>=\frac{1}{N_{\textrm{cnfg}}}\sum_{i}^{N_{\textrm{cnfg}}}\theta_i.
+\left<O\right>=\frac{1}{N_{\textrm{cnfg}}}\sum_{i}^{N_{\textrm{cnfg}}}O_i.
 \end{equation}
 
 
@@ -452,7 +452,7 @@ In the case of Lattice QCD, we saw that in the Wilson gauge action in eq.~(\ref{
 \label{ch_foundation:eq:SG_impr}
 S_G=\frac{\beta}{3}\sum_{\mu\nu}\left[c_0\sum_p{\textrm{Re}}\left({\textrm{tr}}\left(1-U_{\mu\nu}(p)\right)\right)+\sum_{i=1}^3c_i\sum_r{\textrm{Re}}\left({\textrm{tr}}\left(1-U^{(i)}(r)\right)\right)\right],
 \end{equation}
-with $U^{(i)}$ said dimension-6 operators. Tuning the coefficients $c_i$ properly leads to $\mathcal{O}(a^2)$ improvement. In our study, the CLS ensembles we employ (see Sec.~\ref{ch_ma:sec:sea}) use the so called Lüscher-Weisz gauge action~\cite{}, with these coefficients computed at tree-level
+with $U^{(i)}$ said dimension-6 operators. Tuning the coefficients $c_i$ properly leads to $\mathcal{O}(a^2)$ improvement. In our study, the CLS ensembles we employ (see Sec.~\ref{ch_ma:sec:Sea}) use the so called Lüscher-Weisz gauge action~\cite{}, with these coefficients computed at tree-level
 \begin{gather}
 \label{ch_foundation:eq:LW}
 c_0=\frac{5}{3}, \quad

@@ -4,9 +4,58 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Solvers}
-\label{apex_solvers}
+\label{appex_solvers}
 
+For the computation of correlation functions of fermions in the lattice (e.g. a two-point function, see eq.~(\ref{ch_foundation:eq:path_int})) the inversion of the Dirac operator is required. In particular it is needed to compute the inverse of $D(x,y)$ for all spatial positions $\vec{x},\vec{y}$. This is referred to as inverting the all-to-all Dirac operator. This is computationally very expensive, and stochastic methods can be employed to reduce the computational cost. A set of stochastic noise sources $\eta$ are introduced such that
+\begin{gather}
+\left<\eta_i(x)\right>_{\eta}=0, \quad \left<\eta_i^{\dagger}(x)\eta_j(y)\right>_{\eta}=\delta_{x,y}\delta_{i,j},
+\end{gather}
+with $\left<.\right>_{\eta}$ meaning average over the $N_{\eta}$ samples of some noise distribution. Some common choices are gaussian, $Z_2$ or $U(1)$. From these we define
+\begin{gather}
+\xi_i^q(x)=\sum_yD^{-1}_q(x,y)\eta_i(y), \quad \zeta_i^r(x)=\sum_yD^{-1}_r(x,y)\gamma_5\Gamma_B^{\dagger}\eta_i(y),
+\end{gather}
+with $\Gamma_B$ some Gamma matrix. Now, two-point functions $f^{rq}_{AB}(x_0,y_0)$ with insertions of the Gamma matrices $\Gamma_A,\Gamma_B$ and flavors of quarks $r,q$ can be expressed as
+\begin{align}
+f^{rq}_{AB}(x_0,y_0)&-\frac{a^6}{L^3}\sum_{\vec{y}}\left<\left<(\Gamma_A\gamma_5\zeta^r_i(y))^{\dagger}\xi^q_i(y)\right>_{\eta}\right> \\
+&\approx -\frac{a^6}{L^3}\frac{1}{N_{\eta}}\sum_{i=1}^{N_{\eta}}\sum_{\vec{y}}\left<(\Gamma_A\gamma_5\zeta^r_i(y))^{\dagger}\xi^q_i(y)\right>,
+\end{align}
+without the need to compute the all-to-all inverted Dirac operator, therefore reducing significantly the computational effort.
 
+In order to invert the Dirac operator with flavor $q$, the solution to the Dirac equation 
+\begin{equation}
+D_q(x,y)\psi_r(y)=\delta_{x,y}\delta_{q,r}\equiv\eta_{x,y,q,r},
+\end{equation}
+must be found. This is usually done by an iterative procedure. The basic idea is to start from an initial approximate solution $\psi_0$ and define the residue $\rho$ (we supress indices for simplicity)
+\begin{equation}
+\rho=D\psi_0-\eta.
+\end{equation}
+Then, one solves
+\begin{equation}
+D\psi_1=\rho,
+\end{equation}
+finding the new residue and iterates the process, with the final approximate solution given by
+\begin{equation}
+\psi=\psi_0+\psi_1+...
+\end{equation}
+The algorithm stops when some convergence criterion is met
+\begin{equation}
+|\rho|<\epsilon.
+\end{equation}
+The difference between the true and approximate solutions is
+\begin{equation}
+|\psi-\psi_{\textrm{true}}|<\epsilon\kappa(D),
+\end{equation}
+with $\kappa(D)$ the condition number of matrix $D$
+\begin{equation}
+\kappa(D)=|D||D^{-1}|.
+\end{equation}
+The smaller the condition number of the Dirac operator, the less iterative steps one needs to perform in order to find the solution to the Dirac equation. Thus convergence can be improved by suitably transforming the system into one with a smaller $\kappa(D)$. This can be done by finding some similarity transformations easily invertible such that one can write
+\begin{gather}
+LDR\psi'=L\eta, \quad \psi=R^{-1}\psi'.
+\end{gather}
+This is called preconditioning, and there are many different variations. Some of the most used are even-odd preconditioning~\cite{•} and distance preconditioning~\cite{•}.
+
+There are also more sophisticated algorithms to solve the Dirac equation based on conjugate gradient solvers~\cite{•} and the Krylov subspace solvers~\cite{•}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
