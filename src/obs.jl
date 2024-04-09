@@ -26,7 +26,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
         v = value(m)
         e = err(m)
 
-        figure()
+        fig = figure("eff")
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
         ylabel(L"$m_\mathrm{eff}$")
         xlabel(L"$x_0$")
@@ -47,7 +47,7 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
             end
         end
 
-        figure()
+        fig = figure("model av")
 	    subplot(411)
         fill_between(1:length(m_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
@@ -171,7 +171,7 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
         v = value(mpcac)
         e = err(mpcac)
 
-        figure()
+        fig = figure("eff")
         errorbar(1:length(mpcac_dat), value.(mpcac_dat), err.(mpcac_dat), fmt="x", color="black")
         ylabel(L"$m_\mathrm{pcac}$")
         xlabel(L"$x_0$")
@@ -180,7 +180,7 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/mpcac_",ens.id,"_",PS,"_plat.pdf"))
         
-        figure()
+        fig = figure("model av")
 	    subplot(411)
         fill_between(1:length(mpcac_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(mpcac_dat), value.(mpcac_dat), err.(mpcac_dat), fmt="x", color="black")
@@ -247,7 +247,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
         v = value(R)
         e = err(R)
 
-        figure()
+        fig = figure("eff")
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
@@ -256,7 +256,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
         
-        figure()
+        fig = figure("model av")
 	    subplot(411)
         fill_between(1:length(R_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
@@ -325,7 +325,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
         v = value(R)
         e = err(R)
 
-        figure()
+        fig = figure("eff")
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
@@ -334,7 +334,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
         
-        figure()
+        fig = figure("model av")
 	    subplot(411)
         fill_between(1:length(R_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
@@ -504,7 +504,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         v = value(R)
         e = err(R)
 
-        figure()
+        fig = figure("eff")
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
@@ -513,7 +513,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
         
-        figure()
+        fig = figure("model av")
 	    subplot(411)
         fill_between(1:length(R_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
@@ -571,7 +571,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
         v = value(R)
         e = err(R)
 
-        figure()
+        fig = figure("eff")
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
         xlabel(L"$x_0$")
@@ -580,7 +580,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
 
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/R_",ens.id,"_",PS,"_plat.pdf"))
         
-        figure()
+        fig = figure("model av")
 	    subplot(411)
         fill_between(1:length(R_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
@@ -779,7 +779,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 v = value(t2E_aux)
                 e = err(t2E_aux)
 
-                figure()
+                fig = figure("t2E")
                 errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
                 ylabel(L"$t^2\left<E\right>$")
                 xlabel(L"$x_0$")
@@ -788,7 +788,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
 
                 savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t2E_",ens.id,"_plat.pdf"))
                 
-                figure()
+                fig = figure("model av")
                 subplot(411)
                 fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
                 errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
@@ -839,6 +839,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         e = err.(t2E_i)
         uwerr(t0)
 
+	fig = figure("t2E_vs_t")
         errorbar(x, v, e, fmt="x")
         errorbar(value(t0), 0.3, xerr=err(t0), fmt="x")
         ylabel(L"$t^2E$")
