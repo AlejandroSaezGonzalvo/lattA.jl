@@ -187,6 +187,8 @@ In the case of PBC, to extract the pion mass one can alternatively build the qua
 \end{equation}
 and fit $am_{\pi}$.
 
+The pion mass for a given ensemble is shown in Fig.~\ref{ch_observables:fig:meff}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -249,6 +251,8 @@ For PBC, using again the PCVC relation, the decay constant reads
 f_{\pi}=\sqrt{\frac{2L^3}{m_{\pi}^3}}\sqrt{a_P}.
 \end{equation}
 
+The ratios defined in this section for the extraction of decay constants are shown for the case of one particular ensemble in Fig.~\ref{ch_observables:fig:R}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -288,6 +292,8 @@ where $\tilde{b}_A-\tilde{b}_P$ is computed non-perturbatively in~\cite{} and li
 
 In the Wilson regularization, physical quark masses are determined from the PCAC masses, while in the Wilson tm regularization at full twist, the latter vanish and the former are given by the renormalized twisted masses in eq.~(\ref{ch_foundation:eq:muR}).
 
+In Fig.~\ref{ch_observables:fig:mpcac} we show the dependence of the PCAC quark mass for one given ensemble.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -315,6 +321,8 @@ we are left with an average energy density that depends only on the flow time. T
 t^2E(t)|_{t=t_0}\equiv0.3.
 \end{equation}
 
+Fig.~\ref{ch_observables:fig:t2E} shows the extraction of $t_0/a^2$ for one particular ensemble.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -322,7 +330,7 @@ t^2E(t)|_{t=t_0}\equiv0.3.
 \section{Ground state signals and model average}
 \label{ch_observables:sec:MA}
 
-So far, we have expressed all physical observables under study as functions of the euclidean time $x_0$. This dependence is shown in Fig.~\ref{ch_observables:fig:obs}. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met. In the community there are different approaches to adress this issue~\cite{}. Our choice is to employ model averaging techniques as proposed in~\cite{}.
+So far, we have expressed all physical observables under study as functions of the euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met. In the community there are different approaches to adress this issue~\cite{}. Our choice is to employ model averaging techniques as proposed in~\cite{}.
 
 The idea is to investigate multiple fit functions and/or several fit ranges and assign an Information Criterion ${\textrm{IC}}$ to each choice, which allows to compute a weight
 \begin{equation}
@@ -357,41 +365,70 @@ or for PBC ensembles
 \begin{equation}
 f(x_0)=A+Be^{-Cx_0}+Be^{-C(T-x_0)},
 \end{equation}
-and we investigate the effects of varying the fit range. The result for the fit parameter $A$ corresponds to the ground state signal. An illustration of the method for the extraction of the ground state signal in the pion effective mass in Fig.~\ref{ch_observables:fig:obs} is shown in Fig.~\ref{ch_observables:fig:model_av}, where we selected only a subset of the fit ranges explored for visualization purposes.
+and we investigate the effects of varying the fit range. The result for the fit parameter $A$ corresponds to the ground state signal. An illustration of the method for the extraction of the ground state signal in the pion effective mass in Fig.~\ref{ch_observables:fig:meff} is shown in Fig.~\ref{ch_observables:fig:model_av}, where we selected only a subset of the fit ranges explored for visualization purposes.
 
 This model averaging technique will also be used for the chiral and continuum extrapolations needed to set the scale and determine the physical quark masses, but there we will also consider the variation of the fit functions and not only cutting data (variation of the fit range), see Secs.~\ref{ch_ss} and~\ref{ch_qm}.
 
 \begin{figure}
-\label{ch_observables:fig:obs}
+\label{ch_observables:fig:meff}
     \centering
-    \begin{subfigure}{0.4\textwidth}
-    	\includegraphics[width=\textwidth]{./cap3/figs/m_H101_pion_wil_plat.pdf}
+    \begin{subfigure}{1.\textwidth}
+    	\includegraphics[width=\textwidth]{./cap3/figs/meff_H101.pdf}
     	\caption{}
     \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-    	\includegraphics[width=\textwidth]{./cap3/figs/R_H101_pion_wil_plat.pdf}
+    \begin{subfigure}{1.\textwidth}
+    	\includegraphics[width=\textwidth]{./cap3/figs/m_tm_H101.pdf}
     	\caption{}
     \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-    	\includegraphics[width=\textwidth]{./cap3/figs/mpcac_H101_pion_wil_plat.pdf}
+    \caption{(a): pion effective mass $m_{\textrm{eff}}$ in eq.~(\ref{ch_observables:eq:meff}) for ensemble H101 in the Wilson regularization. (b): the same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}.}
+\end{figure}
+
+\begin{figure}
+\label{ch_observables:fig:mpcac}
+    \centering
+    \begin{subfigure}{1.\textwidth}
+    	\includegraphics[width=\textwidth]{./cap3/figs/mpcac_H101.pdf}
     	\caption{}
     \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-    	\includegraphics[width=\textwidth]{./cap3/figs/t2E_H101_plat.pdf}
+    \begin{subfigure}{1.\textwidth}
+    	\includegraphics[width=\textwidth]{./cap3/figs/mpcac_tm_H101.pdf}
     	\caption{}
     \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-    	\includegraphics[width=\textwidth]{./cap3/figs/t0_H101.pdf}
+    \caption{(a): up-down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}) for ensemble H101 in the Wilson regularization. (b): the same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}.}
+\end{figure}
+
+\begin{figure}
+\label{ch_observables:fig:R}
+    \centering
+    \begin{subfigure}{1.\textwidth}
+    	\includegraphics[width=\textwidth]{./cap3/figs/R_H101.pdf}
     	\caption{}
     \end{subfigure}
-    \caption{From (a) to (e) respectively: pion effective mass $m_{\textrm{eff}}$ in eq.~(\ref{ch_observables:eq:meff}), vacuum-to-pion axial matrix element $R_{\textrm{PS}}$ from eq.~(\ref{ch_observables:eq:R}), up-down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}), $t^2E(t)$ for a value of the flow time $t/a^2$ close to $t_0/a^2$ as defined in eq.~(\ref{ch_observables:eq:t0}), and values of $t^2E(t)$ for several flow times $t/a^2$ near $t_0/a^2$ (blue points) and the interpolated result for $t_0/a^2$ (orange point). All results are for ensemble H101 in the Wilson regularization.}
+    \begin{subfigure}{1.\textwidth}
+    	\includegraphics[width=\textwidth]{./cap3/figs/R_tm_H101.pdf}
+    	\caption{}
+    \end{subfigure}
+    \caption{(a): vacuum-to-pion axial matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R}) for ensemble H101 in the Wilson regularization. (b): the same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}.}
+\end{figure}
+
+\begin{figure}
+\label{ch_observables:fig:t2E}
+    \begin{subfigure}{1.\textwidth}
+    	\includegraphics[width=\textwidth]{./cap3/figs/t2E_vs_x0.pdf}
+    	\caption{}
+    \end{subfigure}
+    \begin{subfigure}{1.\textwidth}
+    	\includegraphics[width=\textwidth]{./cap3/figs/t2E_vs_t.pdf}
+    	\caption{}
+    \end{subfigure}
+    \caption{(a): $t^2E(t)$ for one value of the flow time $t/a^2$ near $t_0/a^2$ as a function of the euclidean time $x_0/a$. (b): euclidean-time averaged values of $t^2E(t)$ for several flow times $t/a^2$ near $t_0/a^2$ (blue points) and the interpolated result for $t_0/a^2$ (orange point)).}
 \end{figure}
 
 \begin{figure}
 \label{ch_observables:fig:model_av}
 \centering
-	\includegraphics[width=.8\textwidth]{./cap3/figs/m_H101_pion_wil.pdf}
-    \caption{Model variation for the extraction of the ground state signal in the pion effective mass of ensemble H101 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:obs}. From top to bottom we show the ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice, the weight associated to each choice according to eq.~(\ref{ch_observables:eq:weight}), and the goodness of fit measured through the p-values defined in~\cite{}. We see that the highest weights are associated to a compromise between good fits (in terms of p-values) and fits with large number of points. The right-most models in the plot are heavily penalized even though they have the best p-values, since they cut a large number of points and models with not so severe cuts get also good p-values. The band in the top figure indicates the final weighted average result with the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}) included.}
+	\includegraphics[width=1.\textwidth]{./cap3/figs/m_H101_pion_wil.pdf}
+    \caption{Model variation for the extraction of the ground state signal in the pion effective mass of ensemble H101 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff}. From top to bottom we show the ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice, the weight associated to each choice according to eq.~(\ref{ch_observables:eq:weight}), and the goodness of fit measured through the p-values defined in~\cite{}. We see that the highest weights are associated to a compromise between good fits (in terms of p-values) and fits with large number of points. The right-most models in the plot are heavily penalized even though they have the best p-values, since they cut a large number of points and models with not so severe cuts get also good p-values. The band in the top figure indicates the final weighted average result with the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}) included.}
 \end{figure}
 
 

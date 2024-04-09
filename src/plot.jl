@@ -162,6 +162,7 @@ function matching_constTr_plot()
     [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
     [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     ylabel(L"$\phi_2^{\rm (v)}$")  
+    #xlabel(L"$1/\kappa^{\rm(v)}$")   
     vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
@@ -190,6 +191,7 @@ function matching_constTr_plot()
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
+    #xlabel(L"$\mu_l^{\rm(v)}$")   
     vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)

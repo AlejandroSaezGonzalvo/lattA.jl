@@ -116,7 +116,7 @@ that allows us to compute a weighted average for $\sqrt{t_0}$, as well as the as
 \sigma^2_{\textrm{syst}}&=\left<\sqrt{t_0}^2\right>-\left<\sqrt{t_0}\right>^2.
 \end{align}
 
-In Figs.~\ref{ch_ss:fig:BMA_w}-\ref{ch_ss:fig:BMA_comb} we show the model average results for the Wilson unitary setup, for the mixed action and for the combined analysis. In Appendix~\ref{apex_model_av_t0} we show the numerical results of $\sqrt{t_0}$ for each model considered, together with their weights and p-values, for the Wilson, mixed action and combined analysis. In Fig.~\ref{ch_ss:fig:SU3a2} we show the pion mass dependence of the continuum-chiral extrapolation for one of the best models explored in terms of the TIC for the combined data sets, while in Fig.~\ref{ch_ss:fig:projection} we show the lattice spacing dependence for the same model, projecting all points to the physical pion mass $\phi_2^{\textrm{ph}}$ using the fit result for the continuum piece $F^{\textrm{cont}}(\phi_2)$.
+In Figs.~\ref{ch_ss:fig:BMA_w}-\ref{ch_ss:fig:BMA_comb} we show the model average results for the Wilson unitary setup, for the mixed action and for the combined analysis. In Appendix~\ref{apex_model_av_t0} we show the numerical results of $\sqrt{t_0}$ for each model considered, together with their weights and p-values, for the Wilson, mixed action and combined analysis. In Fig.~\ref{ch_ss:fig:SU3a2} we show the pion mass dependence of the continuum-chiral extrapolation for one of the best models explored in terms of the TIC for the combined data sets, together with the lattice spacing dependence for the same model, projecting all points to the physical pion mass $\phi_2^{\textrm{ph}}$ using the fit result for the continuum piece $F^{\textrm{cont}}(\phi_2)$.
 
 The final results for $\sqrt{t_0}$ in physical units as computed from the model average for the different data sets are
 \begin{align}
@@ -128,22 +128,15 @@ The final results for $\sqrt{t_0}$ in physical units as computed from the model 
 
 \begin{figure}
     \centering
-    \includegraphics[width=1.\textwidth]{./cap5/figs/continuum_sym.pdf}
+    \includegraphics[width=.7\textwidth]{./cap5/figs/continuum_sym.pdf}
     \caption{Continuum limit of symmetric point ensembles for the Wilson unitary results or sea data set (empty points) and for the mixed action results (filled points). A common continuum limit is not imposed. Cutoff effects are parameterized as pure $\mathcal{O}(a^2)$ artifacts.}
     \label{ch_ss:fig:universality}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=1.\textwidth]{./cap5/figs/SU3a2_projection.pdf}
-    \caption{Lattice spacing dependence of $\sqrt{8t_0}f_{\pi K}$ for the SU(3) ChPT model with pure $\mathcal{O}(a^2)$ cutoff effects: $[SU(3)\chi PT][a^2][-]$. We show the result of the combined fit of both Wilson (empty) and mixed action (filled) results. The points are projected to the physical value of $\phi_2$ using the result of the fit to this model. We plot as continuum limit result both the result from this individual model and from the complete model average.}
-    \label{ch_ss:fig:projection}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1.\textwidth]{./cap5/figs/SU3_only_comb.pdf}
-    \caption{Pion mass dependence of $\sqrt{8t_0}f_{\pi K}$ for the SU(3) ChPT model with pure $\mathcal{O}(a^2)$ cutoff effects: $[SU(3)\chi PT][a^2][-]$. We show the result of the combined fit of both Wilson (empty) and mixed action (filled) results. The colored bands represent the pion mass dependence for each lattice spacing for the Wilson results, while the dashed lines represent the dependence for the mixed action results. In the latter case we only plot the central value of the corresponding bands for visualization purposes.}
+    \includegraphics[width=1.\textwidth]{./cap5/figs/SU3_comb.pdf}
+    \caption{\textit{Left}: Pion mass dependence of $\sqrt{8t_0}f_{\pi K}$ for the SU(3) ChPT model with pure $\mathcal{O}(a^2)$ cutoff effects: $[SU(3)\chi PT][a^2][-]$. We show the result of the combined fit of both Wilson (empty) and mixed action (filled) results. The colored bands represent the pion mass dependence for each lattice spacing for the Wilson results, while the dashed lines represent the dependence for the mixed action results. In the latter case we only plot the central value of the corresponding bands for visualization purposes. \textit{Right}: the same model, with point projected to the physical pion mass $\phi_2^{\textrm{ph}}$ using the fit result for the continuum mass dependence $F(\phi_2)^{\textrm{cont}}$. In this plot we show the lattice spacing dependence of our ensembles. We show two physical point results: the rightmost in the plot corresponds to the result coming from the fit model itself, while the leftmost is the result obtained from the model average.}
     \label{ch_ss:fig:SU3a2}
 \end{figure}
 
@@ -184,19 +177,27 @@ where $\phi_4$ again is given by its physical value after the iterative procedur
 \end{equation}
 where $\sqrt{t_0/a^2}$ is the measurement of the gradient flow scale in each ensemble and $\sqrt{t_0^{\textrm{sym}}/a^2}$ is said quantity for the symmetric point at the corresponding value of the inverse coupling $\beta$. We now fit this ratio to
 \begin{equation}
+\label{ch_ss:eq:fit_t0_sym}
 F(\phi_2)=\sqrt{1+p(\phi_2-\phi_2^{\textrm{sym}})}.
 \end{equation}
 Once the data is fitted, we extract $t_0^{\textrm{sym}}$ in physical units as
 \begin{equation}
 \sqrt{t_0^{\textrm{sym}}}=\frac{\sqrt{t_0^{\textrm{ph}}}}{F(\phi_2^{\textrm{ph}})}.
 \end{equation}
-For $t_0^{\textrm{ph}}$ and $\phi_2^{\textrm{ph}}$ we can use our determination for the Wilson, mixed action or combined data sets. The result of this fit is shown in Fig.~. Our result for the scale at the symmetric point is
+For $t_0^{\textrm{ph}}$ and $\phi_2^{\textrm{ph}}$ we can use our determination for the Wilson, mixed action or combined data sets. The result of this fit is shown in Fig.~\ref{ch_ss:fig:t0_sym}. Our result for the scale at the symmetric point is
 \begin{align}
-\label{ch_ss:eq:t0ph}
+\label{ch_ss:eq:t0_sym}
 \sqrt{t_0^{\textrm{sym}}}&=0.1436()_{\textrm{stat}}()_{\textrm{syst}}\;\textrm{fm, Wilson}, \\
 \sqrt{t_0^{\textrm{sym}}}&=0.1430()_{\textrm{stat}}()_{\textrm{syst}}\;\textrm{fm, Mixed action}, \\
 \sqrt{t_0^{\textrm{sym}}}&=0.1433()_{\textrm{stat}}()_{\textrm{syst}}\;\textrm{fm, Combined}.
 \end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.7\textwidth]{./cap5/figs/t0_sym.pdf}
+    \caption{Fit to eq.~(\ref{ch_ss:eq:fit_t0_sym}) in order to extract $t_0$ at the symmetric point. The color and symbol code is the same as in Fig.~\ref{ch_ss:fig:SU3a2}.}
+    \label{ch_ss:fig:t0_sym}
+\end{figure}
 
 \section{Results: lattice spacing}
 
@@ -213,21 +214,36 @@ Again, for $\phi_2^{\textrm{ph}}$ we can use either our determination of $t_0^{\
 
 \begin{longtable}{c c c c}
 \label{ch_ss:tab:a}
-\toprule
 $\beta$ & $a$ [fm] Wilson & $a$ [fm] mixed action & $a$ [fm] combined \\
-\midrule
-3.40 & $0.0847()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0843()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0847()_{\textrm{stat}}()_{\textrm{syst}}$ \\
-3.46 & $0.0751()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0748()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0751()_{\textrm{stat}}()_{\textrm{syst}}$ \\
-3.55 & $0.0632()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0629()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0632()_{\textrm{stat}}()_{\textrm{syst}}$ \\
-3.70 & $0.0490()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0488()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0490()_{\textrm{stat}}()_{\textrm{syst}}$ \\
-3.85 & $0.0384()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0382()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0384()_{\textrm{stat}}()_{\textrm{syst}}$ \\
+\toprule
+$3.40$ & $0.0847()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0843()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0847()_{\textrm{stat}}()_{\textrm{syst}}$ \\
+$3.46$ & $0.0751()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0748()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0751()_{\textrm{stat}}()_{\textrm{syst}}$ \\
+$3.55$ & $0.0632()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0629()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0632()_{\textrm{stat}}()_{\textrm{syst}}$ \\
+$3.70$ & $0.0490()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0488()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0490()_{\textrm{stat}}()_{\textrm{syst}}$ \\
+$3.85$ & $0.0384()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0382()_{\textrm{stat}}()_{\textrm{syst}}$ & $0.0384()_{\textrm{stat}}()_{\textrm{syst}}$ \\
 \bottomrule
-\caption{Values of the lattice spacing $a$ in physical units extracted from the deterimation of the gradient flow scale $t_0$ with the Wilson, mixed action and combined analysis. The lattice spacing is extracted from measures of both $t_0$ at the physical and symmetric points using eq.~\ref{ch_ss:eq:a}.}
+\caption{Values of the lattice spacing $a$ in physical units extracted from the deterimation of the gradient flow scale $t_0$ with the Wilson, mixed action and combined analysis. The lattice spacing is extracted from measures of both $t_0$ at the physical and symmetric points using eq.~(\ref{ch_ss:eq:a}).}
 \end{longtable}
 
 \section{Results: $t_0^*$}
 
+Following~\cite{•}, we define the gradient flow scale $t_0$ at the point
+\begin{gather}
+\phi_4=1.11, \quad \phi_2=\frac{2}{3}\phi_4\equiv\phi_2^{\textrm{sym}}.
+\end{gather}
+This defines $t_0^*$
+\begin{equation}
+t_0^*=t_0\left(\phi_2^{\textrm{sym}},\;\phi_4=1.11\right).
+\end{equation}
+This quantity is of importance for...~\cite{•} To compute it, we need to repeat the analysis above, this time mass shifting our ensembles to the value $\phi_4=1.11$ without errors and compute the gradient flow scale at the symmetric point as explained in the sections above.
 
+The values we find for $\sqrt{t_0^*}$ in physical units for the Wilson, mixed action and combined cases are
+\begin{align}
+\label{ch_ss:eq:t0*}
+\sqrt{t_0^*}&=0.1439()_{\textrm{stat}}()_{\textrm{syst}}\;\textrm{fm, Wilson}, \\
+\sqrt{t_0^*}&=0.1440()_{\textrm{stat}}()_{\textrm{syst}}\;\textrm{fm, Mixed action}, \\
+\sqrt{t_0^*}&=0.1438()_{\textrm{stat}}()_{\textrm{syst}}\;\textrm{fm, Combined}.
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

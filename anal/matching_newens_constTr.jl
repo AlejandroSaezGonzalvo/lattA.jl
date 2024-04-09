@@ -144,6 +144,14 @@ else
     up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 end
 
+#=
+## D450 for t0*
+lb = [kappa[1], mul[1], mus[1], -Inf, -Inf, -Inf, -Inf, -Inf, -Inf, -Inf, -Inf] .* .99
+ub = [kappa[2], mul[2], mus[2], Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf] .* 1.01
+p0 = [0.1373346579208923, 0.001553291613588309, 0.01459154354400551, 0.17180133744123963, -0.019193672626280318, 1.1477989314344308, 134.9732277926914, -1.5067969885889745, 2.8473192398525127, 130.27703875821837, 60.117294103718926]
+up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,lb,ub,p0,wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
+=#
+
 matching_newens_constTr_plot()
 
 #========= interpolate fpik ========#

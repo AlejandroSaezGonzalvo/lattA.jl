@@ -66,9 +66,9 @@ To estimate it, a truncation in MC time $k$ is needed. The autocorrelation funct
 \begin{equation}
 \Gamma(k)\approx\sum_{n=0}^{\infty}e^{-k/\tau_n}.
 \end{equation}
-The slowest mode $\tau_0\equiv\tau_{\textrm{exp}}$ is called the exponential autocorrelation time and it gives the decay rate of $\Gamma(k)$. Truncating eq.~(\ref{app_errors:eq:taui}) at MC time $k=W_F^{\alpha}$ introduces a systematic uncertainty of $\mathcal{O}(\exp(-W_F^{\alpha}/\tau_{\textrm{exp}}^{\alpha}))$. The $\Gamma$-method proposes as optimal window that which minimizes the sum of statistical and systematic contributions
+The slowest mode $\tau_0\equiv\tau_{\textrm{exp}}$ is called the exponential autocorrelation time and it gives the decay rate of $\Gamma(k)$. Truncating eq.~(\ref{app_errors:eq:taui}) at MC time $k=W_F^{\alpha}$ introduces a systematic uncertainty of $\mathcal{O}(\exp(-W_F^{\alpha}/\tau_{\textrm{exp}}^{\alpha}))$. The $\Gamma$-method proposes as optimal window that which minimizes the sum of statistical (estimated in~\cite{J.Stat.Phys.50(1988)109}) and systematic contributions
 \begin{equation}
-W_F^{\alpha}=\textrm{min}_W\left(e^{-W/\tau_{\textrm{exp}}^{\alpha}}+...?\right).
+W_F^{\alpha}=\textrm{min}_W\left(\sqrt{\frac{2(2W+1)}{N_{\alpha}}}+e^{-W/\tau_{\textrm{exp}}^{\alpha}}\right).
 \end{equation}
 In~\cite{•} it was proposed to set $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$, with $S_{\tau}$ some value between 2 and 5. One can also vary $W_F^{\alpha}$ until saturation in $\tau_{\textrm{int}}^{\alpha}$ is reached. In~\cite{•} it was also proposed to add an exponential tail
 \begin{equation}

@@ -28,35 +28,38 @@
 \contentsline {section}{\numberline {2.5}{Quark masses}}{33}{section.2.5}%
 \contentsline {section}{\numberline {2.6}{Gradient flow}}{34}{section.2.6}%
 \contentsline {section}{\numberline {2.7}{Ground state signals and model average}}{35}{section.2.7}%
-\contentsline {part}{\numberline {iii}{Precission Physics from a Lattice QCD Mixed Action}}{39}{part.3}%
-\contentsline {chapter}{\numberline {3}{Mixed action setup}}{41}{chapter.3}%
-\contentsline {chapter}{Mixed action setup}{41}{chapter.3}%
-\contentsline {section}{\numberline {3.1}{Motivation}}{41}{section.3.1}%
-\contentsline {section}{\numberline {3.2}{Sea sector}}{42}{section.3.2}%
-\contentsline {section}{\numberline {3.3}{Valence sector}}{43}{section.3.3}%
-\contentsline {section}{\numberline {3.4}{Chiral trajectory}}{43}{section.3.4}%
-\contentsline {section}{\numberline {3.5}{Matching and tuning at full twist}}{46}{section.3.5}%
-\contentsline {chapter}{\numberline {4}{Scale setting}}{51}{chapter.4}%
-\contentsline {chapter}{Scale setting}{51}{chapter.4}%
-\contentsline {section}{\numberline {4.1}{Motivation}}{51}{section.4.1}%
-\contentsline {section}{\numberline {4.2}{Results}}{52}{section.4.2}%
-\contentsline {chapter}{\numberline {5}{Light quark masses}}{59}{chapter.5}%
-\contentsline {chapter}{Light quark masses}{59}{chapter.5}%
-\contentsline {section}{\numberline {5.1}{Motivation}}{59}{section.5.1}%
-\contentsline {section}{\numberline {5.2}{Results}}{59}{section.5.2}%
-\contentsline {part}{\numberline {iv}{Conclusions}}{61}{part.4}%
-\contentsline {chapter}{Conclusions and outlook}{63}{part.4}%
-\contentsline {chapter}{Conclusiones y perspectivas}{65}{part.4}%
-\contentsline {part}{\numberline {v}{Appendix}}{67}{part.5}%
-\contentsline {chapter}{\numberline {A}{Conventions}}{69}{appendix.A}%
-\contentsline {chapter}{\numberline {B}{Simulation details}}{71}{appendix.B}%
-\contentsline {section}{\numberline {B.1}{Metropolis algorithm}}{72}{section.B.1}%
-\contentsline {section}{\numberline {B.2}{Hybrid Monte Carlo}}{73}{section.B.2}%
-\contentsline {section}{\numberline {B.3}{Reweighting}}{74}{section.B.3}%
-\contentsline {chapter}{\numberline {C}{Solvers}}{77}{appendix.C}%
-\contentsline {chapter}{\numberline {D}{Error analysis}}{79}{appendix.D}%
-\contentsline {chapter}{\numberline {E}{Lattice ensembles}}{83}{appendix.E}%
-\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{85}{appendix.F}%
-\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{87}{appendix.G}%
-\contentsline {chapter}{\numberline {H}{$\sqrt {t_0}$: Model variation}}{89}{appendix.H}%
+\contentsline {part}{\numberline {iii}{Precission Physics from a Lattice QCD Mixed Action}}{43}{part.3}%
+\contentsline {chapter}{\numberline {3}{Mixed action setup}}{45}{chapter.3}%
+\contentsline {chapter}{Mixed action setup}{45}{chapter.3}%
+\contentsline {section}{\numberline {3.1}{Motivation}}{45}{section.3.1}%
+\contentsline {section}{\numberline {3.2}{Sea sector}}{46}{section.3.2}%
+\contentsline {section}{\numberline {3.3}{Valence sector}}{47}{section.3.3}%
+\contentsline {section}{\numberline {3.4}{Chiral trajectory}}{47}{section.3.4}%
+\contentsline {section}{\numberline {3.5}{Matching and tuning at full twist}}{50}{section.3.5}%
+\contentsline {chapter}{\numberline {4}{Scale setting}}{55}{chapter.4}%
+\contentsline {chapter}{Scale setting}{55}{chapter.4}%
+\contentsline {section}{\numberline {4.1}{Motivation}}{55}{section.4.1}%
+\contentsline {section}{\numberline {4.2}{Results: the physical point}}{56}{section.4.2}%
+\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{58}{section.4.3}%
+\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{62}{section.4.4}%
+\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{63}{section.4.5}%
+\contentsline {chapter}{\numberline {5}{Light quark masses}}{65}{chapter.5}%
+\contentsline {chapter}{Light quark masses}{65}{chapter.5}%
+\contentsline {section}{\numberline {5.1}{Motivation}}{65}{section.5.1}%
+\contentsline {section}{\numberline {5.2}{Results}}{65}{section.5.2}%
+\contentsline {part}{\numberline {iv}{Conclusions}}{67}{part.4}%
+\contentsline {chapter}{Conclusions and outlook}{69}{part.4}%
+\contentsline {chapter}{Conclusiones y perspectivas}{71}{part.4}%
+\contentsline {part}{\numberline {v}{Appendix}}{73}{part.5}%
+\contentsline {chapter}{\numberline {A}{Conventions}}{75}{appendix.A}%
+\contentsline {chapter}{\numberline {B}{Simulation details}}{77}{appendix.B}%
+\contentsline {section}{\numberline {B.1}{Metropolis algorithm}}{78}{section.B.1}%
+\contentsline {section}{\numberline {B.2}{Hybrid Monte Carlo}}{79}{section.B.2}%
+\contentsline {section}{\numberline {B.3}{Reweighting}}{80}{section.B.3}%
+\contentsline {chapter}{\numberline {C}{Solvers}}{83}{appendix.C}%
+\contentsline {chapter}{\numberline {D}{Error analysis}}{85}{appendix.D}%
+\contentsline {chapter}{\numberline {E}{Lattice ensembles}}{89}{appendix.E}%
+\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{91}{appendix.F}%
+\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{93}{appendix.G}%
+\contentsline {chapter}{\numberline {H}{$\sqrt {t_0}$: Model variation}}{95}{appendix.H}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
