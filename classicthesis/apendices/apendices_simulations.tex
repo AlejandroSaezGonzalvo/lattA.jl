@@ -12,7 +12,7 @@ All ensembles studied in this thesis were generated using the openQCD software, 
 
 Tipically simulations of lattice QCD with dynamical quarks require a large amount of computer resources due to the large number of degrees of freedom, the need for big volumes and small lattice spacings. The constant efforts by the community paved the way for simulations with up to four dynamical quarks. 
 
-As outlined in Sec.~\ref{ch_foundations}, the expectation value of a composite operator $O$ can be computed in the lattice as
+As outlined in Sec.~\ref{ch_foundation}, the expectation value of a composite operator $O$ can be computed in the lattice as
 \begin{equation}
 \left<O\right>=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}O[U]\approx\frac{1}{N_{\textrm{cnfg}}}\sum_{i=1}^{N_{\textrm{cnfg}}}O[U_i]+\mathcal{O}\left(\frac{1}{\sqrt{N_{\textrm{cnfg}}}}\right),
 \end{equation}
@@ -82,9 +82,9 @@ We have presented the basic formulation of the HMC algorithm but further refinem
 
 This far we have not given details on how to compute the effective fermion action
 \begin{equation}
-S_{\textrm{eff}}[U]=-\sum_{i=1}^{N_f}\textrm{log det}(D+m_i).
+S_{\textrm{eff}}[U]=-\sum_{i=1}^{N_f}\textrm{log det}(D_i).
 \end{equation}
-This is a typically challenging task, since it involves dealing with Grassmann variables. A usual solution is to use pseudofermion fields $\Phi(x)$~\cite{•}, which are auxiliary fields that carry color and spinor indices $c,\alpha$ but that are complex instead of Grassmann numbers. Restricting to the mass-degenerate doublet of light quarks, where the effective action becomes (we absorb the mass inside the Dirac operator)
+This is a typically challenging task, since it involves dealing with Grassmann variables. A usual solution is to use pseudofermion fields $\Phi(x)$~\cite{•}, which are auxiliary fields that carry color and spinor indices $c,\alpha$ but that are complex instead of Grassmann numbers. Restricting to the mass-degenerate doublet of light quarks, where the effective action becomes
 \begin{equation}
 e^{-S_{\textrm{eff}}}=\textrm{det}(D_l)\textrm{det}(D_l)=\textrm{det}(D_l^{\dagger}D_l),
 \end{equation}

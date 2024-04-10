@@ -111,24 +111,24 @@ Thus, setting the sea value of $\phi_4$ to its physical value for all ensembles 
 To correct for these mistunings, we perform small mass shifts~\cite{BKS} in the bare sea quark masses by Taylor expanding lattice observables as
 \begin{equation}
 \label{ch_ma:eq:mass_shift}
-\mathcal{O}\left(m_l^{\textrm{(s)'}},m_s^{\textrm{(s)'}}\right)=\mathcal{O}\left(m_l^{\textrm{(s)}},m_s^{\textrm{(s)}}\right)+\sum_q\left(m_q^{\textrm{(s)'}}-m_q^{\textrm{(s)}}\right)\frac{d\mathcal{O}}{dm_q^{\textrm{(s)}}},
+{O}\left(m_l^{\textrm{(s)'}},m_s^{\textrm{(s)'}}\right)={O}\left(m_l^{\textrm{(s)}},m_s^{\textrm{(s)}}\right)+\sum_q\left(m_q^{\textrm{(s)'}}-m_q^{\textrm{(s)}}\right)\frac{d{O}}{dm_q^{\textrm{(s)}}},
 \end{equation}
 with the total derivative given by
 \begin{equation}
 \label{ch_ma:eq:md}
-\frac{d\mathcal{O}}{dm_q^{\textrm{(s)}}}=\sum_i\frac{\partial\mathcal{O}}{\partial \left<P_i\right>}\left[\left<\frac{\partial P_i}{\partial m_q^{\textrm{(s)}}}\right>-\left<P_i\frac{\partial S}{\partial m_q^{\textrm{(s)}}}\right>+\left<P_i\right>\left<\frac{\partial S}{\partial m_q^{\textrm{(s)}}}\right>\right].
+\frac{d{O}}{dm_q^{\textrm{(s)}}}=\sum_i\frac{\partial{O}}{\partial \left<P_i\right>}\left[\left<\frac{\partial P_i}{\partial m_q^{\textrm{(s)}}}\right>-\left<P_i\frac{\partial S}{\partial m_q^{\textrm{(s)}}}\right>+\left<P_i\right>\left<\frac{\partial S}{\partial m_q^{\textrm{(s)}}}\right>\right].
 \end{equation}
-Here $\mathcal{O}$ is an arbitrary lattice observable and $\{P_i\}_{i=1,2,...}$ is the set of primary observables, in our case the corresponding two-point functions on which it depends. The first term in the r.h.s. of this equation corresponds to the valence contribution to the derivative, while the other terms correspond to the sea contributions. Note that for the Wilson unitary setup, all terms contribute, while for the mixed action setup, since the two-point functions $\{P_i\}$ do not depend explicitly on $m_q^{\textrm{(s)}}$, the first term in the r.h.s. of eq.~(\ref{ch_ma:eq:md}) vanishes.
+Here ${O}$ is an arbitrary lattice observable and $\{P_i\}_{i=1,2,...}$ is the set of primary observables, in our case the corresponding two-point functions on which it depends. The first term in the r.h.s. of this equation corresponds to the valence contribution to the derivative, while the other terms correspond to the sea contributions. Note that for the Wilson unitary setup, all terms contribute, while for the mixed action setup, since the two-point functions $\{P_i\}$ do not depend explicitly on $m_q^{\textrm{(s)}}$, the first term in the r.h.s. of eq.~(\ref{ch_ma:eq:md}) vanishes.
 
 In particular the sum over $q$ in eq.~(\ref{ch_ma:eq:mass_shift}) can be done in any direction of the quark mass plane, and we choose to mass shift only the strange quark. For practical purposes, since we want to mass shift all relevant observables for each ensemble to satisfy that the sea value of $\phi_4$ is equal to its physical value, $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$, we rewrite the Taylor expansion as
 \begin{equation}
-\mathcal{O}\left(\phi_4^{\textrm{(s)'}}=\phi_4^{\textrm{ph}}\right)=\mathcal{O}\left(\phi_4^{\textrm{(s)}}\right)+\left(\phi_4^{\textrm{ph}}-\phi_4^{\textrm{(s)}}\right)\frac{d\mathcal{O}}{d\phi_4^{\textrm{(s)}}},
+{O}\left(\phi_4^{\textrm{(s)'}}=\phi_4^{\textrm{ph}}\right)={O}\left(\phi_4^{\textrm{(s)}}\right)+\left(\phi_4^{\textrm{ph}}-\phi_4^{\textrm{(s)}}\right)\frac{d{O}}{d\phi_4^{\textrm{(s)}}},
 \end{equation}
 with
 \begin{equation}
-\frac{d\mathcal{O}}{d\phi_4^{\textrm{(s)}}}=\frac{d\mathcal{O}/dm_s^{\textrm{(s)}}}{d\phi_4^{\textrm{(s)}}/dm_s^{\textrm{(s)}}}.
+\frac{d{O}}{d\phi_4^{\textrm{(s)}}}=\frac{d{O}/dm_s^{\textrm{(s)}}}{d\phi_4^{\textrm{(s)}}/dm_s^{\textrm{(s)}}}.
 \end{equation}
-Note that by sea value $\phi_4^{\textrm{(s)}}$ we refer to $\phi_4$ computed in the Wilson unitary setup, and its derivative has both sea and valence contributions, while $d\mathcal{O}/dm_s^{\textrm{(s)}}$ has valence and sea contributions when the observable $\mathcal{O}$ is computed in the Wilson unitary setup, and only sea contributions when $\mathcal{O}$ is computed in the mixed action regularization. In the Wilson unitary setup, imposing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ means that so does the valence value of $\phi_4$, while for the mixed action regularization this is not true. In this case in addition to fixing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ with the mass shifting procedure we need later to impose $\phi_4^{\textrm{(v)}}=\phi_4^{\textrm{(s)}}$, which is done through the matching between sea and valence sectors.
+Note that by sea value $\phi_4^{\textrm{(s)}}$ we refer to $\phi_4$ computed in the Wilson unitary setup, and its derivative has both sea and valence contributions, while $d{O}/dm_s^{\textrm{(s)}}$ has valence and sea contributions when the observable ${O}$ is computed in the Wilson unitary setup, and only sea contributions when ${O}$ is computed in the mixed action regularization. In the Wilson unitary setup, imposing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ means that so does the valence value of $\phi_4$, while for the mixed action regularization this is not true. In this case in addition to fixing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ with the mass shifting procedure we need later to impose $\phi_4^{\textrm{(v)}}=\phi_4^{\textrm{(s)}}$, which is done through the matching between sea and valence sectors.
 
 The observables we will be interested for the scale setting (see Sec.~\ref{ch_ss}) are $\sqrt{t_0}f_{\pi}$, $\sqrt{t_0}f_{K}$ and $\sqrt{t_0}f_{\pi K}$, the latter defined in eq.~(\ref{ch_ss:eq:fpik}), while for the determination of the physical quark masses (see Sec.~\ref{ch_qm}) we need $\sqrt{t_0}m_{12}^{\textrm{R}}$, $\sqrt{t_0}m_{13}^{\textrm{R}}$. All these quantities are physical and so are their derivatives w.r.t. $\phi_4$. Thus, one can measure these derivatives for each ensemble and then fit them as a function of $\phi_2$ and the lattice spacing. This allows to evaluate the result of these fits at the values of $\phi_2$ and $t_0/a^2$ corresponding to each ensemble and perform the mass shift with that result instead of using the individual measurements of each ensemble. This has the advantage of improving the precision for observables whose mass derivatives are noisy (or even not computed), which is particularly relevant for the finest lattice spacing and the most chiral ensembles under study.
 
@@ -137,7 +137,7 @@ For fitting the derivatives we use
 \label{ch_ma:eq:md_1}
 F=A+B\phi_2+D\frac{a^2}{t_0},
 \end{equation}
-for all choices of $\mathcal{O}$ except for the PCAC quark masses, for which we use
+for all choices of ${O}$ except for the PCAC quark masses, for which we use
 \begin{equation}
 \label{ch_ma:eq:md_2}
 F=A+B\phi_2+C\phi_2^2+(D+E\phi_2)\frac{a^2}{t_0},
@@ -157,7 +157,7 @@ where the uncertainty keeps all the correlations with the lattice data entering 
 
 \begin{longtable}{c | c c c c c}
 \label{ch_ma:tab:md}
-    $\mathcal{O}$ & A & B & C & D & E \\
+    ${O}$ & A & B & C & D & E \\
     \toprule
     $\sqrt{t_0}f_{\pi K}^{\textrm{W}}$ & 0.017(8) & -0.007(10) & - & 0.024(26) & - \\ 
     $\sqrt{t_0}f_{\pi}^{\textrm{W}}$ & 0.006(8) & 0.008(9) & - & 0.020(26) & - \\ 

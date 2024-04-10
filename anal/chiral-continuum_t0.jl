@@ -384,7 +384,7 @@ fpik_add = true
                 y = set_y[k][j]
                 global L1 = length(set_y[1][j])
                 global L2 = length(set_y[1][j])
-                uprm, chi_exp, chi2, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], ((Wm[k][j])) / 1 + switch * ((kron(value.(1 ./ x[:,1])', value.(1 ./ x[:,1])))))
+                uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], ((Wm[k][j])) / 1 + switch * ((kron(value.(1 ./ x[:,1])', value.(1 ./ x[:,1])))))
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
@@ -510,7 +510,7 @@ fpik_add = true
                 y = set_y[k][j]
                 global L1 = length(set_y[1][j])
                 global L2 = length(set_y[1][j])
-                uprm, chi_exp, chi2, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
+                uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 if k == 3
@@ -543,7 +543,7 @@ fpik_add = true
     syst_fpi = [sqrt(sum(t0fpi_ph_vec[k] .^ 2 .* W_fpi[k]) - (sum(t0fpi_ph_vec[k] .* W_fpi[k])) ^ 2) for k in 1:length(TIC)]
     t0fpi_ph = t0fpi_ph .+ [uwreal([0.0, value(syst_fpi[k])], string("syst chiral fpi", k, " 3rd")) for k in 1:length(TIC)]
     uwerr.(t0fpi_ph)
-    sqrt_t0_ph_fpi = [t0fpi_ph[k] / (sqrt(8) * fpi_exp / hc) for k in 1:length(TIC)]
+    sqrt_t0_ph_fpi = [t0fpi_ph[k] / (sqrt(8) * Fpi / hc) for k in 1:length(TIC)]
     uwerr.(sqrt_t0_ph_fpi)
     t0fk_ph = [sum(t0fk_ph_vec[k] .* W_fpi[k]) for k in 1:length(TIC)]
     syst_fk = [sqrt(sum(t0fk_ph_vec[k] .^ 2 .* W_fpi[k]) - (sum(t0fk_ph_vec[k] .* W_fpi[k])) ^ 2) for k in 1:length(TIC)]

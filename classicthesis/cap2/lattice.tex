@@ -68,10 +68,6 @@ This allows to write the gauge action as
 \begin{equation}
 \frac{1}{4g_0^2}\int d^4x\;F_{\mu\nu}^{(a)}(x)F_{\mu\nu}^{(a)}(x).
 \end{equation}
-Finally, we have used the euclidean Dirac matrices $\gamma_{\mu}$, which fulfill 
-\begin{equation}
-\{\gamma_{\mu},\gamma_{\nu}\}=2\delta_{\mu\nu}.
-\end{equation}
 
 In order for the QCD action to be invariant under SU(3) rotations, the gauge fields must transform as
 \begin{equation}
@@ -196,7 +192,7 @@ The solution is again to introduce the link variable or parallel transporter $U_
 \label{ch_foundation:eq:naive}
 S_{\textrm{F}}=a^4\sum_x\bar{\psi}(x)\left(\gamma_{\mu}\frac{U_{\mu}(x)\psi(x+\hat{\mu})-U_{\mu}^{\dagger}(x-\hat{\mu})\psi(x-\hat{\mu})}{2a}+m\psi(x)\right).
 \end{equation}
-From this the Dirac operator $D$ can be defined such that
+From this the massive Dirac operator $D$ can be defined such that
 \begin{equation}
 S_{\textrm{F}}=\int d^4x\bar{\psi}(x)D\psi(x).
 \end{equation}
@@ -238,9 +234,9 @@ where we have defined the forward and backward discrete covariant derivatives as
 From the Wilson fermion action~\eqref{ch_foundation:eq:Wil_fer} the Wilson Dirac operator reads
 \begin{equation}
 \label{ch_foundation:eq:DW}
-D_{\textrm{W}}+m=\frac{1}{2}\left(\gamma_{\mu}\left(\nabla_{\mu}+\nabla_{\mu}^*\right)-a\nabla_{\mu}\nabla_{\mu}^*\right)+m,
+D=D_{\textrm{W}}+m=\frac{1}{2}\left(\gamma_{\mu}\left(\nabla_{\mu}+\nabla_{\mu}^*\right)-a\nabla_{\mu}\nabla_{\mu}^*\right)+m,
 \end{equation}
-and the action can be written as
+where we have introduced the massless Wilson Dirac operator $D_{\textrm{W}}$, and the action can be written as
 \begin{equation}
 S_{\textrm{W}}=a^4\sum_x\bar{\psi}(x)\left(D_{\textrm{W}}+m\right)\psi(x).
 \end{equation}
@@ -274,7 +270,7 @@ with the twisted quark mass matrix in flavor space with four flavors of quarks (
 \end{equation}
 More generally, the Wilson tm Dirac operator reads
 \begin{equation}
-D_{\textrm{W}}+\boldsymbol{m}+i\boldsymbol{\mu}\gamma_5.
+D=D_{\textrm{W}}+\boldsymbol{m}+i\boldsymbol{\mu}\gamma_5.
 \end{equation}
 By rotating the fields
 \begin{gather}
@@ -360,32 +356,32 @@ This is equivalent to expectation values in statistical mechanics with a Boltzma
 \begin{align}
 \left<\mathcal{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\times\\&\left[\frac{1}{\mathcal{Z}_{\textrm F}}\int\mathcal{D}[\psi,\bar{\psi}]\mathcal{O}(x_1,...,x_n)e^{-S_{\textrm F}[\psi,\bar{\psi}]}\right] \\
 &=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\left<\mathcal{O}(x_1,...,x_n)\right>_{\textrm F}, \\
-\mathcal{Z}_{\textrm F}&=\int\mathcal{D}[\psi,\bar{\psi}]e^{-S_{\textrm F}[\psi,\bar{\psi}]}=\Pi_{i=1}^{N_f}{\textrm{det}}\left(D+m_i\right),
+\mathcal{Z}_{\textrm F}&=\int\mathcal{D}[\psi,\bar{\psi}]e^{-S_{\textrm F}[\psi,\bar{\psi}]}=\Pi_{i=1}^{N_f}{\textrm{det}}\left(D\right),
 \end{align}
-with $D$ the massless Dirac operator. This fermionic determinant can be expressed as an effective action as
+This fermionic determinant can be expressed as an effective action as
 \begin{align}
 \left<\mathcal{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\left<\mathcal{O}(x_1,...,x_n)\right>_{\textrm F}, \\
 \mathcal{Z}&=\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}, \\
-S_{\textrm{eff}}[U]&=-\sum_{i=1}^{N_f}{\textrm{log}}\;{\textrm{det}}\left(D+m_i\right).
+S_{\textrm{eff}}[U]&=-\sum_{i=1}^{N_f}{\textrm{log}}\;{\textrm{det}}\left(D\right).
 \end{align}
 
 In order to compute meson observables we will use meson interpolators, which are composite fermionic observables that share the same quantum numbers as the desired meson state. A generic meson interpolator has the form
 \begin{equation}
-\mathcal{O}_A^{ij}(x)=\bar{\psi}^i(x)\Gamma_A\psi^j(x),
+{O}_A^{ij}(x)=\bar{\psi}^i(x)\Gamma_A\psi^j(x),
 \end{equation}	
 with $\Gamma_A$ a Gamma matrix. This way, a meson two-point function reads
 \begin{align}
 \label{ch_foundation:eq:path_int}
-\left<\mathcal{O}_A^{ij}(x_1)\mathcal{O}_B^{ji}(x_2)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\times\\&\left<\bar{\psi}^i(x_1)\Gamma_A\psi^j(x_1)\psi^i(x_2)\Gamma_B\bar{\psi}^j(x_2)\right>_{\textrm F} \\
+\left<{O}_A^{ij}(x_1){O}_B^{ji}(x_2)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\times\\&\left<\bar{\psi}^i(x_1)\Gamma_A\psi^j(x_1)\psi^i(x_2)\Gamma_B\bar{\psi}^j(x_2)\right>_{\textrm F} \\
 &=-\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\times\\&{\textrm{tr}}\left(\Gamma_AD_i^{-1}(x_1,x_2)\Gamma_BD_j^{-1}(x_2,x_1)\right),
 \end{align}
 where the trace is over spin indices and $D_i$ the massive Dirac operator for flavor $i$. In order to perform this integral numerically, using the connection with statistical mechanics, a finite set of $N_{\textrm{cnfg}}$ gauge configurations is generated with Boltzmann distribution $e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}$ following a Markov process (see Appendices~\ref{appex_simulations},~\ref{appex_errors}). Then, measurements of the quantity
 \begin{equation}
-O=-{\textrm{tr}}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),
+P=-{\textrm{tr}}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),
 \end{equation}
 are taken in each of these configurations, and the expectation value is computed as
 \begin{equation}
-\left<O\right>=\frac{1}{N_{\textrm{cnfg}}}\sum_{i}^{N_{\textrm{cnfg}}}O_i.
+\left<P\right>=\frac{1}{N_{\textrm{cnfg}}}\sum_{i}^{N_{\textrm{cnfg}}}P_i+\mathcal{O}\left(\frac{1}{\sqrt{N_{\textrm{cnfg}}}}\right).
 \end{equation}
 
 
@@ -404,9 +400,9 @@ since this means that $m_{\textrm{phys}}$ remains finite in this limit.
 
 Physical quantities are dependent on the couplings of the theory, $m_{\textrm{phys}}(g_0)$, and accordingly change with them. In turn, one can study how the couplings of the theory change in the lattice as one approaches the continuum limit by decreasing $a$. To do so and for simplicity, we assume a single coupling $g_0$, and write the most general local effective action at lattice spacing $a_1$
 \begin{equation}
-S(a_1)=g_0(a_1)\sum_i\mathcal{O}_i,
+S(a_1)=g_0(a_1)\sum_i{O}_i,
 \end{equation}
-where $\mathcal{O}_i$ are all possible local operators respecting the lattice symmetries. When the lattice spacing is reduced to $a_2<a_1$, all the short-range extra degrees of freedom can be integrated out and reabsorbed into a redefinition of the coupling, such that the new action has the same generic form but with different couplings
+where ${O}_i$ are all possible local operators respecting the lattice symmetries. When the lattice spacing is reduced to $a_2<a_1$, all the short-range extra degrees of freedom can be integrated out and reabsorbed into a redefinition of the coupling, such that the new action has the same generic form but with different couplings
 \begin{equation}
 g_0(a_1)\rightarrow R(g_0(a_1))=g_0(a_2).
 \end{equation}
@@ -474,7 +470,7 @@ with
 \hat{F}_{\mu\nu}(x)&=\frac{-i}{8a^2}\left(Q_{\mu\nu}(x)-Q_{\nu\mu}(x)\right),\\
 Q_{\mu\nu}&=U_{\mu\nu}(x)+U_{\nu,-\mu}(x)+U_{-\mu,-\nu}(x)+U_{-\nu,\mu}(x).
 \end{align}
-$\mathcal{L}_{k=1}^{(1),(2)}$ are already present (up to numerical factors) in the original Wilson fermion action and can therefore be reabsorbed in those terms. The $\mathcal{O}(a)$ improved Wilson fermion action reads
+$\mathcal{L}_{k=1}^{(1),(2)}$ are already present (up to numerical factors) in the original Wilson fermion action and can therefore be reabsorbed in those terms. The $\mathcal{O}(a)$ improved Wilson Dirac operator appearing in the improved fermion action reads
 \begin{equation}
 \label{ch_foundation:eq:DW_impr}
 D_{\textrm W}+\boldsymbol{m}+c_{\textrm{sw}}a\frac{1}{2}\sum_{\mu<\nu}\sigma_{\mu\nu}\hat{F}_{\mu\nu},
@@ -501,7 +497,7 @@ O_k=\sum_ic_i\Psi_k,
 \end{equation}
 with $c_i$ some non-perturbatively determined coefficients required to suppress $\mathcal{O}(a^k)$ cutoff effects in the correlation functions. In Sec~\ref{ch_observables} we discuss the details of operator improvement for the case of standard Wilson fermions for the observables of interest.
 
-The $\mathcal{O}(a)$ improved Wilson tm fermion action is analogous to the Wilson case,
+The $\mathcal{O}(a)$ improved Wilson tm fermion action is analogous to the Wilson case, with the improved Dirac operator given by 
 \begin{equation}
 D_{\textrm W}+\boldsymbol{m}+i\gamma_5\boldsymbol{\mu}+c_{\textrm{sw}}a\frac{1}{2}\sum_{\mu<\nu}\sigma_{\mu\nu}\hat{F}_{\mu\nu}.
 \end{equation}

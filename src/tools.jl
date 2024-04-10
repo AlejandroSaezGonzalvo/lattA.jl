@@ -47,7 +47,7 @@ function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64
     pval = pvalue(chisq_corr, sum(fit.resid .^ 2), value.(up), y, W)
     doff = dof(fit)
 
-    return up, chi_exp, chi2, pval, doff
+    return up, chi2, chi_exp, pval, doff
 end
 
 #=
@@ -63,7 +63,7 @@ function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64
     pval = pvalue(chisq_corr, sum(fit.resid .^ 2), value.(up), y, W)
     doff = dof(fit)
 
-    return up, chi_exp, chi2, pval, doff
+    return up, chi2, chi_exp, pval, doff
 end
 =#
 

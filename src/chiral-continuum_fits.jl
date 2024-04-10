@@ -481,392 +481,102 @@ end
 ##########################################################
 ##########################################################
 
-function mR_a2(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:length(x[:,2])]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function fun_y1(x,p)
+    ## p = 3
+    return [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) for i in 1:length(x[:,2])]
 end
 
-function mR_aas(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function fun_y2(x,p) 
+    ## p = 4
+    return [3 * p[1] + 2 * p[2] * x[i,3] + p[4] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) for i in 1:length(x[:,2])]
 end
 
-function mR_aas2(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function fun_phi12(x,p)
+    ## p = 3
+    return [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 for i in 1:length(x[:,2])]
 end
 
-function mR_aas3(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function fun_phi13(x,p)
+    ## p = 5
+    return [p[1] + p[4] * (x[i,2] - x[i,4]) + p[5] * (x[i,2] - x[i,4]) ^ 2 for i in 1:length(x[:,2])]
 end
 
-function mR_aas4(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function a2_for_y1(x,p)
+    ## p = 5
+    return [p[5] * (2 * x[i,3] - 3 * x[i,2]) * x[i,1] for i in 1:length(x[:,2])]
 end
 
-function mR_aas5(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function a2phi2_for_y1(x,p)
+    ## p = 6
+    return [p[6] * (2 * x[i,3] - 3 * x[i,2]) * x[i,1] * x[i,2] for i in 1:length(x[:,2])]
 end
 
-function mR_a2phi2(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + (p[4] + p[7] * x[i,2]) * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:length(x[:,2])]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + (p[6] + p[8] * x[i,2]) * x[i,1] for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function a2_for_y2(x,p)
+    ## p = 7
+    return [p[7] * x[i,1] for i in 1:length(x[:,2])]
 end
 
-function mR_Tay_a2(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] for i in 1:length(x[:,2])]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function a2phi2_for_y2(x,p)
+    ## p = 8
+    return [p[8] * x[i,1] * x[i,2] for i in 1:length(x[:,2])]
 end
 
-function mR_Tay_aas(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function a2_for_phi12(x,p)
+    ## p = 6
+    return [p[6] * x[i,1] for i in 1:length(x[:,2])]
 end
 
-function mR_Tay_aas2(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function a2phi2_for_phi12(x,p)
+    ## p = 7
+    return [p[7] * x[i,1] * (x[i,2] - x[i,4]) for i in 1:length(x[:,2])]
 end
 
-function mR_Tay_aas3(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function a2_for_phi13(x,p)
+    ## p = 8 
+    return [p[8] * x[i,1] for i in 1:length(x[:,2])]
 end
 
-function mR_Tay_aas4(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function a2phi2_for_phi13(x,p)
+    ## p = 9
+    return [p[9] * x[i,1] * (x[i,2] - x[i,4]) for i in 1:length(x[:,2])]
 end
 
-function mR_Tay_aas5(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+##############################################################################
+
+function y1_a2(x,p)
+    return fun_y1(x,p) + a2_for_y1(x,p)
 end
 
-function mR_Tay_a2phi2(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + (p[4] + p[8] * x[i,2]) * x[i,1] for i in 1:length(x[:,2])]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + (p[7] + p[9] * x[i,2]) * x[i,1] for i in 1:length(x[:,2])]
-    return [phi12, phi13]
+function y1_a2_a2phi2(x,p)
+    return fun_y1(x,p) + a2_for_y1(x,p) + a2phi2_for_y1(x,p)
 end
 
-function mR_a2_combined(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] for i in 1:L2]
-    ## tm
-    ## y1
-    phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-    ## y2
-    phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] for i in 1:L2]
-    return [phi12, phi13, phi12_tm, phi13_tm]
+function y2_a2(x,p)
+    return fun_y2(x,p) + a2_for_y2(x,p)
 end
 
-function mR_aas_combined(x,p)
-    if x[1,1] == 0
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
+function y2_a2_a2phi2(x,p)
+    return fun_y2(x,p) + a2_for_y2(x,p) + a2phi2_for_y2(x,p)
 end
 
-function mR_aas2_combined(x,p)
-    if x[1,1] == 0
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
+function phi12_a2(x,p)
+    return fun_phi12(x,p) + a2_for_phi12(x,p)
 end
 
-function mR_aas3_combined(x,p)
-    if x[1,1] == 0
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
+function phi12_a2_a2phi2(x,p)
+    return fun_phi12(x,p) + a2_for_phi12(x,p) + a2phi2_for_phi12(x,p)
 end
 
-function mR_aas4_combined(x,p)
-    if x[1,1] == 0
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
+function phi13_a2(x,p)
+    return fun_phi13(x,p) + a2_for_phi13(x,p)
 end
 
-function mR_aas5_combined(x,p)
-    if x[1,1] == 0
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        ## y1
-        phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        ## tm
-        ## y1
-        phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[7] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        ## y2
-        phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
+function phi13_a2_a2phi2(x,p)
+    return fun_phi13(x,p) + a2_for_phi13(x,p) + a2phi2_for_phi13(x,p)
 end
 
-function mR_a2phi2_combined(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + (p[4] + p[7] * x[i,2]) * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + (p[6] + p[8] * x[i,2]) * x[i,1] for i in 1:L2]
-    ## y1
-    phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + (p[9] + p[10] * x[i,2]) * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-    ## y2
-    phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + (p[11] + p[12] * x[i,2]) * x[i,1] for i in 1:L2]
-    return [phi12, phi13, phi12_tm, phi13_tm]
-end
 
-function mR_a2a2phi2_combined(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[4] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[6] * x[i,1] for i in 1:L2]
-    ## y1
-    phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + (p[7] + p[8] * x[i,2]) * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-    ## y2
-    phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + (p[9] + p[10] * x[i,2]) * x[i,1] for i in 1:L2]
-    return [phi12, phi13, phi12_tm, phi13_tm]
-end
 
-function mR_a2phi2a2_combined(x,p)
-    ## y1
-    phi12 = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + (p[4] + p[7] * x[i,2]) * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-    ## y2
-    phi13 = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + (p[6] + p[8] * x[i,2]) * x[i,1] for i in 1:L2]
-    ## y1
-    phi12_tm = [2 * x[i,2] / (2*x[i,3]-x[i,2]) * (1 + p[2]/p[1] * (3/2 * x[i,2] - x[i,3]) - p[3] * (x[i,2] * log(x[i,2]) - (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3))) + p[9] * x[i,1] * (2 * x[i,3] - 3 * x[i,2]) for i in 1:L1]
-    ## y2
-    phi13_tm = [3 * p[1] + 2 * p[2] * x[i,3] + p[5] * (x[i,2] * log(x[i,2]) + (4 * x[i,3] - 3 * x[i,2]) / 3 * log((4 * x[i,3] - 3 * x[i,2]) / 3)) + p[10] * x[i,1] for i in 1:L2]
-    return [phi12, phi13, phi12_tm, phi13_tm]
-end
 
-function mR_Tay_a2_combined(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] for i in 1:L1]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] for i in 1:L2]
-    phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] for i in 1:L1]
-    phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] for i in 1:L2]
-    return [phi12, phi13, phi12_tm, phi13_tm]
-end
 
-function mR_Tay_aas_combined(x,p)
-    if x[1,1] == 0
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
-end
-
-function mR_Tay_aas2_combined(x,p)
-    if x[1,1] == 0
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
-end
-
-function mR_Tay_aas3_combined(x,p)
-    if x[1,1] == 0
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
-end
-
-function mR_Tay_aas4_combined(x,p)
-    if x[1,1] == 0
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
-end
-
-function mR_Tay_aas5_combined(x,p)
-    if x[1,1] == 0
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    else
-        phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[8] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L1]
-        phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[9] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:L2]
-        return [phi12, phi13, phi12_tm, phi13_tm]
-    end
-end
-
-function mR_Tay_a2phi2_combined(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + (p[4] + p[8] * x[i,2]) * x[i,1] for i in 1:L1]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + (p[7] + p[9] * x[i,2]) * x[i,1] for i in 1:L2]
-    phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + (p[10] + p[11] * x[i,2]) * x[i,1] for i in 1:L1]
-    phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + (p[12] + p[13] * x[i,2]) * x[i,1] for i in 1:L2]
-    return [phi12, phi13, phi12_tm, phi13_tm]
-end
-
-function mR_Tay_a2a2phi2_combined(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[4] * x[i,1] for i in 1:L1]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[7] * x[i,1] for i in 1:L2]
-    phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + (p[8] + p[9] * x[i,2]) * x[i,1] for i in 1:L1]
-    phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + (p[10] + p[11] * x[i,2]) * x[i,1] for i in 1:L2]
-    return [phi12, phi13, phi12_tm, phi13_tm]
-end
-
-function mR_Tay_a2phi2a2_combined(x,p)
-    phi12 = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + (p[4] + p[8] * x[i,2]) * x[i,1] for i in 1:L1]
-    phi13 = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + (p[7] + p[9] * x[i,2]) * x[i,1] for i in 1:L2]
-    phi12_tm = [p[1] + p[2] * (x[i,2] - x[i,4]) + p[3] * (x[i,2] - x[i,4]) ^ 2 + p[10] * x[i,1] for i in 1:L1]
-    phi13_tm = [p[1] + p[5] * (x[i,2] - x[i,4]) + p[6] * (x[i,2] - x[i,4]) ^ 2 + p[11] * x[i,1] for i in 1:L2]
-    return [phi12, phi13, phi12_tm, phi13_tm]
-end
 
