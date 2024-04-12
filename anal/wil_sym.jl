@@ -7,12 +7,12 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H400"
+id = "H101"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
-const md_meas = false
+const md_meas = true
 
 #======== read correlators ===========#
 
@@ -27,7 +27,11 @@ tM = [[11], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
 mk = mpi
-m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
+if ens.id == "N202"
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=[[1], [17]], tM=[[10], [113]], wpm=wpm)
+else
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
+end
 m13 = m12
 if ens.id == "H400"
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, tm=[[1], [10]], tM=[[80], [76]], wpm=wpm)

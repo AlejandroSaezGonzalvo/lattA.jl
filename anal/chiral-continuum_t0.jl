@@ -8,10 +8,18 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
-ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
-ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
-ens_new = ["D450", "E250", "N302", "E300", "J500"]#, "J501"]
-ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+new = true
+if new == true
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+    ens_new = ["D450", "E250", "N302", "E300", "J500"]#, "J501"]
+    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+else
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+    ens_new = [""]#, "J501"]
+    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+end
 ens_sym = ["H101", "H400", "N202", "N300", "J500"]
 ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
 ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
@@ -22,7 +30,7 @@ ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
 ens_346 = findall(x -> x in ["H400", "D450"], ens_av)
 ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200", "E250"], ens_av)
 ens_370 = findall(x -> x in ["N300", "N302", "J303", "E300"], ens_av)
-ens_385 = findall(x -> x in ["J500"], ens_av)
+ens_385 = findall(x -> x in ["J500"], ens_av)#, "J501"]
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
@@ -496,11 +504,11 @@ fpik_add = true
         #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT2_a2]
-    models_combined = [model2_ChPT2_a2_combined]
+    models = [model2_ChPT2_a2; model2_ChPT2_aas; model2_ChPT2_a2phi2]
+    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_aas_combined; model2_ChPT2_a2a2phi2_combined; model2_ChPT2_a2phi2a2_combined; model2_ChPT2_a2_combined]
     models = [models, models, models_combined]
-    param = [6]
-    param_combined = [8]
+    param = [6,6,8]
+    param_combined = [8,8,10,10,12]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)

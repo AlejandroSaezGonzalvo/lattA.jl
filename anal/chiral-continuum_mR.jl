@@ -6,8 +6,8 @@ phi12 => E300, D450, ~H105 (down) are up, symmetric bad
 phi13 => E300 (up), ~J303 (up), H105 (down), ~N200 (down), N302 (up), symmetric bad
 
 MA:
-phi12 => E250 (up), E300 (d), D200 (u), J303 (d), H105 (u), H101 (d), H400 (d)
-phi13 => E300 (u), D459 (d), H105 (d), J303 (u), N302 (u), N202 (u), N300 (u), J500 (u)
+phi12 => E250 (up), E300 (d), D200 (u), J303 (d), H105 (u), H101 (d), H400 (d), J501 (d)
+phi13 => E300 (u), D459 (d), H105 (d), J303 (u), N302 (u), N202 (u), N300 (u), J500 (u), ~J501 (u)
 =#
 
 using Revise, lattA, juobs, ADerrors, BDIO, PyPlot, LsqFit, LinearAlgebra
@@ -18,25 +18,33 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
-ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
-ens_new = ["D450", "E250", "N302", "E300", "J500", "J501"]
-ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_sym = ["H101", "H400", "N202", "N300", "J500", "J501"]
-ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500", "J501"]
+new = true
+if new == true
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+    ens_new = ["D450", "E250", "N302", "E300", "J500"]#, "J501"]
+    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+else
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+    ens_new = [""]#, "J501"]
+    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+end
+ens_sym = ["H101", "H400", "N202", "N300", "J500"]
+ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
+ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
+ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500"]#, "J501"]
 ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
 ens_346 = findall(x -> x in ["H400", "D450"], ens_av)
 ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200", "E250"], ens_av)
 ens_370 = findall(x -> x in ["N300", "N302", "J303", "E300"], ens_av)
-ens_385 = findall(x -> x in ["J500", "J501"], ens_av)
+ens_385 = findall(x -> x in ["J500"], ens_av)#, "J501"]
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
-ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "N200", "D200", "E250", "J303", "E300", "J501"], ens_av)
+ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "N200", "D200", "E250", "J303", "E300"], ens_av)
 ind_mL_40 = findall(x -> x in ens_40, ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
@@ -218,175 +226,212 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
 #============================== chiral & continuum limits =====================================================================#
 
-    ## prepare data SU3 & Tay
+    ## prepare data 
         TIC = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
         chi = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
         W = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
+        pval = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
         y1_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         y2_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
-        pval = [Array{Float64,1}(), Array{Float64,1}(), Array{Float64,1}()]
-        uprm_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        phi12_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        phi13_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        uprm_phi_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        uprm_y_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 
         x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym K_sh]
-        x_combined = [x; x]
+        x_st = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym K_st_sh]
         x_355 = x[[ens_346; ens_355; ens_370; ens_385],:]
-        x_combined_355 = [x_355; x_355]
-        x_combined_355_only_Wil = [x_355; x]
-        x_combined_355_only_Wtm = [x; x_355]
         x_nosym = x[ind_nosym,:]
         x_nosym355 = x[ind_nosym355,:]
-        x_combined_nosym = [x_nosym; x_nosym]
-        x_combined_nosym355 = [x_nosym355; x_nosym355]
         x_mL_40 = x[ind_mL_40, :]
         x_mL_41 = x[ind_mL_41, :]
         x_mL_42 = x[ind_mL_42, :]
-        x_combined_mL_40 = [x_mL_40; x_mL_40]
-        x_combined_mL_41 = [x_mL_41; x_mL_41]
-        x_combined_mL_42 = [x_mL_42; x_mL_42]
-        x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph)]
         x_3552 = x[[ens_355; ens_370; ens_385],:]
-        x_combined_3552 = [x_3552; x_3552]
         x_phi204 = x[ind_phi204,:]
-        x_combined_phi204 = [x_phi204; x_phi204]
+        x_st_355 = x_st[[ens_346; ens_355; ens_370; ens_385],:]
+        x_st_nosym = x_st[ind_nosym,:]
+        x_st_nosym355 = x_st[ind_nosym355,:]
+        x_st_mL_40 = x_st[ind_mL_40, :]
+        x_st_mL_41 = x_st[ind_mL_41, :]
+        x_st_mL_42 = x_st[ind_mL_42, :]
+        x_st_3552 = x_st[[ens_355; ens_370; ens_385],:]
+        x_st_phi204 = x_st[ind_phi204,:]
+        x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph) 1 / (16 * pi ^ 2 * 8 * t0_ph * fpik_exp ^ 2)]
 
-        y = [y1; y2]
-        y_st = [y1_st; y2_st]
-        y_combined = [y_st; y]
-        y_355 = [y1[[ens_346; ens_355; ens_370; ens_385]]; y2[[ens_346; ens_355; ens_370; ens_385]]]
-        y_st_355 = [y1_st[[ens_346; ens_355; ens_370; ens_385]]; y2_st[[ens_346; ens_355; ens_370; ens_385]]]
-        y_combined_355 = [y_st_355; y_355]
-        y_3552 = [y1[[ens_355; ens_370; ens_385]]; y2[[ens_355; ens_370; ens_385]]]
-        y_st_3552 = [y1_st[[ens_355; ens_370; ens_385]]; y2_st[[ens_355; ens_370; ens_385]]]
-        y_combined_3552 = [y_st_3552; y_3552]
-        y_nosym = [y1[ind_nosym]; y2[ind_nosym]]
-        y_st_nosym = [y1_st[ind_nosym]; y2_st[ind_nosym]]
-        y_combined_nosym = [y_st_nosym; y_nosym]
-        y_nosym355 = [y1[ind_nosym355]; y2[ind_nosym355]]
-        y_st_nosym355 = [y_st[ind_nosym355]; y2_st[ind_nosym355]]
-        y_combined_nosym355 = [y_st_nosym355; y_nosym355]
-        y_phi204 = [y1[ind_phi204]; y2[ind_phi204]]
-        y_st_phi204 = [y1_st[ind_phi204]; y2_st[ind_phi204]]
-        y_combined_phi204 = [y_st_phi204; y_phi204]
-        y_mL_42 = [y1[ind_mL_42]; y2[ind_mL_42]]
-        y_st_mL_42 = [y1_st[ind_mL_42]; y2_st[ind_mL_42]]
-        y_combined_mL_42 = [y_st_mL_42; y_mL_42]
+        phi12_355 = phi12[[ens_346; ens_355; ens_370; ens_385]]
+        phi12_3552 = phi12[[ens_355; ens_370; ens_385]]
+        phi12_nosym = phi12[ind_nosym]
+        phi12_nosym355 = phi12[ind_nosym355]
+        phi12_phi204 = phi12[ind_phi204]
+        phi12_mL_42 = phi12[ind_mL_42]
 
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
-        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
-        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
+        phi12_st_355 = phi12_st[[ens_346; ens_355; ens_370; ens_385]]
+        phi12_st_3552 = phi12_st[[ens_355; ens_370; ens_385]]
+        phi12_st_nosym = phi12_st[ind_nosym]
+        phi12_st_nosym355 = phi12_st[ind_nosym355]
+        phi12_st_phi204 = phi12_st[ind_phi204]
+        phi12_st_mL_42 = phi12_st[ind_mL_42]
+
+        phi13_355 = phi13[[ens_346; ens_355; ens_370; ens_385]]
+        phi13_3552 = phi13[[ens_355; ens_370; ens_385]]
+        phi13_nosym = phi13[ind_nosym]
+        phi13_nosym355 = phi13[ind_nosym355]
+        phi13_phi204 = phi13[ind_phi204]
+        phi13_mL_42 = phi13[ind_mL_42]
+
+        phi13_st_355 = phi13_st[[ens_346; ens_355; ens_370; ens_385]]
+        phi13_st_3552 = phi13_st[[ens_355; ens_370; ens_385]]
+        phi13_st_nosym = phi13_st[ind_nosym]
+        phi13_st_nosym355 = phi13_st[ind_nosym355]
+        phi13_st_phi204 = phi13_st[ind_phi204]
+        phi13_st_mL_42 = phi13_st[ind_mL_42]
+
+        y1_355 = y1[[ens_346; ens_355; ens_370; ens_385]]
+        y1_3552 = y1[[ens_355; ens_370; ens_385]]
+        y1_nosym = y1[ind_nosym]
+        y1_nosym355 = y1[ind_nosym355]
+        y1_phi204 = y1[ind_phi204]
+        y1_mL_42 = y1[ind_mL_42]
+
+        y1_st_355 = y1_st[[ens_346; ens_355; ens_370; ens_385]]
+        y1_st_3552 = y1_st[[ens_355; ens_370; ens_385]]
+        y1_st_nosym = y1_st[ind_nosym]
+        y1_st_nosym355 = y1_st[ind_nosym355]
+        y1_st_phi204 = y1_st[ind_phi204]
+        y1_st_mL_42 = y1_st[ind_mL_42]
+
+        y2_355 = y2[[ens_346; ens_355; ens_370; ens_385]]
+        y2_3552 = y2[[ens_355; ens_370; ens_385]]
+        y2_nosym = y2[ind_nosym]
+        y2_nosym355 = y2[ind_nosym355]
+        y2_phi204 = y2[ind_phi204]
+        y2_mL_42 = y2[ind_mL_42]
+
+        y2_st_355 = y2_st[[ens_346; ens_355; ens_370; ens_385]]
+        y2_st_3552 = y2_st[[ens_355; ens_370; ens_385]]
+        y2_st_nosym = y2_st[ind_nosym]
+        y2_st_nosym355 = y2_st[ind_nosym355]
+        y2_st_phi204 = y2_st[ind_phi204]
+        y2_st_mL_42 = y2_st[ind_mL_42]
+
+        cuts_y1 = [y1, y1_355, y1_3552, y1_nosym, y1_nosym355, y1_phi204, y1_mL_42]
+        cuts_y1_st = [y1_st, y1_st_355, y1_st_3552, y1_st_nosym, y1_st_nosym355, y1_st_phi204, y1_st_mL_42]
+
+        cuts_y2 = [y2, y2_355, y2_3552, y2_nosym, y2_nosym355, y2_phi204, y2_mL_42]
+        cuts_y2_st = [y2_st, y2_st_355, y2_st_3552, y2_st_nosym, y2_st_nosym355, y2_st_phi204, y2_st_mL_42]
+
+        cuts_phi12 = [phi12, phi12_355, phi12_3552, phi12_nosym, phi12_nosym355, phi12_phi204, phi12_mL_42]
+        cuts_phi12_st = [phi12_st, phi12_st_355, phi12_st_3552, phi12_st_nosym, phi12_st_nosym355, phi12_st_phi204, phi12_st_mL_42]
+
+        cuts_phi13 = [phi13, phi13_355, phi13_3552, phi13_nosym, phi13_nosym355, phi13_phi204, phi13_mL_42]
+        cuts_phi13_st = [phi13_st, phi13_st_355, phi13_st_3552, phi13_st_nosym, phi13_st_nosym355, phi13_st_phi204, phi13_st_mL_42]
+        
         cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
+        cuts_x_st = [x_st, x_st_355, x_st_3552, x_st_nosym, x_st_nosym355, x_st_phi204, x_st_mL_42]
 
-        set_y = [cuts_y, cuts_y_st, cuts_y_combined]
-        set_x = [cuts_x, cuts_x_st, cuts_x_combined]
+        set_y1 = [cuts_y1, cuts_y1_st]
+        set_y2 = [cuts_y2, cuts_y2_st]
+        set_phi12 = [cuts_phi12, cuts_phi12_st]
+        set_phi13 = [cuts_phi13, cuts_phi13_st]
+        set_x = [cuts_x, cuts_x_st]
 
-        Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
-        Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
+        #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
+        #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models_y1 = [y1_a2, y1_a2_a2phi2]
-    models_y2 = [y2_a2, y2_a2_a2phi2]
-    param = [7, 8]
+    models_y1 = [y1_model3, y1_model35]
+    models_y2 = [y2_model3, y2_model35]
+    param = [5, 7]
     
-    for k in 1:length(set_y)-1
+    for k in 1:length(set_y1)
         for i in 1:length(models_y1)
-            for j in 1:length(cuts_y)
-                y = set_y[k][j]
+            for j in 1:length(cuts_y1)
+                yy1 = set_y1[k][j]
+                yy2 = set_y2[k][j]
                 x = set_x[k][j]
-                #indx = findall(err.(y[1:div(length(y), 2)]) .!= 0.0)
-                indx = findall(value.(y[1:div(length(y), 2)]) .!= 1.0)
-                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [y[1:div(length(y), 2)][indx], y[div(length(y), 2)+1:end]], param[i])
+                indx = findall(value.(yy1) .!= 1.0)
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], param[i])
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(y1_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
                 push!(y2_ph_vec[k], models_y2[i]([x_ph;x], uprm)[1])
-                if i == j == 1 uprm_plot[k] = uprm end
+                if i == j == 1 uprm_y_plot[k] = uprm end
             end
         end
     end
 
-    ## prepare data SU3 & Tay
-        phi12_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
-        phi13_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
-        uprm_phi_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
-
-        x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
-        x_combined = [x; x]
-        x_355 = x[[ens_346; ens_355; ens_370; ens_385],:]
-        x_combined_355 = [x_355; x_355]
-        x_combined_355_only_Wil = [x_355; x]
-        x_combined_355_only_Wtm = [x; x_355]
-        x_nosym = x[ind_nosym,:]
-        x_nosym355 = x[ind_nosym355,:]
-        x_combined_nosym = [x_nosym; x_nosym]
-        x_combined_nosym355 = [x_nosym355; x_nosym355]
-        x_mL_40 = x[ind_mL_40, :]
-        x_mL_41 = x[ind_mL_41, :]
-        x_mL_42 = x[ind_mL_42, :]
-        x_combined_mL_40 = [x_mL_40; x_mL_40]
-        x_combined_mL_41 = [x_mL_41; x_mL_41]
-        x_combined_mL_42 = [x_mL_42; x_mL_42]
-        x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph)]
-        x_3552 = x[[ens_355; ens_370; ens_385],:]
-        x_combined_3552 = [x_3552; x_3552]
-        x_phi204 = x[ind_phi204,:]
-        x_combined_phi204 = [x_phi204; x_phi204]
-
-        y = [phi12; phi13]
-        y_st = [phi12_st; phi13_st]
-        y_combined = [y_st; y]
-        y_355 = [phi12[[ens_346; ens_355; ens_370; ens_385]]; phi13[[ens_346; ens_355; ens_370; ens_385]]]
-        y_st_355 = [phi12_st[[ens_346; ens_355; ens_370; ens_385]]; phi13_st[[ens_346; ens_355; ens_370; ens_385]]]
-        y_combined_355 = [y_st_355; y_355]
-        y_3552 = [phi12[[ens_355; ens_370; ens_385]]; phi13[[ens_355; ens_370; ens_385]]]
-        y_st_3552 = [phi12_st[[ens_355; ens_370; ens_385]]; phi13_st[[ens_355; ens_370; ens_385]]]
-        y_combined_3552 = [y_st_3552; y_3552]
-        y_nosym = [phi12[ind_nosym]; phi13[ind_nosym]]
-        y_st_nosym = [phi12_st[ind_nosym]; phi13_st[ind_nosym]]
-        y_combined_nosym = [y_st_nosym; y_nosym]
-        y_nosym355 = [phi12[ind_nosym355]; phi13[ind_nosym355]]
-        y_st_nosym355 = [y_st[ind_nosym355]; phi13_st[ind_nosym355]]
-        y_combined_nosym355 = [y_st_nosym355; y_nosym355]
-        y_phi204 = [phi12[ind_phi204]; phi13[ind_phi204]]
-        y_st_phi204 = [phi12_st[ind_phi204]; phi13_st[ind_phi204]]
-        y_combined_phi204 = [y_st_phi204; y_phi204]
-        y_mL_42 = [phi12[ind_mL_42]; phi13[ind_mL_42]]
-        y_st_mL_42 = [phi12_st[ind_mL_42]; phi13_st[ind_mL_42]]
-        y_combined_mL_42 = [y_st_mL_42; y_mL_42]
-
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
-        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
-        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
-        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
-
-        set_y = [cuts_y, cuts_y_st, cuts_y_combined]
-        set_x = [cuts_x, cuts_x_st, cuts_x_combined]
-
-        Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
-        Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
-    ##
-
-    models_phi12 = [phi12_a2, phi12_a2_a2phi2]
-    models_phi13 = [phi13_a2, phi13_a2_a2phi2]
-    param = [8, 9]
+    models_y1 = [phi12_model1, phi12_model15]
+    models_y2 = [phi13_model1, phi13_model15]
+    param = [5, 7]
     
-    for k in 1:length(set_y)-1
+    for k in 1:length(set_y1)
         for i in 1:length(models_y1)
-            for j in 1:length(cuts_y)
-                y = set_y[k][j]
+            for j in 1:length(cuts_y1)
+                yy1 = set_phi12[k][j]
+                yy2 = set_phi13[k][j]
                 x = set_x[k][j]
-                uprm, chi2, chi_exp, pval_aux = fit_alg([models_phi12[i], models_phi13[i]], [value.(x), value.(x)], [y[1:div(length(y), 2)], y[div(length(y), 2)+1:end]], param[i])
+                indx = findall(value.(yy1) .!= 1.0)
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], param[i])
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
-                push!(phi12_ph_vec[k], models_phi12[i]([x_ph;x], uprm)[1])
-                push!(phi13_ph_vec[k], models_phi13[i]([x_ph;x], uprm)[1])
+                push!(phi12_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
+                push!(phi13_ph_vec[k], models_y2[i]([x_ph;x], uprm)[1])
                 if i == j == 1 uprm_phi_plot[k] = uprm end
             end
         end
     end
+
+    models_y1 = [phi12_model5]
+    param = [4]
+    
+    for k in 1:length(set_y1)
+        for i in 1:length(models_y1)
+            for j in 1:length(cuts_y1)
+                yy1 = set_phi12[k][j]
+                x = set_x[k][j]
+                uprm, chi2, chi_exp, pval_aux = fit_alg(models_y1[i], value.(x), yy1, param[i])
+                push!(TIC[k], chi2 - 2 * chi_exp)
+                push!(pval[k], pval_aux)
+                push!(phi12_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
+                #if i == j == 1 uprm_phi_plot[k] = uprm end
+            end
+        end
+    end
+
+    models_y1 = [phi13_model6]
+    param = [4]
+    
+    for k in 1:length(set_y1)
+        for i in 1:length(models_y1)
+            for j in 1:length(cuts_y1)
+                yy1 = set_phi13[k][j]
+                x = set_x[k][j]
+                uprm, chi2, chi_exp, pval_aux = fit_alg(models_y1[i], value.(x), yy1, param[i])
+                push!(TIC[k], chi2 - 2 * chi_exp)
+                push!(pval[k], pval_aux)
+                push!(phi13_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
+                #if i == j == 1 uprm_phi_plot[k] = uprm end
+            end
+        end
+    end
+
+    phi13_y_ph_vec = [[y2_ph_vec[k][i] / (y1_ph_vec[k][i] / phi2_ph + 2 / (phi4_ph - 0.5 * phi2_ph)) for i in 1:length(y1_ph_vec[k])] for k in 1:2]
+    phi12_y_ph_vec = [[y1_ph_vec[k][i] * phi13_y_ph_vec[k][i] for i in 1:length(y1_ph_vec[k])] for k in 1:2]
+    m12_y_ph_vec = [phi12_y_ph_vec[k] ./ sqrt(8 * t0_ph) * hc for k in 1:length(phi12_y_ph_vec)]
+    m13_y_ph_vec = [phi13_y_ph_vec[k] ./ sqrt(8 * t0_ph) * hc for k in 1:length(phi12_y_ph_vec)]
+    [uwerr.(m12_y_ph_vec[k]) for k in 1:length(m12_y_ph_vec)]
+    [uwerr.(m13_y_ph_vec[k]) for k in 1:length(m13_y_ph_vec)]
+
+    m12_ph_vec = [phi12_ph_vec[k] ./ sqrt(8 * t0_ph) * hc for k in 1:length(phi12_ph_vec)]
+    m13_ph_vec = [phi13_ph_vec[k] ./ sqrt(8 * t0_ph) * hc for k in 1:length(phi12_ph_vec)]
+    [uwerr.(m12_ph_vec[k]) for k in 1:length(m12_ph_vec)]
+    [uwerr.(m13_ph_vec[k]) for k in 1:length(m13_ph_vec)]
+
+
+
+   
+
+
 
     #TIC = [TIC[k] .- minimum.(TIC)[k] for k in 1:length(TIC)]
     W = [exp.(-0.5 * TIC[k]) ./ sum(exp.(-0.5 * TIC[k])) for k in 1:length(TIC)]
@@ -406,9 +451,9 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
 #================================== plots =====================================================================================#
 
-        color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
+    color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
 
-        uwerr.(phi2_sh)
+    uwerr.(phi2_sh)
     
     ## Wilson ratios
         fig = figure()
@@ -546,7 +591,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/mR_ratios_tm.pdf")
     ##
 
-    ## Wilson Tay
+    ## Wilson phi X
         fig = figure()
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
@@ -563,7 +608,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = phi12_a2(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+            aux = phi12_a2_X(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -572,7 +617,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         end
         x_prime = [i for i in 0.01:0.05:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = phi12_a2(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+        aux = phi12_a2_X(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -592,7 +637,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = phi13_a2(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+            aux = phi13_a2_X(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -601,7 +646,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         end
         x_prime = [i for i in 0.01:0.05:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = phi13_a2(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+        aux = phi13_a2_X(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -614,7 +659,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/mR_Tay_w.pdf")
     ##
 
-    ## Wtm Tay
+    ## Wtm phi X
         fig = figure()
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
@@ -631,7 +676,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = phi12_a2(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+            aux = phi12_a2_X(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -640,7 +685,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         end
         x_prime = [i for i in 0.01:0.05:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = phi12_a2(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+        aux = phi12_a2_X(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -660,7 +705,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = phi13_a2(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+            aux = phi13_a2_X(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -669,7 +714,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         end
         x_prime = [i for i in 0.01:0.05:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = phi13_a2(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+        aux = phi13_a2_X(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)

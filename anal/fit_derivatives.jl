@@ -6,21 +6,23 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 
-obs = [Array{uwreal,1}() for i in 1:length(ensemble)]
-der = [Array{uwreal,1}() for i in 1:length(ensemble)]
-der_sea = [Array{uwreal,1}() for i in 1:length(ensemble)]
-for i in 1:length(ensemble)
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/derivatives/der_", ensemble[i], "_1q.bdio"), "r") 
+err = ADerrors.err
+
+obs = [Array{uwreal,1}() for i in 1:length(ensemble_old)]
+der = [Array{uwreal,1}() for i in 1:length(ensemble_old)]
+der_sea = [Array{uwreal,1}() for i in 1:length(ensemble_old)]
+for i in 1:length(ensemble_old)
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/derivatives/der_", ensemble_old[i], "_1q.bdio"), "r") 
     BDIO_seek!(fb); push!(der[i], read_uwreal(fb)) 
     while BDIO_seek!(fb, 2) == true push!(der[i], read_uwreal(fb)) end 
     BDIO_close!(fb)
 
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/derivatives/der_sea", ensemble[i], "_1q.bdio"), "r") 
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/derivatives/der_sea_", ensemble_old[i], "_1q.bdio"), "r") 
     BDIO_seek!(fb); push!(der[i], read_uwreal(fb)) 
     while BDIO_seek!(fb, 2) == true push!(der_sea[i], read_uwreal(fb)) end 
     BDIO_close!(fb)
 
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ensemble[i], "_obs_wil_un.bdio"), "r")
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/unshifted/", ensemble_old[i], "_obs_wil_un.bdio"), "r")
     BDIO_seek!(fb); push!(obs[i], read_uwreal(fb))
     while BDIO_seek!(fb, 2) == true push!(obs[i], read_uwreal(fb)) end
     BDIO_close!(fb)
@@ -34,13 +36,13 @@ der_phi2 = [der[i][2] for i in 1:length(der)]
 der_t0 = [der[i][3] for i in 1:length(der)]
 der_t0fpi = [der[i][4] for i in 1:length(der)]
 der_t0fk = [der[i][5] for i in 1:length(der)]
-der_t0m12 = [der[i][6] * beta_ZA[ens_db[ensemble[i]][3]] / beta_ZP[ens_db[ensemble[i]][3]] for i in 1:length(der)]
-der_t0m13 = [der[i][7] * beta_ZA[ens_db[ensemble[i]][3]] / beta_ZP[ens_db[ensemble[i]][3]] for i in 1:length(der)]
+der_t0m12 = [der[i][6] * beta_ZA[ens_db[ensemble_old[i]][3]] / beta_ZP[ens_db[ensemble_old[i]][3]] for i in 1:length(der)]
+der_t0m13 = [der[i][7] * beta_ZA[ens_db[ensemble_old[i]][3]] / beta_ZP[ens_db[ensemble_old[i]][3]] for i in 1:length(der)]
 
 der_sea_t0fpik = [der_sea[i][1] for i in 1:length(der)]
 der_sea_phi2 = [der_sea[i][2] for i in 1:length(der)]
 der_sea_phi4 = [der[i][3] for i in 1:length(der)]
-der_sea_m12 = [der[i][4] * beta_ZA[ens_db[ensemble[i]][3]] / beta_ZP[ens_db[ensemble[i]][3]] for i in 1:length(der)]
+der_sea_m12 = [der[i][4] * beta_ZA[ens_db[ensemble_old[i]][3]] / beta_ZP[ens_db[ensemble_old[i]][3]] for i in 1:length(der)]
 der_sea_t0fpi = [der[i][5] for i in 1:length(der)]
 der_sea_t0fk = [der[i][6] for i in 1:length(der)]
 
