@@ -594,6 +594,10 @@ end
         return fun_phi13_X(x,p) .+ [p[5] * x[i,1] for i in 1:length(x[:,1])]
     end
 
+    function x_model1(x,p)
+        return [p[i+5] for i in 1:length(x[:,1])]
+    end
+
 ## model 1.5, p=7
 
     function phi12_model15(x,p)
@@ -602,6 +606,10 @@ end
 
     function phi13_model15(x,p)
         return fun_phi13_X(x,p) .+ [p[6] * x[i,1] + p[7] * x[i,1] * x[i,2] for i in 1:length(x[:,1])]
+    end
+
+    function x_model15(x,p)
+        return [p[i+7] for i in 1:length(x[:,1])]
     end
 
 ## model 2, p=5
@@ -614,7 +622,11 @@ end
         return fun_phi13_X(x,p) .+ [p[5] * x[i,1] for i in 1:length(x[:,1])]
     end
 
-## model 2.5, p=8
+    function x_model2(x,p)
+        return [p[i+5] for i in 1:length(x[:,1])]
+    end
+
+## model 2.5, p=7
 
     function y1_model25(x,p)
         return fun_y1(x,p) .+ [(p[4] + p[5] * x[i,2]) * (2 * x[i,3] - 3 * x[i,2]) * x[i,1] for i in 1:length(x[:,1])]
@@ -622,6 +634,10 @@ end
 
     function phi13_model25(x,p)
         return fun_phi13_X(x,p) .+ [(p[6] + p[7] * x[i,2]) * x[i,1] for i in 1:length(x[:,1])]
+    end
+
+    function x_model25(x,p)
+        return [p[i+7] for i in 1:length(x[:,1])]
     end
 
 ## model 3, p=5
@@ -634,7 +650,11 @@ end
         return fun_y2(x,p) .+ [p[5] * x[i,1] for i in 1:length(x[:,1])]
     end
 
-## model 3.5, p=8
+    function x_model3(x,p)
+        return [p[i+5] for i in 1:length(x[:,1])]
+    end
+
+## model 3.5, p=7
 
     function y1_model35(x,p)
         return fun_y1(x,p) .+ [(p[4] + p[5] * x[i,2]) * (2 * x[i,3] - 3 * x[i,2]) * x[i,1] for i in 1:length(x[:,1])]
@@ -642,6 +662,10 @@ end
 
     function y2_model35(x,p)
         return fun_y2(x,p) .+ [(p[6] + p[7] * x[i,2]) * x[i,1] for i in 1:length(x[:,1])]
+    end
+
+    function x_model35(x,p)
+        return [p[i+7] for i in 1:length(x[:,1])]
     end
 
 ## model 4, p=7
@@ -654,6 +678,10 @@ end
         return fun_phi13_T_v2(x,p) .+ [p[7] * x[i,1] for i in 1:length(x[:,1])] 
     end
 
+    function x_model4(x,p)
+        return [p[i+7] for i in 1:length(x[:,1])]
+    end
+
 ## model 4.5, p=9
 
     function y1_model45(x,p)
@@ -664,10 +692,18 @@ end
         return fun_phi13_T_v2(x,p) .+ [(p[8] + p[9] * x[i,2]) * x[i,1] for i in 1:length(x[:,1])] 
     end
 
+    function x_model45(x,p)
+        return [p[i+9] for i in 1:length(x[:,1])]
+    end
+
 ## model 5
 
     function phi12_model5(x,p)
         return fun_phi12_X(x,p) .+ [p[4] * x[i,1] for i in 1:length(x[:,1])]
+    end
+
+    function x_model5(x,p)
+        return [p[i+5] for i in 1:length(x[:,1])]
     end
 
 ## model 6
@@ -676,16 +712,28 @@ end
         return fun_phi13_X(x,p) .+ [p[4] * x[i,1] for i in 1:length(x[:,1])]
     end
 
+    function x_model6(x,p)
+        return [p[i+5] for i in 1:length(x[:,1])]
+    end
+
 ## model 7
 
     function phi12_model7(x,p)
         return fun_phi12_T(x,p) .+ [p[4] * x[i,1] for i in 1:length(x[:,1])] 
     end
 
+    function x_model7(x,p)
+        return [p[i+5] for i in 1:length(x[:,1])]
+    end
+
 ## model 8
 
     function phi13_model8(x,p)
         return fun_phi13_T_v3(x,p) .+ [p[4] * x[i,1] for i in 1:length(x[:,1])]
+    end
+
+    function x_model8(x,p)
+        return [p[i+5] for i in 1:length(x[:,1])]
     end
 
 

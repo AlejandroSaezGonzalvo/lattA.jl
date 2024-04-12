@@ -164,12 +164,12 @@ uwerr(fpik_matched)
 interp_fpik_newens_constTr_plot()
 
 y = fpi_sh
-up_fpi, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x_l,y,4,ens_up_fpi[ens.id],wpm=wpm)
+up_fpi, chi2, chi_exp, pv = fit_alg(interp_fpik_sym,x_l,y,4,rand(4),wpm=wpm)
 fpi_matched = interp_fpik_sym([up[1] up[2]],up_fpi)[1]
 uwerr(fpi_matched)
 
 y = fk_sh
-up_fk, chi2, chi_exp, pv = fit_alg(interp_fpik_constTr,x_s,y,5,ens_up_fk[ens.id],wpm=wpm) 
+up_fk, chi2, chi_exp, pv = fit_alg(interp_fpik_constTr,x_s,y,5,rand(5),wpm=wpm) 
 fk_matched = interp_fpik_constTr([up[1] up[2] up[3]],up_fk)[1]
 uwerr(fk_matched)
 

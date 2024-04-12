@@ -504,11 +504,11 @@ fpik_add = true
         #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT2_a2; model2_ChPT2_aas; model2_ChPT2_a2phi2]
-    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_aas_combined; model2_ChPT2_a2a2phi2_combined; model2_ChPT2_a2phi2a2_combined; model2_ChPT2_a2_combined]
+    models = [model2_ChPT2_a2; model2_ChPT2_a2phi2]
+    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_a2a2phi2_combined; model2_ChPT2_a2phi2a2_combined; model2_ChPT2_a2_combined]
     models = [models, models, models_combined]
-    param = [6,6,8]
-    param_combined = [8,8,10,10,12]
+    param = [6,8]
+    param_combined = [8,10,10,12]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)

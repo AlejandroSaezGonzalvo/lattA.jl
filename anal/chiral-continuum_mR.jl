@@ -341,6 +341,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
     models_y1 = [y1_model3, y1_model35]
     models_y2 = [y2_model3, y2_model35]
+    models_x = [x_model3, x_model35]
     param = [5, 7]
     
     for k in 1:length(set_y1)
@@ -350,7 +351,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
                 yy2 = set_y2[k][j]
                 x = set_x[k][j]
                 indx = findall(value.(yy1) .!= 1.0)
-                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], param[i])
+                n = length(x[:,2]) + param[i]
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i], models_x[i]], [value.(x[indx,:]), value.(x), value.(x)], [yy1[indx], yy2, x[:,2]], n)
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(y1_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
@@ -362,6 +364,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
 
     models_y1 = [phi12_model1, phi12_model15]
     models_y2 = [phi13_model1, phi13_model15]
+    models_x = [x_model1, x_model15]
     param = [5, 7]
     
     for k in 1:length(set_y1)
@@ -371,7 +374,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
                 yy2 = set_phi13[k][j]
                 x = set_x[k][j]
                 indx = findall(value.(yy1) .!= 1.0)
-                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], param[i])
+                n = length(x[:,2]) + param[i]
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i], models_x[i]], [value.(x[indx,:]), value.(x), value.(x)], [yy1[indx], yy2, x[:,2]], n)
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(phi12_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
@@ -382,6 +386,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     end
 
     models_y1 = [phi12_model5]
+    models_x = [x_model15]
     param = [4]
     
     for k in 1:length(set_y1)
@@ -389,7 +394,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             for j in 1:length(cuts_y1)
                 yy1 = set_phi12[k][j]
                 x = set_x[k][j]
-                uprm, chi2, chi_exp, pval_aux = fit_alg(models_y1[i], value.(x), yy1, param[i])
+                n = length(x[:,2]) + param[i]
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_x[i]], [value.(x), value.(x)], [yy1, x[:,2]], n)
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(phi12_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
@@ -399,6 +405,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     end
 
     models_y1 = [phi13_model6]
+    models_x = [x_model6]
     param = [4]
     
     for k in 1:length(set_y1)
@@ -406,7 +413,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             for j in 1:length(cuts_y1)
                 yy1 = set_phi13[k][j]
                 x = set_x[k][j]
-                uprm, chi2, chi_exp, pval_aux = fit_alg(models_y1[i], value.(x), yy1, param[i])
+                n = length(x[:,2]) + param[i]
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_x[i]], [value.(x), value.(x)], [yy1, x[:,2]], n)
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(phi13_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
@@ -456,6 +464,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     uwerr.(phi2_sh)
     
     ## Wilson ratios
+        uprm_plot = uprm_y_plot
+
         fig = figure()
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
@@ -471,8 +481,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = y1_a2(x_plot,uprm_plot[2]) ; uwerr.(aux)
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = y1_model3(x_plot,uprm_plot[2]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -480,8 +490,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = y1_a2(x_plot,uprm_plot[2]) ; uwerr.(aux)
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = y1_model3(x_plot,uprm_plot[2]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -500,8 +510,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = y2_a2(x_plot,uprm_plot[2]) ; uwerr.(aux)
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = y2_model3(x_plot,uprm_plot[2]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -509,8 +519,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = y2_a2(x_plot,uprm_plot[2]) ; uwerr.(aux)
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = y2_model3(x_plot,uprm_plot[2]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -524,6 +534,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     ##
 
     ## Wtm ratios
+        uprm_plot = uprm_y_plot
+
         fig = figure()
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
@@ -539,8 +551,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = y1_a2(x_plot,uprm_plot[1]) ; uwerr.(aux)
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = y1_model3(x_plot,uprm_plot[1]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -548,8 +560,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = y1_a2(x_plot,uprm_plot[1]) ; uwerr.(aux)
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = y1_model3(x_plot,uprm_plot[1]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -568,8 +580,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = y2_a2(x_plot,uprm_plot[1]) ; uwerr.(aux)
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = y2_model3(x_plot,uprm_plot[1]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -577,8 +589,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = y2_a2(x_plot,uprm_plot[1]) ; uwerr.(aux)
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = y2_model3(x_plot,uprm_plot[1]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -592,6 +604,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     ##
 
     ## Wilson phi X
+        uprm_plot = uprm_phi_plot
+
         fig = figure()
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
@@ -607,8 +621,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = phi12_a2_X(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = phi12_model1(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -616,8 +630,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = phi12_a2_X(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = phi12_model1(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -636,8 +650,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = phi13_a2_X(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = phi13_model1(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -645,8 +659,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = phi13_a2_X(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = phi13_model1(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -660,6 +674,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     ##
 
     ## Wtm phi X
+        uprm_plot = uprm_phi_plot
+
         fig = figure()
         rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
         rcParams["font.size"] = 20
@@ -675,8 +691,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = phi12_a2_X(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = phi12_model1(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -684,8 +700,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = phi12_a2_X(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = phi12_model1(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -704,8 +720,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         i = 1
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
-            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-            aux = phi13_a2_X(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = phi13_model1(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -713,8 +729,8 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
             i += 1
         end
         x_prime = [i for i in 0.01:0.05:0.85]
-        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
-        aux = phi13_a2_X(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = phi13_model1(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
