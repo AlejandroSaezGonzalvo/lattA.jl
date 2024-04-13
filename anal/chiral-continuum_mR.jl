@@ -353,6 +353,9 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
                 indx = findall(value.(yy1) .!= 1.0)
                 n = length(x[:,2]) + param[i]
                 uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i], models_x[i]], [value.(x[indx,:]), value.(x), value.(x)], [yy1[indx], yy2, x[:,2]], n)
+                #n = param[i]
+                #W = [convert(Matrix{Float64}, Symmetric(inv(cov(yy1[indx])))), convert(Matrix{Float64}, Symmetric(inv(cov(yy2))))]
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], W, n)
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(y1_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])

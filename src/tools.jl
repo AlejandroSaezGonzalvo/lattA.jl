@@ -97,6 +97,57 @@ function fit_alg(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vect
     return up, chi2, chi_exp, pval
 end
 
+##CHECK THIS ONE, NOT WORKING GOOD
+function fit_alg(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vector{uwreal}}, W::Vector{Matrix{Float64}}, 
+    n::Int64, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+    
+    y_n = y[1]
+    x_n = x[1]
+    for i in 2:length(x)
+        y_n = vcat(y_n, y[i])
+        x_n = vcat(x_n, x[i])
+    end
+    idx = [collect(1:size(x[i],1)) for i in 1:length(x)]
+    [idx[i] = idx[i] .+ idx[i-1][end] for i in 2:length(idx)]
+
+    isnothing(wpm) ? [uwerr.(y[i]) for i in 1:length(y)] : [[uwerr(y[i][j], wpm) for j in 1:length(y[i])] for i in 1:length(y)]
+
+    chisq = (par, y_n) -> sum([juobs.gen_chisq_correlated(f[i], x[i], W[i], par, y_n[i]) for i in 1:length(x)])
+
+    min_fun(t) = chisq(t, value.(y_n))
+    if guess == nothing
+        p0 = [.5 for i in 1:n]
+    else
+        p0 = [guess; [1. for i in 1:n-length(guess)]]
+    end
+    sol = optimize(min_fun, p0, Optim.Options(g_tol=1e-8, iterations=1000000)) 
+    chi2 = min_fun(sol.minimizer)
+
+    W_aux = Matrix{Float64}(undef, length(y_n), length(y_n))
+    for i in 1:length(y_n)
+        for j in 1:length(y_n)
+            if i <= length(y[1])
+                if j <= length(y[1])
+                    W_aux[i,j] = W[1][i,j]
+                else
+                    W_aux[i,j] = .0
+                end
+            else
+                if j <= length(y[1])
+                    W_aux[i,j] = .0
+                else
+                    W_aux[i,j] = W[2][i-length(y[1]),j-length(y[1])]
+                end
+            end
+        end
+    end
+
+    isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n,W=W_aux) : (up,chi_exp) = fit_error(chisq,sol.minimizer,y_n,wpm,W=W_aux)
+    isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y_n,W_aux) : pval = pvalue(chisq,chi2,value.(up),y_n,wpm=wpm,W_aux)
+    return up, chi2, chi_exp, pval
+end
+
 function fit_alg(f::Vector{Function}, x::Vector{Matrix{Float64}}, y::Vector{Vector{uwreal}}, 
     n::Int64, lb::Vector{Float64}, ub::Vector{Float64}, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
