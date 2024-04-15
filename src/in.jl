@@ -2,7 +2,7 @@ using juobs, BDIO, ADerrors
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 
-#phi4_ph = uwreal([1.11,0.0],"phi4_ph")
+#phi4_ph = uwreal([1.117,0.012],"phi4_ph")
 #sqrt_t0_ph = sqrt(phi4_ph / 8 / (MK ^ 2 + 0.5 * Mpi ^ 2) * hc ^ 2)
 #t0_ph = sqrt_t0_ph ^ 2
 
