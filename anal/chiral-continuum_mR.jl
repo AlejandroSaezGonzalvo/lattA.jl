@@ -20,27 +20,27 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
 new = true
 if new == true
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
-    ens_new = ["D450", "E250", "N302", "E300", "J500"]#, "J501"]
-    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
+    ens_new = ["D450", "E250", "N302", "E300", "J500", "J501"]
+    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
 else
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
-    ens_new = [""]#, "J501"]
-    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens_new = [""]
+    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
 end
 ens_sym = ["H101", "H400", "N202", "N300", "J500"]
-ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
-ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
-ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
-ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
-ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500"]#, "J501"]
+ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
+ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500", "J501"]
 ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
 ens_346 = findall(x -> x in ["H400", "D450"], ens_av)
 ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200", "E250"], ens_av)
 ens_370 = findall(x -> x in ["N300", "N302", "J303", "E300"], ens_av)
-ens_385 = findall(x -> x in ["J500"], ens_av)#, "J501"]
+ens_385 = findall(x -> x in ["J500", "J501"], ens_av)#, "J501"]
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
@@ -48,6 +48,14 @@ ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "N200", "D200", "E25
 ind_mL_40 = findall(x -> x in ens_40, ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
+
+## JA
+m12_sh_JA = [uwreal([0.008892,0.000113], "1"), uwreal([0.006440,0.000120], "2"), uwreal([0.004010,0.000149], "3"), uwreal([0.007815,0.000132], "4"), uwreal([0.006850,0.000087], "5"), uwreal([0.004796,0.000090], "6"), uwreal([0.003181,0.000083], "7"), uwreal([0.001625,0.000079], "8"), uwreal([0.005270,0.000085], "9"), uwreal([0.001919,0.000091], "10")]
+m13_sh_JA = [uwreal([0.008892,0.000113], "1"), uwreal([0.010053,0.000121], "2"), uwreal([0.011210,0.000125], "3"), uwreal([0.007815,0.000132], "4"), uwreal([0.006850,0.000087], "5"), uwreal([0.007938,0.000088], "6"), uwreal([0.008649,0.000081], "7"), uwreal([0.009448,0.000083], "8"), uwreal([0.005270,0.000085], "9"), uwreal([0.007048,0.000101], "10")]
+ZA = [[beta_ZA[3.4] for i in 1:3]; [beta_ZA[3.46] for i in 4:4]; [beta_ZA[3.55] for i in 5:8]; [beta_ZA[3.70] for i in 9:10]]
+ZP = [[beta_ZP[3.4] for i in 1:3]; [beta_ZP[3.46] for i in 4:4]; [beta_ZP[3.55] for i in 5:8]; [beta_ZP[3.70] for i in 9:10]]
+m12_sh_JA = m12_sh_JA .* ZA ./ ZP
+m13_sh_JA = m13_sh_JA .* ZA ./ ZP
 
 #============================== read BDIO =====================================================================================#
 
@@ -131,13 +139,17 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     t0fpik_st_sh = sqrt(8) .* t0fpik_st_sh
     phi12_st = sqrt.(8 * t0_sh) .* m12_sh
     phi13_st = sqrt.(8 * t0_sh) .* m13_sh
+    phi12_st_JA = sqrt.(8 * t0_sh) .* m12_sh_JA
+    phi13_st_JA = sqrt.(8 * t0_sh) .* m13_sh_JA
     phi12 = sqrt.(8 * t0_sh) .* mul
     phi13 = sqrt.(8 * t0_sh) .* (mul .+ mus) ./ 2
     phiK_sh = phi4_sh .- 0.5 * phi2_sh
 
     y1_st = phi12_st ./ phi13_st; uwerr.(y1_st)
+    y1_st_JA = phi12_st_JA ./ phi13_st_JA; uwerr.(y1_st_JA)
     y1 = phi12 ./ phi13; uwerr.(y1)
     y2_st = 2 * phi13_st ./ phiK_sh + phi12_st ./ phi2_sh; uwerr.(y2_st)
+    y2_st_JA = 2 * phi13_st_JA ./ phiK_sh + phi12_st_JA ./ phi2_sh; uwerr.(y2_st_JA)
     y2 = 2 * phi13 ./ phiK_sh + phi12 ./ phi2_sh; uwerr.(y2)
 
     #t0fpik_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_matched .+ fk_matched)
@@ -216,6 +228,13 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
     errorbar(value.(phi2_sh[ens_355]), value.(y2_st[ens_355]), err.(y2_st[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
     errorbar(value.(phi2_sh[ens_370]), value.(y2_st[ens_370]), err.(y2_st[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
     errorbar(value.(phi2_sh[ens_385]), value.(y2_st[ens_385]), err.(y2_st[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
+    
+    errorbar(value.(phi2_sh[ens_340] .+ 0.02), value.(y2_st_JA[ens_340]), err.(y2_st_JA[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
+    errorbar(value.(phi2_sh[ens_346] .+ 0.02), value.(y2_st_JA[ens_346]), err.(y2_st_JA[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
+    errorbar(value.(phi2_sh[ens_355] .+ 0.02), value.(y2_st_JA[ens_355]), err.(y2_st_JA[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
+    errorbar(value.(phi2_sh[ens_370] .+ 0.02), value.(y2_st_JA[ens_370]), err.(y2_st_JA[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
+    errorbar(value.(phi2_sh[ens_385] .+ 0.02), value.(y2_st_JA[ens_385]), err.(y2_st_JA[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
+    
     ax = gca()
     #ax[:set_ylim]([0.285, 0.325])
     #legend()
@@ -236,6 +255,7 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         phi12_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         phi13_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         uprm_phi_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        uprm_yphi_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         uprm_y_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 
         x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym K_sh]
@@ -355,12 +375,38 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
                 uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i], models_x[i]], [value.(x[indx,:]), value.(x), value.(x)], [yy1[indx], yy2, x[:,2]], n)
                 #n = param[i]
                 #W = [convert(Matrix{Float64}, Symmetric(inv(cov(yy1[indx])))), convert(Matrix{Float64}, Symmetric(inv(cov(yy2))))]
-                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], W, n)
+                #uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], W, n)
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(y1_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
                 push!(y2_ph_vec[k], models_y2[i]([x_ph;x], uprm)[1])
                 if i == j == 1 uprm_y_plot[k] = uprm end
+            end
+        end
+    end
+
+    models_y1 = [y1_model3, y1_model35]
+    models_y2 = [phi13_model1, phi13_model15]
+    models_x = [x_model3, x_model35]
+    param = [5, 7]
+    
+    for k in 1:length(set_y1)
+        for i in 1:length(models_y1)
+            for j in 1:length(cuts_y1)
+                yy1 = set_y1[k][j]
+                yy2 = set_phi13[k][j]
+                x = set_x[k][j]
+                indx = findall(value.(yy1) .!= 1.0)
+                n = length(x[:,2]) + param[i]
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i], models_x[i]], [value.(x[indx,:]), value.(x), value.(x)], [yy1[indx], yy2, x[:,2]], n)
+                #n = param[i]
+                #W = [convert(Matrix{Float64}, Symmetric(inv(cov(yy1[indx])))), convert(Matrix{Float64}, Symmetric(inv(cov(yy2))))]
+                #uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], W, n)
+                push!(TIC[k], chi2 - 2 * chi_exp)
+                push!(pval[k], pval_aux)
+                push!(y1_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
+                push!(y2_ph_vec[k], models_y2[i]([x_ph;x], uprm)[1])
+                if i == j == 1 uprm_yphi_plot[k] = uprm end
             end
         end
     end
@@ -463,7 +509,6 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
 #================================== plots =====================================================================================#
 
     color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
-
     uwerr.(phi2_sh)
     
     ## Wilson ratios
@@ -604,6 +649,146 @@ ind_mL_42 = findall(x -> x in ens_42, ens_av)
         tight_layout()
 
         savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/mR_ratios_tm.pdf")
+    ##
+
+    ## Wilson y_ratio
+        uprm_plot = uprm_yphi_plot
+
+        fig = figure()
+        rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+        rcParams["font.size"] = 20
+
+        subplot(121)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\phi_{12}/\phi_{13}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(y1_st[ens_340]), err.(y1_st[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_346]), value.(y1_st[ens_346]), err.(y1_st[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_355]), value.(y1_st[ens_355]), err.(y1_st[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_370]), value.(y1_st[ens_370]), err.(y1_st[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_385]), value.(y1_st[ens_385]), err.(y1_st[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = y1_model3(x_plot,uprm_plot[2]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = y1_model3(x_plot,uprm_plot[2]) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        ax = gca()
+        #ax[:set_ylim]([0.285, 0.325])
+        #legend()
+
+        subplot(122)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\phi_{13}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(phi13_st[ens_340]), err.(phi13_st[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_346]), value.(phi13_st[ens_346]), err.(phi13_st[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_355]), value.(phi13_st[ens_355]), err.(phi13_st[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_370]), value.(phi13_st[ens_370]), err.(phi13_st[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_385]), value.(phi13_st[ens_385]), err.(phi13_st[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = phi13_model1(x_plot,uprm_plot[2]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = phi13_model1(x_plot,uprm_plot[2]) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        ax = gca()
+        #ax[:set_ylim]([0.285, 0.325])
+        #legend()
+
+        tight_layout()
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/mR_yratio_w.pdf")
+    ##
+
+    ## Wtm y_ratio
+        uprm_plot = uprm_yphi_plot
+
+        fig = figure()
+        rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+        rcParams["font.size"] = 20
+
+        subplot(121)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\phi_{12}/\phi_{13}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(y1[ens_340]), err.(y1[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_346]), value.(y1[ens_346]), err.(y1[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_355]), value.(y1[ens_355]), err.(y1[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_370]), value.(y1[ens_370]), err.(y1[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_385]), value.(y1[ens_385]), err.(y1[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = y1_model3(x_plot,uprm_plot[1]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = y1_model3(x_plot,uprm_plot[1]) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        ax = gca()
+        #ax[:set_ylim]([0.285, 0.325])
+        #legend()
+
+        subplot(122)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\phi_{13}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(phi13[ens_340]), err.(phi13[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_346]), value.(phi13[ens_346]), err.(phi13[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_355]), value.(phi13[ens_355]), err.(phi13[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_370]), value.(phi13[ens_370]), err.(phi13[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_385]), value.(phi13[ens_385]), err.(phi13[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = phi13_model1(x_plot,uprm_plot[1]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = phi13_model1(x_plot,uprm_plot[1]) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        ax = gca()
+        #ax[:set_ylim]([0.285, 0.325])
+        #legend()
+
+        tight_layout()
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/mR_yratio_tm.pdf")
     ##
 
     ## Wilson phi X

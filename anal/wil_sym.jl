@@ -7,12 +7,12 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H101"
+id = "N300"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
-const md_meas = true
+const md_meas = false
 
 #======== read correlators ===========#
 
@@ -20,15 +20,27 @@ pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=
 
 #======== compute observables ========#
 
-#tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+#tm = [[1], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
 #tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
-tm = [[10], collect(10:10:div(ens.T,2)-5)]
+tm = [[1], collect(10:10:div(ens.T,2)-5)]
 tM = [[11], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
-mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
+if ens.id == "H400"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=[[1], [24]], tM=[[10], [67]], wpm=wpm)
+elseif ens.id == "H101"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=[[1], [21]], tM=[[10], [70]], wpm=wpm)
+elseif ens.id == "N300"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=[[1], [40]], tM=[[10], [95]], wpm=wpm)
+else
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
+end
 mk = mpi
 if ens.id == "N202"
     m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=[[1], [17]], tM=[[10], [113]], wpm=wpm)
+elseif ens.id == "H101"
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=[[1], [23]], tM=[[10], [71]], wpm=wpm)
+elseif ens.id == "H400"
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=[[1], [26]], tM=[[10], [68]], wpm=wpm)
 else
     m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
 end

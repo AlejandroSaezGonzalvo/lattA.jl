@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "D200"
+id = "H105"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -21,17 +21,36 @@ pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=
 #======== compute observables ========#
 
 if ens.id == "H102r001"
-    tm = [[10], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+    tm = [[1], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
     tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
 else
-    tm = [[10], collect(10:10:div(ens.T,2)-5)]
+    tm = [[1], collect(10:10:div(ens.T,2)-5)]
     tM = [[11], collect(ens.T-10:-10:div(ens.T,2)+5)]
 end
 
-mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
-mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
-m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [22]], tM=[[10], [103]])
-m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+if ens.id == "J303"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [52]], tM=[[10], [151]])
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+elseif ens.id == "H105"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [28]], tM=[[10], [71]])
+elseif ens.id == "H105r005"
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [26]], tM=[[10], [63]])
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+else
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+end
+if ens.id == "H105"
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [35]], tM=[[10], [76]])
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [36]], tM=[[10], [57]])
+elseif ens.id == "H105r005"
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [35]], tM=[[10], [76]])
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [14]], tM=[[10], [80]])
+else
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
+end
 if ens.id == "J303"
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [50,55,60,65,75]], tM=[[11], [100,110,125,130,140]])
     fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=tm, tM=tM)
@@ -42,8 +61,8 @@ elseif ens.id == "N203"
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [30,40,50,60]], tM=[[80], [95,100]])
     fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [70,80,85]], tM=[[80], [95,98,100]])
 elseif ens.id == "D200"
-    #fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[1], [20]], tM=[[80], [50]])
-    #fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=true, wpm=wpm, tm=[[1], [30]], tM=[[80], [92]])
+    #fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [20]], tM=[[80], [50]])
+    #fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [30]], tM=[[80], [92]])
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [60,65]], tM=[[80], [70,80]])
     fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [30,40,60]], tM=[[80], [80,92]])
 elseif ens.id == "H102r001"

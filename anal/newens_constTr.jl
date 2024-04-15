@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "J501"
+id = "E300"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -44,10 +44,10 @@ if ens.id == "J501"
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], 96 .- [10,15,20,25,40]], tM=[[180], 96 .+ [10,15,20,25,40]])
     fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], 96 .- [10,15,20,25,40]], tM=[[180], 96 .+ [10,15,20,25,40]])
 elseif ens.id == "E300"
-    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [40,45,50,60,75]], tM=[[11], [110,120,124,128]])
-    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [35,40,55,65,90]], tM=[[11], [105,112,129,139,154]])
-    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [10]], tM=[[11], [166]])
-    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [54]], tM=[[11], [123]])
+    mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [35]], tM=[[11], [163]])
+    m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [23]], tM=[[11], [177]])
+    m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [75]], tM=[[11], [172]])
     fpi = get_f_wil(pp_sym[1], ap_sym[1], mpi[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [30,40]], tM=[[10], [110,120,125,130]])
     fk = get_f_wil(pp_sym[2], ap_sym[2], mk[1], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [25,30]], tM=[[10], [150,160]])
 elseif ens.id == "N302"
@@ -148,7 +148,7 @@ for i in 1:8:length(pp_tm)
         elseif ens.id == "E300"
             mpi_aux = get_m(pp_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_mpi[ens.id], tM=tM_mpi[ens.id], pl=false)
             push!(mpi, mpi_aux[1])
-            m12_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_m12[ens.id], tM=tM_m12[ens.id])
+            m12_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=[[1], [60]], tM=[[10], [129]])
             push!(m12, m12_aux[1])
             m34_aux = get_mpcac(pp_tm[i+j+6], ap_tm[i+j+6], ens, "pion_tm", wpm=wpm, tm=tm_m12[ens.id], tM=tM_m12[ens.id])
             push!(m34, m34_aux[1])
