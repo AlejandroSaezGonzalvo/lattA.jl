@@ -30,7 +30,7 @@ if ens.id == "H400"
 elseif ens.id == "H101"
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=[[1], [21]], tM=[[10], [70]], wpm=wpm)
 elseif ens.id == "N300"
-    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=[[1], [40]], tM=[[10], [95]], wpm=wpm)
+    mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=[[1], [34]], tM=[[10], [95]], wpm=wpm)
 else
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=tm, tM=tM, wpm=wpm)
 end

@@ -574,9 +574,11 @@ fpik_add = true
     ## à la Strassberger:
     ixx = 3
     ix = findall(pval[ixx] .> .1)
+    list_bad = [33,34,68,69,76,83,90,96,97]
+    ix = [collect(1:32); collect(35:67); collect(70:75); collect(77:82); collect(84:89); collect(91:95); 98]
     a = (maximum(value.(sqrt_t0_ph_vec[ixx][ix])) - minimum(value.(sqrt_t0_ph_vec[ixx][ix]))) / 2
-    b = maximum(pval[ixx])
-    c = findall(pval[ixx] .>= b)
+    b = maximum(pval[ixx][ix])
+    c = findall(pval[ixx][ix] .>= b)
     sqrt_t0_ph_vec[ixx][c]
 
     #=

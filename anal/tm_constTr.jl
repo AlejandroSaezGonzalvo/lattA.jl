@@ -8,7 +8,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H102r002"
+id = "H105"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -56,7 +56,7 @@ for i in 1:15:length(pp_sym)
         elseif ens.id == "H102r001"
             fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [20]], tM=[[10], [65]])
         else
-            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM, pl=true)
+            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM, pl=false)
         end
         push!(fpi, fpi_aux[1])
     end
@@ -64,7 +64,11 @@ end
 for i in 4:15:length(pp_sym)
     for j in 0:8
         println(i, " ", j)
-        mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+        if ens.id in ["H105", "H105r005"]
+            mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=[[1], [23]], tM=[[10], [69]])
+        else
+            mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+        end
         push!(mk, mk_aux[1])
         m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
         push!(m13, m13_aux[1])

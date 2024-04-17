@@ -491,7 +491,7 @@ function matching_newens_sym_plot()
 end
 
 function matching_newens_constTr_plot()
-    subplot(321) # Create the 1st axis of a 3x1 array of axes
+    subplot(331) # Create the 1st axis of a 3x1 array of axes
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
@@ -514,7 +514,7 @@ function matching_newens_constTr_plot()
     setp(ax.get_xticklabels(),visible=false)
     #legend()
 
-    subplot(322) 
+    subplot(332) 
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
@@ -537,7 +537,7 @@ function matching_newens_constTr_plot()
     setp(ax.get_xticklabels(),visible=false)
     setp(ax.get_yticklabels(),visible=false)
     
-    subplot(323) # Create the 1st axis of a 3x1 array of axes
+    subplot(334) # Create the 1st axis of a 3x1 array of axes
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
@@ -565,7 +565,7 @@ function matching_newens_constTr_plot()
     xticks(rotation=60)
     #legend()
 
-    subplot(324) 
+    subplot(335) 
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
@@ -593,7 +593,7 @@ function matching_newens_constTr_plot()
     setp(ax.get_yticklabels(),visible=false)
     xticks(rotation=60)
 
-    subplot(325) # Create the 1st axis of a 3x1 array of axes
+    subplot(337) # Create the 1st axis of a 3x1 array of axes
     ax = gca() # Get the handle of the current axis
     delta = (kappa[2]-kappa[1])/10
     xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
@@ -620,7 +620,7 @@ function matching_newens_constTr_plot()
     xticks(rotation=60)
     #legend()
 
-    subplot(326) 
+    subplot(338) 
     ax = gca() 
     delta = (mul[2]-mul[1])/10
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
@@ -643,6 +643,33 @@ function matching_newens_constTr_plot()
     errorbar(x_s[5:2:8,2], value.(phi4_sh[5:2:8]), err.(phi4_sh[5:2:8]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
     mul_target = up[2]; uwerr(mul_target)
     errorbar(value(mul_target), value(phi4_target[1]), err(phi4_target[1]), err(mul_target), fmt="x", color="black")
+    ax[:set_ylim]([value(phi4_sh[1])*0.97, value(phi4_sh[end])*1.03])
+    setp(ax.get_yticklabels(),visible=false)
+    xticks(rotation=60)
+
+    subplot(339) 
+    ax = gca() 
+    delta = (mus[2]-mus[1])/10
+    xp = collect(mus[1]-2*delta:delta:mus[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux")]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
+    #ylabel(L"$\phi_2^{\rm (v)}$")  
+    xlabel(L"$\mu_s^{\rm(v)}$")   
+    vect = match_phi4(xp, up) .+ [phi4_ph for i in 1:length(xp[:,1])]
+    uwerr.(vect)
+    v = value.(vect)
+    e = err.(vect)
+    phi4_target = [phi4_ph for i in 1:length(xp[:,1])]
+    uwerr.(phi4_target)
+    v2 = value.(phi4_target)
+    e2 = err.(phi4_target)
+    xp = value.(xp)
+    fill_between(xp[:,3], v-e, v+e, color="orange", alpha=0.5)
+    fill_between(xp[:,3], v2-e2, v2+e2, color="gray", alpha=0.5)
+    errorbar(x_s[1:2,3], value.(phi4_sh[1:2]), err.(phi4_sh[1:2]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$") ## mul is fixed
+    errorbar(x_s[5:6,3], value.(phi4_sh[5:6]), err.(phi4_sh[5:6]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
+    mus_target = up[3]; uwerr(mus_target)
+    errorbar(value(mus_target), value(phi4_target[1]), err(phi4_target[1]), err(mus_target), fmt="x", color="black")
     ax[:set_ylim]([value(phi4_sh[1])*0.97, value(phi4_sh[end])*1.03])
     setp(ax.get_yticklabels(),visible=false)
     xticks(rotation=60)
