@@ -127,7 +127,7 @@ fpik_add = true
         t0fpik_st_sh = sqrt.(8 * t0_sh) .* (2/3) .* (1/2 * fpi_sh .+ fk_sh) 
     end
 
-    t0_sh_sym = [[t0_sh[1] for i in 1:3]; [t0_sh[4] for i in 4:5]; [t0_sh[6] for i in 6:10]; [t0_sh[11] for i in 11:14]; [t0_sh[15]]]
+    t0_sh_sym = [[t0_sh[1] for i in 1:3]; [t0_sh[4] for i in 4:5]; [t0_sh[6] for i in 6:10]; [t0_sh[11] for i in 11:14]; [t0_sh[15] for i in 15:16]]
     #t0fpik_sh = t0fpik_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
     #t0fpik_st_sh = t0fpik_st_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
 
@@ -389,16 +389,18 @@ fpik_add = true
     for k in 1:length(set_y)
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
-                x = set_x[k][j]
-                y = set_y[k][j]
-                global L1 = length(set_y[1][j])
-                global L2 = length(set_y[1][j])
-                uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], ((Wm[k][j])) / 1 + switch * ((kron(value.(1 ./ x[:,1])', value.(1 ./ x[:,1])))))
-                push!(TIC[k], chi2 - 2 * chi_exp)
-                push!(pval[k], pval_aux)
-                push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
-                if i == j == 1 uprm_plot[k] = uprm end
-                if i == 3 && j == 1 uprm_plot2[k] = uprm end
+                if (k in [1,2] && j in [5,6] && i in [3,6,8] || k == 3 && j in [5,6] && i in [3,4,5,8,9,10,12,13,14]) == false
+                    x = set_x[k][j]
+                    y = set_y[k][j]
+                    global L1 = length(set_y[1][j])
+                    global L2 = length(set_y[1][j])
+                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], ((Wm[k][j])) / 1 + switch * ((kron(value.(1 ./ x[:,1])', value.(1 ./ x[:,1])))))
+                    push!(TIC[k], chi2 - 2 * chi_exp)
+                    push!(pval[k], pval_aux)
+                    push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
+                    if i == j == 1 uprm_plot[k] = uprm end
+                    if i == 3 && j == 1 uprm_plot2[k] = uprm end
+                end
             end
         end
     end
@@ -485,13 +487,15 @@ fpik_add = true
         y_st_mL_42 = [fpi_st_mL_42; fk_st_mL_42]
         y_combined_mL_42 = [y_st_mL_42; y_mL_42]
 
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_41, y_mL_42]
-        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_41, y_st_mL_42]
-        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_41, y_combined_mL_42]
+        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+
+        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
+        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
         
-        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_41, x_mL_42]
-        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_41, x_mL_42]
-        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_41, x_combined_mL_42]
+        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
         cuts_x = [[cuts_x[i]; cuts_x[i]] for i in 1:length(cuts_x)]
         cuts_x_st = [[cuts_x_st[i]; cuts_x_st[i]] for i in 1:length(cuts_x_st)]
         cuts_x_combined = [[cuts_x_combined[i]; cuts_x_combined[i]] for i in 1:length(cuts_x_combined)]
@@ -515,21 +519,23 @@ fpik_add = true
     for k in 1:length(set_y)
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
-                x = set_x[k][j]
-                y = set_y[k][j]
-                global L1 = length(set_y[1][j])
-                global L2 = length(set_y[1][j])
-                uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
-                push!(TIC[k], chi2 - 2 * chi_exp)
-                push!(pval[k], pval_aux)
-                if k == 3
-                    push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[1])
-                    push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[2])
-                else
-                    push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[1])
-                    push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[2])
+                if (k in [1,2] && j in [5,6] && i in [2] || k == 3 && j in [5,6] && i in [2,3,4]) == false
+                    x = set_x[k][j]
+                    y = set_y[k][j]
+                    global L1 = length(set_y[1][j])
+                    global L2 = length(set_y[1][j])
+                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
+                    push!(TIC[k], chi2 - 2 * chi_exp)
+                    push!(pval[k], pval_aux)
+                    if k == 3
+                        push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[1])
+                        push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[2])
+                    else
+                        push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[1])
+                        push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[2])
+                    end
+                    if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
                 end
-                if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
             end
         end
     end
@@ -1085,7 +1091,8 @@ fpik_add = true
 
     ix = 3
     x_ph_aux = [0.0 8 * sqrt_t0_ph[ix] ^ 2 * Mpi ^ 2 / hc ^ 2 phi4_ph phi2_sym[1]]
-    sqrt_t0_star = sqrt_t0_ph[ix] / fun(x_ph_aux,uprm)[1]
+    sqrt_t0_star = sqrt_t0_ph[ix] / fun(x_ph_aux,uprm)[1]; uwerr(sqrt_t0_star)
+    details(sqrt_t0_star, "syst chiral 3 3rd"); sqrt(1-54/100) * err(sqrt_t0_star)
 
     R = 1 / fun(x_ph_aux,uprm)[1]
 

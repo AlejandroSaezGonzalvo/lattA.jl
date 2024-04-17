@@ -41,7 +41,7 @@
 \contentsline {section}{\numberline {4.1}{Motivation}}{53}{section.4.1}%
 \contentsline {section}{\numberline {4.2}{Results: the physical point}}{54}{section.4.2}%
 \contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{56}{section.4.3}%
-\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{60}{section.4.4}%
+\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{61}{section.4.4}%
 \contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{61}{section.4.5}%
 \contentsline {chapter}{\numberline {5}{Light quark masses}}{63}{chapter.5}%
 \contentsline {chapter}{Light quark masses}{63}{chapter.5}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  12 APR 2024 19:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  17 APR 2024 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2556,16 +2556,19 @@ LaTeX Warning: Citation 'chi_exp' on page 56 undefined on input line 153.
 
 LaTeX Warning: Citation 'chi_exp' on page 56 undefined on input line 153.
 
-<./cap5/figs/BMA_comb.pdf, id=1466, 668.4975pt x 389.5353pt>
+<./cap5/figs/BMA_comb.pdf, id=1466, 582.4962pt x 967.69531pt>
 File: ./cap5/figs/BMA_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_comb.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_comb.pdf  used on input line 159.
-(pdftex.def)             Requested size: 336.0pt x 195.79544pt.
+(pdftex.def)             Requested size: 336.0pt x 558.20715pt.
 
 LaTeX Warning: Citation 'chi_exp' on page 56 undefined on input line 160.
 
 
 LaTeX Warning: Citation 'chi_exp' on page 56 undefined on input line 160.
+
+
+LaTeX Warning: Float too large for page by 28.15753pt on input line 162.
 
 
 LaTeX Warning: Citation '•' on page 56 undefined on input line 174.
@@ -2595,7 +2598,7 @@ Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
 [59 <./cap5/figs/BMA_comb.pdf>]
-<./cap5/figs/t0_sym.pdf, id=1788, 386.64452pt x 283.29839pt>
+<./cap5/figs/t0_sym.pdf, id=1784, 386.64452pt x 283.29839pt>
 File: ./cap5/figs/t0_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_sym.pdf>
 Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 197.
@@ -2627,30 +2630,30 @@ LaTeX Warning: Citation '•' on page 61 undefined on input line 230.
 
 LaTeX Warning: Citation '•' on page 61 undefined on input line 238.
 
-)
+
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[61]
+[61])
+Overfull \vbox (6.51149pt too high) has occurred while \output is active []
+
+
+[62]
 \openout2 = `cap6/cap6.aux'.
 
  (./cap6/cap6.tex
 Chapter 5.
-
+)
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
-[62
+[63
 
 
 
 
 
-])
-Overfull \vbox (6.51149pt too high) has occurred while \output is active []
-
-
-[63]
+]
 Overfull \vbox (6.51149pt too high) has occurred while \output is active []
 
 
@@ -3405,11 +3408,11 @@ Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33424 strings out of 478287
- 644551 string characters out of 5849289
+ 33423 strings out of 478287
+ 644545 string characters out of 5849289
  1485690 words of memory out of 5000000
  49609 multiletter control sequences out of 15000+600000
- 629252 words of font info for 670 fonts, out of 8000000 for 9000
+ 628995 words of font info for 669 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,23n,106p,10608b,2406s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -3427,9 +3430,9 @@ nts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up
 lbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on ClassicThesis.pdf (119 pages, 946884 bytes).
+Output written on ClassicThesis.pdf (119 pages, 944714 bytes).
 PDF statistics:
- 2549 PDF objects out of 2984 (max. 8388607)
+ 2548 PDF objects out of 2984 (max. 8388607)
  1694 compressed objects within 17 object streams
  536 named destinations out of 1000 (max. 500000)
  177339 words of extra memory for PDF output out of 184870 (max. 10000000)

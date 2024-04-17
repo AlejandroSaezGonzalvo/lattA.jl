@@ -28,43 +28,43 @@ end
 ## plot t0 BMA
 fig = figure(str[ix])
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
-rcParams["font.size"] = 5
+rcParams["font.size"] = 10
 
-subplot(311) # Create the 2nd axis of a 3x1 arrax of axes
-x = collect(1:1:length(mods))
+subplot(131) # Create the 2nd axis of a 3x1 arrax of axes
+y = collect(1:1:length(mods))
 ax = gca() # Get the handle of the current axis
-ylabel(L"$\sqrt{t_0}\;\;[fm]$")   
+xlabel(L"$\sqrt{t_0}\;\;[fm]$")   
 v = [value(sqrt_t0) for i in 1:length(sqrt_t0_vec)]
 e = [err(sqrt_t0) for i in 1:length(sqrt_t0_vec)]
-fill_between(x, v-e, v+e, color="deepskyblue", alpha=0.75)
-errorbar(x, value.(sqrt_t0_vec), err.(sqrt_t0_vec), fmt="x", color="black")
-ax[:set_ylim]([0.139, 0.1477])
-ax[:set_xlim]([0, length(mods)+1])
-plt.xticks(x, mods)
-setp(ax.get_xticklabels(),visible=false)
+fill_betweenx(y, v-e, v+e, color="deepskyblue", alpha=0.75)
+errorbar(value.(sqrt_t0_vec), y, 0 .* y, err.(sqrt_t0_vec), fmt="x", color="black")
+ax[:set_xlim]([0.139, 0.1477])
+ax[:set_ylim]([0, length(mods)+1])
+plt.yticks(y, mods)
 
-subplot(312) # Create the 2nd axis of a 3x1 arrax of axes
-bar(x, pval, color="deepskyblue")
-ylabel("p-value")
+subplot(132) # Create the 2nd axis of a 3x1 arrax of axes
+barh(y, pval, color="deepskyblue")
+xlabel("p-value")
 ax = gca()
 #ax[:set_ylim]([0.0, 0.40])
-plt.xticks(x, mods)
+plt.yticks(y, mods)
 #ax.set_yscale("log")
-ax[:set_xlim]([0, length(mods)+1])
-setp(ax.get_xticklabels(),visible=false)
+ax[:set_ylim]([0, length(mods)+1])
+setp(ax.get_yticklabels(),visible=false)
 
-subplot(313) # Create the 3rd axis of a 3x1 array of axes
+subplot(133) # Create the 3rd axis of a 3x1 array of axes
 ax = gca()
 #ax.set_yscale("log") # Set the x axis to a logarithmic scale
-bar(x, W, color="deepskyblue")
+barh(y, W, color="deepskyblue")
 #ax[:set_ylim]([0.0, 0.1])
-ylabel("W")
-plt.xticks(x, mods)
-xticks(rotation=90)
-ax[:set_xlim]([0, length(mods)+1])
+xlabel("W")
+plt.yticks(y, mods)
+#yticks(rotation=90)
+ax[:set_ylim]([0, length(mods)+1])
+setp(ax.get_yticklabels(),visible=false)
 
 tight_layout()
-subplots_adjust(hspace=0.15) 
+#subplots_adjust(hspace=0.15) 
 
 #savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/BMA_comb.pdf")
 
