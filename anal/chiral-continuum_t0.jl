@@ -575,7 +575,8 @@ fpik_add = true
 
     sqrt_t0_ph_vec = [[t0fpik_ph_vec[k][i] / (sqrt(8)* fpik_exp) for i in 1:length(t0fpik_ph_vec[k])] for k in 1:length(TIC)]
     [uwerr.(sqrt_t0_ph_vec[k]) for k in 1:length(TIC)]
-    details(sqrt_t0_ph[3], "syst chiral 3 3rd"); sqrt(1-54/100) * err(sqrt_t0_ph[3])
+    ixx = 3
+    details(sqrt_t0_ph[3], string("syst chiral ",ixx," 3rd")); sqrt(1-54/100) * err(sqrt_t0_ph[3])
 
     ## à la Strassberger:
     ixx = 3
@@ -1092,11 +1093,13 @@ fpik_add = true
     ix = 3
     x_ph_aux = [0.0 8 * sqrt_t0_ph[ix] ^ 2 * Mpi ^ 2 / hc ^ 2 phi4_ph phi2_sym[1]]
     sqrt_t0_star = sqrt_t0_ph[ix] / fun(x_ph_aux,uprm)[1]; uwerr(sqrt_t0_star)
-    details(sqrt_t0_star, "syst chiral 3 3rd"); sqrt(1-54/100) * err(sqrt_t0_star)
+    details(sqrt_t0_star, string("syst chiral ",ix," 3rd")); sqrt(1-54/100) * err(sqrt_t0_star)
 
     R = 1 / fun(x_ph_aux,uprm)[1]
 
-    a = sqrt_t0_ph[ix] * R ./ sqrt.(t0_sh_sym[ind_sym])
+    a = sqrt_t0_ph[ix] * R ./ sqrt.(t0_sh_sym[ind_sym]); uwerr.(a)
+    i = 1
+    details(a[i], string("syst chiral ",ix," 3rd")); sqrt(1-26/100) * err(a[i])
 
     fig = figure()
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
