@@ -8,7 +8,7 @@
 
 In this Appendix we discuss the details of the generation of gauge field configurations with dynamical quarks for the study of Lattice QCD. 
 
-All ensembles studied in this thesis were generated using the openQCD software, and hence the details we review here are those of the alorithms implemented for this software~\cite{•}.
+All ensembles studied in this thesis were generated using the openQCD software, and hence the details we review here are those of the alorithms implemented for this software~\citep{Luscher:2012av},\citep{Luscher:2010ae}.
 
 Tipically simulations of lattice QCD with dynamical quarks require a large amount of computer resources due to the large number of degrees of freedom, the need for big volumes and small lattice spacings. The constant efforts by the community paved the way for simulations with up to four dynamical quarks. 
 
@@ -40,7 +40,7 @@ Different choices for the transition probability $T(s\rightarrow s')$ satisfying
 
 \section{Metropolis algorithm}
 
-The Metropolis algorithm~\cite{•} is one of the most popular choices for generating a Markov Chain of gauge field configurations for pure gauge theories, for which the target distribution is
+The Metropolis algorithm~\citep{Metropolis:1953am} is one of the most popular choices for generating a Markov Chain of gauge field configurations for pure gauge theories, for which the target distribution is
 \begin{equation}
 dP[U]=\frac{e^{-S_{\textrm{G}}[U]}}{\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]}}.
 \end{equation}
@@ -54,11 +54,11 @@ T(U_i\rightarrow U_j)=T_0(U_i\rightarrow U_j)P_{\textrm{acc}}(i,j)+\delta_{ij}\s
 \end{equation}
 This $T$ satisfies all the desired properties for a transition probability and asymptotically reaches the target distribution probability for pure gauge theories.
 
-The drawback of this algorithm is that it only updates a single gauge link at each step and as such is highly inefficient, particularly for large volume simulations. Over the years new alternatives for pure gauge simulations have been proposed, such as the heat bath~\cite{•} and overrelaxation~\cite{•} algorithms.
+The drawback of this algorithm is that it only updates a single gauge link at each step and as such is highly inefficient, particularly for large volume simulations. Over the years new alternatives for pure gauge simulations have been proposed, such as the heat bath~\citep{Creutz:1980zw} and overrelaxation~\citep{Adler:1981sn},\citep{Creutz:1987xi} algorithms.
 
 \section{Hybrid Monte Carlo}
 
-Having as target distribution that of pure gauge theory is equivalent as treating quarks in the sea as static sources (infinitely heavy). In order to simulate full QCD, one needs to have dynamical quarks in the sea, meaning having target distribution eq.~(\ref{appex_simulations:eq:PU}), where $S_{\textrm{eff}}$ introduces non-local dependencies in the gauge links due to the quark determinant. Therefore algorithms like Metropolis, which updates the gauge configurations link by link experiences a significant computational cost that increases with the lattice volume squared, which makes the algorithm unpractical for dynamical simulations purposes. The Hybrid Monte Carlo (HMC) algorithm~\cite{•} significantly improves efficiency by doing global updates of the gauge configurations.
+Having as target distribution that of pure gauge theory is equivalent as treating quarks in the sea as static sources (infinitely heavy). In order to simulate full QCD, one needs to have dynamical quarks in the sea, meaning having target distribution eq.~(\ref{appex_simulations:eq:PU}), where $S_{\textrm{eff}}$ introduces non-local dependencies in the gauge links due to the quark determinant. Therefore algorithms like Metropolis, which updates the gauge configurations link by link experiences a significant computational cost that increases with the lattice volume squared, which makes the algorithm unpractical for dynamical simulations purposes. The Hybrid Monte Carlo (HMC) algorithm~\citep{Duane:1987de},\citep{Gottlieb:1987mq} significantly improves efficiency by doing global updates of the gauge configurations.
 
 The HMC uses the classical equations of motion to propose new gauge configurations. To this purpose, the field space is extended with the introduction of su(3)-valued conjugate momenta $\pi_{\mu}(x)$ of the link variables $U_{\mu}(x)$. The Hamiltonian of the system is
 \begin{equation}
@@ -78,13 +78,13 @@ where the dot notation ``$\dot{a}$'' means derivation w.r.t. MC time. This way, 
 P_{\textrm{acc}}=\textrm{min}\left(1,e^{-\Delta H}\right), \quad \Delta H=H[\pi',U']-H[\pi,U].
 \end{gather}
 
-We have presented the basic formulation of the HMC algorithm but further refinements and improvements, specially in terms of the integration of the classical equations of motion have taken place over the years~\cite{•}.
+We have presented the basic formulation of the HMC algorithm but further refinements and improvements, specially in terms of the integration of the classical equations of motion have taken place over the years~\citep{Weingarten:1991ra},\citep{OMELYAN2003272},\citep{Hasenbusch:2001ne}.
 
 This far we have not given details on how to compute the effective fermion action
 \begin{equation}
 S_{\textrm{eff}}[U]=-\sum_{i=1}^{N_f}\textrm{log det}(D_i).
 \end{equation}
-This is a typically challenging task, since it involves dealing with Grassmann variables. A usual solution is to use pseudofermion fields $\Phi(x)$~\cite{•}, which are auxiliary fields that carry color and spinor indices $c,\alpha$ but that are complex instead of Grassmann numbers. Restricting to the mass-degenerate doublet of light quarks, where the effective action becomes
+This is a typically challenging task, since it involves dealing with Grassmann variables. A usual solution is to use pseudofermion fields $\Phi(x)$~\citep{Weingarten:1980hx}, which are auxiliary fields that carry color and spinor indices $c,\alpha$ but that are complex instead of Grassmann numbers. Restricting to the mass-degenerate doublet of light quarks, where the effective action becomes
 \begin{equation}
 e^{-S_{\textrm{eff}}}=\textrm{det}(D_l)\textrm{det}(D_l)=\textrm{det}(D_l^{\dagger}D_l),
 \end{equation}
@@ -103,17 +103,17 @@ Finally the integration measure for these auxiliary fields reads
 
 Now we have all ingredients needed for HMC sampling with dynamical fermions. First one samples randomly a set of conjugate momenta $\pi_{\mu}$ and pseudo-fermion fields $\Phi$ with gaussian distribution $\propto\exp\left(-\frac{1}{2}\pi_{\mu}\pi_{\mu}-S_{\textrm{pf}}\right)$. Together with an initial gauge field configuration $U_{i}$, the classical equations of motion are integrated up to some later time. At this point one implements the accept-reject step and updates the gauge configuration to $U_{i+1}$.
 
-This far we assumed two degenerate flavors of quarks to compute the effective fermion action. The inclusion of a strange quark, as in the case of the CLS ensembles we use in this work, complicates things since it does not belong to a mass-degenerate doublet, and thus one needs to compute $\textrm{det}(D_s)$ and not $\textrm{det}(D_l^{\dagger}D_l)$. When this happens the quark determinant is not ensured to be positive anymore due to explicit chiral symmetry breaking by the Wilson term in Wilson quarks. In CLS ensembles this difficulty is tackled by the Rational Hybrid Monte Carlo algorithm~\cite{•}. However, it was found that some configurations still suffered from a negative strange quark determinant. In this case we introduce a reweighting factor with minus sign to account for the effect. Reweighting is discussed in the next section.
+This far we assumed two degenerate flavors of quarks to compute the effective fermion action. The inclusion of a strange quark, as in the case of the CLS ensembles we use in this work, complicates things since it does not belong to a mass-degenerate doublet, and thus one needs to compute $\textrm{det}(D_s)$ and not $\textrm{det}(D_l^{\dagger}D_l)$. When this happens the quark determinant is not ensured to be positive anymore due to explicit chiral symmetry breaking by the Wilson term in Wilson quarks. In CLS ensembles this difficulty is tackled by the Rational Hybrid Monte Carlo algorithm~\citep{Kennedy:1998cu},\citep{Clark:2006fx}. However, it was found that some configurations still suffered from a negative strange quark determinant. In this case we introduce a reweighting factor with minus sign to account for the effect. Reweighting is discussed in the next section.
 
 \section{Reweighting}
 
-The idea of reweighting was first proposed~\cite{•} in order to deal with exceptional gauge configurations in the HMC algorithm. These are gauge configurations with near to zero eigenvalues for the Dirac operator, which can appear due to the explicit chiral symmetry breaking induced by the Wilson term in the Wilson fermion action.
+The idea of reweighting was first proposed~\citep{Luscher:2008tw} in order to deal with exceptional gauge configurations in the HMC algorithm. These are gauge configurations with near to zero eigenvalues for the Dirac operator, which can appear due to the explicit chiral symmetry breaking induced by the Wilson term in the Wilson fermion action.
 
-In the context of CLS ensembles, a small twisted mass term $\mu_0$ is included in the light quark determinant as~\cite{1206.2809}
+In the context of CLS ensembles, a small twisted mass term $\mu_0$ is included in the light quark determinant as~\citep{Luscher:2012av}
 \begin{equation}
 \textrm{det}\left(Q^{\dagger}Q\right)\rightarrow\textrm{det}\left(\left(Q^{\dagger}Q+\mu_0^2\right)^2\left(Q^{\dagger}Q+2\mu_0^2\right)^{-1}\right),
 \end{equation}
-with the Hermitian Dirac operator given by $Q=\gamma_5D$. This provides an infrared cutoff to cancel low-mode eigenvalues. Using the Hasenbusch’s mass factorization~\cite{}
+with the Hermitian Dirac operator given by $Q=\gamma_5D$. This provides an infrared cutoff to cancel low-mode eigenvalues. Using the Hasenbusch’s mass factorization~\citep{Hasenbusch:2001ne}
 \begin{align}
 &\textrm{det}\left(\left(Q^{\dagger}Q+\mu_0^2\right)^2\left(Q^{\dagger}Q+2\mu_0^2\right)^{-1}\right) \\ 
 &=\textrm{det}\left(Q^{\dagger}Q+\mu_{n}^2\right)\textrm{det}\left(\frac{Q^{\dagger}Q+\mu_{0}^2}{Q^{\dagger}Q+2\mu_0^2}\right)\times\Pi_{i=1}^{n}\textrm{det}\left(\frac{Q^{\dagger}Q+\mu_{i-1}^2}{Q^{\dagger}Q+\mu_i^2}\right),
@@ -131,7 +131,7 @@ where $W$ is the reweighting factor and in this case reads
 W=\textrm{det}\left(Q^{\dagger}Q\left(Q^{\dagger}Q+2\mu_0^2\right)\left(Q^{\dagger}Q+\mu_0^2\right)^{-2}\right).
 \end{equation}
 
-In addition to twisted mass reweighting, reweighting is also needed due to the use of the RHMC algorithm to simulate the strange quark determinant~\cite{}. This algorithm uses the rational approximation to the strange quark determinant, which is expected to make it positive. However, as mentioned in the previous section, , it was found that some configurations still got a negative sign for the strange quark determinant. This is solved by a reweighting factor of $W_s=-1$ for said configurations (see Table~\ref{tab:Ws}).
+In addition to twisted mass reweighting, reweighting is also needed due to the use of the RHMC algorithm to simulate the strange quark determinant. This algorithm uses the rational approximation to the strange quark determinant, which is expected to make it positive. However, as mentioned in the previous section, , it was found that some configurations still got a negative sign for the strange quark determinant. This is solved by a reweighting factor of $W_s=-1$ for said configurations (see Table~\ref{tab:Ws}).
 
 \begin{longtable}{c | c}
 \toprule

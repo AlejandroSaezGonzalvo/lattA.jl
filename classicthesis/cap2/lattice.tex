@@ -17,73 +17,77 @@
 
 The theory that describes the strong interactions between quarks and gluons is called Quantum Chromodynamics, or QCD. 
 
-QCD has many remarkable properties. Among others, it is an asymptotically free theory, which means that at high energies (or short distances) the fundamental particles interact very weakly and can be treated as free. On the other hand, this implies the phenomenon of confinement at low energies (or large distances), phenomenon by which no color charged particles can be observed in Nature at these energy scales, but only color singlets. These are composite particles called mesons and baryons, which are made of quarks and gluons. Furthermore, at low energies the coupling constant grows logarithmically and perturbation theory fails to make reliable predictions. Another important feature of QCD is spontaneous chiral symmetry breaking, which is responsible for the light mass of pions, among other phenomena.
-
-QCD is a non-abelian theory associated to the SU($N_c=3$) Lie group. SU(3) rotations are described by unitary $3\times 3$ matrices $\Omega(x)$ with ${\textrm{det}}\left(\Omega(x)\right)=1$. This is a non-abelian group since its elements do not commute under multiplication. The elements of the group can be written as
+The underlying symmetry of QCD is associated to the non-abelian SU($N$=3) Lie group. The elements of this group are non-commuting, traceless unitary $3 \times 3$ matrices $\Omega$ whose determinant $\textrm{det}\;\Omega=1$. In order to have a gauge theory, which means that the theory is invariant under local SU(3) transformations, we must allow these elements to depend on space-time coordinates. One way to parametrize these matrices is
 \begin{equation}
 \Omega(x)=e^{i\alpha^{(a)}(x)T^{(a)}},
 \end{equation}
-where summation over $a=1,...,N_c^2-1=8$ is implicit and $T^{(a)}$ are the 8 generators of the SU(3) Lie group. Quarks are described by elements of the group in the fundamental representation, and gluons in the adjoint, both of them carrying the QCD charge: color.
-
-Quarks are described by the fermionic fields $\psi,\;\bar{\psi}$. They carry a Dirac spinor index $\alpha=1,2,3,4$, a flavor index $i=1,...,N_f$ and a color index $c=1,2,3$,
+where summation over $a=1,...,N^2-1=8$ is implicit and $T^{(a)}$ are the 8 generators of the SU(3) Lie group. These live in the Lie algebra su(3), which is the tangent space to the group SU(3) at the identity $I\in$ SU(3). They satisfy the commutation relations
 \begin{equation}
-\psi^i(x)_{\alpha c}.
-\end{equation} 
-In Nature, $N_f=6$ and each flavor of quark has a different mass $m_i$. Under SU(3) quarks transform as
+[T^{(a)}, T^{(b)}]=if_{abc}T^{(c)},
+\end{equation}
+where $f_{abc}$ are the structure constants of the group. Unitarity of the group elements means that
+\begin{equation}
+\Omega^{\dagger}\Omega=1.
+\end{equation}
+
+The group elements $\Omega$ must be in some representation, which determines how they act on a vector space where the degrees of freedom live. In QCD these are quarks and gluons. The former are described by spinor fields $\psi_{\alpha,i},\bar{\psi}_{\alpha,i}$. They carry a Dirac spinor index $\alpha=1,2,3,4$ and a flavor index $i=1,...,N_f$, to each flavor corresponding a different mass (in Nature $N_f=6$). They transform under SU(3) in the fundamental representation, meaning
 \begin{gather}
-\psi(x)\rightarrow\Omega(x)\psi(x), \quad
-\bar{\psi}(x)\to\bar{\psi}(x)\Omega^{\dagger}(x).
+\psi(x)\to\Omega(x)\psi(x), \quad \bar{\psi}(x)\to\bar{\psi}(x)\Omega(x)^{\dagger}.
 \end{gather}
-
-Gluons are described by the gauge fields $A_{\mu}(x)$, which are $3\times 3$ hermitian and traceless matrices belonging to the Lie algebra su(3). Gluons, being gauge bosons, carry a Lorentz index $\mu=0,1,2,3$ and two color indices $c,d=1,2,3$,
+They thus live in a 3-dimensional vector space, having an additional index $c=1,2,3$, called color. Being spinor fields, their dynamics is governed by the Dirac action
 \begin{equation}
-A_{\mu}(x)_{cd}.
+S_{\textrm{F}}=\sum_{i=1}^{N_f}\int d^4x\;\bar{\psi}^{i}(x)\left(\gamma_{\mu}\partial_{\mu}+m_i\right)\psi^i(x).
+\end{equation} 
+We implicitly sum over the repeated $\mu$ index, and we ommited the spinor and color indices. This action is invariant under global SU(3) transformations ($\Omega$ independent of $x$). In order to promote this to a local or gauge symmetry, we need to substitute the derivative by a covariant one
+\begin{equation}
+\partial_{\mu}\psi(x)\to D_{\mu}(x)\psi(x)=\partial_{\mu}\psi(x)+iA_{\mu}(x)\psi(x),
 \end{equation}
-Since $A_{\mu}(x)$ are in the Lie algebra su(3) we can decompose it into
+with $A_{\mu}$ a new field, called the gauge field, which must transform in the adjoint representation under SU(3)
 \begin{equation}
-A_{\mu}(x)=\sum_{a=1}^8A_{\mu}^{(a)}(x)T^{(a)},
-\end{equation}
-$A_{\mu}^{(a)}(x)$ being real-valued fields.
-
-Omitting color and spinor indices, the continuum QCD action takes the form
-\begin{align}
-\label{ch_foundation:eq:QCD}
-S_{\textrm{QCD}}&=\sum_{i=1}^{N_f}\int d^4x\;\bar{\psi}^i(x)\left(\gamma_{\mu}D_{\mu}(x)+m_i\right)\psi^i(x)\\&+\frac{1}{2g_0^2}{\textrm{tr}}\left(F_{\mu\nu}(x)F_{\mu\nu}(x)\right),
-\end{align}
-where the covariant derivative is given by
-\begin{equation}
-D_{\mu}(x)=\partial_{\mu}+iA_{\mu}(x)=\partial_{\mu}+iA_{\mu}^{(a)}T^{(a)}(x),
-\end{equation}
-and the strength tensor
-\begin{align}
-F_{\mu\nu}(x)&=-i\left[D_{\mu}(x),D_{\nu}(x)\right]\\&=\partial_{\mu}A_{\nu}(x)-\partial_{\nu}A_{\mu}(x)+i\left[A_{\mu}(x),A_{\nu}(x)\right] \\
-&=\left(\partial_{\mu}A_{\nu}^{(a)}(x)-\partial_{\nu}A_{\mu}^{(a)}(x)\right)T^{(a)}-f_{abc}A_{\mu}^{(b)}(x)A_{\nu}^{(c)}(x)T^{(a)} \\
-&\equiv F_{\mu\nu}^{(a)}T^{(a)},
-\end{align}
-with $f_{abc}$ the structure constants of the SU(3) group, which are anti-symmetric and given by
-\begin{equation}
-\left[T^{(b)},T^{(c)}\right]=if_{bca}T^{(a)}.
-\end{equation}
-This allows to write the gauge action as
-\begin{equation}
-\frac{1}{4g_0^2}\int d^4x\;F_{\mu\nu}^{(a)}(x)F_{\mu\nu}^{(a)}(x).
-\end{equation}
-
-In order for the QCD action to be invariant under SU(3) rotations, the gauge fields must transform as
-\begin{equation}
+\label{ch_foundation:eq:Agauge}
 A_{\mu}(x)\to\Omega(x)A_{\mu}(x)\Omega^{\dagger}(x)+i\left(\partial_{\mu}\Omega(x)\right)\Omega^{\dagger}(x),
 \end{equation}
-and so they are in the adjoint representation. From this we obtain the transformation relations
+in order to ensure gauge invariance. This means the new field $A_{\mu}$ lives in the su(3) algebra, and thus it is a hermitian, traceless $3\times 3$ matrix which can be decomposed as a linear combination of the algebra generators $T^{(a)}$
+\begin{equation}
+A_{\mu}=A_{\mu}^{(a)}T^{(a)},
+\end{equation}
+where we again implicitly sum over the repeated index $a$. The gauge or gluon fields must have a kinetic piece in the complete QCD action. The most general term which satisfy gauge invariance is
+\begin{equation}
+\frac{1}{2g_0^2}{\textrm{tr}}\left(F_{\mu\nu}(x)F_{\mu\nu}(x)\right),
+\end{equation}
+where $g_0$ is a dimensionless parameter (the coupling) and the energy strength tensor $F_{\mu\nu}$ is given by
 \begin{align}
-D_{\mu}(x)&\to\Omega(x)D_{\mu}(x)\Omega^{\dagger}(x), \\
+F_{\mu\nu}(x)&=\partial_{\mu}A_{\nu}(x)-\partial_{\nu}A_{\mu}(x)+i\left[A_{\mu}(x),A_{\nu}(x)\right].
+\end{align}
+Again, this object lives in the su(3) algebra and can be expressed as
+\begin{equation}
+F_{\mu\nu}=F_{\mu\nu}^{(a)}T^{(a)},
+\end{equation}
+writing the kinetic part of the action for the gauge fields as
+\begin{equation}
+\label{ch_foundation:eq:SYM}
+\frac{1}{2g_0^2}\int d^4x\;\textrm{tr}(F_{\mu\nu}(x)F_{\mu\nu}(x)).
+\end{equation}
+This is the Yang-Mills action, which is the action for gauge fields in the absence of matter fields. From the transformation in eq.~(\ref{ch_foundation:eq:Agauge}) we derive the transformation relations of $F_{\mu\nu}$
+\begin{align}
 F_{\mu\nu}(x)&\to\Omega(x)F_{\mu\nu}(x)\Omega^{\dagger}(x).
 \end{align}
 
-As mentioned above, at low energies or large distances QCD cannot be studied using perturbation theory. The only other known first-principles method to perform theoretical predictions is Lattice Field Theory, or Lattice QCD when applied to the study of Quantum Chromodynamics. This method is based on the discretization of spacetime into a hypercubic box or lattice
+Finally, the QCD action in continuum space-time is given by 
+\begin{align}
+\label{ch_foundation:eq:QCD}
+S_{\textrm{QCD}}&=\sum_{i=1}^{N_f}\int d^4x\;\bar{\psi}^i(x)\left(\gamma_{\mu}D_{\mu}(x)+m_i\right)\psi^i(x) \\
+&+\frac{1}{2g_0^2}\int d^4x\;{\textrm{tr}}\left(F_{\mu\nu}(x)F_{\mu\nu}(x)\right).
+\end{align}
+The only parameters of this action are the quark masses $m_i$ and the dimensionless coupling constant $g_0$.
+
+QCD has many remarkable properties. One of the most important is asympotic freedom and confinement. Asymptotic freedom means that at high energies (short distances) the coupling runs to small values and thus the theory becomes weakly coupled. On the other hand, at low energies (large distances) the theory is strongly coupled. This is responsible for some of the most remarkable properties of the theory. Most importantly, perturbation theory cannot be used to study this energy regime as the coupling is not weak and an expansion in powers of it does not converge. It is in this non-perturbative regime that most of the interesting phenomena of QCD happens, such as color confinement and spontaneous chiral symmetry breaking. The first is responsible for the fact that no color charged particles can be observed in Nature at low energies, but only color singlet composite particles, such as mesons and baryons. This means that altough the degrees of freedom of the theory are quarks and gluons, the spectrum at low energies consists of composite massive particles. This is belived to give rise to a mass gap, since altough gluons are massless, at low energies they are believed to bound in massive composite states known as glueballs. On the other hand, the theory enjoys an approximate chiral symmetry for the light quarks, which is spontaneously broken by non-perturbative dynamics, resulting in the appearance of pseudo Nambu-Goldston bosons: pions. This explains the small mass of these particles. 
+
+The only know first-principles method (other than perturbation theory) to perform theoretical predictions in Quantum Field Theory is Lattice Quantum Field Theory, or Lattice QCD when applied to the study of Quantum Chromodynamics. This method is based on the discretization of space-time into a hypercubic box or lattice
 \begin{equation}
 \Lambda=\{n_0,n_1,n_2,n_3|n_0=0,...,T/a-1;n_i=0,...,L/a-1;i=1,2,3\},
 \end{equation} 
-where $a$ is the lattice spacing between two adjacent sites, and $L,T$ are the spatial and temporal lattice extents (in physical units) respectively. The discretization of spacetime and introduction of a finite lattice spacing $a$ provides a natural energy cutoff for momenta $\sim a^{-1}$, removing UV divergences. On the other hand, the finite volume lattice ensures the absence of IR divergences. This means that the lattice formulation can be seen as a way to regularize any particular Quantum Field Theory. However, this also implies the presence of finite volume and discretization effects, which should be removed from the results. To do this, after having computed the physical observables in the lattice setup, one must perform a continuum extrapolation to obtain results at $a\rightarrow0$ and simulate large enough volumes in order to be able to neglect the effects associated with finite volume. If the theory is renormalizable, physical quantities will remain finite in the continuum limit.
+where $a$ is the lattice spacing between two adjacent sites, and $L,T$ are the spatial and temporal lattice extents (in physical units) respectively. The discretization of space-time and introduction of a finite lattice spacing $a$ provides a natural energy cutoff for momenta $\sim a^{-1}$, removing UV divergences. On the other hand, the finite volume lattice ensures the absence of IR divergences. This means that the lattice formulation can be seen as a way to regularize any particular Quantum Field Theory. However, this also implies the presence of finite volume and discretization effects, which should be removed from the predictions. To do this, after having computed the physical observables in the lattice setup, one must perform a continuum extrapolation to obtain results at $a\rightarrow0$ and simulate large enough volumes in order to be able to neglect the effects associated with finite volume. If the theory is renormalizable, physical quantities will remain finite in the continuum limit.
 
 Having discretized spacetime, fields are placed at the lattice sites $n\in\Lambda$. Fermions thus look like
 \begin{gather}
@@ -95,7 +99,7 @@ For the gauge fields, it will be helpful to use the definition of a parallel tra
 \boldsymbol{v}(b)&=P(y,x)\boldsymbol{v}(a),\\
 P(y,x)&=e^{i\int_x^yA_{\mu}(z)dz_{\mu}},
 \end{align}
-with $A_{\mu}$ the SU($N$) gauge fields. This means that a fermion in the fundamental representation picks up a phase of $P(y,x)$ when going from $x$ to $y$. This parallel transporter is called a gauge link and its discrete version will be the variable to be used in the lattice for the gauge fields. It transforms in the fundamental representation of SU($N$),
+with $A_{\mu}$ the SU($N$) gauge fields. This means that a fermion in the fundamental representation picks up a phase of $P(y,x)$ when going from $x$ to $y$. This parallel transporter is called a gauge link and its discrete version will be the variable to be used in the lattice for the gauge fields. It is an element of the group and transforms as
 \begin{equation}
 P(x,y)\to\Omega(x)P(x,y)\Omega^{\dagger}(y).
 \end{equation}
@@ -124,8 +128,9 @@ U_{\mu}(x)\to\Omega(x)U_{\mu}(x)\Omega^{\dagger}(x+\hat{\mu}),
 \end{equation}
 These fields live on the links of the lattice that connect sites $x$ and $x+\hat{\mu}$.
 
-A common discretization of the gluonic action is the Wilson gauge action~\cite{Wilson:1974sk}, which is expressed in terms of the link variables $U_{\mu}(x)$
+A common discretization of the gluonic action is the Wilson gauge action~\citep{Wilson:1974sk}, which is expressed in terms of the link variables $U_{\mu}(x)$
 \begin{equation}
+\label{ch_foundation:eq:SG}
 S_{\textrm{G}}=\frac{1}{g_0^2}\sum_x\sum_{\mu,\nu}{\textrm{Re\; tr}}\left(1-U_{\mu\nu}(x)\right),
 \end{equation} 
 where $U_{\mu\nu}(x)$ is the plaquette centered on the lattice site $x$
@@ -154,7 +159,7 @@ Taking the continuum limit $a^4\sum_x\rightarrow\int d^4x$ we recover the contin
 
 Eq.~(\ref{ch_foundation:eq:YM-latt}) shows that the effects related to the discretization of spacetime are of order $\mathcal{O}(a^2)$ for the Wilson gauge action. The discretization of the SU(3) pure Yang-Mills action is not unique, and different choices result in different cutoff effects.
 
-The $\mathcal{O}(a^2)$ cutoff effects present in the Wilson regularization of the gauge action can be further reduced by adding additional terms that respect the symmetries of the theory following the Symanzik improvement program. One such choice is the Lüscher-Weisz action~\cite{}, which we discuss in Sec.~\ref{ch_foundation:sec:impr}.
+The $\mathcal{O}(a^2)$ cutoff effects present in the Wilson regularization of the gauge action can be further reduced by adding additional terms that respect the symmetries of the theory following the Symanzik improvement program. One such choice is the Lüscher-Weisz action~\citep{Luscher:1984xn}, which we discuss in Sec.~\ref{ch_foundation:sec:impr}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,7 +176,7 @@ After discretizing the SU(3) gauge action, we still need to find a suitable disc
 \subsection{Naive fermions}
 \label{ch_foundation:subsec:Naive}
 
-To discretize the continuum fermionic action in the absence of gauge fields, considering only one flavor with mass $m$,
+To discretize the continuum fermion action in the absence of gauge fields, considering only one flavor with mass $m$,
 \begin{equation}
 S_{\textrm{F}}=\int d^4x\bar{\psi}(x)\left(\gamma_{\mu}\partial_{\mu}+m\right)\psi(x),
 \end{equation}
@@ -192,25 +197,55 @@ The solution is again to introduce the link variable or parallel transporter $U_
 \label{ch_foundation:eq:naive}
 S_{\textrm{F}}=a^4\sum_x\bar{\psi}(x)\left(\gamma_{\mu}\frac{U_{\mu}(x)\psi(x+\hat{\mu})-U_{\mu}^{\dagger}(x-\hat{\mu})\psi(x-\hat{\mu})}{2a}+m\psi(x)\right).
 \end{equation}
-From this the massive Dirac operator $D$ can be defined such that
+
+However, this naive formulation of the fermion action exhibits the problem of doubling. This means that although we wrote our action to describe one fermion of mass $m$, for finite lattice spacing $a$ additional poles with the same ground state energy will appear, spoiling the dynamics of the theory. These unwanted additional poles are known as doublers. To see how they appear, consider the massive Dirac operator $D(x,y)$ in the continuum, which can be defined such that
 \begin{equation}
-S_{\textrm{F}}=\int d^4x\bar{\psi}(x)D\psi(x).
+S_{\textrm{F}}=\int d^4xd^4y\;\bar{\psi}(x)D(x,y)\psi(y).
 \end{equation}
+In the lattice this takes the form
+\begin{equation}
+S_{\textrm{F}}=a^4\sum_{n,m}\bar{\psi}(n)D(n,m)\psi(m),
+\end{equation}
+with the Dirac operator for the naive fermion formulation given by
+\begin{equation}
+D(n,m)=\gamma_{\mu}\frac{U_{\mu}(n)\delta_{n+\hat{\mu},m}-U_{\mu}^{\dagger}(n-\hat{\mu})\delta_{n-\hat{\mu},m}}{2a}+m\delta_{n,m}.
+\end{equation}
+Restricting to the free massless fermion case $U_{\mu}=1$ for illustration, upon Fourier transform we get
+\begin{align}
+\tilde{D}(p,q)&=\frac{1}{V}\sum_{n,m}e^{-ip\times na}D(n,m)e^{iq\times ma}\\
+&=\frac{1}{V}\sum_{n,m}e^{-i(p-q)na}\left(\gamma_{\mu}\frac{e^{iq_{\mu}a}-e^{-iq_{\mu}a}}{2a}\right)\\
+&=\delta(p-q)\tilde{D}(p),
+\end{align}
+with $V$ the 4-dimensional volume of the lattice and
+\begin{equation}
+\tilde{D}(p)=\sum_{\mu}\frac{i}{a}\gamma_{\mu}\textrm{sin}(p_{\mu}a),
+\end{equation}
+where we made explicit again the sum over $\mu$. The inverse of this operator can be computed as
+\begin{equation}
+\label{ch_foundations:eq:Dinv}
+\tilde{D}^{-1}(p)=\frac{ia^{-1}\sum_{\mu}\gamma_{\mu}sin(p_{\mu}a)}{a^{-2}\sum_{\mu}sin(p_{\mu}a)^2}.
+\end{equation}
+We can see that in the continuum $a\rightarrow0$ we recover the correct form of the Dirac operator
+\begin{equation}
+\tilde{D}(p)^{-1}|_{m=0}\rightarrow_{a\rightarrow0}\frac{-i\gamma_{\mu}p_{\mu}}{p^2}
+\end{equation}
+with one single pole at $p^2=0$. However, at finite lattice spacing, the denominator in eq.~(\ref{ch_foundations:eq:Dinv}) vanishes not only for $p=(0,0,0,0)$ but also for 
+\begin{equation}
+p=(\pi/a,0,0,0),\;(0,\pi/a,0,0),\;...,\;(\pi/a,\pi/a,\pi/a,\pi/a).
+\end{equation}
+These are 15 unwanted poles, the doublers, that only disappear in the continuum, once they become infinitely heavy. These doublers have the same ground energy as the true pole at $p^2=0$ and they affect the dynamics of the theory. 
 
-The lattice fermion action used here suffers from the problem of doublers, which are unwanted poles that appear in the Kallen-Lehman representation of the fermion propagator $\left<\psi(x)\bar{\psi}(y)\right>$. These doublers appear due to the presence of two zeros of the Dirac operator in the First Brillouin Zone (FBZ) in each lattice direction, all with the same vacuum energy.  Thus, for $d$ dimensions, there are $2^d$ one particle states with the same ground state energy. The problem of the doublers is related to chiral symmetry and its implementation in the lattice.
-
-Chiral symmetry in continuum QCD can be expressed as 
+The problem of doublers is related to chiral symmetry and its implementation in the lattice. Chiral symmetry in continuum QCD can be expressed as 
 \begin{equation}
 \label{ch_foundation:eq:chirality}
 \{D,\gamma_5\}=0,
 \end{equation}
-with $D$ the Dirac operator. There's a theorem by Nielsen and Ninomiya~\cite{} that states that one cannot implement chiral symmetry in this way in the lattice without the appearance of doublers.
-In this lattice formulation of chiral symmetry, there must be an equal number of right movers and left movers. In particular, this means having just one pole is not possible. Ginsparg and Wilson~\cite{} proposed a suitable version of chiral symmetry for the lattice as
+with $D$ the Dirac operator. There's a theorem by Nielsen and Ninomiya~\citep{Nielsen:1980rz}-\citep{Nielsen:1981hk} that states that one cannot implement chiral symmetry in the way of eq.~(\ref{ch_foundation:eq:chirality}) in the lattice without the appearance of doublers. In this lattice formulation of chiral symmetry, there must be an equal number of right movers and left movers. In particular, this means having just one pole is not possible. Ginsparg and Wilson~\citep{Ginsparg:1981bj} proposed a suitable version of chiral symmetry for the lattice as
 \begin{equation}
 \label{ch_foundation:eq:chirality-latt}
 \{D,\gamma_5\}=aD\gamma_5D,
 \end{equation}
-such that in the continuum eq.~(\ref{ch_foundation:eq:chirality}) is recovered. With this definition of chiral symmetry in the lattice, it is possible to construct Dirac operators that satisfy eq.~(\ref{ch_foundation:eq:chirality-latt}) and are free of doublers. An example of such an operator is the overlap operator~\cite{}.
+such that in the continuum eq.~(\ref{ch_foundation:eq:chirality}) is recovered. With this definition of chiral symmetry in the lattice, it is possible to construct Dirac operators that satisfy eq.~(\ref{ch_foundation:eq:chirality-latt}) and are free of doublers. 
 
 If one is not interested in studying physics related to chiral symmetry, another choice is to build a Dirac operator that explicitly breaks chiral symmetry but removes the doublers. Wilson fermions and Wilson twisted mass fermions are examples of such a choice, which we will now study.
 
@@ -220,7 +255,7 @@ If one is not interested in studying physics related to chiral symmetry, another
 \subsection{Wilson fermions}
 \label{ch_foundation:subsec:Wilson}
 
-Wilson proposed~\cite{Wilson:1974sk} adding an extra term to the naive fermionic action in eq.~\eqref{ch_foundation:eq:naive} to eliminate doublers. This term vanishes in the continuum limit, but at finite lattice spacing it gives an additional mass to the doublers. This mass becomes infinitely heavy in the continuum limit, and thus the doublers decouple from the theory. The Wilson fermion action reads
+Wilson proposed~\citep{Wilson:1974sk} adding an extra term to the naive fermion action in eq.~\eqref{ch_foundation:eq:naive} to distinguis the doublers from the true pole. The Wilson fermion action reads
 \begin{equation}
 \label{ch_foundation:eq:Wil_fer}
 S_{\textrm{W}}=a^4\sum_x\bar{\psi}(x)\frac{1}{2}\left(\gamma_{\mu}\left(\nabla_{\mu}+\nabla_{\mu}^*\right)+2m-a\nabla_{\mu}\nabla_{\mu}^*\right)\psi(x),
@@ -230,7 +265,6 @@ where we have defined the forward and backward discrete covariant derivatives as
 \nabla_{\mu}\psi(x)&=\frac{U_{\mu}(x)\psi(x+\hat{\mu})-\psi(x)}{a},\\
 \nabla_{\mu}^*\psi(x)&=\frac{\psi(x)-U_{\mu}^{\dagger}(x-\hat{\mu})\psi(x-\hat{\mu})}{a}.
 \end{align}
-
 From the Wilson fermion action~\eqref{ch_foundation:eq:Wil_fer} the Wilson Dirac operator reads
 \begin{equation}
 \label{ch_foundation:eq:DW}
@@ -245,6 +279,15 @@ For $N_f$ flavors, an additional sum over a flavor index $i=1,...,N_f$ is requir
 \label{ch_foundation:eq:kappa}
 \kappa_i=\frac{1}{2am_i+8}.
 \end{equation}
+The momentum space massless Dirac operator reads
+\begin{equation}
+\tilde{D}_{\textrm{W}}(p)=\frac{i}{a}\sum_{\mu}\gamma_{\mu}\textrm{sin}(p_{\mu}a)+\frac{1}{a}\sum_{\mu}\left(1-\textrm{cos}(p_{\mu}a)\right).
+\end{equation}
+The third summand in the r.h.s. comes from the Wilson extra term $a\nabla_{\mu}\nabla_{\mu}^*$ in the action, and it is responsible for giving to the doublers an additional mass term
+\begin{equation}
+\frac{2l}{a},
+\end{equation}
+where $l$ is the number of momentum components with $p_{\mu}=\pi/a$ for the doubler. This additional mass distinguisses the doublers from the true pole and makes them decouple as we approach the continuum limit.
 
 The Wilson term $a\nabla_{\mu}\nabla_{\mu}^*$ in the Wilson Dirac operator manifestly breaks chiral symmetry, even in the $m_i=0$ limit, and this symmetry is only restored in the continuum limit. Consequently, the quark mass receives additive renormalization contributions, 
 \begin{equation}
@@ -260,7 +303,7 @@ The Wilson fermion action has $\mathcal{O}(a)$ cutoff effects, which again can b
 \subsection{Wilson twisted mass fermions}
 \label{ch_foundation:subsec:tm}
 
-Wilson twisted mass (tm) fermions~\cite{} introduce an imaginary mass term to the Wilson Dirac operator in eq.~\eqref{ch_foundation:eq:DW} of the form
+Wilson twisted mass (tm) fermions~\citep{Frezzotti:1999vv},\citep{Frezzotti:2000nk},\citep{Frezzotti:2001ea},\citep{Frezzotti:2003ni},\cite{Shindler:2007vp} introduce an imaginary mass term to the Wilson Dirac operator in eq.~\eqref{ch_foundation:eq:DW} of the form
 \begin{equation}
 i\bar{\psi}(x)\boldsymbol{\mu}\gamma_5\psi(x),
 \end{equation}
@@ -287,7 +330,7 @@ one retrieves the usual physical (standard) formulation with real fermionic mass
 \begin{equation}
 M_i^2=m_i^2+\mu_i^2,
 \end{equation}
-and a chirally rotated Wilson term. The rotated fields $\phi',\bar{\psi}'$ define the so called physical basis, while the unrotated ones $\psi,\bar{\psi}$ define the twisted basis.
+and a chirally rotated Wilson term. The rotated fields $\psi',\bar{\psi}'$ define the so called physical basis, while the unrotated ones $\psi,\bar{\psi}$ define the twisted basis.
 
 In practice we will be working with Wilson tm fermions at full twist
 \begin{equation}
@@ -311,15 +354,15 @@ and
 [U(1)_V]_3=\left\{\begin{matrix}
 \psi(x)\rightarrow e^{i\alpha_A^3\frac{\tau^3}{2}}\psi(x) \\ 
 \bar{\psi}(x)\rightarrow \bar{\psi}(x)e^{-i\alpha_A^3\frac{\tau^3}{2}}
-\end{matrix}\right..
+\end{matrix}\right.,
 \end{equation}
-This means that at full twist axial symmetries are not completely broken, and thus the twisted mass is protected against additive renormalization,
+with $\tau^{a}$ the Pauli matrices. This means that at full twist axial symmetries are not completely broken, and thus the twisted mass is protected against additive renormalization,
 \begin{equation}
 \label{ch_foundation:eq:muR}
 \mu_i^{\textrm{R}}=Z_{\mu}(g_0^2,a\mu)\mu_i.
 \end{equation}
 
-An important role in our setup is played by the Ward-Takahashi identities (WTI). They will be used to tune the Wilson twisted mass parameters to ensure full twist and to determine the quark masses in the Wilson regularization. Furthermore, they allow to identify the renormalization constant of the twist masses $Z_{\mu}$. For the non-singlet case ($i\neq j$) the WTI for the axial and vector currents, in the continuum limit and in the twisted basis, are as follows (see Appendix~\ref{apex_currents} for the definition of the currents)
+An important role in our setup is played by the Ward-Takahashi identities (WTI). They will be used to tune the Wilson twisted mass parameters to ensure full twist and to determine the quark masses in the Wilson regularization. Furthermore, they allow to identify the renormalization constant of the twist masses $Z_{\mu}$. For the non-singlet case ($i\neq j$) the WTI for the axial and vector currents, in the continuum limit and in the twisted basis, are as follows (see eqs.~(\ref{ch_observables:eq:bilinears}) for the definition of the currents)
 \begin{align}
 \label{ch_foundation:eq:WTI}
 \partial_{\mu}V_{\mu}^{ij}&=(m_i-m_j)S^{ij}+i(\eta_i\mu_i-\eta_j\mu_j)P^{ij},\\
@@ -349,18 +392,18 @@ Z_{\mu}=Z_P^{-1}.
 
 Having formulated the QCD action in the lattice, we need to see how physical quantities are computed. To do so, we review some aspects of the path integral formulation in Euclidean spacetime. In this formalism, physical quantities are expressed as expectation values of operators
 \begin{align}
-\left<\mathcal{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[\psi,\bar{\psi},U]\mathcal{O}(x_1,...,x_n)e^{-S[\psi,\bar{\psi},U]}, \\
+\left<{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[\psi,\bar{\psi},U]{O}(x_1,...,x_n)e^{-S[\psi,\bar{\psi},U]}, \\
 \mathcal{Z}&=\int\mathcal{D}[\psi,\bar{\psi},U]e^{-S[\psi,\bar{\psi},U]}.
 \end{align}
 This is equivalent to expectation values in statistical mechanics with a Boltzmann factor of $e^{-S[\psi,\bar{\psi},U]}$. The action can be decomposed into its gluon and fermion components $S[\psi,\bar{\psi},U]=S_{\textrm G}[U]+S_{\textrm F}[\psi,\bar{\psi}]$, and fermion variables can be integrated out as
 \begin{align}
-\left<\mathcal{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\times\\&\left[\frac{1}{\mathcal{Z}_{\textrm F}}\int\mathcal{D}[\psi,\bar{\psi}]\mathcal{O}(x_1,...,x_n)e^{-S_{\textrm F}[\psi,\bar{\psi}]}\right] \\
-&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\left<\mathcal{O}(x_1,...,x_n)\right>_{\textrm F}, \\
+\left<{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\times\\&\left[\frac{1}{\mathcal{Z}_{\textrm F}}\int\mathcal{D}[\psi,\bar{\psi}]{O}(x_1,...,x_n)e^{-S_{\textrm F}[\psi,\bar{\psi}]}\right] \\
+&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\left<{O}(x_1,...,x_n)\right>_{\textrm F}, \\
 \mathcal{Z}_{\textrm F}&=\int\mathcal{D}[\psi,\bar{\psi}]e^{-S_{\textrm F}[\psi,\bar{\psi}]}=\Pi_{i=1}^{N_f}{\textrm{det}}\left(D\right),
 \end{align}
 This fermionic determinant can be expressed as an effective action as
 \begin{align}
-\left<\mathcal{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\left<\mathcal{O}(x_1,...,x_n)\right>_{\textrm F}, \\
+\left<{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\left<{O}(x_1,...,x_n)\right>_{\textrm F}, \\
 \mathcal{Z}&=\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}, \\
 S_{\textrm{eff}}[U]&=-\sum_{i=1}^{N_f}{\textrm{log}}\;{\textrm{det}}\left(D\right).
 \end{align}
@@ -418,7 +461,7 @@ In the context of SU(N) Yang-Mills theory, perturbation theory shows that at a f
 \label{ch_foundation:eq:beta-func}
 a\frac{\partial g_0}{\partial a}\equiv\beta(g_0)=-\beta_0g_0^3-\beta_1g_0^5+...,
 \end{equation}
-where $\beta_{0,1}$ are universal coefficients (do not depend on the renormalization scheme) and positive for $N=3$, as in the case of QCD. This shows that $g_0=0$ is a fixed point of the RG transformations and thus corresponds to the continuum limit. As the fixed point is in the weak coupling regime, this perturbative argument is expected to be valid. Therefore the continuum limit corresponds to
+where $\beta_{0,1}$ are universal coefficients (do not depend on the renormalization scheme) and positive for $N=3$ colors and $N_f=6$ flavors, as in the case of QCD. This shows that $g_0=0$ is a fixed point of the RG transformations and thus corresponds to the continuum limit. As the fixed point is in the weak coupling regime, this perturbative argument is expected to be valid. Therefore the continuum limit corresponds to
 \begin{equation}
 g_0\rightarrow0,
 \end{equation}
@@ -427,7 +470,7 @@ or in terms of the inverse coupling $\beta$
 \beta\rightarrow\infty.
 \end{equation}
 
-In practice, one cannot numerically simulate at infinite inverse coupling $\beta$. Therefore, physical observables are computed at several finite values of $\beta$. This introduces $\mathcal{O}(a^n)$ cutoff effects in the results, with some power $n$. To obtain results in the continuum, one parameterizes these cutoff effects with some function of the lattice spacing and extrapolates to $a\rightarrow 0$. However, this task is far from trivial~\cite{}. To help in the continuum limit extrapolation, one can systematically reduce lattice artifacts, e.g. from $\mathcal{O}(a)$ to $\mathcal{O}(a^2)$ following the Symanzik improvement program. 
+In practice, one cannot numerically simulate at infinite inverse coupling $\beta$. Therefore, physical observables are computed at several finite values of $\beta$. This introduces $\mathcal{O}(a^n)$ cutoff effects in the results, with some power $n$. To obtain results in the continuum, one parameterizes these cutoff effects with some function of the lattice spacing and extrapolates to $a\rightarrow 0$. However, this task is far from trivial~\citep{Husung:2022kvi}. To help in the continuum limit extrapolation, one can systematically reduce lattice artifacts, e.g. from $\mathcal{O}(a)$ to $\mathcal{O}(a^2)$ following the Symanzik improvement program. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -437,7 +480,7 @@ In practice, one cannot numerically simulate at infinite inverse coupling $\beta
 
 Symanzik improvement requires improving both the action of the theory and the lattice interpolators that enter the different correlators. 
 
-In order to improve a lattice action, one can describe the target continuum action in terms of an effective action
+In order to improve a lattice action, one can describe the target continuum action in terms of an effective action in powers of the lattice spacing $a$
 \begin{equation}
 S_{\textrm{eff}}=\int d^4x\sum_kc_k\mathcal{L}_k(x)a^{k-4}.
 \end{equation}
@@ -448,7 +491,7 @@ In the case of Lattice QCD, we saw that in the Wilson gauge action in eq.~(\ref{
 \label{ch_foundation:eq:SG_impr}
 S_G=\frac{\beta}{3}\sum_{\mu\nu}\left[c_0\sum_p{\textrm{Re}}\left({\textrm{tr}}\left(1-U_{\mu\nu}(p)\right)\right)+\sum_{i=1}^3c_i\sum_r{\textrm{Re}}\left({\textrm{tr}}\left(1-U^{(i)}(r)\right)\right)\right],
 \end{equation}
-with $U^{(i)}$ said dimension-6 operators. Tuning the coefficients $c_i$ properly leads to $\mathcal{O}(a^2)$ improvement. In our study, the CLS ensembles we employ (see Sec.~\ref{ch_ma:sec:Sea}) use the so called Lüscher-Weisz gauge action~\cite{}, with these coefficients computed at tree-level
+with $U^{(i)}$ said dimension-6 operators. Tuning the coefficients $c_i$ properly leads to $\mathcal{O}(a^2)$ improvement. In our study, the CLS ensembles we employ (see Sec.~\ref{ch_ma:sec:Sea}) use the so called Lüscher-Weisz gauge action~\citep{Luscher:1984xn},\citep{Luscher:1985zq}, with these coefficients computed at tree-level
 \begin{gather}
 \label{ch_foundation:eq:LW}
 c_0=\frac{5}{3}, \quad
@@ -459,8 +502,8 @@ Thus, in the Lüscher-Weisz gauge action the only dimension-6 operators that sur
 
 We also need to improve the fermion action. Wilson fermions have $\mathcal{O}(a)$ cutoff effects. In order to improve the Wilson fermion action to $\mathcal{O}(a^2)$ we need to look for all possible operators with dimension $4+k=5$ that preserve the lattice symmetries. These are
 \begin{gather}
-\mathcal{L}_{k=1}^{(1)}=i\bar{\psi}\sigma_{\mu\nu}F_{\mu\nu}\psi,\\
-\mathcal{L}_{k=1}^{(2)}=\boldsymbol{m}{\textrm{tr}}\left(F_{\mu\nu}(x)F_{\mu\nu}(x)\right),\\
+\mathcal{L}_{k=1}^{(1)}=i\bar{\psi}\sigma_{\mu\nu}\hat{F}_{\mu\nu}\psi,\\
+\mathcal{L}_{k=1}^{(2)}=\boldsymbol{m}{\textrm{tr}}\left(\hat{F}_{\mu\nu}(x)\hat{F}_{\mu\nu}(x)\right),\\
 \mathcal{L}_{k=1}^{(3)}=\boldsymbol{m}^2\bar{\psi}\psi,
 \end{gather}
 with
@@ -475,7 +518,7 @@ $\mathcal{L}_{k=1}^{(1),(2)}$ are already present (up to numerical factors) in t
 \label{ch_foundation:eq:DW_impr}
 D_{\textrm W}+\boldsymbol{m}+c_{\textrm{sw}}a\frac{1}{2}\sum_{\mu<\nu}\sigma_{\mu\nu}\hat{F}_{\mu\nu},
 \end{equation}
-with $c_{\textrm{sw}}$ the Sheikholeslami-Wohlert coefficient determined non-perturbatively in~\cite{}.
+with $c_{\textrm{sw}}$ the Sheikholeslami-Wohlert coefficient determined non-perturbatively in~\citep{Sheikholeslami:1985ij}.
 
 Improving the lattice action ensures improvement of on-shell quantities such as meson masses. However, if one is interested in matrix elements mediated by some current $\mathcal{J}_{\mu}$, it is also necessary to improve the lattice interpolators that enter into the definition of those currents. In analogy with the improvement of the action, a local operator $O$ is expressed in the Symanzik effective theory as
 \begin{equation}
@@ -501,7 +544,7 @@ The $\mathcal{O}(a)$ improved Wilson tm fermion action is analogous to the Wilso
 \begin{equation}
 D_{\textrm W}+\boldsymbol{m}+i\gamma_5\boldsymbol{\mu}+c_{\textrm{sw}}a\frac{1}{2}\sum_{\mu<\nu}\sigma_{\mu\nu}\hat{F}_{\mu\nu}.
 \end{equation}
-The advantage of Wilson tm fermions is that at full twist (vanishing renormalized standard quark mass) one achieves automatic $\mathcal{O}(a)$ improvement~\cite{}. This means that physical quantities are automatically improved without the need of any improvement coefficients for lattice operators. The following argument is based on the original work~\cite{} to which we refer for a complete proof.
+The advantage of Wilson tm fermions is that at full twist (vanishing renormalized standard quark mass) one achieves automatic $\mathcal{O}(a)$ improvement~\citep{Frezzotti:2003ni},\cite{Shindler:2007vp}. This means that physical quantities are automatically improved without the need of any improvement coefficients for lattice operators. The following argument is based on the original work~\cite{Frezzotti:2003ni} to which we refer for a complete proof.
 
 At full twist, the Wilson tm Dirac operator reads
 \begin{equation}
@@ -540,7 +583,7 @@ Finally, we also need to improve the bare gauge coupling, which at $\mathcal{O}(
 \begin{equation}
 \tilde{g}_0^2=g_0^2\left(1+ab_g{\textrm{tr}}\left(M_q\right)\right),
 \end{equation}
-with $b_g$ the improvement coefficient, whose value at one-loop is given in~\cite{}.
+with $b_g$ the improvement coefficient, whose value at one-loop is given in~\citep{Luscher:1996sc}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -548,7 +591,7 @@ with $b_g$ the improvement coefficient, whose value at one-loop is given in~\cit
 \section{Scale setting}
 \label{ch_foundation:sec:ss}
 
-In the lattice, all physical observables are computed in units of the lattice spacing $a$. Thus, in order to make any prediction, it is necessary to determine $a$ in physical units. This task is called scale setting. It involves the precise determination of a reference observable, called the scale, in physical units, to which any other observable is compared in order to extract the value of the latter in physical units. As an example, we could use the proton mass $m_{\textrm{proton}}$ as a reference scale, and calculate the ratio of it to a given mass $m_i$
+In the lattice, all physical observables are computed in units of the lattice spacing $a$. Thus, in order to make any prediction, it is necessary to determine $a$ in physical units. This task is called scale setting. It involves the precise determination of a reference observable, called the scale, in physical units, to which any other observable is compared to in order to extract the value of the latter in physical units. As an example, we could use the proton mass $m_{\textrm{proton}}$ as a reference scale, and calculate the ratio of it to a given mass $m_i$
 \begin{equation}
 R_i=\frac{m_i}{m_{\textrm{proton}}}.
 \end{equation}
@@ -576,6 +619,8 @@ Once the physical value of $t_0$ is found, it can be used as an intermediate sca
 \end{matrix}\right|_{a=0}}{\sqrt{t_0^{\textrm{ph}}}}.
 \end{equation}
 This quantity is already a prediction of the lattice.
+
+In addition to the continuum limit, in the lattice often unphysical quark masses are simulated, since they are computationally cheaper. This means one needs to perform chiral extrapolations/interpolations of lattice observables to reach physical quark masses. Both the chiral-continuum limits are discussed in Sec.~\ref{ch_ss} for the scale setting we perform in this thesis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
