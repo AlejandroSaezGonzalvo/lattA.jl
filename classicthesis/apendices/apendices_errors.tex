@@ -10,7 +10,7 @@ In this appendix we discuss how to perform the data analysis of correlation func
 
 Lattice data is measured from Monte Carlo (MC) sampling, and estimates of expectation values of physical observables are extracted from means over the MC time. A crucial step is to assign a proper statistical and systematic uncertainties to these mean values, for which it is needed to take into account the autocorrelated nature of MC measurements. This autocorrelation arises form the fact that each gauge configuration is proposed from the previous one (Markov chain). Some popular methods to deal with these correlations are binning, bootstrap and the jack-knife methods~\cite{}.
 
-A recent technique which we will use in this work was proposed by the ALPHA collaboration~\cite{Gamma-method} and is known as $\Gamma$-method, which explicitely computes the autocorrelation function to estimate the statistical uncertainty.
+A recent technique which we will use in this work was proposed by the ALPHA collaboration~\citep{Schaefer:2010hu},\citep{Wolff:2003sm},\citep{Ramos:2018vgu} and is known as $\Gamma$-method, which explicitely computes the autocorrelation function to estimate the statistical uncertainty.
 
 In lattice simulations tipically one measures a primary observable $p_i$ over several ensembles (defined by the simulation parameters like e.g. the inverse coupling $\beta$ and $\kappa$ parameter) 
 \begin{equation}
@@ -62,24 +62,24 @@ where we assumed that several ensembles contribute to $F$, and hence the sum $\s
 \label{app_errors:eq:taui}
 \tau_{\textrm{int}}^{\alpha}(F)=\frac{1}{2}+\sum_{k=1}^{\infty}\frac{\Gamma_F^{\alpha}(k)}{\Gamma_F^{\alpha}(k)}.
 \end{equation}
-To estimate it, a truncation in MC time $k$ is needed. The autocorrelation function admits the following expansion~\cite{•}
+To estimate it, a truncation in MC time $k$ is needed. The autocorrelation function admits the following expansion~\citep{Luscher:2011kk},\citep{Schaefer:2010hu}
 \begin{equation}
 \Gamma(k)\approx\sum_{n=0}^{\infty}e^{-k/\tau_n}.
 \end{equation}
-The slowest mode $\tau_0\equiv\tau_{\textrm{exp}}$ is called the exponential autocorrelation time and it gives the decay rate of $\Gamma(k)$. Truncating eq.~(\ref{app_errors:eq:taui}) at MC time $k=W_F^{\alpha}$ introduces a systematic uncertainty of $\mathcal{O}(\exp(-W_F^{\alpha}/\tau_{\textrm{exp}}^{\alpha}))$. The $\Gamma$-method proposes as optimal window that which minimizes the sum of statistical (estimated in~\cite{J.Stat.Phys.50(1988)109}) and systematic contributions
+The slowest mode $\tau_0\equiv\tau_{\textrm{exp}}$ is called the exponential autocorrelation time and it gives the decay rate of $\Gamma(k)$. Truncating eq.~(\ref{app_errors:eq:taui}) at MC time $k=W_F^{\alpha}$ introduces a systematic uncertainty of $\mathcal{O}(\exp(-W_F^{\alpha}/\tau_{\textrm{exp}}^{\alpha}))$. The $\Gamma$-method proposes as optimal window that which minimizes the sum of statistical (estimated in~\citep{Madras:1988ei}) and systematic contributions
 \begin{equation}
 W_F^{\alpha}=\textrm{min}_W\left(\sqrt{\frac{2(2W+1)}{N_{\alpha}}}+e^{-W/\tau_{\textrm{exp}}^{\alpha}}\right).
 \end{equation}
-In~\cite{•} it was proposed to set $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$, with $S_{\tau}$ some value between 2 and 5. One can also vary $W_F^{\alpha}$ until saturation in $\tau_{\textrm{int}}^{\alpha}$ is reached. In~\cite{•} it was also proposed to add an exponential tail
+In~\citep{Wolff:2003sm} it was proposed to set $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$, with $S_{\tau}$ some value between 2 and 5. One can also vary $W_F^{\alpha}$ until saturation in $\tau_{\textrm{int}}^{\alpha}$ is reached. Finally it was also proposed to add an exponential tail~\citep{Wolff:2003sm}
 \begin{equation}
 \tau_{\textrm{exp}}^{\alpha}\frac{\Gamma_F^{\alpha}(W_F^{\alpha}+1)}{\Gamma_F^{\alpha}(0)},
 \end{equation}
-to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of truncating the sum over MC time. For this an estimate of $\tau_{\textrm{exp}}^{\alpha}$ is needed for each ensemble. In the case of CLS ensembles an estimation is given in~\cite{}
+to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of truncating the sum over MC time. For this an estimate of $\tau_{\textrm{exp}}^{\alpha}$ is needed for each ensemble. In the case of CLS ensembles an estimation is given in~\citep{Bruno:2014jqa}
 \begin{equation}
 \tau_{\textrm{exp}}^{\alpha}=14(3)\frac{t_0}{a^2}.
 \end{equation}
 
-In this thesis we use the $\Gamma$-method explained above as it is implemented by the ADerrors.jl julia package~\cite{•}.
+In this thesis we use the $\Gamma$-method explained above as it is implemented by the ADerrors.jl julia package~\citep{Ramos:2020scv}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

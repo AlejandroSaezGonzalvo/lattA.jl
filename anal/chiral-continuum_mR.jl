@@ -18,7 +18,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/plot.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
-new = true
+new = false
 if new == true
     ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
     ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
@@ -255,6 +255,8 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         phi12_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         phi13_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         uprm_phi_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        uprm_phi12_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        uprm_phi13_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         uprm_yphi_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         uprm_y_plot = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 
@@ -365,8 +367,11 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
     param = [5, 7]
     
     for k in 1:length(set_y1)
+        println("k = ", k)
         for i in 1:length(models_y1)
+            println("i = ", i)
             for j in 1:length(cuts_y1)
+                println("j = ", j)
                 yy1 = set_y1[k][j]
                 yy2 = set_y2[k][j]
                 x = set_x[k][j]
@@ -435,8 +440,8 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
     end
 
     models_y1 = [phi12_model5]
-    models_x = [x_model15]
-    param = [4]
+    models_x = [x_model5]
+    param = [5]
     
     for k in 1:length(set_y1)
         for i in 1:length(models_y1)
@@ -448,14 +453,14 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(phi12_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
-                #if i == j == 1 uprm_phi_plot[k] = uprm end
+                if i == j == 1 uprm_phi12_plot[k] = uprm end
             end
         end
     end
 
     models_y1 = [phi13_model6]
     models_x = [x_model6]
-    param = [4]
+    param = [5]
     
     for k in 1:length(set_y1)
         for i in 1:length(models_y1)
@@ -467,7 +472,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
                 push!(TIC[k], chi2 - 2 * chi_exp)
                 push!(pval[k], pval_aux)
                 push!(phi13_ph_vec[k], models_y1[i]([x_ph;x], uprm)[1])
-                #if i == j == 1 uprm_phi_plot[k] = uprm end
+                if i == j == 1 uprm_phi13_plot[k] = uprm end
             end
         end
     end
@@ -810,7 +815,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
-            aux = phi12_model1(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+            aux = phi12_model1(x_plot,uprm_plot[2]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -819,7 +824,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         end
         x_prime = [i for i in 0.01:0.05:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
-        aux = phi12_model1(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+        aux = phi12_model1(x_plot,uprm_plot[2]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -839,7 +844,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
-            aux = phi13_model1(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+            aux = phi13_model1(x_plot,uprm_plot[2]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -848,7 +853,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         end
         x_prime = [i for i in 0.01:0.05:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
-        aux = phi13_model1(x_plot,uprm_phi_plot[2]) ; uwerr.(aux)
+        aux = phi13_model1(x_plot,uprm_plot[2]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -880,7 +885,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
-            aux = phi12_model1(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+            aux = phi12_model1(x_plot,uprm_plot[1]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -889,7 +894,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         end
         x_prime = [i for i in 0.01:0.05:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
-        aux = phi12_model1(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+        aux = phi12_model1(x_plot,uprm_plot[1]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
@@ -909,7 +914,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         x_prime = [i for i in 0.01:0.05:0.85]
         for ind in ind_sym
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
-            aux = phi13_model1(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+            aux = phi13_model1(x_plot,uprm_plot[1]) ; uwerr.(aux)
             v = value.(aux)
             e = err.(aux)
             #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
@@ -918,7 +923,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         end
         x_prime = [i for i in 0.01:0.05:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
-        aux = phi13_model1(x_plot,uprm_phi_plot[1]) ; uwerr.(aux)
+        aux = phi13_model1(x_plot,uprm_plot[1]) ; uwerr.(aux)
         v = value.(aux)
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)

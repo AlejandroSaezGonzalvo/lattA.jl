@@ -15,7 +15,7 @@
 \section{Introduction}
 \label{ch_observables:sec:general}
 
-In this Chapter we discuss the technical details on the extraction of physical observables from the lattice. In Sec.~\ref{ch_observables:sec:correlators} we define the two-point functions required for extracting the physical observables needed in the analysis of the scale setting and the light and strange quark masses: in Sec.~\ref{ch_observables:sec:meson_mass} we discuss how to extract meson masses while Sec.~\ref{ch_observables:sec:dec_const} covers the extraction of decay constants, their improvement and renormalization. In  Sec.~\ref{ch_observables:sec:quark_mass} we define the PCAC quark masses which will be used to tune Wilson tm quarks at full twist and to extract the physical quark masses. In Sec.~\ref{ch_observables:sec:Flow} we discuss the gradient flow scale $t_0$ which we will use as the reference scale for the scale setting. Finally, in Sec.~\ref{ch_observables:sec:MA} we discuss the model averaging technology which we employ in order to find the ground state signals from all these lattice observables.
+In this Chapter we discuss the technical details on the extraction of physical observables from the lattice. In Sec.~\ref{ch_observables:sec:correlators} we define the two-point functions required for extracting the physical observables needed in the analysis of the scale setting and the light and strange quark masses. In Sec.~\ref{ch_observables:sec:meson_mass} we discuss how to extract meson masses while Sec.~\ref{ch_observables:sec:dec_const} covers the extraction of decay constants, their improvement and renormalization. In  Sec.~\ref{ch_observables:sec:quark_mass} we define the PCAC quark masses which will be used to tune Wilson tm quarks at full twist and to extract the physical quark masses. In Sec.~\ref{ch_observables:sec:Flow} we discuss the gradient flow scale $t_0$ which we will use as the reference scale for the scale setting. Finally, in Sec.~\ref{ch_observables:sec:MA} we discuss the model averaging technology which we employ in order to find the ground state signals from all these lattice observables.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,6 +27,7 @@ In this Chapter we discuss the technical details on the extraction of physical o
 
 For the extraction of the physical observables of interest for this work we need two-point functions involving the pseudoscalar and axial currents, defined as
 \begin{align}
+\label{ch_observables:eq:bilinears}
 P^{ij}(x)&=\bar{\psi}^{i}(x)\gamma_5\psi^{j}(x),\\
 A_{\mu}^{ij}(x)&=\bar{\psi}^i(x)\gamma_{\mu}\gamma_5\psi^{j}(x),
 \end{align}
@@ -36,45 +37,37 @@ where $i,j$ are flavor indices. The Wilson term in the Wilson and Wilson tm ferm
 P^{ij,{\textrm{R}}}&=Z_P(g_0^2,a\mu)\left(1+a\tilde{b}_Pm_{ij}+a\bar{b}_P{\textrm{tr}}\left(M_q\right)\right)P^{ij}, \\
 A_{\mu}^{ij,{\textrm{R}}}&=Z_A(g_0^2)\left(1+a\tilde{b}_Am_{ij}+a\bar{b}_A{\textrm{tr}}\left(M_q\right)\right)A_{\mu}^{ij},
 \end{align}
-where the $b$-counterterms are improvement coefficients for the renormalization constants. The renormalization constants are shown in Table~\ref{ch_observables:tab:Z}, while the improvement coefficients are in Table~\ref{ch_observables:tab:b}. For our purposes, we will only need the differences $\tilde{b}_A-\tilde{b}_P$, $\bar{b}_A-\bar{b}_P$ and $\tilde{b}_A$, the latter given in perturbation theory by~\cite{}
+where the $b$-counterterms are improvement coefficients for the renormalization constants. The renormalization constants are shown in Table~\ref{ch_observables:tab:Z}, while the improvement coefficients are in Table~\ref{ch_observables:tab:b}. For our purposes, we will only need the differences $\tilde{b}_A-\tilde{b}_P$, $\bar{b}_A-\bar{b}_P$ and $\tilde{b}_A$, the latter given in perturbation theory by~\citep{Taniguchi:1998pf}
 \begin{equation}
 \label{ch_observables:eq:bA}
 \tilde{b}_A=1+0.0472g_0^2+\mathcal{O}(g_0^4).
 \end{equation}
 
-\begin{table}
-\label{ch_observables:tab:Z}
-\begin{center}
-    \begin{tabular}{c c c}
+\begin{longtable}{c c c}
+    \label{ch_observables:tab:Z}
     $\beta$ & $Z_A$ & $Z_P$ \\
-    \hline
+    \toprule
     3.40 & 0.75642(72) & 0.35121(56) \\
     3.46 & 0.76169(93) & 0.34941(44) \\
     3.55 & 0.76979(43) & 0.34767(55) \\
     3.70 & 0.78378(47) & 0.34732(63) \\
     3.85 & 0.79667(47) & 0.35014(73) \\
-    \hline
-    \end{tabular}
-    \caption{Renormalization constants $Z_A$ and $Z_P$ for different values of $\beta$. $Z_A$, which does not depend on the energy scale but only on the bare coupling $g_0^2$, is calculated non-perturbatively in~\cite{} using the chirally rotated Schrödinger functional, the “l-convention” and subtraction of the one-loop cutoff effects. $Z_P$ is calculated non-perturbatively at the scale $\mu_{\textrm{had}}=233(8)$ MeV in~\cite{}}
-\end{center}
-\end{table}
+    \bottomrule
+    \caption{Renormalization constants $Z_A$ and $Z_P$ for different values of $\beta$. $Z_A$, which does not depend on the energy scale but only on the bare coupling $g_0^2$, is calculated non-perturbatively in~\citep{DallaBrida:2018tpn} using the chirally rotated Schrödinger functional. $Z_P$ is calculated non-perturbatively at the scale $\mu_{\textrm{had}}=233(8)$ MeV in~\cite{Campos:2018ahf}.}
+\end{longtable}
 
-\begin{table}
-\label{ch_observables:tab:b}
-\begin{center}
-    \begin{tabular}{c c c c}
+\begin{longtable}{c c c c}
+    \label{ch_observables:tab:b}
     $\beta$ & $\tilde{b}_A-\tilde{b}_P$ & $\bar{b}_A-\bar{b}_P$ & $\tilde{b}_A$ \\
-    \hline
+    \toprule
     3.40 & -0.324(17) & $\mathcal{O}(g_0^4)$ & 1.2684 \\
     3.46 & -0.265(14) & $\mathcal{O}(g_0^4)$ & 1.2638 \\
     3.55 & -0.196(14) & $\mathcal{O}(g_0^4)$ & 1.2571 \\
     3.70 & -0.119(14) & $\mathcal{O}(g_0^4)$ & 1.2467 \\
     3.85 & -0.073(12) & $\mathcal{O}(g_0^4)$ & 1.2371 \\
-    \hline
-    \end{tabular}
-    \caption{Summary of improvement coefficients at CLS $\beta$ values. $\tilde{b}_A-\tilde{b}_P$ is taken from LCP-1 results in~\cite{}, while $\bar{b}_A-\bar{b}_P$ are computed in perturbation theory. $\tilde{b}_A$ is computed perturbatively in~\cite{} and given by eq.~(\ref{ch_observables:eq:bA})}
-\end{center}
-\end{table}
+    \bottomrule
+    \caption{Summary of improvement coefficients at CLS $\beta$ values. $\tilde{b}_A-\tilde{b}_P$ is taken from LCP-1 results in~\citep{deDivitiis:2017vvw}, while $\bar{b}_A-\bar{b}_P$ are computed in perturbation theory. $\tilde{b}_A$ is computed perturbatively in~\citep{Taniguchi:1998pf} and given by eq.~(\ref{ch_observables:eq:bA})}
+\end{longtable}
 
 To achieve $\mathcal{O}(a)$ improvement in the Wilson regularization, we need to improve the axial current as part of the Symanzik improvement program as follows
 \begin{equation}
@@ -87,7 +80,7 @@ where we defined the symmetric time derivative
 \partial_{x}f(x)&=\frac{f(x+a)-f(x)}{a},\\
 \partial^*_{x}f(x)&=\frac{f(x)-f(x-a)}{a}.
 \end{align}
-The improvement coefficient $c_A$ is given non-perturbatively by~\cite{}
+The improvement coefficient $c_A$ is given non-perturbatively by~\citep{Bulava:2015bxa}
 \begin{equation}
 c_A(g_0^2)=-0.006033g_0^2\left[1+\exp\left(9.2056-\frac{13.9847}{g_0^2}\right)\right].
 \end{equation}
@@ -105,18 +98,25 @@ C_X(x_0)=\frac{C_X(x_0,y_0=a)\pm C_X(T-x_0,y_0=T-a)}{2},
 \end{equation}
 is taken to increase statistics, with the $+$ sign for the $X=P$ case and $-$ sign for the $X=A$ case.
 
-The spectral decomposition of the two-point functions $C_X$ allows to extract relevant hadronic observables such as the meson masses and decay constants. In what follows we restrict to the case of the pion, but the same applies to any other flavor content. Using the Transfer Matrix formalism
+The spectral decomposition of the two-point functions $C_X$ allows to extract relevant hadronic observables such as the meson masses and decay constants. In what follows we restrict to the case of the pion, but the same applies to any other flavor content. Using the Transfer Matrix formalism and imposing the boundary conditions that the initial and final states are given by
+\begin{gather}
+\left|\phi(0,\vec{x})\right>=\left|\phi_i\right>, \quad \left|\phi(T,\vec{x}\right>=\left|\phi_f\right>,
+\end{gather}
+we can express a generic two-point function by
 \begin{equation}
 \label{ch_observables:eq:spectral}
-\left<O(x)O(y)\right>=\mathcal{Z}^{-1}\left<\phi_f\right|e^{-(T-x_0)\hat{H}}\hat{O}(\vec{x})e^{-(x_0-y_0)\hat{H}}\hat{O}(\vec{y})e^{-y_0}\hat{H}\left|\phi_i\right>,
+\left<O(x)O(y)\right>=\mathcal{Z}^{-1}\left<\phi_f\right|e^{-(T-x_0)\hat{H}}\hat{O}(\vec{x})e^{-(x_0-y_0)\hat{H}}\hat{O}(\vec{y})e^{-y_0\hat{H}}\left|\phi_i\right>.
 \end{equation}
-and inserting a complete set of states $\left|\vec{p},n\right>$
+Inserting a complete set of states $\left|\vec{p},n\right>$
 \begin{equation}
 1=\frac{1}{2E_n(\vec{p})L^3}\sum_{\vec{p},n}\left|\vec{p},n\right>\left<\vec{p},n\right|,
 \end{equation}
-we can write a two-point function as
+this becomes
 \begin{align}
-\left<O(x)O(y)\right>&=\mathcal{Z}^{-1}\frac{1}{L^9}\sum_{n,m,l}\sum_{\vec{p},\vec{q},\vec{s}}\frac{1}{2^3E_n(\vec{p})E_m(\vec{q})E_l(\vec{s})}\\&\times\left<\phi_f|\vec{q},m\right>e^{-(T-x_0)E_m(\vec{q})}\times\\&\left<\vec{q},m\right|\hat{O}(\vec{x})\left|\vec{p},n\right>e^{-(x_0-y_0)E_n(\vec{p})}\\&\times\left<\vec{p},n\right|\hat{O}(\vec{y})\left|\vec{s},l\right>e^{-y_0E_s(\vec{l})}\left<\vec{s},l|\phi_i\right>.
+\left<O(x)O(y)\right>&=\mathcal{Z}^{-1}\frac{1}{L^9}\sum_{n,m,l}\sum_{\vec{p},\vec{q},\vec{s}}\frac{1}{2^3E_n(\vec{p})E_m(\vec{q})E_l(\vec{s})} \\
+&\times\left<\phi_f|\vec{q},m\right>e^{-(T-x_0)E_m(\vec{q})} \\
+&\times\left<\vec{q},m\right|\hat{O}(\vec{x})\left|\vec{p},n\right>e^{-(x_0-y_0)E_n(\vec{p})} \\
+&\times\left<\vec{p},n\right|\hat{O}(\vec{y})\left|\vec{s},l\right>e^{-y_0E_s(\vec{l})}\left<\vec{s},l|\phi_i\right>.
 \end{align}
 The partition function reads
 \begin{align}
@@ -134,7 +134,9 @@ From the spectral decomposition of the two-point function, the exponentials with
 \end{equation}
 With all this, the two-point function can be written then as
 \begin{align}
-\left<O(x)O(y)\right>&=\sum_{\alpha,\beta,\gamma}\sum_{n,m,l}\frac{\left<\Omega|\beta,m\right>}{\left<\Omega|0,0\right>}e^{-(T-x_0)E_m^{\beta}}\times\\&\left<\beta,m\right|\hat{O}(\vec{x})\left|\alpha,n\right>e^{-(x_0-y_0)E_n^{\alpha}}\\&\times\left<\alpha,n\right|\hat{O}(\vec{y})\left|\gamma,l\right>e^{-y_0}E_s^{\gamma}\frac{\left<\gamma,l|\Omega\right>}{\left<0,0|\Omega\right>},
+\left<O(x)O(y)\right>&=\sum_{\alpha,\beta,\gamma}\sum_{n,m,l}\frac{\left<\Omega|\beta,m\right>}{\left<\Omega|0,0\right>}e^{-(T-x_0)E_m^{\beta}} \\
+&\times\left<\beta,m\right|\hat{O}(\vec{x})\left|\alpha,n\right>e^{-(x_0-y_0)E_n^{\alpha}} \\
+&\times\left<\alpha,n\right|\hat{O}(\vec{y})\left|\gamma,l\right>e^{-y_0}E_s^{\gamma}\frac{\left<\gamma,l|\Omega\right>}{\left<0,0|\Omega\right>},
 \end{align}
 where we absorbed the $e^{-TE_0}$ term coming from the partition function into the energy levels
 \begin{equation}
@@ -299,28 +301,55 @@ In Fig.~\ref{ch_observables:fig:mpcac} we show the dependence of the PCAC quark 
 \section{Gradient flow}
 \label{ch_observables:sec:Flow}
 
-For the scale setting, we will use the gradient flow scale $t_0$ as an intermediate scale. The gradient flow is a method of smearing the gauge fields $U_{\mu}(x)$~\cite{flow}. It involves evolving the gauge fields along a new dimension called flow time $t$ using the flow equation
-\begin{align}
-\partial_tV_t(x,\mu)&=-g_0^2\left[\partial_{x,\mu}S_W(V_t)\right]V_t(x,\mu),\\
-V_{t=0}(x,\mu)&=U_{\mu}(x),
-\end{align}
-with $V_t$ the flowed gauge fields. 
-
-For positive flow time $t>0$, gauge observables such as the energy density are finite and need not to be renormalized. The energy density can be defined as
+For the scale setting, we will use the gradient flow scale $t_0$ as an intermediate scale. Gradient flow is defined by the partial differential equation~\citep{Luscher:2010we},\citep{1006.4518}
+\begin{gather}
+\label{ch_observables:eq:flow}
+\frac{dB_{\mu}(x,t)}{dt}=D_{\nu}G_{\mu\nu}(x,t), \quad B_{\mu}(x,t=0)=A_{\mu}(x),
+\end{gather}
+with $A_{\mu}$ the usual algebra-valued gauge fields. In this equation $t$ is a new fictitious dimension called flow time. The associated field strength tensor $G_{\mu\nu}$ is defined by
 \begin{equation}
-E(x,t)=a^4\sum_{\mu,\nu}{\textrm{tr}}\left(\hat{F}_{\mu\nu}(x)\hat{F}_{\mu\nu}(x)\right),
+G_{\mu\nu}(x,t)=\partial_{\mu}B_{\nu}(x,t)-\partial_{\nu}B_{\mu}(x,t)+i\left[B_{\mu}(x,t),B_{\nu}(x,t)\right],
 \end{equation}
-using eq.~(\ref{ch_foundation:eq:}) for the definition of $\hat{F}_{\mu\nu}$ but replacing the flowed fields $V_t$ for the original gauge links $U_{\mu}$. After averaging over the 4-dimensional volume
+with the covariant derivative acting on it in the adjoint representation
+\begin{equation}
+D_{\nu}G_{\mu\nu}=\partial_{\nu}G_{\mu\nu}+i\left[B_{\mu},G_{\mu\nu}\right].
+\end{equation}
+The flow equation can be rewritten as
+\begin{gather}
+\frac{dB_{\mu}(x,t)}{dt}=\frac{\delta S_{\textrm{YM}}[B]}{\delta B_{\mu}(x,t)}, \quad B_{\mu}(x,t=0)=A_{\mu}(x),
+\end{gather}
+with $S_{\textrm{YM}}$ the continuum Yang-Mills action in eq.~(\ref{ch_foundation:eq:SYM}) in terms of the flow fields $B_{\mu}$. From this we can see that the effect of integrating this equation of motion is to flow the gauge fields towards the local minima of the Yang-Mills action. By solving the flow equation to leading order in the bare coupling $g_0^2$
+\begin{equation}
+\label{ch_observables:eq:B}
+B_{\mu}(x,t)=\frac{g_0}{4\pi t^2}\int d^4y\;e^{-(x-y)^2/4t}A_{\mu}(y).
+\end{equation}
+From this we see that the flow field $B_{\mu}$ is smoothed over space-time with smearing radius $r_{\textrm{smear}}=2\sigma=\sqrt{8t}$, $\sigma$ being the variance of the distribution in eq.~(\ref{ch_observables:eq:B}), $\sigma^2=2t$.
+
+In the lattice, eq.~(\ref{ch_observables:eq:flow}) can be expressed as 
+\begin{align}
+a^2\frac{dV_{\mu}(x,t)}{dt}&=-g_0^2\frac{\delta S_{\textrm{G}}[V]}{\delta V_{\mu}(x,t)}V_{\mu}(x,t),\\
+V_{\mu}(x,t=0)&=U_{\mu}(x),
+\end{align}
+with $U_{\mu}$ the gauge links introduced in Sec. \ref{ch_foundation} and $S_{\textrm{G}}$ the Wilson gauge action in eq.~(\ref{ch_foundation:eq:SG}).
+
+After integrating the flow equation eq.~(\ref{ch_observables:eq:flow}), the energy density at flow time $t$ can be defined as
+\begin{equation}
+E(x,t)=\frac{1}{4}{\textrm{tr}}\left({G}_{\mu\nu}(x,t){G}_{\mu\nu}(x,t)\right).
+\end{equation}
+In the lattice, this can be computed by
+\begin{equation}
+E(x,t)=2\sum_{\mu,\nu}\textrm{Re tr}\left(1-V_{\mu\nu}(x,t)\right),
+\end{equation}
+which is just eq.~(\ref{ch_foundation:eq:SG}) but with the plaquette $U_{\mu\nu}(x)$ of gauge links $U_{\mu}(x)$ replaced by the plaquette $V_{\mu\nu}(x,t)$ of flow fields $V_{\mu}(x,t)$. After averaging over the 4-dimensional volume
 \begin{equation}
 E(t)=\left<E(x,t)\right>_x,
 \end{equation}
-we are left with an average energy density that depends only on the flow time. This average is computed using the model averaging technique detailed in sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be precisely calculated in the lattice, making it a suitable choice for setting the scale (see Sec.~\ref{ch_ss}). To this end, the scale $t_0$ is defined as the flow time which satisfies
+we are left with an average energy density that depends only on the flow time. This average is computed using the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be precisely calculated in the lattice, making it a suitable choice for setting the scale (see Sec.~\ref{ch_ss}). To this end, the scale $t_0$ is defined as the flow time which satisfies
 \begin{equation}
 \label{ch_observables:eq:t0}
 t^2E(t)|_{t=t_0}\equiv0.3.
 \end{equation}
-
-Fig.~\ref{ch_observables:fig:t2E} shows the extraction of $t_0/a^2$ for one particular ensemble.
+It will be this gradient flow scale $t_0$ which we will use as an intermediate scale to convert lattice results to physical units. Fig.~\ref{ch_observables:fig:t2E} shows the extraction of $t_0/a^2$ for one particular ensemble.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -329,7 +358,7 @@ Fig.~\ref{ch_observables:fig:t2E} shows the extraction of $t_0/a^2$ for one part
 \section{Ground state signals and model average}
 \label{ch_observables:sec:MA}
 
-So far, we have expressed all physical observables under study as functions of the euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met. In the community there are different approaches to adress this issue~\cite{}. Our choice is to employ model averaging techniques as proposed in~\cite{}.
+So far, we have expressed all physical observables under study as functions of the euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met. In the lattice community there are different approaches to adress this issue. Our choice is to employ model averaging techniques as proposed in~\citep{Neil:2022joj},\citep{Neil:2023pgt},\citep{Frison:2023jbv}.
 
 The idea is to investigate multiple fit functions and/or several fit ranges and assign an Information Criterion ${\textrm{IC}}$ to each choice, which allows to compute a weight
 \begin{equation}
@@ -345,11 +374,11 @@ for each choice $i$ of the ``model'', which refers to a specific fit function an
 \label{ch_observables:eq:syst}
 \sigma_{\textrm{syst}}^2[p]=\left<{p^2}\right>_{\textrm{MA}}-\left<p\right>^2_{\textrm{MA}}.
 \end{equation}
-For fitting we use a least-squares method that seeks to minimize a $\chi^2$ function by finding the extremal values of the fit parameters (for details see Appendix~\ref{apex_chisq}). As proposed in~\cite{} we use the Takeuchi's Information Criterion (TIC)
+For fitting we use a least-squares method that seeks to minimize a $\chi^2$ function by finding the extremal values of the fit parameters (for details see Appendix~\ref{apex_chisq}). As proposed in~\citep{Frison:2023jbv} we use the Takeuchi's Information Criterion (TIC)
 \begin{equation}
 {\textrm{TIC}}=\chi^2-2\left<\chi^2\right>,
 \end{equation}
-where $\left<\chi^2\right>$ is a measure of the expected value of the $\chi^2$, for a precise definition see~\cite{}. This IC is well-behaved for cases where fully correlated fits cannot be performed (see Appendix~\ref{apex_chisq} for details), which is our case when fitting observables along the euclidean time direction. For a fully correlated fit, $\left<\chi^2\right>={\textrm{dof}}$, and thus the TIC reduces to the proposal in~\cite{}
+where $\left<\chi^2\right>$ is a measure of the expected value of the $\chi^2$, for a precise definition see~\citep{Bruno:2022mfy}. This IC is well-behaved for cases where fully correlated fits cannot be performed (see Appendix~\ref{apex_chisq} for details), which is our case when fitting observables along the euclidean time direction. For a fully correlated fit, $\left<\chi^2\right>={\textrm{dof}}$, and thus the TIC reduces to the proposal in~\citep{Neil:2022joj}
 \begin{equation}
 {\textrm{TIC}}=\chi^2-2n_{\textrm{param}}-2n_{\textrm{cut}},
 \end{equation}
@@ -369,7 +398,6 @@ and we investigate the effects of varying the fit range. The result for the fit 
 This model averaging technique will also be used for the chiral and continuum extrapolations needed to set the scale and determine the physical quark masses, but there we will also consider the variation of the fit functions and not only cutting data (variation of the fit range), see Secs.~\ref{ch_ss} and~\ref{ch_qm}.
 
 \begin{figure}
-\label{ch_observables:fig:meff}
     \centering
     \begin{subfigure}{1.\textwidth}
     	\includegraphics[width=\textwidth]{./cap3/figs/meff_H101.pdf}
@@ -380,10 +408,10 @@ This model averaging technique will also be used for the chiral and continuum ex
     	\caption{}
     \end{subfigure}
     \caption{(a): pion effective mass $m_{\textrm{eff}}$ in eq.~(\ref{ch_observables:eq:meff}) for ensemble H101 in the Wilson regularization. (b): the same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}.}
+        \label{ch_observables:fig:meff}
 \end{figure}
 
 \begin{figure}
-\label{ch_observables:fig:mpcac}
     \centering
     \begin{subfigure}{1.\textwidth}
     	\includegraphics[width=\textwidth]{./cap3/figs/mpcac_H101.pdf}
@@ -394,10 +422,10 @@ This model averaging technique will also be used for the chiral and continuum ex
     	\caption{}
     \end{subfigure}
     \caption{(a): up-down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}) for ensemble H101 in the Wilson regularization. (b): the same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}.}
+        \label{ch_observables:fig:mpcac}
 \end{figure}
 
 \begin{figure}
-\label{ch_observables:fig:R}
     \centering
     \begin{subfigure}{1.\textwidth}
     	\includegraphics[width=\textwidth]{./cap3/figs/R_H101.pdf}
@@ -408,10 +436,10 @@ This model averaging technique will also be used for the chiral and continuum ex
     	\caption{}
     \end{subfigure}
     \caption{(a): vacuum-to-pion axial matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R}) for ensemble H101 in the Wilson regularization. (b): the same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}.}
+        \label{ch_observables:fig:R}
 \end{figure}
 
 \begin{figure}
-\label{ch_observables:fig:t2E}
     \begin{subfigure}{1.\textwidth}
     	\includegraphics[width=\textwidth]{./cap3/figs/t2E_vs_x0.pdf}
     	\caption{}
@@ -421,14 +449,16 @@ This model averaging technique will also be used for the chiral and continuum ex
     	\caption{}
     \end{subfigure}
     \caption{(a): $t^2E(t)$ for one value of the flow time $t/a^2$ near $t_0/a^2$ as a function of the euclidean time $x_0/a$. (b): euclidean-time averaged values of $t^2E(t)$ for several flow times $t/a^2$ near $t_0/a^2$ (blue points) and the interpolated result for $t_0/a^2$ (orange point)).}
+        \label{ch_observables:fig:t2E}
 \end{figure}
 
 \begin{figure}
-\label{ch_observables:fig:model_av}
 \centering
 	\includegraphics[width=1.\textwidth]{./cap3/figs/m_H101_pion_wil.pdf}
-    \caption{Model variation for the extraction of the ground state signal in the pion effective mass of ensemble H101 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff}. From top to bottom we show the ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice, the weight associated to each choice according to eq.~(\ref{ch_observables:eq:weight}), and the goodness of fit measured through the p-values defined in~\cite{}. We see that the highest weights are associated to a compromise between good fits (in terms of p-values) and fits with large number of points. The right-most models in the plot are heavily penalized even though they have the best p-values, since they cut a large number of points and models with not so severe cuts get also good p-values. The band in the top figure indicates the final weighted average result with the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}) included.}
+    \caption{Model variation for the extraction of the ground state signal in the pion effective mass of ensemble H101 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff}. From top to bottom we show the ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice, the weight associated to each choice according to eq.~(\ref{ch_observables:eq:weight}), and the goodness of fit measured through the p-values defined in~\citep{Bruno:2022mfy}. We see that the highest weights are associated to a compromise between good fits (in terms of p-values) and fits with large number of points. The right-most models in the plot are heavily penalized even though they have the best p-values, since they cut a large number of points and models with not so severe cuts get also good p-values. The band in the top figure indicates the final weighted average result with the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}) included.}
+    \label{ch_observables:fig:model_av}
 \end{figure}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
