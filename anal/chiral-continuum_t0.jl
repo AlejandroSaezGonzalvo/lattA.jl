@@ -15,10 +15,10 @@ if new == true
     ens_new = ["D450", "E250", "N302", "E300", "J500", "J501"]
     ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
 else
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
-    ens_new = ["", "J501"]
-    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens_new = [""]
+    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
 end
 ens_sym = ["H101", "H400", "N202", "N300", "J500"]
 ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
@@ -524,7 +524,8 @@ fpik_add = true
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
                     global L2 = length(set_y[1][j])
-                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
+                    guess = [-0.04649873644681202, 3.2258942220608646, -0.06380039585181703, 0.32012086686329133, 0.023858335148344484, 0.10023340057075658]
+                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i], guess)
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     if k == 3
@@ -565,6 +566,12 @@ fpik_add = true
     t0fk_ph = t0fk_ph .+ [uwreal([0.0, value(syst_fk[k])], string("syst chiral fpi ", k, " 3rd")) for k in 1:length(TIC)]
     fk_exp_pred = t0fk_ph ./ sqrt(8) ./ sqrt_t0_ph_fpi * hc
     uwerr.(fk_exp_pred)
+    W_fpi_aux = deepcopy(W_fpi)
+    pval_fpi_aux = deepcopy(pval_fpi)
+    [uwerr.(t0fpi_ph_vec[k]) for k in 1:length(TIC)]
+    [uwerr.(t0fk_ph_vec[k]) for k in 1:length(TIC)]
+    sqrt_t0_ph_fpi_vec = [[t0fpi_ph_vec[k][i] / (sqrt(8)* Fpi / hc) for i in 1:length(t0fpi_ph_vec[k])] for k in 1:length(W_fpi)]
+    [uwerr.(sqrt_t0_ph_fpi_vec[k]) for k in 1:length(TIC)]
     =#
 
     W_aux = deepcopy(W)
@@ -576,7 +583,7 @@ fpik_add = true
     sqrt_t0_ph_vec = [[t0fpik_ph_vec[k][i] / (sqrt(8)* fpik_exp) for i in 1:length(t0fpik_ph_vec[k])] for k in 1:length(TIC)]
     [uwerr.(sqrt_t0_ph_vec[k]) for k in 1:length(TIC)]
     ixx = 3
-    details(sqrt_t0_ph[3], string("syst chiral ",ixx," 3rd")); sqrt(1-54/100) * err(sqrt_t0_ph[3])
+    details(sqrt_t0_ph[ixx], string("syst chiral ",ixx," 3rd")); sqrt(1-54/100) * err(sqrt_t0_ph[ixx])
 
     ## à la Strassberger:
     ixx = 3
@@ -860,6 +867,7 @@ fpik_add = true
             v = value.(aux)
             e = err.(aux)
             plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            #fill_between(x_plot[:,2], v-e, v+e, color_beta[i], alpha=0.75)
             i += 1
         end
         errorbar(value(phi2_ph), value(t0fpi_ph_vec[1][1]), err(t0fpi_ph_vec[1][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
@@ -974,6 +982,7 @@ fpik_add = true
             v = value.(aux)
             e = err.(aux)
             plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            #fill_between(x_plot[:,2], v-e, v+e, color_beta[i], alpha=0.75)
             i += 1
         end
         errorbar(value(phi2_ph), value(t0fk_ph_vec[1][1]), err(t0fk_ph_vec[1][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")

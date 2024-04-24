@@ -14,18 +14,18 @@ with $\left<.\right>_{\eta}$ meaning average over the $N_{\eta}$ samples of some
 \begin{gather}
 \xi_i^q(x)=\sum_yD^{-1}_q(x,y)\eta_i(y), \quad \zeta_i^r(x)=\sum_yD^{-1}_r(x,y)\gamma_5\Gamma_B^{\dagger}\eta_i(y),
 \end{gather}
-with $\Gamma_B$ some Gamma matrix. Now, two-point functions like the one in eq.~(\ref{ch_foundation:eq:path_int})) can be expressed as
+with $\Gamma_B$ some Gamma matrix. Now, two-point functions like the one in eq.~(\ref{ch_foundation:eq:path_int}) can be expressed as
 \begin{align}
 \left<O^{rq}_AO^{qr}_B\right>&-\frac{a^6}{L^3}\sum_{\vec{y}}\left<\left<(\Gamma_A\gamma_5\zeta^r_i(y))^{\dagger}\xi^q_i(y)\right>_{\eta}\right> \\
 &\approx -\frac{a^6}{L^3}\frac{1}{N_{\eta}}\sum_{i=1}^{N_{\eta}}\sum_{\vec{y}}\left<(\Gamma_A\gamma_5\zeta^r_i(y))^{\dagger}\xi^q_i(y)\right>,
 \end{align}
 without the need to compute the all-to-all inverted Dirac operator, therefore reducing significantly the computational effort.
 
-In order to invert the Dirac operator with flavor $q$, the solution to the Dirac equation 
+We still need to solve the Dirac equation
 \begin{equation}
 D_q(x,y)\psi_r(y)=\delta_{x,y}\delta_{q,r}\equiv\eta_{x,y,q,r},
 \end{equation}
-must be found. This is usually done by an iterative procedure. The basic idea is to start from an initial approximate solution $\psi_0$ and define the residue $\rho$ (we supress indices for simplicity)
+in order to invert the Dirac operator $D_q$ with flavor $q$. This is usually done by an iterative procedure. The basic idea is to start from an initial approximate solution $\psi_0$ and define the residue $\rho$ (we supress indices for simplicity)
 \begin{equation}
 \rho=D\psi_0-\eta.
 \end{equation}
@@ -55,7 +55,7 @@ LDR\psi'=L\eta, \quad \psi=R^{-1}\psi'.
 \end{gather}
 This is called preconditioning, and there are many different variations. Some of the most used are even-odd preconditioning~\citep{DEGRAND1988161} and distance preconditioning~\citep{deDivitiis:2010ya}.
 
-There are also more sophisticated algorithms to solve the Dirac equation based on conjugate gradient solvers and the Krylov subspace solvers, and we refer to ~\cite{Gattringer_Lang_2010} for a pedagogical introduction.
+There are also more sophisticated algorithms to solve the Dirac equation based on conjugate gradient solvers and the Krylov subspace solvers, and we refer to ~\citep{Gattringer_Lang_2010} for a pedagogical introduction.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

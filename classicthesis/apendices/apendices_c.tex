@@ -8,7 +8,7 @@
 
 Simulating QCD in a finite box introduces finite volume effects which can be a source for systematic uncertainties. In Table~\ref{apex_ensembles:tab:ens} we show the volume of each ensemble in terms of $m_{\pi}L$. It is conventional to consider finite volume effects under control if $m_{\pi}L\geq4$.
 
-ChPT provides us with formulae to account for these finite volume effects. In particular, to NLO the pion mass and decay constant, as well as the kaon decay constant, receive the following corrections~\citep{Colangelo:2003hf},\citep{Colangelo:2005gd}
+ChPT provides us with formulae to account for these finite volume effects. In particular, to NLO the pion and kaon masses and decay constants receive the following corrections~\citep{Colangelo:2003hf,Colangelo:2005gd}
 \begin{equation}
 X^{(\infty)}=X^{(L)}\frac{1}{1+R_X},
 \end{equation}
@@ -29,11 +29,15 @@ PCAC quark masses are short distance observables and as such do not receive any 
 
 \vspace{2cm}
 
-\begin{longtable}{c c c c c c c c c c c c c c c c c c c c c}
+\begin{longtable}{c c c c c c c c c c c}
 \toprule
-$n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\
+$n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+%\midrule
+$m(n)$ & 6 & 12 & 8 & 6 & 24 & 24 & 0 & 12 & 30 & 24 \\
 \midrule
-$m(n)$ & 6 & 12 & 8 & 6 & 24 & 24 & 0 & 12 & 30 & 24 & 24 & 8 & 24 & 48 & 0 & 6 & 48 & 36 & 24 & 24 \\
+$n$ & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\
+%\midrule
+$m(n)$ & 24 & 8 & 24 & 48 & 0 & 6 & 48 & 36 & 24 & 24 \\
 \bottomrule
 \caption{Multiplicities $m(n)$ calculated in~\citep{Colangelo:2003hf} for $n\leq20$.}
 \label{apex_fv:tab:mn}

@@ -8,7 +8,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H102r002"
+id = "N200"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -50,7 +50,7 @@ for i in 1:15:length(pp_sym)
         m34_aux = get_mpcac(pp_sym[i+j+12], ap_sym[i+j+12], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
         push!(m34, m34_aux[1])
         if ens.id == "N200"
-            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [42,50,55]], tM=[[10], [78,80,90,100]])
+            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [42]], tM=[[10], [56]])
         elseif ens.id == "H102r002"
             fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [24]], tM=[[10], [39]])
         elseif ens.id == "H102r001"

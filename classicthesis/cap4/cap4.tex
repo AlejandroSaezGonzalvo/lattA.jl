@@ -15,18 +15,16 @@
 \section{Motivation}
 \label{ch_ma:sec:introduction}
 
-Our lattice setup is based on a mixed action with Wilson $\mathcal{O}(a)$ improved quarks (see Sec.~\ref{ch_foundation:subsec:Wilson}) in the sea and full twist Wilson tm quarks (see Sec.~\ref{ch_foundation:subsec:tm}) in the valence, the goal of which is to control cutoff effects associated with heavy quarks.
+Our lattice setup is based on a mixed action with Wilson $\mathcal{O}(a)$ improved quarks (see Sec.~\ref{ch_foundation:subsec:Wilson}) in the sea and full twist Wilson tm quarks (see Sec.~\ref{ch_foundation:subsec:tm}) in the valence, the goal of which is to control cutoff effects associated with the heavy mass of the charm quark. These effects are of order $\mathcal{O}(am_c)$ with $m_c$ the mass of the charm quark. Exploiting automatic $\mathcal{O}(a)$ improvement of maximal twist Wilson tm fermions is expected to help control the continuum limit and mitigate cutoff effects without the need to introduce any improvement coefficient in the charm sector. Furthermore, the mixed action is yet another valid lattice regularization which provides an independent way of measuring physical observables in the lattice. In this respect, it will allow us to quote independent precision results for the gradient flow scale $t_0$ (see Sec.~\ref{ch_ss}), the light and strange quark masses (see Sec.~\ref{ch_qm}), the charm quark mass~\citep{charm} and the $D_{(s)}$ mesons decay constants~\citep{charm}.
 
 For the definition of the mixed action approach, we recall eq.~(\ref{ch_foundation:eq:path_int})
 \begin{align}
 \left<O^{ij}(x_1)O^{ji}(x_2)\right>&=-\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}\times\\&{\textrm{tr}}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),\\
 S_{\textrm{eff}}[U]&=-\sum_i^{N_f}\textrm{log det}(D_i).
 \end{align} 
-We see that the Dirac operator $D$ appears first in the Boltzmann factor $e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}$ with which the set of gauge ensembles is generated (see Appendix~\ref{appex_simulations}), and then in the fermionic observable whose expectation value we are interested in. In particular, it appears in two separate stages of the analysis: one the generation of gauge ensembles, the other the inversion of the Dirac operator on said gauge configurations (see Appendix~\ref{appex_solvers}). This in principle allows for the use of different regularizations of the Dirac operator in these two steps, which is referred to as a mixed action approach.
+We see that the Dirac operator $D$ appears first in the Boltzmann factor $e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}$ (which is referred to as the sea sector) with which the set of gauge ensembles is generated (see Appendix~\ref{appex_simulations}), and then in the fermionic observable whose expectation value we are interested in (which is referred to as the valence sector), thus appearing in two separate stages of the analysis: one the generation of gauge ensembles, the other the inversion of the Dirac operator on said gauge configurations (see Appendix~\ref{appex_solvers}). This in principle allows for the use of different regularizations of the Dirac operator in these two steps or sectors of the theoryh. This mixed action approach violates unitarity even once the continuum limit is taken unless the physical quark masses in both sea and valence coincide. This means that our setup will require a tuning procedure in which the values of the Wilson tm parameters are chosen in order to reproduce the same physical quark masses in the valence as in the sea sectors. This process is called matching of the mixed action. 
 
-The two separate sectors in which the Dirac operator appears, $S_{\textrm{eff}}$ and the observable whose expectation value one is interested in, are referred to as sea and valence sectors respectively. By using different lattice regularizations of the Dirac operator in both sectors, unitarity is violated, even in the continuum, if the physical quark masses in both sectors do not coincide. This means that our mixed action setup will require a tuning procedure in which the values of the Wilson tm parameters are chosen in order to reproduce the same physical quark masses in the valence as in the sea sectors. This process is called matching of the mixed action.
-
-The flavor content of our setup is as follows. On the one hand, the sea sector has $N_f=2+1$ flavors, i.e. two mass-degenerate light quarks (corresponding to the $u$ and $d$ flavors) with mass $m_l$ and one strange quark with mass $m_s$. On the other hand, the valence sector is composed of $N_f=2+1+1$ flavors, adding a charm quark. Since we have $N_f=2+1$ in the sea and $N_f=2+1+1$ in the valence, the flavors we need to match are the light and strange, treating the charm quark in the valence as a partially quenched flavor. 
+The flavor content of our setup is as follows. On the one hand, the sea sector has $N_f=2+1$ flavors, i.e. two mass-degenerate light quarks (corresponding to the $u$ and $d$ flavors) with mass $m_l$ and one strange quark with mass $m_s$. On the other hand, the valence sector consists of $N_f=2+1+1$ flavors, adding a charm quark. Since we have $N_f=2+1$ in the sea and $N_f=2+1+1$ in the valence, the flavors we need to match are the light and strange, treating the charm quark in the valence as a partially quenched flavor. 
 
 In order to perform the matching of the theory, we need to know beforehand what values the physical quark masses take in the sea sector. This means that we need lattice measurements in the fully Wilson unitary setup (using the Wilson regularization in the sea and valence) in addition to the mixed action regularization. We therefore have two sets of data for lattice observables: those coming from the Wilson unitary setup, which we refer to as sea or Wilson results, and those coming from the mixed action itself. Using the two sets of data helps increasing the statistics of the scale setting and light quark masses analysis, as we will see in Secs.~\ref{ch_ss}-\ref{ch_qm}. In addition to the matching of the sea and valence sectors, we also need to tune the valence action parameters to enforce full twist and automatic $\mathcal{O}(a)$ improvement.
 
@@ -40,7 +38,7 @@ The Chapter is structured as follows. In Sec.~\ref{ch_ma:sec:Sea} we discuss the
 \section{Sea sector}
 \label{ch_ma:sec:Sea}
 
-The gauge ensembles that we employ are CLS ensembles~\citep{Bruno:2014jqa},\citep{Mohler:2017wnb} with $N_f=2+1$ non-perturbatively $\mathcal{O}(a)$ improved Wilson fermions (see eq.~(\ref{ch_foundation:eq:DW_impr})). They use the Lüscher-Weisz gauge action~\citep{Luscher:1985zq}, which has reduced $\mathcal{O}(a^2)$ effects and is defined in eqs.~(\ref{ch_foundation:eq:SG_impr}-\ref{ch_foundation:eq:LW}).
+The gauge ensembles that we employ are CLS ensembles~\citep{Bruno:2014jqa,Mohler:2017wnb} with $N_f=2+1$ non-perturbatively $\mathcal{O}(a)$ improved Wilson fermions (see eq.~(\ref{ch_foundation:eq:DW_impr})). They use the Lüscher-Weisz gauge action~\citep{Luscher:1985zq}, which has reduced $\mathcal{O}(a^2)$ effects and is defined in eqs.~(\ref{ch_foundation:eq:SG_impr}-\ref{ch_foundation:eq:LW}).
 
 For most of the ensembles, open boundary conditions (OBC) in time are used for the gauge fields, since it has been shown that with periodic boundary conditions (PBC) autocorrelations increase as one approaches the continuum limit, a problem known as critical slowing down. This is related to the existence of topological disconnected sectors in gauge field space, which avoids the algorithm to sample correctly different topological sectors. In contrast to this, OBC let the topological charge flow through the boundaries and topology freezing is thus avoided. All ensembles use PBC over the spatial volume.
 
@@ -73,7 +71,7 @@ As discussed in Sec.~\ref{ch_foundation:subsec:tm}, to impose full twist means t
 \end{equation}
 To do so, it is enough to impose that the PCAC quark masses in eq.~(\ref{ch_observables:eq:PCAC}) vanish. When this is the case, automatic $\mathcal{O}(a)$ improvement of valence observables is obtained, up to cutoff effects coming from the sea sector due to the mixed action. However, these effects are expected to be $\mathcal{O}(g_0^4)$ in perturbation theory.
 
-Since we are dealing with a mixed action setup, not only the tuning to full twist is needed, but also a matching between the physical light and strange quark masses in the sea and valence sectors (see Sec.~\ref{ch_ma:sec:matching}) to ensure unitarity of the theory in the continuum limit. This means that we have to find the valence parameters $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)}}$ that satisfy both conditions. To do this, we employ a grid of valence values around an estimate of the target point in order to perform small interpolations that allow us to find the said target point $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)*}}$.
+In order to find the valence parameters by which sea and valence physical quark masses are matched, in addition to fulfilling the maximal twist condition, we employ a grid of valence parameters values $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)}}$ around an estimate of the target point in order to perform small interpolations that allow us to find the said target point $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)*}}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,7 +88,7 @@ The set of CLS ensembles that we use are generated along the trajectory in the q
 \end{equation}
 This trajectory ensures that at fixed lattice spacing the improved bare coupling 
 \begin{equation}
-\tilde{g}_0^2=g_0^2\left(1+b_g{\textrm{tr}}\left(aM_q^{\textrm{(s)}}\right)\right),
+\tilde{g}_0^2=g_0^2\left(1+ab_g{\textrm{tr}}\left(M_q^{\textrm{(s)}}\right)\right),
 \end{equation}
 is kept constant as we vary the sea quark masses to approach the physical point. Note that for the Wilson unitary setup, sea and valence quark masses are the same, but not for the mixed action setup. To ensure that this trajectory goes through the physical point, we define the dimensionless quantities
 \begin{align}
@@ -119,7 +117,7 @@ with the total derivative given by
 \label{ch_ma:eq:md}
 \frac{d{O}}{dm_q^{\textrm{(s)}}}=\sum_i\frac{\partial{O}}{\partial \left<P_i\right>}\left[\left<\frac{\partial P_i}{\partial m_q^{\textrm{(s)}}}\right>-\left<P_i\frac{\partial S}{\partial m_q^{\textrm{(s)}}}\right>+\left<P_i\right>\left<\frac{\partial S}{\partial m_q^{\textrm{(s)}}}\right>\right].
 \end{equation}
-Here ${O}$ is an arbitrary lattice observable and $\{P_i\}_{i=1,2,...}$ is the set of primary observables, in our case the corresponding two-point functions on which it depends. The first term in the r.h.s. of this equation corresponds to the valence contribution to the derivative, while the other terms correspond to the sea contributions. Note that for the Wilson unitary setup, all terms contribute, while for the mixed action setup, since the two-point functions $\{P_i\}$ do not depend explicitly on $m_q^{\textrm{(s)}}$, the first term in the r.h.s. of eq.~(\ref{ch_ma:eq:md}) vanishes.
+Here ${O}$ is an arbitrary lattice observable and $\{P_i\}_{i=1,2,...}$ is the set of primary observables on which it depends, in our case the corresponding two-point functions. The first term in the r.h.s. of this equation corresponds to the valence contribution to the derivative, while the other terms correspond to the sea contributions. Note that for the Wilson unitary setup, all terms contribute, while for the mixed action setup, since the two-point functions $\{P_i\}$ do not depend explicitly on $m_q^{\textrm{(s)}}$, the first term in the r.h.s. of eq.~(\ref{ch_ma:eq:md}) vanishes.
 
 In particular the sum over $q$ in eq.~(\ref{ch_ma:eq:mass_shift}) can be done in any direction of the quark mass plane, and we choose to mass shift only the strange quark. For practical purposes, since we want to mass shift all relevant observables for each ensemble to satisfy that the sea value of $\phi_4$ is equal to its physical value, $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$, we rewrite the Taylor expansion as
 \begin{equation}
@@ -129,9 +127,9 @@ with
 \begin{equation}
 \frac{d{O}}{d\phi_4^{\textrm{(s)}}}=\frac{d{O}/dm_s^{\textrm{(s)}}}{d\phi_4^{\textrm{(s)}}/dm_s^{\textrm{(s)}}}.
 \end{equation}
-Note that by sea value $\phi_4^{\textrm{(s)}}$ we refer to $\phi_4$ computed in the Wilson unitary setup, and its derivative has both sea and valence contributions, while $d{O}/dm_s^{\textrm{(s)}}$ has valence and sea contributions when the observable ${O}$ is computed in the Wilson unitary setup, and only sea contributions when ${O}$ is computed in the mixed action regularization. In the Wilson unitary setup, imposing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ means that so does the valence value of $\phi_4$, while for the mixed action regularization this is not true. In this case in addition to fixing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ with the mass shifting procedure we need later to impose $\phi_4^{\textrm{(v)}}=\phi_4^{\textrm{(s)}}$, which is done through the matching between sea and valence sectors.
+Note that by sea value $\phi_4^{\textrm{(s)}}$ we refer to $\phi_4$ computed in the Wilson unitary setup, and its derivative has both sea and valence contributions, while $d{O}/dm_s^{\textrm{(s)}}$ has valence and sea contributions when the observable ${O}$ is computed in the Wilson unitary setup, and only sea contributions when ${O}$ is computed in the mixed action regularization. In the Wilson unitary setup, imposing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ means that so does the valence value of $\phi_4$, while for the mixed action regularization this is not true. In this case in addition to fixing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ with the mass shifting procedure we need later to impose $\phi_4^{\textrm{(v)}}=\phi_4^{\textrm{(s)}}$, which is done through the matching between sea and valence sectors (see Sec.~\ref{ch_ma:sec:matching}).
 
-The observables we will be interested for the scale setting (see Sec.~\ref{ch_ss}) are $\sqrt{t_0}f_{\pi}$, $\sqrt{t_0}f_{K}$ and $\sqrt{t_0}f_{\pi K}$, the latter defined in eq.~(\ref{ch_ss:eq:fpik}), while for the determination of the physical quark masses (see Sec.~\ref{ch_qm}) we need $\sqrt{t_0}m_{12}^{\textrm{R}}$, $\sqrt{t_0}m_{13}^{\textrm{R}}$. All these quantities are physical and so are their derivatives w.r.t. $\phi_4$. Thus, one can measure these derivatives for each ensemble and then fit them as a function of $\phi_2$ and the lattice spacing. This allows to evaluate the result of these fits at the values of $\phi_2$ and $t_0/a^2$ corresponding to each ensemble and perform the mass shift with that result instead of using the individual measurements of each ensemble. This has the advantage of improving the precision for observables whose mass derivatives are noisy (or even not computed), which is particularly relevant for the finest lattice spacing and the most chiral ensembles under study.
+The observables we will be interested for the scale setting (see Sec.~\ref{ch_ss}) are $\sqrt{t_0}f_{\pi}$, $\sqrt{t_0}f_{K}$ and $\sqrt{t_0}f_{\pi K}$, the latter defined in eq.~(\ref{ch_ss:eq:fpik}), while for the determination of the physical quark masses (see Sec.~\ref{ch_qm}) we need $\sqrt{t_0}m_{12}^{\textrm{R}}$, $\sqrt{t_0}m_{13}^{\textrm{R}}$. All these quantities are physical and so are their derivatives w.r.t. $\phi_4$. Thus, one can measure these derivatives for each ensemble and then fit them as a function of $\phi_2$ and the lattice spacing. This allows to evaluate the result of these fits at the values of $\phi_2$ and $t_0/a^2$ corresponding to each ensemble and perform the mass shift with that result instead of using the individual measurements of each ensemble. This has the advantage of improving the precision for observables whose mass derivatives are noisy or missing, which is particularly relevant for the finest lattice spacing and the most chiral ensembles under study.
 
 For fitting the derivatives we use
 \begin{equation}
@@ -154,7 +152,7 @@ We have assumed knowledge of the physical value of $\phi_4$ to which we mass shi
 \label{ch_ma:eq:t0_guess}
 t_0^{\textrm{ph,\;guess}}=0.1445(6),
 \end{equation}
-where the uncertainty keeps all the correlations with the lattice data entering the analysis. Eq.~(\ref{ch_ma:eq:t0_guess}) determines the value of $\phi_4^{\textrm{ph}}$ to which we perform the mass shifts in the subsequent sections, the input values for $m_{\pi}$ and $m_K$ given in eq.~(\ref{ch_ss:eq:isoQCD}). 
+where the uncertainty keeps all the correlations with the lattice data entering the analysis. Eq.~(\ref{ch_ma:eq:t0_guess}) determines the value of $\phi_4^{\textrm{ph}}$ to which we perform the mass shifts in the subsequent sections, the input values for physical $m_{\pi}$ and $m_K$ given in eq.~(\ref{ch_ss:eq:isoQCD}). 
 
 \begin{longtable}{c | c c c c c}
 \label{ch_ma:tab:md}
@@ -175,7 +173,7 @@ where the uncertainty keeps all the correlations with the lattice data entering 
     $\phi_2^{\textrm{tm}}$ & 0.031(17) & -0.032(23) & - & -0.102(73) & - \\ 
     $\phi_4^{\textrm{tm}}$ & 0.006(37) & 0.050(47) & - & -0.298(126) & - \\ 
     \bottomrule
-    \caption{Results for the fit parameters in eqs.~(\ref{ch_ma:eq:md_1}-\ref{ch_ma:eq:md_2}) for the lattice observables that will be used in the analysis. The superscript ``W'' refers to the observable being computed in the Wilson unitary setup, while ``tm'' refers to the mixed action setup.}
+    \caption{Results for the fit parameters in eqs.~(\ref{ch_ma:eq:md_1})-(\ref{ch_ma:eq:md_2}) for the lattice observables that will be used in the analysis. The superscript ``W'' refers to the observable being computed in the Wilson unitary setup, while ``tm'' refers to the mixed action setup.}
 \end{longtable}
 
 \begin{figure}
@@ -184,7 +182,7 @@ where the uncertainty keeps all the correlations with the lattice data entering 
     \includegraphics[width=.49\textwidth]{./cap4/figs/dphi2_w.pdf}
     \includegraphics[width=.49\textwidth]{./cap4/figs/dt0m12_w.pdf}
     \includegraphics[width=.49\textwidth]{./cap4/figs/dt0m13_w.pdf}
-    \caption{Derivatives $dO/d\phi_4^{\textrm{(s)}}$ for the Wilson unitary setup for $O=\sqrt{t_0}f_{\pi K},\;\phi_2,\;\sqrt{t_0}m_{12}^{\textrm{R}},\;\sqrt{t_0}m_{13}^{\textrm{R}}$. For the fit eqs.~(\ref{ch_ma:eq:md_1}-\ref{ch_ma:eq:md_2}) were used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
+    \caption{Derivatives $dO/d\phi_4^{\textrm{(s)}}$ for the Wilson unitary setup for $O=\sqrt{t_0}f_{\pi K},\;\phi_2,\;\sqrt{t_0}m_{12}^{\textrm{R}},\;\sqrt{t_0}m_{13}^{\textrm{R}}$. For the fit eqs.~(\ref{ch_ma:eq:md_1})-(\ref{ch_ma:eq:md_2}) were used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
     \label{ch_ma:fig:d_w}
 \end{figure}
 
@@ -194,7 +192,7 @@ where the uncertainty keeps all the correlations with the lattice data entering 
     \includegraphics[width=.49\textwidth]{./cap4/figs/dt0m12_tm.pdf}
     \includegraphics[width=.49\textwidth]{./cap4/figs/dphi2_tm.pdf}
     \includegraphics[width=.49\textwidth]{./cap4/figs/dphi4_tm.pdf}
-    \caption{Derivatives $dO/d\phi_4^{\textrm{(s)}}$ for the mixed action setup for $O=\sqrt{t_0}f_{\pi K},\;\phi_2,\;\phi_4,\;\sqrt{t_0}m_{12}^{\textrm{R}}$. For the fit eqs.~(\ref{ch_ma:eq:md_1}-\ref{ch_ma:eq:md_2}) were used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
+    \caption{Derivatives $dO/d\phi_4^{\textrm{(s)}}$ for the mixed action setup for $O=\sqrt{t_0}f_{\pi K},\;\phi_2,\;\phi_4,\;\sqrt{t_0}m_{12}^{\textrm{R}}$. For the fit eqs.~(\ref{ch_ma:eq:md_1})-(\ref{ch_ma:eq:md_2}) were used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
     \label{ch_ma:fig:d_tm}
 \end{figure}
 
@@ -209,7 +207,7 @@ where the uncertainty keeps all the correlations with the lattice data entering 
 
 As explained in Sec.~\ref{ch_ma:sec:Valence}, when working with a mixed action, after performing the mass shifts in Sec.~\ref{ch_ma:sec:chiral_traj}, we need to match the physical quark masses of the sea and valence sectors. To do this, we use a grid of valence parameter values to find the target point with small interpolations. In order to know the values of the relevant observables in the sea, we need measurements in the fully Wilson unitary setup (with Wilson fermions in both sea and valence). These will be referred to as Wilson or sea data or results, while the mixed action measurements, once the matching is done, will be referred to as Wtm or mixed action data or results.
 
-In practice, to compute the physical quark masses we need the relevant improvement coefficients. In order not to rely on these for the matching procedure, instead of matching the physical quark masses $m_l^{\textrm{R}},\;m_s^{\textrm{R}}$, we choose to use the pion and kaon masses in units of the gradient flow scale $t_0$
+In practice, to compute the physical quark masses we need the relevant improvement coefficients. In order not to rely on these for the matching procedure, instead of matching the physical quark masses we choose to use the pion and kaon masses in units of the gradient flow scale $t_0$
 \begin{align}
 \label{ch_ma:eq:matching}
 \phi_2^{\textrm{(s)}}&=\phi_2^{\textrm{(v)}},\\
@@ -217,14 +215,14 @@ In practice, to compute the physical quark masses we need the relevant improveme
 \end{align}
 since these quantities are proportional to the physical quark masses to LO ChPT (see eq.~(\ref{ch_ma:eq:phis})).
 
-In addition to this, we need to tune the Wilson tm action to full twist, which means setting the PCAC quark mass to zero
+In addition to this, we need to tune the Wilson tm action to full twist, which means setting the valence PCAC quark mass to zero
 \begin{equation}
 \label{ch_ma:eq:full-twist}
 m_{ud}^{\textrm{(v)}}=m_{ll'}^{\textrm{(v)}}\equiv m_{12}^{\textrm{(v)}}=0.
 \end{equation}
-In principle, we should also send the strange PCAC quark mass to zero. However, since the $\kappa^{\textrm{(v)}}$ parameter we use is flavor degenerate, this condition is automatically satisfied (up to cutoff effects) once eq.~(\ref{ch_ma:eq:full-twist}) is imposed.
+In principle, we should also set the strange PCAC quark mass to zero. However, since the $\kappa^{\textrm{(v)}}$ parameter we use is flavor degenerate, this condition is automatically satisfied (up to cutoff effects) once eq.~(\ref{ch_ma:eq:full-twist}) is imposed.
 
-To impose eqs.~(\ref{ch_ma:eq:matching}-\ref{ch_ma:eq:full-twist}), we perform interpolations of the valence observables $m_{12}^{\textrm{(v)}},\phi_2^{\textrm{(v)}},\phi_4^{\textrm{(v)}}$ in the $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)}}$ hyperplane, using as fit functions the following expressions motivated by ChPT
+To impose eqs.~(\ref{ch_ma:eq:matching})-(\ref{ch_ma:eq:full-twist}), we perform interpolations of the valence observables $m_{12}^{\textrm{(v)}},\phi_2^{\textrm{(v)}},\phi_4^{\textrm{(v)}}$ in the $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)}}$ hyperplane, using as fit functions the following expressions motivated by ChPT
 \begin{align}
 m_{12}^{\textrm{(v)}}&=p_1\left(\frac{1}{\kappa^{\textrm{(v)}}}-\frac{1}{\kappa^{\textrm{(v)*}}}\right)+p_2\left(\mu_l^{\textrm{(v)}}-\mu_l^{\textrm{(v)*}}\right),\\
 \phi_2^{\textrm{(v)}}&=\frac{p_3}{\mu_l^{\textrm{(v)}}}\left(\frac{1}{\kappa^{\textrm{(v)}}}-\frac{1}{\kappa^{\textrm{(v)*}}}\right)^2+p_4\left(\mu_l^{\textrm{(v)}}-\mu_l^{\textrm{(v)*}}\right)+\phi_2^{\textrm{(s)}},\\

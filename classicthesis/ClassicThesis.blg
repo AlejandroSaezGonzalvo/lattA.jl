@@ -1,0 +1,102 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ClassicThesis.aux
+The style file: biblatex.bst
+A level-1 auxiliary file: FrontBackmatter/Titlepage.aux
+A level-1 auxiliary file: FrontBackmatter/Dedication.aux
+A level-1 auxiliary file: FrontBackmatter/Abstract.aux
+A level-1 auxiliary file: FrontBackmatter/Publications.aux
+A level-1 auxiliary file: FrontBackmatter/Acknowledgments.aux
+White space in argument---line 52 of file ClassicThesis.aux
+ : \citation{F.
+ :              Engels}
+I'm skipping whatever remains of this command
+White space in argument---line 55 of file ClassicThesis.aux
+ : \citation{F.
+ :              Engels}
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: FrontBackmatter/Contents.aux
+A level-1 auxiliary file: introduction/introduction.aux
+A level-1 auxiliary file: introduction/introduccion.aux
+A level-1 auxiliary file: cap2/lattice.aux
+A level-1 auxiliary file: cap3/observables.aux
+A level-1 auxiliary file: cap4/cap4.aux
+A level-1 auxiliary file: cap5/cap5.aux
+A level-1 auxiliary file: cap6/cap6.aux
+A level-1 auxiliary file: conclusions/conclusions.aux
+A level-1 auxiliary file: conclusions/conclusiones.aux
+A level-1 auxiliary file: apendices/apendices_conventions.aux
+A level-1 auxiliary file: apendices/apendices_simulations.aux
+A level-1 auxiliary file: apendices/apendices_solvers.aux
+A level-1 auxiliary file: apendices/apendices_errors.aux
+A level-1 auxiliary file: apendices/apendices_a.aux
+A level-1 auxiliary file: apendices/apendices_b.aux
+A level-1 auxiliary file: apendices/apendices_c.aux
+A level-1 auxiliary file: apendices/apendices_f.aux
+A level-1 auxiliary file: FrontBackmatter/Bibliography.aux
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated field_info (elt_size=4) to 16200 items from 5000.
+Database file #1: ClassicThesis-blx.bib
+Database file #2: Bibliography.bib
+Database file #3: publications.bib
+Biblatex version: 3.17
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis" for entry Brown:2018jtv
+while executing---line 2815 of file biblatex.bst
+You've used 80 entries,
+            6399 wiz_defined-function locations,
+            1865 strings with 26222 characters,
+and the built_in function-call counts, 717393 in all, are:
+= -- 58345
+> -- 9561
+< -- 2374
++ -- 21126
+- -- 4308
+* -- 55784
+:= -- 83997
+add.period$ -- 0
+call.type$ -- 80
+change.case$ -- 79
+chr.to.int$ -- 71
+cite$ -- 158
+duplicate$ -- 74692
+empty$ -- 61598
+format.name$ -- 6144
+if$ -- 143200
+int.to.chr$ -- 0
+int.to.str$ -- 190
+missing$ -- 0
+newline$ -- 3264
+num.names$ -- 3395
+pop$ -- 28863
+preamble$ -- 1
+purify$ -- 1338
+quote$ -- 0
+skip$ -- 15316
+stack$ -- 0
+substring$ -- 110912
+swap$ -- 13893
+text.length$ -- 2476
+text.prefix$ -- 79
+top$ -- 1
+type$ -- 2706
+warning$ -- 0
+while$ -- 10257
+width$ -- 0
+write$ -- 3185
+(There were 3 error messages)
