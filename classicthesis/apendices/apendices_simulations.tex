@@ -58,7 +58,7 @@ The drawback of this algorithm is that it only updates a single gauge link at ea
 
 \section{Hybrid Monte Carlo}
 
-Having as target distribution that of pure gauge theory is equivalent as treating quarks in the sea as static sources (infinitely heavy). In order to simulate full QCD, one needs to have dynamical quarks in the sea, meaning having target distribution eq.~(\ref{appex_simulations:eq:PU}), where $S_{\textrm{eff}}$ introduces non-local dependencies in the gauge links due to the quark determinant. Therefore algorithms like Metropolis, which updates the gauge configurations link by link experiences a significant computational cost that increases with the lattice volume squared, which makes the algorithm unpractical for dynamical simulations purposes. The Hybrid Monte Carlo (HMC) algorithm~\citep{Duane:1987de,Gottlieb:1987mq} significantly improves efficiency by doing global updates of the gauge configurations.
+Having as target distribution that of pure gauge theory is equivalent as treating quarks in the sea as static sources (infinitely heavy). In order to simulate full QCD, one needs to have dynamical quarks in the sea, meaning having target distribution eq.~(\ref{appex_simulations:eq:PU}), where $S_{\textrm{eff}}$ introduces non-local dependencies in the gauge links due to the quark determinant. Therefore algorithms like Metropolis, which updates the gauge configurations link by link experience a significant computational cost that increases with the lattice volume squared, which makes the algorithm unpractical for dynamical simulations purposes. The Hybrid Monte Carlo (HMC) algorithm~\citep{Duane:1987de,Gottlieb:1987mq} significantly improves efficiency by doing global updates of the gauge configurations.
 
 The HMC uses the classical equations of motion to propose new gauge configurations. To this purpose, the field space is extended with the introduction of su(3)-valued conjugate momenta $\pi_{\mu}(x)$ of the link variables $U_{\mu}(x)$. The Hamiltonian of the system is
 \begin{equation}
@@ -84,7 +84,7 @@ This far we have not given details on how to compute the effective fermion actio
 \begin{equation}
 S_{\textrm{eff}}[U]=-\sum_{i=1}^{N_f}\textrm{log det}(D_i).
 \end{equation}
-This is a typically challenging task, since it involves dealing with Grassmann variables. A usual solution is to use pseudofermion fields $\Phi(x)$~\citep{Weingarten:1980hx}, which are auxiliary fields that carry color and spinor indices $c,\alpha$ but that are complex instead of Grassmann numbers. Restricting to the mass-degenerate doublet of light quarks, where the effective action becomes
+This is a typically challenging task, since it involves dealing with Grassmann variables. A popular solution is to use pseudofermion fields $\Phi(x)$~\citep{Weingarten:1980hx}, which are auxiliary fields that carry color and spinor indices $c,\alpha$ but that are complex instead of Grassmann numbers. Restricting to the mass-degenerate doublet of light quarks, where the effective action becomes
 \begin{equation}
 e^{-S_{\textrm{eff}}}=\textrm{det}(D_l)\textrm{det}(D_l)=\textrm{det}(D_l^{\dagger}D_l),
 \end{equation}
@@ -103,7 +103,7 @@ Finally the integration measure for these auxiliary fields reads
 
 Now we have all ingredients needed for HMC sampling with dynamical fermions. First one samples randomly a set of conjugate momenta $\pi_{\mu}$ and pseudo-fermion fields $\Phi$ with gaussian distribution $\propto\exp\left(-\frac{1}{2}\pi_{\mu}\pi_{\mu}-S_{\textrm{pf}}\right)$. Together with an initial gauge field configuration $U_{i}$, the classical equations of motion are integrated up to some later time. At this point one implements the accept-reject step and updates the gauge configuration to $U_{i+1}$.
 
-This far we assumed two degenerate flavors of quarks to compute the effective fermion action. The inclusion of a strange quark, as in the case of the CLS ensembles we use in this work, complicates things since it does not belong to a mass-degenerate doublet, and thus one needs to compute $\textrm{det}(D_s)$ and not $\textrm{det}(D_l^{\dagger}D_l)$. When this happens the quark determinant is not ensured to be positive anymore due to explicit chiral symmetry breaking by the Wilson term in Wilson quarks. In CLS ensembles this difficulty is tackled by the Rational Hybrid Monte Carlo algorithm~\citep{Kennedy:1998cu,Clark:2006fx}. However, it was found that some configurations still suffered from a negative strange quark determinant. In this case we introduce a reweighting factor with minus sign to account for the effect. Reweighting is discussed in the next section.
+This far we assumed two degenerate flavors of quarks to compute the effective fermion action. The inclusion of a strange quark, as in the case of the CLS ensembles we use in this work, complicates things since it does not belong to a mass-degenerate doublet, and thus one needs to compute $\textrm{det}(D_s)$ and not $\textrm{det}(D_l^{\dagger}D_l)$. When this happens the quark determinant is not ensured to be positive anymore due to explicit chiral symmetry breaking by the Wilson term in Wilson quarks. This is of particular relevance because if the strange quark determinant gets a negative value one cannot interpret the factor $e^{-S_{\textrm{G}}-S_{\textrm{eff}}}$ appearing in the path integral as a probability. In CLS ensembles this difficulty is tackled by the Rational Hybrid Monte Carlo algorithm~\citep{Kennedy:1998cu,Clark:2006fx}. However, it was found that some configurations still suffered from a negative strange quark determinant. In this case we introduce a reweighting factor with minus sign to account for the effect. Reweighting is discussed in the next section.
 
 \section{Reweighting}
 
@@ -122,7 +122,7 @@ where the twisted mass factors are ordered as $\mu_0<\mu_1<...<\mu_{n}$. We used
 \begin{equation}
 Q^{\dagger}Q=\gamma_5D^{\dagger}\gamma_5D=D^{\dagger}D.
 \end{equation}
-The values of the twisted mass factors have to be properly chosen as large values might lead to large fluctuations and poor efficiency of the algorithm. After introducing such twisted masses, in order to account for their effect and recover the target desired distribution $dP[U]$ of QCD (un which this twisted mass is not present) a reweighting of expectation values over gauge configurations is needed
+The values of the twisted mass factors have to be properly chosen as large values might lead to large fluctuations and poor efficiency of the algorithm. After introducing such twisted masses, in order to account for their effect and recover the target desired distribution $dP[U]$ of QCD (in which this twisted mass is not present) a reweighting of expectation values over gauge configurations is needed
 \begin{equation}
 \left<O\right>_{\textrm{rw}}=\frac{\left<OW\right>}{\left<W\right>},
 \end{equation}
@@ -131,7 +131,7 @@ where $W$ is the reweighting factor and in this case reads
 W=\textrm{det}\left(Q^{\dagger}Q\left(Q^{\dagger}Q+2\mu_0^2\right)\left(Q^{\dagger}Q+\mu_0^2\right)^{-2}\right).
 \end{equation}
 
-In addition to twisted mass reweighting, reweighting is also needed due to the use of the RHMC algorithm to simulate the strange quark determinant. This algorithm uses the rational approximation to the strange quark determinant, which is expected to make it positive. However, as mentioned in the previous section, , it was found that some configurations still got a negative sign for the strange quark determinant. This is solved by a reweighting factor of $W_s=-1$ for said configurations (see Table~\ref{tab:Ws}).
+In addition to twisted mass reweighting, reweighting is also needed due to the use of the RHMC algorithm to simulate the strange quark determinant. This algorithm uses the rational approximation to the strange quark determinant~\citep{RHMC}, which is expected to make it positive. However, as mentioned in the previous section, it was found that some configurations still got a negative sign for the strange quark determinant. This is solved by a reweighting factor of $W_s=-1$ for said configurations, which we list in Table~\ref{tab:Ws} for the ensembles of interest in this thesis.
 
 \begin{longtable}{c | c}
 \toprule
@@ -149,7 +149,7 @@ E250     & ??? \\
 \middleline
 J303r003 & 324, 325, 326 \\
 \bottomrule
-\caption{List of configurations with negative sign of the strange quark determinant for each ensemble. A reweighting factor $W_s=-1$ is introduced in said configuration in order to account for the effect.}
+\caption{List of configurations with negative sign of the strange quark determinant for each affected ensemble in this study. A reweighting factor $W_s=-1$ is introduced in said configuration in order to account for the effect.}
 \label{tab:Ws}
 \end{longtable}
 

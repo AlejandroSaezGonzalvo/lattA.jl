@@ -45,28 +45,28 @@
 \contentsline {chapter}{Scale setting}{65}{chapter.4}%
 \contentsline {section}{\numberline {4.1}{Motivation}}{65}{section.4.1}%
 \contentsline {section}{\numberline {4.2}{Results: the physical point}}{66}{section.4.2}%
-\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{74}{section.4.3}%
-\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{75}{section.4.4}%
-\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{76}{section.4.5}%
-\contentsline {chapter}{\numberline {5}{Light quark masses}}{77}{chapter.5}%
-\contentsline {chapter}{Light quark masses}{77}{chapter.5}%
-\contentsline {section}{\numberline {5.1}{Motivation}}{77}{section.5.1}%
-\contentsline {section}{\numberline {5.2}{Results}}{77}{section.5.2}%
-\contentsline {part}{\numberline {iv}{Conclusions}}{79}{part.4}%
-\contentsline {chapter}{Conclusions and outlook}{81}{part.4}%
-\contentsline {chapter}{Conclusiones y perspectivas}{83}{part.4}%
-\contentsline {part}{\numberline {v}{Appendix}}{85}{part.5}%
-\contentsline {chapter}{\numberline {A}{Conventions}}{87}{appendix.A}%
-\contentsline {chapter}{\numberline {B}{Lattice ensembles}}{89}{appendix.B}%
-\contentsline {chapter}{\numberline {C}{Simulation details}}{91}{appendix.C}%
-\contentsline {section}{\numberline {C.1}{Metropolis algorithm}}{92}{section.C.1}%
-\contentsline {section}{\numberline {C.2}{Hybrid Monte Carlo}}{93}{section.C.2}%
-\contentsline {section}{\numberline {C.3}{Reweighting}}{94}{section.C.3}%
-\contentsline {chapter}{\numberline {D}{Error analysis}}{97}{appendix.D}%
-\contentsline {chapter}{\numberline {E}{Solvers}}{101}{appendix.E}%
-\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{103}{appendix.F}%
-\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{105}{appendix.G}%
-\contentsline {chapter}{\numberline {H}{$\sqrt {t_0}$: Model variation}}{107}{appendix.H}%
+\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{70}{section.4.3}%
+\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{78}{section.4.4}%
+\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{79}{section.4.5}%
+\contentsline {chapter}{\numberline {5}{Light quark masses}}{81}{chapter.5}%
+\contentsline {chapter}{Light quark masses}{81}{chapter.5}%
+\contentsline {section}{\numberline {5.1}{Motivation}}{81}{section.5.1}%
+\contentsline {section}{\numberline {5.2}{Results}}{81}{section.5.2}%
+\contentsline {part}{\numberline {iv}{Conclusions}}{83}{part.4}%
+\contentsline {chapter}{Conclusions and outlook}{85}{part.4}%
+\contentsline {chapter}{Conclusiones y perspectivas}{87}{part.4}%
+\contentsline {part}{\numberline {v}{Appendix}}{89}{part.5}%
+\contentsline {chapter}{\numberline {A}{Conventions}}{91}{appendix.A}%
+\contentsline {chapter}{\numberline {B}{Lattice ensembles}}{93}{appendix.B}%
+\contentsline {chapter}{\numberline {C}{Simulation details}}{95}{appendix.C}%
+\contentsline {section}{\numberline {C.1}{Metropolis algorithm}}{96}{section.C.1}%
+\contentsline {section}{\numberline {C.2}{Hybrid Monte Carlo}}{97}{section.C.2}%
+\contentsline {section}{\numberline {C.3}{Reweighting}}{98}{section.C.3}%
+\contentsline {chapter}{\numberline {D}{Error analysis}}{101}{appendix.D}%
+\contentsline {chapter}{\numberline {E}{Solvers}}{105}{appendix.E}%
+\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{107}{appendix.F}%
+\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{109}{appendix.G}%
+\contentsline {chapter}{\numberline {H}{$\sqrt {t_0}$: Model variation}}{111}{appendix.H}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{115}{section*.17}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{119}{section*.21}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

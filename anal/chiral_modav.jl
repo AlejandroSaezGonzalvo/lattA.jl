@@ -108,7 +108,7 @@ v = [value(sqrt_t0) for i in 1:length(sqrt_t0_vec)]
 e = [err(sqrt_t0) for i in 1:length(sqrt_t0_vec)]
 fill_betweenx(y, v-e, v+e, color="deepskyblue", alpha=0.75)
 errorbar(value.(sqrt_t0_vec), y, 0 .* y, err.(sqrt_t0_vec), fmt="x", color="black")
-ax[:set_xlim]([0.139, 0.1477])
+#ax[:set_xlim]([0.139, 0.1477])
 ax[:set_ylim]([0, length(mods)+1])
 plt.yticks(y, mods)
 

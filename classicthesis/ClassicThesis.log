@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  24 APR 2024 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  24 APR 2024 19:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1681,13 +1681,61 @@ l.34 ...el_av_t0}.\relax }}{73}{figure.caption.15}
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.35 ...ig:SU3a2}.\relax }}{75}{figure.caption.16}
+l.35 ...ig:SU3a2}.\relax }}{74}{figure.caption.16}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.35 ...ig:SU3a2}.\relax }}{75}{figure.caption.16}
+l.35 ...ig:SU3a2}.\relax }}{74}{figure.caption.16}
+                                                  %
+? 
+! Undefined control sequence.
+\l@figure #1#2->\ifnum \c@lofdepth 
+                                   >\z@ \vskip \cftbeforefigskip {\leftskip ...
+l.36 ...el_av_t0}.\relax }}{75}{figure.caption.17}
+                                                  %
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   >
+l.36 ...el_av_t0}.\relax }}{75}{figure.caption.17}
+                                                  %
+? 
+! Undefined control sequence.
+\l@figure #1#2->\ifnum \c@lofdepth 
+                                   >\z@ \vskip \cftbeforefigskip {\leftskip ...
+l.37 ...el_av_t0}.\relax }}{76}{figure.caption.18}
+                                                  %
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   >
+l.37 ...el_av_t0}.\relax }}{76}{figure.caption.18}
+                                                  %
+? 
+! Undefined control sequence.
+\l@figure #1#2->\ifnum \c@lofdepth 
+                                   >\z@ \vskip \cftbeforefigskip {\leftskip ...
+l.38 ...el_av_t0}.\relax }}{76}{figure.caption.19}
+                                                  %
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   >
+l.38 ...el_av_t0}.\relax }}{76}{figure.caption.19}
+                                                  %
+? 
+! Undefined control sequence.
+\l@figure #1#2->\ifnum \c@lofdepth 
+                                   >\z@ \vskip \cftbeforefigskip {\leftskip ...
+l.39 ...ig:SU3a2}.\relax }}{78}{figure.caption.20}
+                                                  %
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   >
+l.39 ...ig:SU3a2}.\relax }}{78}{figure.caption.20}
                                                   %
 ? 
 )
@@ -1736,97 +1784,97 @@ l.22 ...ixed action setup.\relax }}{61}{table.3.1}
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.24 ...ref {ch_ss:eq:a}).\relax }}{76}{table.4.1}
+l.24 ...ref {ch_ss:eq:a}).\relax }}{78}{table.4.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.24 ...ref {ch_ss:eq:a}).\relax }}{76}{table.4.1}
+l.24 ...ref {ch_ss:eq:a}).\relax }}{78}{table.4.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.30 ...patial directions.\relax }}{89}{table.B.1}
+l.30 ...patial directions.\relax }}{93}{table.B.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.30 ...patial directions.\relax }}{89}{table.B.1}
+l.30 ...patial directions.\relax }}{93}{table.B.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.32 ...nt for the effect.\relax }}{96}{table.C.1}
+l.32 ...t for the effect.\relax }}{100}{table.C.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.32 ...nt for the effect.\relax }}{96}{table.C.1}
+l.32 ...t for the effect.\relax }}{100}{table.C.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.37 ...} for $n\leq 20$.\relax }}{106}{table.G.1}
+l.37 ...} for $n\leq 20$.\relax }}{110}{table.G.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.37 ...} for $n\leq 20$.\relax }}{106}{table.G.1}
+l.37 ...} for $n\leq 20$.\relax }}{110}{table.G.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.39 ... regularizations.\relax }}{107}{table.H.1}
+l.39 ... regularizations.\relax }}{111}{table.H.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.39 ... regularizations.\relax }}{107}{table.H.1}
+l.39 ... regularizations.\relax }}{111}{table.H.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.40 ...m each fit model.\relax }}{109}{table.H.2}
+l.40 ...the final result.\relax }}{113}{table.H.2}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.40 ...m each fit model.\relax }}{109}{table.H.2}
+l.40 ...the final result.\relax }}{113}{table.H.2}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.41 ...m each fit model.\relax }}{110}{table.H.3}
+l.41 ...the final result.\relax }}{115}{table.H.3}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.41 ...m each fit model.\relax }}{110}{table.H.3}
+l.41 ...the final result.\relax }}{115}{table.H.3}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.42 ...m each fit model.\relax }}{113}{table.H.4}
+l.42 ...the final result.\relax }}{118}{table.H.4}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.42 ...m each fit model.\relax }}{113}{table.H.4}
+l.42 ...the final result.\relax }}{118}{table.H.4}
                                                   %
 ? 
 )
@@ -2127,55 +2175,55 @@ Chapter 4.
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! Improper \spacefactor.
 <recently read> \spacefactor 
                              
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! Improper \spacefactor.
 <recently read> \spacefactor 
                              
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \reserved@b ->\spacefactor 
                            \@m 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 Missing character: There is no ò in font zplmr7v!
@@ -2188,55 +2236,55 @@ Missing character: There is no è in font zplmr7v!
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! Improper \spacefactor.
 <recently read> \spacefactor 
                              
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! Improper \spacefactor.
 <recently read> \spacefactor 
                              
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 ! You can't use `\spacefactor' in math mode.
 \reserved@b ->\spacefactor 
                            \@m 
-l.120 \end{gather}
+l.121 \end{gather}
                   
 ? 
 Missing character: There is no ò in font zplmr7v!
@@ -2250,108 +2298,124 @@ Missing character: There is no è in font zplmr7v!
 ! Double superscript.
 <argument> ...textrm {syst}}&=\left <\sqrt {t_0^2^
                                                   {\textrm {,ph}}}\right >-\...
-l.143 \end{align}
+l.144 \end{align}
                  
 ? 
 ! Double superscript.
 <argument> ...textrm {syst}}&=\left <\sqrt {t_0^2^
                                                   {\textrm {,ph}}}\right >-\...
-l.143 \end{align}
+l.144 \end{align}
                  
 ? 
-<./cap5/figs/continuum_sym.pdf, id=1742, 575.99193pt x 437.2335pt>
+[69]
+<./cap5/figs/continuum_sym.pdf, id=1763, 575.99193pt x 437.2335pt>
 File: ./cap5/figs/continuum_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/continuum_sym.pdf>
-Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 157.
+Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 171.
 
 (pdftex.def)             Requested size: 235.19897pt x 178.53967pt.
-<./cap5/figs/SU3_comb.pdf, id=1743, 690.17848pt x 289.08pt>
+<./cap5/figs/SU3_comb.pdf, id=1764, 690.17848pt x 289.08pt>
 File: ./cap5/figs/SU3_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/SU3_comb.pdf>
-Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 164.
+Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 178.
 (pdftex.def)             Requested size: 336.0pt x 140.73294pt.
-<./cap5/figs/BMA_w.pdf, id=1744, 462.52798pt x 667.77483pt>
+<./cap5/figs/BMA_w.pdf, id=1765, 462.52798pt x 667.77483pt>
 File: ./cap5/figs/BMA_w.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_w.pdf>
-Package pdftex.def Info: ./cap5/figs/BMA_w.pdf  used on input line 171.
+Package pdftex.def Info: ./cap5/figs/BMA_w.pdf  used on input line 185.
 (pdftex.def)             Requested size: 336.0pt x 485.128pt.
-<./cap5/figs/BMA_tm.pdf, id=1751, 462.52798pt x 641.75758pt>
+<./cap5/figs/BMA_tm.pdf, id=1772, 462.52798pt x 641.75758pt>
 File: ./cap5/figs/BMA_tm.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_tm.pdf>
-Package pdftex.def Info: ./cap5/figs/BMA_tm.pdf  used on input line 178.
+Package pdftex.def Info: ./cap5/figs/BMA_tm.pdf  used on input line 192.
 (pdftex.def)             Requested size: 336.0pt x 466.22688pt.
-<./cap5/figs/BMA_comb.pdf, id=1758, 582.4962pt x 967.69531pt>
+<./cap5/figs/BMA_comb.pdf, id=1779, 582.4962pt x 967.69531pt>
 File: ./cap5/figs/BMA_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_comb.pdf>
-Package pdftex.def Info: ./cap5/figs/BMA_comb.pdf  used on input line 185.
+Package pdftex.def Info: ./cap5/figs/BMA_comb.pdf  used on input line 199.
 (pdftex.def)             Requested size: 336.0pt x 558.20715pt.
 
-LaTeX Warning: Float too large for page by 28.15753pt on input line 188.
 
+LaTeX Warning: Float too large for page by 28.15753pt on input line 202.
 
-LaTeX Warning: Reference `ch_ss:eq:SU2pi' on page 69 undefined on input line 19
-0.
+<./cap5/figs/SU2_comb.pdf, id=1786, 667.0521pt x 346.89601pt>
+File: ./cap5/figs/SU2_comb.pdf Graphic file (type pdf)
+<use ./cap5/figs/SU2_comb.pdf>
+Package pdftex.def Info: ./cap5/figs/SU2_comb.pdf  used on input line 206.
+(pdftex.def)             Requested size: 336.0pt x 174.7391pt.
+<./cap5/figs/BMA_SU2_w.pdf, id=1789, 462.52798pt x 346.89601pt>
+File: ./cap5/figs/BMA_SU2_w.pdf Graphic file (type pdf)
+<use ./cap5/figs/BMA_SU2_w.pdf>
+Package pdftex.def Info: ./cap5/figs/BMA_SU2_w.pdf  used on input line 213.
+(pdftex.def)             Requested size: 336.0pt x 252.01454pt.
+<./cap5/figs/BMA_SU2_tm.pdf, id=1796, 667.0521pt x 346.89601pt>
+File: ./cap5/figs/BMA_SU2_tm.pdf Graphic file (type pdf)
+<use ./cap5/figs/BMA_SU2_tm.pdf>
+Package pdftex.def Info: ./cap5/figs/BMA_SU2_tm.pdf  used on input line 220.
+(pdftex.def)             Requested size: 336.0pt x 174.7391pt.
+<./cap5/figs/BMA_SU2_comb.pdf, id=1803, 666.32942pt x 346.89601pt>
+File: ./cap5/figs/BMA_SU2_comb.pdf Graphic file (type pdf)
+<use ./cap5/figs/BMA_SU2_comb.pdf>
+Package pdftex.def Info: ./cap5/figs/BMA_SU2_comb.pdf  used on input line 227.
+(pdftex.def)             Requested size: 336.0pt x 174.92438pt.
+[70 <./cap5/figs/continuum_sym.pdf>] [71 <./cap5/figs/SU3_comb.pdf>] [72 <./cap
+5/figs/BMA_w.pdf>] [73 <./cap5/figs/BMA_tm.pdf>] [74 <./cap5/figs/BMA_comb.pdf>
+] [75 <./cap5/figs/SU2_comb.pdf>] [76 <./cap5/figs/BMA_SU2_w.pdf>] [77 <./cap5/
+figs/BMA_SU2_tm.pdf> <./cap5/figs/BMA_SU2_comb.pdf
 
-
-LaTeX Warning: Reference `ch_ss:eq:SU2k' on page 69 undefined on input line 190
-.
-
-[69] [70 <./cap5/figs/continuum_sym.pdf> <./cap5/figs/SU3_comb.pdf
-
-pdfTeX warning: pdflatex (file ./cap5/figs/SU3_comb.pdf): PDF inclusion: multip
-le pdfs with page group included in a single page
->] [71 <./cap5/figs/BMA_w.pdf>] [72 <./cap5/figs/BMA_tm.pdf>] [73 <./cap5/figs/
-BMA_comb.pdf>] [74]
-<./cap5/figs/t0_sym.pdf, id=2095, 462.52798pt x 346.89601pt>
+pdfTeX warning: pdflatex (file ./cap5/figs/BMA_SU2_comb.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>]
+<./cap5/figs/t0_sym.pdf, id=2354, 462.52798pt x 346.89601pt>
 File: ./cap5/figs/t0_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_sym.pdf>
-Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 235.
+Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 265.
 (pdftex.def)             Requested size: 235.19897pt x 176.40117pt.
 
-Overfull \hbox (1.11617pt too wide) in alignment at lines 254--265
+Overfull \hbox (1.11617pt too wide) in alignment at lines 284--295
  [] [] [] [] 
  []
 
-[75 <./cap5/figs/t0_sym.pdf>]
+[78 <./cap5/figs/t0_sym.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 267.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 267.
+(hyperref)                removing `math shift' on input line 297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 267.
+(hyperref)                removing `subscript' on input line 297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 267.
+(hyperref)                removing `superscript' on input line 297.
 
-) [76]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 297.
+
+) [79]
 \openout2 = `cap6/cap6.aux'.
 
  (./cap6/cap6.tex
 Chapter 5.
-) [77
+[80
 
 
 
 
 
-] [78
+]) [81] [82
 
 
 
 
-] [79
+] [83
 
 
-] [80]
+] [84]
 \openout2 = `conclusions/conclusions.aux'.
 
- (./conclusions/conclusions.tex) [81
+ (./conclusions/conclusions.tex) [85
 
 
 
@@ -2359,21 +2423,21 @@ Chapter 5.
 \openout2 = `conclusions/conclusiones.aux'.
 
 
-(./conclusions/conclusiones.tex [82
+(./conclusions/conclusiones.tex [86
 
 
 
 
 
-]) [83] [84
+]) [87] [88
 
 
 
 
-] [85
+] [89
 
 
-] [86]
+] [90]
 \openout2 = `apendices/apendices_conventions.aux'.
 
 
@@ -2383,11 +2447,11 @@ LaTeX Font Info:    Trying to load font information for TS1+pplj on input line
 19.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-) [87
+) [91
 
 
 
-]) [88]
+]) [92]
 \openout2 = `apendices/apendices_a.aux'.
 
 
@@ -2398,7 +2462,7 @@ Overfull \hbox (87.42212pt too wide) in alignment at lines 9--37
  [] [] [] [] [] [] [] [] [] 
  []
 
-) [89
+) [93
 
 
 
@@ -2409,7 +2473,7 @@ Overfull \hbox (87.42212pt too wide) in alignment at lines 9--37
 
  (./apendices/apendices_simulations.tex
 Appendix C.
-[90
+[94
 
 
 
@@ -2424,7 +2488,7 @@ Overfull \hbox (10.12854pt too wide) detected at line 18
 /n/10.95 ] + \OMS/zplm/m/n/10.95 O [] \OT1/pplx/m/n/10.95 ,$  
  []
 
-[91]
+[95]
 Overfull \hbox (3.62988pt too wide) detected at line 54
  $\OML/zplm/m/it/10.95 T\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 U[] \OMS/zplm
 /m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10.95 ) = \OML/zplm/m/it/10.
@@ -2438,10 +2502,13 @@ m/m/it/10.95 U[] \OMS/zplm/m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10
 .95 j\OT1/zplm/m/n/10.95 ))\OT1/pplx/m/n/10.95 .$  
  []
 
-[92] [93] [94]
+[96] [97] [98]
 Overfull \hbox (10.74318pt too wide) detected at line 120
 []
  []
+
+
+LaTeX Warning: Citation 'RHMC' on page 99 undefined on input line 134.
 
 ! Undefined control sequence.
 <recently read> \middleline 
@@ -2461,12 +2528,12 @@ l.147 \middleline
 l.149 \middleline
                  
 ? 
-[95]) [96]
+[99]) [100]
 \openout2 = `apendices/apendices_errors.aux'.
 
  (./apendices/apendices_errors.tex
 Appendix D.
-[97
+[101
 
 
 
@@ -2481,40 +2548,40 @@ cer-tainty of $\OMS/zplm/m/n/10.95 O\OT1/zplm/m/n/10.95 ([](\OMS/zplm/m/n/10.95
 /zplm/m/n/10.95 ))$\T1/pplj/m/n/10.95 (-20) .
  []
 
-[98]) [99]
+[102]) [103]
 \openout2 = `apendices/apendices_solvers.aux'.
 
  (./apendices/apendices_solvers.tex
 Appendix E.
-[100
+[104
 
 
 
 
 
-] [101]) [102]
+] [105]) [106]
 \openout2 = `apendices/apendices_b.aux'.
 
  (./apendices/apendices_b.tex
 Appendix F.
-[103
+[107
 
 
 
 
 
-]) [104]
+]) [108]
 \openout2 = `apendices/apendices_c.aux'.
 
  (./apendices/apendices_c.tex
 Appendix G.
-[105
+[109
 
 
 
 
 
-]) [106]
+]) [110]
 \openout2 = `apendices/apendices_f.aux'.
 
  (./apendices/apendices_f.tex
@@ -2536,40 +2603,39 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 6.
 
 
-Overfull \hbox (66.25603pt too wide) in alignment at lines 10--30
+Overfull \hbox (66.25603pt too wide) in alignment at lines 10--32
  [] [] 
  []
 
 
-Overfull \hbox (36.42177pt too wide) in alignment at lines 34--91
+Overfull \hbox (36.42177pt too wide) in alignment at lines 36--108
  [] [] [] [] 
  []
 
-[107
+[111
 
 
 
 
 
-] [108]
-Overfull \hbox (36.42177pt too wide) in alignment at lines 95--152
+] [112]
+Overfull \hbox (36.42177pt too wide) in alignment at lines 112--184
  [] [] [] [] 
  []
 
-[109]
-Overfull \hbox (36.42177pt too wide) in alignment at lines 154--241
+[113] [114]
+Overfull \hbox (36.42177pt too wide) in alignment at lines 186--298
  [] [] [] [] 
  []
 
-[110] [111] [112]) [113] [114
-
-
-
-
-]
+[115] [116] [117]) [118]
 \openout2 = `FrontBackmatter/Bibliography.aux'.
 
- (./FrontBackmatter/Bibliography.tex [115
+ (./FrontBackmatter/Bibliography.tex [119
+
+
+
+
 
 
 
@@ -2585,7 +2651,7 @@ Overfull \hbox (4.02112pt too wide) in paragraph at lines 15--15
  dy-nam-i-cal fermion
  []
 
-[116]
+[120]
 Overfull \hbox (8.79984pt too wide) in paragraph at lines 15--15
 []\T1/pplj/m/n/10.95 (-20) Mattia Dalla Brida, Ro-man Höll-wieser, Francesco Kn
 echtli, Tomasz
@@ -2598,13 +2664,13 @@ Overfull \hbox (8.93341pt too wide) in paragraph at lines 15--15
 $ \T1/pplj/m/n/10.95 (-20) by the non-perturbative
  []
 
-[117]
+[121]
 Overfull \hbox (4.59018pt too wide) in paragraph at lines 15--15
 []\T1/pplj/m/n/10.95 (-20) R. Frez-zotti and G. C. Rossi. ^^P  Chi-rally im-pro
 v-ing Wil-son fermions.
  []
 
-[118]
+[122]
 Overfull \hbox (2.17453pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) mun.Math.Phys. 98, 433 (1985)], p. 433. \T1/pplj/m/sc/
 10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 10 . 1007 / BF
@@ -2617,14 +2683,14 @@ Overfull \hbox (0.908pt too wide) in paragraph at lines 15--15
 tions and reweight-
  []
 
-[119]
+[123]
 Overfull \hbox (12.0785pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 
 10 . 1103 / PhysRevE . 108 . 045308$[][]\T1/pplj/m/n/10.95 (-20) . arXiv: [][]$
 \T1/fvm/m/n/10.95 2305 . 19417$ [stat.ME][][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-[120]
+[124]
 Overfull \hbox (2.1324pt too wide) in paragraph at lines 15--15
 \T1/fvm/m/n/10.95 sciencedirect . com / science / article / pii / S001046550200
 7543$[][]\T1/pplj/m/n/10.95 (-20) . 
@@ -2636,7 +2702,7 @@ Overfull \hbox (10.44223pt too wide) in paragraph at lines 15--15
 si-tion Solvers.^^Q
  []
 
-[121]) [122] (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
+[125]) [126] (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
 (./FrontBackmatter/Dedication.aux) (./FrontBackmatter/Abstract.aux)
 (./FrontBackmatter/Publications.aux) (./FrontBackmatter/Acknowledgments.aux)
 (./FrontBackmatter/Contents.aux) (./introduction/introduction.aux)
@@ -2852,6 +2918,10 @@ cap5/cap5.tex
 ./cap5/figs/BMA_w.pdf
 ./cap5/figs/BMA_tm.pdf
 ./cap5/figs/BMA_comb.pdf
+./cap5/figs/SU2_comb.pdf
+./cap5/figs/BMA_SU2_w.pdf
+./cap5/figs/BMA_SU2_tm.pdf
+./cap5/figs/BMA_SU2_comb.pdf
 ./cap5/figs/t0_sym.pdf
 cap6/cap6.tex
 conclusions/conclusions.tex
@@ -2871,6 +2941,9 @@ FrontBackmatter/Bibliography.tex
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `ClassicThesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -2883,11 +2956,11 @@ Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33939 strings out of 478287
- 659018 string characters out of 5849289
- 1500174 words of memory out of 5000000
- 49912 multiletter control sequences out of 15000+600000
- 624937 words of font info for 754 fonts, out of 8000000 for 9000
+ 34000 strings out of 478287
+ 660389 string characters out of 5849289
+ 1514771 words of memory out of 5000000
+ 49952 multiletter control sequences out of 15000+600000
+ 625670 words of font info for 762 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,23n,106p,10608b,2406s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -2904,10 +2977,10 @@ texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/
 uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on ClassicThesis.pdf (136 pages, 1004372 bytes).
+Output written on ClassicThesis.pdf (140 pages, 1082558 bytes).
 PDF statistics:
- 3152 PDF objects out of 3580 (max. 8388607)
- 2258 compressed objects within 23 object streams
- 681 named destinations out of 1000 (max. 500000)
- 156896 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 3435 PDF objects out of 3580 (max. 8388607)
+ 2360 compressed objects within 24 object streams
+ 689 named destinations out of 1000 (max. 500000)
+ 156916 words of extra memory for PDF output out of 184870 (max. 10000000)
 

@@ -30,9 +30,8 @@ In order to perform the chiral-continuum limit, we explore different ways of par
 
 After performing the chiral-continuum limit, using as external physical input the values of the pion and kaon decay constants we can determine the value of the scale $t_0$ as
 \begin{equation}
-\sqrt{t_0^{\textrm{ph}}}=\frac{\left.\begin{matrix}
-\left(\sqrt{t_0}f_{\pi K}\right)^{\textrm{latt}}
-\end{matrix}\right|_{a=0}}{f_{\pi K}^{\textrm{exp}}}.
+\sqrt{t_0^{\textrm{ph}}}=\frac{\left(\sqrt{t_0}f_{\pi K}\right)^{\textrm{latt}}
+(\phi_2^{\textrm{ph}},a=0)}{f_{\pi K}^{\textrm{exp}}}.
 \end{equation}
 
 In particular, we are studying ensembles which employ $N_f=2+1$ fermions, and thus assume isospin symmetry for the up and down flavors. This means that the physical input for the masses and decay constants we need is not that of Nature, but that of isosymmetric QCD (isoQCD). These values are given by the Flavor Lattice Average Group (FLAG) in~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}
@@ -102,7 +101,9 @@ labeling these models as $[Tay]$ and $[Tay4]$. Due to symmetry reasons, there ar
 
 In order to use $\sqrt{t_0}f_{\pi}$ and not $\sqrt{t_0}f_{\pi K}$ to set the scale we can use SU(2) ChPT to perform the physical point extrapolation. To NLO ChPT~\citep{Strassberger:2023xnj,SU2}
 \begin{align}
+\label{ch_ss:eq:SU2pi}
 F_{\chi,\pi}^{\textrm{cont}}(\phi_2)\equiv\sqrt{8t_0}f_{\pi}^{\textrm{cont}}&=A\phi_2+B\left(1-2\tilde{L}\left(\frac{\phi_2}{B^2}\right)\right),\\
+\label{ch_ss:eq:SU2k}
 F_{\chi,K}^{\textrm{cont}}(\phi_2)\equiv\sqrt{8t_0}f_K^{\textrm{cont}}&=C\phi_2+D\left(1-\frac{3}{4}\tilde{L}\left(\frac{\phi_2}{B^2}\right)\right),
 \end{align}
 in which case we fit both $\sqrt{t_0}f_{\pi}$ and $\sqrt{t_0}f_{K}$ since they share a fit parameter, in order to help control the extrapolation in $\sqrt{t_0}f_{\pi}$. In the end, however, we set the scale only with external physical input for $f_{\pi}$.
@@ -144,13 +145,26 @@ that allows us to compute a weighted average for $\sqrt{t_0^{\textrm{ph}}}$, as 
 
 In Figs.~\ref{ch_ss:fig:BMA_w}-\ref{ch_ss:fig:BMA_comb} we show the model average results for the Wilson unitary setup, for the mixed action and for the combined analysis. In Appendix~\ref{apex_model_av_t0} we show the numerical results of $\sqrt{t_0^{\textrm{ph}}}$ for each model considered, together with their weights and p-values, for the Wilson, mixed action and combined analysis. In Fig.~\ref{ch_ss:fig:SU3a2} we show the pion mass dependence of the continuum-chiral extrapolation for one of the best models explored in terms of the TIC for the combined data sets, together with the lattice spacing dependence for the same model, projecting all points to the physical pion mass $\phi_2^{\textrm{ph}}$ using the fit result for the continuum piece $F^{\textrm{cont}}(\phi_2)$.
 
-The final results for $\sqrt{t_0^{\textrm{ph}}}$ in physical units as computed from the model average for the different data sets are
+The final results for $\sqrt{t_0^{\textrm{ph}}}$ in physical units as computed from the model average for the different data sets, using $f_{\pi K}^{\textrm{isoQCD}}$ as physical inpuy, are
 \begin{align}
 \label{ch_ss:eq:t0ph}
-\sqrt{t_0^{\textrm{ph}}}&=0.1436(7)_{\textrm{stat}}(3)_{\textrm{syst}}\;\textrm{fm, Wilson}, \\
-\sqrt{t_0^{\textrm{ph}}}&=0.1441(9)_{\textrm{stat}}(6)_{\textrm{syst}}\;\textrm{fm, Mixed action}, \\
-\sqrt{t_0^{\textrm{ph}}}&=0.1440(6)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm, Combined}.
+\sqrt{t_0^{\textrm{ph}}}&=0.1436(7)_{\textrm{stat}}(3)_{\textrm{syst}}\;\textrm{fm, Wilson}\;[f_{\pi K}], \\
+\sqrt{t_0^{\textrm{ph}}}&=0.1441(9)_{\textrm{stat}}(6)_{\textrm{syst}}\;\textrm{fm, Mixed action}\;[f_{\pi K}], \\
+\sqrt{t_0^{\textrm{ph}}}&=0.1440(6)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm, Combined}\;[f_{\pi K}].
 \end{align}
+
+As mentioned above, relying on external physical input of $f_K$ to set the scale is problematic due to uncertainties in the definition of $f_K^{\textrm{isoQCD}}$ related to QED corrections. Furthermore, the very experimental measurement of $f_K$ relies on information on the CKM matrix element $V_{us}$, and as such $f_K$ has a big uncertainty associated to this. This makes of particular importance to set the scale using only external physical input of $f_{\pi}$. To this end, we explore chiral fits to eqs.~(\ref{ch_ss:eq:SU2pi})-(\ref{ch_ss:eq:SU2k}), in addition to the different possibilities for the continuum limit and cuts in data introduced above. Though we fit both $\sqrt{t_0}f_{\pi}$ and $\sqrt{t_0}f_K$ simultaneously since they share a fit parameter in the chiral dependence, we extract $t_0^{\textrm{ph}}$ as
+\begin{equation}
+\sqrt{t_0^{\textrm{ph}}}=\frac{\left(\sqrt{t_0}f_{\pi}\right)^{\textrm{latt}}(\phi_2^{\textrm{ph}},a=0)}{f_{\pi}^{\textrm{isoQCD}}}.
+\end{equation}
+After model averaging we find the results
+\begin{align}
+\label{ch_ss:eq:t0ph_fpi}
+\sqrt{t_0^{\textrm{ph}}}&=0.1426(8)_{\textrm{stat}}(2)_{\textrm{syst}}\;\textrm{fm, Wilson}\;[f_{\pi}], \\
+\sqrt{t_0^{\textrm{ph}}}&=0.1454(9)_{\textrm{stat}}(8)_{\textrm{syst}}\;\textrm{fm, Mixed action}\;[f_{\pi}], \\
+\sqrt{t_0^{\textrm{ph}}}&=0.1438(6)_{\textrm{stat}}(11)_{\textrm{syst}}\;\textrm{fm, Combined}\;[f_{\pi}].
+\end{align}
+We show the model average results in Figs.~\ref{ch_ss:fig:BMA_w_SU2}-\ref{ch_ss:fig:BMA_comb_SU2}, and the numerical values can be found in Appendix~\ref{apex_model_av_t0}. Finally, in Fig.~\ref{ch_ss:fig:SU2_comb} we show the particular case of one of the models entering the model average.
 
 \begin{figure}
     \centering
@@ -169,36 +183,51 @@ The final results for $\sqrt{t_0^{\textrm{ph}}}$ in physical units as computed f
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_w.pdf}
-    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the Wilson results. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the Wilson results and $f_{\pi K}$ as physical input. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
     \label{ch_ss:fig:BMA_w}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_tm.pdf}
-    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the mixed action results. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the mixed action results and $f_{\pi K}$ as physical input. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
     \label{ch_ss:fig:BMA_tm}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_comb.pdf}
-    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the combined analysis of both Wilson and mixed action results. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the combined analysis of both Wilson and mixed action results and $f_{\pi K}$ as physical input. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
     \label{ch_ss:fig:BMA_comb}
 \end{figure}
 
-As mentioned above, relying on external physical input of $f_K$ to set the scale is problematic due to uncertainties in the definition of $f_K^{\textrm{isoQCD}}$. This is so due to QED corrections. Furthermore, the very experimental measurement of $f_K$ relies on information on the CKM matrix element $V_{us}$, and as such $f_K$ has a big uncertainty associated with this. This makes of particular importance to set the scale using only external physical input of $f_{\pi}$. To this end, we explore chiral fits to eqs.~(\ref{ch_ss:eq:SU2pi})-(\ref{ch_ss:eq:SU2k}), in addition to the different possibilities for the continuum limit and cuts in data. Though we fit both $\sqrt{t_0}f_{\pi}$ and $\sqrt{t_0}f_K$ simultaneously since they share a fit parameter in the chiral dependence, we extract $t_0^{\textrm{ph}}$ as
-\begin{equation}
-\sqrt{t_0^{\textrm{ph}}}=\frac{\left(\sqrt{t_0}f_{\pi}\right)^{\textrm{latt}}|_{a=0,\phi_2=\phi_2^{\textrm{ph}}}}{f_{\pi}^{\textrm{isoQCD}}},
-\end{equation}
-not relying on the determination of $f_K^{\textrm{isoQCD}}$. After model averaging we find the results
-\begin{align}
-\label{ch_ss:eq:t0ph_fpi}
-\sqrt{t_0^{\textrm{ph}}}&=0.1426(8)_{\textrm{stat}}(2)_{\textrm{syst}}\;\textrm{fm, Wilson}\;[f_{\pi}], \\
-\sqrt{t_0^{\textrm{ph}}}&=0.1454(9)_{\textrm{stat}}(8)_{\textrm{syst}}\;\textrm{fm, Mixed action}\;[f_{\pi}], \\
-\sqrt{t_0^{\textrm{ph}}}&=0.1438(6)_{\textrm{stat}}(11)_{\textrm{syst}}\;\textrm{fm, Combined}\;[f_{\pi}].
-\end{align}
-We show the model average results in Figs.~\ref{ch_ss:fig:BMA_w_SU2}-\ref{ch_ss:fig:BMA_comb_SU2}, and the numerical values can be found in Appendix~\ref{apex_model_av_t0}.
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap5/figs/SU2_comb.pdf}
+    \caption{\textit{Left}: Pion mass dependence of $\sqrt{8t_0}f_{\pi}$ for the SU(2) ChPT model with pure $\mathcal{O}(a^2)$ cutoff effects and no cut in data: $[SU(2)\chi PT][a^2][-]$. We show the result of the combined fit of both Wilson (empty) and mixed action (filled) results. The colored bands represent the pion mass dependence for each lattice spacing for the Wilson results, while the dashed lines represent the dependence for the mixed action results. In the latter case we only plot the central value of the corresponding bands for visualization purposes. \textit{Right}: the same but for the dependence of $\sqrt{8t_0}f_{K}$. The color and symbol code is the same as in Fig.~\ref{ch_ss:fig:SU3a2}.}
+    \label{ch_ss:fig:SU2_comb}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_SU2_w.pdf}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the Wilson results and $f_{\pi}$ as physical input. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
+    \label{ch_ss:fig:BMA_w_SU2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_SU2_tm.pdf}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the mixed action results and $f_{\pi}$ as physical input. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
+    \label{ch_ss:fig:BMA_tm_SU2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_SU2_comb.pdf}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point using the combined analysis of both Wilson and mixed action results and $f_{\pi}$ as physical input. In the leftmost figure we show the results coming from each fit model together with the final averaged result with the systematic uncertainty coming from the model variation added (blue band). In the middle plot we show the quality of fits as measured by the p-value~\citep{Bruno:2022mfy}. In the rightmost figure we show the assigned weight to each model according to eq.~(\ref{ch_ss:eq:W}). We provide a Table connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}.}
+    \label{ch_ss:fig:BMA_comb_SU2}
+\end{figure}
 
 \section{Results: the symmetric point}
 
