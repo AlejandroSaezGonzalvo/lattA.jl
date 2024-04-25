@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  24 APR 2024 19:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  25 APR 2024 21:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1633,97 +1633,97 @@ l.30 ...artifacts.\relax }}{70}{figure.caption.11}
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.31 ...l average.\relax }}{70}{figure.caption.12}
+l.31 ...l average.\relax }}{71}{figure.caption.12}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.31 ...l average.\relax }}{70}{figure.caption.12}
+l.31 ...l average.\relax }}{71}{figure.caption.12}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.32 ...el_av_t0}.\relax }}{71}{figure.caption.13}
+l.32 ...el_av_t0}.\relax }}{72}{figure.caption.13}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.32 ...el_av_t0}.\relax }}{71}{figure.caption.13}
+l.32 ...el_av_t0}.\relax }}{72}{figure.caption.13}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.33 ...el_av_t0}.\relax }}{72}{figure.caption.14}
+l.33 ...el_av_t0}.\relax }}{73}{figure.caption.14}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.33 ...el_av_t0}.\relax }}{72}{figure.caption.14}
+l.33 ...el_av_t0}.\relax }}{73}{figure.caption.14}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.34 ...el_av_t0}.\relax }}{73}{figure.caption.15}
+l.34 ...el_av_t0}.\relax }}{74}{figure.caption.15}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.34 ...el_av_t0}.\relax }}{73}{figure.caption.15}
+l.34 ...el_av_t0}.\relax }}{74}{figure.caption.15}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.35 ...ig:SU3a2}.\relax }}{74}{figure.caption.16}
+l.35 ...ig:SU3a2}.\relax }}{75}{figure.caption.16}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.35 ...ig:SU3a2}.\relax }}{74}{figure.caption.16}
+l.35 ...ig:SU3a2}.\relax }}{75}{figure.caption.16}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.36 ...el_av_t0}.\relax }}{75}{figure.caption.17}
+l.36 ...el_av_t0}.\relax }}{76}{figure.caption.17}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.36 ...el_av_t0}.\relax }}{75}{figure.caption.17}
+l.36 ...el_av_t0}.\relax }}{76}{figure.caption.17}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.37 ...el_av_t0}.\relax }}{76}{figure.caption.18}
+l.37 ...el_av_t0}.\relax }}{77}{figure.caption.18}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.37 ...el_av_t0}.\relax }}{76}{figure.caption.18}
+l.37 ...el_av_t0}.\relax }}{77}{figure.caption.18}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.38 ...el_av_t0}.\relax }}{76}{figure.caption.19}
+l.38 ...el_av_t0}.\relax }}{77}{figure.caption.19}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.38 ...el_av_t0}.\relax }}{76}{figure.caption.19}
+l.38 ...el_av_t0}.\relax }}{77}{figure.caption.19}
                                                   %
 ? 
 ! Undefined control sequence.
@@ -1784,13 +1784,13 @@ l.22 ...ixed action setup.\relax }}{61}{table.3.1}
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.24 ...ref {ch_ss:eq:a}).\relax }}{78}{table.4.1}
+l.24 ...ref {ch_ss:eq:a}).\relax }}{79}{table.4.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.24 ...ref {ch_ss:eq:a}).\relax }}{78}{table.4.1}
+l.24 ...ref {ch_ss:eq:a}).\relax }}{79}{table.4.1}
                                                   %
 ? 
 ! Undefined control sequence.
@@ -1911,35 +1911,35 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
  [5] [6] [7] [8] [9] [10]
 
-LaTeX Warning: Reference `ch_conclusion' on page 11 undefined on input line 156
+LaTeX Warning: Reference `ch_conclusion' on page 11 undefined on input line 160
 .
 
 
 LaTeX Warning: Reference `apex_conventions' on page 11 undefined on input line 
-158.
+162.
 
 
 LaTeX Warning: Reference `apex_simulations' on page 11 undefined on input line 
-158.
+162.
 
 
-LaTeX Warning: Reference `apex_solvers' on page 11 undefined on input line 158.
+LaTeX Warning: Reference `apex_solvers' on page 11 undefined on input line 162.
 
 
 
-LaTeX Warning: Reference `apex_errors' on page 11 undefined on input line 158.
+LaTeX Warning: Reference `apex_errors' on page 11 undefined on input line 162.
 
 
-LaTeX Warning: Reference `apex_CLS' on page 11 undefined on input line 158.
+LaTeX Warning: Reference `apex_CLS' on page 11 undefined on input line 162.
 
 
-LaTeX Warning: Reference `apex_fit' on page 11 undefined on input line 158.
+LaTeX Warning: Reference `apex_fit' on page 11 undefined on input line 162.
 
 
-LaTeX Warning: Reference `apex_fve' on page 11 undefined on input line 158.
+LaTeX Warning: Reference `apex_fve' on page 11 undefined on input line 162.
 
 
-LaTeX Warning: Reference `apex_ma' on page 11 undefined on input line 158.
+LaTeX Warning: Reference `apex_ma' on page 11 undefined on input line 162.
 
 
 Overfull \hbox (66.26819pt too wide) has occurred while \output is active
@@ -1974,25 +1974,25 @@ Chapter 1.
 
 
 ] [18] [19] [20] [21]
-Overfull \hbox (0.12099pt too wide) detected at line 195
+Overfull \hbox (0.12099pt too wide) detected at line 193
  $\OML/zplm/m/it/10.95 S[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 a[] [] []
 \OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) [] \OT1/pplx/m
 /n/10.95 .$  
  []
 
-[22] [23] [24] [25] [26]
-Overfull \hbox (14.79276pt too wide) detected at line 373
+[22] [23] [24] [25]
+Overfull \hbox (14.79276pt too wide) detected at line 371
  $[] \OT1/zplm/m/n/10.95 = [] [] \OT1/pplx/m/n/10.95 .$  
  []
 
-[27] [28] [29]
-Overfull \hbox (11.81728pt too wide) detected at line 498
+[26] [27] [28] [29]
+Overfull \hbox (11.81728pt too wide) detected at line 496
  $\OML/zplm/m/it/10.95 S[] \OT1/zplm/m/n/10.95 = [] [] [] \OT1/pplx/m/n/10.95 ,
 $  
  []
 
 [30]
-Overfull \hbox (36.5611pt too wide) in paragraph at lines 526--528
+Overfull \hbox (36.5611pt too wide) in paragraph at lines 524--526
 \T1/pplj/m/n/10.95 (-20) with $\OML/zplm/m/it/10.95 c[]$ \T1/pplj/m/n/10.95 (-2
 0) the Sheikholeslami-Wohlert co-ef-fi-cient de-ter-mined non-perturbatively
  []
@@ -2977,7 +2977,7 @@ texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/
 uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on ClassicThesis.pdf (140 pages, 1082558 bytes).
+Output written on ClassicThesis.pdf (140 pages, 1081066 bytes).
 PDF statistics:
  3435 PDF objects out of 3580 (max. 8388607)
  2360 compressed objects within 24 object streams

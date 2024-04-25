@@ -15,13 +15,13 @@
 \contentsline {chapter}{\numberline {1}{QCD on the lattice}}{17}{chapter.1}%
 \contentsline {chapter}{QCD on the lattice}{17}{chapter.1}%
 \contentsline {section}{\numberline {1.1}{Motivation}}{17}{section.1.1}%
-\contentsline {section}{\numberline {1.2}{Pure gauge SU(3) in the lattice}}{21}{section.1.2}%
-\contentsline {section}{\numberline {1.3}{Introducing fermions in the lattice}}{22}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}{Naive fermions}}{22}{subsection.1.3.1}%
+\contentsline {section}{\numberline {1.2}{Pure gauge SU(3) in the lattice}}{20}{section.1.2}%
+\contentsline {section}{\numberline {1.3}{Introducing fermions in the lattice}}{21}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}{Naive fermions}}{21}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}{Wilson fermions}}{24}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}{Wilson twisted mass fermions}}{25}{subsection.1.3.3}%
 \contentsline {section}{\numberline {1.4}{Path integral regularization}}{27}{section.1.4}%
-\contentsline {section}{\numberline {1.5}{Continuum limit}}{29}{section.1.5}%
+\contentsline {section}{\numberline {1.5}{Continuum limit}}{28}{section.1.5}%
 \contentsline {section}{\numberline {1.6}{Symanzik improvement program}}{30}{section.1.6}%
 \contentsline {section}{\numberline {1.7}{Scale setting}}{33}{section.1.7}%
 \contentsline {chapter}{\numberline {2}{On the extraction of physical observables}}{37}{chapter.2}%

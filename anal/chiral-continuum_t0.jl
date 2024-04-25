@@ -373,10 +373,18 @@ fpik_add = true
         set_y = [cuts_y, cuts_y_st, cuts_y_combined]
         set_x = [cuts_x, cuts_x_st, cuts_x_combined]
 
-        Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
-        #Wm = [inv.(Symmetric.(cov.(set_y[i]) .+ [kron(value.(set_x[i][k][:,1])', value.(set_x[i][k][:,1])) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]
-        Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
+        #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
     ##
+
+    switch = 1e-3 #2e-4 -- 4e-3
+    #Wm_syst = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))) .+ (switch * (8 * value(t0_sh[1])) ^ 2) ^ 2 * [diagm(diag(kron(value.(set_x[i][k][:,1] .^ 2)', value.(set_x[i][k][:,1] .^ 2)))) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]
+    #Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
+    #Wm = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))))) for i in 1:length(set_y)]
+    #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
+    Wm_syst = [inv.(Symmetric.(((cov.(set_y[i]))) .+ (switch * (8 * value(t0_sh[1])) ^ 2) ^ 2 * [diagm(diag(kron(value.(set_x[i][k][:,1] .^ 2)', value.(set_x[i][k][:,1] .^ 2)))) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]
+    Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
+    #Wm = [inv.(Symmetric.(((cov.(set_y[i]))))) for i in 1:length(set_y)]
+    #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
 
     models = [model2_ChPT_a2; model2_ChPT_aas; model2_ChPT_a2phi2; model2_Taylor_a2; model2_Taylor_aas; model2_Taylor_a2phi2; model2_Taylor4_a2; model2_Taylor4_a2phi2]
     models_combined = [model2_ChPT_a2_combined; model2_ChPT_aas_combined; model2_ChPT_a2a2phi2_combined; model2_ChPT_a2phi2a2_combined; model2_ChPT_a2phi2_combined; model2_Taylor_a2_combined; model2_Taylor_aas_combined; model2_Taylor_a2a2phi2_combined; model2_Taylor_a2phi2a2_combined; model2_Taylor_a2phi2_combined; model2_Taylor4_a2_combined; model2_Taylor4_a2a2phi2_combined; model2_Taylor4_a2phi2a2_combined; model2_Taylor4_a2phi2_combined]
@@ -385,7 +393,6 @@ fpik_add = true
     param_combined = [4,4,5,5,6,4,4,5,5,6,5,6,6,7]
     param = [param, param, param_combined]
 
-    switch = 0
     for k in 1:length(set_y)
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
@@ -394,7 +401,7 @@ fpik_add = true
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
                     global L2 = length(set_y[1][j])
-                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], ((Wm[k][j])) / 1 + switch * ((kron(value.(1 ./ x[:,1])', value.(1 ./ x[:,1])))))
+                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j])
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
@@ -504,10 +511,17 @@ fpik_add = true
         set_x = [cuts_x, cuts_x_st, cuts_x_combined]
         [[uwerr.(set_y[i][j]) for j in 1:length(set_y[i])] for i in 1:length(set_y)]
         [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
-
-        #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
-        #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
     ##
+
+    #switch = 1e-3 #2e-4 -- 4e-3
+    #Wm_syst = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))) .+ (switch * (8 * value(t0_sh[1])) ^ 2) ^ 2 * [diagm(diag(kron(value.(set_x[i][k][:,1] .^ 2)', value.(set_x[i][k][:,1] .^ 2)))) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]
+    #Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
+    #Wm = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))))) for i in 1:length(set_y)]
+    #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
+    #Wm_syst = [inv.(Symmetric.(((cov.(set_y[i]))) .+ (switch * (8 * value(t0_sh[1])) ^ 2) ^ 2 * [diagm(diag(kron(value.(set_x[i][k][:,1] .^ 2)', value.(set_x[i][k][:,1] .^ 2)))) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]
+    #Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
+    #Wm = [inv.(Symmetric.(((cov.(set_y[i]))))) for i in 1:length(set_y)]
+    #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
 
     models = [model2_ChPT2_a2; model2_ChPT2_a2phi2]
     models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_a2a2phi2_combined; model2_ChPT2_a2phi2a2_combined; model2_ChPT2_a2_combined]
