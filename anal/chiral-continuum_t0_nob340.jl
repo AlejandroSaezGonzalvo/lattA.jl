@@ -10,23 +10,23 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
 new = true
 if new == true
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
+    ens = ["H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+    ens_old = ["H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
     ens_new = ["D450", "E250", "N302", "E300", "J500", "J501"]
-    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+    ens_av = ["H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
 else
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens = ["H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens_old = ["H400", "N202", "N203", "N200", "D200", "N300", "J303"]
     ens_new = [""]
-    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens_av = ["H400", "N202", "N203", "N200", "D200", "N300", "J303"]
 end
-ens_sym = ["H101", "H400", "N202", "N300", "J500"]
-ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_sym = ["H400", "N202", "N300", "J500"]
+ens_nosym = ["D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
 ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500", "J501"]
-ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
+ens_40 = ["H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+ens_41 = ["H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
+ens_42 = ["H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500", "J501"]
+ens_340 = findall(x -> x in [""], ens_av)
 ens_346 = findall(x -> x in ["H400", "D450"], ens_av)
 ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200", "E250"], ens_av)
 ens_370 = findall(x -> x in ["N300", "N302", "J303", "E300"], ens_av)
@@ -34,7 +34,7 @@ ens_385 = findall(x -> x in ["J500", "J501"], ens_av)#, "J501"]
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
-ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "N200", "D200", "E250", "J303", "E300"], ens_av)
+ind_phi204 = findall(x -> x in ["D450", "N200", "D200", "E250", "J303", "E300"], ens_av)
 ind_mL_40 = findall(x -> x in ens_40, ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
@@ -82,34 +82,6 @@ fpik_add = true
     fpi_matched = [obs_tm_sh[i][4] for i in 1:length(obs_tm_sh)]
     fk_matched = [obs_tm_sh[i][5] for i in 1:length(obs_tm_sh)]
     t0fpik_sh = [obs_tm_sh[i][6] for i in 1:length(obs_tm_sh)]
-
-    ind = ensemble_inv["H102r002"]
-    t0_sh[ind-1] = plat_av(t0_sh, [ind-1,ind]); deleteat!(t0_sh, ind)
-    phi2_sh[ind-1] = plat_av(phi2_sh, [ind-1,ind]); deleteat!(phi2_sh, ind)
-    m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
-    m13_sh[ind-1] = plat_av(m13_sh, [ind-1,ind]); deleteat!(m13_sh, ind)
-    mul[ind-1] = plat_av(mul, [ind-1,ind]); deleteat!(mul, ind)
-    mus[ind-1] = plat_av(mus, [ind-1,ind]); deleteat!(mus, ind)
-    fpi_sh[ind-1] = plat_av(fpi_sh, [ind-1,ind]); deleteat!(fpi_sh, ind)
-    fk_sh[ind-1] = plat_av(fk_sh, [ind-1,ind]); deleteat!(fk_sh, ind)
-    t0fpik_st_sh[ind-1] = plat_av(t0fpik_st_sh, [ind-1,ind]); deleteat!(t0fpik_st_sh, ind)
-    fpi_matched[ind-1] = plat_av(fpi_matched, [ind-1,ind]); deleteat!(fpi_matched, ind)
-    fk_matched[ind-1] = plat_av(fk_matched, [ind-1,ind]); deleteat!(fk_matched, ind)
-    t0fpik_sh[ind-1] = plat_av(t0fpik_sh, [ind-1,ind]); deleteat!(t0fpik_sh, ind)
-
-    ind = ensemble_inv["H105r005"] - 1
-    t0_sh[ind-1] = plat_av(t0_sh, [ind-1,ind]); deleteat!(t0_sh, ind)
-    phi2_sh[ind-1] = plat_av(phi2_sh, [ind-1,ind]); deleteat!(phi2_sh, ind)
-    m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
-    m13_sh[ind-1] = plat_av(m13_sh, [ind-1,ind]); deleteat!(m13_sh, ind)
-    mul[ind-1] = plat_av(mul, [ind-1,ind]); deleteat!(mul, ind)
-    mus[ind-1] = plat_av(mus, [ind-1,ind]); deleteat!(mus, ind)
-    fpi_sh[ind-1] = plat_av(fpi_sh, [ind-1,ind]); deleteat!(fpi_sh, ind)
-    fk_sh[ind-1] = plat_av(fk_sh, [ind-1,ind]); deleteat!(fk_sh, ind)
-    t0fpik_st_sh[ind-1] = plat_av(t0fpik_st_sh, [ind-1,ind]); deleteat!(t0fpik_st_sh, ind)
-    fpi_matched[ind-1] = plat_av(fpi_matched, [ind-1,ind]); deleteat!(fpi_matched, ind)
-    fk_matched[ind-1] = plat_av(fk_matched, [ind-1,ind]); deleteat!(fk_matched, ind)
-    t0fpik_sh[ind-1] = plat_av(t0fpik_sh, [ind-1,ind]); deleteat!(t0fpik_sh, ind)
 
     uwerr.(phi2_sh)
     phi4_sh = [phi4_ph for i in 1:length(phi2_sh)]
@@ -363,12 +335,12 @@ fpik_add = true
         y_combined_mL_41 = [y_st_mL_41; y_mL_41]
         y_combined_mL_42 = [y_st_mL_42; y_mL_42]
 
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
-        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
-        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
-        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
+        cuts_y = [y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+        cuts_y_st = [y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
+        cuts_y_combined = [y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
+        cuts_x = [x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_st = [x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_combined = [x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
 
         set_y = [cuts_y, cuts_y_st, cuts_y_combined]
         set_x = [cuts_x, cuts_x_st, cuts_x_combined]
@@ -376,8 +348,8 @@ fpik_add = true
         #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
     ##
 
-    switch = 0 ## .02-2
-    #Wm_syst = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))) .+ switch ^ 2 * [diagm(value.(set_x[i][k][:,1] .^ 4)) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]    
+    switch = 0 ## .1-2
+    #Wm_syst = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))) .+ 4 * [diagm(value.(set_x[i][k][:,1] .^ 4)) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]    
     #Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
     #Wm = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))))) for i in 1:length(set_y)]
     #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
@@ -494,15 +466,15 @@ fpik_add = true
         y_st_mL_42 = [fpi_st_mL_42; fk_st_mL_42]
         y_combined_mL_42 = [y_st_mL_42; y_mL_42]
 
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+        cuts_y = [y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
 
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
-        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
-        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
+        cuts_y = [y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+        cuts_y_st = [y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
+        cuts_y_combined = [y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
         
-        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
+        cuts_x = [x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_st = [x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_combined = [x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
         cuts_x = [[cuts_x[i]; cuts_x[i]] for i in 1:length(cuts_x)]
         cuts_x_st = [[cuts_x_st[i]; cuts_x_st[i]] for i in 1:length(cuts_x_st)]
         cuts_x_combined = [[cuts_x_combined[i]; cuts_x_combined[i]] for i in 1:length(cuts_x_combined)]
@@ -513,8 +485,8 @@ fpik_add = true
         [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
     ##
 
-    #switch = 2 ## .02-2
-    #Wm_syst = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))) .+ switch ^ 2 * [diagm(value.(set_x[i][k][:,1] .^ 4)) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]    
+    #switch = 2 ## .1-2
+    #Wm_syst = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))) .+ 4 * [diagm(value.(set_x[i][k][:,1] .^ 4)) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]    
     #Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
     #Wm = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))))) for i in 1:length(set_y)]
     #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
