@@ -12,6 +12,7 @@ export get_corr_wil, get_corr_tm, get_dSdm, get_YW, read_ens_wil, read_ens_tm, r
 
 include("obs.jl")
 export get_m, get_m_pbc, get_mpcac, get_f_wil, get_f_wil_pbc, get_f_tm, get_f_tm_pbc, get_t0
+export get_m_ALPHA, get_m_pbc_ALPHA, get_mpcac_ALPHA, get_f_wil_ALPHA, get_f_tm_ALPHA, get_t0_ALPHA
 
 include("tools.jl")
 export model_av, pvalue, get_model, fve, fve_inv, fit_alg, fit_alg_LBFGS, fit_defs, corr_sym_E250, corr_sym_D450
