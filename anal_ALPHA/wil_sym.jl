@@ -7,7 +7,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H400"
+id = "N300"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
@@ -22,6 +22,8 @@ pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=
 
 if ens.id == "N300"
     mpi = get_m_ALPHA(pp_sym[1], ens, "pion_wil", pl=true, tm=35, wpm=wpm)
+elseif ens.id == "N202"
+    mpi = get_m_ALPHA(pp_sym[1], ens, "pion_wil", pl=true, tm=32, wpm=wpm)
 else
     mpi = get_m_ALPHA(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm)
 end
@@ -40,7 +42,15 @@ m12_I = (1 + beta_bap[ens.beta] * m12) * m12
 
 #======== compute t0/a² ===============#
 
-t0, YW, WY = get_t0_ALPHA(path, ens, [40,60], rw=true, info=true, wpm=wpm, pl=true)
+if ens.id == "H400"
+    t0, YW, WY = get_t0_ALPHA(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=10, pl=true)
+elseif ens.id == "N202"
+    t0, YW, WY = get_t0_ALPHA(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=29, pl=true)
+elseif ens.id == "N300"
+    t0, YW, WY = get_t0_ALPHA(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=33, pl=true)
+else
+    t0, YW, WY = get_t0_ALPHA(path, ens, [40,60], rw=true, info=true, wpm=wpm, pl=true)
+end
 
 #======== save BDIO ===================#
 

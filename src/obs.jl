@@ -108,7 +108,7 @@ function get_m_ALPHA(corr::juobs.Corr, ens::EnsInfo, PS::String;
     pval = 0
     i = ini = tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), m_dat[i:div(T,2)], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), m_dat[i:div(T,2)], k1, guess, wpm=wpm)
         if pval > 0.1
             break
         end
@@ -124,7 +124,7 @@ function get_m_ALPHA(corr::juobs.Corr, ens::EnsInfo, PS::String;
     pval = 0
     i = fin = T-tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), m_dat[div(T,2):i], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), m_dat[div(T,2):i], k1, guess, wpm=wpm)
         if pval > 0.1
             break
         end
@@ -242,7 +242,7 @@ function get_m_pbc_ALPHA(corr::juobs.Corr, ens::EnsInfo, PS::String;
     pval = 0
     i = ini = tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_fun2, collect(i:div(T,2)), corr_d[i:div(T,2)], k2, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_fun2, collect(i:div(T,2)), corr_d[i:div(T,2)], k2, guess, wpm=wpm)
         i+=1
         if pval > 0.1
             break
@@ -258,7 +258,7 @@ function get_m_pbc_ALPHA(corr::juobs.Corr, ens::EnsInfo, PS::String;
     pval = 0
     i = fin = T-tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_fun2, collect(div(T,2):i), corr_d[div(T,2):i], k2, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_fun2, collect(div(T,2):i), corr_d[div(T,2):i], k2, guess, wpm=wpm)
         i-=1
         if pval > 0.1
             break
@@ -377,7 +377,7 @@ function get_mpcac_ALPHA(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo,
     pval = 0
     i = ini = tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), mpcac_dat[i:div(T,2)], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), mpcac_dat[i:div(T,2)], k1, guess, wpm=wpm)
         i+=1
         if pval > 0.1
             break
@@ -393,7 +393,7 @@ function get_mpcac_ALPHA(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo,
     pval = 0
     i = fin = T-tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), mpcac_dat[div(T,2):i], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), mpcac_dat[div(T,2):i], k1, guess, wpm=wpm)
         i-=1
         if pval > 0.1
             break
@@ -614,7 +614,7 @@ function get_f_wil_ALPHA(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, en
     pval = 0
     i = ini = tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), R_dat[i:div(T,2)], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), R_dat[i:div(T,2)], k1, guess, wpm=wpm)
         i+=1
         if pval > 0.1
             break
@@ -630,7 +630,7 @@ function get_f_wil_ALPHA(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, en
     pval = 0
     i = fin = T-tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), R_dat[div(T,2):i], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), R_dat[div(T,2):i], k1, guess, wpm=wpm)
         i-=1
         if pval > 0.1
             break
@@ -701,7 +701,7 @@ function get_f_wil_ALPHA(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::j
     pval = 0
     i = ini = tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), R_dat[i:div(T,2)], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), R_dat[i:div(T,2)], k1, guess, wpm=wpm)
         i+=1
         if pval > 0.1
             break
@@ -717,7 +717,7 @@ function get_f_wil_ALPHA(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::j
     pval = 0
     i = fin = T-tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), R_dat[div(T,2):i], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), R_dat[div(T,2):i], k1, guess, wpm=wpm)
         i-=1
         if pval > 0.1
             break
@@ -1023,7 +1023,7 @@ function get_f_tm_ALPHA(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String
     pval = 0
     i = ini = tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), R_dat[i:div(T,2)], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), R_dat[i:div(T,2)], k1, guess, wpm=wpm)
         i+=1
         if pval > 0.1
             break
@@ -1039,7 +1039,7 @@ function get_f_tm_ALPHA(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String
     pval = 0
     i = fin = T-tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), R_dat[div(T,2):i], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), R_dat[div(T,2):i], k1, guess, wpm=wpm)
         i-=1
         if pval > 0.1
             break
@@ -1099,7 +1099,7 @@ function get_f_tm_ALPHA(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, e
     pval = 0
     i = ini = tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), R_dat[i:div(T,2)], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), R_dat[i:div(T,2)], k1, guess, wpm=wpm)
         i+=1
         if pval > 0.1
             break
@@ -1115,7 +1115,7 @@ function get_f_tm_ALPHA(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, e
     pval = 0
     i = fin = T-tm
     while pval < 0.1
-        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), R_dat[div(T,2):i], k1, guess)
+        global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), R_dat[div(T,2):i], k1, guess, wpm=wpm)
         i-=1
         if pval > 0.1
             break
@@ -1496,19 +1496,20 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
     @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
     k1 = 5
 
-    x = t[nt0-dt0:nt0+dt0]
+    xx = t[nt0-dt0:nt0+dt0]
     t2E_i = Array{uwreal,1}()
     for j in 1:2*dt0+1
         i = Int(round(dt0+0.5))
-        dat = Y_aux[:,j].* x[j].^2 / L^3
+        dat = Y_aux[:,j].* xx[j].^2 / L^3
         guess = value(dat[Int64(round(T / 2))])
+        println(guess)
         if j == i   
 
             ## tmin
             pval = 0
             i = ini = tm
             while pval < 0.1
-                global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), dat[i:div(T,2)], k1, guess)
+                global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), dat[i:div(T,2)], k1, guess, wpm=wpm)
                 i+=1
                 if pval > 0.1
                     break
@@ -1524,7 +1525,7 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
             pval = 0
             i = fin = T-tm
             while pval < 0.1
-                global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), dat[div(T,2):i], k1, guess)
+                global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), dat[div(T,2):i], k1, guess, wpm=wpm)
                 i-=1
                 if pval > 0.1
                     break
@@ -1561,7 +1562,7 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
             pval = 0
             i = ini = tm
             while pval < 0.1
-                global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), dat[i:div(T,2)], k1, guess)
+                global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(i:div(T,2)), dat[i:div(T,2)], k1, guess, wpm=wpm)
                 i+=1
                 if pval > 0.1
                     break
@@ -1577,7 +1578,7 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
             pval = 0
             i = fin = T-tm
             while pval < 0.1
-                global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), dat[div(T,2):i], k1, guess)
+                global up, chi2, chi_exp, pval = fit_alg(fit_exp, collect(div(T,2):i), dat[div(T,2):i], k1, guess, wpm=wpm)
                 i-=1
                 if pval > 0.1
                     break
@@ -1600,7 +1601,7 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
   
     model(x, p) = get_model(x, p, npol)
 
-    par, aux = fit_alg(model, x, t2E_i, npol)
+    par, aux = fit_alg(model, xx, t2E_i, npol)
     fmin(x, p) = model(x, p) .- 0.3
     t0 = root_error(fmin, t[nt0], par)
 
@@ -1610,7 +1611,7 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
         uwerr(t0)
 
 	    fig = figure("t2E_vs_t")
-        errorbar(x, v, e, fmt="x")
+        errorbar(xx, v, e, fmt="x")
         errorbar(value(t0), 0.3, xerr=err(t0), fmt="x")
         ylabel(L"$t^2E$")
         xlabel(L"$t/a^2$")
