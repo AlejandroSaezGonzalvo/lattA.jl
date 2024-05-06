@@ -478,8 +478,6 @@ fpik_add = true
         y_combined_mL_42 = [y_st_mL_42; y_mL_42]
 
         cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
-
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
         cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
         cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
         
@@ -492,6 +490,16 @@ fpik_add = true
         [[uwerr.(set_y[i][j]) for j in 1:length(set_y[i])] for i in 1:length(set_y)]
         [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
     ##
+
+    switch = 0 ## .02-2
+    #Wm_syst = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))) .+ switch ^ 2 * [diagm(value.(set_x[i][k][:,1] .^ 4)) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]    
+    #Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
+    #Wm = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))))) for i in 1:length(set_y)]
+    #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
+    Wm_syst = [inv.(Symmetric.(((cov.(set_y[i]))) .+ switch ^ 2 * [diagm(value.(set_x[i][k][:,1] .^ 4)) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]    
+    Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
+    Wm = [inv.(Symmetric.(((cov.(set_y[i]))))) for i in 1:length(set_y)]
+    Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
 
     models = [model_ChPT2_a2; model_ChPT2_aas; model_ChPT2_a2phi2]
     models_combined = [model_ChPT2_a2_combined; model_ChPT2_aas_combined; model_ChPT2_a2a2phi2_combined; model_ChPT2_a2phi2a2_combined; model_ChPT2_a2_combined]
@@ -508,7 +516,7 @@ fpik_add = true
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
                     global L2 = length(set_y[1][j])
-                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
+                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j])
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     if k == 3
@@ -623,11 +631,11 @@ fpik_add = true
         [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
     ##
 
-    models = [model2_ChPT2_a2; model2_ChPT2_a2phi2]
-    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_a2a2phi2_combined; model2_ChPT2_a2phi2a2_combined; model2_ChPT2_a2_combined]
+    models = [model2_ChPT2_a2; model2_ChPT2_aas; model2_ChPT2_a2phi2]
+    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_aas_combined; model2_ChPT2_a2a2phi2_combined; model2_ChPT2_a2phi2a2_combined; model2_ChPT2_a2_combined]
     models = [models, models, models_combined]
-    param = [6,8]
-    param_combined = [8,10,10,12]
+    param = [7,7,9]
+    param_combined = [9,9,11,11,13]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
@@ -638,16 +646,16 @@ fpik_add = true
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
                     global L2 = length(set_y[1][j])
-                    guess = [-0.04649873644681202, 3.2258942220608646, -0.06380039585181703, 0.32012086686329133, 0.023858335148344484, 0.10023340057075658]
+                    guess = [-0.03714930996391645, 3.794500859421803, -0.04370336668443585, -0.3767099865988463, -0.053522736192504715, 0.32081397340658246, -0.340720745616767]
                     uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i], guess)
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     if k == 3
-                        push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[1])
-                        push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[2])
+                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph;x_ph;x_ph],uprm)[1])
+                        push!(t0fk_ph_vec[k], model_plot_SU2_k([x_ph;x_ph;x_ph;x_ph],uprm)[2])
                     else
-                        push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[1])
-                        push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[2])
+                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph],uprm)[1])
+                        push!(t0fk_ph_vec[k], model_plot_SU2_k([x_ph;x_ph],uprm)[2])
                     end
                     if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
                 end
@@ -987,7 +995,7 @@ fpik_add = true
         errorbar(value(phi2_ph), value(t0fpi_ph_vec[1][1]), err(t0fpi_ph_vec[1][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
         ax = gca()
         ax[:set_ylim]([0.24, 0.33])
-        legend()
+        #legend()
         tight_layout()
             
         subplot(132) # Create the 2nd axis of a 3x1 arrax of axes
@@ -1031,7 +1039,7 @@ fpik_add = true
         xlabel(L"$\phi_2$")
         i = 1
         for ind in ind_sym
-            list = [1,2,3,4,7,8]
+            list = [1,2,3,5]
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_pi(x_plot,uprm_combined[list]) ; uwerr.(aux)
             v = value.(aux)
@@ -1047,7 +1055,7 @@ fpik_add = true
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         i = 1
         for ind in ind_sym
-            list = [1,2,3,4,5,6]
+            list = [1,2,3,4]
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
             aux = model_plot_SU2_pi(x_plot,uprm_combined[list]) ; uwerr.(aux)
             v = value.(aux)
@@ -1102,7 +1110,7 @@ fpik_add = true
         errorbar(value(phi2_ph), value(t0fk_ph_vec[1][1]), err(t0fk_ph_vec[1][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
         ax = gca()
         ax[:set_ylim]([0.3, 0.34])
-        legend()
+        #legend()
         tight_layout()
             
         subplot(132) # Create the 2nd axis of a 3x1 arrax of axes
