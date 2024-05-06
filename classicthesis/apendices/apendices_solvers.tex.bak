@@ -10,7 +10,7 @@ For the computation of correlation functions of fermions in the lattice (e.g. a 
 \begin{gather}
 \left<\eta_i(x)\right>_{\eta}=0, \quad \left<\eta_i^{\dagger}(x)\eta_j(y)\right>_{\eta}=\delta_{x,y}\delta_{i,j},
 \end{gather}
-with $\left<.\right>_{\eta}$ meaning average over the $N_{\eta}$ samples of some noise distribution. Some common choices are Gaussian, $Z_2$ or $U(1)$. From these we define
+with $\left<.\right>_{\eta}$ meaning average over the $N_{\eta}$ samples of some noise distribution. Some common choices are gaussian, $Z_2$ or $U(1)$. From these we define
 \begin{gather}
 \xi_i^q(x)=\sum_yD^{-1}_q(x,y)\eta_i(y), \quad \zeta_i^r(x)=\sum_yD^{-1}_r(x,y)\gamma_5\Gamma_B^{\dagger}\eta_i(y),
 \end{gather}
@@ -25,7 +25,7 @@ We still need to solve the Dirac equation
 \begin{equation}
 D_q(x,y)\psi_r(y)=\delta_{x,y}\delta_{q,r}\equiv\eta_{x,y,q,r},
 \end{equation}
-in order to invert the Dirac operator $D_q$ with flavor $q$. This is usually done by an iterative procedure. The basic idea is to start from an initial approximate solution $\psi_0$ and define the residue $\rho$ (we suppress indices for simplicity)
+in order to invert the Dirac operator $D_q$ with flavor $q$. This is usually done by an iterative procedure. The basic idea is to start from an initial approximate solution $\psi_0$ and define the residue $\rho$ (we supress indices for simplicity)
 \begin{equation}
 \rho=D\psi_0-\eta.
 \end{equation}

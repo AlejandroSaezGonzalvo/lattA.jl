@@ -10,9 +10,9 @@ In this appendix we discuss how to perform the data analysis of correlation func
 
 Lattice data is measured from Monte Carlo (MC) sampling, and estimates of expectation values of physical observables are extracted from means over the MC time. A crucial step is to assign a proper statistical and systematic uncertainties to these mean values, for which it is needed to take into account the autocorrelated nature of MC measurements. This autocorrelation arises form the fact that each gauge configuration is proposed from the previous one (Markov chain). Some popular methods to deal with these correlations are binning, bootstrap and the jack-knife methods.
 
-A recent technique which we will use in this work was proposed by the ALPHA collaboration~\citep{Schaefer:2010hu,Wolff:2003sm,Ramos:2018vgu} and is known as $\Gamma$-method, which explicitly computes the autocorrelation function to estimate the statistical uncertainty.
+A recent technique which we will use in this work was proposed by the ALPHA collaboration~\citep{Schaefer:2010hu,Wolff:2003sm,Ramos:2018vgu} and is known as $\Gamma$-method, which explicitely computes the autocorrelation function to estimate the statistical uncertainty.
 
-In lattice simulations Typically one measures a primary observable $p_i$ over several ensembles (defined by the simulation parameters like e.g. the inverse coupling $\beta$ and $\kappa$ parameter) 
+In lattice simulations tipically one measures a primary observable $p_i$ over several ensembles (defined by the simulation parameters like e.g. the inverse coupling $\beta$ and $\kappa$ parameter) 
 \begin{equation}
 p_i^{\alpha}(k), k=1,...,N_{\alpha},
 \end{equation}

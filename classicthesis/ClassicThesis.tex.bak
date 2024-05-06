@@ -97,10 +97,10 @@
 \include{cap2/lattice.tex}
 \include{cap3/observables.tex}
 \cleardoublepage
-\part{Precision Physics from a Lattice QCD Mixed Action}\label{pt:results}
+\part{Precission Physics from a Lattice QCD Mixed Action}\label{pt:results}
 \include{cap4/cap4.tex}
 \include{cap5/cap5.tex}
-%\include{cap6/cap6.tex}
+\include{cap6/cap6.tex}
 \cleardoublepage
 \part{Conclusions}\label{pt:concl}
 \include{conclusions/conclusions.tex}

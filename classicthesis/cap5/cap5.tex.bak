@@ -145,7 +145,7 @@ that allows us to compute a weighted average for $\sqrt{t_0^{\textrm{ph}}}$, as 
 
 In Figs.~\ref{ch_ss:fig:BMA_w}-\ref{ch_ss:fig:BMA_comb} we show the model average results for the Wilson unitary setup, for the mixed action and for the combined analysis. In Appendix~\ref{apex_model_av_t0} we show the numerical results of $\sqrt{t_0^{\textrm{ph}}}$ for each model considered, together with their weights and p-values, for the Wilson, mixed action and combined analysis. In Fig.~\ref{ch_ss:fig:SU3a2} we show the pion mass dependence of the continuum-chiral extrapolation for one of the best models explored in terms of the TIC for the combined data sets, together with the lattice spacing dependence for the same model, projecting all points to the physical pion mass $\phi_2^{\textrm{ph}}$ using the fit result for the continuum piece $F^{\textrm{cont}}(\phi_2)$.
 
-The final results for $\sqrt{t_0^{\textrm{ph}}}$ in physical units as computed from the model average for the different data sets, using $f_{\pi K}^{\textrm{isoQCD}}$ as physical input, are
+The final results for $\sqrt{t_0^{\textrm{ph}}}$ in physical units as computed from the model average for the different data sets, using $f_{\pi K}^{\textrm{isoQCD}}$ as physical inpuy, are
 \begin{align}
 \label{ch_ss:eq:t0ph}
 \sqrt{t_0^{\textrm{ph}}}&=0.1436(7)_{\textrm{stat}}(3)_{\textrm{syst}}\;\textrm{fm, Wilson}\;[f_{\pi K}], \\
@@ -291,7 +291,7 @@ $3.55$ & $0.0630(3)_{\textrm{stat}}(2)_{\textrm{syst}}$ & $0.0632(3)_{\textrm{st
 $3.70$ & $0.0489(3)_{\textrm{stat}}(1)_{\textrm{syst}}$ & $0.0490(3)_{\textrm{stat}}(2)_{\textrm{syst}}$ & $0.0490(2)_{\textrm{stat}}(1)_{\textrm{syst}}$ \\
 $3.85$ & $0.0383(2)_{\textrm{stat}}(1)_{\textrm{syst}}$ & $0.0385(2)_{\textrm{stat}}(2)_{\textrm{syst}}$ & $0.0384(2)_{\textrm{stat}}(1)_{\textrm{syst}}$ \\
 \bottomrule
-\caption{Values of the lattice spacing $a$ in physical units extracted from the determination of the gradient flow scale $t_0$ with the Wilson, mixed action and combined analysis. The lattice spacing is extracted from measures of both $t_0$ at the physical and symmetric points using eq.~(\ref{ch_ss:eq:a}).}
+\caption{Values of the lattice spacing $a$ in physical units extracted from the deterimation of the gradient flow scale $t_0$ with the Wilson, mixed action and combined analysis. The lattice spacing is extracted from measures of both $t_0$ at the physical and symmetric points using eq.~(\ref{ch_ss:eq:a}).}
 \end{longtable}
 
 \section{Results: $t_0^*$}

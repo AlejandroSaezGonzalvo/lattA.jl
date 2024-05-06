@@ -412,7 +412,117 @@ fpik_add = true
         end
     end
 
-    ## prepare data SU2
+    ## prepare data SU2 only fpi
+        uprm_plot_SU2 = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        t0fpi_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+
+        x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
+        x_combined = [x; x]
+        x_355 = x[[ens_346; ens_355; ens_370; ens_385],:]
+        x_combined_355 = [x_355; x_355]
+        x_combined_355_only_Wil = [x_355; x]
+        x_combined_355_only_Wtm = [x; x_355]
+        x_nosym = x[ind_nosym,:]
+        x_nosym355 = x[ind_nosym355,:]
+        x_combined_nosym = [x_nosym; x_nosym]
+        x_combined_nosym355 = [x_nosym355; x_nosym355]
+        x_mL_41 = x[ind_mL_41, :]
+        x_mL_42 = x[ind_mL_42, :]
+        x_combined_mL_41 = [x_mL_41; x_mL_41]
+        x_combined_mL_42 = [x_mL_42; x_mL_42]
+        x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph)]
+        x_3552 = x[[ens_355; ens_370; ens_385],:]
+        x_combined_3552 = [x_3552; x_3552]
+        x_phi204 = x[ind_phi204,:]
+        x_combined_phi204 = [x_phi204; x_phi204]
+
+        fpi = t0fpi_sh
+        fpi_355 = t0fpi_sh[[ens_346; ens_355; ens_370; ens_385]]
+        fpi_3552 = t0fpi_sh[[ens_355; ens_370; ens_385]]
+        fpi_nosym = t0fpi_sh[ind_nosym]
+        fpi_nosym355 = t0fpi_sh[ind_nosym355]
+        fpi_phi204 = t0fpi_sh[ind_phi204]
+        fpi_mL_41 = t0fpi_sh[ind_mL_41]
+        fpi_mL_42 = t0fpi_sh[ind_mL_42]
+        fpi_st = t0fpi_st_sh
+        fpi_st_355 = t0fpi_st_sh[[ens_346; ens_355; ens_370; ens_385]]
+        fpi_st_3552 = t0fpi_st_sh[[ens_355; ens_370; ens_385]]
+        fpi_st_nosym = t0fpi_st_sh[ind_nosym]
+        fpi_st_nosym355 = t0fpi_st_sh[ind_nosym355]
+        fpi_st_phi204 = t0fpi_st_sh[ind_phi204]
+        fpi_st_mL_41 = t0fpi_st_sh[ind_mL_41]
+        fpi_st_mL_42 = t0fpi_st_sh[ind_mL_42]
+        y = fpi
+        y_st = fpi_st
+        y_combined = [y_st; y]
+        y_355 = fpi_355
+        y_st_355 = fpi_st_355
+        y_combined_355 = [y_st_355; y_355]
+        y_3552 = fpi_3552
+        y_st_3552 = fpi_st_3552
+        y_combined_3552 = [y_st_3552; y_3552]
+        y_nosym = fpi_nosym
+        y_nosym355 = fpi_nosym355
+        y_st_nosym = fpi_st_nosym
+        y_st_nosym355 = fpi_st_nosym355
+        y_combined_nosym = [y_st_nosym; y_nosym]
+        y_combined_nosym355 = [y_st_nosym355; y_nosym355]
+        y_phi204 = fpi_phi204
+        y_st_phi204 = fpi_st_phi204
+        y_combined_phi204 = [y_st_phi204; y_phi204]
+        y_mL_41 = fpi_mL_41
+        y_st_mL_41 = fpi_st_mL_41
+        y_combined_mL_41 = [y_st_mL_41; y_mL_41]
+        y_mL_42 = fpi_mL_42
+        y_st_mL_42 = fpi_st_mL_42
+        y_combined_mL_42 = [y_st_mL_42; y_mL_42]
+
+        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+
+        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
+        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
+        
+        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
+
+        set_y = [cuts_y, cuts_y_st, cuts_y_combined]
+        set_x = [cuts_x, cuts_x_st, cuts_x_combined]
+        [[uwerr.(set_y[i][j]) for j in 1:length(set_y[i])] for i in 1:length(set_y)]
+        [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
+    ##
+
+    models = [model_ChPT2_a2; model_ChPT2_aas; model_ChPT2_a2phi2]
+    models_combined = [model_ChPT2_a2_combined; model_ChPT2_aas_combined; model_ChPT2_a2a2phi2_combined; model_ChPT2_a2phi2a2_combined; model_ChPT2_a2_combined]
+    models = [models, models, models_combined]
+    param = [4,4,5]
+    param_combined = [5,5,6,6,7]
+    param = [param, param, param_combined]
+
+    for k in 1:length(set_y)
+        for i in 1:length(models[k])
+            for j in 1:length(cuts_y)
+                if (k in [1,2] && j in [5,6] && i in [2] || k == 3 && j in [5,6] && i in [2,3,4]) == false
+                    x = set_x[k][j]
+                    y = set_y[k][j]
+                    global L1 = length(set_y[1][j])
+                    global L2 = length(set_y[1][j])
+                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
+                    push!(TIC[k], chi2 - 2 * chi_exp)
+                    push!(pval[k], pval_aux)
+                    if k == 3
+                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph;x_ph;x_ph],uprm)[1])
+                    else
+                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph],uprm)[1])
+                    end
+                    if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
+                end
+            end
+        end
+    end
+
+    ## prepare data SU2 fpi & fk
         uprm_plot_SU2 = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         t0fk_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         t0fpi_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
@@ -512,16 +622,6 @@ fpik_add = true
         [[uwerr.(set_y[i][j]) for j in 1:length(set_y[i])] for i in 1:length(set_y)]
         [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
     ##
-
-    #switch = 2 ## .02-2
-    #Wm_syst = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))) .+ switch ^ 2 * [diagm(value.(set_x[i][k][:,1] .^ 4)) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]    
-    #Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
-    #Wm = [inv.(Symmetric.(diagm.(diag.(cov.(set_y[i]))))) for i in 1:length(set_y)]
-    #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
-    #Wm_syst = [inv.(Symmetric.(((cov.(set_y[i]))) .+ switch ^ 2 * [diagm(value.(set_x[i][k][:,1] .^ 4)) for k in 1:length(set_y[i])])) for i in 1:length(set_y)]    
-    #Wm_syst = [convert.(Matrix{Float64}, Wm_syst[i]) for i in 1:length(set_y)]
-    #Wm = [inv.(Symmetric.(((cov.(set_y[i]))))) for i in 1:length(set_y)]
-    #Wm = [convert.(Matrix{Float64}, Wm[i]) for i in 1:length(set_y)]
 
     models = [model2_ChPT2_a2; model2_ChPT2_a2phi2]
     models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_a2a2phi2_combined; model2_ChPT2_a2phi2a2_combined; model2_ChPT2_a2_combined]

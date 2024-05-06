@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  26 APR 2024 19:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  3 MAY 2024 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -226,6 +226,14 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 )
 Class scrreprt Info: longtable captions redefined on input line 43.
 
+(/usr/share/texlive/texmf-dist/tex/latex/yfonts/yfonts.sty
+Package: yfonts 2019/04/04 v1.4 (WaS&NP)
+Now handling font encoding LY ...
+... no UTF-8 mapping file for font encoding LY
+Now handling font encoding LYG ...
+... no UTF-8 mapping file for font encoding LYG
+LaTeX Info: Composite with undeclared \" in encoding LYG on input line 58.
+)
 (./classicthesis-config.tex
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
@@ -1155,7 +1163,7 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'american'.
 LaTeX Font Info:    Trying to load font information for T1+pplj on input line 6
-3.
+4.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pplj.fd
 File: t1pplj.fd 2004/09/06 font definitions for T1/pplj.
 ) (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux) (./FrontBackmatter/Ded
@@ -1168,36 +1176,39 @@ Package babel Info: Importing basic data for spanish
 (./FrontBackmatter/Publications.aux) (./FrontBackmatter/Acknowledgments.aux)
 (./FrontBackmatter/Contents.aux) (./introduction/introduction.aux)
 (./introduction/introduccion.aux) (./cap2/lattice.aux) (./cap3/observables.aux)
-(./cap4/cap4.aux) (./cap5/cap5.aux) (./cap6/cap6.aux)
-(./conclusions/conclusions.aux) (./conclusions/conclusiones.aux)
-(./apendices/apendices_conventions.aux) (./apendices/apendices_a.aux)
-(./apendices/apendices_simulations.aux) (./apendices/apendices_errors.aux)
-(./apendices/apendices_solvers.aux) (./apendices/apendices_b.aux)
-(./apendices/apendices_c.aux) (./apendices/apendices_f.aux)
-(./FrontBackmatter/Bibliography.aux))
+(./cap4/cap4.aux) (./cap5/cap5.aux) (./conclusions/conclusions.aux)
+(./conclusions/conclusiones.aux) (./apendices/apendices_conventions.aux)
+(./apendices/apendices_a.aux) (./apendices/apendices_simulations.aux)
+(./apendices/apendices_errors.aux) (./apendices/apendices_solvers.aux)
+(./apendices/apendices_b.aux) (./apendices/apendices_c.aux)
+(./apendices/apendices_f.aux) (./FrontBackmatter/Bibliography.aux))
 \openout1 = `ClassicThesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-Package scrbase Info: activating american \contentsname on input line 63.
-Package scrbase Info: activating american \listfigurename on input line 63.
-Package scrbase Info: activating american \listtablename on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+Package scrbase Info: activating american \contentsname on input line 64.
+Package scrbase Info: activating american \listfigurename on input line 64.
+Package scrbase Info: activating american \listtablename on input line 64.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1215,7 +1226,7 @@ See the subcaption package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.63 \begin{document}
+l.64 \begin{document}
                      
 ? 
 Package caption Info: End \AtBeginDocument code.
@@ -1283,36 +1294,36 @@ Package biblatex Info: ... file 'ClassicThesis.bbl' found.
 (./ClassicThesis.bbl)
 Package biblatex Info: ... file 'ClassicThesis1-blx.bbl' found.
  (./ClassicThesis1-blx.bbl)
-Package biblatex Info: Reference section=0 on input line 63.
-Package biblatex Info: Reference segment=0 on input line 63.
+Package biblatex Info: Reference section=0 on input line 64.
+Package biblatex Info: Reference segment=0 on input line 64.
 
 ! Undefined control sequence.
 <argument> \sf@counterlist 
                            
-l.63 \begin{document}
+l.64 \begin{document}
                      
 ? 
 \c@lstlisting=\count460
-Package scrhack Info: undefining \float@addtolists on input line 63.
-LaTeX Info: Redefining \microtypecontext on input line 63.
-Package microtype Info: Applying patch `item' on input line 63.
-Package microtype Info: Applying patch `toc' on input line 63.
-Package microtype Info: Applying patch `eqnum' on input line 63.
-Package microtype Info: Applying patch `footnote' on input line 63.
+Package scrhack Info: undefining \float@addtolists on input line 64.
+LaTeX Info: Redefining \microtypecontext on input line 64.
+Package microtype Info: Applying patch `item' on input line 64.
+Package microtype Info: Applying patch `toc' on input line 64.
+Package microtype Info: Applying patch `eqnum' on input line 64.
+Package microtype Info: Applying patch `footnote' on input line 64.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 63.
+LaTeX Info: Redefining \showhyphens on input line 64.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
-Package hyperref Info: Link coloring ON on input line 63.
+Package hyperref Info: Link coloring ON on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1325,9 +1336,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count461
 )
-LaTeX Info: Redefining \ref on input line 63.
-LaTeX Info: Redefining \pageref on input line 63.
-LaTeX Info: Redefining \nameref on input line 63.
+LaTeX Info: Redefining \ref on input line 64.
+LaTeX Info: Redefining \pageref on input line 64.
+LaTeX Info: Redefining \nameref on input line 64.
 
 (./ClassicThesis.out) (./ClassicThesis.out)
 \@outlinefile=\write4
@@ -1340,7 +1351,7 @@ Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           `bookmarkpackage=false' before \begin{document} and
 (scrreprt)           you can avoid this message adding:
 (scrreprt)             \usepackage{bookmark}
-(scrreprt)           before \begin{document} on input line 63.
+(scrreprt)           before \begin{document} on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
@@ -1411,7 +1422,10 @@ LogoUAMvertical.png>]) [2
 ]
 \openout2 = `FrontBackmatter/Dedication.aux'.
 
- (./FrontBackmatter/Dedication.tex) [3
+ (./FrontBackmatter/Dedication.tex
+LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 10.
+) [3
 
 ] [4
 
@@ -1470,17 +1484,7 @@ Package biblatex Info: Reference section=0 on input line 13.
 \openout2 = `FrontBackmatter/Acknowledgments.aux'.
 
 
-(./FrontBackmatter/Acknowledgments.tex
-LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 6.
-
-
-LaTeX Warning: Citation 'F. Engels' on page 9 undefined on input line 13.
-
-
-LaTeX Warning: Citation 'F. Engels' on page 9 undefined on input line 19.
-
-) [9
+(./FrontBackmatter/Acknowledgments.tex) [9
 
 ] [10
 
@@ -1490,7 +1494,8 @@ LaTeX Warning: Citation 'F. Engels' on page 9 undefined on input line 19.
 ]
 \openout2 = `FrontBackmatter/Contents.aux'.
 
- (./FrontBackmatter/Contents.tex
+
+(./FrontBackmatter/Contents.tex
 Package tocbasic Info: character protrusion at toc deactivated on input line 11
 .
  (./ClassicThesis.toc [11
@@ -1513,229 +1518,229 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 29
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.19 ...ef {ch_ma}.\relax }}{48}{figure.caption.2}
+l.19 ...ef {ch_ma}.\relax }}{46}{figure.caption.2}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.19 ...ef {ch_ma}.\relax }}{48}{figure.caption.2}
+l.19 ...ef {ch_ma}.\relax }}{46}{figure.caption.2}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.20 ...ef {ch_ma}.\relax }}{49}{figure.caption.3}
+l.20 ...ef {ch_ma}.\relax }}{47}{figure.caption.3}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.20 ...ef {ch_ma}.\relax }}{49}{figure.caption.3}
+l.20 ...ef {ch_ma}.\relax }}{47}{figure.caption.3}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.21 ...ef {ch_ma}.\relax }}{50}{figure.caption.4}
+l.21 ...ef {ch_ma}.\relax }}{48}{figure.caption.4}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.21 ...ef {ch_ma}.\relax }}{50}{figure.caption.4}
+l.21 ...ef {ch_ma}.\relax }}{48}{figure.caption.4}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.22 ...nge point).\relax }}{51}{figure.caption.5}
+l.22 ...nge point).\relax }}{49}{figure.caption.5}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.22 ...nge point).\relax }}{51}{figure.caption.5}
+l.22 ...nge point).\relax }}{49}{figure.caption.5}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.23 ...) included.\relax }}{52}{figure.caption.6}
+l.23 ...) included.\relax }}{50}{figure.caption.6}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.23 ...) included.\relax }}{52}{figure.caption.6}
+l.23 ...) included.\relax }}{50}{figure.caption.6}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.25 ...ma:tab:md}.\relax }}{61}{figure.caption.7}
+l.25 ...ma:tab:md}.\relax }}{59}{figure.caption.7}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.25 ...ma:tab:md}.\relax }}{61}{figure.caption.7}
+l.25 ...ma:tab:md}.\relax }}{59}{figure.caption.7}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.26 ...ma:tab:md}.\relax }}{62}{figure.caption.8}
+l.26 ...ma:tab:md}.\relax }}{60}{figure.caption.8}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.26 ...ma:tab:md}.\relax }}{62}{figure.caption.8}
+l.26 ...ma:tab:md}.\relax }}{60}{figure.caption.8}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.27 ...le is H105.\relax }}{64}{figure.caption.9}
+l.27 ...le is H105.\relax }}{62}{figure.caption.9}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.27 ...le is H105.\relax }}{64}{figure.caption.9}
+l.27 ...le is H105.\relax }}{62}{figure.caption.9}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.28 ...e is H105.\relax }}{64}{figure.caption.10}
+l.28 ...e is H105.\relax }}{62}{figure.caption.10}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.28 ...e is H105.\relax }}{64}{figure.caption.10}
+l.28 ...e is H105.\relax }}{62}{figure.caption.10}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.30 ...artifacts.\relax }}{70}{figure.caption.11}
+l.30 ...artifacts.\relax }}{68}{figure.caption.11}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.30 ...artifacts.\relax }}{70}{figure.caption.11}
+l.30 ...artifacts.\relax }}{68}{figure.caption.11}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.31 ...l average.\relax }}{71}{figure.caption.12}
+l.31 ...l average.\relax }}{69}{figure.caption.12}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.31 ...l average.\relax }}{71}{figure.caption.12}
+l.31 ...l average.\relax }}{69}{figure.caption.12}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.32 ...el_av_t0}.\relax }}{72}{figure.caption.13}
+l.32 ...el_av_t0}.\relax }}{70}{figure.caption.13}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.32 ...el_av_t0}.\relax }}{72}{figure.caption.13}
+l.32 ...el_av_t0}.\relax }}{70}{figure.caption.13}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.33 ...el_av_t0}.\relax }}{73}{figure.caption.14}
+l.33 ...el_av_t0}.\relax }}{71}{figure.caption.14}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.33 ...el_av_t0}.\relax }}{73}{figure.caption.14}
+l.33 ...el_av_t0}.\relax }}{71}{figure.caption.14}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.34 ...el_av_t0}.\relax }}{74}{figure.caption.15}
+l.34 ...el_av_t0}.\relax }}{72}{figure.caption.15}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.34 ...el_av_t0}.\relax }}{74}{figure.caption.15}
+l.34 ...el_av_t0}.\relax }}{72}{figure.caption.15}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.35 ...ig:SU3a2}.\relax }}{75}{figure.caption.16}
+l.35 ...ig:SU3a2}.\relax }}{73}{figure.caption.16}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.35 ...ig:SU3a2}.\relax }}{75}{figure.caption.16}
+l.35 ...ig:SU3a2}.\relax }}{73}{figure.caption.16}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.36 ...el_av_t0}.\relax }}{76}{figure.caption.17}
+l.36 ...el_av_t0}.\relax }}{74}{figure.caption.17}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.36 ...el_av_t0}.\relax }}{76}{figure.caption.17}
+l.36 ...el_av_t0}.\relax }}{74}{figure.caption.17}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.37 ...el_av_t0}.\relax }}{77}{figure.caption.18}
+l.37 ...el_av_t0}.\relax }}{75}{figure.caption.18}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.37 ...el_av_t0}.\relax }}{77}{figure.caption.18}
+l.37 ...el_av_t0}.\relax }}{75}{figure.caption.18}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.38 ...el_av_t0}.\relax }}{77}{figure.caption.19}
+l.38 ...el_av_t0}.\relax }}{75}{figure.caption.19}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.38 ...el_av_t0}.\relax }}{77}{figure.caption.19}
+l.38 ...el_av_t0}.\relax }}{75}{figure.caption.19}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@figure #1#2->\ifnum \c@lofdepth 
                                    >\z@ \vskip \cftbeforefigskip {\leftskip ...
-l.39 ...ig:SU3a2}.\relax }}{78}{figure.caption.20}
+l.39 ...ig:SU3a2}.\relax }}{76}{figure.caption.20}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.39 ...ig:SU3a2}.\relax }}{78}{figure.caption.20}
+l.39 ...ig:SU3a2}.\relax }}{76}{figure.caption.20}
                                                   %
 ? 
 )
@@ -1748,133 +1753,133 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 39
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.19 ... {Campos:2018ahf}.\relax }}{38}{table.3.1}
+l.19 ... {Campos:2018ahf}.\relax }}{36}{table.2.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.19 ... {Campos:2018ahf}.\relax }}{38}{table.3.1}
+l.19 ... {Campos:2018ahf}.\relax }}{36}{table.2.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.20 ...bservables:eq:bA})\relax }}{38}{table.3.2}
+l.20 ...bservables:eq:bA})\relax }}{36}{table.2.2}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.20 ...bservables:eq:bA})\relax }}{38}{table.3.2}
+l.20 ...bservables:eq:bA})\relax }}{36}{table.2.2}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.22 ...ixed action setup.\relax }}{61}{table.4.1}
+l.22 ...ixed action setup.\relax }}{59}{table.3.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.22 ...ixed action setup.\relax }}{61}{table.4.1}
+l.22 ...ixed action setup.\relax }}{59}{table.3.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.24 ...ref {ch_ss:eq:a}).\relax }}{79}{table.5.1}
+l.24 ...ref {ch_ss:eq:a}).\relax }}{77}{table.4.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.24 ...ref {ch_ss:eq:a}).\relax }}{79}{table.5.1}
+l.24 ...ref {ch_ss:eq:a}).\relax }}{77}{table.4.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.30 ...patial directions.\relax }}{93}{table.B.1}
+l.29 ...patial directions.\relax }}{89}{table.B.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.30 ...patial directions.\relax }}{93}{table.B.1}
+l.29 ...patial directions.\relax }}{89}{table.B.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.32 ...t for the effect.\relax }}{100}{table.C.1}
+l.31 ...nt for the effect.\relax }}{96}{table.C.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.32 ...t for the effect.\relax }}{100}{table.C.1}
+l.31 ...nt for the effect.\relax }}{96}{table.C.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.37 ...} for $n\leq 20$.\relax }}{110}{table.G.1}
+l.36 ...} for $n\leq 20$.\relax }}{106}{table.G.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.37 ...} for $n\leq 20$.\relax }}{110}{table.G.1}
+l.36 ...} for $n\leq 20$.\relax }}{106}{table.G.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.39 ... regularizations.\relax }}{111}{table.H.1}
+l.38 ... regularizations.\relax }}{107}{table.H.1}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.39 ... regularizations.\relax }}{111}{table.H.1}
+l.38 ... regularizations.\relax }}{107}{table.H.1}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.40 ...the final result.\relax }}{113}{table.H.2}
+l.39 ...the final result.\relax }}{109}{table.H.2}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.40 ...the final result.\relax }}{113}{table.H.2}
+l.39 ...the final result.\relax }}{109}{table.H.2}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.41 ...the final result.\relax }}{115}{table.H.3}
+l.40 ...the final result.\relax }}{111}{table.H.3}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.41 ...the final result.\relax }}{115}{table.H.3}
+l.40 ...the final result.\relax }}{111}{table.H.3}
                                                   %
 ? 
 ! Undefined control sequence.
 \l@table #1#2->\ifnum \c@lotdepth 
                                   >\z@ \vskip \cftbeforetabskip {\leftskip \...
-l.42 ...the final result.\relax }}{118}{table.H.4}
+l.41 ...the final result.\relax }}{114}{table.H.4}
                                                   %
 ? 
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.42 ...the final result.\relax }}{118}{table.H.4}
+l.41 ...the final result.\relax }}{114}{table.H.4}
                                                   %
 ? 
 )
@@ -1901,56 +1906,15 @@ l.42 ...the final result.\relax }}{118}{table.H.4}
 \openout2 = `introduction/introduction.aux'.
 
  (./introduction/introduction.tex
-Chapter 1.
 [3
 
 
 
-] [4]
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/pplj/m/sc/10'.
-(microtype)             Ignoring protrusion settings for this character.
- [5] [6] [7] [8] [9] [10]
-
-LaTeX Warning: Reference `ch_conclusion' on page 11 undefined on input line 160
-.
-
-
-LaTeX Warning: Reference `apex_conventions' on page 11 undefined on input line 
-162.
-
-
-LaTeX Warning: Reference `apex_simulations' on page 11 undefined on input line 
-162.
-
-
-LaTeX Warning: Reference `apex_solvers' on page 11 undefined on input line 162.
-
-
-
-LaTeX Warning: Reference `apex_errors' on page 11 undefined on input line 162.
-
-
-LaTeX Warning: Reference `apex_CLS' on page 11 undefined on input line 162.
-
-
-LaTeX Warning: Reference `apex_fit' on page 11 undefined on input line 162.
-
-
-LaTeX Warning: Reference `apex_fve' on page 11 undefined on input line 162.
-
-
-LaTeX Warning: Reference `apex_ma' on page 11 undefined on input line 162.
-
-
-Overfull \hbox (66.26819pt too wide) has occurred while \output is active
- []|[]|
- []
-
-[11]) [12]
+] [4] [5] [6] [7] [8] [9] [10] [11]) [12]
 \openout2 = `introduction/introduccion.aux'.
 
- (./introduction/introduccion.tex) [13
+ (./introduction/introduccion.tex)
+[13
 
 
 
@@ -1967,14 +1931,17 @@ Overfull \hbox (66.26819pt too wide) has occurred while \output is active
 ] [16]
 \openout2 = `cap2/lattice.aux'.
 
-
-(./cap2/lattice.tex
-Chapter 2.
+ (./cap2/lattice.tex
+Chapter 1.
 [17
 
 
 
-] [18] [19] [20] [21]
+] [18]
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/pplj/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+ [19] [20] [21]
 Overfull \hbox (0.12099pt too wide) detected at line 193
  $\OML/zplm/m/it/10.95 S[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 a[] [] []
 \OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) [] \OT1/pplx/m
@@ -1982,9 +1949,113 @@ Overfull \hbox (0.12099pt too wide) detected at line 193
  []
 
 [22] [23] [24] [25]
+! Extra \right.
+l.353 \\end{matrix}\right.
+                          ,
+? 
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.354 \end{equation}
+                    
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.354 \end{equation}
+                    
+? 
+
+! LaTeX Error: \begin{matrix} on input line 350 ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 \end{equation}
+                    
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.354 \end{equation}
+                    
+? 
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.354 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.354 \end{equation}
+                    
+? 
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.355 with $
+            \tau^{a}$ the Pauli matrices. This means that at full twist axia...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.355 with $\tau
+                ^{a}$ the Pauli matrices. This means that at full twist axia...
+
+? 
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.367 \end{align}
+                 
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.367 \end{align}
+                 
+? 
+
+! Package amsmath Error: Multiple \label's: label 'ch_foundation:eq:WTI_V' will
+ be lost.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.367 \end{align}
+                 
+? 
+
+! LaTeX Error: \begin{equation} on input line 349 ended by \end{align}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.367 \end{align}
+                 
+? 
+
+LaTeX Warning: Reference `ch_foundation:eq:WTI_V' on page 26 undefined on input
+ line 368.
+
+
+LaTeX Warning: Reference `ch_foundation:eq:WTI_A' on page 26 undefined on input
+ line 368.
+
+
 Overfull \hbox (14.79276pt too wide) detected at line 371
  $[] \OT1/zplm/m/n/10.95 = [] [] \OT1/pplx/m/n/10.95 .$  
  []
+
+
+LaTeX Warning: Reference `ch_foundation:eq:WTI_V' on page 26 undefined on input
+ line 377.
 
 [26] [27] [28] [29]
 Overfull \hbox (11.81728pt too wide) detected at line 496
@@ -1992,172 +2063,181 @@ Overfull \hbox (11.81728pt too wide) detected at line 496
 $  
  []
 
-[30]
+
 Overfull \hbox (36.5611pt too wide) in paragraph at lines 524--526
 \T1/pplj/m/n/10.95 (-20) with $\OML/zplm/m/it/10.95 c[]$ \T1/pplj/m/n/10.95 (-2
 0) the Sheikholeslami-Wohlert co-ef-fi-cient de-ter-mined non-perturbatively
  []
 
-[31] [32] [33] [34]) [35]
+[30] [31] [32] [33]) [34]
 \openout2 = `cap3/observables.aux'.
 
  (./cap3/observables.tex
-Chapter 3.
-[36
+Chapter 2.
+[35
 
 
 
 
 
-] [37] [38] [39] [40] [41]
+] [36] [37] [38] [39]
 Overfull \hbox (0.13058pt too wide) in paragraph at lines 220--221
 []\T1/pplj/m/n/10.95 (-20) In the PBC case, in or-der to iso-late the ma-trix e
 l-e-ment $[] \OML/zplm/m/it/10.95 A[] []$
  []
 
-[42] [43] [44] [45] [46]
-<./cap3/figs/meff_H101.pdf, id=837, 462.52798pt x 346.89601pt>
+[40] [41]
+
+LaTeX Warning: Reference `ch_foundation:eq:muR' on page 42 undefined on input l
+ine 300.
+
+[42] [43]
+
+LaTeX Warning: Reference `ch_qm' on page 44 undefined on input line 406.
+
+<./cap3/figs/meff_H101.pdf, id=800, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/meff_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/meff_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/meff_H101.pdf  used on input line 411.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/m_tm_H101.pdf, id=838, 462.52798pt x 346.89601pt>
+<./cap3/figs/m_tm_H101.pdf, id=801, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/m_tm_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/m_tm_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/m_tm_H101.pdf  used on input line 415.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/mpcac_H101.pdf, id=843, 462.52798pt x 346.89601pt>
+[44]
+<./cap3/figs/mpcac_H101.pdf, id=818, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/mpcac_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/mpcac_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/mpcac_H101.pdf  used on input line 425.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/mpcac_tm_H101.pdf, id=844, 462.52798pt x 346.89601pt>
+<./cap3/figs/mpcac_tm_H101.pdf, id=819, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/mpcac_tm_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/mpcac_tm_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/mpcac_tm_H101.pdf  used on input line 429.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/R_H101.pdf, id=849, 462.52798pt x 346.89601pt>
+<./cap3/figs/R_H101.pdf, id=824, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/R_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/R_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/R_H101.pdf  used on input line 439.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/R_tm_H101.pdf, id=850, 462.52798pt x 346.89601pt>
+<./cap3/figs/R_tm_H101.pdf, id=825, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/R_tm_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/R_tm_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/R_tm_H101.pdf  used on input line 443.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/t2E_vs_x0.pdf, id=855, 462.52798pt x 346.89601pt>
+<./cap3/figs/t2E_vs_x0.pdf, id=830, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/t2E_vs_x0.pdf Graphic file (type pdf)
 <use ./cap3/figs/t2E_vs_x0.pdf>
 Package pdftex.def Info: ./cap3/figs/t2E_vs_x0.pdf  used on input line 452.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/t2E_vs_t.pdf, id=856, 462.52798pt x 346.89601pt>
+<./cap3/figs/t2E_vs_t.pdf, id=831, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/t2E_vs_t.pdf Graphic file (type pdf)
 <use ./cap3/figs/t2E_vs_t.pdf>
 Package pdftex.def Info: ./cap3/figs/t2E_vs_t.pdf  used on input line 456.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/m_H101_pion_wil.pdf, id=861, 462.52798pt x 346.89601pt>
+<./cap3/figs/m_H101_pion_wil.pdf, id=836, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/m_H101_pion_wil.pdf Graphic file (type pdf)
 <use ./cap3/figs/m_H101_pion_wil.pdf>
 Package pdftex.def Info: ./cap3/figs/m_H101_pion_wil.pdf  used on input line 46
 5.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-) [47] [48 <./cap3/figs/meff_H101.pdf> <./cap3/figs/m_tm_H101.pdf
+) [45] [46 <./cap3/figs/meff_H101.pdf> <./cap3/figs/m_tm_H101.pdf
 
 pdfTeX warning: pdflatex (file ./cap3/figs/m_tm_H101.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
->] [49 <./cap3/figs/mpcac_H101.pdf> <./cap3/figs/mpcac_tm_H101.pdf
+>] [47 <./cap3/figs/mpcac_H101.pdf> <./cap3/figs/mpcac_tm_H101.pdf
 
 pdfTeX warning: pdflatex (file ./cap3/figs/mpcac_tm_H101.pdf): PDF inclusion: m
 ultiple pdfs with page group included in a single page
->] [50 <./cap3/figs/R_H101.pdf> <./cap3/figs/R_tm_H101.pdf
+>] [48 <./cap3/figs/R_H101.pdf> <./cap3/figs/R_tm_H101.pdf
 
 pdfTeX warning: pdflatex (file ./cap3/figs/R_tm_H101.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
->] [51 <./cap3/figs/t2E_vs_x0.pdf> <./cap3/figs/t2E_vs_t.pdf
+>] [49 <./cap3/figs/t2E_vs_x0.pdf> <./cap3/figs/t2E_vs_t.pdf
 
 pdfTeX warning: pdflatex (file ./cap3/figs/t2E_vs_t.pdf): PDF inclusion: multip
 le pdfs with page group included in a single page
->] [52 <./cap3/figs/m_H101_pion_wil.pdf>] [53
+>] [50 <./cap3/figs/m_H101_pion_wil.pdf>] [51
 
 
 
 
 
 
-] [54]
+] [52]
 \openout2 = `cap4/cap4.aux'.
 
  (./cap4/cap4.tex
-Chapter 4.
-[55
+Chapter 3.
+[53
 
 
 
-] [56] [57] [58] [59]
+] [54] [55] [56] [57]
 Overfull \hbox (23.17114pt too wide) in alignment at lines 157--177
  [] [] [] [] [] [] 
  []
 
-[60]
-<./cap4/figs/dt0fpik_w.pdf, id=1230, 462.52798pt x 346.89601pt>
+[58]
+<./cap4/figs/dt0fpik_w.pdf, id=1201, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0fpik_w.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0fpik_w.pdf>
 Package pdftex.def Info: ./cap4/figs/dt0fpik_w.pdf  used on input line 181.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dphi2_w.pdf, id=1231, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi2_w.pdf, id=1202, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi2_w.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi2_w.pdf>
 Package pdftex.def Info: ./cap4/figs/dphi2_w.pdf  used on input line 182.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dt0m12_w.pdf, id=1232, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0m12_w.pdf, id=1203, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0m12_w.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0m12_w.pdf>
 Package pdftex.def Info: ./cap4/figs/dt0m12_w.pdf  used on input line 183.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dt0m13_w.pdf, id=1233, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0m13_w.pdf, id=1204, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0m13_w.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0m13_w.pdf>
 Package pdftex.def Info: ./cap4/figs/dt0m13_w.pdf  used on input line 184.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dt0fpik_tm.pdf, id=1240, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0fpik_tm.pdf, id=1211, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0fpik_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0fpik_tm.pdf>
 Package pdftex.def Info: ./cap4/figs/dt0fpik_tm.pdf  used on input line 191.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dt0m12_tm.pdf, id=1241, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0m12_tm.pdf, id=1212, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0m12_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0m12_tm.pdf>
 Package pdftex.def Info: ./cap4/figs/dt0m12_tm.pdf  used on input line 192.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dphi2_tm.pdf, id=1242, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi2_tm.pdf, id=1213, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi2_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi2_tm.pdf>
 Package pdftex.def Info: ./cap4/figs/dphi2_tm.pdf  used on input line 193.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap4/figs/dphi4_tm.pdf, id=1243, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi4_tm.pdf, id=1214, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi4_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi4_tm.pdf>
 Package pdftex.def Info: ./cap4/figs/dphi4_tm.pdf  used on input line 194.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
- [61 <./cap4/figs/dt0fpik_w.pdf> <./cap4/figs/dphi2_w.pdf> <./cap4/figs/dt0m12_
-w.pdf> <./cap4/figs/dt0m13_w.pdf>] [62 <./cap4/figs/dt0fpik_tm.pdf> <./cap4/fig
+ [59 <./cap4/figs/dt0fpik_w.pdf> <./cap4/figs/dphi2_w.pdf> <./cap4/figs/dt0m12_
+w.pdf> <./cap4/figs/dt0m13_w.pdf>] [60 <./cap4/figs/dt0fpik_tm.pdf> <./cap4/fig
 s/dt0m12_tm.pdf> <./cap4/figs/dphi2_tm.pdf> <./cap4/figs/dphi4_tm.pdf>]
-<./cap4/figs/matching_H105.pdf, id=1555, 462.52798pt x 346.89601pt>
+<./cap4/figs/matching_H105.pdf, id=1527, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/matching_H105.pdf Graphic file (type pdf)
 <use ./cap4/figs/matching_H105.pdf>
 Package pdftex.def Info: ./cap4/figs/matching_H105.pdf  used on input line 243.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/interp_fpik_H105.pdf, id=1556, 462.52798pt x 224.7597pt>
+<./cap4/figs/interp_fpik_H105.pdf, id=1528, 462.52798pt x 224.7597pt>
 File: ./cap4/figs/interp_fpik_H105.pdf Graphic file (type pdf)
 <use ./cap4/figs/interp_fpik_H105.pdf>
 Package pdftex.def Info: ./cap4/figs/interp_fpik_H105.pdf  used on input line 2
 50.
 (pdftex.def)             Requested size: 336.0pt x 163.28441pt.
 )
-[63] [64 <./cap4/figs/matching_H105.pdf> <./cap4/figs/interp_fpik_H105.pdf
+[61] [62 <./cap4/figs/matching_H105.pdf> <./cap4/figs/interp_fpik_H105.pdf
 
 pdfTeX warning: pdflatex (file ./cap4/figs/interp_fpik_H105.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
@@ -2165,14 +2245,14 @@ pdfTeX warning: pdflatex (file ./cap4/figs/interp_fpik_H105.pdf): PDF inclusion
 \openout2 = `cap5/cap5.aux'.
 
  (./cap5/cap5.tex
-Chapter 5.
-[65
+Chapter 4.
+[63
 
 
 
 
 
-] [66] [67]
+] [64] [65]
 ! You can't use `\spacefactor' in math mode.
 \blx@leavevmode ...\else \leavevmode \spacefactor 
                                                   \blx@sf@par \fi 
@@ -2295,7 +2375,7 @@ Missing character: There is no ò in font zplmr7v!
 Missing character: There is no ò in font zplmr7v!
 Missing character: There is no ò in font zplmr7v!
 Missing character: There is no è in font zplmr7v!
-[68]
+[66]
 ! Double superscript.
 <argument> ...textrm {syst}}&=\left <\sqrt {t_0^2^
                                                   {\textrm {,ph}}}\right >-\...
@@ -2308,29 +2388,29 @@ l.144 \end{align}
 l.144 \end{align}
                  
 ? 
-[69]
-<./cap5/figs/continuum_sym.pdf, id=1759, 575.99193pt x 437.2335pt>
+[67]
+<./cap5/figs/continuum_sym.pdf, id=1730, 575.99193pt x 437.2335pt>
 File: ./cap5/figs/continuum_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/continuum_sym.pdf>
 Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 171.
 
 (pdftex.def)             Requested size: 235.19897pt x 178.53967pt.
-<./cap5/figs/SU3_comb.pdf, id=1760, 690.17848pt x 289.08pt>
+<./cap5/figs/SU3_comb.pdf, id=1731, 690.17848pt x 289.08pt>
 File: ./cap5/figs/SU3_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/SU3_comb.pdf>
 Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 178.
 (pdftex.def)             Requested size: 336.0pt x 140.73294pt.
-<./cap5/figs/BMA_w.pdf, id=1761, 462.52798pt x 667.77483pt>
+<./cap5/figs/BMA_w.pdf, id=1732, 462.52798pt x 667.77483pt>
 File: ./cap5/figs/BMA_w.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_w.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_w.pdf  used on input line 185.
 (pdftex.def)             Requested size: 336.0pt x 485.128pt.
-<./cap5/figs/BMA_tm.pdf, id=1768, 462.52798pt x 641.75758pt>
+<./cap5/figs/BMA_tm.pdf, id=1739, 462.52798pt x 641.75758pt>
 File: ./cap5/figs/BMA_tm.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_tm.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_tm.pdf  used on input line 192.
 (pdftex.def)             Requested size: 336.0pt x 466.22688pt.
-<./cap5/figs/BMA_comb.pdf, id=1775, 582.4962pt x 967.69531pt>
+<./cap5/figs/BMA_comb.pdf, id=1746, 582.4962pt x 967.69531pt>
 File: ./cap5/figs/BMA_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_comb.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_comb.pdf  used on input line 199.
@@ -2339,35 +2419,35 @@ Package pdftex.def Info: ./cap5/figs/BMA_comb.pdf  used on input line 199.
 
 LaTeX Warning: Float too large for page by 28.15753pt on input line 202.
 
-<./cap5/figs/SU2_comb.pdf, id=1782, 667.0521pt x 346.89601pt>
+<./cap5/figs/SU2_comb.pdf, id=1753, 667.0521pt x 346.89601pt>
 File: ./cap5/figs/SU2_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/SU2_comb.pdf>
 Package pdftex.def Info: ./cap5/figs/SU2_comb.pdf  used on input line 206.
 (pdftex.def)             Requested size: 336.0pt x 174.7391pt.
-<./cap5/figs/BMA_SU2_w.pdf, id=1785, 462.52798pt x 346.89601pt>
+<./cap5/figs/BMA_SU2_w.pdf, id=1756, 462.52798pt x 346.89601pt>
 File: ./cap5/figs/BMA_SU2_w.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_SU2_w.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_SU2_w.pdf  used on input line 213.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap5/figs/BMA_SU2_tm.pdf, id=1792, 667.0521pt x 346.89601pt>
+<./cap5/figs/BMA_SU2_tm.pdf, id=1763, 667.0521pt x 346.89601pt>
 File: ./cap5/figs/BMA_SU2_tm.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_SU2_tm.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_SU2_tm.pdf  used on input line 220.
 (pdftex.def)             Requested size: 336.0pt x 174.7391pt.
-<./cap5/figs/BMA_SU2_comb.pdf, id=1799, 666.32942pt x 346.89601pt>
+<./cap5/figs/BMA_SU2_comb.pdf, id=1770, 666.32942pt x 346.89601pt>
 File: ./cap5/figs/BMA_SU2_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_SU2_comb.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_SU2_comb.pdf  used on input line 227.
 (pdftex.def)             Requested size: 336.0pt x 174.92438pt.
-[70 <./cap5/figs/continuum_sym.pdf>] [71 <./cap5/figs/SU3_comb.pdf>] [72 <./cap
-5/figs/BMA_w.pdf>] [73 <./cap5/figs/BMA_tm.pdf>] [74 <./cap5/figs/BMA_comb.pdf>
-] [75 <./cap5/figs/SU2_comb.pdf>] [76 <./cap5/figs/BMA_SU2_w.pdf>] [77 <./cap5/
+[68 <./cap5/figs/continuum_sym.pdf>] [69 <./cap5/figs/SU3_comb.pdf>] [70 <./cap
+5/figs/BMA_w.pdf>] [71 <./cap5/figs/BMA_tm.pdf>] [72 <./cap5/figs/BMA_comb.pdf>
+] [73 <./cap5/figs/SU2_comb.pdf>] [74 <./cap5/figs/BMA_SU2_w.pdf>] [75 <./cap5/
 figs/BMA_SU2_tm.pdf> <./cap5/figs/BMA_SU2_comb.pdf
 
 pdfTeX warning: pdflatex (file ./cap5/figs/BMA_SU2_comb.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
 >]
-<./cap5/figs/t0_sym.pdf, id=2350, 462.52798pt x 346.89601pt>
+<./cap5/figs/t0_sym.pdf, id=2320, 462.52798pt x 346.89601pt>
 File: ./cap5/figs/t0_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_sym.pdf>
 Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 265.
@@ -2377,7 +2457,7 @@ Overfull \hbox (1.11617pt too wide) in alignment at lines 284--295
  [] [] [] [] 
  []
 
-[78 <./cap5/figs/t0_sym.pdf>]
+[76 <./cap5/figs/t0_sym.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 297.
@@ -2394,51 +2474,41 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 297.
 
-) [79]
-\openout2 = `cap6/cap6.aux'.
-
- (./cap6/cap6.tex
-Chapter 6.
-[80
+) [77] [78
 
 
 
 
-
-]) [81] [82
-
+] [79
 
 
-
-] [83
-
-
-] [84]
+] [80]
 \openout2 = `conclusions/conclusions.aux'.
 
- (./conclusions/conclusions.tex) [85
+ (./conclusions/conclusions.tex
+Chapter 5.
+) [81
 
 
 
 ]
 \openout2 = `conclusions/conclusiones.aux'.
 
-
-(./conclusions/conclusiones.tex [86
-
+ (./conclusions/conclusiones.tex [82
 
 
 
 
-]) [87] [88
+
+]) [83] [84
 
 
 
 
-] [89
+] [85
 
 
-] [90]
+] [86]
 \openout2 = `apendices/apendices_conventions.aux'.
 
 
@@ -2448,11 +2518,11 @@ LaTeX Font Info:    Trying to load font information for TS1+pplj on input line
 19.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-) [91
+) [87
 
 
 
-]) [92]
+]) [88]
 \openout2 = `apendices/apendices_a.aux'.
 
 
@@ -2463,7 +2533,7 @@ Overfull \hbox (87.42212pt too wide) in alignment at lines 9--37
  [] [] [] [] [] [] [] [] [] 
  []
 
-) [93
+) [89
 
 
 
@@ -2474,7 +2544,7 @@ Overfull \hbox (87.42212pt too wide) in alignment at lines 9--37
 
  (./apendices/apendices_simulations.tex
 Appendix C.
-[94
+[90
 
 
 
@@ -2489,7 +2559,7 @@ Overfull \hbox (10.12854pt too wide) detected at line 18
 /n/10.95 ] + \OMS/zplm/m/n/10.95 O [] \OT1/pplx/m/n/10.95 ,$  
  []
 
-[95]
+[91]
 Overfull \hbox (3.62988pt too wide) detected at line 54
  $\OML/zplm/m/it/10.95 T\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 U[] \OMS/zplm
 /m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10.95 ) = \OML/zplm/m/it/10.
@@ -2503,13 +2573,13 @@ m/m/it/10.95 U[] \OMS/zplm/m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10
 .95 j\OT1/zplm/m/n/10.95 ))\OT1/pplx/m/n/10.95 .$  
  []
 
-[96] [97] [98]
+[92] [93] [94]
 Overfull \hbox (10.74318pt too wide) detected at line 120
 []
  []
 
 
-LaTeX Warning: Citation 'RHMC' on page 99 undefined on input line 134.
+LaTeX Warning: Citation 'RHMC' on page 95 undefined on input line 134.
 
 ! Undefined control sequence.
 <recently read> \middleline 
@@ -2523,12 +2593,12 @@ l.139 \middleline
 l.147 \middleline
                  
 ? 
-[99]) [100]
+[95]) [96]
 \openout2 = `apendices/apendices_errors.aux'.
 
  (./apendices/apendices_errors.tex
 Appendix D.
-[101
+[97
 
 
 
@@ -2543,40 +2613,40 @@ cer-tainty of $\OMS/zplm/m/n/10.95 O\OT1/zplm/m/n/10.95 ([](\OMS/zplm/m/n/10.95
 /zplm/m/n/10.95 ))$\T1/pplj/m/n/10.95 (-20) .
  []
 
-[102]) [103]
+[98]) [99]
 \openout2 = `apendices/apendices_solvers.aux'.
 
  (./apendices/apendices_solvers.tex
 Appendix E.
-[104
+[100
 
 
 
 
 
-] [105]) [106]
+] [101]) [102]
 \openout2 = `apendices/apendices_b.aux'.
 
  (./apendices/apendices_b.tex
 Appendix F.
-[107
+[103
 
 
 
 
 
-]) [108]
+]) [104]
 \openout2 = `apendices/apendices_c.aux'.
 
  (./apendices/apendices_c.tex
 Appendix G.
-[109
+[105
 
 
 
 
 
-]) [110]
+]) [106]
 \openout2 = `apendices/apendices_f.aux'.
 
  (./apendices/apendices_f.tex
@@ -2607,26 +2677,26 @@ Overfull \hbox (36.42177pt too wide) in alignment at lines 36--108
  [] [] [] [] 
  []
 
-[111
+[107
 
 
 
 
 
-] [112]
+] [108]
 Overfull \hbox (36.42177pt too wide) in alignment at lines 112--184
  [] [] [] [] 
  []
 
-[113] [114]
+[109] [110]
 Overfull \hbox (36.42177pt too wide) in alignment at lines 186--298
  [] [] [] [] 
  []
 
-[115] [116] [117]) [118]
+[111] [112] [113]) [114]
 \openout2 = `FrontBackmatter/Bibliography.aux'.
 
- (./FrontBackmatter/Bibliography.tex [119
+ (./FrontBackmatter/Bibliography.tex [115
 
 
 
@@ -2646,7 +2716,7 @@ Overfull \hbox (4.02112pt too wide) in paragraph at lines 15--15
  dy-nam-i-cal fermion
  []
 
-[120]
+[116]
 Overfull \hbox (8.79984pt too wide) in paragraph at lines 15--15
 []\T1/pplj/m/n/10.95 (-20) Mattia Dalla Brida, Ro-man Höll-wieser, Francesco Kn
 echtli, Tomasz
@@ -2659,13 +2729,13 @@ Overfull \hbox (8.93341pt too wide) in paragraph at lines 15--15
 $ \T1/pplj/m/n/10.95 (-20) by the non-perturbative
  []
 
-[121]
+[117]
 Overfull \hbox (4.59018pt too wide) in paragraph at lines 15--15
 []\T1/pplj/m/n/10.95 (-20) R. Frez-zotti and G. C. Rossi. ^^P  Chi-rally im-pro
 v-ing Wil-son fermions.
  []
 
-[122]
+[118]
 Overfull \hbox (2.17453pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) mun.Math.Phys. 98, 433 (1985)], p. 433. \T1/pplj/m/sc/
 10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 10 . 1007 / BF
@@ -2678,14 +2748,14 @@ Overfull \hbox (0.908pt too wide) in paragraph at lines 15--15
 tions and reweight-
  []
 
-[123]
+[119]
 Overfull \hbox (12.0785pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 
 10 . 1103 / PhysRevE . 108 . 045308$[][]\T1/pplj/m/n/10.95 (-20) . arXiv: [][]$
 \T1/fvm/m/n/10.95 2305 . 19417$ [stat.ME][][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-[124]
+[120]
 Overfull \hbox (2.1324pt too wide) in paragraph at lines 15--15
 \T1/fvm/m/n/10.95 sciencedirect . com / science / article / pii / S001046550200
 7543$[][]\T1/pplj/m/n/10.95 (-20) . 
@@ -2697,18 +2767,17 @@ Overfull \hbox (10.44223pt too wide) in paragraph at lines 15--15
 si-tion Solvers.^^Q
  []
 
-[125]) [126] (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
+[121]) [122] (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
 (./FrontBackmatter/Dedication.aux) (./FrontBackmatter/Abstract.aux)
 (./FrontBackmatter/Publications.aux) (./FrontBackmatter/Acknowledgments.aux)
 (./FrontBackmatter/Contents.aux) (./introduction/introduction.aux)
 (./introduction/introduccion.aux) (./cap2/lattice.aux) (./cap3/observables.aux)
-(./cap4/cap4.aux) (./cap5/cap5.aux) (./cap6/cap6.aux)
-(./conclusions/conclusions.aux) (./conclusions/conclusiones.aux)
-(./apendices/apendices_conventions.aux) (./apendices/apendices_a.aux)
-(./apendices/apendices_simulations.aux) (./apendices/apendices_errors.aux)
-(./apendices/apendices_solvers.aux) (./apendices/apendices_b.aux)
-(./apendices/apendices_c.aux) (./apendices/apendices_f.aux)
-(./FrontBackmatter/Bibliography.aux))
+(./cap4/cap4.aux) (./cap5/cap5.aux) (./conclusions/conclusions.aux)
+(./conclusions/conclusiones.aux) (./apendices/apendices_conventions.aux)
+(./apendices/apendices_a.aux) (./apendices/apendices_simulations.aux)
+(./apendices/apendices_errors.aux) (./apendices/apendices_solvers.aux)
+(./apendices/apendices_b.aux) (./apendices/apendices_c.aux)
+(./apendices/apendices_f.aux) (./FrontBackmatter/Bibliography.aux))
 
  *File List*
  silence.sty    2012/07/02 v1.5b Selective filtering of warnings and error mess
@@ -2736,6 +2805,7 @@ graphics.sty    2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 graphics.cfg    2016/06/04 v1.11 sample graphics configuration
   pdftex.def    2020/10/05 v1.2a Graphics/color driver for pdftex
 longtable.sty    2021-09-01 v4.17 Multi-page Table package (DPC)
+  yfonts.sty    2019/04/04 v1.4 (WaS&NP)
 classicthesis-config.tex
 inputenc.sty    2021/02/14 v1.3d Input encoding file
  fontenc.sty
@@ -2918,7 +2988,6 @@ cap5/cap5.tex
 ./cap5/figs/BMA_SU2_tm.pdf
 ./cap5/figs/BMA_SU2_comb.pdf
 ./cap5/figs/t0_sym.pdf
-cap6/cap6.tex
 conclusions/conclusions.tex
 conclusions/conclusiones.tex
 apendices/apendices_conventions.tex
@@ -2948,13 +3017,13 @@ Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33996 strings out of 478287
- 660368 string characters out of 5849289
- 1514753 words of memory out of 5000000
- 49947 multiletter control sequences out of 15000+600000
- 625670 words of font info for 762 fonts, out of 8000000 for 9000
+ 34052 strings out of 478287
+ 661023 string characters out of 5849289
+ 1512062 words of memory out of 5000000
+ 50019 multiletter control sequences out of 15000+600000
+ 624606 words of font info for 762 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,23n,106p,10608b,2426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,23n,106p,10608b,2406s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -2969,10 +3038,10 @@ texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/
 uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on ClassicThesis.pdf (140 pages, 1080629 bytes).
+Output written on ClassicThesis.pdf (136 pages, 1075689 bytes).
 PDF statistics:
- 3416 PDF objects out of 3580 (max. 8388607)
- 2341 compressed objects within 24 object streams
- 690 named destinations out of 1000 (max. 500000)
- 156876 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 3352 PDF objects out of 3580 (max. 8388607)
+ 2280 compressed objects within 23 object streams
+ 674 named destinations out of 1000 (max. 500000)
+ 154764 words of extra memory for PDF output out of 184870 (max. 10000000)
 

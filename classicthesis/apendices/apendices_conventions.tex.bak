@@ -24,7 +24,7 @@ A fifth Gamma matrix can be defined as
 \begin{equation}
 \gamma_5=\gamma_0\gamma_1\gamma_2\gamma_3,
 \end{equation}
-which fulfills the same properties as above, and anticommutes with all other Gamma matrices
+which fullfils the same properties as above, and anticommutes with all other Gamma matrices
 \begin{equation}
 \{\gamma_5,\gamma_{\mu}\}=0.
 \end{equation}

@@ -440,6 +440,8 @@ end
 function model2_ChPT2_a2(x,p) 
     pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[5] * x[i,1] for i in 1:div(length(x[:,2]),2)]
     kaon = [p[3] * x[i,2] + p[4] * (1 - 3/4 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[6] * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    #pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[4] * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    #kaon = [p[5] * x[i,2] + p[6] * x[i,3] + p[2] / (4 * pi) * (1 - 3/4 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2) - 3/2 * x[i,3] / p[2] ^ 2 * log(2 * (x[i,3] - x[i,2]) / p[2] ^ 2) + 1/2 * x[i,2] / p[2] ^ 2 * log(2 * (x[i,3] - x[i,2]) / p[2] ^ 2)) + p[7] * x[i,1] for i in 1:div(length(x[:,2]),2)]
     return [pion;kaon]
 end
 
@@ -515,28 +517,89 @@ function model2_ChPT2_a2phi2a2_combined(x,p)
     return [pion; kaon; pi_tm; ka_tm]
 end
 
-function model2_ChPT2_fpi_a2(x,p) 
-    return [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,1] for i in 1:length(x[:,2])]
+
+
+
+function model_ChPT2_a2(x,p) 
+    pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[4] * x[i,1] for i in 1:length(x[:,2])]
+    return pion
 end
 
-function model2_ChPT2_fpi_a2_combined(x,p)
+function model_ChPT2_a2_combined(x,p)
     #t0fpik Wilson:
-    pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[4] * x[i,1] for i in 1:div(length(x[:,2]),2)]
     #t0fpik Wtm:
-    pi_tm = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[4] * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    pi_tm = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[5] * x[i,1] for i in 1:div(length(x[:,2]),2)]
     return [pion; pi_tm]
 end
+
+function model_ChPT2_aas(x,p) 
+    pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:length(x[:,2])]
+    return pion
+end
+
+function model_ChPT2_aas_combined(x,p)
+    if x[1,1] == 0
+        #t0fpik Wilson:
+        pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] for i in 1:div(length(x[:,2]),2)]
+        #t0fpik Wtm:
+        pi_tm = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] for i in 1:div(length(x[:,2]),2)]
+        return [pion; pi_tm]
+    else
+        #t0fpik Wilson:
+        pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[4] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:div(length(x[:,2]),2)]
+        #t0fpik Wtm:
+        pi_tm = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[5] * x[i,1] * (-1 / (log(sqrt(x[i,1] * 8 * value(t0_old)) * Lam))) ^ (Gamma_1) for i in 1:div(length(x[:,2]),2)]
+        return [pion; pi_tm]
+    end
+end
+
+function model_ChPT2_a2phi2(x,p) 
+    pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + (p[4] + p[5] * x[i,2]) * x[i,1] for i in 1:length(x[:,2])]
+    return pion
+end
+
+function model_ChPT2_a2phi2_combined(x,p)
+    #t0fpik Wilson:
+    pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + (p[4] + p[5] * x[i,2]) * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    #t0fpik Wtm:
+    pi_tm = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + (p[6] + p[7] * x[i,2]) * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    return [pion; kaon; pi_tm; ka_tm]
+end
+
+function model_ChPT2_a2a2phi2_combined(x,p)
+    #t0fpik Wilson:
+    pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[4] * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    #t0fpik Wtm:
+    pi_tm = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + (p[5] + p[6] * x[i,2]) * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    return [pion; pi_tm]
+end
+
+function model_ChPT2_a2phi2a2_combined(x,p)
+    #t0fpik Wilson:
+    pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + (p[4] + p[5] * x[i,2]) * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    #t0fpik Wtm:
+    pi_tm = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[6] * x[i,1] for i in 1:div(length(x[:,2]),2)]
+    return [pion; pi_tm]
+end
+
+
+
+
+
 
 function model_plot(x,p) 
     return [(p[1] / (4 * pi)) * (1 - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2)) + p[2] * x[i,3]) + p[3] * x[i,1] for i in 1:length(x[:,1])]
 end
 
 function model_plot_SU2_pi(x,p) 
-    return [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[5] * x[i,1] for i in 1:length(x[:,2])]
+    #return [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[5] * x[i,1] for i in 1:length(x[:,2])]
+    return [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] * x[i,3] + p[4] * x[i,1] for i in 1:length(x[:,2])]
 end
 
 function model_plot_SU2_k(x,p) 
     return [p[3] * x[i,2] + p[4] * (1 - 3/4 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[6] * x[i,1] for i in 1:length(x[:,2])]
+    #return [p[5] * x[i,2] + p[6] * x[i,3] + p[2] / (4 * pi) * (1 - 3/4 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2) - 3/2 * x[i,3] / p[2] ^ 2 * log(2 * (x[i,3] - x[i,2]) / p[2] ^ 2) + 1/2 * x[i,2] / p[2] ^ 2 * log(2 * (x[i,3] - x[i,2]) / p[2] ^ 2)) + p[7] * x[i,1] for i in 1:length(x[:,2])]
 end
 
 ##########################################################
