@@ -5,19 +5,19 @@
 \babel@toc {american}{}\relax 
 \contentsline {part}{\numberline {i}{Introduction}}{1}{part.1}%
 \contentsline {chapter}{Introduction}{3}{part.1}%
-\contentsline {chapter}{Introducci\'on}{13}{equation.0.0.15}%
-\contentsline {part}{\numberline {ii}{Foundations}}{15}{part.2}%
-\contentsline {chapter}{\numberline {1}{QCD on the lattice}}{17}{chapter.1}%
-\contentsline {section}{\numberline {1.1}{Introduction}}{17}{section.1.1}%
-\contentsline {section}{\numberline {1.2}{Pure gauge SU(3) in the lattice}}{20}{section.1.2}%
-\contentsline {section}{\numberline {1.3}{Introducing fermions in the lattice}}{21}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}{Naive fermions}}{21}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}{Wilson fermions}}{24}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}{Wilson twisted mass fermions}}{25}{subsection.1.3.3}%
-\contentsline {section}{\numberline {1.4}{Path integral regularization}}{26}{section.1.4}%
-\contentsline {section}{\numberline {1.5}{Continuum limit}}{28}{section.1.5}%
-\contentsline {section}{\numberline {1.6}{Symanzik improvement program}}{29}{section.1.6}%
-\contentsline {section}{\numberline {1.7}{Scale setting}}{32}{section.1.7}%
+\contentsline {chapter}{Introducci\'on}{11}{equation.0.0.1}%
+\contentsline {part}{\numberline {ii}{Foundations}}{13}{part.2}%
+\contentsline {chapter}{\numberline {1}{QCD on the lattice}}{15}{chapter.1}%
+\contentsline {section}{\numberline {1.1}{Introduction}}{15}{section.1.1}%
+\contentsline {section}{\numberline {1.2}{Pure gauge SU(3) in the lattice}}{18}{section.1.2}%
+\contentsline {section}{\numberline {1.3}{Introducing fermions in the lattice}}{19}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}{Naive fermions}}{19}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}{Wilson fermions}}{22}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}{Wilson twisted mass fermions}}{23}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}{Path integral regularization}}{25}{section.1.4}%
+\contentsline {section}{\numberline {1.5}{Continuum limit}}{26}{section.1.5}%
+\contentsline {section}{\numberline {1.6}{Symanzik improvement program}}{28}{section.1.6}%
+\contentsline {section}{\numberline {1.7}{Scale setting}}{31}{section.1.7}%
 \contentsline {chapter}{\numberline {2}{On the extraction of physical observables}}{35}{chapter.2}%
 \contentsline {section}{\numberline {2.1}{Introduction}}{35}{section.2.1}%
 \contentsline {section}{\numberline {2.2}{Correlation functions}}{35}{section.2.2}%
@@ -41,7 +41,7 @@
 \contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{77}{section.4.5}%
 \contentsline {part}{\numberline {iv}{Conclusions}}{79}{part.4}%
 \contentsline {chapter}{\numberline {5}{Conclusions and outlook}}{81}{chapter.5}%
-\contentsline {chapter}{Conclusiones y perspectivas}{83}{chapter.5}%
+\contentsline {chapter}{Conclusiones y perspectivas}{83}{equation.5.0.2}%
 \contentsline {part}{\numberline {v}{Appendix}}{85}{part.5}%
 \contentsline {chapter}{\numberline {A}{Conventions}}{87}{appendix.A}%
 \contentsline {chapter}{\numberline {B}{Lattice ensembles}}{89}{appendix.B}%

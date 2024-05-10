@@ -2566,6 +2566,43 @@
     \field{year}{1953}
   \endentry
 
+  \entry{Mohler:2020txx}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MD}{%
+         family={Mohler},
+         familyi={M\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Schaefer},
+         familyi={S\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MDSS1}
+    \strng{fullhash}{MDSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.102.074506
+    \endverb
+    \verb{eprint}
+    \verb 2003.13359
+    \endverb
+    \field{number}{7}
+    \field{pages}{074506}
+    \field{title}{{Remarks on strange-quark simulations with Wilson fermions}}
+    \field{volume}{102}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2020}
+  \endentry
+
   \entry{Mohler:2017wnb}{article}{}
     \name{author}{3}{}{%
       {{hash=MD}{%

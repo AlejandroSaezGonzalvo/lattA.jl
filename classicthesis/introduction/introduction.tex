@@ -1,5 +1,5 @@
 \chapter*{Introduction}\addcontentsline{toc}{chapter}{Introduction}
-
+\markboth{INTRODUCTION}{INTRODUCTION}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12,164 +12,65 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Standard Model (SM) of particle physics is the theory that describes and unifies three of the four fundamental interactions in Nature: electromagnetism, the weak interaction, and the strong interaction. The theoretical framework in which the SM is formulated is that of Quantum Field Theory (QFT), and the particular theory that describes the strong interaction is Quantum Chromodynamics or QCD.
 
-\section*{Fields, Special Relativity and Quanta}
+The Standard Model (SM) of particle physics is the theory that describes and unifies three of the four fundamental interactions in Nature: electromagnetism, the weak interaction, and the strong interaction. The theoretical framework in which the SM is formulated is that of Quantum Field Theory (QFT), and the particular theory that describes the strong interaction is Quantum Chromodynamics or QCD\footnote{All relevant references in this Introduction can be found in Chapter~\ref{ch_foundation}}.
 
-The 20th century saw the two greatest developments for modern physics and our understanding of Nature: special relativity and quantum mechanics. Quantum Field Theory is the framework which unifies both theories. 
+\section*{Quantum Field Theory and the Standard Model}
 
-The theory of special relativity reformulates Galileo's principle that the laws of physics must be left unchanged between two different inertial reference frames in such a way that the speed of light is a universal constant, consistent with the theory of electromagnetism developed by Maxwell in the 19th century. This brought incredible consequences, such as time and length dilation, according to which one observer experiences time and distances different from another depending on the speed they travel. Also the equivalence of mass and energy, as well as the formulation of 4-dimensional space-time as the manifold of the Universe, in which there is a non trivial interplay between time and space, as can be seen from the Lorentz transformations.
+The 20th century saw two great developments for modern physics and our understanding of Nature: special relativity and quantum mechanics. 
+
+The theory of special relativity reformulates Galileo's principle that the laws of physics must be left unchanged between two different inertial frames in such a way that the speed of light is a universal constant, consistent with the theory of electromagnetism developed by Maxwell in the 19th century. This brought incredible consequences, such as time and length dilation, according to which one observer experiences time and distances different from another depending on the speed they travel. Also the equivalence of mass and energy, as well as the formulation of 4-dimensional space-time as the manifold of the Universe, in which there is a non trivial interplay between time and space, as can be seen from the Lorentz transformations.
 
 The principle of a constant speed of light and that nothing can travel faster than it rendered the old Newtonian view of interactions outdated. According to the latter, the force acting on a particle depends on the position of all other particles at that given time. This implies instantaneous transmission of the force from one particle to another, which is at odds with special relativity. Field Theory is the framework that allows to supersede this difficulty. It is based on the concept of fields, which are dynamical objects that fill all of space-time. Mathematically they are just functions of space and time. Treating fields as the basic degrees of freedom helps enormously in the task of formulating theories that are Lorentz invariant and thus compatible with special relativity. One example is Maxwell's theory of electromagnetism, governing the dynamics of the electric $\vec{E}(\vec{x},t)$ and magnetic $\vec{B}(\vec{x},t)$ fields.
 
-On the other hand, quantum mechanics introduces the concept of probability into our description of Nature. The basic idea is that particles are described by wave functions that represent the density probability of finding one particle at a given position in space. Position and momentum are promoted to conjugate operators rather than being degrees of freedom. These operators do not commute, resulting in Heisenberg's uncertainty principle, by which we cannot know simultaneously the position and momentum of a particle
-\begin{equation}
+On the other hand, quantum mechanics introduces the concept of probability into our description of Nature. The basic idea is that particles are described by wave functions that represent the density probability of finding one particle at a given position in space. Position and momentum are promoted to conjugate operators rather than being degrees of freedom. These operators do not commute, which gives rise to Heisenberg's uncertainty principle, by which we cannot know simultaneously the position and momentum of a particle
+\begin{equation*}
 \Delta x\Delta p\geq\hbar.
-\end{equation}
-The wave function of a particle is described by Schrödinger's equation
-\begin{equation}
-i\hbar\frac{\partial\psi}{\partial t}=H\psi,
-\end{equation}
-which is not Lorentz invariant, and thus is only useful to describe non-relativistic quantum systems. In order to bridge the gap between quantum mechanics and special relativity, one can write a version of Schrödinger's equation which respects Lorentz symmetry. One option is the Klein-Fock-Gordon equation
-\begin{equation}
-\left(\partial^2+m^2\right)\phi=0,
-\end{equation}
-which describes spin-$0$ particles (scalars), another the Dirac equation
-\begin{equation}
-\label{ch_intro:eq:Dirac}
-\left(i\gamma_{\mu}\partial_{\mu}-m\right)\psi=0,
-\end{equation}
-which describes spin-$\frac{1}{2}$ particles (e.g. an electron). These equations are Lorentz invariant and therefore they describe a relativistic quantum system. The wave functions $\phi(x),\psi(x)$ are the fields of the particles described, which take values in all of space-time. Thinking of $\psi(x)$ as the field of the electron, in analogy to $\vec{E}$ being the electric field, makes manifest that what is truly fundamental is not the electron as a particle itself, but its field. This solves another puzzle of Nature: how can two electrons separated a space-like distance (causally disconnected) look exactly the same? This is naturally explained if there is a universal field of the electron, since all electrons are simply manifestations of this field filling all of space-time. Indeed particles appear as excitations of the underlying field in Quantum Field Theory.
+\end{equation*} 
 
-In order to make the transition to Quantum Field Theory, one needs to promote the classical fields to quantum operators, analogously to the case of position and momentum in quantum mechanics. This way, a quantum field is an operator valued function of space-time. Classically, eq.~(\ref{ch_intro:eq:Dirac}) has solution
-\begin{equation}
-\label{ch_intro:eq:psi}
-\psi_s(x)=\frac{1}{(2\pi)^3}\int d^3p\left(u_s(p)e^{-ipx}+v_s(p)e^{ipx}\right),
-\end{equation}
-where $s$ is the spin state of the particle. In QFT, we promote the amplitudes $u_s(p),v_s(p)$ to quantum operators. Furthermore, the second term in eq.~(\ref{ch_intro:eq:psi}) appears to have negative energy. In QFT one identifies $v_s(p)$ with the operator that creates an antiparticle with momentum $p$ and spin $s$, with positive energy. These have opposite electric charge and the same mass to their corresponding particles, and are equivalent to positive energy particles propagating backwards in time, solving the problem of the negative energy modes in the classical Dirac equation.
-
-Another advantage of QFT is that it provides with a framework in which particle number is not conserved. In the context of relativistic systems this is of relevant importance, since collisions can create and destroy particles. Furthermore, according to Heisenberg's uncertainty principle, if we place a particle in a box of size $L$ we have an uncertainty in its momentum of
-\begin{equation}
+Quantum Field Theory is the framework which unifies quantum mechanics and special relativity. It consists in promoting classical fields to quantum operators, like position and momentum are in quantum mechanics. This results in a plethora of consequences, like particles being excitations of some underlying quantum field, the existence of antiparticles and non conservation of particle number. The latter is of particular importance for any quantum description of a relativistic system, since high-energy collisions can create and annihilate particles. Furthermore, according to Heisenberg's uncertainty principle, if we place a particle in a box of size $L$ we have an uncertainty in its momentum of
+\begin{equation*}
 \Delta p\geq\hbar/L.
-\end{equation}
+\end{equation*}
 This is turn leads to an uncertainty in the energy of the particle of order $\Delta E\geq\hbar c/L$. When the energy exceeds $2mc^2$ we have enough energy to create out of the vacuum a particle-antiparticle pair. This will happen at distances of order 
-\begin{equation}
+\begin{equation*}
 L=\lambda=\frac{\hbar}{mc},
-\end{equation}
-which is the Compton wavelength. At this and smaller distances (or equivalently higher energies) one expects to detect particle-antiparticle pairs swarming around the original particle, breaking down the very concept of a point-like particle. In QFT, writing interaction terms of the type
-\begin{equation}
-\psi(x)\phi(x)...
-\end{equation}
-for some generic fields $\psi,\phi,...$ allows for interactions in which particles and antiparticles may be destroyed or created, which can be seen easily by expanding the fields into creation and annihilation operators multiplying modes as in eq.~(\ref{ch_intro:eq:psi}).
+\end{equation*}
+which is the Compton wavelength. At this and smaller distances (or equivalently higher energies) one expects to detect particle-antiparticle pairs swarming around the original particle, breaking down the very concept of a point-like particle. 
 
-\section*{Global and Gauge Symmetries}
+Generalizing the concept of fields such that all particles are excitations of some field solves another puzzle of Nature: how can e.g. two electrons separated a space-like distance (causally disconnected) look exactly the same, like two perfect copies? This is naturally explained if there is a universal field of the electron, since all electrons are simply manifestations of this field filling all of space-time. 
 
-A key ingredient to QFTs are symmetries. These are described in the mathematical language of groups, which are a collection of elements with a group operation that is associative, has an identity element and for each element there exists an inverse. Symmetries are said to be global when the group elements do not depend on space-time. These set of symmetries are of utmost importance in physics, since they provide with conservation laws through Noether's theorem. This way, by writing some theory which is invariant under Lorentz transformations one gets conservation of energy and momentum. Another example is the symmetry of the $U(1)$ group, which provides with conservation of electric charge in the context of electromagnetism. The relevant groups in QFT are Lie groups, which are both groups and differentiable manifolds. In particular, the SM is built out of Yang-Mills theories coupled to matter. These are gauge theories whose Lie group is the special unitarity group $SU(N)$.
-
-By letting the group elements depend on space-time coordinates one extends the symmetry of the theory to be local, what is referred to as gauge symmetry. Gauge symmetry can be seen as a redundancy of the theory, such that performing some local rotation to the fundamental fields leaves physics unchanged. Though it seems unpractical to write our theories of Nature in a redundant way, it is very useful, since these redundancies allow us to write simple Lagrangians which may have unphysical degrees of freedom that can be eliminated by use of gauge redundancy. Such is the case of the polarization of the photon. These particles are described by vector fields with four components (four degrees of freedom)
-\begin{gather}
-A_{\mu}(x), \quad \mu=1,2,3,4,
-\end{gather}
-though the photon only has two physical polarizations (two degrees of freedom). Invoking gauge symmetry one can eliminate the two unphysical degrees of freedom, while writing a Lagrangian describing only the two physical polarizations of the photon would be extremely difficult. 
-
-Another beautiful property of gauge symmetries is that they allow for a geometric interpretation of interactions. For example, the interaction of a photon and a electron can be understood in terms of the parallel transport of the latter along the manifold of the $U(1)$ gauge group. The photon appears as the connection between two points in the manifold of this Lie group, and the field strength tensor as the curvature. This way, all fundamental interactions of Nature can be understood in the light of geometry, like gravity is in General Relativity.
+A key ingredient to QFTs are symmetries, which are described by the mathematical language of groups. Global symmetries are of utmost importance in physics, since they provide with conservation laws through Noether's theorem, like conservation of energy and momentum. On the other hand, local or gauge symmetries play a crucial role in QFTs. These can be seen as a redundancy of the theory, such that performing some local rotation to the fundamental fields leaves physics unchanged. Though it seems unpractical to write our theories of Nature in a redundant way, it is very useful, since they allow us to write simple Lagrangians which may have unphysical degrees of freedom that can be eliminated by use of gauge redundancy. Such is the case of the polarization of the photon, which is described by a gauge field $A_{\mu}$ with four different polarizations, though only two are physical. Thanks to gauge symmetry one can eliminate the two unphysical degrees of freedom. Another beautiful property of gauge symmetries is that they allow for a geometric interpretation of interactions, thanks to the fact that Lie groups are both groups and differentiable manifolds. For example, the interaction of a photon and a electron can be understood in terms of the parallel transport of the latter along the manifold of the $U(1)$ gauge group. The photon appears as the connection between two points in the manifold of this Lie group, and the field strength tensor as the curvature. This way, all fundamental interactions of Nature can be understood in the light of geometry, like gravity is in General Relativity.
 
 The gauge symmetry group of the SM is
 \begin{equation}
 SU(3)_{\textrm{c}}\times SU(2)_{\textrm{w}}\times U(1)_{\textrm{Y}},
 \end{equation}
-with $SU(3)_{\textrm{c}}$ the gauge group of the strong interaction (whose charge is called color), $SU(2)_{\textrm{w}}$ the gauge group of the weak interaction (whose charge is weak-isospin) and $U(1)_{\textrm{Y}}$ the gauge group of hypercharge. 
+with $SU(3)_{\textrm{c}}$ the gauge group of the strong interaction (whose charge is called color), $SU(2)_{\textrm{w}}$ the gauge group of the weak interaction and $U(1)_{\textrm{Y}}$ the gauge group of hypercharge. The Higgs mechanism provides with a description of the Spontaneous Symmetry Breaking of the electroweak sector $SU(2)_{\textrm{w}}\times U(1)_{\textrm{Y}}$ into that of electromagnetism $U(1)_{\textrm{em}}$, as well as a mechanism for the generation of masses for fundamental particles. The pure gauge interactions depend only on three free parameters, which are the three coupling constants. Matter fields do not add any other free parameter, while adding the Higgs field includes 22 new free parameters into the theory, which govern the masses of elementary particles, flavor mixing angles and CP-violating phases.
 
-There are also three important discrete symmetries: charge conjugation (C), parity (P) and time reversal (T). There's a theorem that states that CPT is conserved in the SM. Antiparticles are understood as the CPT conjugate of particles.
+Along the decades the SM has proven extremely successful in passing experimental tests. Some examples are the discovery of neutral weak currents in 1973, the discovery of the Z and W bosons in 1983 and the agreement of the ratio of their masses between experiment and theory, the discovery of the bottom and top quarks in 1977 and 1995 respectively, or the discovery of the Higgs boson in 2012. 
 
-\section*{Fundamental particles and the Standard Model}
-
-Fermions (half-integer spin particles) can be right- or left-handed, corresponding to the two spin subgroups in which the Lorentz group can be decomposed 
-\begin{equation}
-SO(1,3)\approx SU(2)_L\oplus  SU(2)_R.
-\end{equation}
-This way, a fermionic field $\psi$ can be decomposed into components of these two subgroups
-\begin{equation}
-\psi=\begin{pmatrix}
-\psi_L\\ 
-\psi_R
-\end{pmatrix}.
-\end{equation}
-
-The particle content of the SM is divided into gauge bosons mediating the three fundamental interactions (gluons for the strong interaction, the photon for the electromagnetic, and the Z and W bosons for the weak interaction), and fermionic matter particles. The latter can be divided into quarks, which are charged under $SU(3)_{\textrm{c}}$, and leptons, which are not. Being fermions, they can be left- or right-handed. 
-
-In the SM, there are 6 species or flavors of left-handed leptons: electron $e$ and electronic neutrino $\nu_e$, muon $\mu$ and muonic neutrino $\nu_{\mu}$, tau $\tau$ and tauonic neutrino $\nu_{\tau}$. Equivalently, there are also 6 flavors of left-handed quarks: up $u$, down $d$, strange $s$, charm $c$, top $t$ and bottom $b$. In turn, these 6 flavors are organized into 3 different generations, each of them a doublet under $SU(2)_{\textrm{w}}$,
-\begin{equation}
-\begin{pmatrix}
-e\\ 
-\nu_e
-\end{pmatrix}_L,
-\begin{pmatrix}
-\mu\\ 
-\nu_{\mu}
-\end{pmatrix}_L,
-\begin{pmatrix}
-\tau\\ 
-\nu_{\tau}
-\end{pmatrix}_L,
-\end{equation}
-\begin{equation}
-\begin{pmatrix}
-u\\ 
-d
-\end{pmatrix}_L,
-\begin{pmatrix}
-s\\ 
-c
-\end{pmatrix}_L,
-\begin{pmatrix}
-t\\ 
-b
-\end{pmatrix}_L.
-\end{equation}
-
-On the other hand, there are the same 6 flavors of right-handed quarks, but only 3 flavors of right-handed leptons ($e$, $\mu$, $\tau$). 
-
-Finally, there is a doublet under $SU(2)_{\textrm{w}}$ of complex scalars called the Higgs doublet $\Phi$, responsible for the Spontaneous Symmetry Breaking (SSB) of
-\begin{equation}
-SU(2)_{\textrm{w}}\times U(1)_{\textrm{Y}}\to U(1)_{\textrm{em}},
-\end{equation}
-which is responsible for the generation of mass for the fundamental particles through a non-vanishing vacuum expectation value (vev) for the Higgs field $\Phi$. 
-
-All the particles of the SM are charged under $U(1)_{\textrm{Y}}$. 
-
-The complete Lagrangian of the SM can be written in compact form as
-\begin{align*}
-\mathcal{L}&=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}\\
-&+i\bar{\psi}\gamma_{\mu}D_{\mu}\psi+\textrm{h.c.}\\
-&+\psi_iy_{ij}\psi_j\Phi+\textrm{h.c.}\\
-&+|D_{\mu}\Phi|^2-V(\Phi).
-\end{align*}
-The first term contains the kinetic energy of the gauge bosons, while the second that of matter fields (leptons and quarks). The third term are the Yukawa couplings, responsible for the mass of elementary particles once the Higgs field $\Phi$ gets a non-vanishing vev, as well as for the mixing of flavor through the CKM matrix. Finally, the last term is the Lagrangian for the scalar Higgs. The pure gauge interactions depend only on three free parameters, which are the three coupling constants. Matter fields do not add any other free parameter. Adding the Higgs field however include 22 new free parameters into the theory, which govern the masses of elementary particles, flavor mixing angles and CP-violating phases.
-
-Along the decades the SM has proven extremely successful in passing experimental tests. In 1973, neutral weak currents caused by the Z boson were discovered at CERN, which granted Glashow, Salam and Weinberg the Nobel Prize in 1979 for formulating the electroweak theory based on the gauge symmetry $SU(2)_{\textrm{w}}\times U(1)_{\textrm{Y}}$ years before. The Z and W bosons themselves were discovered experimentally in 1983. Furthermore, the ratio of their masses was found to be consistent with the SM prediction. In 1977 the bottom quark was discovered by the Fermilab E288 experiment and the top quark in 1995 by CDF and DØ at Fermilab. This granted Kobayashi and Maskawa the Nobel Prize in 2008 for introducing these quarks into the theory in order to explain CP violation in kaon decay. Finally, the only other not observed particle of the SM, the Higgs boson, was discovered in 2012 at CERN, granting Englert and Higgs the Nobel Prize in 2013.
-
-Despite the astonishing success of the SM, we know it cannot be the whole story. To begin with, it does not explain one of the four fundamental interactions of Nature, gravity. On the other hand, there's no candidate particle in the SM for dark matter, which we know accounts for about 85\% of the matter in the Universe. In addition to this, there are other theoretical puzzles, like the hierarchy problem of the Higgs mass, triviality of the Higgs coupling, the flavor puzzle or the strong CP problem, to quote a few. All this points to the fact that the SM is an effective theory that describes extremely well the Universe at the energy scales probed by modern day colliders, but that there must be some new physics lurking at high energy. Search for New Physics (NP) is the holy grail of modern day particle physics. 
+Despite the astonishing success of the SM, we know it cannot be the whole story. To begin with, it does not explain one of the four fundamental interactions of Nature, gravity. On the other hand, there's no candidate particle in the SM for dark matter, which we know accounts for about 85\% of the matter in the Universe. In addition to this, there are other theoretical puzzles, like the hierarchy problem of the Higgs mass, triviality of the Higgs coupling, the flavor puzzle or the strong CP problem, to quote a few. All this points to the fact that the SM is an effective theory that describes extremely well the Universe at the energy scales probed by modern day colliders, but that there must be some new physics lurking at high energies. Search for New Physics (NP) is the holy grail of modern day particle physics. 
 
 One way to search for NP is to perform precision tests of the SM. This involves making high precision theoretical predictions and comparing them to high precision experiments. This allows to disentangle subtle NP effects that may affect processes accessible to nowadays colliders. In this respect, low-energy QCD is a rich arena to look for NP effects. One good place where to look is at Flavor Changing Neutral Currents (FCNC). These are heavily suppressed by the GIM mechanism in the SM, and thus are expected to be more sensitive to NP effects. On the other hand, in recent years some anomalies have been observed in processes involving B meson decays. In all these processes, QCD plays a crucial role, and thus precise theoretical predictions in this sector of the SM are of utmost importance.
 
 \section*{Why Lattice Field Theory?}
 
-One difficulty arising in QFT is that when computing physical observables, like a scattering amplitude, divergences appear. These are removed from physical observables by the renormalization program. The latter consists in subtracting the divergent pieces appearing in physical quantities by redefining the parameters of the theory which are not observables. For example, one can redefine field normalizations, masses and couplings appearing in the Lagrangian in such a way that though these quantities may diverge, a physical observable like a transition amplitude remains finite. This renormalization program has been applied successfully to the three fundamental interactions described by the SM.
+When computing physical observables in QFTs divergences appear which must be removed in order for the theory to be predictive. This is done by the renormalization program, which consists in subtracting divergences appearing in physical quantities by redefining the parameters of the theory which are not observables, like field normalizations, masses and couplings. This renormalization program has been applied successfully to the three fundamental interactions described by the SM.
 
-Renormalization introduces the concept of running of coupling constants. These are taken to run with the energy in such a way that physical observables remain finite and independent of the energy scale at which infinites are subtracted in the renormalization program.  In the case of electromagnetism, the coupling (the electron electric charge) decreases at low energies. However, in the case of Yang-Mills theories like QCD the opposite is true, and the coupling becomes stronger at lower energies.
+Renormalization introduces the concept of running of coupling constants. These are taken to run with the energy in such a way that physical observables remain finite and independent of the energy scale at which infinites are subtracted in the renormalization program.  In the case of electromagnetism, the coupling (the electron electric charge) decreases at low energies. However, in the case of Yang-Mills theories, which are QFTs whose gauge group is a Lie group, the opposite is true, and the coupling becomes stronger at lower energies. QCD is a Yang-Mills theory coupled to matter.
 
-The technology usually employed to study Quantum Field Theory is perturbation theory. It consists in expanding expectation values in powers of the coupling of the theory, which must be smaller than 1 in order for the series to be convergent. Perturbation theory can thus be applied for the study of Quantum Electrodynamics at low energies, but not to the study of QCD at these energies. The only other known first-principles method to study QFTs is Lattice Field Theory. It consists in discretizing space-time into a grid or lattice, with space-time points separated by a non-zero lattice spacing $a$, and Wick rotating to the Euclidean. This allows to treat the theory as a statistical physics system, computing integrals and expectation values numerically. This approach enables to make reliable predictions of non-perturbative phenomena present in the SM such as low-energy QCD, and thus is of utmost relevance for precision tests of the SM and search of NP. 
+The technology usually employed to study Quantum Field Theory is perturbation theory. It consists in expanding expectation values in powers of the coupling of the theory, which must be smaller than 1 in order for the series to be convergent. Perturbation theory can thus be applied for the study of Quantum Electrodynamics at low energies, but not for the study of QCD at these energies. The only other known first-principles method to study QFTs is Lattice Field Theory. It consists in discretizing space-time into a grid or lattice, with space-time points separated by a non-zero lattice spacing $a$, and Wick rotating to the Euclidean. This allows to treat the theory as a statistical physics system, computing integrals and expectation values numerically. This approach enables to make reliable predictions of non-perturbative phenomena present in the SM such as low-energy QCD, and thus is of utmost relevance for precision tests of the SM and search of NP. 
 
 Non-perturbative treatment of QCD is not only needed for the search of NP. It is also crucial to understand QCD and thus the SM itself, since most of the interesting phenomena of QCD appear due to it being strongly coupled at low energies. This is responsible for the phenomenon of confinement, by which no color charged particles are observed in Nature at low energies. Spontaneous chiral symmetry breaking is also caused by non-perturbative effects, and is responsible for the light mass of pions. It is also expected that a mass gap is dynamically generated by the theory due to its non-perturbative character. This means that the spectrum of QCD (or any other Yang-Mills theory) contains no arbitrarily light particles. This is confirmed experimentally but there is no definite theoretical proof that QCD predicts such a mass gap, though numerical simulations using Lattice Field Theory indicate the existence of it. A definite theoretical proof is one of the famous Millennium Prize Problems. Another important aspect of QCD is to understand its vacuum and the role of the $\theta$-term and topology of the gauge group. Again, to this task is of crucial importance a non-perturbative treatment of the theory.
 
-Non-perturbative treatment of QFT is also crucial for other theoretical reasons beyond QCD. In many popular Beyond the Standard Model (BSM) theories, non-perturbative effects play a central role: in SUSY, non-perturbative effects are invoked to break SUSY at low energies. Also, nearly conformal field theories and technicolor models (which are up-scale version of QCD) require a non-perturbative treatment. More importantly, the SM version of the Higgs potential suffers from the triviality problem. This means that the renormalized Higgs coupling vanishes after perturbative renormalization except if there is a finite energy cutoff in the theory, meaning that the SM is nothing but an Effective Field Theory (EFT) valid up to some energy cutoff. If this is the case, it is expected that the Higgs mass receives large contributions from the high-energy scales, making it naturally heavy, as opposed to what is measured at CERN. This is referred to as the hierarchy problem. Non-perturbative numerical approaches show triviality of any scalar quartic theory (which is the case of the Higgs potential in the SM). However, coupling this scalar to other particle content as in the SM could change the triviality behavior of the coupling. Again, these issues can only be tackled with using non-perturbative approaches.
+Non-perturbative treatment of QFT is also crucial for other theoretical reasons beyond QCD. In many popular Beyond the Standard Model (BSM) theories, non-perturbative effects play a central role: in SUSY, non-perturbative effects are invoked to break SUSY at low energies. Also, nearly conformal field theories and technicolor models (which are up-scale version of QCD) require a non-perturbative treatment. More importantly, the SM version of the Higgs potential suffers from the triviality problem. This means that the renormalized Higgs coupling vanishes after perturbative renormalization except if there is a finite energy cutoff in the theory, meaning that the SM is nothing but an Effective Field Theory (EFT) valid up to some energy cutoff. If this is the case, it is expected that the Higgs mass receives large contributions from the high-energy scales, making it naturally heavy, as opposed to what is measured at CERN. This is referred to as the hierarchy problem. Non-perturbative numerical approaches show triviality of scalar quartic theories (which is the case of the Higgs potential in the SM). However, coupling this scalar to other particle content as in the SM could change the triviality behavior of the coupling. Again, these issues can only be tackled with using non-perturbative approaches.
 
-\section*{A Mixed Action Lattice approach to light, strange and charm physics}
+\section*{A Mixed Action Lattice approach to light and charm physics}
 
-We have already motivated the need for precision calculations of SM physics involving the strong interaction in order to constrain the search for NP in experiments. In this thesis we are interested in the definition and setting of a mixed action approach for the study of charm physics with Lattice QCD. This mixed action uses the Wilson fermion regularization for quarks in the sea, with up/down and strange quarks, and the Wilson twisted mass regularization for quarks in the valence, with up/down, strange and charm quarks. When tuning the twisted mass quarks at maximal twist, systematic effects of order $\mathcal{O}(a)$ coming from the discretization of space-time are expected to cancel, improving the scaling of physical observables towards the continuum. This is of relevance for the study of charm physics, since the discretization effects associated to the charm quark are of order $\mathcal{O}(am_c)$ and large due to the heavy mass of the charm $m_c$. Thus our mixed action is expected to substantially help in the extraction of precision charm observables with a controlled continuum limit.
+We have already motivated the need for precision calculations of SM physics involving the strong interaction in order to constrain the search for NP in experiments. In this thesis we are interested in the definition and setting of a mixed action approach for the study of light and charm physics with Lattice QCD. This mixed action uses the Wilson fermion regularization for quarks in the sea, with mass degenerate up/down flavors plus a strange quark, and the Wilson twisted mass regularization for quarks in the valence, with up/down, strange and charm quarks. When tuning the twisted mass quarks at maximal twist, systematic effects of order $\mathcal{O}(a)$ coming from the discretization of space-time are expected to cancel, improving the scaling of physical observables towards the continuum. This is of relevance for the study of charm physics, since the discretization effects associated to the charm quark are of order $\mathcal{O}(am_c)$ and large due to the heavy mass of the charm $m_c$. Thus our mixed action is expected to substantially help in the extraction of precision charm observables with a controlled continuum limit.
 
-The use of this mixed action breaks unitarity of the theory, even in the continuum, due to the use of different lattice regularizations for the sea and valence sectors. In order to correct for this effect we must match the physical quark masses in both sectors. Since the sea contains only light (up and down, which are treated as mass degenerate) and strange quarks, we need to tune the parameters of the mixed action in order to impose that the valence up/down and strange physical quark masses are the same as the ones in the sea. This involves precise calculations in the light and strange sectors of QCD, which is what we focus on in this thesis.
+The use of this mixed action breaks unitarity of the theory, even in the continuum, due to the use of different lattice regularizations for the sea and valence sectors. In order to correct for this effect we must match the physical quark masses in both sectors. Since the sea contains only up/down and strange quarks, we need to tune the parameters of the mixed action in order to impose that the valence up/down and strange physical quark masses are the same as the ones in the sea. This involves precise calculations in the light and strange sectors of QCD, which is what we focus on in this thesis.
 
 Furthermore, in Lattice Field Theory any physical quantity is computed in units of the lattice spacing $a$. Thus in order to make predictions, one needs to find the value of $a$ in physical units to convert any prediction in the lattice to physical units. This task is called scale setting, and is one of the main focus of this thesis. As computations in Lattice Field Theory have become more and more precise in the recent years, setting the scale with a high accuracy has become one of the main tasks for the community. This is so because its determination affects any prediction of the theory, and in particular its uncertainty affects any other quantity we want to express in physical units.
 
