@@ -88,11 +88,11 @@ This is a typically challenging task, since it involves dealing with Grassmann v
 \begin{equation}
 e^{-S_{\textrm{eff}}}=\textrm{det}(D_l)\textrm{det}(D_l)=\textrm{det}(D_l^{\dagger}D_l),
 \end{equation}
-in the pseudo-fermion representation this becomes
+in the pseudo-fermion representation this becomes up to an irrelevant factor $c$
 \begin{equation}
-\textrm{det}(D_l^{\dagger}D_l)=\frac{1}{\mathcal{Z}_{\Phi}}\int\mathcal{D}[\Phi]e^{-S_{\textrm{pf}}[U,\Phi]},
+\textrm{det}(D_l^{\dagger}D_l)=c\int\mathcal{D}[\Phi]e^{-S_{\textrm{pf}}[U,\Phi]},
 \end{equation}
-with $\mathcal{Z}_{\Phi}$ the pseudo-fermion partition function, and the pseudo-fermion action given by
+with the pseudo-fermion action given by
 \begin{equation}
 S_{\textrm{pf}}[U,\Phi]=\Phi^{\dagger}\left(D_l^{\dagger}D_l\right)^{-1}\Phi.
 \end{equation}
@@ -127,12 +127,12 @@ where $W$ is the reweighting factor and in this case reads
 W=\textrm{det}\left(Q^{\dagger}Q\left(Q^{\dagger}Q+2\mu_0^2\right)\left(Q^{\dagger}Q+\mu_0^2\right)^{-2}\right).
 \end{equation}
 
-In addition to twisted mass reweighting, reweighting is also needed due to the use of the RHMC algorithm to simulate the strange quark determinant. This algorithm uses the rational approximation to the strange quark determinant~\citep{RHMC}, which is expected to make it positive. However, as mentioned in the previous section, in~\citep{Mohler:2020txx} it was found that some configurations still got a negative sign for the strange quark determinant. This is solved by a reweighting factor of $W_s=-1$ for said configurations, which we list in Table~\ref{tab:Ws} for the ensembles of interest in this thesis.
+In addition to twisted mass reweighting, reweighting is also needed due to the use of the RHMC algorithm to simulate the strange quark determinant. This algorithm uses the rational approximation to the strange quark determinant~\citep{Kennedy:1998cu,Clark:2006fx}, which is expected to make it positive. However, as mentioned in the previous section, in~\citep{Mohler:2020txx} it was found that some configurations still got a negative sign for the strange quark determinant. This is solved by a reweighting factor of $W_s=-1$ for said configurations, which we list in Table~\ref{tab:Ws} for the ensembles of interest in this thesis.
 
 \begin{longtable}{c | c}
 \toprule
 id & cnfg \\
-\
+\midrule
 H105r001 & 3 \\
 H105r002 & 1 \\
 H105r005 & 254, 255, 256, 257, 259, 260, 261, 264, \\

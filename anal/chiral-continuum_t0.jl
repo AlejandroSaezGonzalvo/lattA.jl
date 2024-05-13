@@ -378,7 +378,7 @@ fpik_add = true
         #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
     ##
 
-    switch = 2 ## .02-2
+    switch = 1 ## .02-2
     syst = [[value.([set_x[k][j][list_b340[k][j],1] .^ 4; 0 .* set_x[k][j][length(list_b340[k][j])+1:length(set_x[k][j][:,1]),1]]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]    
     syst_comb = [[syst[2][j]; syst[1][j]] for j in 1:length(set_y[1])]
     syst = [syst[1], syst[2], syst_comb]

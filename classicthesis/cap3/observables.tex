@@ -128,7 +128,7 @@ with the notation
 \begin{equation}
 \left|0\right>\left<0\right|\equiv\frac{1}{2E_0L^3}\left|\vec{0},0\right>\left<\vec{0},0\right|.
 \end{equation}
-We assume that the boundary states $\left|\phi_{i,f}\right>$ share the same quantum numbers of the vacuum $\left|\Omega\right>$. This is true when using open boundary conditions (OBC) in time, which will be the case for most of the ensembles under study (see Table~\ref{apex_ensembles:tab:ens}).
+We assume that the boundary states $\left|\phi_{i,f}\right>$ are the same and denoted by $\left|\Omega\right>$, and share the same quantum numbers of the vacuum $\left|0\right>$. This is true when using open boundary conditions (OBC) in time, which will be the case for most of the ensembles under study (see Table~\ref{apex_ensembles:tab:ens}).
 
 We will label the quantum states as $\left|\vec{0},\alpha,n\right>$, with $n$ labeling the energy level and $\alpha$ the other quantum numbers, and using the fact that we are projecting to zero momentum $\vec{p}=\vec{0}$ we employ the shorthand notation 
 \begin{equation}
@@ -163,12 +163,13 @@ with
 \eta_y&=\frac{\left<\Omega|0,1\right>\left<\pi,0\right|O(y)\left|0,1\right>}{\left<\Omega|0,0\right>\left<\pi,0\right|O(y)\left|0,0\right>}.
 \end{align}
 
-So far we have assumed OBC in time. In the case with periodic boundary conditions (PBC), the pseudoscalar and axial correlators are periodic in time and identical (up to a relative minus sign for the axial) in $x_0$ and $T-x_0$. Considering only the ground state contribution we can write them as
+So far we have assumed OBC in time. In the case with periodic boundary conditions (PBC), the pseudoscalar and axial correlators are periodic in time and identical (up to a relative minus sign for the axial) in $x_0$ and $T-x_0$. Considering the first excited state we can write them as
 \begin{align}
 \label{ch_observables:eq:corrs_PBC}
-C_X(x_0,y_0)=a_X\left(e^{-m_{\pi}(x_0-y_0)}\pm e^{-m_{\pi}(T-x_0+y_0)}\right),
+C_X(x_0,y_0)&=a_X\left(e^{-m_{\pi}(x_0-y_0)}\pm e^{-m_{\pi}(T-x_0+y_0)}\right)\\
+&+b_X\left(e^{-m'(x_0-y_0)}\pm e^{-m'(T-x_0+y_0)}\right),
 \end{align}
-where the $+$ sign corresponds to the pseudoscalar correlator $X=P$ and the $-$ sign for the axial $X=A$,  $a_P=|\left<0,0\right|P^{ud}\left|\pi,0\right>|^2$ and $a_A=\left<0,0\right|A_0^{ud}\left|\pi,0\right>\left<0,0\right|P^{ud}\left|\pi,0\right>$. 
+where the $+$ sign corresponds to the pseudoscalar correlator $X=P$ and the $-$ sign for the axial $X=A$,  $a_P=|\left<0,0\right|P^{ud}\left|\pi,0\right>|^2$ and $a_A=\left<0,0\right|A_0^{ud}\left|\pi,0\right>\left<0,0\right|P^{ud}\left|\pi,0\right>$, $b_X$ the same matrix elements for the first excited state. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -365,7 +366,7 @@ It will be this gradient flow scale $t_0$ which we will use as an intermediate s
 \section{Ground state signals and model average}
 \label{ch_observables:sec:MA}
 
-So far, we have expressed all physical observables under study as functions of the euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met. In the lattice community there are different approaches to address this issue~\citep{•}. Our choice is to employ model averaging techniques as proposed in~\citep{Neil:2022joj,Neil:2023pgt,Frison:2023jbv}.
+So far, we have expressed all physical observables under study as functions of the euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met, and in the lattice community there are different approaches to address this issue, see e.g.~\citep{Strassberger:2023xnj,Bruno:2016plf,RQCD_scale}. Our choice is to employ model averaging techniques as proposed in~\citep{Neil:2022joj,Neil:2023pgt,Frison:2023jbv}.
 
 The idea is to investigate multiple fit functions and/or several fit ranges and assign an Information Criterion ${\textrm{IC}}$ to each choice, which allows to compute a weight
 \begin{equation}

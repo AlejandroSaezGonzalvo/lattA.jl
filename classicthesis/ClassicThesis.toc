@@ -51,9 +51,12 @@
 \contentsline {section}{\numberline {C.3}{Reweighting}}{92}{section.C.3}%
 \contentsline {chapter}{\numberline {D}{Error analysis}}{95}{appendix.D}%
 \contentsline {chapter}{\numberline {E}{Solvers}}{99}{appendix.E}%
-\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{101}{appendix.F}%
-\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{103}{appendix.G}%
-\contentsline {chapter}{\numberline {H}{$\sqrt {t_0}$: Model variation}}{105}{appendix.H}%
+\contentsline {section}{\numberline {E.1}{Stochastic methods}}{99}{section.E.1}%
+\contentsline {section}{\numberline {E.2}{Iterative solvers}}{99}{section.E.2}%
+\contentsline {section}{\numberline {E.3}{Preconditioning}}{100}{section.E.3}%
+\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{103}{appendix.F}%
+\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{105}{appendix.G}%
+\contentsline {chapter}{\numberline {H}{$\sqrt {t_0}$: Model variation}}{107}{appendix.H}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{113}{section*.21}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{115}{section*.21}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

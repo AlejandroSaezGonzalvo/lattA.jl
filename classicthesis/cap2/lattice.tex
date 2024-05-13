@@ -437,7 +437,7 @@ are taken in each of these configurations, and the expectation value is computed
 \section{Continuum limit}
 \label{ch_foundation:sec:continuum-limit}
 
-For the discussion in this subsection we follow~\citep{•}. The lattice regularization provides with a natural energy cutoff $a^{-1}$, ensuring that any loop integral is finite in perturbation theory. In perturbative renormalization, it is necessary to take the cutoff to infinity, which in the lattice means taking the lattice spacing to $a\rightarrow0$. If the theory is renormalizable, any physical quantity (e.g. a mass $m_{\textrm{phys}}$) in units of the lattice spacing must vanish in the continuum limit
+For the discussion in this subsection we follow~\citep{Hernandez:2009zz}. The lattice regularization provides with a natural energy cutoff $a^{-1}$, ensuring that any loop integral is finite in perturbation theory. In perturbative renormalization, it is necessary to take the cutoff to infinity, which in the lattice means taking the lattice spacing to $a\rightarrow0$. If the theory is renormalizable, any physical quantity (e.g. a mass $m_{\textrm{phys}}$) in units of the lattice spacing must vanish in the continuum limit
 \begin{equation}
 \label{ch_foundation:eq:ma0}
 m_{\textrm{phys}}a\rightarrow0,
@@ -448,10 +448,11 @@ Physical quantities are dependent on the couplings of the theory, $m_{\textrm{ph
 \begin{equation}
 S(a_1)=g_0(a_1)\sum_i{O}_i,
 \end{equation}
-where ${O}_i$ are all possible local operators respecting the lattice symmetries. When the lattice spacing is reduced to $a_2<a_1$, all the short-range extra degrees of freedom can be integrated out and reabsorbed into a redefinition of the coupling, such that the new action has the same generic form but with different couplings
-\begin{equation}
-g_0(a_1)\rightarrow R(g_0(a_1))=g_0(a_2).
-\end{equation}
+where ${O}_i$ are all possible local operators respecting the lattice symmetries. At a finer lattice spacing $a_2<a_1$ all the short-range extra degrees of freedom can be integrated out and reabsorbed into a redefinition of the coupling, obtaining an effective action at the original scale $a_1$, $S^{(2)}(a_1)$, that has the same generic form but with different couplings
+\begin{align}
+S^{(2)}(a_1)&=g_0^{(2)}(a_1)\sum_iO_i, \\
+g_0^{(2)}(a_1)&=R(g_0(a_1)).
+\end{align}
 $R$ here stands for the renormalization group (RG) transformation that defines the change in the couplings when varying the lattice spacing. It can be observed then that renormalizability corresponds to fixed points $g_0^*$ of the RG transformation
 \begin{equation}
 R(g_0^*)=g_0^*.
@@ -520,13 +521,13 @@ $\mathcal{L}_{k=1}^{(1),(2)}$ are already present (up to numerical factors) in t
 \label{ch_foundation:eq:DW_impr}
 D_{\textrm W}+\boldsymbol{m}+c_{\textrm{sw}}a\frac{1}{2}\sum_{\mu<\nu}\sigma_{\mu\nu}\hat{F}_{\mu\nu},
 \end{equation}
-with $c_{\textrm{sw}}$ the Sheikholeslami-Wohlert coefficient determined non-perturbatively in~\citep{Sheikholeslami:1985ij}.
+with $c_{\textrm{sw}}$ the Sheikholeslami-Wohlert coefficient determined non perturbatively in~\citep{Sheikholeslami:1985ij}.
 
 Improving the lattice action ensures improvement of on-shell quantities such as meson masses. However, if one is interested in matrix elements mediated by some current $\mathcal{J}_{\mu}$, it is also necessary to improve the lattice interpolators that enter into the definition of those currents. In analogy with the improvement of the action, a local operator $O$ is expressed in the Symanzik effective theory as
 \begin{equation}
-O_{\textrm{eff}}(x)=\sum_ka^kO_k(x).
+O_{\textrm{eff}}(x)=\sum_kc_kO_k(x)a^k.
 \end{equation}
-Again, $O_k$ are gauge invariant local operators with the right mass dimensions. Following this, a generic n-point function reads
+Again, $O_k$ are gauge invariant local operators with the right mass dimensions and $c_k$ some parameter properly tuned to cancel $a^k$ cutoff effects. Following this, a generic n-point function reads
 \begin{equation}
 \label{ch_foundation:eq:Oimpr}
 \left<\Phi\right>=\left<\Phi_0\right>-a\int d^4y\left<\Phi_0\mathcal{L}_1(y)\right>+a\left<\Phi_1\right>+...,
@@ -536,11 +537,7 @@ with
 \left<\Phi_0\right>&=\left<O_0(x_1)...O_0(x_n)\right>, \\
 \left<\Phi_1\right>&=\sum_{i=1}^n\left<O_0(x_1)...O_1(x_i)...O_0(x_n)\right>,
 \end{align}
-and vacuum expectation values taken in the continuum. The generic form of the $O_k$ operators is a sum over all possible operators $\Psi_k$ with the right mass dimension and that are local and gauge invariant,
-\begin{equation}
-O_k=\sum_ic_i\Psi_k,
-\end{equation}
-with $c_i$ some non-perturbatively determined coefficients required to suppress $\mathcal{O}(a^k)$ cutoff effects in correlation functions. In Sec~\ref{ch_observables} we discuss the details of operator improvement for the observables of interest.
+and vacuum expectation values taken in the continuum. In Sec~\ref{ch_observables} we discuss the details of operator improvement for the observables of interest.
 
 The $\mathcal{O}(a)$ improved Wilson tm fermion action is analogous to the Wilson case, with the improved Dirac operator given by 
 \begin{equation}
