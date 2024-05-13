@@ -8,9 +8,9 @@
 
 In this Appendix we discuss the details of the generation of gauge field configurations with dynamical quarks for the study of Lattice QCD. 
 
-All ensembles studied in this thesis were generated using the openQCD software, and hence the details we review here are those of the algorithms implemented for this software~\citep{Luscher:2012av,Luscher:2010ae}.
-
 Typically simulations of lattice QCD with dynamical quarks require a large amount of computer resources due to the large number of degrees of freedom, the need for big volumes and small lattice spacings. The constant efforts by the community paved the way for simulations with up to four dynamical quarks. 
+
+All ensembles studied in this thesis were generated using the openQCD software, and hence the details we review here are those of the algorithms implemented for this software~\citep{Luscher:2012av,Luscher:2010ae}.
 
 As outlined in Sec.~\ref{ch_foundation:sec:path}, the expectation value of a composite operator $O$ can be computed in the lattice as
 \begin{equation}
@@ -22,18 +22,18 @@ where the gauge fields $U_i$ are sampled from the probability density
 dP[U]=\frac{e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}}{\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]-S_{\textrm{eff}}[U]}}.
 \end{equation}
 
-The central idea is to perform an importance sampling of the distribution eq.~(\ref{appex_simulations:eq:PU}), such that regions of field space with high probability are highly populated with gauge configurations $U_i$.  To achieve this, typically gauge configurations are generated following a Markov chain. This is defined as a sequence $\{U_k\}_{k=1}^{N_{\textrm{cnfg}}}$ such that the $k$-th element is generated from the previous one, with $k$ labeling the Monte Carlo (MC) time. This way, the Markov Chain is generated from the initial state $U_1$ and the transition probability $T(U_{k-1}\rightarrow U_k)$. Due to this gauge configurations in one same Markov Chain are highly correlated, issue which we deal with in Appendix~\ref{appex_errors}. The transition probabilities must obey the following conditions:
+The central idea is to perform an importance sampling of the distribution in eq.~(\ref{appex_simulations:eq:PU}), such that regions of field space with high probability are highly populated with gauge configurations $U_i$.  To achieve this, typically gauge configurations are generated following a Markov chain. This is defined as a sequence $\{U_k\}_{k=1}^{N_{\textrm{cnfg}}}$ such that the $k$-th element is generated from the previous one, with $k$ labeling the Monte Carlo (MC) time. This way, the Markov Chain is generated from the initial state $U_1$ and the transition probability $T(U_{k-1}\rightarrow U_k)$. Due to this gauge configurations in one same Markov Chain are highly correlated, issue which we deal with in Appendix~\ref{appex_errors}. The transition probabilities must obey the following conditions:
 \begin{itemize}
 \item Ergodicity: given a subset of states $S$ from the Markov Chain, there are always at least two states $s\in S$ and $s'\notin S$ with $T(s\rightarrow s')>0$. This is of particular importance in the context of Lattice QCD and Lattice Yang-Mills theories in order to ensure that the simulation algorithm is sampling correctly all topological sectors of the theory, which may not always be the case for different algorithms.
 \item Equilibrium: normalizing the transition probability as
 \begin{equation}
-\sum_sT(s\rightarrow s')=1\;\forall s,
+\sum_sT(s\rightarrow s')=1\;\;\;\;\forall s,
 \end{equation}
 then it must hold that
 \begin{equation}
 \sum_sP(s)T(s\rightarrow s')=P(s')\;\;\;\;\forall s',
 \end{equation}
-where $P(s)$ is the equilibrium distribution in eq.~(\ref{appex_simulations:eq:PU}). This ensures that starting from a random configuration, after applying iteratively the transition probability, we asymptotically reach the target equilibrium distribution eq.~(\ref{appex_simulations:eq:PU}). 
+where $P(s)$ is the equilibrium distribution in eq.~(\ref{appex_simulations:eq:PU}). This ensures that starting from a random configuration, after applying iteratively the transition probability, we asymptotically reach the target equilibrium distribution in eq.~(\ref{appex_simulations:eq:PU}). 
 \end{itemize}
 
 Different choices for the transition probability $T(s\rightarrow s')$ satisfying the above conditions define the different sampling algorithms which we go on to review. 
@@ -44,7 +44,7 @@ The Metropolis algorithm~\citep{Metropolis:1953am} is one of the most popular ch
 \begin{equation}
 dP[U]=\frac{e^{-S_{\textrm{G}}[U]}}{\int\mathcal{D}[U]e^{-S_{\textrm{G}}[U]}}.
 \end{equation}
-The idea is to define an a priori selection probability $T_0(U_i\rightarrow U_j)$ to update a single gauge link. One such choice is to take a random element $g$ of the SU(N) group close to the identity and update the gauge link $U_{\mu}(n)$ as $U_{\mu}(n)'=gU_{\mu}(n)$ such that the new gauge configuration $U_j$ is close to the original one $U_i$. In order for the transition to be symmetric, group elements $g$ and $g^{-1}$ have to be selected with equal probability. After updating with this a priori transition probability, one supplements the updating process with an accept-reject step, such that the new proposed gauge link is accepted with probability
+The idea is to define an a priori selection probability $T_0(U_i\rightarrow U_j)$ to update a single gauge link. One such choice is to take a random element $g$ of the $SU(N)$ group close to the identity and update the gauge link $U_{\mu}(n)$ as $U_{\mu}(n)'=gU_{\mu}(n)$ such that the new gauge configuration $U_j$ is close to the original one $U_i$. In order for the transition to be symmetric, group elements $g$ and $g^{-1}$ have to be selected with equal probability. After updating with this a priori transition probability, one supplements the updating process with an accept-reject step, such that the new proposed gauge link is accepted with probability
 \begin{gather}
 P_{\textrm{acc}}(i,j)=\textrm{min}\left(1,e^{-\Delta S}\right), \quad \Delta S=S[U_j]-S[U_i].
 \end{gather}
@@ -58,9 +58,9 @@ The drawback of this algorithm is that it only updates a single gauge link at ea
 
 \section{Hybrid Monte Carlo}
 
-Having as target distribution that of pure gauge theory is equivalent as treating quarks in the sea as static sources (infinitely heavy). In order to simulate full QCD, one needs to have dynamical quarks in the sea, meaning having target distribution eq.~(\ref{appex_simulations:eq:PU}), where $S_{\textrm{eff}}$ introduces non-local dependencies in the gauge links due to the quark determinant. Therefore algorithms like Metropolis, which updates the gauge configurations link by link experience a significant computational cost that increases with the lattice volume squared, which makes the algorithm unpractical for dynamical simulations purposes. The Hybrid Monte Carlo (HMC) algorithm~\citep{Duane:1987de,Gottlieb:1987mq} significantly improves efficiency by doing global updates of the gauge configurations.
+Having as target distribution that of pure gauge theory is equivalent as treating quarks in the sea as static sources (infinitely heavy). In order to simulate full QCD, one needs to have dynamical quarks in the sea, meaning having target distribution eq.~(\ref{appex_simulations:eq:PU}), where $S_{\textrm{eff}}$ introduces non-local dependencies in the gauge links due to the quark determinant. Therefore algorithms like Metropolis, which updates the gauge configurations link by link, experience a significant computational cost that increases with the lattice volume squared, which makes the algorithm unpractical for dynamical simulations purposes. The Hybrid Monte Carlo (HMC) algorithm~\citep{Duane:1987de,Gottlieb:1987mq} significantly improves efficiency by doing global updates of the gauge configurations.
 
-The HMC uses the classical equations of motion to propose new gauge configurations. To this purpose, the field space is extended with the introduction of su(3)-valued conjugate momenta $\pi_{\mu}(x)$ of the link variables $U_{\mu}(x)$. The Hamiltonian of the system is
+The HMC uses the classical equations of motion to propose new gauge configurations. To this purpose, the field space is extended with the introduction of the conjugate momenta $\pi_{\mu}(x)$ of the link variables $U_{\mu}(x)$. The Hamiltonian of the system is
 \begin{equation}
 H[\pi,U]=\frac{1}{2}\sum_{x,\mu}\pi_{\mu}^a(x)\pi_{\mu}^a(x)+S_{\textrm{G}}[U]+S_{\textrm{eff}}[U].
 \end{equation}
@@ -70,10 +70,10 @@ This way expectation values can be computed as
 \end{equation}
 Now the classical equations of motion read
 \begin{gather}
-\dot{\pi}_{\mu}(x)=-F_{\mu}(x), \quad F_{\mu}(x)=\frac{\partial S[e^{\omega}U]}{\partial\omega}|_{\omega=0}, \quad \omega\in su(N), \\
+\dot{\pi}_{\mu}(x)=-F_{\mu}(x), \quad F_{\mu}(x)=\left.\frac{\partial S[e^{\omega}U]}{\partial\omega}\right|_{\omega=0}, \quad \omega\in su(N), \\
 \dot{U}_{\mu}(x)=\pi_{\mu}(x)U_{\mu}(x),
 \end{gather}
-where the dot notation ``$\dot{a}$'' means derivation w.r.t. MC time. This way, starting from an initial configuration at zero MC time, integrating the equations of motion provides with a global new gauge configuration to be used as proposal for the update of the gauge links. This new global proposal is subject to an accept-reject step like the one in the Metropolis algorithm with
+where the dot notation ``$\dot{a}$'' means derivation with respect to MC time. This way, starting from an initial configuration at zero MC time, integrating the equations of motion provides with a global new gauge configuration to be used as proposal for the update of the gauge links. This new global proposal is subject to an accept-reject step like the one in the Metropolis algorithm with
 \begin{gather}
 P_{\textrm{acc}}=\textrm{min}\left(1,e^{-\Delta H}\right), \quad \Delta H=H[\pi',U']-H[\pi,U].
 \end{gather}
@@ -94,11 +94,7 @@ in the pseudo-fermion representation this becomes
 \end{equation}
 with $\mathcal{Z}_{\Phi}$ the pseudo-fermion partition function, and the pseudo-fermion action given by
 \begin{equation}
-S_{\textrm{pf}}[U,\Phi]=\Phi^{\dagger}\left(D_l^{\dagger}D_l\right)^{-1}\Phi
-\end{equation}
-Finally the integration measure for these auxiliary fields reads
-\begin{equation}
-\mathcal{D}[\Phi]=\Pi_{x,\alpha,c}d\Phi_{\alpha c}(x)d\Phi^*_{\alpha c}(x).
+S_{\textrm{pf}}[U,\Phi]=\Phi^{\dagger}\left(D_l^{\dagger}D_l\right)^{-1}\Phi.
 \end{equation}
 
 Now we have all ingredients needed for HMC sampling with dynamical fermions. First one samples randomly a set of conjugate momenta $\pi_{\mu}$ and pseudo-fermion fields $\Phi$ with Gaussian distribution $\propto\exp\left(-\frac{1}{2}\pi_{\mu}\pi_{\mu}-S_{\textrm{pf}}\right)$. Together with an initial gauge field configuration $U_{i}$, the classical equations of motion are integrated up to some later time. At this point one implements the accept-reject step and updates the gauge configuration to $U_{i+1}$.
@@ -107,7 +103,7 @@ This far we assumed two degenerate flavors of quarks to compute the effective fe
 
 \section{Reweighting}
 
-The idea of reweighting was first proposed~\citep{Luscher:2008tw} in order to deal with exceptional gauge configurations in the HMC algorithm. These are gauge configurations with near to zero eigenvalues for the Dirac operator, which can appear due to the explicit chiral symmetry breaking induced by the Wilson term in the Wilson fermion action.
+The idea of reweighting was first proposed in~\citep{Luscher:2008tw} in order to deal with exceptional gauge configurations in the HMC algorithm. These are gauge configurations with near to zero eigenvalues for the Dirac operator, which can appear due to the explicit chiral symmetry breaking induced by the Wilson term in the Wilson fermion action.
 
 In the context of CLS ensembles, a small twisted mass term $\mu_0$ is included in the light quark determinant as~\citep{Luscher:2012av}
 \begin{equation}
@@ -136,15 +132,14 @@ In addition to twisted mass reweighting, reweighting is also needed due to the u
 \begin{longtable}{c | c}
 \toprule
 id & cnfg \\
-\middleline
+\
 H105r001 & 3 \\
 H105r002 & 1 \\
 H105r005 & 254, 255, 256, 257, 259, 260, 261, 264, \\
          & 265, 266, 269, 280, 282, 283, 284, 285, \\
          & 286, 287, 288, 289, 291, 299, 301, 313,\\
          & 314, 315, 316, 331, 332, 333, 334, 335, \\
-         & 336, 337, 338, 339, 340, 341, 342 \\
-\middleline
+         & 336, 337, 338, 339, 340, 341, 342  \\
 J303r003 & 324, 325, 326 \\
 \bottomrule
 \caption{List of configurations with negative sign of the strange quark determinant for each affected ensemble in this study. A reweighting factor $W_s=-1$ is introduced in said configuration in order to account for the effect~\citep{Mohler:2020txx}.}

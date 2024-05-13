@@ -6,13 +6,13 @@
 \chapter{Error analysis}
 \label{appex_errors}
 
-In this appendix we discuss how to perform the data analysis of correlation functions and the different lattice observables extracted from lattice simulations. 
+In this Appendix we discuss how to perform the data analysis of correlation functions and the different lattice observables extracted from lattice simulations. 
 
-Lattice data is measured from Monte Carlo (MC) sampling, and estimates of expectation values of physical observables are extracted from means over the MC time. A crucial step is to assign a proper statistical and systematic uncertainties to these mean values, for which it is needed to take into account the autocorrelated nature of MC measurements. This autocorrelation arises form the fact that each gauge configuration is proposed from the previous one (Markov chain). Some popular methods to deal with these correlations are binning, bootstrap and the jack-knife methods.
+As detailed in Appendix~\ref{appex_simulations}, lattice data is measured from Monte Carlo (MC) sampling, and estimates of expectation values of physical observables are extracted from means over the MC time. A crucial step is to assign a proper statistical and systematic uncertainties to these mean values, for which it is needed to take into account the autocorrelated nature of MC measurements. This autocorrelation arises form the fact that each gauge configuration is proposed from the previous one (Markov chain). Some popular methods to deal with these correlations are binning, bootstrap and the jack-knife methods.
 
 A recent technique which we will use in this work was proposed by the ALPHA collaboration~\citep{Schaefer:2010hu,Wolff:2003sm,Ramos:2018vgu} and is known as $\Gamma$-method, which explicitly computes the autocorrelation function to estimate the statistical uncertainty.
 
-In lattice simulations Typically one measures a primary observable $p_i$ over several ensembles (defined by the simulation parameters like e.g. the inverse coupling $\beta$ and $\kappa$ parameter) 
+In lattice simulations typically one measures a primary observable $p_i$ over several ensembles (defined by the simulation parameters like the inverse coupling $\beta$ and $\kappa$ parameter) 
 \begin{equation}
 p_i^{\alpha}(k), k=1,...,N_{\alpha},
 \end{equation}
@@ -34,7 +34,7 @@ This standard deviation can be computed from the autocorrelation $\Gamma$ functi
 \end{equation}
 where the $\Gamma$ function is defined as
 \begin{equation}
-\Gamma_{ij}^{\alpha\beta}=\frac{\delta_{\alpha\beta}}{N_{\alpha}-k}\sum_{k'=1}^{N_{\alpha}-k}\delta_i^{\alpha}(k+k')\delta_j^{\alpha}(k').
+\Gamma_{ij}^{\alpha\beta}(k)=\frac{\delta_{\alpha\beta}}{N_{\alpha}-k}\sum_{k'=1}^{N_{\alpha}-k}\delta_i^{\alpha}(k+k')\delta_j^{\alpha}(k').
 \end{equation}
 
 From the primary observable $p_i^{\alpha}$ we can compute derived observables $F=f(p_i^{\alpha})$, such as meson masses coming from pseudoscalar two point functions. As in the primary observable case, we can estimate this derived observable as
@@ -47,7 +47,7 @@ f(P_{i}^{\alpha}+\epsilon_{i}^{\alpha})=f(P_{i}^{\alpha})+\bar{f}_i^{\alpha}\eps
 \end{equation}
 with
 \begin{equation}
-\bar{f}_i^{\alpha}=\frac{\partial f(x)}{\partial x}|_{x=P_{i}^{\alpha}}.
+\bar{f}_i^{\alpha}=\left.\frac{\partial f(x)}{\partial x}\right|_{x=P_{i}^{\alpha}}.
 \end{equation}
 Now the autocorrelation function of the derived observable $F$ for ensemble $\alpha$ can be defined as
 \begin{equation}
@@ -60,7 +60,7 @@ from which the standard deviation of $F$ can be derived
 where we assumed that several ensembles contribute to $F$, and hence the sum $\sum_{\alpha}$ over the subset of them which contribute. The integrated autocorrelation time $\tau_{\textrm{int}}^{\alpha}(F)$ is defined as
 \begin{equation}
 \label{app_errors:eq:taui}
-\tau_{\textrm{int}}^{\alpha}(F)=\frac{1}{2}+\sum_{k=1}^{\infty}\frac{\Gamma_F^{\alpha}(k)}{\Gamma_F^{\alpha}(k)}.
+\tau_{\textrm{int}}^{\alpha}(F)=\frac{1}{2}+\sum_{k=1}^{\infty}\frac{\Gamma_F^{\alpha}(k)}{\Gamma_F^{\alpha}(0)}.
 \end{equation}
 To estimate it, a truncation in MC time $k$ is needed. The autocorrelation function admits the following expansion~\citep{Luscher:2011kk,Schaefer:2010hu}
 \begin{equation}

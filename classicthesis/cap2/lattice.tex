@@ -15,9 +15,9 @@
 \section{Introduction}
 \label{ch_foundation:sec:general}
 
-The theory that describes the strong interaction between quarks and gluons is called Quantum Chromodynamics, or QCD. 
+The theory that describes the strong interaction between quarks and gluons is called Quantum Chromodynamics or QCD. 
 
-The underlying symmetry of QCD is associated to the non-abelian $SU(N=3)$ Lie group. The elements of this group are non-commuting, traceless unitary $3 \times 3$ matrices $\Omega$ whose determinant $\textrm{det}\;\Omega=1$. In order to have a gauge theory we must allow these elements to depend on space-time coordinates. The map
+The underlying symmetry of QCD is associated to the non-abelian $SU(N=3)$ Lie group. The elements of this group are non-commuting, traceless unitary $3 \times 3$ matrices $\Omega$ with unit determinant $\textrm{det}\;\Omega=1$. In order to have a gauge theory we must allow these elements to depend on space-time coordinates. The map
 \begin{equation}
 \Omega(x)=e^{i\alpha^{(a)}(x)T^{(a)}},
 \end{equation}
@@ -40,9 +40,9 @@ S_{\textrm{F}}=\sum_{i=1}^{N_f}\int d^4x\;\bar{\psi}^{i}(x)\left(\gamma_{\mu}\pa
 \end{equation} 
 We implicitly sum over the repeated $\mu$ index, and we omitted the spinor and color indices. This action is invariant under global $SU(3)$ transformations ($\Omega$ independent of $x$). In order to promote this to a local or gauge symmetry, we need to substitute the derivative by a covariant one
 \begin{equation}
-\partial_{\mu}\psi(x)\to D_{\mu}(x)\psi(x)=\partial_{\mu}\psi(x)+iA_{\mu}(x)\psi(x),
+\partial_{\mu}\psi(x)\to D_{\mu}\psi(x)=\partial_{\mu}\psi(x)+iA_{\mu}(x)\psi(x),
 \end{equation}
-with $A_{\mu}$ a new field, called the gauge field, which must transform under $SU(3)$ in the adjoint representation
+with $A_{\mu}$ a new gauge field which must transform under $SU(3)$ in the adjoint representation
 \begin{equation}
 \label{ch_foundation:eq:Agauge}
 A_{\mu}(x)\to\Omega(x)A_{\mu}(x)\Omega^{\dagger}(x)+i\Omega(x)\partial_{\mu}\Omega^{\dagger}(x),
@@ -72,16 +72,16 @@ F_{\mu\nu}(x)&\to\Omega(x)F_{\mu\nu}(x)\Omega^{\dagger}(x).
 Finally, the QCD action in continuum space-time is given by 
 \begin{align}
 \label{ch_foundation:eq:QCD}
-S_{\textrm{QCD}}&=\sum_{i=1}^{N_f}\int d^4x\;\bar{\psi}^i(x)\left(\gamma_{\mu}D_{\mu}(x)+m_i\right)\psi^i(x) \\
+S_{\textrm{QCD}}&=\sum_{i=1}^{N_f}\int d^4x\;\bar{\psi}^i(x)\left(\gamma_{\mu}D_{\mu}+m_i\right)\psi^i(x) \\
 &+\frac{1}{2g_0^2}\int d^4x\;{\textrm{tr}}\left(F_{\mu\nu}(x)F_{\mu\nu}(x)\right).
 \end{align}
 The only parameters of this action are the quark masses $m_i$ and the dimensionless coupling constant $g_0$.
 
-As mentioned in the Introduction, QCD is strongly coupled at low energies or large distances. One cannot thus rely on perturbation theory to compute physical observables, as an expansion on powers of the coupling does not converge. The only known first-principles method other than perturbation theory to perform theoretical predictions in Quantum Field Theory is Lattice Quantum Field Theory, or Lattice QCD when applied to the study of Quantum Chromodynamics. This method is based on the discretization of space-time into a hypercubic box or lattice
+As mentioned in the Introduction, QCD is strongly coupled at low energies or large distances. One cannot thus rely on perturbation theory to compute physical observables, as an expansion on powers of the coupling does not converge. The only known first-principles method other than perturbation theory to perform theoretical predictions in Quantum Field Theory is Lattice Quantum Field Theory, Lattice QCD when applied to the study of Quantum Chromodynamics. This method is based on the discretization of space-time into a hypercubic box or lattice
 \begin{equation}
 \Lambda=\{n_0,n_1,n_2,n_3|n_0=0,...,T/a-1;n_i=0,...,L/a-1;i=1,2,3\},
 \end{equation} 
-where $a$ is the lattice spacing between two adjacent sites, and $L,T$ are the spatial and temporal lattice extents (in physical units) respectively. The discretization of space-time and introduction of a finite lattice spacing $a$ provides a natural energy cutoff for momenta $\sim a^{-1}$, removing UV divergences. On the other hand, the finite volume lattice ensures the absence of IR divergences. This means that the lattice formulation can be seen as a way to regularize any particular Quantum Field Theory. However, this also implies the presence of finite volume and discretization effects, which should be removed from the predictions. To do this, after having computed the physical observables in the lattice setup, one must perform a continuum extrapolation to obtain results at $a\rightarrow0$ and simulate large enough volumes in order to be able to neglect the effects associated with finite volume. If the theory is renormalizable, physical quantities will remain finite in the continuum limit.
+where $a$ is the lattice spacing between two adjacent sites, and $L,T$ are the spatial and temporal lattice extents (in physical units) respectively. The discretization of space-time and introduction of a finite lattice spacing $a$ provides a natural energy cutoff for momenta $\sim a^{-1}$, removing UV divergences. On the other hand, the finite volume lattice ensures the absence of IR divergences. This means that the lattice formulation can be seen as a way to regularize any particular Quantum Field Theory. However, this also implies the presence of finite volume and discretization effects, which should be removed from any prediction. To do this, after having computed some physical observables in the lattice setup, one must perform a continuum extrapolation to obtain results at $a\rightarrow0$ and simulate large enough volumes in order to be able to neglect the effects associated with finite volume. If the theory is renormalizable, physical quantities will remain finite in the continuum limit.
 
 Having discretized space-time, fields are placed at the lattice sites $n\in\Lambda$. Fermions thus look like
 \begin{gather}
@@ -100,7 +100,7 @@ P(x,y)\to\Omega(x)P(x,y)\Omega^{\dagger}(y).
 
 Having defined the fields in the lattice, one needs to discretize the QCD action, formulating it in a finite box $\Lambda$ in terms of said fields in such a way that in the continuum limit $a\rightarrow 0$ the continuum QCD action is recovered. We discuss this in the following sections.	
 
-The Chapter is structured as follows. In Sec.~\ref{ch_foundation:sec:Gauge} we show the Wilson formulation of the gauge action in the lattice, in terms of the link variables. In Sec.~\ref{ch_foundation:sec:Fermions} we show different ways of discretizing the fermion action. In Sec.~\ref{ch_foundation:subsec:Naive} we discuss the problem of doublers that appear with a naive fermion discretization and its relation with formulating chiral symmetry in the lattice, briefly commenting on Ginsparg-Wilson fermions. In Sec.~\ref{ch_foundation:subsec:Wilson} we show the solution to the doublers problem proposed by Wilson, which implies adding a term which explicitly breaks chiral symmetry. This term gives a heavy mass to the doublers that grows with the inverse of the lattice spacing $a$, and thus they decouple in the continuum. In Sec.~\ref{ch_foundation:subsec:tm} we discuss a modification of Wilson fermions which adds a chirally rotated mass term. This regularization poses some advantages which will be of importance for our study. In Sec.~\ref{ch_foundation:sec:path} we review some concepts of the path integral formalism and how expectation values are computed numerically in the lattice. In Sec.~\ref{ch_foundation:sec:continuum-limit} we review some concepts of renormalizability and the continuum limit in the lattice. In Sec.~\ref{ch_foundation:sec:impr} we discuss the Symanzik improvement program, which allows to reduce cutoff effects associated to the lattice action and fields, helping in the task of performing the continuum limit. Finally, in Sec.~\ref{ch_foundation:sec:ss} the procedure to set the scale in the lattice is discussed. This is necessary in order to extract lattice predictions in physical units.
+The Chapter is structured as follows. In Sec.~\ref{ch_foundation:sec:Gauge} we show the Wilson formulation of the gauge action in the lattice, in terms of the link variables. In Sec.~\ref{ch_foundation:sec:Fermions} we show different ways of discretizing the fermion action. In Sec.~\ref{ch_foundation:subsec:Naive} we discuss the problem of doublers that appear with a naive fermion discretization and its relation with formulating chiral symmetry in the lattice, briefly commenting on Ginsparg-Wilson fermions. In Sec.~\ref{ch_foundation:subsec:Wilson} we show the solution to the doublers problem proposed by Wilson, which implies adding a term which explicitly breaks chiral symmetry. This term gives an additional heavy mass to the doublers that grows with the inverse of the lattice spacing $a$, and thus they decouple in the continuum. In Sec.~\ref{ch_foundation:subsec:tm} we discuss a modification of Wilson fermions which adds a chirally rotated mass term. This regularization poses some advantages which will be of importance for our study. In Sec.~\ref{ch_foundation:sec:path} we review some concepts of the path integral formalism and how expectation values are computed numerically in the lattice. In Sec.~\ref{ch_foundation:sec:continuum-limit} we review some concepts of renormalizability and the continuum limit in the lattice. In Sec.~\ref{ch_foundation:sec:impr} we discuss the Symanzik improvement program, which allows to reduce cutoff effects associated to the lattice action and fields, helping in the task of performing the continuum limit. Finally, in Sec.~\ref{ch_foundation:sec:ss} the procedure to set the scale in the lattice is discussed. This is necessary in order to extract lattice predictions in physical units.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,12 +115,12 @@ In the lattice, gluon fields can be defined by the link variables $U_{\mu}(x)\in
 \label{ch_foundation:eq:U}
 U_{\mu}(x)=\exp\left(iaA_{\mu}(x)\right).
 \end{equation}
-The links transform as 
+These fields transform as 
 \begin{equation}
 \label{ch_foundation:eq:U_transf}
 U_{\mu}(x)\to\Omega(x)U_{\mu}(x)\Omega^{\dagger}(x+\hat{\mu}),
 \end{equation}
-These fields live on the links of the lattice that connect sites $x$ and $x+\hat{\mu}$.
+and they live on the links of the lattice that connect sites $x$ and $x+\hat{\mu}$.
 
 A common discretization of the gluonic action is the Wilson gauge action~\citep{Wilson:1974sk}, which is expressed in terms of the link variables $U_{\mu}(x)$
 \begin{equation}
@@ -186,13 +186,13 @@ which arise from $\bar{\psi}(x)\hat{\partial}_{\mu}\psi(x)$ are not gauge invari
 \begin{equation}
 \bar{\psi}(x)\psi(x+\hat{\mu})\to\bar{\psi}(x)\Omega^{\dagger}(x)\Omega(x+\hat{\mu})\psi(x+\hat{\mu}).
 \end{equation}
-The solution is again to introduce the link variable or parallel transporter $U_{\mu}(x)$ from site $x$ to $x+\hat{\mu}$ defined in eq.~(\ref{ch_foundation:eq:U}) which transforms as in eq.~(\ref{ch_foundation:eq:U_transf}). This way, the discretized fermion action reads
+The solution is to introduce the link variable or parallel transporter $U_{\mu}(x)$ from site $x$ to $x+\hat{\mu}$ defined in eq.~(\ref{ch_foundation:eq:U}) which transforms as in eq.~(\ref{ch_foundation:eq:U_transf}). This way, the discretized fermion action reads
 \begin{equation}
 \label{ch_foundation:eq:naive}
 S_{\textrm{F}}=a^4\sum_x\bar{\psi}(x)\left(\gamma_{\mu}\frac{U_{\mu}(x)\psi(x+\hat{\mu})-U_{\mu}^{\dagger}(x-\hat{\mu})\psi(x-\hat{\mu})}{2a}+m\psi(x)\right).
 \end{equation}
 
-However, this naive formulation of the fermion action exhibits the problem of doubling. This means that although we wrote our action to describe one fermion of mass $m$, for finite lattice spacing $a$ additional poles with the same ground state energy will appear, spoiling the dynamics of the theory. These unwanted additional poles are known as doublers. To see how they appear, consider the massive Dirac operator $D(x,y)$ in the continuum, which can be defined such that
+However, this naive formulation of the fermion action exhibits the problem of doubling: despite the fact that we wrote our action to describe one fermion of mass $m$, for finite lattice spacing $a$ additional poles with the same ground state energy appear, spoiling the dynamics of the theory. These unwanted additional poles are known as doublers. To see how they appear, we consider the massive Dirac operator $D(x,y)$ in the continuum, defined such that
 \begin{equation}
 S_{\textrm{F}}=\int d^4xd^4y\;\bar{\psi}(x)D(x,y)\psi(y).
 \end{equation}
@@ -287,9 +287,9 @@ The Wilson term $a\nabla_{\mu}\nabla_{\mu}^*$ in the Wilson Dirac operator manif
 \begin{equation}
 m_i^{\textrm{R}}=Z_m\left(m_i-m_{\textrm{cr}}\right),
 \end{equation}
-since it is no longer protected against these contributions by the axial symmetry.
+since it is no longer protected against them by the axial symmetry.
 
-The Wilson fermion action has $\mathcal{O}(a)$ cutoff effects, which again can be systematically reduced by using the Symanzik improvement program detailed in Sec.~\ref{ch_foundation:sec:impr}.
+The Wilson fermion action has $\mathcal{O}(a)$ cutoff effects, which can be systematically reduced by using the Symanzik improvement program detailed in Sec.~\ref{ch_foundation:sec:impr}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -334,7 +334,7 @@ In practice we will be working with Wilson tm fermions at full twist
 \end{equation}
 which can be obtained by setting the renormalized standard masses $m_i^{\textrm{R}}$ to zero. The procedure to achieve this is explained in Sec.~\ref{ch_ma:sec:matching}.
 
-Considering for simplicity the light sector of mass-degenerate $u$ and $d$ quarks, at full twist the symmetry group $SU(2)_V\times SU(2)_A$ is broken into
+Considering for simplicity the light sector of mass-degenerate up/down ($u$ and $d$) quarks, at full twist the symmetry group $SU(2)_V\times SU(2)_A$ is broken into
 \begin{equation}
 SU(2)_V\times SU(2)_A\rightarrow[U(1)_A]_1\times[U(1)_A]_2\times[U(1)_V]_3,
 \end{equation}
@@ -358,18 +358,18 @@ with $\tau^{a}$ the Pauli matrices. This means that at full twist axial symmetri
 \mu_i^{\textrm{R}}=Z_{\mu}(g_0^2,a\mu)\mu_i.
 \end{equation}
 
-An important role in our setup is played by the Ward-Takahashi identities (WTI). They will be used to tune the Wilson twisted mass parameters to ensure full twist and to determine the quark masses in the Wilson regularization. Furthermore, they allow to identify the renormalization constant of the twist masses $Z_{\mu}$. For the non-singlet case ($i\neq j$) the WTI for the axial and vector currents, in the continuum limit and in the twisted basis, are as follows (see eqs.~(\ref{ch_observables:eq:P})-(\ref{ch_observables:eq:A}) for the definition of the currents)
+An important role in our setup is played by the Ward-Takahashi identities (WTI). They will be used to tune the Wilson twisted mass parameters to ensure full twist. Furthermore, they allow to identify the renormalization constant of the twisted masses $Z_{\mu}$. For the non-singlet case ($i\neq j$) the WTI for the axial and vector currents, in the continuum limit and in the twisted basis, read (see eqs.~(\ref{ch_observables:eq:P}-\ref{ch_observables:eq:A}) for the definition of the currents)
 \begin{align}
 \label{ch_foundation:eq:WTI_V}
 \partial_{\mu}V_{\mu}^{ij}&=(m_i-m_j)S^{ij}+i(\eta_i\mu_i-\eta_j\mu_j)P^{ij},\\
 \label{ch_foundation:eq:WTI_A}
 \partial_{\mu}A_{\mu}^{ij}&=(m_i+m_j)P^{ij}+i(\eta_i\mu_i+\eta_j\mu_j)S^{ij}.
 \end{align}
-Note that at zero twist angle $\eta_u=\eta_d=\eta_s=\eta_c=0$ the twisted and physical basis are the same, and the standard WTIs are recovered. However, at full twist the renormalized standard masses $m_i^{\textrm{R}}$ vanish, which in turn means that the current masses $m_{i}$ in eqs.~(\ref{ch_foundation:eq:WTI_V})-(\ref{ch_foundation:eq:WTI_A}) also vanish (up to cutoff effects). Moreover, the exact flavor symmetry of massless Wilson fermions implies the existence of a point-split vector current $\tilde{V}_{\mu}^{ij}$ on the lattice such that the vector WTI holds exactly on the lattice. In the twisted basis, this current takes the form
+Note that at zero twist angle $\eta_u=\eta_d=\eta_s=\eta_c=0$ the twisted and physical basis are the same, and the standard WTIs are recovered. However, at full twist the renormalized standard masses $m_i^{\textrm{R}}$ vanish, which in turn means that the current masses $m_{i}$ in eqs.~(\ref{ch_foundation:eq:WTI_V}-\ref{ch_foundation:eq:WTI_A}) also vanish (up to cutoff effects). Moreover, the exact flavor symmetry of massless Wilson fermions implies the existence of a point-split vector current $\tilde{V}_{\mu}^{ij}$ in the lattice such that the vector WTI holds exactly in the lattice. In the twisted basis, this current takes the form
 \begin{equation}
 \tilde{V}_{\mu}^{ij}=\frac{1}{2}\left[\bar{\psi}^i(x)(\gamma_{\mu}-1)U_{\mu}(x)\psi^j(x+\hat{\mu})+\bar{\psi}^i(x+\hat{\mu})(\gamma_{\mu}+1)U_{\mu}^{\dagger}(x)\psi^j(x)\right].
 \end{equation}
-The conservation of this WTI on the lattice for $\tilde{V}_{\mu}^{ij}$ means that the point-split vector current renormalizes trivially with
+The conservation of this WTI in the lattice for $\tilde{V}_{\mu}^{ij}$ means that the point-split vector current renormalizes trivially with
 \begin{equation}
 \label{ch_foundation:eq:ZV=1}
 Z_{\tilde{V}}=1.
@@ -392,7 +392,7 @@ Having formulated the QCD action in the lattice, we need to see how physical qua
 \left<{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[\psi,\bar{\psi},U]{O}(x_1,...,x_n)e^{-S[\psi,\bar{\psi},U]}, \\
 \mathcal{Z}&=\int\mathcal{D}[\psi,\bar{\psi},U]e^{-S[\psi,\bar{\psi},U]}.
 \end{align}
-This is equivalent to expectation values in statistical mechanics with a Boltzmann factor of $e^{-S[\psi,\bar{\psi},U]}$. The action can be decomposed into its gluon and fermion components $S[\psi,\bar{\psi},U]=S_{\textrm G}[U]+S_{\textrm F}[\psi,\bar{\psi}]$, and fermion variables can be integrated out as
+This is equivalent to expectation values in statistical mechanics with a Boltzmann factor of $e^{-S[\psi,\bar{\psi},U]}$. The action can be decomposed into its gluon and fermion components $S[\psi,\bar{\psi},U]=S_{\textrm G}[U]+S_{\textrm F}[\psi,\bar{\psi}]$, and fermion degrees of freedom can be integrated out as
 \begin{align}
 \left<{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\notag \\
 &\times\left[\frac{1}{\mathcal{Z}_{\textrm F}}\int\mathcal{D}[\psi,\bar{\psi}]{O}(x_1,...,x_n)e^{-S_{\textrm F}[\psi,\bar{\psi}]}\right] \\
@@ -437,7 +437,7 @@ are taken in each of these configurations, and the expectation value is computed
 \section{Continuum limit}
 \label{ch_foundation:sec:continuum-limit}
 
-The lattice regularization provides a natural energy cutoff $a^{-1}$, ensuring that any loop integral is finite in perturbation theory. In perturbative renormalization, it is necessary to take the cutoff to infinity, which in the lattice means taking the lattice spacing to $a\rightarrow0$. If the theory is renormalizable, any physical quantity (e.g. a mass $m_{\textrm{phys}}$) in units of the lattice spacing must vanish in the continuum limit
+For the discussion in this subsection we follow~\citep{•}. The lattice regularization provides with a natural energy cutoff $a^{-1}$, ensuring that any loop integral is finite in perturbation theory. In perturbative renormalization, it is necessary to take the cutoff to infinity, which in the lattice means taking the lattice spacing to $a\rightarrow0$. If the theory is renormalizable, any physical quantity (e.g. a mass $m_{\textrm{phys}}$) in units of the lattice spacing must vanish in the continuum limit
 \begin{equation}
 \label{ch_foundation:eq:ma0}
 m_{\textrm{phys}}a\rightarrow0,
@@ -452,14 +452,12 @@ where ${O}_i$ are all possible local operators respecting the lattice symmetries
 \begin{equation}
 g_0(a_1)\rightarrow R(g_0(a_1))=g_0(a_2).
 \end{equation}
-$R$ here stands for the renormalization group (RG) transformation that defines the change in the couplings when varying the lattice spacing.
-
-Since physical quantities change with the couplings, they also do with the lattice spacing, and we want to ensure eq.~(\ref{ch_foundation:eq:ma0}) to ensure renormalizability. It can be observed then that renormalizability corresponds to fixed points $g_0^*$ of the RG transformation
+$R$ here stands for the renormalization group (RG) transformation that defines the change in the couplings when varying the lattice spacing. It can be observed then that renormalizability corresponds to fixed points $g_0^*$ of the RG transformation
 \begin{equation}
 R(g_0^*)=g_0^*.
 \end{equation}
 
-In the context of SU(N) Yang-Mills theory, perturbation theory shows that at a fixed value of the renormalized coupling $g_R$ the bare coupling runs with the lattice spacing as
+In the context of $SU(N)$ Yang-Mills theory, perturbation theory shows that at a fixed value of the renormalized coupling $g_R$ the bare coupling runs with the lattice spacing as
 \begin{equation}
 \label{ch_foundation:eq:beta-func}
 a\frac{\partial g_0}{\partial a}\equiv\beta(g_0)=-\beta_0g_0^3-\beta_1g_0^5+...,
@@ -473,7 +471,7 @@ or in terms of the inverse coupling $\beta$
 \beta\rightarrow\infty.
 \end{equation}
 
-In practice, one cannot numerically simulate at infinite inverse coupling $\beta$. Therefore, physical observables are computed at several finite values of $\beta$. This introduces $\mathcal{O}(a^n)$ cutoff effects in the results, with some power $n$. To obtain results in the continuum, one parameterizes these cutoff effects with some function of the lattice spacing and extrapolates to $a\rightarrow 0$. However, this task is far from trivial and it has been shown that spectral quantities receive logarithmic corrections in the lattice spacing~\citep{Husung:2022kvi}. To help in the continuum limit extrapolation, one can systematically reduce lattice artifacts, e.g. from $\mathcal{O}(a)$ to $\mathcal{O}(a^2)$ following the Symanzik improvement program. 
+In practice, one cannot numerically simulate at infinite inverse coupling $\beta$. Therefore, physical observables are computed at several finite values of $\beta$. This introduces $\mathcal{O}(a^n)$ cutoff effects in the results, with some power $n$. To obtain results in the continuum, one parameterizes these cutoff effects with some function of the lattice spacing and extrapolates to $a\rightarrow 0$. However, this task is far from trivial and it has been shown that spectral quantities receive logarithmic corrections in the lattice spacing~\citep{Husung:2022kvi} which could significantly complicate this task. To help in the continuum limit extrapolation, one can systematically reduce lattice artifacts, e.g. from $\mathcal{O}(a)$ to $\mathcal{O}(a^2)$ following the Symanzik improvement program. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -483,18 +481,18 @@ In practice, one cannot numerically simulate at infinite inverse coupling $\beta
 
 Symanzik improvement requires improving both the action of the theory and the lattice interpolators that enter the different correlators. 
 
-In order to improve a lattice action, one can describe the target continuum action in terms of an effective action in powers of the lattice spacing $a$
+In order to improve a lattice action, one can describe the target continuum theory in terms of an effective action in powers of the lattice spacing $a$
 \begin{equation}
 S_{\textrm{eff}}=\int d^4x\sum_kc_k\mathcal{L}_k(x)a^{k-4}.
 \end{equation}
-Here $\mathcal{L}_0(x)$ is the discretized lattice Lagrangian unimproved, and the higher-dimension terms $\mathcal{L}_k$(x) are all possible Lagrangians built from fermion and gluon field operators that preserve the symmetries of the regularized theory, i.e. the lattice theory, with mass dimension $4+k$, and $c_k$ are numerical coefficients.
+Here $\mathcal{L}_0(x)$ is the discretized lattice Lagrangian unimproved, the higher-dimension terms $\mathcal{L}_k$(x) are all possible Lagrangians built from fermion and gluon field operators that preserve the symmetries of the regularized theory, i.e. the lattice theory, with mass dimension $4+k$, and $c_k$ are numerical coefficients.
 
 In the case of Lattice QCD, we saw that in the Wilson gauge action in eq.~(\ref{ch_foundation:eq:YM-latt}) lattice artifacts appear at $\mathcal{O}(a^2)$, and therefore no $\mathcal{O}(a)$ improvement is required. However, these $\mathcal{O}(a^2)$ effects can be further reduced by adding all possible dimension $4+k=6$ operators that preserve the underlying symmetries of the gauge action. These dimension-6 operators are all three possible ways of writing a closed path in a rectangular lattice with 6 gauge links: planar, twisted and L-shaped rectangles. The action then reads
 \begin{equation}
 \label{ch_foundation:eq:SG_impr}
 S_G=\frac{\beta}{3}\sum_{\mu\nu}\left[c_0\sum_p{\textrm{Re}}\left({\textrm{tr}}\left(1-U_{\mu\nu}(p)\right)\right)+\sum_{i=1}^3c_i\sum_r{\textrm{Re}}\left({\textrm{tr}}\left(1-U^{(i)}(r)\right)\right)\right],
 \end{equation}
-with $U^{(i)}$ said dimension-6 operators. Tuning the coefficients $c_i$ properly leads to $\mathcal{O}(a^2)$ improvement. In our study, the CLS ensembles we employ (see Sec.~\ref{ch_ma:sec:Sea}) use the so called Lüscher-Weisz gauge action~\citep{Luscher:1984xn,Luscher:1985zq}, with these coefficients computed at tree-level
+with $U^{(i)}$ said dimension-6 operators. Tuning the coefficients $c_i$ properly leads to $\mathcal{O}(a^2)$ improvement. The CLS ensembles that we employ in this thesis (see Sec.~\ref{ch_ma:sec:Sea}) use the so called Lüscher-Weisz gauge action~\citep{Luscher:1984xn,Luscher:1985zq}, with these coefficients computed at tree-level
 \begin{gather}
 \label{ch_foundation:eq:LW}
 c_0=\frac{5}{3}, \quad
@@ -542,7 +540,7 @@ and vacuum expectation values taken in the continuum. The generic form of the $O
 \begin{equation}
 O_k=\sum_ic_i\Psi_k,
 \end{equation}
-with $c_i$ some non-perturbatively determined coefficients required to suppress $\mathcal{O}(a^k)$ cutoff effects in the correlation functions. In Sec~\ref{ch_observables} we discuss the details of operator improvement for the observables of interest.
+with $c_i$ some non-perturbatively determined coefficients required to suppress $\mathcal{O}(a^k)$ cutoff effects in correlation functions. In Sec~\ref{ch_observables} we discuss the details of operator improvement for the observables of interest.
 
 The $\mathcal{O}(a)$ improved Wilson tm fermion action is analogous to the Wilson case, with the improved Dirac operator given by 
 \begin{equation}
@@ -606,20 +604,20 @@ m_i^{\textrm{ph}}=R_i(a=0)\times m_{\textrm{proton}}^{\textrm{exp}}.
 \end{equation}
 Here, the proton mass is used as a reference scale, and comparing any lattice observable to it allows to extract the latter in physical units, once the continuum limit is performed. This procedure is equivalent to finding the value of the lattice spacing in physical units, since it can be extracted as 
 \begin{equation}
-a=\frac{(am_{\textrm{proton}})^{\textrm latt}}{m_{\textrm{proton}}^{\textrm{exp}}}.
+a=\frac{(am_{\textrm{proton}})^{\textrm{latt}}}{m_{\textrm{proton}}^{\textrm{exp}}}.
 \end{equation}
-From eq.~(\ref{ch_ss:eq:R}) it is clear that when aiming for precise lattice calculations of any physical observable like $m_i$, a reliable and precise scale setting is of the utmost importance. In this example this means being able to determine $m_{\textrm{proton}}$ with high accuracy in the lattice in order to compute the ratios $R_i$, controlling the continuum limit of $R_i$ and having a high precision in $m_{\textrm{proton}}^{\textrm{exp}}$.
+From eq.~(\ref{ch_ss:eq:R}) it is clear that when aiming for precise lattice calculations of any physical observable like $m_i$, a reliable and precise scale setting is of the utmost importance. In this example this means being able to determine $m_{\textrm{proton}}$ with high accuracy in the lattice in order to compute the ratios $R_i$, controlling the continuum limit of $R_i$ and having a high precision determination of $m_{\textrm{proton}}^{\textrm{exp}}$.
 
 In this context, baryon masses like the proton or the $\Omega$ baryon mass are popular choices to set the scale~\citep{RQCD_scale}. The former is determined with high accuracy experimentally~\citep{ParticleDataGroup:2020ssz} but suffers from the signal-to-noise problem~\citep{Lepage:1989hd,Luscher:2010ae} in the lattice determination. This problem is also present in the $\Omega$ baryon mass, but the statistical precision is better there~\citep{RQCD_scale}. Furthermore, the $\Omega$ baryon mass has a weak dependence on the light quark masses and a strong one in the strange quark mass. This makes it an interesting scale for trajectories with constant strange quark mass. Another choice is using meson masses. The pion and kaon meson masses are used to define the line of constant physics along which the continuum limit is taken, and therefore are not available to set the scale. In the past, the $\rho$ meson mass was used to set the scale of quenched simulations~\citep{Mawhinney:1996jk,Irving:1998yu,Bornyakov:2015plz}, but is not suited for dynamical quarks simulations. The $\Upsilon$ meson mass is also used~\citep{HPQCD:2011qw,Gray:2005ur} thanks to its precise experimental determination. However large discretization effects due to the $b$ quark are expected. 
 
-Instead of using a phenomenological scale like the ones listed above, another choice is to use intermediate scales, like the gradient flow scale $t_0$~\citep{Luscher:2010we,1006.4518} this thesis is based on and that we introduce in Sec.~\ref{ch_observables:sec:Flow}. This quantity is a popular choice~\citep{Bruno:2016plf,Strassberger:2023xnj,RQCD_scale,Kostrzewa:2021syw,Hollwieser:2020qri,MILC:2015tqx} since it can be computed to a very high precision in the lattice, though it cannot be measured experimentally. To obtain its physical value, one constructs a dimensionless quantity $(\sqrt{t_0}\Lambda)^{\textrm{latt}}$ with some phenomenological quantity $\Lambda$ in the lattice. After performing the continuum limit, the physical value of $t_0$ can be extracted as
+Instead of using a phenomenological scale like the ones listed above, another choice is to use intermediate scales, like the gradient flow scale $t_0$~\citep{Luscher:2010we,1006.4518} this thesis is based on and that we introduce in Sec.~\ref{ch_observables:sec:Flow}. This quantity is a popular choice~\citep{Bruno:2016plf,Strassberger:2023xnj,RQCD_scale,Kostrzewa:2021syw,Hollwieser:2020qri,MILC:2015tqx} since it can be computed to a very high precision in the lattice, though it is not a physical quantity and as such cannot be measured experimentally. To obtain its value in the continuum and physical quark masses, one builds a dimensionless quantity $(\sqrt{t_0}\Lambda)^{\textrm{latt}}$ with some phenomenological quantity $\Lambda$ in the lattice. After performing the continuum limit, the physical value of $t_0$ can be extracted as
 \begin{equation}
 \label{ch_foundation:eq:Lambda}
 \sqrt{t_0^{\textrm{ph}}}=\frac{\left.\begin{matrix}
 \left(\sqrt{t_0}\Lambda\right)^{\textrm{latt}}
 \end{matrix}\right|_{a=0}}{\Lambda^{\textrm{exp}}}.
 \end{equation}
-In addition to the continuum limit, in the lattice often unphysical quark masses are simulated, since they are computationally cheaper. This means one needs to perform chiral extrapolations/interpolations of lattice observables to reach physical quark masses. Both chiral and continuum limits are discussed in Sec.~\ref{ch_ss} for the scale setting we perform in this thesis.
+In addition to the continuum limit, in the lattice often unphysical quark masses are simulated since they are computationally cheaper. This means one needs to perform chiral extrapolations/interpolations of lattice observables to reach physical quark masses. Both chiral and continuum limits are discussed in Sec.~\ref{ch_ss} for the scale setting we perform in this thesis.
 
 Once the physical value of $t_0$ is found, it can be used as an intermediate scale against which any other quantity $\Lambda'$ in the lattice can be compared in order to extract the latter in physical units. For this purpose, one performs a continuum extrapolation of $\sqrt{t_0}\Lambda'$ and obtains the physical value of $\Lambda'$ as
 \begin{equation}
@@ -629,7 +627,7 @@ Once the physical value of $t_0$ is found, it can be used as an intermediate sca
 \end{equation}
 This quantity is already a prediction of the lattice.
 
-A popular choice~\citep{Brown:2018jtv,BMW:2012hcm,BMW:2012hcm,Bruno:2016plf,Strassberger:2023xnj} for $\Lambda$ in eq.~(\ref{ch_foundation:eq:Lambda}) and the one used in this work is to use the pion and kaon decay constants. These exhibit large plateaux in the lattice, indicating that excited states contributions decay fast and therefore they can be determined to a high precision in the lattice. On the other hand, their experimental values are extracted from the weak process $\pi/K\to l\nu$, which leads to the measurement of $V_{ud(us)}f_{\pi(K)}$, with $V_{ud,us}$ CKM matrix elements. This leads to an increase in the uncertainty of the experimental values of $f_{\pi,K}$ coming from the determination of said CKM matrix elements~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.
+A popular choice~\citep{Brown:2018jtv,BMW:2012hcm,BMW:2012hcm,Bruno:2016plf,Strassberger:2023xnj} for $\Lambda$ in eq.~(\ref{ch_foundation:eq:Lambda}) and the one used in this work is a linear combination of the pion and kaon decay constants. These exhibit large plateaux in the lattice, indicating that excited states contributions decay fast and therefore they can be determined to a high precision in the lattice. On the other hand, their experimental values are extracted from the weak processes $\pi/K\to l\nu$, which leads to the measurement of $V_{ud(us)}f_{\pi(K)}$, with $V_{ud,us}$ CKM matrix elements. This leads to an increase in the uncertainty of the experimental values of $f_{\pi,K}$ coming from the determination of said CKM matrix elements~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.
 
 Finally, other popular intermediate scales to $t_0$ are $\omega_0$~\citep{BMW:2012hcm,Kostrzewa:2021syw,MILC:2015tqx} which is closely related to $t_0$, and the force scale $r_0$~\citep{Sommer:1993ce,Necco:2001xg,Bernard:2000gd} which is derived from the static quark-antiquark potential extracted from the evaluation of Wilson loops. This potential shows early plateaux~\citep{Sommer:2014mea} which again indicates that excited states contributions are small.
 

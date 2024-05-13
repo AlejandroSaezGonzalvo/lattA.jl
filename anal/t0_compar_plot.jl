@@ -17,9 +17,9 @@ rcParams["font.size"] = 20
 #errorbar(value.([sqrt_t0_st_SU2_fpik]), 3, [0], err.([sqrt_t0_st_SU2_fpik]), fmt="s", color="deeppink")
 
 #errorbar(value.([sqrt_t0_st_old]), 7, [0], err.([sqrt_t0_st_old]), fmt="s", color="green")
-errorbar(value.([sqrt_t0_st]), 13, [0], err.([sqrt_t0_st]), fmt="s", color="deeppink")
-errorbar(value.([sqrt_t0_tm]), 17, [0], err.([sqrt_t0_tm]), fmt="s", color="deeppink")
-errorbar(value.([sqrt_t0_comb]), 21, [0], err.([sqrt_t0_comb]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_st]), 10, [0], err.([sqrt_t0_st]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_tm]), 15, [0], err.([sqrt_t0_tm]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_comb]), 20, [0], err.([sqrt_t0_comb]), fmt="s", color="deeppink")
 
 errorbar(value.([Strass]), 25, [0], err.([Strass]), fmt="s", color="blue")
 errorbar(value.([Bali]), 27, [0], err.([Bali]), fmt="s", color="blue")
@@ -27,16 +27,16 @@ errorbar(value.([FLAG21]), 29, [0], err.([FLAG21]), fmt="s", color="blue")
 errorbar(value.([BKS]), 31, [0], err.([BKS]), fmt="s", color="blue")
 
 xlabel(L"$\sqrt{t_0}\;\rm{[fm]}$")
-yticks([13,17,21,25,27,29,31], 
-       ["This work, Wilson",
-        "This work, Wtm", 
-        "This work, combined",  
+yticks([10,15,20,25,27,29,31], 
+       ["This work, combined", 
+        "This work, Wtm",  
+        "This work, Wilson",
         "Strassberger '23", 
         "Bali et al.",
         "FLAG '21", 
         "Bruno et al. '16"])
-x_plot = [FLAG21 for i in -1:1:32]
-v = [i for i in -1:1:32]
+x_plot = [FLAG21 for i in 9:1:32]
+v = [i for i in 9:1:32]
 
 fill_betweenx(v, value(FLAG21)-err(FLAG21), value(FLAG21)+err(FLAG21), color="lightsteelblue", alpha=0.20)
 ax = gca()

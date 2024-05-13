@@ -13,9 +13,9 @@ We employ a least-squares method to fit our data to some fit function. This meth
 \end{equation}
 where $\{x_i,y_i\}_{i=1,...,N_{\textrm{dat}}}$ are the data points we want to fit, $x$ being the independent variable and $y$ the abscissa. $C^{-1}$ is the inverse of the covariance matrix of the $y$-data, and $f(x;\vec{p})$ is the fit function with fit parameters $\vec{p}=(p_1,...,p_{N_{\textrm{param}}})$. For a given fit function $f(x;\vec{p})$, the method finds the parameters values that minimize eq.~(\ref{apex_chisq:eq:chisq}) for given data points $\{x_i,y_i\}_{i=1,...,N_{\textrm{dat}}}$.
 
-In our case we perform fits to extract the ground state signal of lattice observables, fitting e.g. an effective mass to a constant plus some exponential signals along the lattice time extent. In this case, euclidean time plays the role of the $x$. This means fitting $\sim96-192$ points, which in practice makes it very difficult to compute an invertible covariance matrix. In this scenario it is common to use not the full covariance matrix in eq.~(\ref{apex_chisq:eq:chisq}) but only its diagonal part. This is referred to as uncorrelated fit, as opposed to a fully correlated fit, which uses the full covariance matrix. However, after minimizing the $\chi^2$ using only the diagonal part of $C$, uncertainties are propagated taking into account all the correlations between the data.
+In our case we perform fits to extract the ground state signal of lattice observables, fitting e.g. an effective mass to a constant plus exponential signals along the lattice time extent. In this case, euclidean time plays the role of the $x$. This means fitting $\sim96-192$ points, which in practice makes it very difficult to compute an invertible covariance matrix. In this scenario it is common to use not the full covariance matrix in eq.~(\ref{apex_chisq:eq:chisq}) but only its diagonal part. This is referred to as uncorrelated fit, as opposed to a fully correlated fit, which uses the full covariance matrix. However, after minimizing the $\chi^2$ using only the diagonal part of $C$, uncertainties are propagated taking into account all the correlations between the data.
 
-In~\citep{Bruno:2022mfy} a method to measure the quality of the fit for uncorrelated fits was defined, in terms of a p-value. It is also defined a method to compute the expected value of the minimum of $\chi^2$, $\left<\chi^2\right>$. In the case of a fully correlated fit $\left<\chi^2\right>={\textrm{dof}}$.
+In~\citep{Bruno:2022mfy} a method to measure the quality of uncorrelated fits was proposed in terms of p-values. It is also defined a method to compute the expected value of the minimum of $\chi^2$, $\left<\chi^2\right>$. In the case of a fully correlated fit $\left<\chi^2\right>={\textrm{dof}}$.
 
 We also perform fits for the chiral-continuum extrapolation of $\sqrt{8t_0}f_{\pi K}$ to set the scale. In this case, the $y$ variable is $\sqrt{8t_0}f_{\pi K}$ while the $x$ is $\phi_2$, and thus the latter has its own uncertainty. In this situation, a generalized $\chi^2$ function can be defined to include uncertainties in $x$ as
 \begin{gather}
@@ -32,9 +32,9 @@ where $\mathcal{C}$ is now the covariance matrix of the generalized data vector 
 \begin{equation}
 \frac{\left<\chi^2\right>}{{\textrm{dof}}}\sim0.98,
 \end{equation}
-indicating an using the covariance matrix of $\sqrt{8t_0}f_{\pi K}$ captures most of the correlations.
+indicating that using the covariance matrix of $\sqrt{8t_0}f_{\pi K}$ captures most of the correlations.
 
-For the scale setting we also perform the simultaneous fit of $\sqrt{t_0}f_{\pi}$ and $\sqrt{t_0}f_K$ to eqs.~(\ref{ch_ss:eq:SU2pi})-(\ref{ch_ss:eq:SU2k}). In this case we can only take the diagonal of the full covariance matrix.
+For the scale setting we also perform the simultaneous fit of $\sqrt{t_0}f_{\pi}$ and $\sqrt{t_0}f_K$ to eqs.~(\ref{ch_ss:eq:SU2pi}-\ref{ch_ss:eq:SU2k}). In this case we can only take the diagonal of the full covariance matrix.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

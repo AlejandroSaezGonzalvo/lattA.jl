@@ -6,18 +6,18 @@
 \chapter{Solvers}
 \label{appex_solvers}
 
-For the computation of correlation functions of fermions in the lattice (e.g. a two-point function, see eq.~(\ref{ch_foundation:eq:path_int})) the inversion of the Dirac operator is required. In particular it is needed to compute the inverse of $D(x,y)$ for all spatial positions $\vec{x},\vec{y}$. This is referred to as inverting the all-to-all Dirac operator. This is computationally very expensive, and stochastic methods can be employed to reduce the computational cost. A set of stochastic noise sources $\eta$ are introduced such that
+For the computation of correlation functions of fermions in the lattice (e.g. a two-point function, see eq.~(\ref{ch_foundation:eq:path_int})) the inversion of the Dirac operator is required. In particular one needs to compute the inverse of $D(x,y)$ for all spatial positions $\vec{x},\vec{y}$. This is referred to as inverting the all-to-all Dirac operator. This is computationally very expensive, and stochastic methods can be employed to reduce the computational cost. A set of stochastic noise sources $\eta$ are introduced such that
 \begin{gather}
 \left<\eta_i(x)\right>_{\eta}=0, \quad \left<\eta_i^{\dagger}(x)\eta_j(y)\right>_{\eta}=\delta_{x,y}\delta_{i,j},
 \end{gather}
 with $\left<.\right>_{\eta}$ meaning average over the $N_{\eta}$ samples of some noise distribution. Some common choices are Gaussian, $Z_2$ or $U(1)$. From these we define
 \begin{gather}
-\xi_i^q(x)=\sum_yD^{-1}_q(x,y)\eta_i(y), \quad \zeta_i^r(x)=\sum_yD^{-1}_r(x,y)\gamma_5\Gamma_B^{\dagger}\eta_i(y),
+\xi_i^q(x)=\sum_yD^{-1}_q(x,y)\eta_i(y), \quad \zeta_{i,B}^r(x)=\sum_yD^{-1}_r(x,y)\gamma_5\Gamma_B^{\dagger}\eta_i(y),
 \end{gather}
 with $\Gamma_B$ some Gamma matrix. Now, two-point functions like the one in eq.~(\ref{ch_foundation:eq:path_int}) can be expressed as
 \begin{align}
-\left<O^{rq}_AO^{qr}_B\right>&-\frac{a^6}{L^3}\sum_{\vec{y}}\left<\left<(\Gamma_A\gamma_5\zeta^r_i(y))^{\dagger}\xi^q_i(y)\right>_{\eta}\right> \\
-&\approx -\frac{a^6}{L^3}\frac{1}{N_{\eta}}\sum_{i=1}^{N_{\eta}}\sum_{\vec{y}}\left<(\Gamma_A\gamma_5\zeta^r_i(y))^{\dagger}\xi^q_i(y)\right>,
+\left<O^{rq}_AO^{qr}_B\right>&-\frac{a^6}{L^3}\sum_{\vec{y}}\left<\left<(\Gamma_A\gamma_5\zeta^r_{i,B}(y))^{\dagger}\xi^q_i(y)\right>_{\eta}\right> \\
+&\approx -\frac{a^6}{L^3}\frac{1}{N_{\eta}}\sum_{i=1}^{N_{\eta}}\sum_{\vec{y}}\left<(\Gamma_A\gamma_5\zeta^r_{i,B}(y))^{\dagger}\xi^q_i(y)\right>,
 \end{align}
 without the need to compute the all-to-all inverted Dirac operator, therefore reducing significantly the computational effort.
 
@@ -33,13 +33,13 @@ Then, one solves
 \begin{equation}
 D\psi_1=\rho,
 \end{equation}
-finding the new residue and iterates the process, with the final approximate solution given by
+finds the new residue and iterates the process. The algorithm stops when some convergence criterion is met
+\begin{equation}
+|\rho|<\epsilon,
+\end{equation}
+with the final approximate solution given by
 \begin{equation}
 \psi=\psi_0+\psi_1+...
-\end{equation}
-The algorithm stops when some convergence criterion is met
-\begin{equation}
-|\rho|<\epsilon.
 \end{equation}
 The difference between the true and approximate solutions is
 \begin{equation}
