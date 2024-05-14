@@ -1,6 +1,6 @@
 #import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
-using Revise, lattA, juobs, ADerrors, BDIO, PyPlot, LsqFit, LinearAlgebra, BlockDiagonal
+using Revise, lattA, juobs, ADerrors, BDIO, PyPlot, LsqFit, LinearAlgebra
 using ADerrors: err
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
@@ -378,7 +378,7 @@ fpik_add = true
         #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
     ##
 
-    switch = 1 ## .02-2
+    switch = 0 ## .02-2
     syst = [[value.([set_x[k][j][list_b340[k][j],1] .^ 4; 0 .* set_x[k][j][length(list_b340[k][j])+1:length(set_x[k][j][:,1]),1]]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]    
     syst_comb = [[syst[2][j]; syst[1][j]] for j in 1:length(set_y[1])]
     syst = [syst[1], syst[2], syst_comb]
@@ -414,129 +414,6 @@ fpik_add = true
                     push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
                     if i == j == 1 uprm_plot[k] = uprm end
                     if i == 3 && j == 1 uprm_plot2[k] = uprm end
-                end
-            end
-        end
-    end
-
-    ## prepare data SU2 only fpi
-        uprm_plot_SU2 = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
-        t0fpi_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
-
-        x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
-        x_combined = [x; x]
-        x_355 = x[[ens_346; ens_355; ens_370; ens_385],:]
-        x_combined_355 = [x_355; x_355]
-        x_combined_355_only_Wil = [x_355; x]
-        x_combined_355_only_Wtm = [x; x_355]
-        x_nosym = x[ind_nosym,:]
-        x_nosym355 = x[ind_nosym355,:]
-        x_combined_nosym = [x_nosym; x_nosym]
-        x_combined_nosym355 = [x_nosym355; x_nosym355]
-        x_mL_41 = x[ind_mL_41, :]
-        x_mL_42 = x[ind_mL_42, :]
-        x_combined_mL_41 = [x_mL_41; x_mL_41]
-        x_combined_mL_42 = [x_mL_42; x_mL_42]
-        x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph)]
-        x_3552 = x[[ens_355; ens_370; ens_385],:]
-        x_combined_3552 = [x_3552; x_3552]
-        x_phi204 = x[ind_phi204,:]
-        x_combined_phi204 = [x_phi204; x_phi204]
-
-        fpi = t0fpi_sh
-        fpi_355 = t0fpi_sh[[ens_346; ens_355; ens_370; ens_385]]
-        fpi_3552 = t0fpi_sh[[ens_355; ens_370; ens_385]]
-        fpi_nosym = t0fpi_sh[ind_nosym]
-        fpi_nosym355 = t0fpi_sh[ind_nosym355]
-        fpi_phi204 = t0fpi_sh[ind_phi204]
-        fpi_mL_41 = t0fpi_sh[ind_mL_41]
-        fpi_mL_42 = t0fpi_sh[ind_mL_42]
-        fpi_st = t0fpi_st_sh
-        fpi_st_355 = t0fpi_st_sh[[ens_346; ens_355; ens_370; ens_385]]
-        fpi_st_3552 = t0fpi_st_sh[[ens_355; ens_370; ens_385]]
-        fpi_st_nosym = t0fpi_st_sh[ind_nosym]
-        fpi_st_nosym355 = t0fpi_st_sh[ind_nosym355]
-        fpi_st_phi204 = t0fpi_st_sh[ind_phi204]
-        fpi_st_mL_41 = t0fpi_st_sh[ind_mL_41]
-        fpi_st_mL_42 = t0fpi_st_sh[ind_mL_42]
-        y = fpi
-        y_st = fpi_st
-        y_combined = [y_st; y]
-        y_355 = fpi_355
-        y_st_355 = fpi_st_355
-        y_combined_355 = [y_st_355; y_355]
-        y_3552 = fpi_3552
-        y_st_3552 = fpi_st_3552
-        y_combined_3552 = [y_st_3552; y_3552]
-        y_nosym = fpi_nosym
-        y_nosym355 = fpi_nosym355
-        y_st_nosym = fpi_st_nosym
-        y_st_nosym355 = fpi_st_nosym355
-        y_combined_nosym = [y_st_nosym; y_nosym]
-        y_combined_nosym355 = [y_st_nosym355; y_nosym355]
-        y_phi204 = fpi_phi204
-        y_st_phi204 = fpi_st_phi204
-        y_combined_phi204 = [y_st_phi204; y_phi204]
-        y_mL_41 = fpi_mL_41
-        y_st_mL_41 = fpi_st_mL_41
-        y_combined_mL_41 = [y_st_mL_41; y_mL_41]
-        y_mL_42 = fpi_mL_42
-        y_st_mL_42 = fpi_st_mL_42
-        y_combined_mL_42 = [y_st_mL_42; y_mL_42]
-
-        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
-        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
-        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
-        
-        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
-        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
-
-        set_y = [cuts_y, cuts_y_st, cuts_y_combined]
-        set_x = [cuts_x, cuts_x_st, cuts_x_combined]
-        [[uwerr.(set_y[i][j]) for j in 1:length(set_y[i])] for i in 1:length(set_y)]
-        [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
-    ##
-
-    switch = 2 ## .02-2
-    syst = [[value.([set_x[k][j][list_b340[k][j],1] .^ 4; 0 .* set_x[k][j][length(list_b340[k][j])+1:length(set_x[k][j][:,1]),1]]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]    
-    syst_comb = [[syst[2][j]; syst[1][j]] for j in 1:length(set_y[1])]
-    syst = [syst[1], syst[2], syst_comb]
-    C = [((cov.(set_y[k]))) for k in 1:length(set_y)]
-    C_syst = [switch ^ 2 * diagm.(syst[k]) for k in 1:length(set_y)]
-    C_new = [Symmetric.(C[k] .+ C_syst[k]) for k in 1:length(set_y)]
-    C_new_corr = [[sqrt.(kron((1 .+ switch ^ 2 .* syst[k][j] ./ err.(set_y[k][j]) .^ 2)', (1 .+ switch ^ 2 .* syst[k][j] ./ err.(set_y[k][j]) .^ 2))) .* C[k][j] for j in 1:length(set_y[k])] for k in 1:length(set_y)]
-    Wm_syst = [inv.(C_new[k]) for k in 1:length(set_y)]
-    Wm_syst = [convert.(Matrix{Float64}, Wm_syst[k]) for k in 1:length(set_y)]
-    Wm_syst_corr = [inv.(Symmetric.(C_new_corr[k])) for k in 1:length(set_y)]
-    Wm_syst_corr = [convert.(Matrix{Float64}, Wm_syst_corr[k]) for k in 1:length(set_y)]
-    Wm = [inv.(Symmetric.(C[k])) for k in 1:length(set_y)]
-    Wm = [convert.(Matrix{Float64}, Wm[k]) for k in 1:length(set_y)]
-
-    models = [model_ChPT2_a2; model_ChPT2_aas; model_ChPT2_a2phi2]
-    models_combined = [model_ChPT2_a2_combined; model_ChPT2_aas_combined; model_ChPT2_a2a2phi2_combined; model_ChPT2_a2phi2a2_combined; model_ChPT2_a2_combined]
-    models = [models, models, models_combined]
-    param = [4,4,5]
-    param_combined = [5,5,6,6,7]
-    param = [param, param, param_combined]
-
-    for k in 1:length(set_y)
-        for i in 1:length(models[k])
-            for j in 1:length(cuts_y)
-                if (k in [1,2] && j in [5,6] && i in [2] || k == 3 && j in [5,6] && i in [2,3,4]) == false
-                    x = set_x[k][j]
-                    y = set_y[k][j]
-                    global L1 = length(set_y[1][j])
-                    global L2 = length(set_y[1][j])
-                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j])
-                    push!(TIC[k], chi2 - 2 * chi_exp)
-                    push!(pval[k], pval_aux)
-                    if k == 3
-                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph;x_ph;x_ph],uprm)[1])
-                    else
-                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph],uprm)[1])
-                    end
-                    if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
                 end
             end
         end
@@ -675,6 +552,129 @@ fpik_add = true
         end
     end
 
+    ## prepare data SU2 only fpi
+        uprm_plot_SU2 = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        t0fpi_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+
+        x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
+        x_combined = [x; x]
+        x_355 = x[[ens_346; ens_355; ens_370; ens_385],:]
+        x_combined_355 = [x_355; x_355]
+        x_combined_355_only_Wil = [x_355; x]
+        x_combined_355_only_Wtm = [x; x_355]
+        x_nosym = x[ind_nosym,:]
+        x_nosym355 = x[ind_nosym355,:]
+        x_combined_nosym = [x_nosym; x_nosym]
+        x_combined_nosym355 = [x_nosym355; x_nosym355]
+        x_mL_41 = x[ind_mL_41, :]
+        x_mL_42 = x[ind_mL_42, :]
+        x_combined_mL_41 = [x_mL_41; x_mL_41]
+        x_combined_mL_42 = [x_mL_42; x_mL_42]
+        x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph)]
+        x_3552 = x[[ens_355; ens_370; ens_385],:]
+        x_combined_3552 = [x_3552; x_3552]
+        x_phi204 = x[ind_phi204,:]
+        x_combined_phi204 = [x_phi204; x_phi204]
+
+        fpi = t0fpi_sh
+        fpi_355 = t0fpi_sh[[ens_346; ens_355; ens_370; ens_385]]
+        fpi_3552 = t0fpi_sh[[ens_355; ens_370; ens_385]]
+        fpi_nosym = t0fpi_sh[ind_nosym]
+        fpi_nosym355 = t0fpi_sh[ind_nosym355]
+        fpi_phi204 = t0fpi_sh[ind_phi204]
+        fpi_mL_41 = t0fpi_sh[ind_mL_41]
+        fpi_mL_42 = t0fpi_sh[ind_mL_42]
+        fpi_st = t0fpi_st_sh
+        fpi_st_355 = t0fpi_st_sh[[ens_346; ens_355; ens_370; ens_385]]
+        fpi_st_3552 = t0fpi_st_sh[[ens_355; ens_370; ens_385]]
+        fpi_st_nosym = t0fpi_st_sh[ind_nosym]
+        fpi_st_nosym355 = t0fpi_st_sh[ind_nosym355]
+        fpi_st_phi204 = t0fpi_st_sh[ind_phi204]
+        fpi_st_mL_41 = t0fpi_st_sh[ind_mL_41]
+        fpi_st_mL_42 = t0fpi_st_sh[ind_mL_42]
+        y = fpi
+        y_st = fpi_st
+        y_combined = [y_st; y]
+        y_355 = fpi_355
+        y_st_355 = fpi_st_355
+        y_combined_355 = [y_st_355; y_355]
+        y_3552 = fpi_3552
+        y_st_3552 = fpi_st_3552
+        y_combined_3552 = [y_st_3552; y_3552]
+        y_nosym = fpi_nosym
+        y_nosym355 = fpi_nosym355
+        y_st_nosym = fpi_st_nosym
+        y_st_nosym355 = fpi_st_nosym355
+        y_combined_nosym = [y_st_nosym; y_nosym]
+        y_combined_nosym355 = [y_st_nosym355; y_nosym355]
+        y_phi204 = fpi_phi204
+        y_st_phi204 = fpi_st_phi204
+        y_combined_phi204 = [y_st_phi204; y_phi204]
+        y_mL_41 = fpi_mL_41
+        y_st_mL_41 = fpi_st_mL_41
+        y_combined_mL_41 = [y_st_mL_41; y_mL_41]
+        y_mL_42 = fpi_mL_42
+        y_st_mL_42 = fpi_st_mL_42
+        y_combined_mL_42 = [y_st_mL_42; y_mL_42]
+
+        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
+        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
+        
+        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
+
+        set_y = [cuts_y, cuts_y_st, cuts_y_combined]
+        set_x = [cuts_x, cuts_x_st, cuts_x_combined]
+        [[uwerr.(set_y[i][j]) for j in 1:length(set_y[i])] for i in 1:length(set_y)]
+        [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
+    ##
+
+    switch = 2 ## .02-2
+    syst = [[value.([set_x[k][j][list_b340[k][j],1] .^ 4; 0 .* set_x[k][j][length(list_b340[k][j])+1:length(set_x[k][j][:,1]),1]]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]    
+    syst_comb = [[syst[2][j]; syst[1][j]] for j in 1:length(set_y[1])]
+    syst = [syst[1], syst[2], syst_comb]
+    C = [((cov.(set_y[k]))) for k in 1:length(set_y)]
+    C_syst = [switch ^ 2 * diagm.(syst[k]) for k in 1:length(set_y)]
+    C_new = [Symmetric.(C[k] .+ C_syst[k]) for k in 1:length(set_y)]
+    C_new_corr = [[sqrt.(kron((1 .+ switch ^ 2 .* syst[k][j] ./ err.(set_y[k][j]) .^ 2)', (1 .+ switch ^ 2 .* syst[k][j] ./ err.(set_y[k][j]) .^ 2))) .* C[k][j] for j in 1:length(set_y[k])] for k in 1:length(set_y)]
+    Wm_syst = [inv.(C_new[k]) for k in 1:length(set_y)]
+    Wm_syst = [convert.(Matrix{Float64}, Wm_syst[k]) for k in 1:length(set_y)]
+    Wm_syst_corr = [inv.(Symmetric.(C_new_corr[k])) for k in 1:length(set_y)]
+    Wm_syst_corr = [convert.(Matrix{Float64}, Wm_syst_corr[k]) for k in 1:length(set_y)]
+    Wm = [inv.(Symmetric.(C[k])) for k in 1:length(set_y)]
+    Wm = [convert.(Matrix{Float64}, Wm[k]) for k in 1:length(set_y)]
+
+    models = [model_ChPT2_a2; model_ChPT2_aas; model_ChPT2_a2phi2]
+    models_combined = [model_ChPT2_a2_combined; model_ChPT2_aas_combined; model_ChPT2_a2a2phi2_combined; model_ChPT2_a2phi2a2_combined; model_ChPT2_a2_combined]
+    models = [models, models, models_combined]
+    param = [4,4,5]
+    param_combined = [5,5,6,6,7]
+    param = [param, param, param_combined]
+
+    for k in 1:length(set_y)
+        for i in 1:length(models[k])
+            for j in 1:length(cuts_y)
+                if (k in [1,2] && j in [5,6] && i in [2] || k == 3 && j in [5,6] && i in [2,3,4]) == false
+                    x = set_x[k][j]
+                    y = set_y[k][j]
+                    global L1 = length(set_y[1][j])
+                    global L2 = length(set_y[1][j])
+                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j])
+                    push!(TIC[k], chi2 - 2 * chi_exp)
+                    push!(pval[k], pval_aux)
+                    if k == 3
+                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph;x_ph;x_ph],uprm)[1])
+                    else
+                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph],uprm)[1])
+                    end
+                    if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
+                end
+            end
+        end
+    end
+
     TIC = [TIC[k] .- minimum.(TIC)[k] for k in 1:length(TIC)]
     W = [exp.(-0.5 * TIC[k]) ./ sum(exp.(-0.5 * TIC[k])) for k in 1:length(TIC)]
     #t0fpik_ph_vec = [[t0fpik_ph_vec[k]; 2/3 * (t0fk_ph_vec .+ 0.5 * t0fpi_ph_vec)[k]] for k in 1:length(t0fpik_ph_vec)]
@@ -768,7 +768,7 @@ fpik_add = true
 
         color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
 
-        subplot(121)
+        subplot(211)
         xlabel(L"$\phi_2$")
         ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
         errorbar(value.(phi2_sh[ens_340]), value.(t0fpik_st_sh[ens_340]), err.(t0fpik_st_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", mfc="none", label=L"$\beta=3.40$", color="rebeccapurple")
@@ -814,13 +814,14 @@ fpik_add = true
         ax = gca()
         ax[:set_ylim]([0.283, 0.325])
 
-        subplot(122)
+        subplot(212)
         errorbar(value.(a2t0[ens_340]), value.(y_aux[ens_340]), err.(y_aux[ens_340]), err.(a2t0[ens_340]), fmt="s", label=L"$\beta=3.40$", color="rebeccapurple")
         errorbar(value.(a2t0[ens_346]), value.(y_aux[ens_346]), err.(y_aux[ens_346]), err.(a2t0[ens_346]), fmt="o", label=L"$\beta=3.46$", color="green")
         errorbar(value.(a2t0[ens_355]), value.(y_aux[ens_355]), err.(y_aux[ens_355]), err.(a2t0[ens_355]), fmt="<", label=L"$\beta=3.55$", color="blue")
         errorbar(value.(a2t0[ens_370]), value.(y_aux[ens_370]), err.(y_aux[ens_370]), err.(a2t0[ens_370]), fmt=">", label=L"$\beta=3.70$", color="darkorange")
         errorbar(value.(a2t0[ens_385]), value.(y_aux[ens_385]), err.(y_aux[ens_385]), err.(a2t0[ens_385]), fmt="^", label=L"$\beta=3.85$", color="red")
         xlabel(L"$a^2/8t_0$")
+        ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
         x_prime = [i for i in 0.0:0.001:0.05]
         x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot(x_plot,uprm_combined[[1,2,4]]) ; uwerr.(aux)
@@ -844,11 +845,11 @@ fpik_add = true
         fill_between(x_plot[:,1], v-e, v+e, color="gray", alpha=0.5)
 
         errorbar(0, value(t0fpik_ph_vec[3][1]), err(t0fpik_ph_vec[3][1]), 0, fmt="x", label="ph. point", color="black")
-        errorbar(-0.001, value(t0fpik_ph[3]), err(t0fpik_ph[3]), 0, fmt="*", label="ph. point model av", color="black")
+        #errorbar(-0.001, value(t0fpik_ph[3]), err(t0fpik_ph[3]), 0, fmt="*", label="ph. point model av", color="black")
         ax = gca()
         ax[:set_ylim]([0.283, 0.325])
-        setp(ax.get_yticklabels(),visible=false)
-        #legend(loc="upper right", bbox_to_anchor=(3.,1.))
+        #setp(ax.get_yticklabels(),visible=false)
+        legend(loc="lower center", bbox_to_anchor=(-.05,-.45), ncol=3)
         tight_layout()
 
         savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/SU3_comb.pdf")
@@ -1248,11 +1249,11 @@ fpik_add = true
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
     rcParams["font.size"] = 15
     x = deepcopy(x_aux); y = deepcopy(y_aux); uwerr.(y); uwerr.(x)
-    errorbar(value.(x[:,2][ens_340]), value.(y[ens_340]), err.(y[ens_340]), err.(x[:,2][ens_340]), fmt="s", color="rebeccapurple")
-    errorbar(value.(x[:,2][ens_346]), value.(y[ens_346]), err.(y[ens_346]), err.(x[:,2][ens_346]), fmt="o", color="green")
-    errorbar(value.(x[:,2][ens_355]), value.(y[ens_355]), err.(y[ens_355]), err.(x[:,2][ens_355]), fmt="<", color="blue")
-    errorbar(value.(x[:,2][ens_370]), value.(y[ens_370]), err.(y[ens_370]), err.(x[:,2][ens_370]), fmt=">", color="darkorange")
-    errorbar(value.(x[:,2][ens_385]), value.(y[ens_385]), err.(y[ens_385]), err.(x[:,2][ens_385]), fmt="^", color="red")
+    errorbar(value.(x[:,2][ens_340]), value.(y[ens_340]), err.(y[ens_340]), err.(x[:,2][ens_340]), fmt="s", color="rebeccapurple", label=L"$\beta=3.40$")
+    errorbar(value.(x[:,2][ens_346]), value.(y[ens_346]), err.(y[ens_346]), err.(x[:,2][ens_346]), fmt="o", color="green", label=L"$\beta=3.46$")
+    errorbar(value.(x[:,2][ens_355]), value.(y[ens_355]), err.(y[ens_355]), err.(x[:,2][ens_355]), fmt="<", color="blue", label=L"$\beta=3.55$")
+    errorbar(value.(x[:,2][ens_370]), value.(y[ens_370]), err.(y[ens_370]), err.(x[:,2][ens_370]), fmt=">", color="darkorange", label=L"$\beta=3.70$")
+    errorbar(value.(x[:,2][ens_385]), value.(y[ens_385]), err.(y[ens_385]), err.(x[:,2][ens_385]), fmt="^", color="red", label=L"$\beta=3.85$")
     xlabel(L"$\phi_2$")
     ylabel(L"$\sqrt{t_0}/\sqrt{t_0^{\rm sym}}$")
     x_prime = [i for i in 0.0:0.01:0.75]
@@ -1262,6 +1263,7 @@ fpik_add = true
     e = err.(aux)
     fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.5)
     tight_layout()
+    legend(loc="lower center", bbox_to_anchor=(-.05,-.45), ncol=3)
     savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_sym.pdf")
 
     fb = BDIO_open("/home/asaez/cls_ens/results/t0_sym_combined.bdio", "w")

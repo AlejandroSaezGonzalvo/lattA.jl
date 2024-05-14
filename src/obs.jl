@@ -1325,7 +1325,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
 
                 fig = figure("t2E")
                 errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
-                ylabel(L"$t^2\left<E\right>$")
+                ylabel(L"$t^2E(x_0,t)$")
                 xlabel(L"$x_0$")
                 ylim(v-5*e, v+20*e)
                 tight_layout()
@@ -1386,8 +1386,9 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
 	fig = figure("t2E_vs_t")
         errorbar(x, v, e, fmt="x")
         errorbar(value(t0), 0.3, xerr=err(t0), fmt="x")
-        ylabel(L"$t^2E$")
+        ylabel(L"$t^2\left<E\right>$")
         xlabel(L"$t/a^2$")
+        tight_layout()
         savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_",id,".pdf"))
         #close("all")
     end

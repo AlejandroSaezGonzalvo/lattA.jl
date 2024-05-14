@@ -129,14 +129,14 @@ with
 \end{equation}
 Note that by the sea value $\phi_4^{\textrm{(s)}}$ we refer to $\phi_4$ computed in the Wilson unitary setup, and its derivative has both sea and valence contributions, while $d{O}/dm_s^{\textrm{(s)}}$ has valence and sea contributions when the observable ${O}$ is computed in the Wilson unitary setup, and only sea contributions when ${O}$ is computed in the mixed action regularization. In the Wilson unitary setup, imposing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ means that so does the valence value of $\phi_4$, while for the mixed action regularization this is not true. In this case in addition to fixing $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$ with the mass shifting procedure we need later to impose $\phi_4^{\textrm{(v)}}=\phi_4^{\textrm{(s)}}$, which is done through the matching between sea and valence sectors (see Sec.~\ref{ch_ma:sec:matching}).
 
-The observables we will be interested for the scale setting (see Sec.~\ref{ch_ss}) are $\sqrt{t_0}f_{\pi}$, $\sqrt{t_0}f_{K}$ and $\sqrt{t_0}f_{\pi K}$, the latter defined in eq.~(\ref{ch_ss:eq:fpik}). We also include the derivatives of $\sqrt{t_0}m_{12}^{\textrm{R}}$, $\sqrt{t_0}m_{13}^{\textrm{R}}$. All these quantities are physical and so are their derivatives with respect to $\phi_4$. Thus, one can measure these derivatives for each ensemble and then fit them as a function of $\phi_2$ and the lattice spacing. This allows to evaluate the result of these fits at the values of $\phi_2$ and $t_0/a^2$ corresponding to each ensemble and perform the mass shift with that result instead of using the individual measurements of each ensemble. This has the advantage of improving the precision for observables whose mass derivatives are noisy or missing, which is particularly relevant for the finest lattice spacing and the most chiral ensembles under study.
+The observables we will be interested for the scale setting (see Sec.~\ref{ch_ss}) are $\sqrt{t_0}f_{\pi}$, $\sqrt{t_0}f_{K}$ and $\sqrt{t_0}f_{\pi K}$, the latter defined in eq.~(\ref{ch_ss:eq:fpik}). We also include the derivatives of $\sqrt{t_0}m_{12}^{\textrm{R}}$ in the mixed action setup since we will need to mass shift this quantity in order to tune to full twist (see Sec.~\ref{ch_ma:sec:matching}). All these quantities are physical and so are their derivatives with respect to $\phi_4$. Thus, one can measure these derivatives for each ensemble and then fit them as a function of $\phi_2$ and the lattice spacing. This allows to evaluate the result of these fits at the values of $\phi_2$ and $t_0/a^2$ corresponding to each ensemble and perform the mass shift with that result instead of using the individual measurements of each ensemble. This has the advantage of improving the precision for observables whose mass derivatives are noisy or missing, which is particularly relevant for the finest lattice spacing and the most chiral ensembles under study.
 
 For fitting the derivatives we use
 \begin{equation}
 \label{ch_ma:eq:md_1}
 F=A+B\phi_2+D\frac{a^2}{t_0},
 \end{equation}
-for all choices of ${O}$ except for the PCAC quark masses, for which we use
+for all choices of ${O}$ except for the light PCAC quark mass in the mixed action setup, for which we use
 \begin{equation}
 \label{ch_ma:eq:md_2}
 F=A+B\phi_2+C\phi_2^2+(D+E\phi_2)\frac{a^2}{t_0},
@@ -145,7 +145,7 @@ for empirical reasons.
 
 In the case of $\phi_2$ in the Wilson regularization, we exclude the symmetric point ensembles from the fit of its mass derivative, since $\phi_2^{\textrm{sym}}=\frac{2}{3}\phi_4$ by construction. Thus, for these ensembles we will use this relation directly to mass shift $\phi_2$.
 
-Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}, while plots are shown in Figs.~\ref{ch_ma:fig:d_w}-\ref{ch_ma:fig:d_tm}.
+Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}, while plots are shown in Figs.~\ref{ch_ma:fig:dfpik_w}-\ref{ch_ma:fig:dphi4_tm}.
 
 We have assumed knowledge of the physical value of $\phi_4$ to which we mass shift all ensembles. However, in order to determine it we need the physical value of the intermediate scale $t_0$, which is the target of the analysis. Thus, we start the process with an educated guess of $t_0^{\textrm{ph}}$, which provides with an initial guess for $\phi_4^{\textrm{ph}}$. Once the scale setting has been done and a new determination of $t_0^{\textrm{ph}}$ is obtained, the analysis is iterated, updating the value of $\phi_4^{\textrm{ph}}$ to which the ensembles are shifted, until convergence is observed in this observable. The initial guess used for $t_0^{\textrm{ph,\;guess}}$ is just a number with no error. After a few iterative steps of the analysis, we obtain the new estimate
 \begin{equation}
@@ -161,8 +161,6 @@ where the uncertainty keeps all the correlations with the lattice data entering 
     $\sqrt{t_0}f_{\pi K}^{\textrm{W}}$ & 0.017(8) & -0.007(10) & - & 0.024(26) & - \\ 
     $\sqrt{t_0}f_{\pi}^{\textrm{W}}$ & 0.006(8) & 0.008(9) & - & 0.020(26) & - \\ 
     $\sqrt{t_0}f_{K}^{\textrm{W}}$ & 0.024(10) & -0.016(11) & - & 0.022(27) & - \\ 
-    $\sqrt{t_0}m_{12}^{\textrm{W, R}}$ & 0.006(4) & -0.033(13) & 0.090(12) & 0.046(17) & -0.074(27) \\ 
-    $\sqrt{t_0}m_{13}^{\textrm{W, R}}$ & 0.050(6) & 0.030(17) & -0.066(18) & -0.069(33) & 0.070(45) \\ 
     $\phi_2^{\textrm{W}}$ & 0.004(36) & 0.131(92) & - & 0.874(129) & - \\ 
     $t_0$ & -0.437(84) & 0.214(101) & - & -0.264(274) & - \\ 
     \midrule
@@ -178,22 +176,44 @@ where the uncertainty keeps all the correlations with the lattice data entering 
 
 \begin{figure}
     \centering
-    \includegraphics[width=.49\textwidth]{./cap4/figs/dt0fpik_w.pdf}
-    \includegraphics[width=.49\textwidth]{./cap4/figs/dphi2_w.pdf}
-    \includegraphics[width=.49\textwidth]{./cap4/figs/dt0m12_w.pdf}
-    \includegraphics[width=.49\textwidth]{./cap4/figs/dt0m13_w.pdf}
-    \caption{Derivatives $dO/d\phi_4^{\textrm{(s)}}$ for the Wilson unitary setup for $O=\sqrt{t_0}f_{\pi K},\;\phi_2,\;\sqrt{t_0}m_{12}^{\textrm{R}},\;\sqrt{t_0}m_{13}^{\textrm{R}}$. For the fit eqs.~(\ref{ch_ma:eq:md_1})-(\ref{ch_ma:eq:md_2}) were used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
-    \label{ch_ma:fig:d_w}
+    \includegraphics[width=1.\textwidth]{./cap4/figs/dt0fpik_w.pdf}
+    \caption{Derivative $d\sqrt{t_0}f_{\pi K}/d\phi_4^{\textrm{(s)}}$ for the Wilson unitary setup. For the fit eq.~(\ref{ch_ma:eq:md_1}) was used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
+    \label{ch_ma:fig:dfpik_w}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=.49\textwidth]{./cap4/figs/dt0fpik_tm.pdf}
-    \includegraphics[width=.49\textwidth]{./cap4/figs/dt0m12_tm.pdf}
-    \includegraphics[width=.49\textwidth]{./cap4/figs/dphi2_tm.pdf}
-    \includegraphics[width=.49\textwidth]{./cap4/figs/dphi4_tm.pdf}
-    \caption{Derivatives $dO/d\phi_4^{\textrm{(s)}}$ for the mixed action setup for $O=\sqrt{t_0}f_{\pi K},\;\phi_2,\;\phi_4,\;\sqrt{t_0}m_{12}^{\textrm{R}}$. For the fit eqs.~(\ref{ch_ma:eq:md_1}-\ref{ch_ma:eq:md_2}) were used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
-    \label{ch_ma:fig:d_tm}
+    \includegraphics[width=1.\textwidth]{./cap4/figs/dphi2_w.pdf}
+    \caption{Derivative $d\phi_2/d\phi_4^{\textrm{(s)}}$ for the Wilson unitary setup. For the fit eq.~(\ref{ch_ma:eq:md_1}) was used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
+    \label{ch_ma:fig:dphi2_w}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap4/figs/dt0fpik_tm.pdf}
+    \caption{Derivative $d\sqrt{t_0}f_{\pi K}/d\phi_4^{\textrm{(s)}}$ for the mixed action setup. For the fit eq.~(\ref{ch_ma:eq:md_1}) was used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
+    \label{ch_ma:fig:dfpik_tm}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap4/figs/dt0m12_tm.pdf}
+    \caption{Derivative $d\sqrt{t_0}m_{12}^{\textrm{R}}/d\phi_4^{\textrm{(s)}}$ for the mixed action setup. For the fit eq.~(\ref{ch_ma:eq:md_2}) was used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
+    \label{ch_ma:fig:dm12_tm}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap4/figs/dphi2_tm.pdf}
+    \caption{Derivative $d\phi_2/d\phi_4^{\textrm{(s)}}$ for the mixed action setup. For the fit eq.~(\ref{ch_ma:eq:md_1}) was used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
+    \label{ch_ma:fig:dphi2_tm}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap4/figs/dphi4_tm.pdf}
+    \caption{Derivative $d\phi_4/d\phi_4^{\textrm{(s)}}$ for the mixed action setup. For the fit eq.~(\ref{ch_ma:eq:md_1}) was used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}.}
+    \label{ch_ma:fig:dphi4_tm}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

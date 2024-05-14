@@ -32,31 +32,31 @@
 \contentsline {section}{\numberline {3.2}{Sea sector}}{52}{section.3.2}%
 \contentsline {section}{\numberline {3.3}{Valence sector}}{53}{section.3.3}%
 \contentsline {section}{\numberline {3.4}{Chiral trajectory}}{53}{section.3.4}%
-\contentsline {section}{\numberline {3.5}{Matching and tuning to full twist}}{57}{section.3.5}%
-\contentsline {chapter}{\numberline {4}{Scale setting}}{61}{chapter.4}%
-\contentsline {section}{\numberline {4.1}{Motivation}}{61}{section.4.1}%
-\contentsline {section}{\numberline {4.2}{Results: the physical point}}{62}{section.4.2}%
-\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{71}{section.4.3}%
-\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{74}{section.4.4}%
-\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{75}{section.4.5}%
-\contentsline {part}{\numberline {iv}{Conclusions}}{77}{part.4}%
-\contentsline {chapter}{Conclusions and outlook}{79}{part.4}%
-\contentsline {chapter}{Conclusiones y perspectivas}{81}{equation.4.5.57}%
-\contentsline {part}{\numberline {v}{Appendices}}{83}{part.5}%
-\contentsline {chapter}{\numberline {A}{Conventions}}{85}{appendix.A}%
-\contentsline {chapter}{\numberline {B}{Lattice ensembles}}{87}{appendix.B}%
-\contentsline {chapter}{\numberline {C}{Simulation details}}{89}{appendix.C}%
-\contentsline {section}{\numberline {C.1}{Metropolis algorithm}}{90}{section.C.1}%
-\contentsline {section}{\numberline {C.2}{Hybrid Monte Carlo}}{91}{section.C.2}%
-\contentsline {section}{\numberline {C.3}{Reweighting}}{92}{section.C.3}%
-\contentsline {chapter}{\numberline {D}{Error analysis}}{95}{appendix.D}%
-\contentsline {chapter}{\numberline {E}{Solvers}}{99}{appendix.E}%
-\contentsline {section}{\numberline {E.1}{Stochastic methods}}{99}{section.E.1}%
-\contentsline {section}{\numberline {E.2}{Iterative solvers}}{99}{section.E.2}%
-\contentsline {section}{\numberline {E.3}{Preconditioning}}{100}{section.E.3}%
-\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{103}{appendix.F}%
-\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{105}{appendix.G}%
-\contentsline {chapter}{\numberline {H}{$\sqrt {t_0}$: Model variation}}{107}{appendix.H}%
+\contentsline {section}{\numberline {3.5}{Matching and tuning to full twist}}{60}{section.3.5}%
+\contentsline {chapter}{\numberline {4}{Scale setting}}{63}{chapter.4}%
+\contentsline {section}{\numberline {4.1}{Motivation}}{63}{section.4.1}%
+\contentsline {section}{\numberline {4.2}{Results: the physical point}}{64}{section.4.2}%
+\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{73}{section.4.3}%
+\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{76}{section.4.4}%
+\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{77}{section.4.5}%
+\contentsline {part}{\numberline {iv}{Conclusions}}{79}{part.4}%
+\contentsline {chapter}{Conclusions and outlook}{81}{part.4}%
+\contentsline {chapter}{Conclusiones y perspectivas}{83}{equation.4.5.57}%
+\contentsline {part}{\numberline {v}{Appendices}}{85}{part.5}%
+\contentsline {chapter}{\numberline {A}{Conventions}}{87}{appendix.A}%
+\contentsline {chapter}{\numberline {B}{Lattice ensembles}}{89}{appendix.B}%
+\contentsline {chapter}{\numberline {C}{Simulation details}}{91}{appendix.C}%
+\contentsline {section}{\numberline {C.1}{Metropolis algorithm}}{92}{section.C.1}%
+\contentsline {section}{\numberline {C.2}{Hybrid Monte Carlo}}{93}{section.C.2}%
+\contentsline {section}{\numberline {C.3}{Reweighting}}{94}{section.C.3}%
+\contentsline {chapter}{\numberline {D}{Error analysis}}{97}{appendix.D}%
+\contentsline {chapter}{\numberline {E}{Solvers}}{101}{appendix.E}%
+\contentsline {section}{\numberline {E.1}{Stochastic methods}}{101}{section.E.1}%
+\contentsline {section}{\numberline {E.2}{Iterative solvers}}{101}{section.E.2}%
+\contentsline {section}{\numberline {E.3}{Preconditioning}}{102}{section.E.3}%
+\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{105}{appendix.F}%
+\contentsline {chapter}{\numberline {G}{Finite Volume Effects}}{107}{appendix.G}%
+\contentsline {chapter}{\numberline {H}{$\sqrt {t_0}$: Model variation}}{109}{appendix.H}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{115}{section*.21}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{117}{section*.25}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
