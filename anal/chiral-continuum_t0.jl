@@ -451,8 +451,8 @@ fpik_add = true
         #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
     ##
 
-    switch = 3 ## .02-2
-    switch_phi = 0.01
+    switch = 3 #1 
+    switch_phi = 0.01 #0.0035
     syst = [[value.(0 .* set_x[k][j][:,1]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
     syst_phi = [[value.(0 .* set_x[k][j][:,2]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
     [[syst[k][j][list_b340[k][j]] = value.(set_x[k][j][list_b340[k][j],1]) .^ 4 for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
@@ -471,6 +471,8 @@ fpik_add = true
     Wm_syst_corr = [convert.(Matrix{Float64}, Wm_syst_corr[k]) for k in 1:length(set_y)]
     Wm = [inv.(Symmetric.(C[k])) for k in 1:length(set_y)]
     Wm = [convert.(Matrix{Float64}, Wm[k]) for k in 1:length(set_y)]
+    #Wm_syst_corr[1][1]
+    #Wm[1][1]
 
     models = [model2_ChPT_a2; model2_ChPT_aas; model2_ChPT_a2phi2; model2_Taylor_a2; model2_Taylor_aas; model2_Taylor_a2phi2; model2_Taylor4_a2; model2_Taylor4_a2phi2     ;model22_ChPT_a2; model22_ChPT_aas; model22_ChPT_a2phi2]
     models_combined = [model2_ChPT_a2_combined; model2_ChPT_aas_combined; model2_ChPT_a2a2phi2_combined; model2_ChPT_a2phi2a2_combined; model2_ChPT_a2phi2_combined; model2_Taylor_a2_combined; model2_Taylor_aas_combined; model2_Taylor_a2a2phi2_combined; model2_Taylor_a2phi2a2_combined; model2_Taylor_a2phi2_combined; model2_Taylor4_a2_combined; model2_Taylor4_a2a2phi2_combined; model2_Taylor4_a2phi2a2_combined; model2_Taylor4_a2phi2_combined        ;model22_ChPT_a2_combined; model22_ChPT_aas_combined; model22_ChPT_a2a2phi2_combined; model22_ChPT_a2phi2a2_combined; model22_ChPT_a2phi2_combined]
