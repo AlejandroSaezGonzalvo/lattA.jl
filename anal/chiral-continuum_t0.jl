@@ -483,6 +483,7 @@ fpik_add = true
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
                 if (k in [1,2] && j in [5,6] && i in [3,6,8,11] || k == 3 && j in [5,6] && i in [5,10,11,12,13,14,15,16,17,18,19]) == false
+                    println(k, " ", i, " ", j)
                     x = set_x[k][j]
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
