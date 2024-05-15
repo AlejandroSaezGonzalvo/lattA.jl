@@ -36,8 +36,16 @@ function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}, Matrix{Fl
     return up, chi2, chi_exp, pval
 end
 
-function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64,W::Matrix{Float64})
-    p00 = [0.5 for i in 1:param]
+function fit_alg(model::Function,x::Array{Float64},y::Array{uwreal},param::Int64,W::Matrix{Float64};
+    guess::Union{Float64, Vector{Float64}, Nothing}=nothing)
+
+    if guess == nothing
+        p00 = [.5 for i in 1:param]
+    else
+        p00 = [guess; [1. for i in 1:param-length(guess)]]
+        #lb[1] = .9 * guess  
+        #ub[1] = 1.1 * guess
+    end
 
     chisq_corr(par,dat) = juobs.gen_chisq_correlated(model, x, W, par, dat)
     fit = curve_fit(model,x,value.(y),W,p00)

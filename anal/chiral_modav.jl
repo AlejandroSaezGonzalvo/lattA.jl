@@ -138,3 +138,127 @@ tight_layout()
 
 #savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/BMA_SU2_comb.pdf")
 
+
+
+
+
+
+
+
+
+if ix == 3 ## 1: Wtm, 2:Wilson, 3:combined
+    mods = mods_c_SU2
+else
+    mods = mods_aux_SU2
+end
+
+str = ["wtm", "wilson", "combined"]
+sqrt_t0_vec = sqrt_t0_ph_fpi_vec[ix]
+sqrt_t0 = sqrt_t0_ph_fpi[ix]
+W = W_fpi_aux[ix]
+pval = pval_fpi_aux[ix]
+mods = collect(1:length(pval))
+
+## plot t0 BMA
+fig = figure(str[ix])
+rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+rcParams["font.size"] = 10
+
+subplot(131) # Create the 2nd axis of a 3x1 arrax of axes
+y = collect(1:1:length(mods))
+ax = gca() # Get the handle of the current axis
+xlabel(L"$\sqrt{8t_0}f_K$")   
+v = [value(t0fk_ph[ix]) for i in 1:length(t0fk_ph_vec[ix])]
+e = [err(t0fk_ph[ix]) for i in 1:length(t0fk_ph_vec[ix])]
+fill_betweenx(y, v-e, v+e, color="deepskyblue", alpha=0.75)
+errorbar(value.(t0fk_ph_vec[ix]), y, 0 .* y, err.(t0fk_ph_vec[ix]), fmt="x", color="black")
+#ax[:set_xlim]([0.139, 0.1477])
+ax[:set_ylim]([0, length(mods)+1])
+plt.yticks(y, mods)
+
+subplot(132) # Create the 2nd axis of a 3x1 arrax of axes
+barh(y, pval, color="deepskyblue")
+xlabel("p-value")
+ax = gca()
+#ax[:set_ylim]([0.0, 0.40])
+plt.yticks(y, mods)
+#ax.set_yscale("log")
+ax[:set_ylim]([0, length(mods)+1])
+setp(ax.get_yticklabels(),visible=false)
+
+subplot(133) # Create the 3rd axis of a 3x1 array of axes
+ax = gca()
+#ax.set_yscale("log") # Set the x axis to a logarithmic scale
+barh(y, W, color="deepskyblue")
+#ax[:set_ylim]([0.0, 0.1])
+xlabel("W")
+plt.yticks(y, mods)
+#yticks(rotation=90)
+ax[:set_ylim]([0, length(mods)+1])
+setp(ax.get_yticklabels(),visible=false)
+
+tight_layout()
+#subplots_adjust(hspace=0.15) 
+
+
+
+
+
+
+
+
+if ix == 3 ## 1: Wtm, 2:Wilson, 3:combined
+    mods = mods_c_SU2
+else
+    mods = mods_aux_SU2
+end
+
+str = ["wtm", "wilson", "combined"]
+sqrt_t0_vec = sqrt_t0_ph_fpi_vec[ix]
+sqrt_t0 = sqrt_t0_ph_fpi[ix]
+W = W_fpi_aux[ix]
+pval = pval_fpi_aux[ix]
+mods = collect(1:length(pval))
+
+## plot t0 BMA
+fig = figure(str[ix])
+rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+rcParams["font.size"] = 10
+
+subplot(131) # Create the 2nd axis of a 3x1 arrax of axes
+y = collect(1:1:length(mods))
+ax = gca() # Get the handle of the current axis
+xlabel(L"$\sqrt{8t_0}f_{\pi}$")   
+v = [value(t0fpi_ph[ix]) for i in 1:length(t0fpi_ph_vec[ix])]
+e = [err(t0fpi_ph[ix]) for i in 1:length(t0fpi_ph_vec[ix])]
+fill_betweenx(y, v-e, v+e, color="deepskyblue", alpha=0.75)
+errorbar(value.(t0fpi_ph_vec[ix]), y, 0 .* y, err.(t0fpi_ph_vec[ix]), fmt="x", color="black")
+#ax[:set_xlim]([0.139, 0.1477])
+ax[:set_ylim]([0, length(mods)+1])
+plt.yticks(y, mods)
+
+subplot(132) # Create the 2nd axis of a 3x1 arrax of axes
+barh(y, pval, color="deepskyblue")
+xlabel("p-value")
+ax = gca()
+#ax[:set_ylim]([0.0, 0.40])
+plt.yticks(y, mods)
+#ax.set_yscale("log")
+ax[:set_ylim]([0, length(mods)+1])
+setp(ax.get_yticklabels(),visible=false)
+
+subplot(133) # Create the 3rd axis of a 3x1 array of axes
+ax = gca()
+#ax.set_yscale("log") # Set the x axis to a logarithmic scale
+barh(y, W, color="deepskyblue")
+#ax[:set_ylim]([0.0, 0.1])
+xlabel("W")
+plt.yticks(y, mods)
+#yticks(rotation=90)
+ax[:set_ylim]([0, length(mods)+1])
+setp(ax.get_yticklabels(),visible=false)
+
+tight_layout()
+#subplots_adjust(hspace=0.15) 
+
+

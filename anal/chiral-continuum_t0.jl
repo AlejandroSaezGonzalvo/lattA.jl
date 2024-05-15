@@ -84,6 +84,13 @@ fpik_add = true
     t0fpik_sh = [obs_tm_sh[i][6] for i in 1:length(obs_tm_sh)]
 
     ind = ensemble_inv["H102r002"]
+    t0[ind-1] = plat_av(t0, [ind-1,ind]); deleteat!(t0, ind)
+    mpi[ind-1] = plat_av(mpi, [ind-1,ind]); deleteat!(mpi, ind)
+    mk[ind-1] = plat_av(mk, [ind-1,ind]); deleteat!(mk, ind)
+    m12[ind-1] = plat_av(m12, [ind-1,ind]); deleteat!(m12, ind)
+    m13[ind-1] = plat_av(m13, [ind-1,ind]); deleteat!(m13, ind)
+    fpi[ind-1] = plat_av(fpi, [ind-1,ind]); deleteat!(fpi, ind)
+    fk[ind-1] = plat_av(fk, [ind-1,ind]); deleteat!(fk, ind)
     t0_sh[ind-1] = plat_av(t0_sh, [ind-1,ind]); deleteat!(t0_sh, ind)
     phi2_sh[ind-1] = plat_av(phi2_sh, [ind-1,ind]); deleteat!(phi2_sh, ind)
     m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
@@ -98,6 +105,13 @@ fpik_add = true
     t0fpik_sh[ind-1] = plat_av(t0fpik_sh, [ind-1,ind]); deleteat!(t0fpik_sh, ind)
 
     ind = ensemble_inv["H105r005"] - 1
+    t0[ind-1] = plat_av(t0, [ind-1,ind]); deleteat!(t0, ind)
+    mpi[ind-1] = plat_av(mpi, [ind-1,ind]); deleteat!(mpi, ind)
+    mk[ind-1] = plat_av(mk, [ind-1,ind]); deleteat!(mk, ind)
+    m12[ind-1] = plat_av(m12, [ind-1,ind]); deleteat!(m12, ind)
+    m13[ind-1] = plat_av(m13, [ind-1,ind]); deleteat!(m13, ind)
+    fpi[ind-1] = plat_av(fpi, [ind-1,ind]); deleteat!(fpi, ind)
+    fk[ind-1] = plat_av(fk, [ind-1,ind]); deleteat!(fk, ind)
     t0_sh[ind-1] = plat_av(t0_sh, [ind-1,ind]); deleteat!(t0_sh, ind)
     phi2_sh[ind-1] = plat_av(phi2_sh, [ind-1,ind]); deleteat!(phi2_sh, ind)
     m12_sh[ind-1] = plat_av(m12_sh, [ind-1,ind]); deleteat!(m12_sh, ind)
@@ -130,6 +144,60 @@ fpik_add = true
     t0_sh_sym = [[t0_sh[1] for i in 1:3]; [t0_sh[4] for i in 4:5]; [t0_sh[6] for i in 6:10]; [t0_sh[11] for i in 11:14]; [t0_sh[15] for i in 15:16]]
     #t0fpik_sh = t0fpik_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
     #t0fpik_st_sh = t0fpik_st_sh ./ sqrt.(t0_sh) .* sqrt.(t0_sh_sym)
+
+#==============================================================================================================================#
+
+#============================== latex tables ==================================================================================#
+
+    phi2 = 8 .* t0 .* mpi .^ 2; uwerr.(phi2)
+    phi4 = 8 .* t0 .* (mk .^ 2 .+ 0.5 * mpi .^ 2); uwerr.(phi4)
+    uwerr.(phi4_sh)
+    uwerr.(t0); uwerr.(t0_sh)
+    uwerr.(fpi); uwerr.(fpi_sh)
+    uwerr.(fk); uwerr.(fk_sh)
+    uwerr.(m12); uwerr.(m12_sh)
+    uwerr.(m13); uwerr.(m13_sh)
+    for i in 1:length(ens_av)
+        bla = string(ens_av[i], 
+                    " & ", round(value(t0[i]), digits=4), "(", Int(round(err(t0[i]) * 1e4, digits=0)), ")", 
+                    " & ", round(value(phi2[i]), digits=4), "(", Int(round(err(phi2[i]) * 1e4, digits=0)), ")",
+                    " & ", round(value(phi4[i]), digits=4), "(", Int(round(err(phi4[i]) * 1e4, digits=0)), ")",
+                    " & ", round(value(m12[i]), digits=6), "(", Int(round(err(m12[i]) * 1e6, digits=0)), ")",
+                    " & ", round(value(m13[i]), digits=6), "(", Int(round(err(m13[i]) * 1e6, digits=0)), ")",
+                    " & ", round(value(fpi[i]), digits=5), "(", Int(round(err(fpi[i]) * 1e5, digits=0)), ")",
+                    " & ", round(value(fk[i]), digits=5), "(", Int(round(err(fk[i]) * 1e5, digits=0)), ") \\\\"
+                    )
+        println(bla)
+    end
+
+    for i in 1:length(ens_av)
+        bla_sh = string(ens_av[i], 
+                    " & ", round(value(t0_sh[i]), digits=4), "(", Int(round(err(t0_sh[i]) * 1e4, digits=0)), ")", 
+                    " & ", round(value(phi2_sh[i]), digits=4), "(", Int(round(err(phi2_sh[i]) * 1e4, digits=0)), ")",
+                    " & ", round(value(phi4_sh[i]), digits=4), "(", Int(round(err(phi4_sh[i]) * 1e4, digits=0)), ")",
+                    " & ", round(value(m12_sh[i]), digits=6), "(", Int(round(err(m12_sh[i]) * 1e6, digits=0)), ")",
+                    " & ", round(value(m13_sh[i]), digits=6), "(", Int(round(err(m13_sh[i]) * 1e6, digits=0)), ")",
+                    " & ", round(value(fpi_sh[i]), digits=5), "(", Int(round(err(fpi_sh[i]) * 1e5, digits=0)), ")",
+                    " & ", round(value(fk_sh[i]), digits=5), "(", Int(round(err(fk_sh[i]) * 1e5, digits=0)), ") \\\\"
+                    )
+        println(bla_sh)
+    end
+
+    uwerr.(mul)
+    muls = (mul .+ mus) ./ 2; uwerr.(muls)
+    uwerr.(fpi_matched); uwerr.(fk_matched)
+    for i in 1:length(ens_av)
+        bla_sh = string(ens_av[i], 
+                    " & ", round(value(t0_sh[i]), digits=4), "(", Int(round(err(t0_sh[i]) * 1e4, digits=0)), ")", 
+                    " & ", round(value(phi2_sh[i]), digits=4), "(", Int(round(err(phi2_sh[i]) * 1e4, digits=0)), ")",
+                    " & ", round(value(phi4_sh[i]), digits=4), "(", Int(round(err(phi4_sh[i]) * 1e4, digits=0)), ")",
+                    " & ", round(value(mul[i]), digits=6), "(", Int(round(err(mul[i]) * 1e5, digits=0)), ")",
+                    " & ", round(value(muls[i]), digits=6), "(", Int(round(err(muls[i]) * 1e5, digits=0)), ")",
+                    " & ", round(value(fpi_matched[i]), digits=5), "(", Int(round(err(fpi_matched[i]) * 1e6, digits=0)), ")",
+                    " & ", round(value(fk_matched[i]), digits=5), "(", Int(round(err(fk_matched[i]) * 1e6, digits=0)), ") \\\\"
+                    )
+        println(bla_sh)
+    end
 
 #==============================================================================================================================#
 
@@ -372,20 +440,31 @@ fpik_add = true
 
         set_y = [cuts_y, cuts_y_st, cuts_y_combined]
         set_x = [cuts_x, cuts_x_st, cuts_x_combined]
+        
         list_b340 = [[[1,2,3], [], [], [1,2], [], [1], [1,2]], 
                      [[1,2,3], [], [], [1,2], [], [1], [1,2]]]
+
+        list_sym = [[[1,4,6,11,15], [1,3,8,12], [1,6,10], [], [], [], [1,3,5,9,12]], 
+                    [[1,4,6,11,15], [1,3,8,12], [1,6,10], [], [], [], [1,3,5,9,12]]]
+ 
 
         #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
     ##
 
-    switch = 0 ## .02-2
-    syst = [[value.([set_x[k][j][list_b340[k][j],1] .^ 4; 0 .* set_x[k][j][length(list_b340[k][j])+1:length(set_x[k][j][:,1]),1]]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]    
+    switch = 3 ## .02-2
+    switch_phi = 0.01
+    syst = [[value.(0 .* set_x[k][j][:,1]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
+    syst_phi = [[value.(0 .* set_x[k][j][:,2]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
+    [[syst[k][j][list_b340[k][j]] = value.(set_x[k][j][list_b340[k][j],1]) .^ 4 for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
+    [[syst_phi[k][j][list_sym[k][j]] = value.(set_x[k][j][list_sym[k][j],2]) .^ 2 for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
     syst_comb = [[syst[2][j]; syst[1][j]] for j in 1:length(set_y[1])]
     syst = [syst[1], syst[2], syst_comb]
-    C = [((cov.(set_y[k]))) for k in 1:length(set_y)]
-    C_syst = [switch ^ 2 * diagm.(syst[k]) for k in 1:length(set_y)]
+    syst_phi_comb = [[syst_phi[2][j]; syst_phi[1][j]] for j in 1:length(set_y[1])]
+    syst_phi = [syst_phi[1], syst_phi[2], syst_phi_comb]
+    C = [cov.(set_y[k]) for k in 1:length(set_y)]
+    C_syst = [switch ^ 2 * diagm.(syst[k]) .+ switch_phi ^ 2 * diagm.(syst_phi[k]) for k in 1:length(set_y)]
     C_new = [Symmetric.(C[k] .+ C_syst[k]) for k in 1:length(set_y)]
-    C_new_corr = [[sqrt.(kron((1 .+ switch ^ 2 .* syst[k][j] ./ err.(set_y[k][j]) .^ 2)', (1 .+ switch ^ 2 .* syst[k][j] ./ err.(set_y[k][j]) .^ 2))) .* C[k][j] for j in 1:length(set_y[k])] for k in 1:length(set_y)]
+    C_new_corr = [[sqrt.(kron((1 .+ switch ^ 2 .* syst[k][j] ./ err.(set_y[k][j]) .^ 2 .+ switch_phi ^ 2 .* syst_phi[k][j] ./ err.(set_y[k][j]) .^ 2)', (1 .+ switch ^ 2 .* syst[k][j] ./ err.(set_y[k][j]) .^ 2 .+ switch_phi ^ 2 .* syst_phi[k][j] ./ err.(set_y[k][j]) .^ 2))) .* C[k][j] for j in 1:length(set_y[k])] for k in 1:length(set_y)]
     Wm_syst = [inv.(C_new[k]) for k in 1:length(set_y)]
     Wm_syst = [convert.(Matrix{Float64}, Wm_syst[k]) for k in 1:length(set_y)]
     Wm_syst_corr = [inv.(Symmetric.(C_new_corr[k])) for k in 1:length(set_y)]
@@ -518,36 +597,61 @@ fpik_add = true
         set_x = [cuts_x, cuts_x_st, cuts_x_combined]
         [[uwerr.(set_y[i][j]) for j in 1:length(set_y[i])] for i in 1:length(set_y)]
         [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
+
+        list_b340 = [[[1,2,3,1+div(length(set_y[1][1]),2),2+div(length(set_y[1][1]),2),3+div(length(set_y[1][1]),2)], [], [], [1,2,1+div(length(set_y[1][4]),2),2+div(length(set_y[1][4]),2)], [], [1,1+div(length(set_y[1][6]),2)], [1,2,1+div(length(set_y[1][7]),2),2+div(length(set_y[1][7]),2)]], 
+                     [[1,2,3,1+div(length(set_y[1][1]),2),2+div(length(set_y[1][1]),2),3+div(length(set_y[1][1]),2)], [], [], [1,2,1+div(length(set_y[1][4]),2),2+div(length(set_y[1][4]),2)], [], [1,1+div(length(set_y[1][6]),2)], [1,2,1+div(length(set_y[1][7]),2),2+div(length(set_y[1][7]),2)]]]
+
+        list_sym = [[[1,4,6,11,15,1+div(length(set_y[1][1]),2),4+div(length(set_y[1][1]),2),6+div(length(set_y[1][1]),2),11+div(length(set_y[1][1]),2),15+div(length(set_y[1][1]),2)], [1,3,8,12,1+div(length(set_y[1][2]),2),3+div(length(set_y[1][2]),2),8+div(length(set_y[1][2]),2),12+div(length(set_y[1][2]),2)], [1,6,10,1+div(length(set_y[1][3]),2),6+div(length(set_y[1][3]),2),10+div(length(set_y[1][3]),2)], [], [], [], [1,3,5,9,12,1+div(length(set_y[1][7]),2),3+div(length(set_y[1][7]),2),5+div(length(set_y[1][7]),2),9+div(length(set_y[1][7]),2),12+div(length(set_y[1][7]),2)]], 
+                    [[1,4,6,11,15,1+div(length(set_y[1][1]),2),4+div(length(set_y[1][1]),2),6+div(length(set_y[1][1]),2),11+div(length(set_y[1][1]),2),15+div(length(set_y[1][1]),2)], [1,3,8,12,1+div(length(set_y[1][2]),2),3+div(length(set_y[1][2]),2),8+div(length(set_y[1][2]),2),12+div(length(set_y[1][2]),2)], [1,6,10,1+div(length(set_y[1][3]),2),6+div(length(set_y[1][3]),2),10+div(length(set_y[1][3]),2)], [], [], [], [1,3,5,9,12,1+div(length(set_y[1][7]),2),3+div(length(set_y[1][7]),2),5+div(length(set_y[1][7]),2),9+div(length(set_y[1][7]),2),12+div(length(set_y[1][7]),2)]]]
     ##
 
-    models = [model2_ChPT2_a2; model2_ChPT2_aas; model2_ChPT2_a2phi2]
-    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_aas_combined; model2_ChPT2_a2a2phi2_combined; model2_ChPT2_a2phi2a2_combined; model2_ChPT2_a2_combined]
+    switch = 3 ## .02-2
+    switch_phi = 0.01
+    syst = [[value.(0 .* set_x[k][j][:,1]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
+    syst_phi = [[value.(0 .* set_x[k][j][:,2]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
+    [[syst[k][j][list_b340[k][j]] = value.(set_x[k][j][list_b340[k][j],1]) .^ 4 for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
+    [[syst_phi[k][j][list_sym[k][j]] = value.(set_x[k][j][list_sym[k][j],2]) .^ 2 for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
+    syst_comb = [[syst[2][j]; syst[1][j]] for j in 1:length(set_y[1])]
+    syst = [syst[1], syst[2], syst_comb]
+    syst_phi_comb = [[syst_phi[2][j]; syst_phi[1][j]] for j in 1:length(set_y[1])]
+    syst_phi = [syst_phi[1], syst_phi[2], syst_phi_comb]
+    C = [(diagm.(diag.((cov.(set_y[k]))))) for k in 1:length(set_y)]
+    C_syst = [switch ^ 2 * diagm.(syst[k]) .+ switch_phi ^ 2 * diagm.(syst_phi[k]) for k in 1:length(set_y)]
+    C_new = [Symmetric.(C[k] .+ C_syst[k]) for k in 1:length(set_y)]
+    Wm_syst = [inv.(C_new[k]) for k in 1:length(set_y)]
+    Wm_syst = [convert.(Matrix{Float64}, Wm_syst[k]) for k in 1:length(set_y)]
+    Wm = [inv.(Symmetric.(C[k])) for k in 1:length(set_y)]
+    Wm = [convert.(Matrix{Float64}, Wm[k]) for k in 1:length(set_y)]
+
+    models = [model2_ChPT2_a2; model2_ChPT2_aas; model2_ChPT2_a2phi2_sym]#; model2_ChPT3_a2; model2_ChPT3_aas; model2_ChPT3_a2phi2_sym]
+    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_aas_combined; model2_ChPT2_a2a2phi2_combined_sym; model2_ChPT2_a2phi2a2_combined_sym; model2_ChPT2_a2phi2_combined_sym]#; model2_ChPT3_a2_combined; model2_ChPT3_aas_combined; model2_ChPT3_a2a2phi2_combined_sym; model2_ChPT3_a2phi2a2_combined_sym; model2_ChPT3_a2phi2_combined_sym]
     models = [models, models, models_combined]
-    param = [7,7,9]
-    param_combined = [9,9,11,11,13]
+    param = [8,8,8]#,7,7,7]
+    param_combined = [10,10,10,10,10]#,9,9,9,9,9]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
-                if (k in [1,2] && j in [5,6] && i in [2] || k == 3 && j in [5,6] && i in [2,3,4]) == false
+                #if (k in [1,2] && j in [5,6] && i in [2] || k == 3 && j in [5,6] && i in [2,3,4]) == false
+                    println(i, " ", j, " ", k)
                     x = set_x[k][j]
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
                     global L2 = length(set_y[1][j])
-                    guess = [-0.03714930996391645, 3.794500859421803, -0.04370336668443585, -0.3767099865988463, -0.053522736192504715, 0.32081397340658246, -0.340720745616767]
-                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i], guess)
+                    guess = [-0.0444296314923108, 3.796947061303699, -0.03833005555955292, -0.061035272307122856, 4.5724975563203465, 0.023977601747406707, 0.10344587769896242]
+                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j], guess=guess)
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     if k == 3
-                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph;x_ph;x_ph],uprm)[1])
-                        push!(t0fk_ph_vec[k], model_plot_SU2_k([x_ph;x_ph;x_ph;x_ph],uprm)[2])
+                        push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[1])
+                        push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[2])
                     else
-                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph],uprm)[1])
-                        push!(t0fk_ph_vec[k], model_plot_SU2_k([x_ph;x_ph],uprm)[2])
+                        push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[1])
+                        push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[2])
                     end
                     if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
-                end
+                #end
             end
         end
     end
@@ -665,9 +769,9 @@ fpik_add = true
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     if k == 3
-                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph;x_ph;x_ph],uprm)[1])
+                        push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[1])
                     else
-                        push!(t0fpi_ph_vec[k], model_plot_SU2_pi([x_ph;x_ph],uprm)[1])
+                        push!(t0fpi_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[1])
                     end
                     if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
                 end
@@ -706,6 +810,8 @@ fpik_add = true
     [uwerr.(t0fk_ph_vec[k]) for k in 1:length(TIC)]
     sqrt_t0_ph_fpi_vec = [[t0fpi_ph_vec[k][i] / (sqrt(8)* Fpi / hc) for i in 1:length(t0fpi_ph_vec[k])] for k in 1:length(W_fpi)]
     [uwerr.(sqrt_t0_ph_fpi_vec[k]) for k in 1:length(TIC)]
+    uwerr.(t0fpi_ph)
+    uwerr.(t0fk_ph)
     =#
 
     W_aux = deepcopy(W)
