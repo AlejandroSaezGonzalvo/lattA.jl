@@ -472,17 +472,17 @@ fpik_add = true
     Wm = [inv.(Symmetric.(C[k])) for k in 1:length(set_y)]
     Wm = [convert.(Matrix{Float64}, Wm[k]) for k in 1:length(set_y)]
 
-    models = [model2_ChPT_a2; model2_ChPT_aas; model2_ChPT_a2phi2; model2_Taylor_a2; model2_Taylor_aas; model2_Taylor_a2phi2; model2_Taylor4_a2; model2_Taylor4_a2phi2]
-    models_combined = [model2_ChPT_a2_combined; model2_ChPT_aas_combined; model2_ChPT_a2a2phi2_combined; model2_ChPT_a2phi2a2_combined; model2_ChPT_a2phi2_combined; model2_Taylor_a2_combined; model2_Taylor_aas_combined; model2_Taylor_a2a2phi2_combined; model2_Taylor_a2phi2a2_combined; model2_Taylor_a2phi2_combined; model2_Taylor4_a2_combined; model2_Taylor4_a2a2phi2_combined; model2_Taylor4_a2phi2a2_combined; model2_Taylor4_a2phi2_combined]
+    models = [model2_ChPT_a2; model2_ChPT_aas; model2_ChPT_a2phi2; model2_Taylor_a2; model2_Taylor_aas; model2_Taylor_a2phi2; model2_Taylor4_a2; model2_Taylor4_a2phi2     ;model22_ChPT_a2; model22_ChPT_aas; model22_ChPT_a2phi2]
+    models_combined = [model2_ChPT_a2_combined; model2_ChPT_aas_combined; model2_ChPT_a2a2phi2_combined; model2_ChPT_a2phi2a2_combined; model2_ChPT_a2phi2_combined; model2_Taylor_a2_combined; model2_Taylor_aas_combined; model2_Taylor_a2a2phi2_combined; model2_Taylor_a2phi2a2_combined; model2_Taylor_a2phi2_combined; model2_Taylor4_a2_combined; model2_Taylor4_a2a2phi2_combined; model2_Taylor4_a2phi2a2_combined; model2_Taylor4_a2phi2_combined        ;model22_ChPT_a2_combined; model22_ChPT_aas_combined; model22_ChPT_a2a2phi2_combined; model22_ChPT_a2phi2a2_combined; model22_ChPT_a2phi2_combined]
     models = [models, models, models_combined]
-    param = [3,3,4,3,3,4,4,5]
-    param_combined = [4,4,5,5,6,4,4,5,5,6,5,6,6,7]
+    param = [3,3,4,3,3,4,4,5    ,5,5,6]
+    param_combined = [4,4,5,5,6,4,4,5,5,6,5,6,6,7     ,6,6,7,7,8]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
-                if (k in [1,2] && j in [5,6] && i in [3,6,8] || k == 3 && j in [5,6] && i in [3,4,5,8,9,10,12,13,14]) == false
+                #if (k in [1,2] && j in [5,6] && i in [3,6,8] || k == 3 && j in [5,6] && i in [3,4,5,8,9,10,12,13,14]) == false
                     x = set_x[k][j]
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
@@ -493,7 +493,7 @@ fpik_add = true
                     push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
                     if i == j == 1 uprm_plot[k] = uprm end
                     if i == 3 && j == 1 uprm_plot2[k] = uprm end
-                end
+                #end
             end
         end
     end
@@ -623,11 +623,11 @@ fpik_add = true
     Wm = [inv.(Symmetric.(C[k])) for k in 1:length(set_y)]
     Wm = [convert.(Matrix{Float64}, Wm[k]) for k in 1:length(set_y)]
 
-    models = [model2_ChPT2_a2; model2_ChPT2_aas; model2_ChPT2_a2phi2_sym]#; model2_ChPT3_a2; model2_ChPT3_aas; model2_ChPT3_a2phi2_sym]
-    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_aas_combined; model2_ChPT2_a2a2phi2_combined_sym; model2_ChPT2_a2phi2a2_combined_sym; model2_ChPT2_a2phi2_combined_sym]#; model2_ChPT3_a2_combined; model2_ChPT3_aas_combined; model2_ChPT3_a2a2phi2_combined_sym; model2_ChPT3_a2phi2a2_combined_sym; model2_ChPT3_a2phi2_combined_sym]
+    models = [model2_ChPT2_a2; model2_ChPT2_aas; model2_ChPT2_a2phi2_sym           ; model2_ChPT3_a2; model2_ChPT3_aas; model2_ChPT3_a2phi2_sym]
+    models_combined = [model2_ChPT2_a2_combined; model2_ChPT2_aas_combined; model2_ChPT2_a2a2phi2_combined_sym; model2_ChPT2_a2phi2a2_combined_sym; model2_ChPT2_a2phi2_combined_sym         ; model2_ChPT3_a2_combined; model2_ChPT3_aas_combined; model2_ChPT3_a2a2phi2_combined_sym; model2_ChPT3_a2phi2a2_combined_sym; model2_ChPT3_a2phi2_combined_sym]
     models = [models, models, models_combined]
-    param = [8,8,8]#,7,7,7]
-    param_combined = [10,10,10,10,10]#,9,9,9,9,9]
+    param = [8,8,8      ,7,7,7]
+    param_combined = [10,10,10,10,10      ,9,9,9,9,9]
     param = [param, param, param_combined]
 
     for k in 1:length(set_y)
