@@ -482,7 +482,7 @@ fpik_add = true
     for k in 1:length(set_y)
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
-                #if (k in [1,2] && j in [5,6] && i in [3,6,8] || k == 3 && j in [5,6] && i in [3,4,5,8,9,10,12,13,14]) == false
+                if (k in [1,2] && j in [5,6] && i in [3,6,8,11] || k == 3 && j in [5,6] && i in [5,10,11,12,13,14,15,16,17,18,19]) == false
                     x = set_x[k][j]
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
@@ -493,7 +493,7 @@ fpik_add = true
                     push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
                     if i == j == 1 uprm_plot[k] = uprm end
                     if i == 3 && j == 1 uprm_plot2[k] = uprm end
-                #end
+                end
             end
         end
     end
@@ -633,7 +633,7 @@ fpik_add = true
     for k in 1:length(set_y)
         for i in 1:length(models[k])
             for j in 1:length(cuts_y)
-                #if (k in [1,2] && j in [5,6] && i in [2] || k == 3 && j in [5,6] && i in [2,3,4]) == false
+                if (k in [1,2] && j in [5,6] && i in [1,2,3] || k == 3 && j in [5,6] && i in [1,2,3,4,5]) == false
                     println(i, " ", j, " ", k)
                     x = set_x[k][j]
                     y = set_y[k][j]
@@ -651,7 +651,7 @@ fpik_add = true
                         push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[2])
                     end
                     if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
-                #end
+                end
             end
         end
     end
@@ -798,12 +798,10 @@ fpik_add = true
     t0fpi_ph = t0fpi_ph .+ [uwreal([0.0, value(syst_fpi[k])], string("syst chiral fpi", k, " 3rd")) for k in 1:length(TIC)]
     uwerr.(t0fpi_ph)
     sqrt_t0_ph_fpi = [t0fpi_ph[k] / (sqrt(8) * Fpi / hc) for k in 1:length(TIC)]
-    uwerr.(sqrt_t0_ph_fpi)
     t0fk_ph = [sum(t0fk_ph_vec[k] .* W_fpi[k]) for k in 1:length(TIC)]
     syst_fk = [sqrt(sum(t0fk_ph_vec[k] .^ 2 .* W_fpi[k]) - (sum(t0fk_ph_vec[k] .* W_fpi[k])) ^ 2) for k in 1:length(TIC)]
     t0fk_ph = t0fk_ph .+ [uwreal([0.0, value(syst_fk[k])], string("syst chiral fpi ", k, " 3rd")) for k in 1:length(TIC)]
     fk_exp_pred = t0fk_ph ./ sqrt(8) ./ sqrt_t0_ph_fpi * hc
-    uwerr.(fk_exp_pred)
     W_fpi_aux = deepcopy(W_fpi)
     pval_fpi_aux = deepcopy(pval_fpi)
     [uwerr.(t0fpi_ph_vec[k]) for k in 1:length(TIC)]
@@ -812,6 +810,8 @@ fpik_add = true
     [uwerr.(sqrt_t0_ph_fpi_vec[k]) for k in 1:length(TIC)]
     uwerr.(t0fpi_ph)
     uwerr.(t0fk_ph)
+    uwerr.(sqrt_t0_ph_fpi)
+    uwerr.(fk_exp_pred)
     =#
 
     W_aux = deepcopy(W)
