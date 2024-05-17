@@ -451,8 +451,8 @@ fpik_add = true
         #Wm = [inv.(Symmetric.(cov.(set_y[i]))) for i in 1:length(set_y)]
     ##
 
-    switch = 3 #1 
-    switch_phi = 0.01 #0.0035
+    switch = 1 #1 
+    switch_phi = 0.0035 #0.0035
     syst = [[value.(0 .* set_x[k][j][:,1]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
     syst_phi = [[value.(0 .* set_x[k][j][:,2]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
     [[syst[k][j][list_b340[k][j]] = value.(set_x[k][j][list_b340[k][j],1]) .^ 4 for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
@@ -608,8 +608,8 @@ fpik_add = true
                     [[1,4,6,11,15,1+div(length(set_y[1][1]),2),4+div(length(set_y[1][1]),2),6+div(length(set_y[1][1]),2),11+div(length(set_y[1][1]),2),15+div(length(set_y[1][1]),2)], [1,3,8,12,1+div(length(set_y[1][2]),2),3+div(length(set_y[1][2]),2),8+div(length(set_y[1][2]),2),12+div(length(set_y[1][2]),2)], [1,6,10,1+div(length(set_y[1][3]),2),6+div(length(set_y[1][3]),2),10+div(length(set_y[1][3]),2)], [], [], [], [1,3,5,9,12,1+div(length(set_y[1][7]),2),3+div(length(set_y[1][7]),2),5+div(length(set_y[1][7]),2),9+div(length(set_y[1][7]),2),12+div(length(set_y[1][7]),2)]]]
     ##
 
-    switch = 3 ## .02-2
-    switch_phi = 0.01
+    switch = 1 ## .02-2
+    switch_phi = 0.0035
     syst = [[value.(0 .* set_x[k][j][:,1]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
     syst_phi = [[value.(0 .* set_x[k][j][:,2]) for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
     [[syst[k][j][list_b340[k][j]] = value.(set_x[k][j][list_b340[k][j],1]) .^ 4 for j in 1:length(set_y[k])] for k in 1:length(set_y)-1]   
@@ -1352,7 +1352,7 @@ fpik_add = true
 
     a = sqrt_t0_ph[ix] * R ./ sqrt.(t0_sh_sym[ind_sym]); uwerr.(a)
     i = 1
-    details(a[i], string("syst chiral ",ix," 3rd")); sqrt(1-26/100) * err(a[i])
+    for i in 1:5 details(a[i], string("syst chiral ",ix," 3rd")); println(sqrt(1-20.5/100) * err(a[i])); println(" ") end
 
     fig = figure()
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")

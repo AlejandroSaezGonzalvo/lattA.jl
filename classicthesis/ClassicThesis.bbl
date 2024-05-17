@@ -1007,6 +1007,68 @@
     \field{year}{1987}
   \endentry
 
+  \entry{DallaBrida:2016kgh}{article}{}
+    \name{author}{6}{}{%
+      {{hash=DBM}{%
+         family={Dalla\bibnamedelima Brida},
+         familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+         given={Mattia},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Fritzsch},
+         familyi={F\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={Korzec},
+         familyi={K\bibinitperiod},
+         given={Tomasz},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Ramos},
+         familyi={R\bibinitperiod},
+         given={Alberto},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sint},
+         familyi={S\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Sommer},
+         familyi={S\bibinitperiod},
+         given={Rainer},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DBM+1}
+    \strng{fullhash}{DBMFPKTRASSSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.95.014507
+    \endverb
+    \verb{eprint}
+    \verb 1607.06423
+    \endverb
+    \field{number}{1}
+    \field{pages}{014507}
+    \field{title}{{Slow running of the Gradient Flow coupling from 200 MeV to 4
+  GeV in $N_{\rm f}=3$ QCD}}
+    \field{volume}{95}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2017}
+  \endentry
+
   \entry{DallaBrida:2022eua}{article}{}
     \name{author}{8}{}{%
       {{hash=DBM}{%
@@ -1816,6 +1878,30 @@
     \field{journaltitle}{Phys. Lett. B}
     \field{eprinttype}{arXiv}
     \field{year}{2001}
+  \endentry
+
+  \entry{Hernandez:2009zz}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=HMP}{%
+         family={Hernandez},
+         familyi={H\bibinitperiod},
+         given={M.\bibnamedelima Pilar},
+         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HMP1}
+    \strng{fullhash}{HMP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{{Les Houches Summer School: Session 93: Modern
+  perspectives in lattice QCD: Quantum field theory and high performance
+  computing}}
+    \field{pages}{1\bibrangedash 91}
+    \field{title}{{Lattice field theory fundamentals}}
+    \field{month}{08}
+    \field{year}{2009}
   \endentry
 
   \entry{Hollwieser:2020qri}{article}{}
@@ -3160,6 +3246,38 @@
     }
     \field{type}{phdthesis}
     \field{year}{2023}
+  \endentry
+
+  \entry{Strassberger:2021tsu}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=SB}{%
+         family={Strassberger},
+         familyi={S\bibinitperiod},
+         given={Ben},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SB+1}
+    \strng{fullhash}{SB+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.22323/1.396.0135
+    \endverb
+    \verb{eprint}
+    \verb 2112.06696
+    \endverb
+    \field{pages}{135}
+    \field{title}{{Scale setting for CLS 2+1 simulations}}
+    \field{volume}{LATTICE2021}
+    \field{journaltitle}{PoS}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2022}
   \endentry
 
   \entry{Taniguchi:1998pf}{article}{}

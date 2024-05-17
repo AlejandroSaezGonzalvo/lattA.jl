@@ -36,28 +36,28 @@
 \contentsline {chapter}{\numberline {4}{Scale setting}}{63}{chapter.4}%
 \contentsline {section}{\numberline {4.1}{Motivation}}{63}{section.4.1}%
 \contentsline {section}{\numberline {4.2}{Results: the physical point}}{64}{section.4.2}%
-\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{68}{section.4.3}%
-\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{77}{section.4.4}%
-\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{78}{section.4.5}%
-\contentsline {part}{\numberline {iv}{Conclusions}}{79}{part.4}%
-\contentsline {chapter}{Conclusions and outlook}{81}{part.4}%
-\contentsline {chapter}{Conclusiones y perspectivas}{83}{equation.4.5.57}%
-\contentsline {part}{\numberline {v}{Appendices}}{85}{part.5}%
-\contentsline {chapter}{\numberline {A}{Conventions}}{87}{appendix.A}%
-\contentsline {chapter}{\numberline {B}{Lattice ensembles}}{89}{appendix.B}%
-\contentsline {chapter}{\numberline {C}{Lattice observables}}{91}{appendix.C}%
-\contentsline {chapter}{\numberline {D}{Simulation details}}{95}{appendix.D}%
-\contentsline {section}{\numberline {D.1}{Metropolis algorithm}}{96}{section.D.1}%
-\contentsline {section}{\numberline {D.2}{Hybrid Monte Carlo}}{97}{section.D.2}%
-\contentsline {section}{\numberline {D.3}{Reweighting}}{98}{section.D.3}%
-\contentsline {chapter}{\numberline {E}{Error analysis}}{101}{appendix.E}%
-\contentsline {chapter}{\numberline {F}{Solvers}}{105}{appendix.F}%
-\contentsline {section}{\numberline {F.1}{Stochastic methods}}{105}{section.F.1}%
-\contentsline {section}{\numberline {F.2}{Iterative solvers}}{105}{section.F.2}%
-\contentsline {section}{\numberline {F.3}{Preconditioning}}{106}{section.F.3}%
-\contentsline {chapter}{\numberline {G}{Least-squares fitting}}{109}{appendix.G}%
-\contentsline {chapter}{\numberline {H}{Finite Volume Effects}}{111}{appendix.H}%
-\contentsline {chapter}{\numberline {I}{$\sqrt {t_0}$: Model variation}}{113}{appendix.I}%
+\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{69}{section.4.3}%
+\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{75}{section.4.4}%
+\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{76}{section.4.5}%
+\contentsline {part}{\numberline {iv}{Conclusions}}{77}{part.4}%
+\contentsline {chapter}{Conclusions and outlook}{79}{part.4}%
+\contentsline {chapter}{Conclusiones y perspectivas}{81}{equation.4.5.56}%
+\contentsline {part}{\numberline {v}{Appendices}}{83}{part.5}%
+\contentsline {chapter}{\numberline {A}{Conventions}}{85}{appendix.A}%
+\contentsline {chapter}{\numberline {B}{Lattice ensembles}}{87}{appendix.B}%
+\contentsline {chapter}{\numberline {C}{Lattice observables}}{89}{appendix.C}%
+\contentsline {chapter}{\numberline {D}{Simulation details}}{93}{appendix.D}%
+\contentsline {section}{\numberline {D.1}{Metropolis algorithm}}{94}{section.D.1}%
+\contentsline {section}{\numberline {D.2}{Hybrid Monte Carlo}}{95}{section.D.2}%
+\contentsline {section}{\numberline {D.3}{Reweighting}}{96}{section.D.3}%
+\contentsline {chapter}{\numberline {E}{Error analysis}}{99}{appendix.E}%
+\contentsline {chapter}{\numberline {F}{Solvers}}{103}{appendix.F}%
+\contentsline {section}{\numberline {F.1}{Stochastic methods}}{103}{section.F.1}%
+\contentsline {section}{\numberline {F.2}{Iterative solvers}}{103}{section.F.2}%
+\contentsline {section}{\numberline {F.3}{Preconditioning}}{104}{section.F.3}%
+\contentsline {chapter}{\numberline {G}{Least-squares fitting}}{107}{appendix.G}%
+\contentsline {chapter}{\numberline {H}{Finite Volume Effects}}{109}{appendix.H}%
+\contentsline {chapter}{\numberline {I}{$\sqrt {t_0}$: Model variation}}{111}{appendix.I}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{121}{section*.29}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{119}{section*.25}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

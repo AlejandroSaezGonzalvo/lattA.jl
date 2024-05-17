@@ -3,21 +3,28 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ClassicThesis.aux
 The style file: biblatex.bst
 A level-1 auxiliary file: FrontBackmatter/Titlepage.aux
+A level-1 auxiliary file: FrontBackmatter/Titleback.aux
+A level-1 auxiliary file: FrontBackmatter/Dedication_2.aux
 A level-1 auxiliary file: FrontBackmatter/Dedication.aux
 A level-1 auxiliary file: FrontBackmatter/Abstract.aux
 A level-1 auxiliary file: FrontBackmatter/Publications.aux
 A level-1 auxiliary file: FrontBackmatter/Acknowledgments.aux
 A level-1 auxiliary file: FrontBackmatter/Contents.aux
 A level-1 auxiliary file: introduction/introduction.aux
+White space in argument---line 65 of file ClassicThesis.aux
+ : \citation{Borsanyi
+ :                    Nature 593}
+I'm skipping whatever remains of this command
 A level-1 auxiliary file: introduction/introduccion.aux
 A level-1 auxiliary file: cap2/lattice.aux
 A level-1 auxiliary file: cap3/observables.aux
 A level-1 auxiliary file: cap4/cap4.aux
-A level-1 auxiliary file: cap5/cap5.aux
+A level-1 auxiliary file: cap5/cap5_new.aux
 A level-1 auxiliary file: conclusions/conclusions.aux
 A level-1 auxiliary file: conclusions/conclusiones.aux
 A level-1 auxiliary file: apendices/apendices_conventions.aux
 A level-1 auxiliary file: apendices/apendices_a.aux
+A level-1 auxiliary file: apendices/apendices_obs.aux
 A level-1 auxiliary file: apendices/apendices_simulations.aux
 A level-1 auxiliary file: apendices/apendices_errors.aux
 A level-1 auxiliary file: apendices/apendices_solvers.aux
@@ -40,55 +47,54 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 16480 items from 5000.
+Reallocated field_info (elt_size=4) to 16760 items from 5000.
 Database file #1: ClassicThesis-blx.bib
 Database file #2: Bibliography.bib
 Database file #3: publications.bib
-Warning--I didn't find a database entry for "RHMC"
 Biblatex version: 3.17
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis" for entry Brown:2018jtv
 while executing---line 2815 of file biblatex.bst
-You've used 81 entries,
+You've used 84 entries,
             6399 wiz_defined-function locations,
-            1874 strings with 26385 characters,
-and the built_in function-call counts, 723742 in all, are:
-= -- 58794
-> -- 9670
-< -- 2400
-+ -- 21307
-- -- 4355
-* -- 56262
-:= -- 84683
+            1895 strings with 26983 characters,
+and the built_in function-call counts, 748480 in all, are:
+= -- 60747
+> -- 10019
+< -- 2490
++ -- 22012
+- -- 4516
+* -- 58213
+:= -- 87518
 add.period$ -- 0
-call.type$ -- 81
-change.case$ -- 80
-chr.to.int$ -- 71
-cite$ -- 160
-duplicate$ -- 75421
-empty$ -- 62162
-format.name$ -- 6211
-if$ -- 144480
+call.type$ -- 84
+change.case$ -- 83
+chr.to.int$ -- 74
+cite$ -- 166
+duplicate$ -- 78023
+empty$ -- 64314
+format.name$ -- 6430
+if$ -- 149447
 int.to.chr$ -- 0
-int.to.str$ -- 192
+int.to.str$ -- 199
 missing$ -- 0
-newline$ -- 3301
-num.names$ -- 3436
-pop$ -- 29202
+newline$ -- 3416
+num.names$ -- 3562
+pop$ -- 30276
 preamble$ -- 1
-purify$ -- 1353
+purify$ -- 1398
 quote$ -- 0
-skip$ -- 15503
+skip$ -- 16042
 stack$ -- 0
-substring$ -- 111663
-swap$ -- 14061
-text.length$ -- 2503
-text.prefix$ -- 80
+substring$ -- 115321
+swap$ -- 14576
+text.length$ -- 2597
+text.prefix$ -- 83
 top$ -- 1
-type$ -- 2740
+type$ -- 2842
 warning$ -- 0
-while$ -- 10348
+while$ -- 10697
 width$ -- 0
-write$ -- 3221
-(There was 1 error message)
+write$ -- 3333
+(There were 2 error messages)
