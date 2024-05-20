@@ -1202,3 +1202,120 @@ mods_c_SU2 = [L"$[\chi SU(2)][a^2][-]$",
         L"$[\chi SU(3)][a^2+a^2\phi_2][m_{\pi}L>4.1]$"]
 
 mods_aux_SU2 = deepcopy(mods_SU2)
+
+
+
+
+mods_nocut = findall(x->occursin("[-]",x), mods)
+mods_b340 = findall(x->occursin("3.40]",x), mods)
+mods_b346 = findall(x->occursin("3.46]",x), mods)
+mods_m420 = findall(x->occursin("420\\;MeV]",x), mods)
+mods_m350 = findall(x->occursin("350\\;MeV]",x), mods)
+mods_b340m420 = findall(x->occursin("\\beta>3.40\\;&\\;m_{\\pi}<420",x), mods)
+mods_mL42 = findall(x->occursin("m_{\\pi}L>4.1",x), mods)
+
+mods_SU3a2 = findall(x->occursin("[\\chi SU(3)][a^2]",x), mods)
+mods_SU3as = findall(x->occursin("[\\chi SU(3)][a^2\\alpha",x), mods)
+mods_SU3a2phi2 = findall(x->occursin("[\\chi SU(3)][a^2+a^2\\phi_2]",x), mods)
+
+mods_Taya2 = findall(x->occursin("[Tay][a^2]",x), mods)
+mods_Tayas = findall(x->occursin("[Tay][a^2\\alpha",x), mods)
+mods_Taya2phi2 = findall(x->occursin("[Tay][a^2+a^2\\phi_2]",x), mods)
+
+mods_Tay4a2 = findall(x->occursin("[Tay4][a^2]",x), mods)
+mods_Tay4as = findall(x->occursin("[Tay4][a^2\\alpha",x), mods)
+mods_Tay4a2phi2 = findall(x->occursin("[Tay4][a^2+a^2\\phi_2]",x), mods)
+
+mods_SU2a2 = findall(x->occursin("[\\chi SU(2)][a^2]",x), mods)
+mods_SU2as = findall(x->occursin("[\\chi SU(2)][a^2\\alpha",x), mods)
+mods_SU2a2phi2 = findall(x->occursin("[\\chi SU(2)][a^2+a^2\\phi_2]",x), mods)
+
+mods_c_nocut = findall(x->occursin("[-]",x), mods_c)
+mods_c_b340 = findall(x->occursin("3.40]",x), mods_c)
+mods_c_b346 = findall(x->occursin("3.46]",x), mods_c)
+mods_c_m420 = findall(x->occursin("420\\;MeV]",x), mods_c)
+mods_c_m350 = findall(x->occursin("350\\;MeV]",x), mods_c)
+mods_c_b340m420 = findall(x->occursin("\\beta>3.40\\;&\\;m_{\\pi}<420",x), mods_c)
+mods_c_mL42 = findall(x->occursin("m_{\\pi}L>4.1",x), mods_c)
+
+mods_c_SU3a2 = findall(x->occursin("[\\chi SU(3)][a^2]",x), mods_c)[1:7]
+mods_c_SU3as = findall(x->occursin("[\\chi SU(3)][a^2\\alpha",x), mods_c)
+mods_c_SU3a2a2phi2 = findall(x->occursin("[\\chi SU(3)][a^2][a^2",x), mods_c)
+mods_c_SU3a2phi2a2 = findall(x->occursin("[\\chi SU(3)][a^2+a^2\\phi_2][a^2]",x), mods_c)
+mods_c_SU3a2phi2 = findall(x->occursin("[\\chi SU(3)][a^2+a^2\\phi_2]",x), mods_c)[8:end]
+
+mods_c_Taya2 = findall(x->occursin("[Tay][a^2]",x), mods_c)[1:7]
+mods_c_Tayas = findall(x->occursin("[Tay][a^2\\alpha",x), mods_c)
+mods_c_Taya2a2phi2 = findall(x->occursin("[Tay][a^2][a^2",x), mods_c)
+mods_c_Taya2phi2a2 = findall(x->occursin("[Tay][a^2+a^2\\phi_2][a^2",x), mods_c)
+mods_c_Taya2phi2 = findall(x->occursin("[Tay][a^2+a^2\\phi_2]",x), mods_c)[7:end]
+
+mods_c_Tay4a2 = findall(x->occursin("[Tay4][a^2]",x), mods_c)[1:7]
+mods_c_Tay4as = findall(x->occursin("[Tay4][a^2\\alpha",x), mods_c)
+mods_c_Tay4a2a2phi2 = findall(x->occursin("[Tay4][a^2][a^2",x), mods_c)
+mods_c_Tay4a2phi2a2 = findall(x->occursin("[Tay4][a^2+a^2\\phi_2][a^2",x), mods_c)
+mods_c_Tay4a2phi2 = findall(x->occursin("[Tay4][a^2+a^2\\phi_2]",x), mods_c)[6:end]
+
+mods_c_SU2a2 = findall(x->occursin("[\\chi SU(2)][a^2]",x), mods_c)[1:5]
+mods_c_SU2as = findall(x->occursin("[\\chi SU(2)][a^2\\alpha",x), mods_c)
+mods_c_SU2a2a2phi2 = findall(x->occursin("[\\chi SU(2)][a^2][a^2",x), mods_c)
+mods_c_SU2a2phi2a2 = findall(x->occursin("[\\chi SU(2)][a^2+a^2\\phi_2][a^2]",x), mods_c)
+mods_c_SU2a2phi2 = findall(x->occursin("[\\chi SU(2)][a^2+a^2\\phi_2]",x), mods_c)[6:end]
+
+mods_c_models = [mods_c_SU3a2, mods_c_SU3as, mods_c_SU3a2a2phi2, mods_c_SU3a2phi2a2, mods_c_SU3a2phi2,
+                 mods_c_Taya2, mods_c_Tayas, mods_c_Taya2a2phi2, mods_c_Taya2phi2a2, mods_c_Taya2phi2,
+                 mods_c_Tay4a2, mods_c_Tay4a2a2phi2, mods_c_Tay4a2phi2a2, mods_c_Tay4a2phi2,
+                 mods_c_SU2a2, mods_c_SU2as, mods_c_SU2a2a2phi2, mods_c_SU2a2phi2a2, mods_c_SU2a2phi2]
+
+mods_models = [mods_SU3a2, mods_SU3as, mods_SU3a2phi2,
+               mods_Taya2, mods_Tayas, mods_Taya2phi2,
+               mods_Tay4a2, mods_Tay4a2phi2,
+               mods_SU2a2, mods_SU2as, mods_SU2a2phi2]
+
+mods_cuts = [mods_nocut, mods_b340, mods_b346, mods_m420, mods_b340m420, mods_m350, mods_mL42]
+
+mods_c_cuts = [mods_c_nocut, mods_c_b340, mods_c_b346, mods_c_m420, mods_c_b340m420, mods_c_m350, mods_c_mL42]
+
+
+
+
+
+mods_cuts_lab = [L"$[-]$",
+                 L"$[\beta>3.40]$",
+                 L"$[\beta>3.46]$",
+                 L"$[m_{\pi}<420\;MeV]$",
+                 L"$[\beta>3.40\;&\;m_{\pi}<420\;MeV]$",
+                 L"$[m_{\pi}<350\;MeV]$",
+                 L"$[m_{\pi}L>4.1]$"]
+
+mods_models_lab = [L"$[\chi SU(3)][a^2]$", 
+            L"$[\chi SU(3)][a^2\alpha_s^{\hat{\Gamma}}]$", 
+            L"$[\chi SU(3)][a^2+a^2\phi_2]$", 
+            L"$[Tay][a^2]$", 
+            L"$[Tay][a^2\alpha_s^{\hat{\Gamma}}]$", 
+            L"$[Tay][a^2+a^2\phi_2]$", 
+            L"$[Tay4][a^2]$", 
+            L"$[Tay4][a^2+a^2\phi_2]$",
+            L"$[\chi SU(2)][a^2]$", 
+            L"$[\chi SU(2)][a^2\alpha_s^{\hat{\Gamma}}]$", 
+            L"$[\chi SU(2)][a^2+a^2\phi_2]$"]
+
+mods_c_models_lab = [L"$[\chi SU(3)][a^2]$", 
+            L"$[\chi SU(3)][a^2\alpha_s^{\hat{\Gamma}}]$", 
+            L"$[\chi SU(3)][a^2][a^2+a^2\phi_2]$", 
+            L"$[\chi SU(3)][a^2+a^2\phi_2][a^2]$", 
+            L"$[\chi SU(3)][a^2+a^2\phi_2]$", 
+            L"$[Tay][a^2]$", 
+            L"$[Tay][a^2\alpha_s^{\hat{\Gamma}}]$", 
+            L"$[Tay][a^2][a^2+a^2\phi_2]$", 
+            L"$[Tay][a^2+a^2\phi_2][a^2]$", 
+            L"$[Tay][a^2+a^2\phi_2]$", 
+            L"$[Tay4][a^2]$", 
+            L"$[Tay4][a^2][a^2+a^2\phi_2]$",
+            L"$[Tay4][a^2+a^2\phi_2][a^2]$",
+            L"$[Tay4][a^2+a^2\phi_2]$",
+            L"$[\chi SU(2)][a^2]$", 
+            L"$[\chi SU(2)][a^2\alpha_s^{\hat{\Gamma}}]$", 
+            L"$[\chi SU(2)][a^2][a^2+a^2\phi_2]$",
+            L"$[\chi SU(2)][a^2+a^2\phi_2][a^2]$",
+            L"$[\chi SU(2)][a^2+a^2\phi_2]$"]

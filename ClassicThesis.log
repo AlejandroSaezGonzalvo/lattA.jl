@@ -1,0 +1,714 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  20 MAY 2024 15:59
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**classicthesis/ClassicThesis.tex
+(./classicthesis/ClassicThesis.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21>
+(/usr/share/texlive/texmf-dist/tex/latex/silence/silence.sty
+Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error mes
+sages
+\sl@Save=\count185
+\sl@StateNumber=\count186
+\sl@MessageCount=\count187
+\sl@Casualties=\count188
+\sl@Filter=\toks16
+\sl@Message=\toks17
+\sl@UnexpandedMessage=\toks18
+\sl@Mess@ge=\toks19
+\sl@WarningCount=\count189
+\sl@WarningNumber=\count190
+\sl@WarningCasualties=\count191
+\sl@TempBOW=\toks20
+\sl@BankOfWarnings=\toks21
+LaTeX Info: Redefining \GenericWarning on input line 433.
+\sl@ErrorCount=\count192
+\sl@ErrorNumber=\count193
+\sl@ErrorCasualties=\count194
+\sl@TempBOE=\toks22
+\sl@BankOfErrors=\toks23
+LaTeX Info: Redefining \GenericError on input line 601.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrreprt.cls
+Document Class: scrreprt 2021/11/13 v3.35 KOMA-Script document class (report)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2021/11/13 v3.35 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2021/11/13 v3.35 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2021/11/13 v3.35 KOMA-Script package (file load hooks)
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2021/11/13 v3.35 KOMA-Script package (using LaTeX hooks)
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2021/11/13 v3.35 KOMA-Script package (logo)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks24
+)
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 368.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2021/11/13 v3.35 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip47
+\scr@dte@tocline@numbox=\box50
+)
+Package tocbasic Info: babel extension for `toc' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 137.
+Class scrreprt Info: You've used standard option `openright'.
+(scrreprt)           This is correct!
+(scrreprt)           Internally I'm using `open=right'.
+(scrreprt)           If you'd like to set the option with \KOMAoptions,
+(scrreprt)           you'd have to use `open=right' there
+(scrreprt)           instead of `openright', too.
+Class scrreprt Info: File `scrsize11pt.clo' used to setup font sizes on input l
+ine 2487.
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrsize11pt.clo
+File: scrsize11pt.clo 2021/11/13 v3.35 KOMA-Script font size class option (11pt
+)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2021/11/13 v3.35 KOMA-Script package (type area)
+\ta@bcor=\skip48
+\ta@div=\count195
+\ta@hblk=\skip49
+\ta@vblk=\skip50
+\ta@temp=\skip51
+\footheight=\skip52
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 14.22636pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 408.2971pt
+(typearea)              DIV departure   = -3%
+(typearea)              \evensidemargin = 44.38632pt
+(typearea)              \oddsidemargin  = 0.28453pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 514.20023pt
+(typearea)              \topmargin      = 12.2347pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1743.
+)
+\c@part=\count196
+\c@chapter=\count197
+\c@section=\count198
+\c@subsection=\count199
+\c@subsubsection=\count266
+\c@paragraph=\count267
+\c@subparagraph=\count268
+\scr@dte@chapter@maxnumwidth=\skip53
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\chapter on input line 5717.
+\scr@dte@section@maxnumwidth=\skip54
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\section on input line 5728.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\section on input line 5728.
+\scr@dte@part@maxnumwidth=\skip55
+Class scrreprt Info: using compatibility default `afterindent=true'
+(scrreprt)           for `\part on input line 5737.
+\scr@dte@subsection@maxnumwidth=\skip56
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\subsection on input line 5747.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\subsection on input line 5747.
+\scr@dte@subsubsection@maxnumwidth=\skip57
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\subsubsection on input line 5757.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\subsubsection on input line 5757.
+\scr@dte@paragraph@maxnumwidth=\skip58
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\paragraph on input line 5768.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\paragraph on input line 5768.
+\scr@dte@subparagraph@maxnumwidth=\skip59
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\subparagraph on input line 5778.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\subparagraph on input line 5778.
+\abovecaptionskip=\skip60
+\belowcaptionskip=\skip61
+\c@pti@nb@sid@b@x=\box51
+Package tocbasic Info: babel extension for `lof' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 6958.
+
+\scr@dte@figure@maxnumwidth=\skip62
+\c@figure=\count269
+Package tocbasic Info: babel extension for `lot' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 6974.
+
+\scr@dte@table@maxnumwidth=\skip63
+\c@table=\count270
+Class scrreprt Info: Redefining `\numberline' on input line 7142.
+\bibindent=\dimen138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen139
+\captionmargin@=\dimen140
+\captionwidth=\dimen141
+\caption@tempdima=\dimen142
+\caption@indent=\dimen143
+\caption@parindent=\dimen144
+\caption@hangindent=\dimen145
+Package caption Info: KOMA-Script document class detected.
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-koma.sto
+File: caption-koma.sto 2020/09/21 v2.0b Adaption of the caption package to the 
+KOMA-Script document classes (AR)
+))
+\c@caption@flags=\count271
+\c@continuedfloat=\count272
+)
+\c@subfigure=\count273
+\c@subtable=\count274
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen146
+\Gin@req@width=\dimen147
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip64
+\LTright=\skip65
+\LTpre=\skip66
+\LTpost=\skip67
+\LTchunksize=\count275
+\LTcapwidth=\dimen148
+\LT@head=\box52
+\LT@firsthead=\box53
+\LT@foot=\box54
+\LT@lastfoot=\box55
+\LT@gbox=\box56
+\LT@cols=\count276
+\LT@rows=\count277
+\c@LT@tables=\count278
+\c@LT@chunks=\count279
+\LT@p@ftn=\toks25
+)
+Class scrreprt Info: longtable captions redefined on input line 43.
+
+(/usr/share/texlive/texmf-dist/tex/latex/yfonts/yfonts.sty
+Package: yfonts 2019/04/04 v1.4 (WaS&NP)
+Now handling font encoding LY ...
+... no UTF-8 mapping file for font encoding LY
+Now handling font encoding LYG ...
+... no UTF-8 mapping file for font encoding LYG
+LaTeX Info: Composite with undeclared \" in encoding LYG on input line 58.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks26
+\XKV@tempa@toks=\toks27
+)
+\XKV@depth=\count280
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box57
+)
+\tc@llx=\dimen149
+\tc@lly=\dimen150
+\tc@urx=\dimen151
+\tc@ury=\dimen152
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen153
+\adjbox@Height=\dimen154
+\adjbox@Depth=\dimen155
+\adjbox@Totalheight=\dimen156
+\adjbox@pwidth=\dimen157
+\adjbox@pheight=\dimen158
+\adjbox@pdepth=\dimen159
+\adjbox@ptotalheight=\dimen160
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count281
+)
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box58
+\sift@deathcycles=\count282
+\@vwid@loff=\dimen161
+\@vwid@roff=\dimen162
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count283
+\rotFPtop=\skip68
+\rotFPbot=\skip69
+\rot@float@box=\box59
+\rot@mess@toks=\toks28
+)
+
+! LaTeX Error: File `classicthesis-config.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+(/usr/share/texlive/texmf-dist/tex/latex/tools/.tex File ignored)
+! Undefined control sequence.
+l.55 \addbibresource
+                    {Bibliography.bib}
+? 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 \addbibresource{B
+                      ibliography.bib}
+? 
+! Undefined control sequence.
+l.56 \addbibresource
+                    [label=ownpubs]{publications.bib}
+? 
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count284
+\l__pdf_internal_box=\box60
+)
+No file ClassicThesis.aux.
+\openout1 = `ClassicThesis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+Package scrbase Info: activating english \contentsname on input line 66.
+Package scrbase Info: activating english \listfigurename on input line 66.
+Package scrbase Info: activating english \listtablename on input line 66.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: longtable package is loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+)
+Package caption Info: rotating package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count285
+\scratchdimen=\dimen163
+\scratchbox=\box61
+\nofMPsegments=\count286
+\nofMParguments=\count287
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count288
+\MPscratchDim=\dimen164
+\MPnumerator=\count289
+\makeMPintoPDFobject=\count290
+\everyMPtoPDFconversion=\toks30
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+! Not loaded.
+\selectlanguage ...ing it}\errmessage {Not loaded}
+                                                  
+l.69 \selectlanguage
+                    {american} % american ngerman
+? 
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.77 \include{FrontBackmatter/Titlepage}
+                                        
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name: 
+! I can't write on file `FrontBackmatter/Titlepage.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immedia

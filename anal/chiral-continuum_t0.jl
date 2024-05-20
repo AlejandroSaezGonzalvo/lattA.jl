@@ -837,7 +837,7 @@ fpik_add = true
     sqrt_t0_ph_vec[ixx][c]
 
     #=
-    fb = BDIO_open("/home/asaez/cls_ens/results/t0_combined_4th.bdio", "w")
+    fb = BDIO_open("/home/asaez/cls_ens/results/t0_3rd.bdio", "w")
     write_uwreal(sqrt_t0_ph[1] ^ 2, fb, 1)
     write_uwreal(sqrt_t0_ph[2] ^ 2, fb, 2)
     write_uwreal(sqrt_t0_ph[3] ^ 2, fb, 3)

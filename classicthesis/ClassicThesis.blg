@@ -11,10 +11,6 @@ A level-1 auxiliary file: FrontBackmatter/Publications.aux
 A level-1 auxiliary file: FrontBackmatter/Acknowledgments.aux
 A level-1 auxiliary file: FrontBackmatter/Contents.aux
 A level-1 auxiliary file: introduction/introduction.aux
-White space in argument---line 65 of file ClassicThesis.aux
- : \citation{Borsanyi
- :                    Nature 593}
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: introduction/introduccion.aux
 A level-1 auxiliary file: cap2/lattice.aux
 A level-1 auxiliary file: cap3/observables.aux
@@ -47,7 +43,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 16760 items from 5000.
+Reallocated field_info (elt_size=4) to 17740 items from 5000.
 Database file #1: ClassicThesis-blx.bib
 Database file #2: Bibliography.bib
 Database file #3: publications.bib
@@ -56,45 +52,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis" for entry Brown:2018jtv
 while executing---line 2815 of file biblatex.bst
-You've used 84 entries,
+You've used 91 entries,
             6399 wiz_defined-function locations,
-            1895 strings with 26983 characters,
-and the built_in function-call counts, 748480 in all, are:
-= -- 60747
-> -- 10019
-< -- 2490
-+ -- 22012
-- -- 4516
-* -- 58213
-:= -- 87518
+            1952 strings with 28228 characters,
+and the built_in function-call counts, 783370 in all, are:
+= -- 63042
+> -- 10592
+< -- 2650
++ -- 22833
+- -- 4790
+* -- 60817
+:= -- 90963
 add.period$ -- 0
-call.type$ -- 84
-change.case$ -- 83
+call.type$ -- 91
+change.case$ -- 90
 chr.to.int$ -- 74
-cite$ -- 166
-duplicate$ -- 78023
-empty$ -- 64314
-format.name$ -- 6430
-if$ -- 149447
+cite$ -- 180
+duplicate$ -- 81988
+empty$ -- 67710
+format.name$ -- 6775
+if$ -- 156662
 int.to.chr$ -- 0
-int.to.str$ -- 199
+int.to.str$ -- 213
 missing$ -- 0
-newline$ -- 3416
-num.names$ -- 3562
-pop$ -- 30276
+newline$ -- 3634
+num.names$ -- 3811
+pop$ -- 32586
 preamble$ -- 1
-purify$ -- 1398
+purify$ -- 1482
 quote$ -- 0
-skip$ -- 16042
+skip$ -- 17097
 stack$ -- 0
-substring$ -- 115321
-swap$ -- 14576
-text.length$ -- 2597
-text.prefix$ -- 83
+substring$ -- 119083
+swap$ -- 15589
+text.length$ -- 2759
+text.prefix$ -- 90
 top$ -- 1
-type$ -- 2842
+type$ -- 3080
 warning$ -- 0
-while$ -- 10697
+while$ -- 11143
 width$ -- 0
-write$ -- 3333
-(There were 2 error messages)
+write$ -- 3544
+(There was 1 error message)

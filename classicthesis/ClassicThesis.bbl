@@ -143,6 +143,39 @@
     \field{year}{2022}
   \endentry
 
+  \entry{Aoyama:2020ynm}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=AT}{%
+         family={Aoyama},
+         familyi={A\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AT+1}
+    \strng{fullhash}{AT+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1016/j.physrep.2020.07.006
+    \endverb
+    \verb{eprint}
+    \verb 2006.04822
+    \endverb
+    \field{pages}{1\bibrangedash 166}
+    \field{title}{{The anomalous magnetic moment of the muon in the Standard
+  Model}}
+    \field{volume}{887}
+    \field{journaltitle}{Phys. Rept.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2020}
+  \endentry
+
   \entry{RQCD_scale}{article}{}
     \name{author}{10}{}{%
       {{hash=BGS}{%
@@ -299,6 +332,38 @@
     \field{year}{2016}
   \endentry
 
+  \entry{Muong-2:2006rrc}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=BGW}{%
+         family={Bennett},
+         familyi={B\bibinitperiod},
+         given={G.\bibnamedelima W.},
+         giveni={G\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BGW+1}
+    \strng{fullhash}{BGW+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.73.072003
+    \endverb
+    \verb{eprint}
+    \verb hep-ex/0602035
+    \endverb
+    \field{pages}{072003}
+    \field{title}{{Final Report of the Muon E821 Anomalous Magnetic Moment
+  Measurement at BNL}}
+    \field{volume}{73}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{year}{2006}
+  \endentry
+
   \entry{Bernard:2000gd}{article}{}
     \name{author}{10}{}{%
       {{hash=BCW}{%
@@ -442,6 +507,40 @@
     \field{year}{2015}
   \endentry
 
+  \entry{Borsanyi:2020mff}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=BS}{%
+         family={Borsanyi},
+         familyi={B\bibinitperiod},
+         given={Sz.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BS+1}
+    \strng{fullhash}{BS+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1038/s41586-021-03418-1
+    \endverb
+    \verb{eprint}
+    \verb 2002.12347
+    \endverb
+    \field{number}{7857}
+    \field{pages}{51\bibrangedash 55}
+    \field{title}{{Leading hadronic contribution to the muon magnetic moment
+  from lattice QCD}}
+    \field{volume}{593}
+    \field{journaltitle}{Nature}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2021}
+  \endentry
+
   \entry{BMW:2012hcm}{article}{}
     \name{author}{10}{}{%
       {{hash=BS}{%
@@ -505,7 +604,7 @@
          giveni={C\bibinitperiod},
       }}%
     }
-    \strng{namehash}{BS+1}
+    \strng{namehash}{BS+2}
     \strng{fullhash}{BSDSFZHCKSDKSKTLLLTMC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -842,6 +941,48 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2018}
+  \endentry
+
+  \entry{Capdevila:2023yhq}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CB}{%
+         family={Capdevila},
+         familyi={C\bibinitperiod},
+         given={Bernat},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Crivellin},
+         familyi={C\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Matias},
+         familyi={M\bibinitperiod},
+         given={Joaquim},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CBCAMJ1}
+    \strng{fullhash}{CBCAMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1140/epjs/s11734-023-01012-2
+    \endverb
+    \verb{eprint}
+    \verb 2309.01311
+    \endverb
+    \field{pages}{20}
+    \field{title}{{Review of semileptonic B anomalies}}
+    \field{volume}{1}
+    \field{journaltitle}{Eur. Phys. J. ST}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2023}
   \endentry
 
   \entry{Clark:2006fx}{article}{}
@@ -2652,6 +2793,21 @@
     \field{year}{1953}
   \endentry
 
+  \entry{MillenniumPrizeproblems}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1093/oi/authority.20110803100158288
+    \endverb
+    \field{isbn}{9780191727122}
+    \field{title}{Millennium Prize problems}
+    \verb{url}
+    \verb https://www.oxfordreference.com/view/10.1093/oi/authority.20110803100
+    \verb 158288
+    \endverb
+  \endentry
+
   \entry{Mohler:2020txx}{article}{}
     \name{author}{2}{}{%
       {{hash=MD}{%
@@ -3055,6 +3211,43 @@
     \field{year}{2021}
   \endentry
 
+  \entry{Ricciardi:2019zph}{article}{}
+    \name{author}{2}{}{%
+      {{hash=RG}{%
+         family={Ricciardi},
+         familyi={R\bibinitperiod},
+         given={Giulia},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={Rotondo},
+         familyi={R\bibinitperiod},
+         given={Marcello},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RGRM1}
+    \strng{fullhash}{RGRM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \verb{doi}
+    \verb 10.1088/1361-6471/ab9f01
+    \endverb
+    \verb{eprint}
+    \verb 1912.09562
+    \endverb
+    \field{pages}{113001}
+    \field{title}{{Determination of the Cabibbo-Kobayashi-Maskawa matrix
+  element $|V_{cb}|$}}
+    \field{volume}{47}
+    \field{journaltitle}{J. Phys. G}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2020}
+  \endentry
+
   \entry{Schaefer:2010hu}{article}{}
     \name{author}{3}{}{%
       {{hash=SS}{%
@@ -3377,6 +3570,35 @@
     \field{volume}{26}
     \field{journaltitle}{Nucl. Phys. B Proc. Suppl.}
     \field{year}{1992}
+  \endentry
+
+  \entry{Wilczek:1998ma}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WF}{%
+         family={Wilczek},
+         familyi={W\bibinitperiod},
+         given={Frank},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WF1}
+    \strng{fullhash}{WF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{doi}
+    \verb 10.1103/RevModPhys.71.S85
+    \endverb
+    \verb{eprint}
+    \verb hep-th/9803075
+    \endverb
+    \field{pages}{S85\bibrangedash S95}
+    \field{title}{{Quantum field theory}}
+    \field{volume}{71}
+    \field{journaltitle}{Rev. Mod. Phys.}
+    \field{eprinttype}{arXiv}
+    \field{year}{1999}
   \endentry
 
   \entry{Wilson:1974sk}{article}{}
