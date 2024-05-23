@@ -8,7 +8,7 @@
 
 In this Appendix we discuss how to perform the data analysis of correlation functions and the different lattice observables extracted from lattice simulations. 
 
-As detailed in Appendix~\ref{appex_simulations}, lattice data is measured from Monte Carlo (MC) sampling, and estimates of expectation values of physical observables are extracted from means over the MC time. A crucial step is to assign a proper statistical and systematic uncertainties to these mean values, for which it is needed to take into account the autocorrelated nature of MC measurements. This autocorrelation arises form the fact that each gauge configuration is proposed from the previous one (Markov chain). Some popular methods to deal with these correlations are binning, bootstrap and the jack-knife methods.
+As detailed in Appendix~\ref{appex_simulations}, lattice data is measured from Monte Carlo (MC) sampling, and estimates of expectation values of physical observables are extracted from means over the MC time. A crucial step is to assign a proper statistical and systematic uncertainties to these mean values, for which it is needed to take into account the autocorrelated nature of MC measurements. This autocorrelation arises from the fact that each gauge configuration is proposed from the previous one (Markov chain). Some popular methods to deal with these correlations are binning, bootstrap and the jack-knife methods.
 
 A recent technique which we will use in this work was proposed by the ALPHA collaboration~\citep{Schaefer:2010hu,Wolff:2003sm,Ramos:2018vgu} and is known as $\Gamma$-method, which explicitly computes the autocorrelation function to estimate the statistical uncertainty.
 
@@ -16,7 +16,7 @@ In lattice simulations typically one measures a primary observable $p_i$ over se
 \begin{equation}
 p_i^{\alpha}(k), k=1,...,N_{\alpha},
 \end{equation}
-where $\alpha$ labels the ensemble and $k$ is the MC time running over the total number of gauge configurations $N_{\alpha}$ of the given ensemble. In our context, primary observable means a correlation function for some given euclidean time. An estimate for the true value $P_i^{\alpha}$ is given by the mean value
+where $\alpha$ labels the ensemble and $k$ is the MC time running over the total number of gauge configurations $N_{\alpha}$ of the given ensemble. In our context, primary observable means a correlation function for some given Euclidean time. An estimate for the true value $P_i^{\alpha}$ is given by the mean value
 \begin{equation}
 \bar{p}_i^{\alpha}=\frac{1}{N_{\alpha}}\sum_{k=1}^{N_{\alpha}}p_i^{\alpha}(k)\xrightarrow[N_{\alpha}\rightarrow\infty]{}P_i^{\alpha}.
 \end{equation}
@@ -70,11 +70,11 @@ The slowest mode $\tau_0\equiv\tau_{\textrm{exp}}$ is called the exponential aut
 \begin{equation}
 W_F^{\alpha}=\textrm{min}_W\left(\sqrt{\frac{2(2W+1)}{N_{\alpha}}}+e^{-W/\tau_{\textrm{exp}}^{\alpha}}\right).
 \end{equation}
-In~\citep{Wolff:2003sm} it was proposed to set $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$, with $S_{\tau}$ some value between 2 and 5. One can also vary $W_F^{\alpha}$ until saturation in $\tau_{\textrm{int}}^{\alpha}$ is reached. Finally it was also proposed to add an exponential tail~\citep{Wolff:2003sm}
+In~\citep{Wolff:2003sm} it was proposed to set $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$, with $S_{\tau}$ some value between 2 and 5. One can also vary $W_F^{\alpha}$ until saturation in $\tau_{\textrm{int}}^{\alpha}$ is reached. Finally, it was also proposed to add an exponential tail~\citep{Wolff:2003sm}
 \begin{equation}
 \tau_{\textrm{exp}}^{\alpha}\frac{\Gamma_F^{\alpha}(W_F^{\alpha}+1)}{\Gamma_F^{\alpha}(0)},
 \end{equation}
-to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of truncating the sum over MC time. For this an estimate of $\tau_{\textrm{exp}}^{\alpha}$ is needed for each ensemble. In the case of CLS ensembles an estimation is given in~\citep{Bruno:2014jqa}
+to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of truncating the sum over MC time. For this, an estimate of $\tau_{\textrm{exp}}^{\alpha}$ is needed for each ensemble. In the case of CLS ensembles an estimation is given in~\citep{Bruno:2014jqa}
 \begin{equation}
 \tau_{\textrm{exp}}^{\alpha}=14(3)\frac{t_0}{a^2}.
 \end{equation}

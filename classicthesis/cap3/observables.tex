@@ -366,7 +366,7 @@ It will be this gradient flow scale $t_0$ which we will use as an intermediate s
 \section{Ground state signals and model average}
 \label{ch_observables:sec:MA}
 
-So far, we have expressed all physical observables under study as functions of the euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met, and in the lattice community there are different approaches to address this issue, see e.g.~\citep{Strassberger:2023xnj,Bruno:2016plf,RQCD_scale}. Our choice is to employ model averaging techniques as proposed in~\citep{Neil:2022joj,Neil:2023pgt,Frison:2023jbv}.
+So far, we have expressed all physical observables under study as functions of the Euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met, and in the lattice community there are different approaches to address this issue, see e.g.~\citep{Strassberger:2023xnj,Bruno:2016plf,RQCD_scale}. Our choice is to employ model averaging techniques as proposed in~\citep{Neil:2022joj,Neil:2023pgt,Frison:2023jbv}.
 
 The idea is to investigate multiple fit functions and/or several fit ranges and assign an Information Criterion ${\textrm{IC}}$ to each choice, which allows to compute a weight
 \begin{equation}
@@ -387,7 +387,7 @@ For fitting we use a least-squares method that seeks to minimize a $\chi^2$ func
 \label{ch_observables:eq:TIC}
 {\textrm{TIC}}=\chi^2-2\left<\chi^2\right>,
 \end{equation}
-where $\left<\chi^2\right>$ is a measure of the expected value of the $\chi^2$~\citep{Bruno:2022mfy}. This IC is well-behaved for cases where fully correlated fits cannot be performed (see Appendix~\ref{apex_chisq} for details), which is our case when fitting observables along the euclidean time direction. For a fully correlated fit, $\left<\chi^2\right>={\textrm{dof}}$, and thus the TIC reduces to the proposal in~\citep{Neil:2022joj}
+where $\left<\chi^2\right>$ is a measure of the expected value of the $\chi^2$~\citep{Bruno:2022mfy}. This IC is well-behaved for cases where fully correlated fits cannot be performed (see Appendix~\ref{apex_chisq} for details), which is our case when fitting observables along the Euclidean time direction. For a fully correlated fit, $\left<\chi^2\right>={\textrm{dof}}$, and thus the TIC reduces to the proposal in~\citep{Neil:2022joj}
 \begin{equation}
 {\textrm{TIC}}=\chi^2+2n_{\textrm{param}}+2n_{\textrm{cut}},
 \end{equation}
@@ -457,7 +457,7 @@ This model averaging technique will also be used for the chiral and continuum ex
     	\includegraphics[width=\textwidth]{./cap3/figs/t0_H101.pdf}
     	\caption{}
     \end{subfigure}
-    \caption{(a): $t^2E(x_0,t)$ for one value of the flow time $t/a^2$ near $t_0/a^2$ as a function of the euclidean time $x_0/a$, with $E(x_0,t)$ the space volume averaged energy density. The latter is defined in eq.~(\ref{ch_observables:eq:E}). (b): euclidean-time averaged values of $t^2\left<E(x_0,t)\right>_{x_0}$ for several flow times $t/a^2$ (blue points) near $t_0/a^2$ (defined in eq.~(\ref{ch_observables:eq:t0})) and the interpolated result for $t_0/a^2$ (orange point). Results for ensemble H101.}
+    \caption{(a): $t^2E(x_0,t)$ for one value of the flow time $t/a^2$ near $t_0/a^2$ as a function of the Euclidean time $x_0/a$, with $E(x_0,t)$ the space volume averaged energy density. The latter is defined in eq.~(\ref{ch_observables:eq:E}). (b): Euclidean-time averaged values of $t^2\left<E(x_0,t)\right>_{x_0}$ for several flow times $t/a^2$ (blue points) near $t_0/a^2$ (defined in eq.~(\ref{ch_observables:eq:t0})) and the interpolated result for $t_0/a^2$ (orange point). Results for ensemble H101.}
         \label{ch_observables:fig:t2E}
 \end{figure}
 

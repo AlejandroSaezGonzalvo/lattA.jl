@@ -12,52 +12,53 @@
 \contentsline {section}{\numberline {1.2}{Pure gauge SU(3) in the lattice}}{18}{section.1.2}%
 \contentsline {section}{\numberline {1.3}{Introducing fermions in the lattice}}{19}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}{Naive fermions}}{19}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}{Wilson fermions}}{21}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.2}{Wilson fermions}}{22}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}{Wilson twisted mass fermions}}{23}{subsection.1.3.3}%
-\contentsline {section}{\numberline {1.4}{Path integral regularization}}{24}{section.1.4}%
+\contentsline {section}{\numberline {1.4}{Path integral regularization}}{25}{section.1.4}%
 \contentsline {section}{\numberline {1.5}{Continuum limit}}{26}{section.1.5}%
-\contentsline {section}{\numberline {1.6}{Symanzik improvement program}}{27}{section.1.6}%
-\contentsline {section}{\numberline {1.7}{Scale setting}}{30}{section.1.7}%
-\contentsline {chapter}{\numberline {2}{On the extraction of physical observables}}{33}{chapter.2}%
-\contentsline {section}{\numberline {2.1}{Introduction}}{33}{section.2.1}%
-\contentsline {section}{\numberline {2.2}{Correlation functions}}{33}{section.2.2}%
-\contentsline {section}{\numberline {2.3}{Meson masses}}{37}{section.2.3}%
-\contentsline {section}{\numberline {2.4}{Decay constants}}{37}{section.2.4}%
-\contentsline {section}{\numberline {2.5}{Quark masses}}{39}{section.2.5}%
-\contentsline {section}{\numberline {2.6}{Gradient flow}}{40}{section.2.6}%
-\contentsline {section}{\numberline {2.7}{Ground state signals and model average}}{41}{section.2.7}%
-\contentsline {part}{\numberline {iii}{Precision Physics from a Lattice QCD Mixed Action}}{49}{part.3}%
-\contentsline {chapter}{\numberline {3}{Mixed action setup}}{51}{chapter.3}%
-\contentsline {section}{\numberline {3.1}{Motivation}}{51}{section.3.1}%
-\contentsline {section}{\numberline {3.2}{Sea sector}}{52}{section.3.2}%
-\contentsline {section}{\numberline {3.3}{Valence sector}}{53}{section.3.3}%
-\contentsline {section}{\numberline {3.4}{Chiral trajectory}}{53}{section.3.4}%
-\contentsline {section}{\numberline {3.5}{Matching and tuning to full twist}}{60}{section.3.5}%
-\contentsline {chapter}{\numberline {4}{Scale setting}}{63}{chapter.4}%
-\contentsline {section}{\numberline {4.1}{Motivation}}{63}{section.4.1}%
-\contentsline {section}{\numberline {4.2}{Results: the physical point}}{64}{section.4.2}%
-\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{69}{section.4.3}%
-\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{75}{section.4.4}%
-\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{76}{section.4.5}%
-\contentsline {part}{\numberline {iv}{Conclusions}}{77}{part.4}%
-\contentsline {chapter}{Conclusions and outlook}{79}{part.4}%
-\contentsline {chapter}{Conclusiones y perspectivas}{81}{equation.4.5.56}%
-\contentsline {part}{\numberline {v}{Appendices}}{83}{part.5}%
-\contentsline {chapter}{\numberline {A}{Conventions}}{85}{appendix.A}%
-\contentsline {chapter}{\numberline {B}{Lattice ensembles}}{87}{appendix.B}%
-\contentsline {chapter}{\numberline {C}{Lattice observables}}{89}{appendix.C}%
-\contentsline {chapter}{\numberline {D}{Simulation details}}{93}{appendix.D}%
-\contentsline {section}{\numberline {D.1}{Metropolis algorithm}}{94}{section.D.1}%
-\contentsline {section}{\numberline {D.2}{Hybrid Monte Carlo}}{95}{section.D.2}%
-\contentsline {section}{\numberline {D.3}{Reweighting}}{96}{section.D.3}%
-\contentsline {chapter}{\numberline {E}{Error analysis}}{99}{appendix.E}%
-\contentsline {chapter}{\numberline {F}{Solvers}}{103}{appendix.F}%
-\contentsline {section}{\numberline {F.1}{Stochastic methods}}{103}{section.F.1}%
-\contentsline {section}{\numberline {F.2}{Iterative solvers}}{103}{section.F.2}%
-\contentsline {section}{\numberline {F.3}{Preconditioning}}{104}{section.F.3}%
-\contentsline {chapter}{\numberline {G}{Least-squares fitting}}{107}{appendix.G}%
-\contentsline {chapter}{\numberline {H}{Finite Volume Effects}}{109}{appendix.H}%
-\contentsline {chapter}{\numberline {I}{$\sqrt {t_0}$: Model variation}}{111}{appendix.I}%
+\contentsline {section}{\numberline {1.6}{Symanzik improvement program}}{28}{section.1.6}%
+\contentsline {section}{\numberline {1.7}{Scale setting}}{31}{section.1.7}%
+\contentsline {chapter}{\numberline {2}{On the extraction of physical observables}}{35}{chapter.2}%
+\contentsline {section}{\numberline {2.1}{Introduction}}{35}{section.2.1}%
+\contentsline {section}{\numberline {2.2}{Correlation functions}}{35}{section.2.2}%
+\contentsline {section}{\numberline {2.3}{Meson masses}}{39}{section.2.3}%
+\contentsline {section}{\numberline {2.4}{Decay constants}}{39}{section.2.4}%
+\contentsline {section}{\numberline {2.5}{Quark masses}}{41}{section.2.5}%
+\contentsline {section}{\numberline {2.6}{Gradient flow}}{42}{section.2.6}%
+\contentsline {section}{\numberline {2.7}{Ground state signals and model average}}{43}{section.2.7}%
+\contentsline {part}{\numberline {iii}{Precision Physics from a Lattice QCD Mixed Action}}{51}{part.3}%
+\contentsline {chapter}{\numberline {3}{Mixed action setup}}{53}{chapter.3}%
+\contentsline {section}{\numberline {3.1}{Motivation}}{53}{section.3.1}%
+\contentsline {section}{\numberline {3.2}{Sea sector}}{54}{section.3.2}%
+\contentsline {section}{\numberline {3.3}{Valence sector}}{55}{section.3.3}%
+\contentsline {section}{\numberline {3.4}{Chiral trajectory}}{55}{section.3.4}%
+\contentsline {section}{\numberline {3.5}{Matching and tuning to full twist}}{62}{section.3.5}%
+\contentsline {chapter}{\numberline {4}{Scale setting}}{65}{chapter.4}%
+\contentsline {section}{\numberline {4.1}{Motivation}}{65}{section.4.1}%
+\contentsline {section}{\numberline {4.2}{Results: the physical point}}{66}{section.4.2}%
+\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{71}{section.4.3}%
+\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{77}{section.4.4}%
+\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{78}{section.4.5}%
+\contentsline {part}{\numberline {iv}{Conclusions}}{79}{part.4}%
+\contentsline {chapter}{Conclusions and outlook}{81}{part.4}%
+\contentsline {chapter}{Conclusiones y perspectivas}{83}{equation.4.5.56}%
+\contentsline {part}{\numberline {v}{Appendices}}{85}{part.5}%
+\contentsline {chapter}{\numberline {A}{Conventions}}{87}{appendix.A}%
+\contentsline {chapter}{\numberline {B}{Gell-Mann matrices and structure constants}}{89}{appendix.B}%
+\contentsline {chapter}{\numberline {C}{Lattice ensembles}}{91}{appendix.C}%
+\contentsline {chapter}{\numberline {D}{Lattice observables}}{93}{appendix.D}%
+\contentsline {chapter}{\numberline {E}{Simulation details}}{97}{appendix.E}%
+\contentsline {section}{\numberline {E.1}{Metropolis algorithm}}{98}{section.E.1}%
+\contentsline {section}{\numberline {E.2}{Hybrid Monte Carlo}}{99}{section.E.2}%
+\contentsline {section}{\numberline {E.3}{Reweighting}}{100}{section.E.3}%
+\contentsline {chapter}{\numberline {F}{Error analysis}}{103}{appendix.F}%
+\contentsline {chapter}{\numberline {G}{Solvers}}{107}{appendix.G}%
+\contentsline {section}{\numberline {G.1}{Stochastic methods}}{107}{section.G.1}%
+\contentsline {section}{\numberline {G.2}{Iterative solvers}}{107}{section.G.2}%
+\contentsline {section}{\numberline {G.3}{Preconditioning}}{108}{section.G.3}%
+\contentsline {chapter}{\numberline {H}{Least-squares fitting}}{111}{appendix.H}%
+\contentsline {chapter}{\numberline {I}{Finite Volume Effects}}{113}{appendix.I}%
+\contentsline {chapter}{\numberline {J}{$\sqrt {t_0}$: Model variation}}{115}{appendix.J}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{121}{section*.25}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{125}{section*.25}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
