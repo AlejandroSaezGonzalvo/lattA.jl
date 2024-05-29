@@ -388,12 +388,19 @@ function bAt(beta::Float64)
     return 1 + 0.0472 * (6 / beta)
 end
 
-#PDG & FLAG21
 const hc = 197.3269804 #MeV fm
+
+#PDG & FLAG21
 const Mpi = uwreal([134.9768,0.0005],"mpi PDG") #MeV
 const MK = uwreal([497.611,0.013],"mk PDG") #Mev
 const Fpi = uwreal([130.56,0.02],"fpi exp") + uwreal([0.0,0.13],"fpi QED") + uwreal([0.0,0.02],"fpi Vud") #MeV FLAG21
 const FK = uwreal([157.2,0.2],"fk exp") + uwreal([0.0,0.2],"fk QED") + uwreal([0.0,0.4],"fk Vud") #MeV FLAG21
+
+#FLAG16
+#const Mpi = uwreal([134.8,0.3],"mpi PDG") ## in MeV
+#const MK = uwreal([494.2,0.3],"mk PDG") ## MeV
+#const Fpi = uwreal([130.4,0.2],"fpi exp")
+#const FK = uwreal([156.2,0.7],"fk exp")
 
 mods = [L"$[\chi SU(3)][a^2][-]$", 
         L"$[\chi SU(3)][a^2][\beta>3.40]$",
