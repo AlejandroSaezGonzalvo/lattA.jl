@@ -1,0 +1,4 @@
+full twist -> fully twisted / maximal twist
+fully Wilson unitary -> fully unitary Wilson
+to (N)LO -> at (N)LO
+in the lattice -> on the lattice

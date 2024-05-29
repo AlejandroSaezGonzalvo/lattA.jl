@@ -625,6 +625,39 @@
     \field{year}{2012}
   \endentry
 
+  \entry{ETM:2008zte}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=BP}{%
+         family={Boucaud},
+         familyi={B\bibinitperiod},
+         given={Philippe},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BP+1}
+    \strng{fullhash}{BP+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1016/j.cpc.2008.06.013
+    \endverb
+    \verb{eprint}
+    \verb 0803.0224
+    \endverb
+    \field{pages}{695\bibrangedash 715}
+    \field{title}{{Dynamical Twisted Mass Fermions with Light Quarks:
+  Simulation and Analysis Details}}
+    \field{volume}{179}
+    \field{journaltitle}{Comput. Phys. Commun.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2008}
+  \endentry
+
   \entry{Brown:2018jtv}{thesis}{}
     \name{author}{1}{}{%
       {{hash=BNJ}{%

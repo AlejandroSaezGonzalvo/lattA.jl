@@ -85,6 +85,74 @@
     \field{year}{2023}
   \endentry
 
+  \entry{Bussone:2024}{article}{}
+    \name{author}{9}{}{%
+      {{hash=BA}{%
+         family={Bussone},
+         familyi={B\bibinitperiod},
+         given={Andrea},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Conigli},
+         familyi={C\bibinitperiod},
+         given={Alessandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Frison},
+         familyi={F\bibinitperiod},
+         given={Julien},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=HG}{%
+         family={Herdo\'\i{}za},
+         familyi={H\bibinitperiod},
+         given={Gregorio},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Pena},
+         familyi={P\bibinitperiod},
+         given={Carlos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Preti},
+         familyi={P\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={S\'aez},
+         familyi={S\bibinitperiod},
+         given={Alejandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Ugarrio},
+         familyi={U\bibinitperiod},
+         given={Javier},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ARJ}{%
+         family={Angel\bibnamedelima Romero},
+         familyi={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+         given={Jose},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BA+1}
+    \strng{fullhash}{BACAFJHGPCPDSAUJARJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{{Hadronic physisc from a Wilson fermion mixed-action approach
+  I: Setup and scale setting.}}
+    \field{year}{Submitted for publication, 2024}
+  \endentry
+
   \entry{Bussone:2022wjb}{article}{}
     \name{author}{9}{}{%
       {{hash=BA}{%

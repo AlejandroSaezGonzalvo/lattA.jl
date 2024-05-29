@@ -31,34 +31,34 @@
 \contentsline {section}{\numberline {3.1}{Motivation}}{53}{section.3.1}%
 \contentsline {section}{\numberline {3.2}{Sea sector}}{54}{section.3.2}%
 \contentsline {section}{\numberline {3.3}{Valence sector}}{55}{section.3.3}%
-\contentsline {section}{\numberline {3.4}{Chiral trajectory}}{55}{section.3.4}%
+\contentsline {section}{\numberline {3.4}{Chiral trajectory}}{56}{section.3.4}%
 \contentsline {section}{\numberline {3.5}{Matching and tuning to full twist}}{62}{section.3.5}%
 \contentsline {chapter}{\numberline {4}{Scale setting}}{65}{chapter.4}%
 \contentsline {section}{\numberline {4.1}{Motivation}}{65}{section.4.1}%
-\contentsline {section}{\numberline {4.2}{Results: the physical point}}{66}{section.4.2}%
-\contentsline {section}{\numberline {4.3}{Results: the symmetric point}}{71}{section.4.3}%
-\contentsline {section}{\numberline {4.4}{Results: lattice spacing}}{77}{section.4.4}%
-\contentsline {section}{\numberline {4.5}{Results: $t_0^*$}}{78}{section.4.5}%
-\contentsline {part}{\numberline {iv}{Conclusions}}{79}{part.4}%
-\contentsline {chapter}{Conclusions and outlook}{81}{part.4}%
-\contentsline {chapter}{Conclusiones y perspectivas}{83}{equation.4.5.56}%
-\contentsline {part}{\numberline {v}{Appendices}}{85}{part.5}%
-\contentsline {chapter}{\numberline {A}{Conventions}}{87}{appendix.A}%
-\contentsline {chapter}{\numberline {B}{Gell-Mann matrices and structure constants}}{89}{appendix.B}%
-\contentsline {chapter}{\numberline {C}{Lattice ensembles}}{91}{appendix.C}%
-\contentsline {chapter}{\numberline {D}{Lattice observables}}{93}{appendix.D}%
-\contentsline {chapter}{\numberline {E}{Simulation details}}{97}{appendix.E}%
-\contentsline {section}{\numberline {E.1}{Metropolis algorithm}}{98}{section.E.1}%
-\contentsline {section}{\numberline {E.2}{Hybrid Monte Carlo}}{99}{section.E.2}%
-\contentsline {section}{\numberline {E.3}{Reweighting}}{100}{section.E.3}%
-\contentsline {chapter}{\numberline {F}{Error analysis}}{103}{appendix.F}%
-\contentsline {chapter}{\numberline {G}{Solvers}}{107}{appendix.G}%
-\contentsline {section}{\numberline {G.1}{Stochastic methods}}{107}{section.G.1}%
-\contentsline {section}{\numberline {G.2}{Iterative solvers}}{107}{section.G.2}%
-\contentsline {section}{\numberline {G.3}{Preconditioning}}{108}{section.G.3}%
-\contentsline {chapter}{\numberline {H}{Least-squares fitting}}{111}{appendix.H}%
-\contentsline {chapter}{\numberline {I}{Finite Volume Effects}}{113}{appendix.I}%
-\contentsline {chapter}{\numberline {J}{$\sqrt {t_0}$: Model variation}}{115}{appendix.J}%
+\contentsline {section}{\numberline {4.2}{Determination of $\sqrt {t_0}$ at the physical point}}{66}{section.4.2}%
+\contentsline {section}{\numberline {4.3}{Determination of $\sqrt {t_0}$ at the symmetric point}}{72}{section.4.3}%
+\contentsline {section}{\numberline {4.4}{Determination of the lattice spacing for CLS ensembles}}{79}{section.4.4}%
+\contentsline {section}{\numberline {4.5}{Determination of $t_0^*$}}{79}{section.4.5}%
+\contentsline {part}{\numberline {iv}{Conclusions}}{81}{part.4}%
+\contentsline {chapter}{Conclusions and outlook}{83}{part.4}%
+\contentsline {chapter}{Conclusiones y perspectivas}{85}{equation.4.5.59}%
+\contentsline {part}{\numberline {v}{Appendices}}{87}{part.5}%
+\contentsline {chapter}{\numberline {A}{Conventions}}{89}{appendix.A}%
+\contentsline {chapter}{\numberline {B}{Gell-Mann matrices and structure constants}}{91}{appendix.B}%
+\contentsline {chapter}{\numberline {C}{Lattice ensembles}}{93}{appendix.C}%
+\contentsline {chapter}{\numberline {D}{Lattice observables}}{95}{appendix.D}%
+\contentsline {chapter}{\numberline {E}{Simulation details}}{99}{appendix.E}%
+\contentsline {section}{\numberline {E.1}{Metropolis algorithm}}{100}{section.E.1}%
+\contentsline {section}{\numberline {E.2}{Hybrid Monte Carlo}}{101}{section.E.2}%
+\contentsline {section}{\numberline {E.3}{Reweighting}}{102}{section.E.3}%
+\contentsline {chapter}{\numberline {F}{Error analysis}}{105}{appendix.F}%
+\contentsline {chapter}{\numberline {G}{Solvers}}{109}{appendix.G}%
+\contentsline {section}{\numberline {G.1}{Stochastic methods}}{109}{section.G.1}%
+\contentsline {section}{\numberline {G.2}{Iterative solvers}}{109}{section.G.2}%
+\contentsline {section}{\numberline {G.3}{Preconditioning}}{110}{section.G.3}%
+\contentsline {chapter}{\numberline {H}{Least-squares fitting}}{113}{appendix.H}%
+\contentsline {chapter}{\numberline {I}{Finite Volume Effects}}{115}{appendix.I}%
+\contentsline {chapter}{\numberline {J}{$\sqrt {t_0}$: Model variation}}{117}{appendix.J}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{125}{section*.25}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{127}{section*.25}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
