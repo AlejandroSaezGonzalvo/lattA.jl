@@ -68,12 +68,12 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         while BDIO_seek!(fb, 2) == true push!(obs[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_FLAG21/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_FLAG21/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_tm_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_tm_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)

@@ -5,9 +5,14 @@ BKS = uwreal([0.1467,0.00158],1); uwerr(BKS)
 Bali = uwreal([0.4098 / sqrt(8), 0.0025 / sqrt(8)],1); uwerr(Bali)
 FLAG21 = uwreal([0.14464,0.00087],1); uwerr(FLAG21)
 Strass = uwreal([0.1441,0.0013],1); uwerr(Strass)
+
 sqrt_t0_st = uwreal([0.1433,0.0010],""); uwerr(sqrt_t0_st)
 sqrt_t0_tm = uwreal([0.1442,0.0011],""); uwerr(sqrt_t0_tm)
 sqrt_t0_comb = uwreal([0.1438,0.0008],""); uwerr(sqrt_t0_comb)
+
+sqrt_t0_st_16 = uwreal([0.1437,0.0011],""); uwerr(sqrt_t0_st_16)
+sqrt_t0_tm_16 = uwreal([0.1450,0.0011],""); uwerr(sqrt_t0_tm_16)
+sqrt_t0_comb_16 = uwreal([0.1436,0.0009],""); uwerr(sqrt_t0_comb_16)
 
 fig = figure("",figsize=(5,5))
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
