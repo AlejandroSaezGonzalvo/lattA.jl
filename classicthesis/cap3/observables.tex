@@ -15,7 +15,7 @@
 \section{Introduction}
 \label{ch_observables:sec:general}
 
-In this Chapter we discuss the technical details on the extraction of physical observables from the lattice. In Sec.~\ref{ch_observables:sec:correlators} we define the two-point functions required for extracting the physical observables needed in the analysis of the scale setting. In Sec.~\ref{ch_observables:sec:meson_mass} we discuss how to extract meson masses while Sec.~\ref{ch_observables:sec:dec_const} covers the extraction of decay constants, their improvement and renormalization. In  Sec.~\ref{ch_observables:sec:quark_mass} we define the PCAC quark masses which will be used to tune Wilson tm quarks at full twist. In Sec.~\ref{ch_observables:sec:Flow} we discuss the gradient flow scale $t_0$ which we will use as the reference scale for the scale setting. Finally, in Sec.~\ref{ch_observables:sec:MA} we discuss the model averaging technology which we employ in order to find the ground state signals from all these lattice observables.
+In this Chapter we discuss the technical details on the extraction of physical observables from the lattice. In Sec.~\ref{ch_observables:sec:correlators} we define the two-point functions required for extracting the physical observables needed in the analysis of the scale setting. In Sec.~\ref{ch_observables:sec:meson_mass} we discuss how to extract meson masses while Sec.~\ref{ch_observables:sec:dec_const} covers the extraction of decay constants, their improvement and renormalization. In  Sec.~\ref{ch_observables:sec:quark_mass} we define the PCAC quark masses which will be used to tune Wilson tm quarks at maximal twist. In Sec.~\ref{ch_observables:sec:Flow} we discuss the gradient flow scale $t_0$ which we will use as the reference scale for the scale setting. Finally, in Sec.~\ref{ch_observables:sec:MA} we discuss the model averaging technology which we employ in order to find the ground state signals from all these lattice observables.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -229,7 +229,7 @@ f_{\pi}^{\textrm{R}}&=Z_A(g_0^2)\left[1+a\bar{b}_A{\textrm{tr}}\left(M_q\right)+
 \end{align}
 We assumed improvement of the axial current according to eq.~(\ref{ch_observables:eq:axial_impr}).
 
-In the Wilson tm regularization at full twist, the chiral rotation in eq.~(\ref{ch_foundation:eq:chiral_rot}) rotates the axial to the vector current when going from the physical to the twisted basis
+In the Wilson tm regularization at maximal twist, the chiral rotation in eq.~(\ref{ch_foundation:eq:chiral_rot}) rotates the axial to the vector current when going from the physical to the twisted basis
 \begin{equation}
 A_{\mu}^{ij}\rightarrow iV_{\mu}^{ij},
 \end{equation}
@@ -242,7 +242,7 @@ The advantage of this is that the vector current is protected against renormaliz
 \begin{equation}
 \left<\left(\partial_0^*V_0^{ij}(x)\right)O^{ji}(y)\right>=i\left(\eta_i\mu_i-\eta_{j}\mu_{j}\right)\left<P^{ij}(x)O^{ji}(y)\right>,
 \end{equation}
-where $O$ is any interpolator chosen such that $\left<P^{ij}(x)O^{ji}(y)\right>$ does not vanish and $\eta_i$ are given by the full twist condition in eq.~(\ref{ch_foundation:eq:mte}), in order to write the decay constant as
+where $O$ is any interpolator chosen such that $\left<P^{ij}(x)O^{ji}(y)\right>$ does not vanish and $\eta_i$ are given by the maximal twist condition in eq.~(\ref{ch_foundation:eq:mte}), in order to write the decay constant as
 \begin{equation}
 \label{ch_observables:eq:f_OBC}
 f_{\pi}=\sqrt{\frac{2L^3}{m_{\pi}^3}}\left(|\mu_u|+|\mu_{d}|\right)\left|\left<0,0\right|P^{ud}\left|\pi,0\right>\right|.
@@ -259,7 +259,7 @@ For PBC, using again the PCVC relation, the decay constant reads
 f_{\pi}=\sqrt{\frac{2L^3}{m_{\pi}^3}}\sqrt{a_P}.
 \end{equation}
 
-Since working at full twist, no improvement is needed in the computation of eqs.~(\ref{ch_observables:eq:f_OBC}-\ref{ch_observables:eq:f_PBC})
+Since working at maximal twist, no improvement is needed in the computation of eqs.~(\ref{ch_observables:eq:f_OBC}-\ref{ch_observables:eq:f_PBC})
 
 The ratios defined in this section for the extraction of decay constants are shown for the case of one of the ensembles under study in Fig.~\ref{ch_observables:fig:R}.
 
@@ -298,7 +298,7 @@ Finally, from eq.~(\ref{ch_observables:eq:corr_ren}) we see that the PCAC quark 
 m_{ij}^{\textrm{R}}&=\left[1+a\left(\bar{b}_A-\bar{b}_P\right){\textrm{tr}}\left(M_q\right)+a\left(\tilde{b}_A-\tilde{b}_P\right)m_{ij}\right]m_{ij}.
 \end{align}
 
-In the Wilson regularization, physical quark masses are determined from the PCAC masses, while in the Wilson tm regularization at full twist, the latter vanish and the former are given by the renormalized twisted masses in eq.~(\ref{ch_foundation:eq:muR}).
+In the Wilson regularization, physical quark masses are determined from the PCAC masses, while in the Wilson tm regularization at maximal twist, the latter vanish and the former are given by the renormalized twisted masses in eq.~(\ref{ch_foundation:eq:muR}).
 
 In Fig.~\ref{ch_observables:fig:mpcac} we show the dependence of the PCAC quark mass for one of the ensembles under study.
 
@@ -332,7 +332,7 @@ B_{\mu}(x,t)=\frac{g_0}{4\pi t^2}\int d^4y\;e^{-(x-y)^2/4t}A_{\mu}(y).
 \end{equation}
 The flow field $B_{\mu}$ is thus smoothed over space-time with smearing radius $r_{\textrm{smear}}=2\sigma=\sqrt{8t}$, $\sigma$ being the variance of the distribution in eq.~(\ref{ch_observables:eq:B}), $\sigma^2=2t$.
 
-In the lattice, eq.~(\ref{ch_observables:eq:flow}) can be expressed as 
+on the lattice, eq.~(\ref{ch_observables:eq:flow}) can be expressed as 
 \begin{align}
 a^2\frac{dV_{\mu}(x,t)}{dt}&=-g_0^2\frac{\delta S_{\textrm{G}}[V]}{\delta V_{\mu}(x,t)}V_{\mu}(x,t),\\
 V_{\mu}(x,t=0)&=U_{\mu}(x),
@@ -343,7 +343,7 @@ After integrating the flow equation eq.~(\ref{ch_observables:eq:flow}), the acti
 \begin{equation}
 E(x,t)=\frac{1}{2}{\textrm{tr}}\left({G}_{\mu\nu}(x,t){G}_{\mu\nu}(x,t)\right).
 \end{equation}
-In the lattice, this can be computed by
+on the lattice, this can be computed by
 \begin{equation}
 \label{ch_observables:eq:E}
 E(x,t)=\sum_{\mu,\nu}\textrm{Re tr}\left(1-V_{\mu\nu}(x,t)\right),
@@ -352,7 +352,7 @@ which is just eq.~(\ref{ch_foundation:eq:SG}) but with the plaquette $U_{\mu\nu}
 \begin{equation}
 E(t)=\left<E(x,t)\right>_x,
 \end{equation}
-we are left with an average energy density that depends only on the flow time. This average is computed using the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be precisely calculated in the lattice, making it a suitable choice for setting the scale (see Sec.~\ref{ch_ss}). To this end, the scale $t_0$ is defined as the flow time which satisfies
+we are left with an average energy density that depends only on the flow time. This average is computed using the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be precisely calculated on the lattice, making it a suitable choice for setting the scale (see Sec.~\ref{ch_ss}). To this end, the scale $t_0$ is defined as the flow time which satisfies
 \begin{equation}
 \label{ch_observables:eq:t0}
 t^2E(t)|_{t=t_0}\equiv0.3.
@@ -366,7 +366,7 @@ It will be this gradient flow scale $t_0$ which we will use as an intermediate s
 \section{Ground state signals and model average}
 \label{ch_observables:sec:MA}
 
-So far, we have expressed all physical observables under study as functions of the Euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met, and in the lattice community there are different approaches to address this issue, see e.g.~\citep{Strassberger:2023xnj,Bruno:2016plf,RQCD_scale}. Our choice is to employ model averaging techniques as proposed in~\citep{Neil:2022joj,Neil:2023pgt,Frison:2023jbv}.
+So far, we have expressed all physical observables under study as functions of the Euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met, and on the lattice community there are different approaches to address this issue, see e.g.~\citep{Strassberger:2023xnj,Bruno:2016plf,RQCD_scale}. Our choice is to employ model averaging techniques as proposed in~\citep{Neil:2022joj,Neil:2023pgt,Frison:2023jbv}.
 
 The idea is to investigate multiple fit functions and/or several fit ranges and assign an Information Criterion ${\textrm{IC}}$ to each choice, which allows to compute a weight
 \begin{equation}
@@ -430,7 +430,7 @@ This model averaging technique will also be used for the chiral and continuum ex
     	\includegraphics[width=\textwidth]{./cap3/figs/mpcac_tm_H101.pdf}
     	\caption{}
     \end{subfigure}
-    \caption{(a): up/down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}) for ensemble H101 in the Wilson regularization. (b): the same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. At full twist this quantity must vanish.}
+    \caption{(a): up/down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}) for ensemble H101 in the Wilson regularization. (b): the same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. At maximal twist this quantity must vanish.}
         \label{ch_observables:fig:mpcac}
 \end{figure}
 

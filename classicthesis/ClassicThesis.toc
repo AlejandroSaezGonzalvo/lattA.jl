@@ -9,8 +9,8 @@
 \contentsline {part}{\numberline {ii}{Foundations}}{13}{part.2}%
 \contentsline {chapter}{\numberline {1}{QCD on the lattice}}{15}{chapter.1}%
 \contentsline {section}{\numberline {1.1}{Introduction}}{15}{section.1.1}%
-\contentsline {section}{\numberline {1.2}{Pure gauge SU(3) in the lattice}}{18}{section.1.2}%
-\contentsline {section}{\numberline {1.3}{Introducing fermions in the lattice}}{19}{section.1.3}%
+\contentsline {section}{\numberline {1.2}{Pure gauge SU(3) on the lattice}}{18}{section.1.2}%
+\contentsline {section}{\numberline {1.3}{Introducing fermions on the lattice}}{19}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}{Naive fermions}}{19}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}{Wilson fermions}}{22}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}{Wilson twisted mass fermions}}{23}{subsection.1.3.3}%
