@@ -480,6 +480,39 @@
     \field{year}{2011}
   \endentry
 
+  \entry{UK14}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=BT}{%
+         family={Blum},
+         familyi={B\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BT+1}
+    \strng{fullhash}{BT+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.93.074505
+    \endverb
+    \verb{eprint}
+    \verb 1411.7017
+    \endverb
+    \field{number}{7}
+    \field{pages}{074505}
+    \field{title}{{Domain wall QCD with physical quark masses}}
+    \field{volume}{93}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2016}
+  \endentry
+
   \entry{Bornyakov:2015plz}{inproceedings}{}
     \true{moreauthor}
     \true{morelabelname}
@@ -504,6 +537,33 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{month}{12}
+    \field{year}{2015}
+  \endentry
+
+  \entry{UK15}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=BVG}{%
+         family={Bornyakov},
+         familyi={B\bibinitperiod},
+         given={V.\bibnamedelima G.},
+         giveni={V\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BVG+1}
+    \strng{fullhash}{BVG+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{eprint}
+    \verb 1508.05916
+    \endverb
+    \field{title}{{Wilson flow and scale setting from lattice QCD}}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{month}{08}
     \field{year}{2015}
   \endentry
 
@@ -903,15 +963,21 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{B}
     \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1140/epjc/s10052-024-12816-4
+    \endverb
     \verb{eprint}
     \verb 2309.14154
     \endverb
+    \field{number}{5}
+    \field{pages}{506}
     \field{title}{{Hadronic physics from a Wilson fermion mixed-action
-  approach: Charm quark mass and $D_{(s)}$ meson decay constants}}
+  approach: charm quark mass and $D_{(s)}$ meson decay constants}}
+    \field{volume}{84}
+    \field{journaltitle}{Eur. Phys. J. C}
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
-    \field{month}{09}
-    \field{year}{2023}
+    \field{year}{2024}
   \endentry
 
   \entry{Campos:2018ahf}{article}{}

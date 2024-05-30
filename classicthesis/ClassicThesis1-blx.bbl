@@ -74,15 +74,21 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{B}
     \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1140/epjc/s10052-024-12816-4
+    \endverb
     \verb{eprint}
     \verb 2309.14154
     \endverb
+    \field{number}{5}
+    \field{pages}{506}
     \field{title}{{Hadronic physics from a Wilson fermion mixed-action
-  approach: Charm quark mass and $D_{(s)}$ meson decay constants}}
+  approach: charm quark mass and $D_{(s)}$ meson decay constants}}
+    \field{volume}{84}
+    \field{journaltitle}{Eur. Phys. J. C}
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
-    \field{month}{09}
-    \field{year}{2023}
+    \field{year}{2024}
   \endentry
 
   \entry{Bussone:2024}{article}{}

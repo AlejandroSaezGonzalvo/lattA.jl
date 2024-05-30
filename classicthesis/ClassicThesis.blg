@@ -16,6 +16,7 @@ A level-1 auxiliary file: cap2/lattice.aux
 A level-1 auxiliary file: cap3/observables.aux
 A level-1 auxiliary file: cap4/cap4.aux
 A level-1 auxiliary file: cap5/cap5_new.aux
+A level-1 auxiliary file: cap6/cap6.aux
 A level-1 auxiliary file: conclusions/conclusions.aux
 A level-1 auxiliary file: conclusions/conclusiones.aux
 A level-1 auxiliary file: apendices/apendices_conventions.aux
@@ -44,54 +45,94 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 17880 items from 5000.
+Reallocated field_info (elt_size=4) to 23760 items from 5000.
 Database file #1: ClassicThesis-blx.bib
 Database file #2: Bibliography.bib
 Database file #3: publications.bib
+Warning--I didn't find a database entry for "Collins:2017iud"
+Warning--I didn't find a database entry for "MA1"
+Warning--I didn't find a database entry for "Blossier:2009kd"
+Warning--I didn't find a database entry for "ParticleDataGroup:2022pth"
+Warning--I didn't find a database entry for "deForcrand:2004ia"
+Warning--I didn't find a database entry for "Donald:2012ga"
+Warning--I didn't find a database entry for "Colquhoun:2015oha"
+Warning--I didn't find a database entry for "Hatton:2020qhk"
+Warning--I didn't find a database entry for "Colquhoun:2023zbc"
+Warning--I didn't find a database entry for "Georgi:1990um"
+Warning--I didn't find a database entry for "Heitger:2021apz"
+Warning--I didn't find a database entry for "Baikov:2014qja"
+Warning--I didn't find a database entry for "Luthe:2016xec"
+Warning--I didn't find a database entry for "Baikov:2017ujl"
+Warning--I didn't find a database entry for "Baikov:2016tgj"
+Warning--I didn't find a database entry for "Herzog:2017ohr"
+Warning--I didn't find a database entry for "Luthe:2017ttc"
+Warning--I didn't find a database entry for "Liu:2015fxa"
+Warning--I didn't find a database entry for "Chetyrkin:2000yt"
+Warning--I didn't find a database entry for "Schmidt:2012az"
+Warning--I didn't find a database entry for "Herren:2017osy"
+Warning--I didn't find a database entry for "Bruno:2017gxd"
+Warning--I didn't find a database entry for "HPQCD:2008kxl"
+Warning--I didn't find a database entry for "McNeile:2010ji"
+Warning--I didn't find a database entry for "Yang:2014sea"
+Warning--I didn't find a database entry for "Nakayama:2016atf"
+Warning--I didn't find a database entry for "Maezawa:2016vgv"
+Warning--I didn't find a database entry for "Petreczky:2019ozv"
+Warning--I didn't find a database entry for "Grinstein:1992qt"
+Warning--I didn't find a database entry for "Goity:1992tp"
+Warning--I didn't find a database entry for "Manohar:2000dt"
+Warning--I didn't find a database entry for "Ji:1991pr"
+Warning--I didn't find a database entry for "Bazavov:2017lyh"
+Warning--I didn't find a database entry for "Davies:2010ip"
+Warning--I didn't find a database entry for "PACS-CS:2011ngu"
+Warning--I didn't find a database entry for "FermilabLattice:2011njy"
+Warning--I didn't find a database entry for "Na:2012iu"
+Warning--I didn't find a database entry for "Boyle:2017jwu"
+Warning--I didn't find a database entry for "Chen:2020qma"
+Warning--I didn't find a database entry for "Boyle:2018knm"
 Biblatex version: 3.17
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis" for entry Brown:2018jtv
 while executing---line 2815 of file biblatex.bst
-You've used 92 entries,
+You've used 94 entries,
             6399 wiz_defined-function locations,
-            1961 strings with 28434 characters,
-and the built_in function-call counts, 787866 in all, are:
-= -- 63317
-> -- 10672
-< -- 2671
-+ -- 22924
-- -- 4832
-* -- 61160
-:= -- 91385
+            2055 strings with 29789 characters,
+and the built_in function-call counts, 797678 in all, are:
+= -- 63945
+> -- 10843
+< -- 2715
++ -- 23110
+- -- 4920
+* -- 61940
+:= -- 92317
 add.period$ -- 0
-call.type$ -- 92
-change.case$ -- 91
+call.type$ -- 94
+change.case$ -- 93
 chr.to.int$ -- 74
-cite$ -- 182
-duplicate$ -- 82506
-empty$ -- 68163
-format.name$ -- 6822
-if$ -- 157605
+cite$ -- 186
+duplicate$ -- 83556
+empty$ -- 69154
+format.name$ -- 6922
+if$ -- 159676
 int.to.chr$ -- 0
-int.to.str$ -- 215
+int.to.str$ -- 221
 missing$ -- 0
-newline$ -- 3666
-num.names$ -- 3852
-pop$ -- 32907
+newline$ -- 3732
+num.names$ -- 3940
+pop$ -- 33547
 preamble$ -- 1
-purify$ -- 1494
+purify$ -- 1518
 quote$ -- 0
-skip$ -- 17238
+skip$ -- 17527
 stack$ -- 0
-substring$ -- 119499
-swap$ -- 15738
-text.length$ -- 2780
-text.prefix$ -- 91
+substring$ -- 120547
+swap$ -- 16050
+text.length$ -- 2824
+text.prefix$ -- 93
 top$ -- 1
-type$ -- 3114
+type$ -- 3182
 warning$ -- 0
-while$ -- 11199
+while$ -- 11311
 width$ -- 0
-write$ -- 3575
+write$ -- 3639
 (There was 1 error message)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  29 MAY 2024 16:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  30 MAY 2024 10:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1240,13 +1240,14 @@ Package babel Info: Importing basic data for spanish
 (./FrontBackmatter/Publications.aux) (./FrontBackmatter/Acknowledgments.aux)
 (./FrontBackmatter/Contents.aux) (./introduction/introduction.aux)
 (./introduction/introduccion.aux) (./cap2/lattice.aux) (./cap3/observables.aux)
-(./cap4/cap4.aux) (./cap5/cap5_new.aux) (./conclusions/conclusions.aux)
-(./conclusions/conclusiones.aux) (./apendices/apendices_conventions.aux)
-(./apendices/apendices_SU3.aux) (./apendices/apendices_a.aux)
-(./apendices/apendices_obs.aux) (./apendices/apendices_simulations.aux)
-(./apendices/apendices_errors.aux) (./apendices/apendices_solvers.aux)
-(./apendices/apendices_b.aux) (./apendices/apendices_c.aux)
-(./apendices/apendices_f.aux) (./FrontBackmatter/Bibliography.aux))
+(./cap4/cap4.aux) (./cap5/cap5_new.aux) (./cap6/cap6.aux)
+(./conclusions/conclusions.aux) (./conclusions/conclusiones.aux)
+(./apendices/apendices_conventions.aux) (./apendices/apendices_SU3.aux)
+(./apendices/apendices_a.aux) (./apendices/apendices_obs.aux)
+(./apendices/apendices_simulations.aux) (./apendices/apendices_errors.aux)
+(./apendices/apendices_solvers.aux) (./apendices/apendices_b.aux)
+(./apendices/apendices_c.aux) (./apendices/apendices_f.aux)
+(./FrontBackmatter/Bibliography.aux))
 \openout1 = `ClassicThesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
@@ -1547,6 +1548,9 @@ Package biblatex Info: Reference section=1 on input line 9.
 \openout3 = `ClassicThesis1-blx.aux'.
 
 Package biblatex Info: Setting label 'refsection:1' on input line 9.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/pplj/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Trying to load font information for T1+fvm on input line 12
 .
 
@@ -1559,9 +1563,6 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `fvm' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/pplj/m/sc/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
 Package biblatex Info: Reference section=0 on input line 13.
 ) [9
 
@@ -1594,7 +1595,13 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 11
 
 
 
-])
+]
+Overfull \hbox (18.61737pt too wide) in paragraph at lines 52--52
+ [][] []\T1/pplj/m/n/10.95 (-20) Determination of de-cay con-stants of charmed 
+mesons []  
+ []
+
+)
 \tf@toc=\write5
 \openout5 = `ClassicThesis.toc'.
 
@@ -1687,49 +1694,49 @@ l-e-ment $[] \OML/zplm/m/it/10.95 A[] []$
  []
 
 [40] [41] [42] [43]
-<./cap3/figs/meff_H101.pdf, id=837, 462.52798pt x 346.89601pt>
+<./cap3/figs/meff_H101.pdf, id=867, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/meff_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/meff_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/meff_H101.pdf  used on input line 412.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/m_tm_H101.pdf, id=838, 462.52798pt x 346.89601pt>
+<./cap3/figs/m_tm_H101.pdf, id=868, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/m_tm_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/m_tm_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/m_tm_H101.pdf  used on input line 416.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/mpcac_H101.pdf, id=843, 462.52798pt x 346.89601pt>
+<./cap3/figs/mpcac_H101.pdf, id=873, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/mpcac_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/mpcac_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/mpcac_H101.pdf  used on input line 426.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/mpcac_tm_H101.pdf, id=844, 462.52798pt x 346.89601pt>
+<./cap3/figs/mpcac_tm_H101.pdf, id=874, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/mpcac_tm_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/mpcac_tm_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/mpcac_tm_H101.pdf  used on input line 430.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/R_H101.pdf, id=849, 462.52798pt x 346.89601pt>
+<./cap3/figs/R_H101.pdf, id=879, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/R_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/R_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/R_H101.pdf  used on input line 440.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/R_tm_H101.pdf, id=850, 462.52798pt x 346.89601pt>
+<./cap3/figs/R_tm_H101.pdf, id=880, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/R_tm_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/R_tm_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/R_tm_H101.pdf  used on input line 444.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/t2E_H101_plat.pdf, id=857, 462.52798pt x 346.89601pt>
+<./cap3/figs/t2E_H101_plat.pdf, id=887, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/t2E_H101_plat.pdf Graphic file (type pdf)
 <use ./cap3/figs/t2E_H101_plat.pdf>
 Package pdftex.def Info: ./cap3/figs/t2E_H101_plat.pdf  used on input line 453.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/t0_H101.pdf, id=858, 462.52798pt x 346.89601pt>
+<./cap3/figs/t0_H101.pdf, id=888, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/t0_H101.pdf Graphic file (type pdf)
 <use ./cap3/figs/t0_H101.pdf>
 Package pdftex.def Info: ./cap3/figs/t0_H101.pdf  used on input line 457.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap3/figs/m_H101_pion_wil.pdf, id=863, 462.52798pt x 346.89601pt>
+<./cap3/figs/m_H101_pion_wil.pdf, id=893, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/m_H101_pion_wil.pdf Graphic file (type pdf)
 <use ./cap3/figs/m_H101_pion_wil.pdf>
 Package pdftex.def Info: ./cap3/figs/m_H101_pion_wil.pdf  used on input line 46
@@ -1774,32 +1781,32 @@ Overfull \hbox (14.0498pt too wide) in alignment at lines 158--176
  []
 
 [58]
-<./cap4/figs/dt0fpik_w.pdf, id=1252, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0fpik_w.pdf, id=1282, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0fpik_w.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0fpik_w.pdf>
 Package pdftex.def Info: ./cap4/figs/dt0fpik_w.pdf  used on input line 180.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dphi2_w.pdf, id=1257, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi2_w.pdf, id=1287, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi2_w.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi2_w.pdf>
 Package pdftex.def Info: ./cap4/figs/dphi2_w.pdf  used on input line 187.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dt0fpik_tm.pdf, id=1262, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0fpik_tm.pdf, id=1292, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0fpik_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0fpik_tm.pdf>
 Package pdftex.def Info: ./cap4/figs/dt0fpik_tm.pdf  used on input line 194.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dt0m12_tm.pdf, id=1267, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0m12_tm.pdf, id=1297, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0m12_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0m12_tm.pdf>
 Package pdftex.def Info: ./cap4/figs/dt0m12_tm.pdf  used on input line 201.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dphi2_tm.pdf, id=1272, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi2_tm.pdf, id=1302, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi2_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi2_tm.pdf>
 Package pdftex.def Info: ./cap4/figs/dphi2_tm.pdf  used on input line 208.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dphi4_tm.pdf, id=1277, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi4_tm.pdf, id=1307, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi4_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi4_tm.pdf>
 Package pdftex.def Info: ./cap4/figs/dphi4_tm.pdf  used on input line 215.
@@ -1807,13 +1814,13 @@ Package pdftex.def Info: ./cap4/figs/dphi4_tm.pdf  used on input line 215.
  [59 <./cap4/figs/dt0fpik_w.pdf>] [60 <./cap4/figs/dphi2_w.pdf> <./cap4/figs/dt
 0fpik_tm.pdf>] [61 <./cap4/figs/dt0m12_tm.pdf> <./cap4/figs/dphi2_tm.pdf>]
 [62 <./cap4/figs/dphi4_tm.pdf>]
-<./cap4/figs/matching_H105.pdf, id=1526, 462.52798pt x 346.89601pt>
+<./cap4/figs/matching_H105.pdf, id=1556, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/matching_H105.pdf Graphic file (type pdf)
 <use ./cap4/figs/matching_H105.pdf>
 Package pdftex.def Info: ./cap4/figs/matching_H105.pdf  used on input line 262.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/interp_fpik_H105.pdf, id=1527, 462.52798pt x 224.7597pt>
+<./cap4/figs/interp_fpik_H105.pdf, id=1557, 462.52798pt x 224.7597pt>
 File: ./cap4/figs/interp_fpik_H105.pdf Graphic file (type pdf)
 <use ./cap4/figs/interp_fpik_H105.pdf>
 Package pdftex.def Info: ./cap4/figs/interp_fpik_H105.pdf  used on input line 2
@@ -1996,144 +2003,2196 @@ Missing character: There is no ò in font zplmr7v!
 Missing character: There is no ò in font zplmr7v!
 Missing character: There is no è in font zplmr7v!
 [68] [69] [70] [71]
-<./cap5/figs/continuum_sym.pdf, id=1769, 553.58823pt x 470.4777pt>
+<./cap5/figs/continuum_sym.pdf, id=1808, 553.58823pt x 470.4777pt>
 File: ./cap5/figs/continuum_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/continuum_sym.pdf>
-Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 211.
+Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 213.
 
 (pdftex.def)             Requested size: 336.0pt x 285.56238pt.
-<./cap5/figs/SU3_comb.pdf, id=1770, 462.52798pt x 677.89258pt>
+<./cap5/figs/SU3_comb.pdf, id=1809, 462.52798pt x 677.89258pt>
 File: ./cap5/figs/SU3_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/SU3_comb.pdf>
-Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 218.
+Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 220.
 (pdftex.def)             Requested size: 336.0pt x 492.47841pt.
 
 
-LaTeX Warning: Float too large for page by 15.13307pt on input line 221.
+LaTeX Warning: Float too large for page by 15.13307pt on input line 223.
 
-<./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf, id=1773, 462.52798pt x 656.93428p
+<./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf, id=1812, 462.52798pt x 656.93428p
 t>
 File: ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf  used on i
-nput line 225.
+nput line 227.
 (pdftex.def)             Requested size: 336.0pt x 477.25252pt.
 
-LaTeX Warning: Float too large for page by 73.20326pt on input line 228.
+LaTeX Warning: Float too large for page by 73.20326pt on input line 230.
 
-<./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf, id=1780, 462.52798pt x 620.07661
+<./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf, id=1819, 462.52798pt x 620.07661
 pt>
 File: ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf  used on 
-input line 232.
+input line 234.
 (pdftex.def)             Requested size: 336.0pt x 450.476pt.
 
-LaTeX Warning: Float too large for page by 46.42674pt on input line 235.
+LaTeX Warning: Float too large for page by 46.42674pt on input line 237.
 
-<./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf, id=1787, 462.52798pt x 650.43p
+<./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf, id=1826, 462.52798pt x 650.43p
 t>
 File: ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf  used o
-n input line 239.
+n input line 241.
 (pdftex.def)             Requested size: 336.0pt x 472.52725pt.
 
-LaTeX Warning: Float too large for page by 68.478pt on input line 242.
+LaTeX Warning: Float too large for page by 68.478pt on input line 244.
+
+<./cap5/figs/t0_compar_FLAG.pdf, id=1833, 668.4975pt x 389.5353pt>
+File: ./cap5/figs/t0_compar_FLAG.pdf Graphic file (type pdf)
+<use ./cap5/figs/t0_compar_FLAG.pdf>
+Package pdftex.def Info: ./cap5/figs/t0_compar_FLAG.pdf  used on input line 248
+.
+(pdftex.def)             Requested size: 336.0pt x 195.79544pt.
+<./cap5/figs/t0_compar.pdf, id=1844, 668.4975pt x 389.5353pt>
+File: ./cap5/figs/t0_compar.pdf Graphic file (type pdf)
+<use ./cap5/figs/t0_compar.pdf>
+Package pdftex.def Info: ./cap5/figs/t0_compar.pdf  used on input line 255.
+(pdftex.def)             Requested size: 336.0pt x 195.79544pt.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 244.
+(hyperref)                removing `\@ifnextchar' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 244.
+(hyperref)                removing `subscript' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 244.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 244.
+(hyperref)                removing `math shift' on input line 260.
 
 [72] [73 <./cap5/figs/continuum_sym.pdf>] [74 <./cap5/figs/SU3_comb.pdf>]
 [75 <./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf>] [76 <./cap5/figs/BMA_tm_suba
 v_c=1_cphi=0.0035.pdf>] [77 <./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf>]
-<./cap5/figs/t0_sym.pdf, id=2086, 462.52798pt x 346.89601pt>
+[78 <./cap5/figs/t0_compar_FLAG.pdf> <./cap5/figs/t0_compar.pdf
+
+pdfTeX warning: pdflatex (file ./cap5/figs/t0_compar.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>]
+<./cap5/figs/t0_sym.pdf, id=2286, 462.52798pt x 346.89601pt>
 File: ./cap5/figs/t0_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_sym.pdf>
-Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 277.
+Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 293.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-
-[78 <./cap5/figs/t0_sym.pdf>]
-Overfull \hbox (1.11617pt too wide) in alignment at lines 296--307
+ [79 <./cap5/figs/t0_sym.pdf>]
+Overfull \hbox (1.11617pt too wide) in alignment at lines 312--323
  [] [] [] [] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 309.
+(hyperref)                removing `math shift' on input line 325.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 309.
+(hyperref)                removing `subscript' on input line 325.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 309.
+(hyperref)                removing `superscript' on input line 325.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 309.
+(hyperref)                removing `math shift' on input line 325.
 
-[79]) [80] [81
+[80]) [81]
+\openout2 = `cap6/cap6.aux'.
+
+ (./cap6/cap6.tex
+Chapter 5.
+[82
 
 
 
 
 
+]
 
-] [82]
+LaTeX Warning: Citation 'Collins:2017iud' on page 83 undefined on input line 28
+.
+
+[83]
+Overfull \hbox (12.04323pt too wide) detected at line 39
+ $\OML/zplm/m/it/10.95 C\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 t\OT1/zplm/m/
+n/10.95 )\OML/zplm/m/it/10.95 v[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 t\OT
+1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 t[]\OT1/zplm/m/n/10.95 ) = \OML/zplm/m/
+it/10.95 ^^U[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 t\OT1/pplx/m/n/10.95 , 
+\OML/zplm/m/it/10.95 t[]\OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 C\OT1/zplm/m/
+n/10.95 (\OML/zplm/m/it/10.95 t[]\OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 v[]\
+OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 t\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/
+10.95 t[]\OT1/zplm/m/n/10.95 ) \OML/zplm/m/it/10.95 n \OT1/zplm/m/n/10.95 = \OT
+1/pplx/m/n/10.95 0, [] , \OML/zplm/m/it/10.95 N \OMS/zplm/m/n/10.95 ^^@ \OT1/pp
+lx/m/n/10.95 1,  \OML/zplm/m/it/10.95 t > t[]\OT1/pplx/m/n/10.95 ,$  
+ []
+
+
+LaTeX Warning: Reference `eq:f2p' on page 84 undefined on input line 40.
+
+
+LaTeX Warning: Citation 'Blossier:2009kd' on page 84 undefined on input line 47
+.
+
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47 ...m pseudoscalar two-point functions $f_{\rm
+                                                  \scriptscriptstyle PP}$ sh...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49  	C_{\rm
+             \scriptscriptstyle P}(t) = \bigg[\begin{matrix}
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50  		f_{\rm
+              \scriptscriptstyle PP}(t)  &  f_{\rm\scriptscriptstyle PP}(t+\...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50  		f_{\rm\scriptscriptstyle PP}(t)  &  f_{\rm
+                                                  \scriptscriptstyle PP}(t+\...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52  		f_{\rm
+              \scriptscriptstyle PP}(t+\tau)  & f_{\rm\scriptscriptstyle PP}...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52 ...rm\scriptscriptstyle PP}(t+\tau)  & f_{\rm
+                                                  \scriptscriptstyle PP}(t+2...
+
+? 
+
+LaTeX Warning: Reference `app:gevp' on page 84 undefined on input line 56.
+
+
+LaTeX Warning: Reference `eq:eff_en_gevp' on page 84 undefined on input line 58
+.
+
+
+LaTeX Warning: Reference `app:TIC' on page 84 undefined on input line 59.
+
+<./cap6/figs/matching/m8_plateau.pdf, id=2380, 722.7pt x 542.025pt>
+File: ./cap6/figs/matching/m8_plateau.pdf Graphic file (type pdf)
+<use ./cap6/figs/matching/m8_plateau.pdf>
+Package pdftex.def Info: ./cap6/figs/matching/m8_plateau.pdf  used on input lin
+e 63.
+(pdftex.def)             Requested size: 361.3491pt x 271.01183pt.
+<./cap6/figs/matching/mps_BMA_8.pdf, id=2381, 722.7pt x 542.025pt>
+File: ./cap6/figs/matching/mps_BMA_8.pdf Graphic file (type pdf)
+<use ./cap6/figs/matching/mps_BMA_8.pdf>
+Package pdftex.def Info: ./cap6/figs/matching/mps_BMA_8.pdf  used on input line
+ 64.
+(pdftex.def)             Requested size: 361.3491pt x 271.01183pt.
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 63--65
+ [][] 
+ []
+
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 63--65
+ [] 
+ []
+
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 ... corresponds to the model average result.}
+                                                  
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 ... corresponds to the model average result.}
+                                                  
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 ... corresponds to the model average result.}
+                                                  
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 ... corresponds to the model average result.}
+                                                  
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 ... corresponds to the model average result.}
+                                                  
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 ... corresponds to the model average result.}
+                                                  
+? 
+
+LaTeX Warning: Float too large for page by 25.57407pt on input line 67.
+
+
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[84]
+
+LaTeX Warning: Reference `eq:phi2_and_phi4' on page 85 undefined on input line 
+93.
+
+
+LaTeX Warning: Citation 'ParticleDataGroup:2022pth' on page 85 undefined on inp
+ut line 100.
+
+
+Overfull \hbox (15.36632pt too wide) in paragraph at lines 98--102
+\T1/pplj/m/n/10.95 (-20) tion with re-spect to the ex-per-i-men-tal val-ues [[]
+]
+ []
+
+[85]
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[86 <./cap6/figs/matching/m8_plateau.pdf> <./cap6/figs/matching/mps_BMA_8.pdf>]
+
+LaTeX Warning: Citation 'ParticleDataGroup:2022pth' on page 87 undefined on inp
+ut line 118.
+
+! Undefined control sequence.
+l.119 $m_{\eta_c}^{\mathrm{exp}} = 2983.9(4)\,\MeV
+                                                  $, from which a
+? 
+! Undefined control sequence.
+l.120 correction of about 6\,\MeV
+                                 , with 100\% error, is subtracted to account
+? 
+
+LaTeX Warning: Citation 'deForcrand:2004ia' on page 87 undefined on input line 
+121.
+
+
+LaTeX Warning: Citation 'Donald:2012ga' on page 87 undefined on input line 121.
+
+
+
+LaTeX Warning: Citation 'Colquhoun:2015oha' on page 87 undefined on input line 
+121.
+
+
+LaTeX Warning: Citation 'Hatton:2020qhk' on page 87 undefined on input line 121
+.
+
+
+LaTeX Warning: Citation 'Colquhoun:2023zbc' on page 87 undefined on input line 
+121.
+
+
+Overfull \hbox (1.6019pt too wide) in paragraph at lines 115--123
+\T1/pplj/m/n/10.95 (-20) QED ef-fects [[], [], [],
+ []
+
+
+LaTeX Warning: Reference `fig:mps_vs_mvec_gevp' on page 87 undefined on input l
+ine 142.
+
+! Undefined control sequence.
+<recently read> \cO 
+                    
+l.159 $\cO
+          $ is parameterised as $\mathcal{O}(a, \phi_2, \phi_H^{(i)})$, and ...
+
+? 
+[87]
+<./cap6/figs/matching/meff_comparison.pdf, id=2482, 867.24pt x 289.08pt>
+File: ./cap6/figs/matching/meff_comparison.pdf Graphic file (type pdf)
+<use ./cap6/figs/matching/meff_comparison.pdf>
+Package pdftex.def Info: ./cap6/figs/matching/meff_comparison.pdf  used on inpu
+t line 194.
+(pdftex.def)             Requested size: 450.9674pt x 150.32245pt.
+
+Overfull \hbox (114.9674pt too wide) in paragraph at lines 194--196
+ [][] 
+ []
+
+<./cap6/figs/matching/fit_phi2_mD_fl_ave.pdf, id=2483, 722.7pt x 433.62pt>
+File: ./cap6/figs/matching/fit_phi2_mD_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/matching/fit_phi2_mD_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/matching/fit_phi2_mD_fl_ave.pdf  used on i
+nput line 202.
+(pdftex.def)             Requested size: 216.81166pt x 130.087pt.
+<./cap6/figs/matching/fit_phi2_mD_etac.pdf, id=2484, 722.7pt x 433.62pt>
+File: ./cap6/figs/matching/fit_phi2_mD_etac.pdf Graphic file (type pdf)
+<use ./cap6/figs/matching/fit_phi2_mD_etac.pdf>
+Package pdftex.def Info: ./cap6/figs/matching/fit_phi2_mD_etac.pdf  used on inp
+ut line 203.
+(pdftex.def)             Requested size: 216.81166pt x 130.087pt.
+<./cap6/figs/matching/fit_phi2_mDs_fl_ave.pdf, id=2485, 722.7pt x 433.62pt>
+File: ./cap6/figs/matching/fit_phi2_mDs_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/matching/fit_phi2_mDs_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/matching/fit_phi2_mDs_fl_ave.pdf  used on 
+input line 205.
+(pdftex.def)             Requested size: 216.81166pt x 130.087pt.
+<./cap6/figs/matching/fit_phi2_mDs_etac.pdf, id=2486, 722.7pt x 433.62pt>
+File: ./cap6/figs/matching/fit_phi2_mDs_etac.pdf Graphic file (type pdf)
+<use ./cap6/figs/matching/fit_phi2_mDs_etac.pdf>
+Package pdftex.def Info: ./cap6/figs/matching/fit_phi2_mDs_etac.pdf  used on in
+put line 206.
+(pdftex.def)             Requested size: 216.81166pt x 130.087pt.
+
+LaTeX Warning: Reference `tab:CLS' on page 88 undefined on input line 215.
+
+
+LaTeX Warning: Reference `tab:CLS' on page 88 undefined on input line 215.
+
+
+LaTeX Warning: Float too large for page by 53.08391pt on input line 217.
+
+
+LaTeX Warning: Reference `sec:mixed_action_setup' on page 88 undefined on input
+ line 230.
+
+
+LaTeX Warning: Citation 'MA1' on page 88 undefined on input line 233.
+
+! Undefined control sequence.
+<recently read> \mbar 
+                      
+l.233 ...n for the renormalised  charm mass $\mbar
+                                                  _c(\mu)$ reads
+? 
+! Undefined control sequence.
+l.235 	\mbar
+            _c(\mu) =
+? 
+! Undefined control sequence.
+l.236 	 \ZP
+           ^{-1}(g_0^2, a\mu) [1 + a\overline{b}_\mu(g_0^2) \rm{tr}\{\mathbf...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.236 ..., a\mu) [1 + a\overline{b}_\mu(g_0^2) \rm
+                                                  {tr}\{\mathbf{m}^{(s)}\}]\...
+
+? 
+! Undefined control sequence.
+<recently read> \ZP 
+                    
+l.239 where $\ZP
+                (g_0^2, a\mu)$ is a suitably defined renormalisation constan...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.242 ...scussed, the improvement term $\propto\rm
+                                                  {tr}\{\mathbf{m}^{(s)}\}$
+? 
+! Undefined control sequence.
+<recently read> \ZP 
+                    
+l.249 ...l use the non-perturbative values of $\ZP
+                                                  $ computed in~\cite{Campos...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.251 $\mu_{\rm
+               \scriptscriptstyle had} = 233(8)~\MeV$ and for the range of v...
+
+? 
+! Undefined control sequence.
+l.251 ...{\rm\scriptscriptstyle had} = 233(8)~\MeV
+                                                  $ and for the range of val...
+
+? 
+
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[88]
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.265 ... renormalised masses in, say, the $\MSbar
+                                                  $ scheme can then be obtai...
+
+? 
+! Undefined control sequence.
+l.276 \mbar
+           _c(\mu_{\rm\scriptscriptstyle had}) \equiv \mu_c^{\rm\scriptscrip...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.276 \mbar_c(\mu_{\rm
+                      \scriptscriptstyle had}) \equiv \mu_c^{\rm\scriptscrip...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.276 ...scriptscriptstyle had}) \equiv \mu_c^{\rm
+                                                  \scriptscriptstyle R}\,,
+? 
+
+LaTeX Warning: Reference `tab:CLS' on page 89 undefined on input line 278.
+
+
+LaTeX Warning: Citation 'MA1' on page 89 undefined on input line 285.
+
+[89 <./cap6/figs/matching/meff_comparison.pdf>]
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.293 	\sqrt{8t_0}\, \mu_c^{\rm
+                               \scriptscriptstyle R}(a=0, \phi_2, \phi_H) = ...
+
+? 
+
+LaTeX Warning: Citation 'Georgi:1990um' on page 90 undefined on input line 296.
+
+
+<./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf, id=2540, 722.7pt x 433.62pt>
+File: ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf  used on
+ input line 305.
+(pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
+<./cap6/figs/mc/fit_phih_interp_muc_etac.pdf, id=2541, 722.7pt x 433.62pt>
+File: ./cap6/figs/mc/fit_phih_interp_muc_etac.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/fit_phih_interp_muc_etac.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/fit_phih_interp_muc_etac.pdf  used on i
+nput line 306.
+(pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 305--307
+ [][] 
+ []
+
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 305--307
+ [] 
+ []
+
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.307 ... matching conditions used in this work. }
+                                                  
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.307 ... matching conditions used in this work. }
+                                                  
+? 
+
+LaTeX Warning: Citation 'Heitger:2021apz' on page 90 undefined on input line 33
+0.
+
+
+Overfull \hbox (2.57687pt too wide) in alignment at lines 332--338
+ [][][] []
+ []
+
+
+LaTeX Warning: Reference `app:TIC' on page 90 undefined on input line 342.
+
+
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[90]
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.346 ...ng} we report the results for $\mu_c^{\rm
+                                                  \scriptscriptstyle R}$
+? 
+
+LaTeX Warning: Reference `app:TIC' on page 91 undefined on input line 354.
+
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.367 			$\sqrt{8t_0}\mu_c^{\rm
+                               \scriptscriptstyle R}$ & 3.354(28)(6) & 3.363...
+
+? 
+! Undefined control sequence.
+<argument> ...averaged matching condition in \req 
+                                                  {eq:fl_av_matching} and $\...
+l.374                 }
+                       
+? 
+! Undefined control sequence.
+<argument> ...nn}}$ matching prescription in \req 
+                                                  {eq:etac_matching}. The la...
+l.374                 }
+                       
+? 
+! Undefined control sequence.
+<argument> ...averaged matching condition in \req 
+                                                  {eq:fl_av_matching} and $\...
+l.374                 }
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.374                 }
+                       
+? 
+! Extra }, or forgotten $.
+<argument> ...ondition in \req {eq:fl_av_matching}
+                                                   and $\phi _H^{(2)}$ the $...
+l.374                 }
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.374                 }
+                       
+? 
+! Undefined control sequence.
+<argument> ...nn}}$ matching prescription in \req 
+                                                  {eq:etac_matching}. The la...
+l.374                 }
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.374                 }
+                       
+? 
+! Extra }, or forgotten $.
+<argument> ...scription in \req {eq:etac_matching}
+                                                  . The last column reports ...
+l.374                 }
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.374                 }
+                       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.374                 }
+                       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.374                 }
+                       
+? 
+! Undefined control sequence.
+<argument> ...averaged matching condition in \req 
+                                                  {eq:fl_av_matching} and $\...
+l.374                 }
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.374                 }
+                       
+? 
+! Extra }, or forgotten $.
+<argument> ...ondition in \req {eq:fl_av_matching}
+                                                   and $\phi _H^{(2)}$ the $...
+l.374                 }
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.374                 }
+                       
+? 
+! Undefined control sequence.
+<argument> ...nn}}$ matching prescription in \req 
+                                                  {eq:etac_matching}. The la...
+l.374                 }
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.374                 }
+                       
+? 
+! Extra }, or forgotten $.
+<argument> ...scription in \req {eq:etac_matching}
+                                                  . The last column reports ...
+l.374                 }
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.374                 }
+                       
+? 
+
+Overfull \hbox (700.47995pt too wide) in paragraph at lines 374--374
+\T1/pplj/m/n/10 (-20) eq:etac$[]\OML/zplm/m/it/10 atching\OT1/pplx/m/n/10 .\OML
+/zplm/m/it/10 Thelastcolumnreportsthecombinedresultfromthesetwomatchingprocedur
+esaccordingtoourmodelaverageprescription\OT1/pplx/m/n/10 .\OML/zplm/m/it/10 The
+firsterrorisstatistical\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 whilethesecondisthe
+systematicuncertaintyarisingfromthemodelvariation\OT1/pplx/m/n/10 .$ 
+ []
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.374                 }
+                       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.374                 }
+                       
+? 
+<./cap6/figs/mc/cat_ave_tot_muc_fl_ave.pdf, id=2555, 1156.32pt x 578.16pt>
+File: ./cap6/figs/mc/cat_ave_tot_muc_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/cat_ave_tot_muc_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/cat_ave_tot_muc_fl_ave.pdf  used on inp
+ut line 382.
+(pdftex.def)             Requested size: 485.6511pt x 242.82555pt.
+
+Overfull \hbox (149.6511pt too wide) in paragraph at lines 382--383
+ [][] 
+ []
+
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.383 ... cases appearing in the horizontal axis.}
+                                                  
+? 
+
+LaTeX Warning: Reference `eq:weighted_variance' on page 91 undefined on input l
+ine 383.
+
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.50006pt on input line 383.
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.383 ... cases appearing in the horizontal axis.}
+                                                  
+? 
+
+LaTeX Warning: Reference `eq:weighted_variance' on page 91 undefined on input l
+ine 383.
+
+<./cap6/figs/mc/hist_muc.pdf, id=2558, 462.52798pt x 346.89601pt>
+File: ./cap6/figs/mc/hist_muc.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/hist_muc.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/hist_muc.pdf  used on input line 389.
+(pdftex.def)             Requested size: 300.63962pt x 225.47972pt.
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.390 ...ate of the systematic error.            }
+                                                  
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.390 ...ate of the systematic error.            }
+                                                  
+? 
+<./cap6/figs/mc/mc_cl_all_cat.pdf, id=2561, 722.7pt x 433.62pt>
+File: ./cap6/figs/mc/mc_cl_all_cat.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/mc_cl_all_cat.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/mc_cl_all_cat.pdf  used on input line 4
+08.
+(pdftex.def)             Requested size: 433.62334pt x 260.17401pt.
+
+Overfull \hbox (97.62334pt too wide) in paragraph at lines 408--414
+ [][] 
+ []
+
+[91]
+<./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf, id=2571, 722.7pt x 433.62pt>
+File: ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf  used on input 
+line 420.
+(pdftex.def)             Requested size: 375.80615pt x 225.48369pt.
+
+Overfull \hbox (39.80615pt too wide) in paragraph at lines 420--421
+ [][] 
+ []
+
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.429 $\mu_c^{\rm
+                 \scriptscriptstyle R}$ can be obtained once we combine the ...
+
+? 
+
+LaTeX Warning: Reference `eq:t0phys' on page 92 undefined on input line 429.
+
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.430 results for the RGI and $\MSbar
+                                     $ values of the charm quark mass.
+? 
+! Undefined control sequence.
+l.433 and using the running factor in \req
+                                          {eq:rgi_running_factor}, we quote ...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.433 and using the running factor in \req{eq:rgi_
+                                                  running_factor}, we quote ...
+
+? 
+! Extra }, or forgotten $.
+l.433 ...ing factor in \req{eq:rgi_running_factor}
+                                                  , we quote for the three-f...
+
+? 
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.435 \begin{eqnarray}
+                      
+? 
+! You can't use `\halign' in math mode.
+\H@eqnarray ...let \\\@eqncr $$\everycr {}\halign 
+                                                  to\displaywidth \bgroup \h...
+l.435 \begin{eqnarray}
+                      
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \bgroup 
+l.435 \begin{eqnarray}
+                      
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \bgroup 
+l.435 \begin{eqnarray}
+                      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.435 \begin{eqnarray}
+                      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.435 \begin{eqnarray}
+                      
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...$\displaystyle \tabskip \z@skip {##
+                                                  }$\@eqnsel &\global \@eqcn...
+l.435 \begin{eqnarray}
+                      
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...le \tabskip \z@skip {##}$\@eqnsel &
+                                                  \global \@eqcnt \@ne \hski...
+l.435 \begin{eqnarray}
+                      
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...\hskip \tw@ \arraycolsep \hfil ${##
+                                                  }$\hfil &\global \@eqcnt \...
+l.435 \begin{eqnarray}
+                      
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...w@ \arraycolsep \hfil ${##}$\hfil &
+                                                  \global \@eqcnt \tw@ \hski...
+l.435 \begin{eqnarray}
+                      
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...tw@ \arraycolsep $\displaystyle {##
+                                                  }$\hfil \tabskip \@centeri...
+l.435 \begin{eqnarray}
+                      
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...e {##}$\hfil \tabskip \@centering &
+                                                  \global \@eqcnt \thr@@ \hb...
+l.435 \begin{eqnarray}
+                      
+? 
+! You can't use `macro parameter character #' in restricted horizontal mode.
+\H@eqnarray ... \thr@@ \hb@xt@ \z@ \bgroup \hss ##
+                                                  \egroup \tabskip \z@skip \cr 
+l.435 \begin{eqnarray}
+                      
+? 
+! Misplaced \cr.
+\H@eqnarray ...hss ##\egroup \tabskip \z@skip \cr 
+                                                  
+l.435 \begin{eqnarray}
+                      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.435 \begin{eqnarray}
+                      
+? 
+! Undefined control sequence.
+l.436   M_c^{\mathrm{RGI}}(\NF
+                              =3) &=& 1.485(8)(3)(14)[17]\ \mathrm{GeV}\,,
+? 
+! Misplaced alignment tab character &.
+l.436   M_c^{\mathrm{RGI}}(\NF=3) &
+                                   =& 1.485(8)(3)(14)[17]\ \mathrm{GeV}\,,
+? 
+! Misplaced alignment tab character &.
+l.436   M_c^{\mathrm{RGI}}(\NF=3) &=&
+                                      1.485(8)(3)(14)[17]\ \mathrm{GeV}\,,
+? 
+
+! LaTeX Error: Too many columns in eqnarray environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.438 \end{eqnarray}
+                    
+? 
+! Misplaced \cr.
+\@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
+                                                  
+l.438 \end{eqnarray}
+                    
+? 
+! Extra }, or forgotten $.
+\H@endeqnarray ->\@@eqncr \egroup 
+                                  \global \advance \c@equation \m@ne $$\@ign...
+l.438 \end{eqnarray}
+                    
+? 
+
+! LaTeX Error: \begin{document} ended by \end{eqnarray}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.438 \end{eqnarray}
+                    
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.438 \end{eqnarray}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.438 \end{eqnarray}
+                    
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.438 \end{eqnarray}
+                    
+? 
+
+Overfull \hbox (139.33884pt too wide) in paragraph at lines 432--440
+\T1/pplj/m/n/10.95 (-20) model av-er-age pro-ce-dure, and us-ing the run-ning f
+ac-tor in eq:rgi$[]\OML/zplm/m/it/10.95 unning[]actor\OT1/pplx/m/n/10.95 , \OML
+/zplm/m/it/10.95 wequoteforthethree \OMS/zplm/m/n/10.95 ^^@
+ []
+
+
+LaTeX Warning: Citation 'MA1' on page 92 undefined on input line 445.
+
+<./cap6/figs/mc/mc_error_pie.pdf, id=2576, 462.52798pt x 346.89601pt>
+File: ./cap6/figs/mc/mc_error_pie.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/mc_error_pie.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/mc_error_pie.pdf  used on input line 45
+2.
+(pdftex.def)             Requested size: 323.76736pt x 242.82555pt.
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.460 In order to quote results in the $\MSbar
+                                              $ scheme, we use five-loop per...
+
+? 
+
+LaTeX Warning: Citation 'Baikov:2014qja' on page 92 undefined on input line 461
+.
+
+
+LaTeX Warning: Citation 'Luthe:2016xec' on page 92 undefined on input line 461.
+
+
+
+LaTeX Warning: Citation 'Baikov:2017ujl' on page 92 undefined on input line 461
+.
+
+
+LaTeX Warning: Citation 'Baikov:2016tgj' on page 92 undefined on input line 461
+.
+
+
+LaTeX Warning: Citation 'Herzog:2017ohr' on page 92 undefined on input line 461
+.
+
+
+LaTeX Warning: Citation 'Luthe:2017ttc' on page 92 undefined on input line 461.
+
+
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.462 The matching between the $\NF
+                                   =3$ and $\NF=4$ theories uses the four-lo...
+
+? 
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.462 The matching between the $\NF=3$ and $\NF
+                                               =4$ theories uses the four-lo...
+
+? 
+
+LaTeX Warning: Citation 'Liu:2015fxa' on page 92 undefined on input line 462.
+
+
+LaTeX Warning: Citation 'Chetyrkin:2000yt' on page 92 undefined on input line 4
+63.
+
+
+LaTeX Warning: Citation 'Schmidt:2012az' on page 92 undefined on input line 463
+.
+
+
+LaTeX Warning: Citation 'Herren:2017osy' on page 92 undefined on input line 463
+.
+
+
+LaTeX Warning: Citation 'Bruno:2017gxd' on page 92 undefined on input line 464.
+
+
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.464 ...following results for the RGI and $\MSbar
+                                                  $-scheme charm quark masse...
+
+? 
+! Undefined control sequence.
+l.466   M_c^{\mathrm{RGI}}(\NF
+                              =4) &=& 1.546(8)(3)(14)(4)_\Lambda(3)_{\rm tru...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.466 ...4) &=& 1.546(8)(3)(14)(4)_\Lambda(3)_{\rm
+                                                   trunc.}[17] \ \mathrm{GeV...
+
+? 
+! Undefined control sequence.
+l.467   \overline{m}_c(\mu=3\ \mathrm{GeV}, \NF
+                                               =4) &=& 1.006(5)(2)(9)(6)_\La...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.467 ...=4) &=& 1.006(5)(2)(9)(6)_\Lambda(3)_{\rm
+                                                   trunc.}[13] \ \mathrm{GeV...
+
+? 
+! Undefined control sequence.
+l.469 	\overline{m}_c(\mu=\overline{m}_c, \NF
+                                             =4) &=& 1.296(5)(2)(8)(11)_\Lam...
+
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.469 ...4) &=& 1.296(5)(2)(8)(11)_\Lambda(5)_{\rm
+                                                   trunc.}[16] \ \mathrm{GeV...
+
+? 
+
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[92]
+! Undefined control sequence.
+l.471 ..., in the value of $M_c^{\mathrm{RGI}}(\NF
+                                                  =3)$ in Eq.~(\ref{eq:rgi_c...
+
+? 
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.471 ...erline{m}_c$, the scale invariant $\MSbar
+                                                  $ charm mass, $\overline{m...
+
+? 
+! Undefined control sequence.
+l.471 ..., $\overline{m}_c(\mu=\overline{m}_c, \NF
+                                                  =4)$, receives a large con...
+
+? 
+! Undefined control sequence.
+l.471 ... in the RGI mass, $M_c^{\mathrm{RGI}}(\NF
+                                                  =4)$.
+? 
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.473 ...ns of the charm quark mass in the $\MSbar
+                                                  $ scheme with the results ...
+
+? 
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.473 ...ttice QCD calculations also based on $\NF
+                                                  =2+1$ dynamical simulation...
+
+? 
+
+LaTeX Warning: Citation 'Heitger:2021apz' on page 93 undefined on input line 47
+3.
+
+<./cap6/figs/mc/mc_comparison_3gev.pdf, id=2590, 462.52798pt x 346.89601pt>
+File: ./cap6/figs/mc/mc_comparison_3gev.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/mc_comparison_3gev.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/mc_comparison_3gev.pdf  used on input l
+ine 478.
+(pdftex.def)             Requested size: 217.38817pt x 163.04114pt.
+<./cap6/figs/mc/mc_comparison.pdf, id=2591, 462.52798pt x 346.89601pt>
+File: ./cap6/figs/mc/mc_comparison.pdf Graphic file (type pdf)
+<use ./cap6/figs/mc/mc_comparison.pdf>
+Package pdftex.def Info: ./cap6/figs/mc/mc_comparison.pdf  used on input line 4
+79.
+(pdftex.def)             Requested size: 217.38817pt x 163.04114pt.
+! Undefined control sequence.
+<argument> ... mass determinations in the $\MSbar 
+                                                  $ scheme with the FLAG ave...
+l.481        }
+              
+? 
+! Undefined control sequence.
+<argument> ...tice QCD calculations based on $\NF 
+                                                  =2+1$ dynamical simulation...
+l.481        }
+              
+? 
+! Undefined control sequence.
+<argument> ...ne {m}_c(\mu =3\ \mathrm {GeV}, \NF 
+                                                  =4)$. \textit {Right}: com...
+l.481        }
+              
+? 
+! Undefined control sequence.
+<argument> ...ine {m}_c(\mu =\overline {m}_c, \NF 
+                                                  =4)$. Starting from the bo...
+l.481        }
+              
+? 
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.481        }
+              
+? 
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.481        }
+              
+? 
+! Undefined control sequence.
+<argument> ...ne {m}_c(\mu =3\ \mathrm {GeV}, \NF 
+                                                  =4)$. \textit {Right}: com...
+l.481        }
+              
+? 
+! Undefined control sequence.
+<argument> ...ine {m}_c(\mu =\overline {m}_c, \NF 
+                                                  =4)$. Starting from the bo...
+l.481        }
+              
+? 
+
+LaTeX Warning: Citation 'ParticleDataGroup:2022pth' on page 93 undefined on inp
+ut line 481.
+
+
+LaTeX Warning: Citation 'HPQCD:2008kxl' on page 93 undefined on input line 481.
+
+
+
+LaTeX Warning: Citation 'McNeile:2010ji' on page 93 undefined on input line 481
+.
+
+
+LaTeX Warning: Citation 'Yang:2014sea' on page 93 undefined on input line 481.
+
+
+LaTeX Warning: Citation 'Nakayama:2016atf' on page 93 undefined on input line 4
+81.
+
+
+LaTeX Warning: Citation 'Maezawa:2016vgv' on page 93 undefined on input line 48
+1.
+
+
+LaTeX Warning: Citation 'Petreczky:2019ozv' on page 93 undefined on input line 
+481.
+
+
+LaTeX Warning: Citation 'Heitger:2021apz' on page 93 undefined on input line 48
+1.
+
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.481        }
+              
+? 
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.481        }
+              
+? 
+! Undefined control sequence.
+<argument> ...ne {m}_c(\mu =3\ \mathrm {GeV}, \NF 
+                                                  =4)$. \textit {Right}: com...
+l.481        }
+              
+? 
+! Undefined control sequence.
+<argument> ...ine {m}_c(\mu =\overline {m}_c, \NF 
+                                                  =4)$. Starting from the bo...
+l.481        }
+              
+? 
+
+LaTeX Warning: Citation 'ParticleDataGroup:2022pth' on page 93 undefined on inp
+ut line 481.
+
+
+LaTeX Warning: Citation 'HPQCD:2008kxl' on page 93 undefined on input line 481.
+
+
+
+LaTeX Warning: Citation 'McNeile:2010ji' on page 93 undefined on input line 481
+.
+
+
+LaTeX Warning: Citation 'Yang:2014sea' on page 93 undefined on input line 481.
+
+
+LaTeX Warning: Citation 'Nakayama:2016atf' on page 93 undefined on input line 4
+81.
+
+
+LaTeX Warning: Citation 'Maezawa:2016vgv' on page 93 undefined on input line 48
+1.
+
+
+LaTeX Warning: Citation 'Petreczky:2019ozv' on page 93 undefined on input line 
+481.
+
+
+LaTeX Warning: Citation 'Heitger:2021apz' on page 93 undefined on input line 48
+1.
+
+
+Overfull \hbox (6.53487pt too wide) in paragraph at lines 491--491
+|[]\T1/pplj/m/sc/10.95/80ls (-20) determination of de-cay con-stants of charmed
+ mesons| 
+ []
+
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.501 ...{\sqrt{2m_{\rm\scriptscriptstyle PS}L^3}}
+                                                  ,
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.501 ...{\sqrt{2m_{\rm\scriptscriptstyle PS}L^3}}
+                                                  ,
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.505 and $m_{\rm
+                 \scriptscriptstyle PS}$ its mass.
+? 
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.506 The factor $1/\sqrt{2m_{\rm
+                                 \scriptscriptstyle PS}L^3}$ comes from the ...
+
+? 
+! Undefined control sequence.
+<recently read> \ZA 
+                    
+l.510 normalisation factor $\ZA
+                               $ and, if $O(a)$ effects are to be subtracted...
+
+? 
+! Undefined control sequence.
+l.512 ... signs in the twisted mass matrix in \req
+                                                  {eq:mval} ---
+? 
+! Undefined control sequence.
+l.514 and the Ward identity in \req
+                                   {eq:vector_ward_id} allows to obtain it f...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.514 and the Ward identity in \req{eq:vector_
+                                              ward_id} allows to obtain it f...
+
+? 
+! Extra }, or forgotten $.
+l.514 ... Ward identity in \req{eq:vector_ward_id}
+                                                   allows to obtain it from ...
+
+? 
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.517 \begin{equation}
+                      
+? 
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.520 \end{equation}
+                    
+? 
+
+Overfull \hbox (30.4738pt too wide) detected at line 520
+  []
+ []
+
+
+Overfull \hbox (143.20175pt too wide) in paragraph at lines 509--520
+\OML/zplm/m/it/10.95 pointfunction\OT1/pplx/m/n/10.95 .\OML/zplm/m/it/10.95 The
+resultingexpressionofthecorrectlynormalisedpseudoscalardecayconstantreads[]f[] 
+\OT1/zplm/m/n/10.95 =
+ []
+
+[93]
+
+! LaTeX Error: \begin{document} ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.520 \end{equation}
+                    
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.520 \end{equation}
+                    
+? 
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.520 \end{equation}
+                    
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.520 \end{equation}
+                    
+? 
+! Undefined control sequence.
+l.522 ..._n(t,t_0)$ of the GEVP  according to \req
+                                                  {eq:effective_matrix_eleme...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.522 ...the GEVP  according to \req{eq:effective_
+                                                  matrix_element}. In
+? 
+! Extra }, or forgotten $.
+l.522 ...ding to \req{eq:effective_matrix_element}
+                                                  . In
+? 
+
+LaTeX Warning: Reference `app:TIC' on page 94 undefined on input line 526.
+
+! Undefined control sequence.
+l.527 ...d through the model average given by \req
+                                                  {eq:model_average}.
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.530 
+      
+? 
+
+Overfull \hbox (1907.12971pt too wide) in paragraph at lines 520--530
+\T1/pplj/m/n/10.95 (-20) malised eigen-vec-tor $\OML/zplm/m/it/10.95 v[]\OT1/zp
+lm/m/n/10.95 (\OML/zplm/m/it/10.95 t\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 
+t[]\OT1/zplm/m/n/10.95 )$ \T1/pplj/m/n/10.95 (-20) of the GEVP ac-cord-ing to e
+q:effective$[]\OML/zplm/m/it/10.95 atrix[]lement\OT1/pplx/m/n/10.95 .\OML/zplm/
+m/it/10.95 Inordertoextractthelargetimeplateauwhereexcitedstatecontributionsare
+suppressedweperformseveralfitstoconstantbehaviourbyvaryingthefitranges\OT1/pplx
+/m/n/10.95 , \OML/zplm/m/it/10.95 andweassignaweighttoeachfitbymeansoftheTICpre
+scriptionasdescribedinApp\OT1/pplx/m/n/10.95 . [].\OML/zplm/m/it/10.95 Theresul
+tsforthegroundstatematrixelementarethenextractedthroughthemodelaveragegivenby[]
+\OT1/pplx/m/n/10.95 .\OML/zplm/m/it/10.95 InFigure[][]\OT1/pplx/m/n/10.95 5.11[
+][]\OML/zplm/m/it/10.95 weshowarepresentativeplateauforaheavy \OMS/zplm/m/n/10.
+95 ^^@
+ []
+
+
+Overfull \hbox (78.74501pt too wide) in paragraph at lines 520--530
+\OML/zplm/m/it/10.95 lightdecayconstant\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.
+95 togetherwithasummaryofthemodelaveragewithdifferentfitintervals\OT1/pplx/m/n/
+10.95 .$ 
+ []
+
+<./cap6/figs/fds/f8_plateau.pdf, id=2603, 722.7pt x 542.025pt>
+File: ./cap6/figs/fds/f8_plateau.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/f8_plateau.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/f8_plateau.pdf  used on input line 534
+.
+(pdftex.def)             Requested size: 361.3491pt x 271.01183pt.
+<./cap6/figs/fds/f8_BMA.pdf, id=2604, 722.7pt x 542.025pt>
+File: ./cap6/figs/fds/f8_BMA.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/f8_BMA.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/f8_BMA.pdf  used on input line 535.
+(pdftex.def)             Requested size: 361.3491pt x 271.01183pt.
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 534--536
+ [][] 
+ []
+
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 534--536
+ [] 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 541.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 541.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 541.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 541.
+
+
+LaTeX Warning: Citation 'Grinstein:1992qt' on page 94 undefined on input line 5
+45.
+
+
+LaTeX Warning: Citation 'Goity:1992tp' on page 94 undefined on input line 545.
+
+
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[94]
+! Undefined control sequence.
+<recently read> \MSbar 
+                       
+l.589 }
+       
+? 
+
+LaTeX Warning: Citation 'Manohar:2000dt' on page 95 undefined on input line 589
+.
+
+
+LaTeX Warning: Citation 'Ji:1991pr' on page 95 undefined on input line 589.
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 589--589
+[][]\T1/pplj/m/n/9 (+20) This is read-ily ob-served in the ex-pres-sion for the
+ co-ef-fi-cient in the $$
+ []
+
+! Undefined control sequence.
+<argument> ... _1 = -254/9 - 56\pi ^2/27 + 20 \NF 
+                                                  /9$, while the perturbativ...
+l.589 }
+       
+? 
+! Undefined control sequence.
+<argument> ...usual values $\beta _0 = (11 - 2\NF 
+                                                  /3)$ and $\beta _1 = (102 ...
+l.589 }
+       
+? 
+! Undefined control sequence.
+<argument> ...F /3)$ and $\beta _1 = (102 - 28\NF 
+                                                  /3)$. \@finalstrut \strutbox 
+l.589 }
+       
+? 
+
+LaTeX Warning: Citation 'Goity:1992tp' on page 95 undefined on input line 598.
+
+
+LaTeX Warning: Citation 'Bazavov:2017lyh' on page 95 undefined on input line 59
+8.
+
+
+Overfull \hbox (12.83379pt too wide) detected at line 608
+ $[][]$  
+ []
+
+! Undefined control sequence.
+l.611 $p_\chi^{(i)}$.  In \req
+                              {eq:deltaphichis} we introduced  the notation ...
+
+? 
+[95]
+! Undefined control sequence.
+l.619 ...hadronic combinations introduced  in \req
+                                                  {eq:phi2_and_phi4},
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.619 ...combinations introduced  in \req{eq:phi2_
+                                                  and_phi4},
+? 
+! Extra }, or forgotten $.
+l.619 ...ons introduced  in \req{eq:phi2_and_phi4}
+                                                  ,
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.622 $\phi
+           _f$ appearing in \req{eq:deltaphichis}, which introduces the $\ch...
+
+? 
+! Undefined control sequence.
+l.622 $\phi_f$ appearing in \req
+                                {eq:deltaphichis}, which introduces the $\ch...
+
+? 
+
+LaTeX Warning: Citation 'MA1' on page 96 undefined on input line 624.
+
+
+Overfull \hbox (248.45483pt too wide) in paragraph at lines 618--625
+\T1/pplj/m/n/10.95 (-20) eq:phi2$[]\OML/zplm/m/it/10.95 nd[]hi\OT1/pplx/m/n/10.
+95 4, \OML/zplm/m/it/10.95 whichcontrolthelightandstrangequarkmassdependence\OT
+1/pplx/m/n/10.95 .\OML/zplm/m/it/10.95 WhenworkingatNLOinthechiralexpansion\OT1
+/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 theterm$$^^^[]$
+ []
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 646.
+
+
+Overfull \hbox (103.04431pt too wide) detected at line 660
+ $[][]$  
+ []
+
+! Undefined control sequence.
+l.663 Following \req
+                    {eq:fds_different_pieces}, this then leads to the final ...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.663 Following \req{eq:fds_
+                            different_pieces}, this then leads to the final ...
+
+? 
+! Extra }, or forgotten $.
+l.663 Following \req{eq:fds_different_pieces}
+                                             , this then leads to the final ...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.663 ... then leads to the final ansatz for $\Phi
+                                                  _{D_{(s)}}$
+? 
+
+Overfull \hbox (99.03593pt too wide) in paragraph at lines 660--665
+\T1/pplj/m/n/10.95 (-20) and $\OT1/zplm/m/n/10.95 ^^H[]$\T1/pplj/m/n/10.95 (-20
+) , re-spec-tively. Fol-low-ing eq:fds$[]\OML/zplm/m/it/10.95 ifferent[]ieces\O
+T1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 thisthenleadstothefinalansatzfor$$\OT1
+/zplm/m/n/10.95 ^^H[]$
+ []
+
+
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[96]
+<./cap6/figs/fds/fit_fD_fl_ave.pdf, id=2631, 722.7pt x 433.62pt>
+File: ./cap6/figs/fds/fit_fD_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/fit_fD_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/fit_fD_fl_ave.pdf  used on input line 
+695.
+(pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
+<./cap6/figs/fds/fit_fDs_fl_ave.pdf, id=2632, 722.7pt x 433.62pt>
+File: ./cap6/figs/fds/fit_fDs_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/fit_fDs_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/fit_fDs_fl_ave.pdf  used on input line
+ 696.
+(pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 695--697
+ [][] 
+ []
+
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 695--697
+ [] 
+ []
+
+<./cap6/figs/fds/fit_cl_fD_fl_ave.pdf, id=2633, 722.7pt x 433.62pt>
+File: ./cap6/figs/fds/fit_cl_fD_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/fit_cl_fD_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/fit_cl_fD_fl_ave.pdf  used on input li
+ne 704.
+(pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
+<./cap6/figs/fds/fit_cl_fDs_fl_ave.pdf, id=2634, 722.7pt x 433.62pt>
+File: ./cap6/figs/fds/fit_cl_fDs_fl_ave.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/fit_cl_fDs_fl_ave.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/fit_cl_fDs_fl_ave.pdf  used on input l
+ine 705.
+(pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 704--706
+ [][] 
+ []
+
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 704--706
+ [] 
+ []
+
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.723 ...arison between our results and other $\NF
+                                                  =2+1$ lattice QCD determin...
+
+? 
+[97]
+<././cap6/figs/fds/error_pie_fd.pdf, id=2649, 250.10207pt x 267.08229pt>
+File: ././cap6/figs/fds/error_pie_fd.pdf Graphic file (type pdf)
+<use ././cap6/figs/fds/error_pie_fd.pdf>
+Package pdftex.def Info: ././cap6/figs/fds/error_pie_fd.pdf  used on input line
+ 743.
+(pdftex.def)             Requested size: 134.39795pt x 143.52539pt.
+<././cap6/figs/fds/error_pie_fds.pdf, id=2650, 246.21817pt x 267.92917pt>
+File: ././cap6/figs/fds/error_pie_fds.pdf Graphic file (type pdf)
+<use ././cap6/figs/fds/error_pie_fds.pdf>
+Package pdftex.def Info: ././cap6/figs/fds/error_pie_fds.pdf  used on input lin
+e 747.
+(pdftex.def)             Requested size: 131.0398pt x 142.60275pt.
+
+
+LaTeX Warning: Citation 'MA1' on page 98 undefined on input line 751.
+
+
+LaTeX Warning: Citation 'MA1' on page 98 undefined on input line 751.
+
+<./cap6/figs/fds/fds_comparison.pdf, id=2651, 462.52798pt x 346.89601pt>
+File: ./cap6/figs/fds/fds_comparison.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/fds_comparison.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/fds_comparison.pdf  used on input line
+ 758.
+(pdftex.def)             Requested size: 323.76736pt x 242.82555pt.
+! Undefined control sequence.
+<argument> ...ions based on simulations with $\NF 
+                                                  =2+1$ dynamical flavours a...
+l.761           }
+                 
+? 
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.761           }
+                 
+? 
+
+LaTeX Warning: Citation 'Davies:2010ip' on page 98 undefined on input line 761.
+
+
+
+LaTeX Warning: Citation 'PACS-CS:2011ngu' on page 98 undefined on input line 76
+1.
+
+
+LaTeX Warning: Citation 'FermilabLattice:2011njy' on page 98 undefined on input
+ line 761.
+
+
+LaTeX Warning: Citation 'Na:2012iu' on page 98 undefined on input line 761.
+
+
+LaTeX Warning: Citation 'Yang:2014sea' on page 98 undefined on input line 761.
+
+
+LaTeX Warning: Citation 'Boyle:2017jwu' on page 98 undefined on input line 761.
+
+
+
+LaTeX Warning: Citation 'Chen:2020qma' on page 98 undefined on input line 761.
+
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.761           }
+                 
+? 
+
+LaTeX Warning: Citation 'Davies:2010ip' on page 98 undefined on input line 761.
+
+
+
+LaTeX Warning: Citation 'PACS-CS:2011ngu' on page 98 undefined on input line 76
+1.
+
+
+LaTeX Warning: Citation 'FermilabLattice:2011njy' on page 98 undefined on input
+ line 761.
+
+
+LaTeX Warning: Citation 'Na:2012iu' on page 98 undefined on input line 761.
+
+
+LaTeX Warning: Citation 'Yang:2014sea' on page 98 undefined on input line 761.
+
+
+LaTeX Warning: Citation 'Boyle:2017jwu' on page 98 undefined on input line 761.
+
+
+
+LaTeX Warning: Citation 'Chen:2020qma' on page 98 undefined on input line 761.
+
+
+Underfull \hbox (badness 4144) in paragraph at lines 761--761
+\T1/pplj/m/n/10 (+20) FNAL/MILC 11 [[]], HPQCD 12A
+ []
+
+
+Underfull \hbox (badness 3579) in paragraph at lines 761--761
+\T1/pplj/m/n/10 (+20) [[]], $\OML/zplm/m/it/10 ^^_$\T1/pplj/m/n/10 (+20) QCD 14
+ [[]], RBC/UKQCD 17
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 767.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 767.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 767.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 767.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 767.
+
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.775 point of our $\phi_4={\rm
+                                constant}$ trajectory, which is part of our ...
+
+? 
+
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[98]
+Overfull \hbox (54.67383pt too wide) detected at line 806
+ $[][]$  
+ []
+
+
+Overfull \hbox (3.63197pt too wide) detected at line 830
+ $[][]$  
+ []
+
+! Undefined control sequence.
+l.831 ...ised in a similar fashion to that in \req
+                                                  {eq:phias}.
+? 
+[99]
+<./cap6/figs/fds/fit_fds_ratio_fds_over_fd.pdf, id=2675, 722.7pt x 433.62pt>
+File: ./cap6/figs/fds/fit_fds_ratio_fds_over_fd.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/fit_fds_ratio_fds_over_fd.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/fit_fds_ratio_fds_over_fd.pdf  used on
+ input line 856.
+(pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
+<./cap6/figs/fds/fit_cl_fds_ratio_fds.pdf, id=2676, 722.7pt x 433.62pt>
+File: ./cap6/figs/fds/fit_cl_fds_ratio_fds.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/fit_cl_fds_ratio_fds.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/fit_cl_fds_ratio_fds.pdf  used on inpu
+t line 857.
+(pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 856--858
+ [][] 
+ []
+
+
+Overfull \hbox (25.3491pt too wide) in paragraph at lines 856--858
+ [] 
+ []
+
+<./cap6/figs/fds/cat_ave_totfds_over_fd.pdf, id=2680, 1156.32pt x 578.16pt>
+File: ./cap6/figs/fds/cat_ave_totfds_over_fd.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/cat_ave_totfds_over_fd.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/cat_ave_totfds_over_fd.pdf  used on in
+put line 883.
+(pdftex.def)             Requested size: 462.5198pt x 231.2599pt.
+
+Overfull \hbox (126.5198pt too wide) in paragraph at lines 883--885
+ [][] 
+ []
+
+<././cap6/figs/fds/error_pie_ratio_fds.pdf, id=2693, 242.72252pt x 260.16803pt>
+
+File: ././cap6/figs/fds/error_pie_ratio_fds.pdf Graphic file (type pdf)
+<use ././cap6/figs/fds/error_pie_ratio_fds.pdf>
+Package pdftex.def Info: ././cap6/figs/fds/error_pie_ratio_fds.pdf  used on inp
+ut line 892.
+(pdftex.def)             Requested size: 144.47754pt x 154.86342pt.
+<././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf, id=2694, 226.15912pt x 264
+.91872pt>
+File: ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf Graphic file (type pdf
+)
+<use ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf>
+Package pdftex.def Info: ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf  us
+ed on input line 896.
+(pdftex.def)             Requested size: 134.39795pt x 157.43253pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./cap6/figs/fds/ratio_fds_comparison.pdf, id=2695, 462.52798pt x 346.89601pt>
+File: ./cap6/figs/fds/ratio_fds_comparison.pdf Graphic file (type pdf)
+<use ./cap6/figs/fds/ratio_fds_comparison.pdf>
+Package pdftex.def Info: ./cap6/figs/fds/ratio_fds_comparison.pdf  used on inpu
+t line 907.
+(pdftex.def)             Requested size: 323.76736pt x 242.82555pt.
+! Undefined control sequence.
+<argument> ...ce QCD collaborations based on $\NF 
+                                                  =2+1$ dynamical simulation...
+l.908 ...m},  $\chi$QCD 20A \cite{Chen:2020qma}. }
+                                                  
+? 
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.908 ...m},  $\chi$QCD 20A \cite{Chen:2020qma}. }
+                                                  
+? 
+
+LaTeX Warning: Citation 'PACS-CS:2011ngu' on page 100 undefined on input line 9
+08.
+
+
+LaTeX Warning: Citation 'FermilabLattice:2011njy' on page 100 undefined on inpu
+t line 908.
+
+
+LaTeX Warning: Citation 'Na:2012iu' on page 100 undefined on input line 908.
+
+
+LaTeX Warning: Citation 'Boyle:2017jwu' on page 100 undefined on input line 908
+.
+
+
+LaTeX Warning: Citation 'Boyle:2018knm' on page 100 undefined on input line 908
+.
+
+
+LaTeX Warning: Citation 'Chen:2020qma' on page 100 undefined on input line 908.
+
+
+! Undefined control sequence.
+<recently read> \NF 
+                    
+l.908 ...m},  $\chi$QCD 20A \cite{Chen:2020qma}. }
+                                                  
+? 
+
+LaTeX Warning: Citation 'PACS-CS:2011ngu' on page 100 undefined on input line 9
+08.
+
+
+LaTeX Warning: Citation 'FermilabLattice:2011njy' on page 100 undefined on inpu
+t line 908.
+
+
+LaTeX Warning: Citation 'Na:2012iu' on page 100 undefined on input line 908.
+
+
+LaTeX Warning: Citation 'Boyle:2017jwu' on page 100 undefined on input line 908
+.
+
+
+LaTeX Warning: Citation 'Boyle:2018knm' on page 100 undefined on input line 908
+.
+
+
+LaTeX Warning: Citation 'Chen:2020qma' on page 100 undefined on input line 908.
+
+
+
+Underfull \hbox (badness 4144) in paragraph at lines 908--908
+\T1/pplj/m/n/10 (+20) FNAL/MILC 11 [[]], HPQCD 12A
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[100] [101 <./cap6/figs/matching/fit_phi2_mD_fl_ave.pdf> <./cap6/figs/matching/
+fit_phi2_mD_etac.pdf> <./cap6/figs/matching/fit_phi2_mDs_fl_ave.pdf> <./cap6/fi
+gs/matching/fit_phi2_mDs_etac.pdf>]
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[102 <./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf> <./cap6/figs/mc/fit_phih_i
+nterp_muc_etac.pdf>] [103 <./cap6/figs/mc/cat_ave_tot_muc_fl_ave.pdf>]
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[104 <./cap6/figs/mc/hist_muc.pdf>] [105 <./cap6/figs/mc/mc_cl_all_cat.pdf>]
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[106 <./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf>] [107 <./cap6/figs/mc/mc_error_pi
+e.pdf>]
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[108 <./cap6/figs/mc/mc_comparison_3gev.pdf> <./cap6/figs/mc/mc_comparison.pdf>
+] [109 <./cap6/figs/fds/f8_plateau.pdf> <./cap6/figs/fds/f8_BMA.pdf>]
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[110 <./cap6/figs/fds/fit_fD_fl_ave.pdf> <./cap6/figs/fds/fit_fDs_fl_ave.pdf>]
+[111 <./cap6/figs/fds/fit_cl_fD_fl_ave.pdf> <./cap6/figs/fds/fit_cl_fDs_fl_ave.
+pdf>]
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[112 <././cap6/figs/fds/error_pie_fd.pdf> <././cap6/figs/fds/error_pie_fds.pdf>
+ <./cap6/figs/fds/fds_comparison.pdf>] [113 <./cap6/figs/fds/fit_fds_ratio_fds_
+over_fd.pdf> <./cap6/figs/fds/fit_cl_fds_ratio_fds.pdf>]
+Overfull \hbox (9.08978pt too wide) has occurred while \output is active
+[]|[]|  
+ []
+
+[114 <./cap6/figs/fds/cat_ave_totfds_over_fd.pdf>] [115 <././cap6/figs/fds/erro
+r_pie_ratio_fds.pdf> <././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf> <./ca
+p6/figs/fds/ratio_fds_comparison.pdf>] [116
+
+
+
+
+] [117
+
+
+] [118]
 \openout2 = `conclusions/conclusions.aux'.
 
- (./conclusions/conclusions.tex [83
+
+(./conclusions/conclusions.tex [119
 
 
 
-]) [84]
+]) [120]
 \openout2 = `conclusions/conclusiones.aux'.
 
-
-(./conclusions/conclusiones.tex) [85
-
-
-
-
-
-] [86
+ (./conclusions/conclusiones.tex)
+[121
 
 
 
 
-] [87
+
+] [122
 
 
-] [88]
+
+
+] [123
+
+
+] [124]
 \openout2 = `apendices/apendices_conventions.aux'.
 
-
-(./apendices/apendices_conventions.tex
+ (./apendices/apendices_conventions.tex
 Appendix A.
 LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 
 19.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-) [89
+) [125
 
 
 
-]) [90]
+]) [126]
 \openout2 = `apendices/apendices_SU3.aux'.
 
 
@@ -2144,7 +4203,7 @@ Overfull \hbox (1.2082pt too wide) detected at line 54
 []
  []
 
-) [91
+) [127
 
 
 
@@ -2155,7 +4214,7 @@ Overfull \hbox (1.2082pt too wide) detected at line 54
 
  (./apendices/apendices_a.tex
 Appendix C.
-[92
+[128
 
 
 
@@ -2166,18 +4225,18 @@ Overfull \hbox (87.42212pt too wide) in alignment at lines 9--37
  [] [] [] [] [] [] [] [] [] 
  []
 
-) [93]
+) [129]
 \openout2 = `apendices/apendices_obs.aux'.
 
  (./apendices/apendices_obs.tex
 Appendix D.
-[94
+[130
 
 
 
 
 
-] [95] [96]) [97] [98]
+] [131] [132]) [133] [134]
 \openout2 = `apendices/apendices_simulations.aux'.
 
  (./apendices/apendices_simulations.tex
@@ -2191,7 +4250,7 @@ Overfull \hbox (10.12854pt too wide) detected at line 18
 /n/10.95 ] + \OMS/zplm/m/n/10.95 O [] \OT1/pplx/m/n/10.95 ,$  
  []
 
-[99
+[135
 
 
 
@@ -2211,17 +4270,17 @@ m/m/it/10.95 U[] \OMS/zplm/m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10
 .95 j\OT1/zplm/m/n/10.95 ))\OT1/pplx/m/n/10.95 .$  
  []
 
-[100] [101] [102]
+[136] [137] [138]
 Overfull \hbox (10.74318pt too wide) detected at line 116
 []
  []
 
-[103]) [104]
+[139]) [140]
 \openout2 = `apendices/apendices_errors.aux'.
 
  (./apendices/apendices_errors.tex
 Appendix F.
-[105
+[141
 
 
 
@@ -2236,40 +4295,40 @@ cer-tainty of $\OMS/zplm/m/n/10.95 O\OT1/zplm/m/n/10.95 ([](\OMS/zplm/m/n/10.95
 /zplm/m/n/10.95 ))$\T1/pplj/m/n/10.95 (-20) .
  []
 
-[106]) [107]
+[142]) [143]
 \openout2 = `apendices/apendices_solvers.aux'.
 
  (./apendices/apendices_solvers.tex
 Appendix G.
-[108
+[144
 
 
 
 
 
-] [109] [110]) [111]
+] [145] [146]) [147]
 \openout2 = `apendices/apendices_b.aux'.
 
  (./apendices/apendices_b.tex
 Appendix H.
-[112
+[148
 
 
 
 
 
-] [113]) [114]
+] [149]) [150]
 \openout2 = `apendices/apendices_c.aux'.
 
  (./apendices/apendices_c.tex
 Appendix I.
-[115
+[151
 
 
 
 
 
-]) [116]
+]) [152]
 \openout2 = `apendices/apendices_f.aux'.
 
  (./apendices/apendices_f.tex
@@ -2300,23 +4359,23 @@ Overfull \hbox (36.42177pt too wide) in alignment at lines 36--113
  [] [] [] [] 
  []
 
-[117
+[153
 
 
 
 
 
-] [118]
+] [154]
 Overfull \hbox (36.42177pt too wide) in alignment at lines 117--194
  [] [] [] [] 
  []
 
-[119] [120] [121]
+[155] [156] [157]
 Overfull \hbox (76.0454pt too wide) in alignment at lines 196--315
  [] [] [] [] 
  []
 
-[122] [123] [124]) [125] [126
+[158] [159] [160]) [161] [162
 
 
 
@@ -2324,12 +4383,12 @@ Overfull \hbox (76.0454pt too wide) in alignment at lines 196--315
 ]
 \openout2 = `FrontBackmatter/Bibliography.aux'.
 
- (./FrontBackmatter/Bibliography.tex [127
+ (./FrontBackmatter/Bibliography.tex [163
 
 
 
 ]
-[128]
+[164]
 Overfull \hbox (2.5485pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) berto Ramos, and Anas-tas-sios Vladikas. ^^P  Non-pert
 urbative quark
@@ -2364,13 +4423,13 @@ Overfull \hbox (8.93341pt too wide) in paragraph at lines 15--15
 $ \T1/pplj/m/n/10.95 (-20) by the non-perturbative
  []
 
-[129]
+[165]
 Overfull \hbox (4.59018pt too wide) in paragraph at lines 15--15
 []\T1/pplj/m/n/10.95 (-20) R. Frez-zotti and G. C. Rossi. ^^P  Chi-rally im-pro
 v-ing Wil-son fermions.
  []
 
-[130] [131]
+[166] [167]
 Overfull \hbox (2.17453pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) mun.Math.Phys. 98, 433 (1985)], p. 433. \T1/pplj/m/sc/
 10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 10 . 1007 / BF
@@ -2383,7 +4442,7 @@ Overfull \hbox (0.908pt too wide) in paragraph at lines 15--15
 tions and reweight-
  []
 
-[132]
+[168]
 Overfull \hbox (52.29485pt too wide) in paragraph at lines 15--15
 []\T1/pplj/m/it/10.95 (-20) Millennium Prize prob-lems\T1/pplj/m/n/10.95 (-20) 
 . \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.9
@@ -2398,31 +4457,32 @@ Overfull \hbox (12.0785pt too wide) in paragraph at lines 15--15
 \T1/fvm/m/n/10.95 2305 . 19417$ [stat.ME][][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-[133]
+[169]
 Overfull \hbox (2.1324pt too wide) in paragraph at lines 15--15
 \T1/fvm/m/n/10.95 sciencedirect . com / science / article / pii / S001046550200
 7543$[][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-
+[170]
 Overfull \hbox (10.44223pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) sults: Im-proved Scale Set-ting and Do-main De-com-po-
 si-tion Solvers.^^Q
  []
 
-[134]) [135] (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
+) [171] (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
 (./FrontBackmatter/Titleback.aux) (./FrontBackmatter/Dedication_2.aux)
 (./FrontBackmatter/Dedication.aux) (./FrontBackmatter/Abstract.aux)
 (./FrontBackmatter/Publications.aux) (./FrontBackmatter/Acknowledgments.aux)
 (./FrontBackmatter/Contents.aux) (./introduction/introduction.aux)
 (./introduction/introduccion.aux) (./cap2/lattice.aux) (./cap3/observables.aux)
-(./cap4/cap4.aux) (./cap5/cap5_new.aux) (./conclusions/conclusions.aux)
-(./conclusions/conclusiones.aux) (./apendices/apendices_conventions.aux)
-(./apendices/apendices_SU3.aux) (./apendices/apendices_a.aux)
-(./apendices/apendices_obs.aux) (./apendices/apendices_simulations.aux)
-(./apendices/apendices_errors.aux) (./apendices/apendices_solvers.aux)
-(./apendices/apendices_b.aux) (./apendices/apendices_c.aux)
-(./apendices/apendices_f.aux) (./FrontBackmatter/Bibliography.aux))
+(./cap4/cap4.aux) (./cap5/cap5_new.aux) (./cap6/cap6.aux)
+(./conclusions/conclusions.aux) (./conclusions/conclusiones.aux)
+(./apendices/apendices_conventions.aux) (./apendices/apendices_SU3.aux)
+(./apendices/apendices_a.aux) (./apendices/apendices_obs.aux)
+(./apendices/apendices_simulations.aux) (./apendices/apendices_errors.aux)
+(./apendices/apendices_solvers.aux) (./apendices/apendices_b.aux)
+(./apendices/apendices_c.aux) (./apendices/apendices_f.aux)
+(./FrontBackmatter/Bibliography.aux))
 
  *File List*
  silence.sty    2012/07/02 v1.5b Selective filtering of warnings and error mess
@@ -2639,7 +4699,41 @@ cap5/cap5_new.tex
 ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf
 ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf
 ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf
+./cap5/figs/t0_compar_FLAG.pdf
+./cap5/figs/t0_compar.pdf
 ./cap5/figs/t0_sym.pdf
+cap6/cap6.tex
+./cap6/figs/matching/m8_plateau.pdf
+./cap6/figs/matching/mps_BMA_8.pdf
+./cap6/figs/matching/meff_comparison.pdf
+./cap6/figs/matching/fit_phi2_mD_fl_ave.pdf
+./cap6/figs/matching/fit_phi2_mD_etac.pdf
+./cap6/figs/matching/fit_phi2_mDs_fl_ave.pdf
+./cap6/figs/matching/fit_phi2_mDs_etac.pdf
+./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf
+./cap6/figs/mc/fit_phih_interp_muc_etac.pdf
+./cap6/figs/mc/cat_ave_tot_muc_fl_ave.pdf
+./cap6/figs/mc/hist_muc.pdf
+./cap6/figs/mc/mc_cl_all_cat.pdf
+./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf
+./cap6/figs/mc/mc_error_pie.pdf
+./cap6/figs/mc/mc_comparison_3gev.pdf
+./cap6/figs/mc/mc_comparison.pdf
+./cap6/figs/fds/f8_plateau.pdf
+./cap6/figs/fds/f8_BMA.pdf
+./cap6/figs/fds/fit_fD_fl_ave.pdf
+./cap6/figs/fds/fit_fDs_fl_ave.pdf
+./cap6/figs/fds/fit_cl_fD_fl_ave.pdf
+./cap6/figs/fds/fit_cl_fDs_fl_ave.pdf
+././cap6/figs/fds/error_pie_fd.pdf
+././cap6/figs/fds/error_pie_fds.pdf
+./cap6/figs/fds/fds_comparison.pdf
+./cap6/figs/fds/fit_fds_ratio_fds_over_fd.pdf
+./cap6/figs/fds/fit_cl_fds_ratio_fds.pdf
+./cap6/figs/fds/cat_ave_totfds_over_fd.pdf
+././cap6/figs/fds/error_pie_ratio_fds.pdf
+././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf
+./cap6/figs/fds/ratio_fds_comparison.pdf
 conclusions/conclusions.tex
 conclusions/conclusiones.tex
 apendices/apendices_conventions.tex
@@ -2662,38 +4756,58 @@ LaTeX Warning: There were undefined references.
 Package rerunfilecheck Info: File `ClassicThesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
-Package biblatex Warning: Please rerun LaTeX.
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                ClassicThesis
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 \openout1 = `ClassicThesis.run.xml'.
 
- ) 
+ )
+(\end occurred inside a group at level 3)
+
+### simple group (level 3) entered at line 663 ({)
+### simple group (level 2) entered at line 619 ({)
+### simple group (level 1) entered at line 522 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 35448 strings out of 478287
- 690398 string characters out of 5849289
- 1699680 words of memory out of 5000000
- 51304 multiletter control sequences out of 15000+600000
- 625604 words of font info for 797 fonts, out of 8000000 for 9000
+ 36185 strings out of 478287
+ 707795 string characters out of 5849289
+ 1721232 words of memory out of 5000000
+ 51741 multiletter control sequences out of 15000+600000
+ 653145 words of font info for 914 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,24n,125p,10608b,2455s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/euler/eurb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/mathpazo/fplmbi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathp
-azo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/
-uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on ClassicThesis.pdf (151 pages, 980969 bytes).
+ 108i,24n,125p,10608b,2655s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/mathpazo/fplmbi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/m
+athpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fp
+lmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palat
+ino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.
+pfb>
+Output written on ClassicThesis.pdf (187 pages, 1798070 bytes).
 PDF statistics:
- 3248 PDF objects out of 3580 (max. 8388607)
- 2380 compressed objects within 24 object streams
- 704 named destinations out of 1000 (max. 500000)
- 146558 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 4594 PDF objects out of 5155 (max. 8388607)
+ 3423 compressed objects within 35 object streams
+ 817 named destinations out of 1000 (max. 500000)
+ 182163 words of extra memory for PDF output out of 184870 (max. 10000000)
 
