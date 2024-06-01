@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Finite Volume Effects}
+\label{apex_fv}
+
+Simulating QCD in a finite box introduces finite volume effects which can be a source for systematic uncertainties. In Table~\ref{apex_ensembles:tab:ens} we show the volume of each ensemble in terms of $m_{\pi}L$. It is conventional to consider finite volume effects under control and negligible if $m_{\pi}L\geq4$.
+
+ChPT provides us with formulae to account for these finite volume effects. In particular, to NLO the pion and kaon masses and decay constants receive the following corrections~\citep{Colangelo:2003hf,Colangelo:2005gd}
+\begin{equation}
+X^{(\infty)}=X^{(L)}\frac{1}{1+R_X},
+\end{equation}
+where $X^{(\infty)}$ is observable $X$ at infinite volume and $X^{(L)}$ is said observable at a finite volume $L^3$, with $X=m_{\pi},m_K,f_{\pi},f_K$,
+\begin{align}
+R_{m_{\pi}}&=\frac{1}{4}\xi_{\pi}\tilde{g}_1(\lambda_{\pi})-\frac{1}{12}\xi_{\eta}\tilde{g}_1(\lambda_{\eta}), \\
+R_{m_K}&=\frac{1}{6}\xi_{\eta}\tilde{g}_1(\lambda_{\eta}), \\
+R_{f_K}&=-\xi_{\pi}\tilde{g}_1(\lambda_{\pi})-\frac{1}{2}\xi_{K}\tilde{g}_1(\lambda_{K}), \\
+R_{f_{\pi}}&=-\frac{3}{8}\xi_{\pi}\tilde{g}_1(\lambda_{\pi})-\frac{3}{4}\xi_{K}\tilde{g}_1(\lambda_{K})-\frac{3}{8}\xi_{\eta}\tilde{g}_1(\lambda_{\eta}), \\
+\xi_{PS}&=\frac{m_{PS}^2}{(4\pi f_{\pi})^2}, \\
+\lambda_{PS}&=m_{PS}L, \\
+\tilde{g}_1(x)&=\sum_{n=1}^{\infty}\frac{4m(n)}{\sqrt{n}x}K_1(\sqrt{n}x), \\
+m_{\eta}^2&=\frac{4}{3}m_K^2-\frac{1}{3}m_{\pi}^2,
+\end{align}
+where $K_1(x)$ is a Bessel function of the second kind, and the multiplicities $m(n)$~\citep{Colangelo:2003hf} are listed in Table~\ref{apex_fv:tab:mn}. It is manifest that the lighter the pion mass and the smaller the volume, the stronger the volume corrections. We find these corrections to be less than half a standard deviation for the ensembles with the smallest volumes and lightest pion masses. We nonetheless apply the corrections to all the ensembles.
+
+PCAC quark masses are short distance observables and as such do not receive any infinite volume correction.
+
+\vspace{2cm}
+
+\begin{longtable}{c c c c c c c c c c c}
+\toprule
+$n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+%\midrule
+$m(n)$ & 6 & 12 & 8 & 6 & 24 & 24 & 0 & 12 & 30 & 24 \\
+\midrule
+$n$ & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\
+%\midrule
+$m(n)$ & 24 & 8 & 24 & 48 & 0 & 6 & 48 & 36 & 24 & 24 \\
+\bottomrule
+\caption{Multiplicities $m(n)$ calculated in~\citep{Colangelo:2003hf} for $n\leq20$.}
+\label{apex_fv:tab:mn}
+\end{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

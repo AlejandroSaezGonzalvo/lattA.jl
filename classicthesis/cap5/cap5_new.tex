@@ -59,9 +59,9 @@ The choice of the combination of decay constants $f_{\pi K}$ in eq.~(\ref{ch_ss:
 \begin{align}
 \label{ch_ss:eq:t0_chiral}
 t_0&=t_{0,\textrm{ch}}\left(1+k_1\frac{2m_K^2+m_{\pi}^2}{(4\pi f)^2}\right), \\
-f_{\pi}&=f\left[1+\frac{16B_0L_5}{f^2}m_l+\frac{16B_0L_4}{f^2}(2m_l+m_s)-2L(m_{\pi}^2)\right. \\
+f_{\pi}&=f\left[1+\frac{16B_0L_5}{f^2}m_l+\frac{16B_0L_4}{f^2}(2m_l+m_s)-2L(m_{\pi}^2)\right. \notag \\
 &\left.-L(m_K^2)\right], \\
-f_K&=f\left[1+\frac{8B_0L_5}{f^2}(m_l+m_s)+\frac{16B_0L_4}{f^2}(2m_l+m_s)\right. \\
+f_K&=f\left[1+\frac{8B_0L_5}{f^2}(m_l+m_s)+\frac{16B_0L_4}{f^2}(2m_l+m_s)\right. \notag \\
 &\left.-\frac{3}{4}L(m_{\pi}^2)-\frac{3}{2}L(m_K^2)-\frac{3}{4}L(m_{\eta}^2)\right],
 \end{align}
 where $L(x)$ are chiral logarithms, defined as
@@ -77,8 +77,8 @@ m_{\eta}^2&=\frac{4}{3}m_K^2-\frac{1}{3}m_{\pi}^2.
 This way, the combination $\sqrt{8t_0}f_{\pi K}$ reads
 \begin{align}
 \label{ch_ss:eq:SU3ChPT}
-F_{\chi SU(3),\pi K}^{\textrm{cont}}(\phi_2)&\equiv\left(\sqrt{8t_0}f_{\pi K}\right)^{\textrm{cont}}=\\
-&=\frac{A}{4\pi}\left[1-\frac{7}{6}\tilde{L}\left(\frac{\phi_2}{A^2}\right)-\frac{4}{3}\tilde{L}\left(\frac{\phi_4-\frac{1}{2}\phi_2}{A^2}\right)\right. \\
+F_{\chi SU(3),\pi K}^{\textrm{cont}}(\phi_2)&\equiv\left(\sqrt{8t_0}f_{\pi K}\right)^{\textrm{cont}}= \notag \\
+&=\frac{A}{4\pi}\left[1-\frac{7}{6}\tilde{L}\left(\frac{\phi_2}{A^2}\right)-\frac{4}{3}\tilde{L}\left(\frac{\phi_4-\frac{1}{2}\phi_2}{A^2}\right)\right. \notag \\
 &\left.-\frac{1}{2}\tilde{L}\left(\frac{\frac{4}{3}\phi_4-\phi_2}{A^2}\right)+\frac{B}{A^2}\phi_4\right],
 \end{align}
 with modified chiral logarithms given by
@@ -131,10 +131,7 @@ F^{\textrm{latt}}(\phi_2)&=F^{\textrm{cont}}(\phi_2)+\left(W+Z\phi_2\right)\frac
 \end{align}
 We assign the labels $[a^2]$, $[a^2\alpha_S^{\Gamma}]$ and $[a^2+a^2\phi_2]$ to characterize the lattice artifacts of these models, respectively. The lattice artifact in eq.~(\ref{ch_ss:eq:aas}) is motivated by~\citep{Husung:2022kvi} where logarithmic corrections in the lattice spacing $a$ are analyzed. In particular, a set of possible powers $\Gamma_i$ are found to contribute. 
 
-Since it is not feasible to include several independent fitting parameters to characterize these logarithmic corrections, we chose to include a single such term. We vary the choice of $\Gamma_i$ by monitoring its impact on the extracted value of $t_0^{\textrm{phys}}$ after averaging over the set of models. As $t_0^{\textrm{phys}}$ is observed to be independent of the choice of $\Gamma_i$, we restrict ourselves to the smallest value, $\Gamma_i=-0.111$, in the model average. For an estimation of $\alpha_S(a)$ we use
-\begin{gather}
-\alpha_S(a)\propto-\frac{1}{\textrm{log}\left(a\Lambda_{\overline{\textrm{MS}}}\right)}, \quad \Lambda_{\overline{\textrm{MS}}}^{(3)}=339(12)\;\textrm{MeV}~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.
-\end{gather}
+Since it is not feasible to include several independent fitting parameters to characterize these logarithmic corrections, we chose to include a single such term. We vary the choice of $\Gamma_i$ by monitoring its impact on the extracted value of $t_0^{\textrm{phys}}$ after averaging over the set of models. As $t_0^{\textrm{phys}}$ is observed to be independent of the choice of $\Gamma_i$, we restrict ourselves to the smallest value, $\Gamma_i=-0.111$, in the model average. 
 
 The systematic uncertainty in the extraction of $\sqrt{t_0^{\textrm{ph}}}$ is assessed by the model variation using the TIC introduced in Sec.~\ref{ch_observables:sec:MA}. We vary over the different ways of performing the chiral-continuum limits introduced above, as well as over the possibility of performing data cuts. In particular, we consider the following cuts (in addition to the ``no cut'' choice)
 \begin{align}
@@ -186,7 +183,7 @@ The results for $\sqrt{t_0^{\textrm{ph}}}$ in physical units as computed from th
 \end{align}
 We show a comparison of these results with other determinations in the literature using $N_f=2+1$ flavors of dynamical quarks in Fig.~\ref{ch_ss:fig:t0_compar}.
 
-We tested the impact of varying over the choice of the coefficients $c_{\beta}$ and $c_{\phi_2}$ in eq.~(\ref{ch_ss:eq:penal}) and found that the central values of the physical value of $\sqrt{t_0}$ in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) move always well within $1\sigma$, and not a big impact in the final uncertainty is found. More specifically, for the Combined analysis case if one removes altogether the $\beta=3.40$ and $m_{\pi}=420$ MeV ensembles from the analysis, the statistical and systematic uncertainties found are the same as in eq.~(\ref{ch_ss:eq:t0ph_c}). Additionally, one finds a statistical uncertainty of $0.0006$ fm and a systematic uncertainty of $0.0003$ fm for the Combined analysis result by setting $c_{\beta}=c_{\phi_2}=0$ and including the $\beta=3.40$ and $m_{\pi}=420$ MeV ensembles into the analysis. Finally, we tested the impact of using~\citep{FLAG16} for the physical input of $m_{\pi},\;m_K,\;f_{\pi},\;f_K$ instead of using the input in~\citep{FlavourLatticeAveragingGroupFLAG:2021npn} quoted in eqs.~(\ref{ch_ss:eq:isoQCD}-\ref{ch_ss:eq:isoQCD_fk}). This comparison is shown in Fig.~\ref{ch_ss:fig:FLAG}. Again, the central values move well within $1\sigma$.
+We tested the impact of varying over the choice of the coefficients $c_{\beta}$ and $c_{\phi_2}$ in eq.~(\ref{ch_ss:eq:penal}) and found that the central values of the physical value of $\sqrt{t_0}$ in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) move always well within $1\sigma$, and not a big impact in the final uncertainty is found. More specifically, for the Combined analysis case if one removes altogether the $\beta=3.40$ and $m_{\pi}=420$ MeV ensembles from the analysis, the statistical and systematic uncertainties found are the same as in eq.~(\ref{ch_ss:eq:t0ph_c}). Additionally, one finds a statistical uncertainty of $0.0006$ fm and a systematic uncertainty of $0.0003$ fm for the Combined analysis result by setting $c_{\beta}=c_{\phi_2}=0$ and including the $\beta=3.40$ and $m_{\pi}=420$ MeV ensembles into the analysis. Finally, we tested the impact of using~\citep{FLAG16} for the physical input of $m_{\pi},\;m_K,\;f_{\pi},\;f_K$ instead of using the input in~\citep{FlavourLatticeAveragingGroupFLAG:2021npn} quoted in eqs.~(\ref{ch_ss:eq:isoQCD}-\ref{ch_ss:eq:isoQCD_fk}). This comparison is shown in Fig.~\ref{ch_ss:fig:FLAG}.
 
 The statistical uncertainty in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) stems from the gauge noise of the CLS configurations, the uncertainties in the renormalization constants and improvement coefficients in Tables~\ref{ch_observables:tab:Z}-\ref{ch_observables:tab:b}, and the physical inputs in eqs.~(\ref{ch_ss:eq:isoQCD}-\ref{ch_ss:eq:isoQCD_fk}). We show the splitting of these contributions for the combined analysis case in Table~\ref{ch_ss:tab:stat}.
 
@@ -246,7 +243,7 @@ The statistical uncertainty in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/t0_compar_FLAG.pdf}
-    \caption{Comparison of our determination of $\sqrt{t_0}$ at the physical point between using~\citep{FlavourLatticeAveragingGroupFLAG:2021npn} as physical inputs (upmost point in each label, corresponding to eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c})) or using~\citep{FLAG16} (downmost point in each label). For illustration we compare these results with the FLAG average in~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.}
+    \caption{Comparison of our determination of $\sqrt{t_0}$ at the physical point with Bruno et al. `16~\citep{Bruno:2016plf}. For our determination, in each label of the panel we show three variations, from top to bottom: using the complete set of ensembles listed in Table~\ref{apex_ensembles:tab:ens} with physical input from~\citep{FlavourLatticeAveragingGroupFLAG:2021npn} quoted in eqs.~(\ref{ch_ss:eq:isoQCD}-\ref{ch_ss:eq:isoQCD_fk}) and the systematic term in eq.~(\ref{ch_ss:eq:Wpenal}) added when doing the model average (results quoted in eqs.~(\ref{ch_ss:eq:t0ph_w})-\ref{ch_ss:eq:t0ph_c}); using the complete set of ensembles but removing the systematic term in eq.~(\ref{ch_ss:eq:Wpenal}) from the analysis and using physical input from~\citep{FLAG16}; and using the reduced set of ensembles listed in Table~\ref{apex_ensembles:tab:ens_old} without the systematic term in eq.~(\ref{ch_ss:eq:Wpenal}) from the analysis and using physical input from~\citep{FLAG16}. The latest variation corresponds to an analysis following what was done in Bruno et al.~\citep{Bruno:2016plf}, and we observe an upwards drift of the central values in $\sqrt{t_0}$ in our results, approaching the determination of $\sqrt{t_0}$ in~\citep{Bruno:2016plf}. The remaining difference between our determination and that of~\citep{Bruno:2016plf} might be explained by our use of the model average technique and by the higher amount of statistics available for ensembles D200 and J303 with respect to~\citep{Bruno:2016plf}.}
     \label{ch_ss:fig:FLAG}
 \end{figure}
 

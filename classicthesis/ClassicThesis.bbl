@@ -43,6 +43,39 @@
     \field{year}{1981}
   \endentry
 
+  \entry{HPQCD:2008kxl}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=AI}{%
+         family={Allison},
+         familyi={A\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AI+1}
+    \strng{fullhash}{AI+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.78.054513
+    \endverb
+    \verb{eprint}
+    \verb 0805.2999
+    \endverb
+    \field{pages}{054513}
+    \field{title}{{High-Precision Charm-Quark Mass from Current-Current
+  Correlators in Lattice and Continuum QCD}}
+    \field{volume}{78}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2008}
+  \endentry
+
   \entry{SU2}{article}{}
     \true{moreauthor}
     \true{morelabelname}
@@ -176,6 +209,135 @@
     \field{year}{2020}
   \endentry
 
+  \entry{Baikov:2014qja}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BPA}{%
+         family={Baikov},
+         familyi={B\bibinitperiod},
+         given={P.\bibnamedelima A.},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=CKG}{%
+         family={Chetyrkin},
+         familyi={C\bibinitperiod},
+         given={K.\bibnamedelima G.},
+         giveni={K\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=KJH}{%
+         family={K\"uhn},
+         familyi={K\bibinitperiod},
+         given={J.\bibnamedelima H.},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BPACKGKJH1}
+    \strng{fullhash}{BPACKGKJH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1007/JHEP10(2014)076
+    \endverb
+    \verb{eprint}
+    \verb 1402.6611
+    \endverb
+    \field{pages}{076}
+    \field{title}{{Quark Mass and Field Anomalous Dimensions to ${\cal
+  O}(\alpha_s^5)$}}
+    \field{volume}{10}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Baikov:2016tgj}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BPA}{%
+         family={Baikov},
+         familyi={B\bibinitperiod},
+         given={P.\bibnamedelima A.},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=CKG}{%
+         family={Chetyrkin},
+         familyi={C\bibinitperiod},
+         given={K.\bibnamedelima G.},
+         giveni={K\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=KJH}{%
+         family={K\"uhn},
+         familyi={K\bibinitperiod},
+         given={J.\bibnamedelima H.},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BPACKGKJH1}
+    \strng{fullhash}{BPACKGKJH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1103/PhysRevLett.118.082002
+    \endverb
+    \verb{eprint}
+    \verb 1606.08659
+    \endverb
+    \field{number}{8}
+    \field{pages}{082002}
+    \field{title}{{Five-Loop Running of the QCD coupling constant}}
+    \field{volume}{118}
+    \field{journaltitle}{Phys. Rev. Lett.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Baikov:2017ujl}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BPA}{%
+         family={Baikov},
+         familyi={B\bibinitperiod},
+         given={P.\bibnamedelima A.},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=CKG}{%
+         family={Chetyrkin},
+         familyi={C\bibinitperiod},
+         given={K.\bibnamedelima G.},
+         giveni={K\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=KJH}{%
+         family={K\"uhn},
+         familyi={K\bibinitperiod},
+         given={J.\bibnamedelima H.},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BPACKGKJH1}
+    \strng{fullhash}{BPACKGKJH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1007/JHEP04(2017)119
+    \endverb
+    \verb{eprint}
+    \verb 1702.01458
+    \endverb
+    \field{pages}{119}
+    \field{title}{{Five-loop fermion anomalous dimension for a general gauge
+  group from four-loop massless propagators}}
+    \field{volume}{04}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2017}
+  \endentry
+
   \entry{RQCD_scale}{article}{}
     \name{author}{10}{}{%
       {{hash=BGS}{%
@@ -299,6 +461,39 @@
     \field{year}{2014}
   \endentry
 
+  \entry{FermilabLattice:2011njy}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=BA}{%
+         family={Bazavov},
+         familyi={B\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BA+1}
+    \strng{fullhash}{BA+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.85.114506
+    \endverb
+    \verb{eprint}
+    \verb 1112.3051
+    \endverb
+    \field{pages}{114506}
+    \field{title}{{B- and D-meson decay constants from three-flavor lattice
+  QCD}}
+    \field{volume}{85}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2012}
+  \endentry
+
   \entry{MILC:2015tqx}{article}{}
     \true{moreauthor}
     \true{morelabelname}
@@ -330,6 +525,40 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2016}
+  \endentry
+
+  \entry{Bazavov:2017lyh}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=BA}{%
+         family={Bazavov},
+         familyi={B\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BA+1}
+    \strng{fullhash}{BA+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.98.074512
+    \endverb
+    \verb{eprint}
+    \verb 1712.09262
+    \endverb
+    \field{number}{7}
+    \field{pages}{074512}
+    \field{title}{{$B$- and $D$-meson leptonic decay constants from four-flavor
+  lattice QCD}}
+    \field{volume}{98}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2018}
   \endentry
 
   \entry{Muong-2:2006rrc}{article}{}
@@ -478,6 +707,63 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2011}
+  \endentry
+
+  \entry{Blossier:2009kd}{article}{}
+    \name{author}{5}{}{%
+      {{hash=BB}{%
+         family={Blossier},
+         familyi={B\bibinitperiod},
+         given={Benoit},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=DMM}{%
+         family={Della\bibnamedelima Morte},
+         familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+         given={Michele},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=vHG}{%
+         prefix={von},
+         prefixi={v\bibinitperiod},
+         family={Hippel},
+         familyi={H\bibinitperiod},
+         given={Georg},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Mendes},
+         familyi={M\bibinitperiod},
+         given={Tereza},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Sommer},
+         familyi={S\bibinitperiod},
+         given={Rainer},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BB+1}
+    \strng{fullhash}{BBDMMHGvMTSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1088/1126-6708/2009/04/094
+    \endverb
+    \verb{eprint}
+    \verb 0902.1265
+    \endverb
+    \field{pages}{094}
+    \field{title}{{On the generalized eigenvalue method for energies and matrix
+  elements in lattice field theory}}
+    \field{volume}{04}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2009}
   \endentry
 
   \entry{UK14}{article}{}
@@ -718,6 +1004,129 @@
     \field{year}{2008}
   \endentry
 
+  \entry{Boyle:2018knm}{article}{}
+    \name{author}{7}{}{%
+      {{hash=BPA}{%
+         family={Boyle},
+         familyi={B\bibinitperiod},
+         given={Peter\bibnamedelima A.},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=DDL}{%
+         family={Del\bibnamedelima Debbio},
+         familyi={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+         given={Luigi},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GN}{%
+         family={Garron},
+         familyi={G\bibinitperiod},
+         given={Nicolas},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={Juttner},
+         familyi={J\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Soni},
+         familyi={S\bibinitperiod},
+         given={Amarjit},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=TJT}{%
+         family={Tsang},
+         familyi={T\bibinitperiod},
+         given={Justus\bibnamedelima Tobias},
+         giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=WO}{%
+         family={Witzel},
+         familyi={W\bibinitperiod},
+         given={Oliver},
+         giveni={O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BPA+1}
+    \strng{fullhash}{BPADDLGNJASATJTWO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{eprint}
+    \verb 1812.08791
+    \endverb
+    \field{title}{{SU(3)-breaking ratios for $D_{(s)}$ and $B_{(s)}$ mesons}}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{month}{12}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Boyle:2017jwu}{article}{}
+    \name{author}{6}{}{%
+      {{hash=BPA}{%
+         family={Boyle},
+         familyi={B\bibinitperiod},
+         given={Peter\bibnamedelima A.},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=DDL}{%
+         family={Del\bibnamedelima Debbio},
+         familyi={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+         given={Luigi},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={J\"uttner},
+         familyi={J\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Khamseh},
+         familyi={K\bibinitperiod},
+         given={Ava},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SF}{%
+         family={Sanfilippo},
+         familyi={S\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=TJT}{%
+         family={Tsang},
+         familyi={T\bibinitperiod},
+         given={Justus\bibnamedelima Tobias},
+         giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BPA+1}
+    \strng{fullhash}{BPADDLJAKASFTJT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1007/JHEP12(2017)008
+    \endverb
+    \verb{eprint}
+    \verb 1701.02644
+    \endverb
+    \field{pages}{008}
+    \field{title}{{The decay constants ${\mathbf{f_D}}$ and
+  ${\mathbf{f_{D_{s}}}}$ in the continuum limit of ${\mathbf{\NF=2+1}}$ domain
+  wall lattice QCD}}
+    \field{volume}{12}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2017}
+  \endentry
+
   \entry{Brown:2018jtv}{thesis}{}
     \name{author}{1}{}{%
       {{hash=BNJ}{%
@@ -743,6 +1152,86 @@
     }
     \field{type}{phdthesis}
     \field{year}{2018}
+  \endentry
+
+  \entry{Bruno:2017gxd}{article}{}
+    \name{author}{9}{}{%
+      {{hash=BM}{%
+         family={Bruno},
+         familyi={B\bibinitperiod},
+         given={Mattia},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DBM}{%
+         family={Dalla\bibnamedelima Brida},
+         familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+         given={Mattia},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Fritzsch},
+         familyi={F\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={Korzec},
+         familyi={K\bibinitperiod},
+         given={Tomasz},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Ramos},
+         familyi={R\bibinitperiod},
+         given={Alberto},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Schaefer},
+         familyi={S\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Simma},
+         familyi={S\bibinitperiod},
+         given={Hubert},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sint},
+         familyi={S\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Sommer},
+         familyi={S\bibinitperiod},
+         given={Rainer},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM+1}
+    \strng{fullhash}{BMDBMFPKTRASSSHSSSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1103/PhysRevLett.119.102001
+    \endverb
+    \verb{eprint}
+    \verb 1706.03821
+    \endverb
+    \field{number}{10}
+    \field{pages}{102001}
+    \field{title}{{QCD Coupling from a Nonperturbative Determination of the
+  Three-Flavor $\Lambda$ Parameter}}
+    \field{volume}{119}
+    \field{journaltitle}{Phys. Rev. Lett.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2017}
   \endentry
 
   \entry{Bruno:2016plf}{article}{}
@@ -904,6 +1393,74 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2015}
+  \endentry
+
+  \entry{MA1}{article}{}
+    \name{author}{9}{}{%
+      {{hash=BA}{%
+         family={Bussone},
+         familyi={B\bibinitperiod},
+         given={Andrea},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Conigli},
+         familyi={C\bibinitperiod},
+         given={Alessandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Frison},
+         familyi={F\bibinitperiod},
+         given={Julien},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=HG}{%
+         family={Herdo{\'{\i}}za},
+         familyi={H\bibinitperiod},
+         given={Gregorio},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Pena},
+         familyi={P\bibinitperiod},
+         given={Carlos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Preti},
+         familyi={P\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RJA}{%
+         family={Romero},
+         familyi={R\bibinitperiod},
+         given={Jos{\'e}\bibnamedelima {\'A}ngel},
+         giveni={J\bibinitperiod\bibinitdelim {\'A}\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={S{\'a}ez},
+         familyi={S\bibinitperiod},
+         given={Alejandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Ugarrio},
+         familyi={U\bibinitperiod},
+         given={Javier},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BA+2}
+    \strng{fullhash}{BACAFJHGPCPDRJASAUJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{{Hadronic physics from a Wilson fermion mixed-action
+  approach: Setup and scale setting}}
+    \field{journaltitle}{to appear}
   \endentry
 
   \entry{charm}{article}{}
@@ -1084,6 +1641,104 @@
     \field{year}{2023}
   \endentry
 
+  \entry{Chen:2020qma}{article}{}
+    \name{author}{5}{}{%
+      {{hash=CY}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Ying},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CWF}{%
+         family={Chiu},
+         familyi={C\bibinitperiod},
+         given={Wei-Feng},
+         giveni={W\bibinithyphendelim F\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Gong},
+         familyi={G\bibinitperiod},
+         given={Ming},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LZ}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Zhaofeng},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Ma},
+         familyi={M\bibinitperiod},
+         given={Yunheng},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CY+1}
+    \strng{fullhash}{CYCWFGMLZMY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1088/1674-1137/abcd8f
+    \endverb
+    \verb{eprint}
+    \verb 2008.05208
+    \endverb
+    \field{number}{2}
+    \field{pages}{023109}
+    \field{title}{{Charmed and $\phi$ meson decay constants from 2+1-flavor
+  lattice QCD}}
+    \field{volume}{45}
+    \field{journaltitle}{Chin. Phys. C}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2021}
+  \endentry
+
+  \entry{Chetyrkin:2000yt}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CKG}{%
+         family={Chetyrkin},
+         familyi={C\bibinitperiod},
+         given={K.\bibnamedelima G.},
+         giveni={K\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=KJH}{%
+         family={Kuhn},
+         familyi={K\bibinitperiod},
+         given={Johann\bibnamedelima H.},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Steinhauser},
+         familyi={S\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CKGKJHSM1}
+    \strng{fullhash}{CKGKJHSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1016/S0010-4655(00)00155-7
+    \endverb
+    \verb{eprint}
+    \verb hep-ph/0004189
+    \endverb
+    \field{pages}{43\bibrangedash 65}
+    \field{title}{{RunDec: A Mathematica package for running and decoupling of
+  the strong coupling and quark masses}}
+    \field{volume}{133}
+    \field{journaltitle}{Comput. Phys. Commun.}
+    \field{eprinttype}{arXiv}
+    \field{year}{2000}
+  \endentry
+
   \entry{Clark:2006fx}{article}{}
     \name{author}{2}{}{%
       {{hash=CMA}{%
@@ -1195,6 +1850,182 @@
     \field{journaltitle}{Nucl. Phys. B}
     \field{eprinttype}{arXiv}
     \field{year}{2005}
+  \endentry
+
+  \entry{Collins:2017iud}{article}{}
+    \name{author}{5}{}{%
+      {{hash=CS}{%
+         family={Collins},
+         familyi={C\bibinitperiod},
+         given={Sara},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=EK}{%
+         family={Eckert},
+         familyi={E\bibinitperiod},
+         given={Kevin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Heitger},
+         familyi={H\bibinitperiod},
+         given={Jochen},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=HS}{%
+         family={Hofmann},
+         familyi={H\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SW}{%
+         family={Soeldner},
+         familyi={S\bibinitperiod},
+         given={Wolfgang},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CS+1}
+    \strng{fullhash}{CSEKHJHSSW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.22323/1.256.0368
+    \endverb
+    \verb{eprint}
+    \verb 1701.05502
+    \endverb
+    \field{pages}{368}
+    \field{title}{{Charmed pseudoscalar decay constants on three-flavour CLS
+  ensembles with open boundaries}}
+    \field{volume}{LATTICE2016}
+    \field{journaltitle}{PoS}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Colquhoun:2015oha}{article}{}
+    \name{author}{7}{}{%
+      {{hash=CB}{%
+         family={Colquhoun},
+         familyi={C\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=DCTH}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={C.\bibnamedelima T.\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+      {{hash=DRJ}{%
+         family={Dowdall},
+         familyi={D\bibinitperiod},
+         given={R.\bibnamedelima J.},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Kettle},
+         familyi={K\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Koponen},
+         familyi={K\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LGP}{%
+         family={Lepage},
+         familyi={L\bibinitperiod},
+         given={G.\bibnamedelima P.},
+         giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=LAT}{%
+         family={Lytle},
+         familyi={L\bibinitperiod},
+         given={A.\bibnamedelima T.},
+         giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CB+1}
+    \strng{fullhash}{CBDCTHDRJKJKJLGPLAT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.91.114509
+    \endverb
+    \verb{eprint}
+    \verb 1503.05762
+    \endverb
+    \field{number}{11}
+    \field{pages}{114509}
+    \field{title}{{B-meson decay constants: a more complete picture from full
+  lattice QCD}}
+    \field{volume}{91}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Colquhoun:2023zbc}{article}{}
+    \name{author}{4}{}{%
+      {{hash=CB}{%
+         family={Colquhoun},
+         familyi={C\bibinitperiod},
+         given={Brian},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=CLJ}{%
+         family={Cooper},
+         familyi={C\bibinitperiod},
+         given={Laurence\bibnamedelima J.},
+         giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=DCTH}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={Christine T.\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+      {{hash=LGP}{%
+         family={Lepage},
+         familyi={L\bibinitperiod},
+         given={G.\bibnamedelima Peter},
+         giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CB+2}
+    \strng{fullhash}{CBCLJDCTHLGP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.108.014513
+    \endverb
+    \verb{eprint}
+    \verb 2305.06231
+    \endverb
+    \field{number}{1}
+    \field{pages}{014513}
+    \field{title}{{Precise determination of decay rates for
+  $\eta_c\to\gamma\gamma$, $J/\psi\to\gamma\eta_c$, and $J/\psi\to\eta_c
+  e^+e^-$ from lattice QCD}}
+    \field{volume}{108}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2023}
   \endentry
 
   \entry{Creutz:1980zw}{article}{}
@@ -1433,6 +2264,68 @@
     \field{year}{2019}
   \endentry
 
+  \entry{Davies:2010ip}{article}{}
+    \name{author}{6}{}{%
+      {{hash=DCTH}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={C.\bibnamedelima T.\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={McNeile},
+         familyi={M\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Follana},
+         familyi={F\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=LGP}{%
+         family={Lepage},
+         familyi={L\bibinitperiod},
+         given={G.\bibnamedelima P.},
+         giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=NH}{%
+         family={Na},
+         familyi={N\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Shigemitsu},
+         familyi={S\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DCTH+1}
+    \strng{fullhash}{DCTHMCFELGPNHSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.82.114504
+    \endverb
+    \verb{eprint}
+    \verb 1008.4018
+    \endverb
+    \field{pages}{114504}
+    \field{title}{{Update: Precision $D_s$ decay constant from full lattice QCD
+  using very fine lattices}}
+    \field{volume}{82}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2010}
+  \endentry
+
   \entry{DEGRAND1988161}{article}{}
     \name{author}{1}{}{%
       {{hash=DTA}{%
@@ -1599,6 +2492,80 @@
     \field{year}{2018}
   \endentry
 
+  \entry{Donald:2012ga}{article}{}
+    \name{author}{8}{}{%
+      {{hash=DGC}{%
+         family={Donald},
+         familyi={D\bibinitperiod},
+         given={G.\bibnamedelima C.},
+         giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=DCTH}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={C.\bibnamedelima T.\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+      {{hash=DRJ}{%
+         family={Dowdall},
+         familyi={D\bibinitperiod},
+         given={R.\bibnamedelima J.},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Follana},
+         familyi={F\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=HK}{%
+         family={Hornbostel},
+         familyi={H\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Koponen},
+         familyi={K\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LGP}{%
+         family={Lepage},
+         familyi={L\bibinitperiod},
+         given={G.\bibnamedelima P.},
+         giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={McNeile},
+         familyi={M\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DGC+1}
+    \strng{fullhash}{DGCDCTHDRJFEHKKJLGPMC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.86.094501
+    \endverb
+    \verb{eprint}
+    \verb 1208.2855
+    \endverb
+    \field{pages}{094501}
+    \field{title}{{Precision tests of the $J/{\psi}$ from full lattice QCD:
+  mass, leptonic width and radiative decay rate to ${\eta}_c$}}
+    \field{volume}{86}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2012}
+  \endentry
+
   \entry{HPQCD:2011qw}{article}{}
     \true{moreauthor}
     \true{morelabelname}
@@ -1673,6 +2640,80 @@
     \field{volume}{195}
     \field{journaltitle}{Phys. Lett. B}
     \field{year}{1987}
+  \endentry
+
+  \entry{deForcrand:2004ia}{article}{}
+    \name{author}{8}{}{%
+      {{hash=dFP}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Forcrand},
+         familyi={F\bibinitperiod},
+         given={Philippe},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=GPM}{%
+         family={Garcia\bibnamedelima Perez},
+         familyi={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+         given={Margarita},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MH}{%
+         family={Matsufuru},
+         familyi={M\bibinitperiod},
+         given={Hideo},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=NA}{%
+         family={Nakamura},
+         familyi={N\bibinitperiod},
+         given={Atsushi},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Pushkina},
+         familyi={P\bibinitperiod},
+         given={Irina},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SIO}{%
+         family={Stamatescu},
+         familyi={S\bibinitperiod},
+         given={Ion-Olimpiu},
+         giveni={I\bibinithyphendelim O\bibinitperiod},
+      }}%
+      {{hash=TT}{%
+         family={Takaishi},
+         familyi={T\bibinitperiod},
+         given={Tetsuya},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=UT}{%
+         family={Umeda},
+         familyi={U\bibinitperiod},
+         given={Takashi},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FPd+1}
+    \strng{fullhash}{FPdGPMMHNAPISIOTTUT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \verb{doi}
+    \verb 10.1088/1126-6708/2004/08/004
+    \endverb
+    \verb{eprint}
+    \verb hep-lat/0404016
+    \endverb
+    \field{pages}{004}
+    \field{title}{{Contribution of disconnected diagrams to the hyperfine
+  splitting of charmonium}}
+    \field{volume}{08}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{year}{2004}
   \endentry
 
   \entry{Frezzotti:2003ni}{article}{}
@@ -1943,6 +2984,31 @@
     \field{year}{2010}
   \endentry
 
+  \entry{Georgi:1990um}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GH}{%
+         family={Georgi},
+         familyi={G\bibinitperiod},
+         given={Howard},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GH1}
+    \strng{fullhash}{GH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1016/0370-2693(90)91128-X
+    \endverb
+    \field{pages}{447\bibrangedash 450}
+    \field{title}{{An Effective Field Theory for Heavy Quarks at Low-energies}}
+    \field{volume}{240}
+    \field{journaltitle}{Phys. Lett. B}
+    \field{year}{1990}
+  \endentry
+
   \entry{Ginsparg:1981bj}{article}{}
     \name{author}{2}{}{%
       {{hash=GPH}{%
@@ -1972,6 +3038,36 @@
     \field{volume}{25}
     \field{journaltitle}{Phys. Rev. D}
     \field{year}{1982}
+  \endentry
+
+  \entry{Goity:1992tp}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GJL}{%
+         family={Goity},
+         familyi={G\bibinitperiod},
+         given={J.\bibnamedelima L.},
+         giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GJL1}
+    \strng{fullhash}{GJL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.46.3929
+    \endverb
+    \verb{eprint}
+    \verb hep-ph/9206230
+    \endverb
+    \field{pages}{3929\bibrangedash 3936}
+    \field{title}{{Chiral perturbation theory for SU(3) breaking in heavy meson
+  systems}}
+    \field{volume}{46}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{year}{1992}
   \endentry
 
   \entry{Gottlieb:1987mq}{article}{}
@@ -2090,6 +3186,60 @@
     \field{year}{2005}
   \endentry
 
+  \entry{Grinstein:1992qt}{article}{}
+    \name{author}{5}{}{%
+      {{hash=GB}{%
+         family={Grinstein},
+         familyi={G\bibinitperiod},
+         given={Benjamin},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=JEE}{%
+         family={Jenkins},
+         familyi={J\bibinitperiod},
+         given={Elizabeth\bibnamedelima Ellen},
+         giveni={E\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=MAV}{%
+         family={Manohar},
+         familyi={M\bibinitperiod},
+         given={Aneesh\bibnamedelima V.},
+         giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=SMJ}{%
+         family={Savage},
+         familyi={S\bibinitperiod},
+         given={Martin\bibnamedelima J.},
+         giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=WMB}{%
+         family={Wise},
+         familyi={W\bibinitperiod},
+         given={Mark\bibnamedelima B.},
+         giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GB+1}
+    \strng{fullhash}{GBJEEMAVSMJWMB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1016/0550-3213(92)90248-A
+    \endverb
+    \verb{eprint}
+    \verb hep-ph/9204207
+    \endverb
+    \field{pages}{369\bibrangedash 376}
+    \field{title}{{Chiral perturbation theory for f D(s) / f D and B B(s) / B
+  B}}
+    \field{volume}{380}
+    \field{journaltitle}{Nucl. Phys. B}
+    \field{eprinttype}{arXiv}
+    \field{year}{1992}
+  \endentry
+
   \entry{Hasenbusch:2001ne}{article}{}
     \name{author}{1}{}{%
       {{hash=HM}{%
@@ -2120,6 +3270,112 @@
     \field{year}{2001}
   \endentry
 
+  \entry{Hatton:2020qhk}{article}{}
+    \name{author}{6}{}{%
+      {{hash=HD}{%
+         family={Hatton},
+         familyi={H\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=DCTH}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={C.\bibnamedelima T.\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+      {{hash=GB}{%
+         family={Galloway},
+         familyi={G\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Koponen},
+         familyi={K\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LGP}{%
+         family={Lepage},
+         familyi={L\bibinitperiod},
+         given={G.\bibnamedelima P.},
+         giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=LAT}{%
+         family={Lytle},
+         familyi={L\bibinitperiod},
+         given={A.\bibnamedelima T.},
+         giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HD+1}
+    \strng{fullhash}{HDDCTHGBKJLGPLAT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.102.054511
+    \endverb
+    \verb{eprint}
+    \verb 2005.01845
+    \endverb
+    \field{number}{5}
+    \field{pages}{054511}
+    \field{title}{{Charmonium properties from lattice $QCD$+QED : Hyperfine
+  splitting, $J/\psi$ leptonic width, charm quark mass, and $a^c_\mu$}}
+    \field{volume}{102}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Heitger:2021apz}{article}{}
+    \name{author}{3}{}{%
+      {{hash=HJ}{%
+         family={Heitger},
+         familyi={H\bibinitperiod},
+         given={Jochen},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=JF}{%
+         family={Joswig},
+         familyi={J\bibinitperiod},
+         given={Fabian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kuberski},
+         familyi={K\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HJJFKS1}
+    \strng{fullhash}{HJJFKS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{doi}
+    \verb 10.1007/JHEP05(2021)288
+    \endverb
+    \verb{eprint}
+    \verb 2101.02694
+    \endverb
+    \field{pages}{288}
+    \field{title}{{Determination of the charm quark mass in lattice QCD with
+  $2+1$ flavours on fine lattices}}
+    \field{volume}{05}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2021}
+  \endentry
+
   \entry{Hernandez:2009zz}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=HMP}{%
@@ -2142,6 +3398,98 @@
     \field{title}{{Lattice field theory fundamentals}}
     \field{month}{08}
     \field{year}{2009}
+  \endentry
+
+  \entry{Herren:2017osy}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HF}{%
+         family={Herren},
+         familyi={H\bibinitperiod},
+         given={Florian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Steinhauser},
+         familyi={S\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HFSM1}
+    \strng{fullhash}{HFSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{doi}
+    \verb 10.1016/j.cpc.2017.11.014
+    \endverb
+    \verb{eprint}
+    \verb 1703.03751
+    \endverb
+    \field{pages}{333\bibrangedash 345}
+    \field{title}{{Version 3 of RunDec and CRunDec}}
+    \field{volume}{224}
+    \field{journaltitle}{Comput. Phys. Commun.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Herzog:2017ohr}{article}{}
+    \name{author}{5}{}{%
+      {{hash=HF}{%
+         family={Herzog},
+         familyi={H\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RB}{%
+         family={Ruijl},
+         familyi={R\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=UT}{%
+         family={Ueda},
+         familyi={U\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=VJAM}{%
+         family={Vermaseren},
+         familyi={V\bibinitperiod},
+         given={J.\bibnamedelima A.\bibnamedelima M.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+      {{hash=VA}{%
+         family={Vogt},
+         familyi={V\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HF+1}
+    \strng{fullhash}{HFRBUTVJAMVA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{doi}
+    \verb 10.1007/JHEP02(2017)090
+    \endverb
+    \verb{eprint}
+    \verb 1701.01404
+    \endverb
+    \field{pages}{090}
+    \field{title}{{The five-loop beta function of Yang-Mills theory with
+  fermions}}
+    \field{volume}{02}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2017}
   \endentry
 
   \entry{Hollwieser:2020qri}{article}{}
@@ -2285,6 +3633,38 @@
     \field{year}{1998}
   \endentry
 
+  \entry{Ji:1991pr}{article}{}
+    \name{author}{2}{}{%
+      {{hash=JXD}{%
+         family={Ji},
+         familyi={J\bibinitperiod},
+         given={Xiang-Dong},
+         giveni={X\bibinithyphendelim D\bibinitperiod},
+      }}%
+      {{hash=MMJ}{%
+         family={Musolf},
+         familyi={M\bibinitperiod},
+         given={M.\bibnamedelima J.},
+         giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JXDMMJ1}
+    \strng{fullhash}{JXDMMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \verb{doi}
+    \verb 10.1016/0370-2693(91)91916-J
+    \endverb
+    \field{pages}{409\bibrangedash 413}
+    \field{title}{{Subleading logarithmic mass dependence in heavy meson
+  form-factors}}
+    \field{volume}{257}
+    \field{journaltitle}{Phys. Lett. B}
+    \field{year}{1991}
+  \endentry
+
   \entry{Kennedy:1998cu}{article}{}
     \name{author}{3}{}{%
       {{hash=KAD}{%
@@ -2406,6 +3786,43 @@
     \field{title}{{The Analysis of Algorithms for Lattice Field Theory}}
     \field{month}{06}
     \field{year}{1989}
+  \endentry
+
+  \entry{Liu:2015fxa}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LT}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Tao},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Steinhauser},
+         familyi={S\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LTSM1}
+    \strng{fullhash}{LTSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{doi}
+    \verb 10.1016/j.physletb.2015.05.023
+    \endverb
+    \verb{eprint}
+    \verb 1502.04719
+    \endverb
+    \field{pages}{330\bibrangedash 334}
+    \field{title}{{Decoupling of heavy quarks at four loops and effective
+  Higgs-fermion coupling}}
+    \field{volume}{746}
+    \field{journaltitle}{Phys. Lett. B}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2015}
   \endentry
 
   \entry{Luscher:1985zq}{article}{}
@@ -2759,6 +4176,103 @@
     \field{year}{1996}
   \endentry
 
+  \entry{Luthe:2017ttc}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LT}{%
+         family={Luthe},
+         familyi={L\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Maier},
+         familyi={M\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MP}{%
+         family={Marquard},
+         familyi={M\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=SY}{%
+         family={Schroder},
+         familyi={S\bibinitperiod},
+         given={York},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LT+1}
+    \strng{fullhash}{LTMAMPSY2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{doi}
+    \verb 10.1007/JHEP03(2017)020
+    \endverb
+    \verb{eprint}
+    \verb 1701.07068
+    \endverb
+    \field{pages}{020}
+    \field{title}{{Complete renormalization of QCD at five loops}}
+    \field{volume}{03}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Luthe:2016xec}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LT}{%
+         family={Luthe},
+         familyi={L\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Maier},
+         familyi={M\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MP}{%
+         family={Marquard},
+         familyi={M\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=SY}{%
+         family={Schr\"oder},
+         familyi={S\bibinitperiod},
+         given={York},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LT+1}
+    \strng{fullhash}{LTMAMPSY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{doi}
+    \verb 10.1007/JHEP01(2017)081
+    \endverb
+    \verb{eprint}
+    \verb 1612.05512
+    \endverb
+    \field{pages}{081}
+    \field{title}{{Five-loop quark mass and field anomalous dimensions for a
+  general gauge group}}
+    \field{volume}{01}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2017}
+  \endentry
+
   \entry{1006.4518}{article}{}
     \name{author}{1}{}{%
       {{hash=LM}{%
@@ -2817,6 +4331,72 @@
     \field{year}{1988}
   \endentry
 
+  \entry{Maezawa:2016vgv}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MY}{%
+         family={Maezawa},
+         familyi={M\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Petreczky},
+         familyi={P\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MYPP1}
+    \strng{fullhash}{MYPP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.94.034507
+    \endverb
+    \verb{eprint}
+    \verb 1606.08798
+    \endverb
+    \field{number}{3}
+    \field{pages}{034507}
+    \field{title}{{Quark masses and strong coupling constant in 2+1 flavor
+  QCD}}
+    \field{volume}{94}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Manohar:2000dt}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MAV}{%
+         family={Manohar},
+         familyi={M\bibinitperiod},
+         given={Aneesh\bibnamedelima V.},
+         giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=WMB}{%
+         family={Wise},
+         familyi={W\bibinitperiod},
+         given={Mark\bibnamedelima B.},
+         giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MAVWMB1}
+    \strng{fullhash}{MAVWMB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{pages}{1\bibrangedash 191}
+    \field{title}{{Heavy quark physics}}
+    \field{volume}{10}
+    \field{journaltitle}{Camb. Monogr. Part. Phys. Nucl. Phys. Cosmol.}
+    \field{year}{2000}
+  \endentry
+
   \entry{Mawhinney:1996jk}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=MRD}{%
@@ -2841,6 +4421,62 @@
     \field{eprinttype}{arXiv}
     \field{month}{11}
     \field{year}{1996}
+  \endentry
+
+  \entry{McNeile:2010ji}{article}{}
+    \name{author}{5}{}{%
+      {{hash=MC}{%
+         family={McNeile},
+         familyi={M\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=DCTH}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={C.\bibnamedelima T.\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Follana},
+         familyi={F\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=HK}{%
+         family={Hornbostel},
+         familyi={H\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=LGP}{%
+         family={Lepage},
+         familyi={L\bibinitperiod},
+         given={G.\bibnamedelima P.},
+         giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MC+1}
+    \strng{fullhash}{MCDCTHFEHKLGP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.82.034512
+    \endverb
+    \verb{eprint}
+    \verb 1004.4285
+    \endverb
+    \field{pages}{034512}
+    \field{title}{{High-Precision c and b Masses, and QCD Coupling from
+  Current-Current Correlators in Lattice and Continuum QCD}}
+    \field{volume}{82}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2010}
   \endentry
 
   \entry{Metropolis:1953am}{article}{}
@@ -3011,6 +4647,138 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2018}
+  \endentry
+
+  \entry{Na:2012iu}{article}{}
+    \name{author}{5}{}{%
+      {{hash=NH}{%
+         family={Na},
+         familyi={N\bibinitperiod},
+         given={Heechang},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=DCTH}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={Christine T.\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Follana},
+         familyi={F\bibinitperiod},
+         given={Eduardo},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=LGP}{%
+         family={Lepage},
+         familyi={L\bibinitperiod},
+         given={G.\bibnamedelima Peter},
+         giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Shigemitsu},
+         familyi={S\bibinitperiod},
+         given={Junko},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NH+1}
+    \strng{fullhash}{NHDCTHFELGPSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.86.054510
+    \endverb
+    \verb{eprint}
+    \verb 1206.4936
+    \endverb
+    \field{pages}{054510}
+    \field{title}{{$|V_{cd}|$ from D Meson Leptonic Decays}}
+    \field{volume}{86}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Nakayama:2016atf}{article}{}
+    \name{author}{3}{}{%
+      {{hash=NK}{%
+         family={Nakayama},
+         familyi={N\bibinitperiod},
+         given={Katsumasa},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=FB}{%
+         family={Fahy},
+         familyi={F\bibinitperiod},
+         given={Brendan},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HS}{%
+         family={Hashimoto},
+         familyi={H\bibinitperiod},
+         given={Shoji},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NKFBHS1}
+    \strng{fullhash}{NKFBHS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.94.054507
+    \endverb
+    \verb{eprint}
+    \verb 1606.01002
+    \endverb
+    \field{number}{5}
+    \field{pages}{054507}
+    \field{title}{{Short-distance charmonium correlator on the lattice with
+  M\"obius domain-wall fermion and a determination of charm quark mass}}
+    \field{volume}{94}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2016}
+  \endentry
+
+  \entry{PACS-CS:2011ngu}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=NY}{%
+         family={Namekawa},
+         familyi={N\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NY+1}
+    \strng{fullhash}{NY+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.84.074505
+    \endverb
+    \verb{eprint}
+    \verb 1104.4600
+    \endverb
+    \field{pages}{074505}
+    \field{title}{{Charm quark system at the physical point of 2+1 flavor
+  lattice QCD}}
+    \field{volume}{84}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2011}
   \endentry
 
   \entry{Necco:2001xg}{article}{}
@@ -3249,6 +5017,44 @@
     \field{year}{2003}
   \endentry
 
+  \entry{Petreczky:2019ozv}{article}{}
+    \name{author}{2}{}{%
+      {{hash=PP}{%
+         family={Petreczky},
+         familyi={P\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=WJH}{%
+         family={Weber},
+         familyi={W\bibinitperiod},
+         given={J.\bibnamedelima H.},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PPWJH1}
+    \strng{fullhash}{PPWJH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.100.034519
+    \endverb
+    \verb{eprint}
+    \verb 1901.06424
+    \endverb
+    \field{number}{3}
+    \field{pages}{034519}
+    \field{title}{{Strong coupling constant and heavy quark masses in ( 2+1
+  )-flavor QCD}}
+    \field{volume}{100}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2019}
+  \endentry
+
   \entry{Ramos:2018vgu}{article}{}
     \name{author}{1}{}{%
       {{hash=RA}{%
@@ -3388,6 +5194,43 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2011}
+  \endentry
+
+  \entry{Schmidt:2012az}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SB}{%
+         family={Schmidt},
+         familyi={S\bibinitperiod},
+         given={Barbara},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Steinhauser},
+         familyi={S\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SBSM1}
+    \strng{fullhash}{SBSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1016/j.cpc.2012.03.023
+    \endverb
+    \verb{eprint}
+    \verb 1201.6149
+    \endverb
+    \field{pages}{1845\bibrangedash 1848}
+    \field{title}{{CRunDec: a C++ package for running and decoupling of the
+  strong coupling and quark masses}}
+    \field{volume}{183}
+    \field{journaltitle}{Comput. Phys. Commun.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2012}
   \endentry
 
   \entry{Sheikholeslami:1985ij}{article}{}
@@ -3761,6 +5604,67 @@
     \field{journaltitle}{Comput. Phys. Commun.}
     \field{eprinttype}{arXiv}
     \field{year}{2004}
+  \endentry
+
+  \entry{ParticleDataGroup:2022pth}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=WRL}{%
+         family={Workman},
+         familyi={W\bibinitperiod},
+         given={R.\bibnamedelima L.},
+         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WRL+1}
+    \strng{fullhash}{WRL+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{doi}
+    \verb 10.1093/ptep/ptac097
+    \endverb
+    \field{pages}{083C01}
+    \field{title}{{Review of Particle Physics}}
+    \field{volume}{2022}
+    \field{journaltitle}{PTEP}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Yang:2014sea}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=YYB}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Yi-Bo},
+         giveni={Y\bibinithyphendelim B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YYB+1}
+    \strng{fullhash}{YYB+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.92.034517
+    \endverb
+    \verb{eprint}
+    \verb 1410.3343
+    \endverb
+    \field{number}{3}
+    \field{pages}{034517}
+    \field{title}{{Charm and strange quark masses and $f_{D_s}$ from overlap
+  fermions}}
+    \field{volume}{92}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2015}
   \endentry
 
   \entry{ParticleDataGroup:2020ssz}{article}{}

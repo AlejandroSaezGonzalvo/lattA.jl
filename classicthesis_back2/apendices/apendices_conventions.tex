@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Conventions}
+\label{appex_conventions}
+
+In this Appendix we set some useful notation used throughout this work. We begin with the Dirac or Gamma matrices $\gamma_{\mu}$, which are $4\times 4$ complex matrices defined by the anticommutator relation
+\begin{equation}
+\{\gamma_{\mu},\gamma_{\nu}\}=2g_{\mu\nu}1_{4\times 4},
+\end{equation}
+with $g_{\mu\nu}$ the metric tensor of 4-dimensional space-time. We will work in the Euclidean and flat space, so
+\begin{equation}
+g_{\mu\nu}=\textrm{diag}(+1,+1,+1,+1).
+\end{equation}
+Some useful properties of the Gamma matrices are
+\begin{itemize}
+\item Hermiticity: $\gamma_{\mu}^{\dagger}=\gamma_{\mu}$.
+\item They are traceless: $\textrm{tr}(\gamma_{\mu})=0$.
+\item Involutory: $\gamma_{\mu}^{-1}=\gamma_{\mu}$.
+\end{itemize}
+A fifth Gamma matrix can be defined as
+\begin{equation}
+\gamma_5=\gamma_0\gamma_1\gamma_2\gamma_3,
+\end{equation}
+which fulfills the same properties as above, and anticommutes with all other Gamma matrices
+\begin{equation}
+\{\gamma_5,\gamma_{\mu}\}=0.
+\end{equation}
+
+These matrices control the flavor content of hadrons, and as such appear in the definition of the lattice hadron interpolators. The relevant quark bilinears needed for this work are
+\begin{itemize}
+\item Scalar density: $S^{ij}=\bar{\psi}^i\psi^j$.
+\item Pseudoscalar density: $P^{ij}=\bar{\psi}^i\gamma_5\psi^j$.
+\item Axial current: $A_{\mu}^{ij}=\bar{\psi}^i\gamma_{\mu}\gamma_5\psi^j$.
+\item Vector current: $V_{\mu}^{ij}=\bar{\psi}^i\gamma_{\mu}\psi^j$.
+\end{itemize}
+These bilinears are defined in the physical basis $\{\psi,\bar{\psi}\}$. By the change of variables
+\begin{gather}
+\psi\rightarrow e^{i\frac{\pi}{2}\gamma_5T/2}\psi, \quad \bar{\psi}\rightarrow\bar{\psi}e^{i\frac{\pi}{2}\gamma_5T/2},
+\end{gather}
+we define the twisted basis, with $T$ a diagonal matrix in flavor space. With this change of variables and at full twist with $N_f=2+1+1$
+\begin{equation}
+T=\textrm{diag}(+1,-1,-1,+1),
+\end{equation}
+the bilinears are rotated as 
+\begin{align}
+S^{ij}&\rightarrow S^{ij}, \\
+P^{ij}&\rightarrow P^{ij}, \\
+A_{\mu}^{ij}&\rightarrow iV_{\mu}^{ij}, \\
+V_{\mu}^{ij}&\rightarrow -iA_{\mu}^{ij},
+\end{align}
+for $(i,j)=(u,d),(u,s),(c,d),(c,s)$, and
+\begin{align}
+S^{ij}&\rightarrow -iP^{ij}, \\
+P^{ij}&\rightarrow iS^{ij}, \\
+A_{\mu}^{ij}&\rightarrow A_{\mu}^{ij}, \\
+V_{\mu}^{ij}&\rightarrow V_{\mu}^{ij},
+\end{align}
+for $(i,j)=(u,u),(u,c),(d,d),(d,s),(s,s),(c,c)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

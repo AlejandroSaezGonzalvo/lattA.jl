@@ -1,0 +1,29 @@
+%*******************************************************
+% Abstract
+%*******************************************************
+%\renewcommand{\abstractname}{Abstract}
+\pdfbookmark[1]{Abstract}{Abstract}
+% \addcontentsline{toc}{chapter}{\tocEntry{Abstract}}
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\let\cleardoublepage\relax
+
+\chapter*{Abstract}
+Search for New Physics requires precise theoretical calculations that allow to discern deviations from the Standard Model in experiments. One rich arena to search for New Physics is the flavor sector of the Standard Model and Quantum Chromodynamics. Recent experiments have shown anomalies in B meson decays and the anomalous magnetic moment of the muon, to name a few. In all these processes, Quantum Chromodynamics plays a crucial role, hence the importance to perform precise theoretical predictions of strong interaction phenomena. Lattice Field Theory provides with a first-principles framework with which to study strongly coupled theories like QCD.
+
+In this thesis we study a mixed action Lattice QCD setup aimed at high precision light and charm physics computations. The setup combines $N_f=2+1$ $\mathcal{O}(a)$ non-perturbatively improved quarks in the sea with $N_f=2+1+1$ twisted mass quarks in the valence, taking advantage of automatic $\mathcal{O}(a)$ improvement at full twist. This ensures abscense of $\mathcal{O}(a)$ effects proportional to heavy valence masses, which is of particular importance for charm physics. 
+
+Here we focus on the setup of the mixed action and in high precision scale setting. The first task entails matching the physical quark masses of both the sea and valence sectors in order to recover unitarity of the theory in the continuum, in addition to tunning to maximal twist. We later set the scale using the pion and kaon decay constants and the gradient flow scale $t_0$. We employ model variation techniques in order to assess for systematic uncertainties and quote a high precision result for $t_0$ and the lattice spacing in physical units, with controlled continuum and physical point extrapolations. Our results are among the most precise in the community for Wilson-like lattice regularizations.
+
+\vfill
+
+\begin{otherlanguage}{spanish}
+\pdfbookmark[1]{Resumen}{Resumen}
+\chapter*{Resumen}
+Blabla
+\end{otherlanguage}
+
+\endgroup
+
+\vfill

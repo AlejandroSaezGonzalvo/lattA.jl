@@ -2,7 +2,7 @@
 \markboth{CONCLUSIONS}{CONCLUSIONS}
 \label{ch_conclu}
 
-In this Ph.D. thesis we have obtained high precision results from first-principles Lattice QCD calculations of the gradient flow scale $t_0$ and the lattice spacing for CLS ensembles. This is relevant in modern day ``precision era'' Lattice Field Theory computations, since as the community is reaching sub-percent level precision in lattice predictions, setting the scale with the same accuracy is required, such that the scale is not the dominant source of uncertainty. In particular, this is of utmost importance for high precision tests of the Standard Model and the search for New Physics.
+In this Ph.D. thesis we have obtained high precision results from first-principles Lattice QCD calculations of the gradient flow scale $t_0$ and the lattice spacing for CLS ensembles. This is relevant in modern day ``precision era'' Lattice Field Theory computations, since as the community is reaching sub-percent level precision in lattice predictions, setting the scale with the same accuracy is required, such that the scale is not the dominant source of uncertainty. In addition to this and following our scale setting procedure, we obtained high precision results for the renormalized charm quark mass and charmed mesons $D_{(s)}$ decay constants. In particular, these results are of utmost importance for high precision tests of the Standard Model and the search for New Physics, as they are expected to contribute to the detailed understanding of heavy quark dynamics in the Standard Model.
 
 In this work we used CLS lattice gauge ensembles~\citep{Bruno:2014jqa,Mohler:2017wnb} with lattice spacings ranging from $a\approx0.085$ fm to $a\approx0.038$ fm, and pion masses from $m_{\pi}\approx420$ MeV to the physical point $m_{\pi}\approx130$ MeV. We have used a mixed action lattice regularization based on CLS gauge ensembles which uses $N_f=2+1$ $\mathcal{O}(a)$ improved Wilson quarks in the sea and $N_f=2+1+1$ Wilson twisted mass in the valence. We performed the matching of the mixed action through the pseudoscalar pion and kaon masses, which fixed equal physical quark masses for the up/down and strange quarks in the sea and valence sectors, treating the additional charm quark as a partially quenched flavor. This ensures unitarity of the theory in the continuum. Furthermore, we tuned the Wilson twisted mass parameters to impose maximal twist, ensuring automatic $\mathcal{O}(a)$ improvement~\citep{Frezzotti:2003ni,Shindler:2007vp} for valence observables up to negligible effects coming from the sea.
 
@@ -12,7 +12,34 @@ We have presented an update of the scale setting of this mixed action regulariza
 \begin{align}
 \sqrt{t_0}&=0.1438(7)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm},\;[f_{\pi K}].
 \end{align}
-We stress that this result is obtained in the isosymmetric QCD limit, defined in~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}. Using the kaon decay constant relies on the determination of the CKM matrix element $V_{us}$ which has bigger uncertainty than $V_{ud}$. This large uncertainty affects the final result for the scale, in our case amounting to a $\sim11\%$ contribution to the total squared error. In addition to this, $f_K$ suffers from stronger QED corrections than $f_{\pi}$, whose uncertainty in our case amounts to a $\sim3\%$ contribution to the total squared error. For these reasons it is of utmost importance to determine the scale using only the decay constant of the pion, task for which physical point ensembles are of particular relevance. Currently our efforts are focused on this, as well as in the determination of the up/down and strange quark physical masses from a combination of the Wilson unitary and mixed action regularizations.
+Using the kaon decay constant to set the scale relies on the determination of the CKM matrix element $V_{us}$ which has bigger uncertainty than $V_{ud}$. This large uncertainty affects the final result for the scale, in our case amounting to a $\sim11\%$ contribution to the total squared error. In addition to this, $f_K$ suffers from stronger QED corrections than $f_{\pi}$, whose uncertainty in our case amounts to a $\sim3\%$ contribution to the total squared error. For these reasons it is of utmost importance to determine the scale using only the decay constant of the pion, task for which physical point ensembles are of particular relevance. Currently our efforts are focused on this, as well as in the determination of the up/down and strange quark physical masses from a combination of the Wilson unitary and mixed action regularizations.
 
-This mixed action has been successfully applied to the study of charm physics, obtaining high precision results for the charm quark mass and decay constants of the $D$ and $D_s$ mesons~\citep{charm}.
+Furthermore, we have presented calculations of the determination of the physical charm quark mass and charmed mesons decay constants based on this mixed action setup, exploiting automatic $\mathcal{O}(a)$-improvement to reduce lattice artifacts associated with the heavy charm quark mass. Using our determination of the scale $t_0$ we quote as final results for the RGI charm quark mass in the three flavor theory
+\begin{equation}
+  M_c^{\mathrm{RGI}}(N_f=3) &=& 1.485(8)_{\textrm{stat}}(3)_{\textrm{syst}}(14)_{\textrm{RGI}}\ \mathrm{GeV}\,.
+\end{equation}
+Converting this result to the $\overline{\textrm{MS}}$ scheme in the four flavor theory for comparison with the literature we obtain
+\begin{align}
+  &M_c^{\mathrm{RGI}}(N_f=4) = 1.546(8)_{\textrm{stat}}(3)_{\textrm{syst}}(14)_{\textrm{RGI}}(4)_\Lambda(3)_{\rm trunc.} \ \mathrm{GeV}\,,\\
+  &\overline{m}_c(\mu=3\ \mathrm{GeV}, N_f=4) = 1.006(5)_{\textrm{stat}}(2)_{\textrm{syst}}(9)_{\textrm{RGI}}(6)_\Lambda(3)_{\rm trunc.} \ \mathrm{GeV}\,,
+	\\
+	&\overline{m}_c(\mu=\overline{m}_c, N_f=4) = 1.296(5)_{\textrm{stat}}(2)_{\textrm{syst}}(8)_{\textrm{RGI}}(11)_\Lambda(5)_{\rm trunc.} \ \mathrm{GeV}\,.
+\end{align}
+The error of the RGI quark mass is completely dominated by the computation of the non-perturbative renormalization group running factor, and therefore, no substantial improvement can be achieved until a more precise calculation of this quantity is obtained.
+
+For the $D_{(s)}$ decay constants we quote
+\begin{align}
+	f_D &= 211.3(1.9)_{\textrm{stat}}(0.6)_{\textrm{syst}} \ \mathrm{MeV},
+	\\
+	f_{D_s} &= 247.0(1.9)_{\textrm{stat}}(0.7)_{\textrm{syst}} \ \mathrm{MeV},
+\end{align}
+while for the ratio
+\begin{equation}
+	\frac{f_{D_s}}{f_D} = 1.177(15)_{\textrm{stat}}(5)_{\textrm{syst}}.
+\end{equation}
+In this case, the error is completely dominated by the statistical uncertainty of the gauge ensembles and the chiral-continuum extrapolations, and in the individual results for $f_{D_{(s)}}$ decay constants the scale setting accounts for the second largest contribution.
+
+The results in the charm sector are based on a subset of the ensembles used for the scale setting. Currently we are focused on including the whole set of ensembles in Table~\ref{apex_ensembles:tab:ens} to the analysis of the charm sector.
+
+We stress that the results obtained in this thesis are obtained in the isosymmetric QCD limit, defined in~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}. Given the accuracy of our results, QED effects and strong isospin breaking effects are expected to be relevant, specially for charm observables. In future studies, where higher precision results can be achieved by increasing statistics and adding further ensembles, these effects will have to be taken into account.
 
