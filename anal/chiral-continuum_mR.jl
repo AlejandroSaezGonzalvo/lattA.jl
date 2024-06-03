@@ -515,6 +515,11 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
 
     color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
     uwerr.(phi2_sh)
+    uwerr.(phi2_ph)
+    uwerr.(y1_ph_vec[1][1])
+    uwerr.(y1_ph_vec[2][1])
+    uwerr.(y2_ph_vec[1][1])
+    uwerr.(y2_ph_vec[2][1])
     
     ## Wilson ratios
         uprm_plot = uprm_y_plot
@@ -549,6 +554,8 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         ax = gca()
+        errorbar(value(phi2_ph), value(y1_ph_vec[2][1]), err(y1_ph_vec[2][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+
         #ax[:set_ylim]([0.285, 0.325])
         #legend()
 
@@ -578,6 +585,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         ax = gca()
+        errorbar(value(phi2_ph), value(y2_ph_vec[2][1]), err(y2_ph_vec[2][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
         #ax[:set_ylim]([0.285, 0.325])
         #legend()
 
@@ -619,6 +627,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         ax = gca()
+        errorbar(value(phi2_ph), value(y1_ph_vec[1][1]), err(y1_ph_vec[1][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
         #ax[:set_ylim]([0.285, 0.325])
         #legend()
 
@@ -648,6 +657,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         e = err.(aux)
         fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
         ax = gca()
+        errorbar(value(phi2_ph), value(y2_ph_vec[1][1]), err(y2_ph_vec[1][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
         #ax[:set_ylim]([0.285, 0.325])
         #legend()
 
