@@ -9,11 +9,13 @@
 \section{Introduction}
 \label{ch_qm:sec:introduction}
 
-In this Chapter we briefly discuss some hadronic computations following our work~\citep{charm}, with special emphasis on the impact of the scale $t_0$ we obtained in Chapter \ref{ch_ss} in these results. In particular, we will see that with the high precision result we obtained in eq.~(\ref{ch_ss:eq:t0ph_c}) we can quote results for the renormalized charm quark mass and $D_{(s)}$ charmed mesons decay constants where the scale $t_0$ is not the dominant source of uncertainty. 
+In this Chapter we discuss hadronic computations involving the charm quark following our work~\citep{charm}, with special emphasis on the impact on these results of the scale $t_0$ we obtained in Chapter \ref{ch_ss}. In particular, we will see that with the high precision result we obtained in eq.~(\ref{ch_ss:eq:t0ph_c}) we can quote results for the renormalized charm quark mass and $D_{(s)}$ charmed mesons decay constants where the scale $t_0$ is not the dominant source of uncertainty. 
 
-For the extraction of charm observables we rely entirely on the mixed action setup, exploiting automatic $\mathcal{O}(a)$ improvement for valence observables, ensured by our mixed action setup once the matching of the sea and valence sectors, in addition to the tune to maximal twist explained in Sec.~\ref{ch_ma:sec:matching} are performed. This helps to keep under control large discretization effects associated to the heavy mass of the charm quark. 
+For the extraction of charm observables we rely entirely on the mixed action setup, exploiting automatic $\mathcal{O}(a)$ improvement for valence observables, ensured by our mixed action setup once the matching of the sea and valence sectors, in addition to the tune to maximal twist explained in Sec.~\ref{ch_ma:sec:matching} are performed. This helps in keeping under control large discretization effects associated to the heavy mass of the charm quark. 
 
-In Sec. \ref{sec:matching_charm} we discuss the details of our strategy to match the charm quark mass to its physical value. In Sec.~\ref{sec:mc} we perform chiral-continuum extrapolations of the renormalized charm quark mass and present our results for this quantity at the physical point after performing a model average of the different possible extrapolations. In Sec.~\ref{sec:fDs} we present our results for the charmed mesons $D_{(s)}$ decay constants following our work~\citep{charm}, showing the contribution to the final uncertainty coming from the determination of the scale $t_0$. For a complete discussion of these results we refer to our work~\citep{charm}. Finally, in Sec.~\ref{sec:light_qm} we show some preliminar analysis of the light quark masses. 
+In Sec. \ref{sec:matching_charm} we discuss the details of our strategy to match the charm quark mass to its physical value. In Sec.~\ref{sec:mc} we discuss chiral-continuum extrapolations of the renormalized charm quark mass and present our results for this quantity at the physical point after performing a model average of the different possible extrapolations. In Sec.~\ref{sec:fDs} we present our results for the charmed mesons $D_{(s)}$ decay constants, showing the contribution to the final uncertainty coming from the determination of the scale $t_0$. For a complete discussion of these results we refer to our work~\citep{charm}. 
+
+In addition to these charmed mesons computations, in Appendix~\ref{apex_light_qm} we show some preliminary analysis of the light and strange quark masses. 
 
 
 \section{Matching of the charm quark mass}
@@ -69,7 +71,7 @@ However, by doing so we would as a result build in the charm quark mass a depend
 %
 To avoid this, we have opted instead for setting the physical charm quark mass jointly with the chiral-continuum extrapolation, in a similar way as the one we employ to hit the physical point in the light and strange sector.
 %
-What this means in practice is that the charm quark mass dependence of any given observable $\cO$ is parameterised as $\mathcal{O}(a, \phi_2, \phi_H^{(i)})$, and we perform a global fit to obtain its physical value $\mathcal{O}(0, \phi_2^{\mathrm{ph}}, \phi_H^{(i),\mathrm{ph}})$.
+What this means in practice is that the charm quark mass dependence of any given observable $\cO$ is parameterized as $\mathcal{O}(a, \phi_2, \phi_H^{(i)})$, and we perform a global fit to obtain its physical value $\mathcal{O}(0, \phi_2^{\mathrm{ph}}, \phi_H^{(i),\mathrm{ph}})$.
 %
 This will be the procedure applied below in the determination of the physical value of the charm quark mass and of the decay constants $f_D$ and $f_{D_s}$.
 %
@@ -198,7 +200,7 @@ agreement with the $\mathcal{O}(a^2)$ leading order, confirming the automatic $\
 nevertheless, we notice that given the current statistical accuracy, fits with  $\mathcal{O}(a^4)$ terms are the 
 preferred ones from the model average, since they allow to properly describe the curvature in our data. 
 Note also the overall small size of scaling violations, which are at the few percent level.
-Finally, Figure~\ref{fig:mc_pion_dependence} shows the pion  mass dependence of the charm quark mass. As 
+Finally, Figure~\ref{fig:mc_pion_dependence} shows the pion  mass dependence of the charm quark mass, while Figure~\ref{fig:mc_mh_dependence} shows the heavy mass dependence of the charm quark mass. As 
 expected, we observe a mild dependence of the charm mass on the light quark masses.
  
 \begin{figure}
@@ -219,6 +221,14 @@ expected, we observe a mild dependence of the charm mass on the light quark mass
 	\caption{Pion mass dependence of the charm quark mass for one of the best  fits according to the TIC criteria. Results are shown for the flavor-averaged matching condition. Each point corresponds to the  value for a given ensemble, projected to the physical charm quark mass. The dashed lines represent the chiral trajectories at finite lattice spacing, while the blue shaded band is a projection to the continuum limit. The red point shows our final result extrapolated at the physical point in the continuum. }
 	\label{fig:mc_pion_dependence}
 \end{figure}
+
+\begin{figure}
+ 	\centering
+ 	%\hspace{-15mm}
+ 	\includegraphics[scale=0.5]{./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf}
+ 	\caption{ Heavy mass dependence of the renormalised charm quark mass $\mu_c^{R}$ in units of $\sqrt{8t_0}$ for one of the fits with larger weights according to the TIC criteria. Results shown for the flavor-averaged matching condition $\phi_{H}^{(1)} = \sqrt{8t_0} m_{\overline{H}}$. Dependencies other than $\phi_H^{(i)}$ in the chiral-continuum extrapolation have been projected to the physical point. The red square symbols indicate the continuum results at the physical value $\phi_H^{\mathrm{ph}}$. We observe a linear dependence of the charm quark mass on $\phi_{H}^{(1)} = \sqrt{8t_0} m_{\overline{H}}$. }
+ 	\label{fig:mc_mh_dependence}
+ \end{figure}
 
 
 \subsection{Results for the charm quark mass}
@@ -285,7 +295,7 @@ In Figure~\ref{fig:mc_comparison} we compare our determinations of the charm qua
 \section{Determination of decay constants of charmed mesons}
 \label{sec:fDs}
 
-For the determination of the decay constants of the charmed mesons $D_{(s)}$ we employ a similar methodology to the one for the renormalized charm quark mass. We match the charm quark mass to its physical value following the same prescription as in Sec.~\ref{sec:matching_charm}, and we explore different ways of performing the chiral-continuum limit extrapolations in order to obtain $f_{D_{(s)}}$ at the physical point. For a detailed discussion we refer to our work~\citep{charm}, here we will only show our main results emphasizing the impact on this of our determination of the scale $t_0$ in Chapter \ref{ch_ss}.
+For the determination of the decay constants of the charmed mesons $D_{(s)}$ we employ a similar methodology to the one for the renormalized charm quark mass. We match the charm quark mass to its physical value following the same prescription as in Sec.~\ref{sec:matching_charm}, and we explore different ways of performing the chiral-continuum limit extrapolations in order to obtain $f_{D_{(s)}}$ at the physical point. For a detailed discussion we refer to our work~\citep{charm}, here we will only show our main results emphasizing the impact on these of our determination of the scale $t_0$ in Chapter \ref{ch_ss}.
 
 \subsection{Computation of decay constants}
 
@@ -308,7 +318,7 @@ The general continuum heavy and light quark mass dependence can be expressed as 
 \end{equation}
 Here $\Phi_\chi$ governs the heavy-quark mass dependence while  $\delta\Phi_{\chi\mathrm{PT}}^{D_{(s)}}$ controls the light quark behaviour as approaching the physical point. Finally the lattice spacing dependence describing cut-off effects is regulated by $\delta\Phi_a^{D_{(s)}}$. 
 
-For an analysis of each of the terms appearing in eq.~\ref{eq:fds_different_pieces} we refer to our work~\citep{charm}. Here we only comment that for $\Phi_{\chi}$ we use expressions motivated by HQET, while the light-quark dependence in $\delta\Phi_{\chi\mathrm{PT}}^{D_{(s)}}$ admits an expression in Heavy Meson $\chi$PT (HM$\chi$PT). For cutoff effects, we consider $\mathcal{O}(a^2)$, $\mathcal{O}(a^2\phi_2)$ and $\mathcal{O}(a^2\phi_H)$ terms.
+For an analysis of each of the terms appearing in eq.~(\ref{eq:fds_different_pieces}) we refer to our work~\citep{charm}. Here we only comment that for $\Phi_{\chi}$ we use expressions motivated by HQET, while the light-quark dependence in $\delta\Phi_{\chi\mathrm{PT}}^{D_{(s)}}$ admits an expression in Heavy Meson $\chi$PT (HM$\chi$PT). For cutoff effects, we consider $\mathcal{O}(a^2)$, $\mathcal{O}(a^2\phi_2)$ and $\mathcal{O}(a^2\phi_H)$ terms.
 
 Similarly to the case of the charm quark mass, we consider several specific forms of the fit ansatz,
 by setting some combination of fit parameters to zero. We furthermore again match the charm scale using
@@ -321,9 +331,9 @@ In Table~\ref{tab:dec_res_all_matching} we show our determinations of $\Phi_D$
 and $\Phi_{D_s}$ for each of the two procedures to match the charm scale, as well
 as the result from their combination. Using this combination we arrive at the following results for the the $D_{(s)}$ meson decay constants,
 \begin{align}
-	f_D &= 211.3(1.9)(0.6) \ \mathrm{MeV},
+	f_D &= 211.3(1.9)_{\textrm{stat}}(0.6)_{\textrm{syst} \ \mathrm{MeV},
 	\\
-	f_{D_s} &= 247.0(1.9)(0.7) \ \mathrm{MeV},
+	f_{D_s} &= 247.0(1.9)_{\textrm{stat}(0.7)_{\textrm{syst} \ \mathrm{MeV},
 \end{align}
 where the first error is statistical and the second the systematic uncertainty from the model average. The different contributions to the variance of $D_{(s)}$ meson decay constants are 
 shown in Figure~\ref{fig:fds_error_sources}. Finally, in  Figure~\ref{fig:fds_comparison} we show a comparison between our results and other $N_f=2+1$ lattice QCD determinations.
@@ -379,7 +389,7 @@ point of our $\phi_4={\rm const.}$ trajectory, which is part of our line of cons
 physics. We can thus perform a fit that is highly constrained in the unphysical masses
 region, although at the price of reducing the total number of ensembles entering in the study of the approach to the physical point.
 
-A first set of fit ansaetze is derived from the HM$\chi$PT expressions considered above
+A first set of fit ansaetze is derived from HM$\chi$PT expressions as in the case
 for $\Phi_{D_{(s)}}$. The generic form is
 \begin{equation}
 	\frac{\Phi_{D_s}}{\Phi_D} = \left[
@@ -399,7 +409,7 @@ In this expression we consider all the possible combinations of non-vanishing fi
 and perform our TIC-weighted model average among the different functional forms tested to
 quote a systematic uncertainty.  
 
-We will further explore the systematic uncertainties by considering  also functional forms based on a Taylor expansion of $\Phi_{D_{(s)}}$. The generic
+We further explore the systematic uncertainties by considering  also functional forms based on a Taylor expansion of $\Phi_{D_{(s)}}$. The generic
 expression then reads
 \begin{align}
 	\Phi_{D_{(s)}}= \left( \Phi_{D_{(s)}}\right)_{\chi} \left[ 1 + \delta \Phi_{{h,\mathrm{Taylor}}} \right] \left[ 1 + \delta \Phi_{{m,\mathrm{Taylor}}}^{D_{(s)}} \right] \left[ 1 + \delta \Phi_a^{D_{(s)}}  \right]
@@ -410,12 +420,12 @@ where $ \left( \Phi_{D_{(s)}}\right)_{\chi}$ is the value in
 the chiral limit and at the physical value of the heavy-quark mass.
 
 
-Then, in order to arrive at a final determination of $f_{D_s}/f_D$ we perform a model average among all the HM$\chi$PT and Taylor functional forms for the two different matching conditions simultaneously. In Table~\ref{tab:ratio_res_all_matching} we report our results for the
+Then, in order to arrive at a final determination of $f_{D_s}/f_D$ we perform a model average among all the HM$\chi$PT and Taylor functional forms for the two different matching conditions simultaneously. Again, for details of the fit forms employed we refer to our work~\citep{charm}. In Table~\ref{tab:ratio_res_all_matching} we report our results for the
 ratio of decay constants from the model average separately for each charm matching
 condition, as well as their combination. Also for the ratio we observe good agreement for the two different $\phi_H^{(i)}$ tested in this work. 
 Finally, for the  result combining the two matching conditions, we quote 
 \begin{equation}
-	\frac{f_{D_s}}{f_D} = 1.177(15)(5),
+	\frac{f_{D_s}}{f_D} = 1.177(15)_{\textrm{stat}(5)_{\textrm{syst},
 \end{equation}
 where  the first error is  statistical and the second is the systematic uncertainty based on  the model average procedure. 
 
