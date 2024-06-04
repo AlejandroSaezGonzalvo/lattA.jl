@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  3 JUN 2024 14:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  4 JUN 2024 15:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2097,7 +2097,7 @@ l.275 \end{align}
                  
 ? 
 [91 <./cap6/figs/mc/mc_error_pie.pdf>]
-<./cap6/figs/mc/mc_comparison_3gev.pdf, id=2656, 462.52798pt x 346.89601pt>
+<./cap6/figs/mc/mc_comparison_3gev.pdf, id=2654, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/mc/mc_comparison_3gev.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/mc_comparison_3gev.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/mc_comparison_3gev.pdf  used on input l
@@ -2137,19 +2137,19 @@ l.343
       
 ? 
 [93]
-<././cap6/figs/fds/error_pie_fd.pdf, id=2728, 250.10207pt x 267.08229pt>
+<././cap6/figs/fds/error_pie_fd.pdf, id=2726, 462.52798pt x 346.89601pt>
 File: ././cap6/figs/fds/error_pie_fd.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_fd.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_fd.pdf  used on input line
  359.
-(pdftex.def)             Requested size: 134.39795pt x 143.52539pt.
-<././cap6/figs/fds/error_pie_fds.pdf, id=2729, 246.21817pt x 267.92917pt>
+(pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
+<././cap6/figs/fds/error_pie_fds.pdf, id=2727, 462.52798pt x 346.89601pt>
 File: ././cap6/figs/fds/error_pie_fds.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_fds.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_fds.pdf  used on input lin
 e 363.
-(pdftex.def)             Requested size: 131.0398pt x 142.60275pt.
-<./cap6/figs/fds/fds_comparison.pdf, id=2732, 462.52798pt x 346.89601pt>
+(pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
+<./cap6/figs/fds/fds_comparison.pdf, id=2730, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/fds/fds_comparison.pdf Graphic file (type pdf)
 <use ./cap6/figs/fds/fds_comparison.pdf>
 Package pdftex.def Info: ./cap6/figs/fds/fds_comparison.pdf  used on input line
@@ -2187,55 +2187,49 @@ l.390 point of our $\phi_4={\rm
                                 const.}$ trajectory, which is part of our li...
 
 ? 
-[94 <././cap6/figs/fds/error_pie_fd.pdf> <././cap6/figs/fds/error_pie_fds.pdf>]
-[95 <./cap6/figs/fds/fds_comparison.pdf>]
+[94] [95 <././cap6/figs/fds/error_pie_fd.pdf> <././cap6/figs/fds/error_pie_fds.
+pdf>] [96 <./cap6/figs/fds/fds_comparison.pdf>]
 ! Missing } inserted.
 <inserted text> 
                 }
 l.431 \end{equation}
                     
 ? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.431 \end{equation}
-                    
-? 
-[96]
-<././cap6/figs/fds/error_pie_ratio_fds.pdf, id=2852, 242.72252pt x 260.16803pt>
+<././cap6/figs/fds/error_pie_ratio_fds.pdf, id=2832, 242.72252pt x 260.16803pt>
 
 File: ././cap6/figs/fds/error_pie_ratio_fds.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_ratio_fds.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_ratio_fds.pdf  used on inp
 ut line 451.
 (pdftex.def)             Requested size: 134.39795pt x 144.05751pt.
-<././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf, id=2853, 226.15912pt x 264
-.91872pt>
+<././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf, id=2833, 462.52798pt x 346
+.89601pt>
 File: ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf Graphic file (type pdf
 )
 <use ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf  us
 ed on input line 455.
-(pdftex.def)             Requested size: 124.31836pt x 145.6249pt.
-<./cap6/figs/fds/ratio_fds_comparison.pdf, id=2854, 462.52798pt x 346.89601pt>
+(pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
+<./cap6/figs/fds/ratio_fds_comparison.pdf, id=2834, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/fds/ratio_fds_comparison.pdf Graphic file (type pdf)
 <use ./cap6/figs/fds/ratio_fds_comparison.pdf>
 Package pdftex.def Info: ./cap6/figs/fds/ratio_fds_comparison.pdf  used on inpu
 t line 466.
 (pdftex.def)             Requested size: 323.76736pt x 242.82555pt.
-) [97 <././cap6/figs/fds/error_pie_ratio_fds.pdf> <././cap6/figs/fds/error_pie_
-ratio_fds_statonly.pdf>] [98 <./cap6/figs/fds/ratio_fds_comparison.pdf>]
-[99
+) [97] [98 <././cap6/figs/fds/error_pie_ratio_fds.pdf> <././cap6/figs/fds/error
+_pie_ratio_fds_statonly.pdf>] [99 <./cap6/figs/fds/ratio_fds_comparison.pdf>]
+[100
 
 
 
 
+] [101
 
 
-] [100]
+] [102]
 \openout2 = `conclusions/conclusions.aux'.
 
- (./conclusions/conclusions.tex [101
+ (./conclusions/conclusions.tex [103
 
 
 
@@ -2295,24 +2289,24 @@ Overfull \hbox (16.5391pt too wide) detected at line 25
 []
  []
 
-[102]) [103]
+[104]) [105]
 \openout2 = `conclusions/conclusiones.aux'.
 
- (./conclusions/conclusiones.tex [104
+ (./conclusions/conclusiones.tex [106
 
 
 
 
 
-]) [105] [106
+]) [107] [108
 
 
 
 
-] [107
+] [109
 
 
-] [108]
+] [110]
 \openout2 = `apendices/apendices_conventions.aux'.
 
 
@@ -2322,11 +2316,11 @@ LaTeX Font Info:    Trying to load font information for TS1+pplj on input line
 19.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-) [109
+) [111
 
 
 
-]) [110]
+]) [112]
 \openout2 = `apendices/apendices_SU3.aux'.
 
 
@@ -2337,7 +2331,7 @@ Overfull \hbox (1.2082pt too wide) detected at line 54
 []
  []
 
-) [111
+) [113
 
 
 
@@ -2348,7 +2342,7 @@ Overfull \hbox (1.2082pt too wide) detected at line 54
 
  (./apendices/apendices_a.tex
 Appendix C.
-[112
+[114
 
 
 
@@ -2359,18 +2353,18 @@ Overfull \hbox (130.31204pt too wide) in alignment at lines 9--37
  [] [] [] [] [] [] [] [] [] [] 
  []
 
-) [113]
+) [115]
 \openout2 = `apendices/apendices_obs.aux'.
 
  (./apendices/apendices_obs.tex
 Appendix D.
-[114
+[116
 
 
 
 
 
-] [115] [116]) [117] [118]
+] [117] [118]) [119] [120]
 \openout2 = `apendices/apendices_simulations.aux'.
 
  (./apendices/apendices_simulations.tex
@@ -2384,7 +2378,7 @@ Overfull \hbox (10.12854pt too wide) detected at line 18
 /n/10.95 ] + \OMS/zplm/m/n/10.95 O [] \OT1/pplx/m/n/10.95 ,$  
  []
 
-[119
+[121
 
 
 
@@ -2404,17 +2398,17 @@ m/m/it/10.95 U[] \OMS/zplm/m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10
 .95 j\OT1/zplm/m/n/10.95 ))\OT1/pplx/m/n/10.95 .$  
  []
 
-[120] [121] [122]
+[122] [123] [124]
 Overfull \hbox (10.74318pt too wide) detected at line 116
 []
  []
 
-[123]) [124]
+[125]) [126]
 \openout2 = `apendices/apendices_errors.aux'.
 
  (./apendices/apendices_errors.tex
 Appendix F.
-[125
+[127
 
 
 
@@ -2429,29 +2423,29 @@ cer-tainty of $\OMS/zplm/m/n/10.95 O\OT1/zplm/m/n/10.95 ([](\OMS/zplm/m/n/10.95
 /zplm/m/n/10.95 ))$\T1/pplj/m/n/10.95 (-20) .
  []
 
-[126]) [127]
+[128]) [129]
 \openout2 = `apendices/apendices_solvers.aux'.
 
  (./apendices/apendices_solvers.tex
 Appendix G.
-[128
+[130
 
 
 
 
 
-] [129] [130]) [131]
+] [131] [132]) [133]
 \openout2 = `apendices/apendices_b.aux'.
 
  (./apendices/apendices_b.tex
 Appendix H.
-[132
+[134
 
 
 
 
 
-] [133]) [134]
+] [135]) [136]
 \openout2 = `apendices/apendices_GEVP.aux'.
 
  (./apendices/apendices_GEVP.tex
@@ -2461,7 +2455,7 @@ LaTeX Font Info:    Trying to load font information for U+fplmbb on input line
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-<./cap6/figs/matching/m8_plateau.pdf, id=3297, 722.7pt x 542.025pt>
+<./cap6/figs/matching/m8_plateau.pdf, id=3282, 722.7pt x 542.025pt>
 File: ./cap6/figs/matching/m8_plateau.pdf Graphic file (type pdf)
 <use ./cap6/figs/matching/m8_plateau.pdf>
 Package pdftex.def Info: ./cap6/figs/matching/m8_plateau.pdf  used on input lin
@@ -2472,14 +2466,14 @@ Overfull \hbox (25.3491pt too wide) in paragraph at lines 42--43
  [][] 
  []
 
-[135
+[137
 
 
 
 
 
 ]
-<./cap6/figs/fds/f8_plateau.pdf, id=3313, 722.7pt x 542.025pt>
+<./cap6/figs/fds/f8_plateau.pdf, id=3297, 722.7pt x 542.025pt>
 File: ./cap6/figs/fds/f8_plateau.pdf Graphic file (type pdf)
 <use ./cap6/figs/fds/f8_plateau.pdf>
 Package pdftex.def Info: ./cap6/figs/fds/f8_plateau.pdf  used on input line 49.
@@ -2490,19 +2484,19 @@ Overfull \hbox (25.3491pt too wide) in paragraph at lines 49--50
  [][] 
  []
 
-) [136 <./cap6/figs/matching/m8_plateau.pdf>] [137 <./cap6/figs/fds/f8_plateau.
+) [138 <./cap6/figs/matching/m8_plateau.pdf>] [139 <./cap6/figs/fds/f8_plateau.
 pdf>]
 \openout2 = `apendices/apendices_c.aux'.
 
  (./apendices/apendices_c.tex
 Appendix J.
-[138
+[140
 
 
 
 
 
-] [139]) [140]
+] [141]) [142]
 \openout2 = `apendices/apendices_f.aux'.
 
  (./apendices/apendices_f.tex
@@ -2533,23 +2527,23 @@ Overfull \hbox (36.42177pt too wide) in alignment at lines 36--113
  [] [] [] [] 
  []
 
-[141
+[143
 
 
 
 
 
-] [142]
+] [144]
 Overfull \hbox (36.42177pt too wide) in alignment at lines 117--194
  [] [] [] [] 
  []
 
-[143] [144] [145]
+[145] [146] [147]
 Overfull \hbox (76.0454pt too wide) in alignment at lines 196--315
  [] [] [] [] 
  []
 
-[146] [147] [148]) [149] [150
+[148] [149] [150]) [151] [152
 
 
 
@@ -2557,19 +2551,19 @@ Overfull \hbox (76.0454pt too wide) in alignment at lines 196--315
 ]
 \openout2 = `FrontBackmatter/Bibliography.aux'.
 
- (./FrontBackmatter/Bibliography.tex [151
+ (./FrontBackmatter/Bibliography.tex [153
 
 
 
 ]
-[152]
+[154]
 ! Undefined control sequence.
 <argument> \NF 
                =2+1
 l.15 \printbibliography[heading=bibintoc]
                                          
 ? 
-[153] [154]
+[155] [156]
 
 ! Class scrreprt Error: undefined old font command `\rm'.
 
@@ -2580,33 +2574,37 @@ Type  H <return>  for immediate help.
 l.15 \printbibliography[heading=bibintoc]
                                          
 ? 
-[155]
+
 Overfull \hbox (2.00424pt too wide) in paragraph at lines 15--15
 \T1/fvm/m/n/10.95 sciencedirect . com / science / article / pii / 0010465588901
 804$[][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-[156]
-Overfull \hbox (2.84778pt too wide) in paragraph at lines 15--15
-[]\T1/pplj/m/n/10.95 (-20) Benjamin Grin-stein, Eliz-a-beth Ellen Jenk-ins, Ane
-esh V. Manohar,
- []
-
-[157]
+[157] [158]
 Overfull \hbox (17.5535pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 
 10 . 1103 / PhysRevD . 102 . 054511$[][]\T1/pplj/m/n/10.95 (-20) . arXiv: [][]$
 \T1/fvm/m/n/10.95 2005 . 01845$ [hep-lat][][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-
+[159]
 Overfull \hbox (6.31654pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) fermions.^^Q In: \T1/pplj/m/it/10.95 (-20) JHEP \T1/pp
 lj/m/n/10.95 (-20) 02 (2017), p. 090. \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n
 /10.95 (-20) : [][]$\T1/fvm/m/n/10.95 10 . 1007 / JHEP02(2017 )
  []
 
-[158]
+
+! Class scrreprt Error: undefined old font command `\rm'.
+
+See the scrreprt class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 \printbibliography[heading=bibintoc]
+                                         
+? 
+[160]
 Overfull \hbox (7.64952pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) mun.Math.Phys. 98, 433 (1985)], p. 433. \T1/pplj/m/sc/
 10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 10 . 1007 / BF
@@ -2619,7 +2617,7 @@ Overfull \hbox (6.383pt too wide) in paragraph at lines 15--15
 tions and reweight-
  []
 
-[159]
+[161]
 Overfull \hbox (57.76984pt too wide) in paragraph at lines 15--15
 []\T1/pplj/m/it/10.95 (-20) Millennium Prize prob-lems\T1/pplj/m/n/10.95 (-20) 
 . \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.9
@@ -2627,20 +2625,20 @@ Overfull \hbox (57.76984pt too wide) in paragraph at lines 15--15
 
  []
 
-[160]
+
 Overfull \hbox (8.7476pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) ^^P  Short-distance char-mo-nium cor-re-la-tor on the 
 lat-tice with Möbius
  []
 
-[161] [162]
+[162] [163] [164]
 Overfull \hbox (6.3472pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 
 10 . 1103 / PhysRevD . 92 . 034517$[][]\T1/pplj/m/n/10.95 (-20) . arXiv: [][]$\
 T1/fvm/m/n/10.95 1410 . 3343$ [hep-lat][][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-) [163]
+) [165]
 
 ! LaTeX Error: \begin{align} on input line 335 ended by \end{document}.
 
@@ -2919,9 +2917,6 @@ FrontBackmatter/Bibliography.tex
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `ClassicThesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -2936,43 +2931,42 @@ Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 ### semi simple group (level 1) entered at line 335 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36229 strings out of 478287
- 711436 string characters out of 5849289
- 1718344 words of memory out of 5000000
- 51809 multiletter control sequences out of 15000+600000
- 648764 words of font info for 903 fonts, out of 8000000 for 9000
+ 36217 strings out of 478287
+ 710619 string characters out of 5849289
+ 1718301 words of memory out of 5000000
+ 51790 multiletter control sequences out of 15000+600000
+ 649326 words of font info for 911 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,24n,125p,10608b,2596s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/mathpazo/fplmbi.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpaz
-o/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf
--dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/p
-alatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr
-i8a.pfb>
-Output written on ClassicThesis.pdf (179 pages, 1604619 bytes).
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/mathpazo/fplmbi.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palati
+no/uplri8a.pfb>
+Output written on ClassicThesis.pdf (181 pages, 1554412 bytes).
 PDF statistics:
- 4329 PDF objects out of 5155 (max. 8388607)
- 3206 compressed objects within 33 object streams
- 823 named destinations out of 1000 (max. 500000)
+ 4300 PDF objects out of 5155 (max. 8388607)
+ 3182 compressed objects within 32 object streams
+ 820 named destinations out of 1000 (max. 500000)
  175905 words of extra memory for PDF output out of 184870 (max. 10000000)
 

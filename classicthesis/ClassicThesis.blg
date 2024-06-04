@@ -16,7 +16,7 @@ A level-1 auxiliary file: cap2/lattice.aux
 A level-1 auxiliary file: cap3/observables.aux
 A level-1 auxiliary file: cap4/cap4.aux
 A level-1 auxiliary file: cap5/cap5_new.aux
-A level-1 auxiliary file: cap6/cap6.aux
+A level-1 auxiliary file: cap6/cap6_new.aux
 A level-1 auxiliary file: conclusions/conclusions.aux
 A level-1 auxiliary file: conclusions/conclusiones.aux
 A level-1 auxiliary file: apendices/apendices_conventions.aux
@@ -27,6 +27,7 @@ A level-1 auxiliary file: apendices/apendices_simulations.aux
 A level-1 auxiliary file: apendices/apendices_errors.aux
 A level-1 auxiliary file: apendices/apendices_solvers.aux
 A level-1 auxiliary file: apendices/apendices_b.aux
+A level-1 auxiliary file: apendices/apendices_GEVP.aux
 A level-1 auxiliary file: apendices/apendices_c.aux
 A level-1 auxiliary file: apendices/apendices_f.aux
 A level-1 auxiliary file: FrontBackmatter/Bibliography.aux
@@ -45,7 +46,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 23760 items from 5000.
+Reallocated field_info (elt_size=4) to 23060 items from 5000.
 Database file #1: ClassicThesis-blx.bib
 Database file #2: Bibliography.bib
 Database file #3: publications.bib
@@ -54,45 +55,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis" for entry Brown:2018jtv
 while executing---line 2815 of file biblatex.bst
-You've used 134 entries,
+You've used 129 entries,
             6399 wiz_defined-function locations,
-            2257 strings with 37254 characters,
-and the built_in function-call counts, 1250395 in all, are:
-= -- 102279
-> -- 16557
-< -- 4024
-+ -- 36680
-- -- 7724
-* -- 98934
-:= -- 146836
+            2222 strings with 36361 characters,
+and the built_in function-call counts, 1199001 in all, are:
+= -- 97911
+> -- 15933
+< -- 3883
++ -- 35345
+- -- 7432
+* -- 94691
+:= -- 140849
 add.period$ -- 0
-call.type$ -- 134
-change.case$ -- 133
-chr.to.int$ -- 80
-cite$ -- 266
-duplicate$ -- 128180
-empty$ -- 107219
-format.name$ -- 10647
-if$ -- 249781
+call.type$ -- 129
+change.case$ -- 128
+chr.to.int$ -- 83
+cite$ -- 256
+duplicate$ -- 123535
+empty$ -- 102665
+format.name$ -- 10243
+if$ -- 239334
 int.to.chr$ -- 0
-int.to.str$ -- 315
+int.to.str$ -- 302
 missing$ -- 0
-newline$ -- 5594
-num.names$ -- 5622
-pop$ -- 48739
+newline$ -- 5402
+num.names$ -- 5408
+pop$ -- 46907
 preamble$ -- 1
-purify$ -- 2240
+purify$ -- 2159
 quote$ -- 0
-skip$ -- 25618
+skip$ -- 24659
 stack$ -- 0
-substring$ -- 196998
-swap$ -- 23780
-text.length$ -- 4244
-text.prefix$ -- 133
+substring$ -- 187930
+swap$ -- 22950
+text.length$ -- 4092
+text.prefix$ -- 128
 top$ -- 1
-type$ -- 4542
+type$ -- 4372
 warning$ -- 0
-while$ -- 17633
+while$ -- 16999
 width$ -- 0
-write$ -- 5461
+write$ -- 5274
 (There was 1 error message)

@@ -414,7 +414,6 @@ function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerro
     
     tmp = Ysl[1]
     [tmp = cat(tmp, Ysl[k], dims=1) for k = 2:nr]
-    nt0 = juobs.t0_guess(t, tmp, plat, L)
     xmax = size(tmp, 2)
     T = xmax - 1 - y0
 
