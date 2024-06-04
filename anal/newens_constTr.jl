@@ -7,22 +7,12 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "E300"
+#id = "E300"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
 const md_meas = false
-
-#======== read correlators ===========#
-
-if id == "N302"
-    pp_sym, ap_sym = read_ens_TSM(path, ens) 
-else
-    pp_sym, ap_sym = get_corr_TSM_multichunks(path, ens)
-end
-
-#======== Wilson =====================#
 
 tm = [[1], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
 tM = [[80], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
@@ -35,6 +25,28 @@ elseif ens.id == "D450"
     tm = [[10], collect(10:10:div(ens.T,2)-5)]
     tM = [[62], [62]]
 end
+
+w0 = get_w0(path, ens, [40,60], rw=true, wpm=wpm, tm=tm, tM=tM, pl=false)
+if ens.id in ["E300", "J501", "E250", "D450"]
+    t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)
+elseif ens.id == "N302"
+    t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=[[10], [10,20,30,40,50]], tM=[[11], [90,100,110]])
+end
+
+obs = [w0, t0]
+fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/w0_t0_", ens.id, "_obs_wil_un.bdio"), "w")
+for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
+BDIO_close!(fb)
+
+#======== read correlators ===========#
+
+if id == "N302"
+    pp_sym, ap_sym = read_ens_TSM(path, ens) 
+else
+    pp_sym, ap_sym = get_corr_TSM_multichunks(path, ens)
+end
+
+#======== Wilson =====================#
 
 if ens.id == "J501"
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [20,30,40,50,60]], tM=[[180], [130,140,150,160]])

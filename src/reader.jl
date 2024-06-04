@@ -447,7 +447,7 @@ function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerro
             if !rw
                 Y_aux[i, k] = uwreal(tmp[:, i, j], id, replica)
             else
-                WY_aux[i, k] = uwreal(tmp_r[:, i, j], id, replica)
+                WY_aux[i, k] = uwreal(tmp_r[:, i, j], id, replica, collect(1:length(tmp_W)), sum(replica))
                 Y_aux[i, k] = WY_aux[i, k] / W_obs
             end
             k = k + 1

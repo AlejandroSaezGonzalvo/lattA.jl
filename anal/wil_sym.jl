@@ -7,23 +7,31 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
-id = "H101"
+#id = "H101"
 ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
 const md_meas = false
 
+#tm = [[1], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
+#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
+tm = [[1], collect(10:10:div(ens.T,2)-5)]
+tM = [[11], collect(ens.T-10:-10:div(ens.T,2)+5)]
+
+w0 = get_w0(path, ens, [40,60], rw=true, wpm=wpm, tm=tm, tM=tM, pl=false)
+t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM, pl=false)
+
+obs = [w0, t0]
+fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/w0_t0_", ens.id, "_obs_wil_un.bdio"), "w")
+for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
+BDIO_close!(fb)
+
 #======== read correlators ===========#
 
 pp_sym, ap_sym, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=true)
 
 #======== compute observables ========#
-
-#tm = [[1], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
-#tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
-tm = [[1], collect(10:10:div(ens.T,2)-5)]
-tM = [[11], collect(ens.T-10:-10:div(ens.T,2)+5)]
 
 if ens.id == "H400"
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, tm=[[1], [24]], tM=[[10], [67]], wpm=wpm)
