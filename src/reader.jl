@@ -422,14 +422,23 @@ function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerro
     if rw
         path_rw = joinpath(path, ens.id, "rwf")
         path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
-        rwf = read_ms1.(path_rw)
+        if ens.id == "D200"
+            rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
+            rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
+            rwf = [hcat(rwf_2[1],rwf_1[1])]
+        elseif ens.id in ["E250", "E300", "J500", "J501", "D450"]
+            rwf = [read_ms1(path_rw[i], v=ens.vrw[i]) for i in 1:length(ens.vrw)]
+            [Ysl[k] = Ysl[k][1:size(rwf[k],2), :, :] for k in 1:length(Ysl)]
+        else
+            rwf = read_ms1.(path_rw, v=ens.vrw)
+        end
 
         Ysl_r, W = juobs.apply_rw(Ysl, rwf)
         tmp_r = Ysl_r[1]
         tmp_W = W[1]
         [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]
         [tmp_W = cat(tmp_W, W[k], dims=1) for k = 2:nr]
-        W_obs = uwreal(tmp_W, id, replica)
+        W_obs = uwreal(tmp_W, id, replica, collect(1:length(tmp_W)), sum(replica))
         WY_aux = Matrix{uwreal}(undef, xmax, length(t))
     end
     for i = 1:xmax
@@ -451,7 +460,7 @@ function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerro
         t2YM[i,:] = Y_aux[i,:] .* t .^ 2 ./ L ^ 3
     end
     for i in 1:length(t2YM[:,1])
-        tdt2YM[i,2:end-1] = [(t2YM[i,j+1] - t2YM[i,j-1]) / 2 * t[j] for j in 2:length(t2YM[i,:])-1]
+        tdt2YM[i,2:end-1] = [(t2YM[i,j+1] - t2YM[i,j-1]) / (t[j+1] - t[j-1]) * t[j] for j in 2:length(t2YM[i,:])-1]
         tdt2YM[i,1] = tdt2YM[i,end] = t2YM[i,1]
     end
 
