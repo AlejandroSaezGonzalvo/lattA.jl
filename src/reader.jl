@@ -371,9 +371,7 @@ function read_ens_csv(ens::EnsInfo)
     return pp_sym, ap_sym
 end
 
-function get_YW(path::String, ens::EnsInfo, plat::Vector{Int64}; rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg)
-
-    println("WARNING!: You must use the same plat here than the one used to compute t0")
+function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerrors.wsg)
 
     path_ms = joinpath(path, ens.id, "gf")
     path_ms = filter(x->occursin(".dat", x), readdir(path_ms, join=true))
@@ -420,8 +418,7 @@ function get_YW(path::String, ens::EnsInfo, plat::Vector{Int64}; rw=false, npol:
     xmax = size(tmp, 2)
     T = xmax - 1 - y0
 
-    dt0 = iseven(npol) ? Int64(npol / 2) : Int64((npol+1) / 2)
-    Y_aux = Matrix{uwreal}(undef, xmax, 2*dt0+1)
+    Y_aux = Matrix{uwreal}(undef, xmax, length(t))
 
     if rw
         path_rw = joinpath(path, ens.id, "rwf")
@@ -434,11 +431,11 @@ function get_YW(path::String, ens::EnsInfo, plat::Vector{Int64}; rw=false, npol:
         [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]
         [tmp_W = cat(tmp_W, W[k], dims=1) for k = 2:nr]
         W_obs = uwreal(tmp_W, id, replica)
-        WY_aux = Matrix{uwreal}(undef, xmax, 2*dt0+1)
+        WY_aux = Matrix{uwreal}(undef, xmax, length(t))
     end
     for i = 1:xmax
         k = 1
-        for j = nt0-dt0:nt0+dt0
+        for j = 1:length(t)
             if !rw
                 Y_aux[i, k] = uwreal(tmp[:, i, j], id, replica)
             else
@@ -449,7 +446,17 @@ function get_YW(path::String, ens::EnsInfo, plat::Vector{Int64}; rw=false, npol:
         end
     end
 
-    return WY_aux, W_obs
+    t2YM = similar(Y_aux)
+    tdt2YM = similar(Y_aux)
+    for i in 1:length(Y_aux[:,1])
+        t2YM[i,:] = Y_aux[i,:] .* t .^ 2 ./ L ^ 3
+    end
+    for i in 1:length(t2YM[:,1])
+        tdt2YM[i,2:end-1] = [(t2YM[i,j+1] - t2YM[i,j-1]) / 2 * t[j] for j in 2:length(t2YM[i,:])-1]
+        tdt2YM[i,1] = tdt2YM[i,end] = t2YM[i,1]
+    end
+
+    return t2YM, tdt2YM, W_obs, t
 end
 
 function concat_data!(data1::Vector{juobs.CData}, data2::Vector{juobs.CData})
