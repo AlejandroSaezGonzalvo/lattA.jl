@@ -1633,8 +1633,7 @@ end
 function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
     tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, pl::Bool=false, 
     rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg, 
-    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing, 
-    info::Bool=false)
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
 
     y0 = 1 ## assumes this is the case, hardcoded, some ensembles will not fulfil !
     println("WARNING!: make sure t_src is 1 in this ensemble")
@@ -1736,16 +1735,10 @@ function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
         ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
         xlabel(L"$t/a^2$")
         tight_layout()
-        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/w0_",id,".pdf"))
+        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/w0_",ens.id,".pdf"))
         #close("all")
     end
 
-    if info && rw
-        return t0, WY_aux, W_obs
-    elseif info && !rw
-        return t0, Y_aux
-    else
-        return t0
-    end
+    return w0
 
 end
