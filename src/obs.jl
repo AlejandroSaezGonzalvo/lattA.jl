@@ -1678,7 +1678,7 @@ function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
 
                 savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/tdt2E_",ens.id,"_plat.pdf"))
                 
-                fig = figure("model av")
+                fig = figure("model av w0")
                 subplot(411)
                 fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
                 errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
