@@ -390,6 +390,40 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         end
     end
 
+    ## combined ##
+
+        models_y1_w = [y1_model3_w]
+        models_y2_w = [y2_model3_w]
+        models_y1_tm = [y1_model3_tm]
+        models_y2_tm = [y2_model3_tm]
+        param = [7]
+        
+        k = 3
+        for i in 1:length(models_y1)
+            println("i = ", i)
+            for j in 1:length(cuts_y1)
+                println("j = ", j)
+                yy1_tm = set_y1[1][j]
+                yy2_tm = set_y2[1][j]
+                yy1_w = set_y1[2][j]
+                yy2_w = set_y2[2][j]
+                x = set_x[1][j]
+                indx = findall(value.(yy1_w) .!= 1.0)
+                n = param[i]
+                uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1_w[i], models_y2_w[i], models_y1_tm[i], models_y2_tm[i]], [value.(x[indx,:]), value.(x), value.(x[indx,:]), value.(x)], [yy1_w[indx], yy2_w, yy1_tm[indx], yy2_tm], n)
+                #n = param[i]
+                #W = [convert(Matrix{Float64}, Symmetric(inv(cov(yy1[indx])))), convert(Matrix{Float64}, Symmetric(inv(cov(yy2))))]
+                #uprm, chi2, chi_exp, pval_aux = fit_alg([models_y1[i], models_y2[i]], [value.(x[indx,:]), value.(x)], [yy1[indx], yy2], W, n)
+                push!(TIC[k], chi2 - 2 * chi_exp)
+                push!(pval[k], pval_aux)
+                push!(y1_ph_vec[k], models_y1_w[i]([x_ph;x], uprm)[1])
+                push!(y2_ph_vec[k], models_y2_w[i]([x_ph;x], uprm)[1])
+                if i == j == 1 uprm_y_plot[k] = uprm end
+            end
+        end
+    
+    ##
+
     models_y1 = [y1_model3, y1_model35]
     models_y2 = [phi13_model1, phi13_model15]
     models_x = [x_model3, x_model35]
@@ -520,6 +554,101 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
     uwerr.(y1_ph_vec[2][1])
     uwerr.(y2_ph_vec[1][1])
     uwerr.(y2_ph_vec[2][1])
+    uwerr.(y1_ph_vec[3][1])
+    uwerr.(y2_ph_vec[3][1])
+
+    ## Combined ratios
+        uprm_plot = uprm_y_plot
+
+        fig = figure()
+        rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+        rcParams["font.size"] = 20
+
+        subplot(121)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\phi_{12}/\phi_{13}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(y1_st[ens_340]), err.(y1_st[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_346]), value.(y1_st[ens_346]), err.(y1_st[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_355]), value.(y1_st[ens_355]), err.(y1_st[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_370]), value.(y1_st[ens_370]), err.(y1_st[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_385]), value.(y1_st[ens_385]), err.(y1_st[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label="")
+        errorbar(value.(phi2_sh[ens_340]), value.(y1[ens_340]), err.(y1[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", mfc="none", color="rebeccapurple", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_346]), value.(y1[ens_346]), err.(y1[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", mfc="none", color="green", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_355]), value.(y1[ens_355]), err.(y1[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", mfc="none", color="blue", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_370]), value.(y1[ens_370]), err.(y1[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", mfc="none", color="darkorange", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_385]), value.(y1[ens_385]), err.(y1[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", color="red", label="")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = y1_model3_w(x_plot,uprm_plot[3]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            aux = y1_model3_tm(x_plot,uprm_plot[3]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            #fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = y1_model3_w(x_plot,uprm_plot[3]) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        ax = gca()
+        errorbar(value(phi2_ph), value(y1_ph_vec[3][1]), err(y1_ph_vec[3][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+
+        #ax[:set_ylim]([0.285, 0.325])
+        #legend()
+
+        subplot(122)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$2\phi_{13}/\phi_K+\phi_{12}/\phi_2$")
+        errorbar(value.(phi2_sh[ens_340]), value.(y2_st[ens_340]), err.(y2_st[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", color="rebeccapurple", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_346]), value.(y2_st[ens_346]), err.(y2_st[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", color="green", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_355]), value.(y2_st[ens_355]), err.(y2_st[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_370]), value.(y2_st[ens_370]), err.(y2_st[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="darkorange", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_385]), value.(y2_st[ens_385]), err.(y2_st[ens_385]), err.(phi2_sh[ens_385]), fmt="^", color="red", label=L"\beta=3.85")
+        errorbar(value.(phi2_sh[ens_340]), value.(y2[ens_340]), err.(y2[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", mfc="none", color="rebeccapurple", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_346]), value.(y2[ens_346]), err.(y2[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", mfc="none", color="green", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_355]), value.(y2[ens_355]), err.(y2[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", mfc="none", color="blue", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_370]), value.(y2[ens_370]), err.(y2[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", mfc="none", color="darkorange", capsize=10.0)
+        errorbar(value.(phi2_sh[ens_385]), value.(y2[ens_385]), err.(y2[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", color="red", label="")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+            aux = y2_model3_w(x_plot,uprm_plot[3]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.4)
+            aux = y2_model3_tm(x_plot,uprm_plot[3]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            #plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.1)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)] [value(x_ph[1,5]) for i in 1:length(x_prime)]]
+        aux = y2_model3_w(x_plot,uprm_plot[3]) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        ax = gca()
+        errorbar(value(phi2_ph), value(y2_ph_vec[3][1]), err(y2_ph_vec[3][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+        #ax[:set_ylim]([0.285, 0.325])
+        #legend()
+
+        tight_layout()
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/mR_ratios_combined.pdf")
+    ##
     
     ## Wilson ratios
         uprm_plot = uprm_y_plot

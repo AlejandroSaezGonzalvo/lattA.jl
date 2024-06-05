@@ -25,7 +25,7 @@ elseif ens.id == "D450"
     tm = [[10], collect(10:10:div(ens.T,2)-5)]
     tM = [[62], [62]]
 end
-
+#=
 w0 = get_w0(path, ens, [40,60], rw=true, wpm=wpm, tm=tm, tM=tM, pl=false)
 if ens.id in ["E300", "J501", "E250", "D450"]
     t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)
@@ -37,7 +37,7 @@ obs = [w0, t0]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/w0_t0_", ens.id, "_obs_wil_un.bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
-
+=#
 #======== read correlators ===========#
 
 if id == "N302"

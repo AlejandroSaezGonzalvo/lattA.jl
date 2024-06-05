@@ -976,6 +976,24 @@ end
         return [p[i+5] for i in 1:length(x[:,1])]
     end
 
+## model 3 combined, p=7
+
+    function y1_model3_w(x,p)
+        return fun_y1(x,p) .+ [p[4] * (2 * x[i,3] - 3 * x[i,2]) * x[i,1] for i in 1:length(x[:,1])]
+    end
+
+    function y2_model3_w(x,p)
+        return fun_y2(x,p) .+ [p[5] * x[i,1] for i in 1:length(x[:,1])]
+    end
+
+    function y1_model3_tm(x,p)
+        return fun_y1(x,p) .+ [p[6] * (2 * x[i,3] - 3 * x[i,2]) * x[i,1] for i in 1:length(x[:,1])]
+    end
+
+    function y2_model3_tm(x,p)
+        return fun_y2(x,p) .+ [p[7] * x[i,1] for i in 1:length(x[:,1])]
+    end
+
 ## model 3.5, p=7
 
     function y1_model35(x,p)
