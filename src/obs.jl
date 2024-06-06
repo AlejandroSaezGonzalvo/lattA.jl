@@ -1640,12 +1640,13 @@ end
 function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
     tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, pl::Bool=false, 
     rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg, 
-    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing,
+    w0_guess::Union{Int64, Nothing}=nothing)
 
     y0 = 1 ## assumes this is the case, hardcoded, some ensembles will not fulfil !
     println("WARNING!: make sure t_src is 1 in this ensemble")
 
-    t2YM, tdt2YM, W_obs, t = get_YM(path, ens, rw=rw)
+    t2YM, tdt2YM, W_obs, t = get_YM(path, ens, rw=rw, w0=w0_guess)
     tdt2YM_guess = [plat_av(tdt2YM[:,i], plat) for i in 1:length(tdt2YM[1,:])]
     nt0 = findmin(abs.(value.(tdt2YM_guess[2:end-1]) .- 0.3))[2]  
 
