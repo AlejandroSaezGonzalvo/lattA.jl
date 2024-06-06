@@ -466,7 +466,7 @@ function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerro
         else
             ixm = findmin(abs.(t .- (w0-0.5)))[2]
             ixM = findmin(abs.(t[1:end-1] .- (w0+0.5)))[2]
-            tdt2YM[i,1:end] .= t2YM[i,1]
+            tdt2YM[i,1:end] .= t2YM[i,2]
             tdt2YM[i,ixm:ixM] = [(t2YM[i,j+1] - t2YM[i,j-1]) / (t[j+1] - t[j-1]) * t[j] for j in ixm:ixM]
         end
     end
