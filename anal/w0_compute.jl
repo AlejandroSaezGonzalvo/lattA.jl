@@ -9,7 +9,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
 #id_ind = parse(Int64, ARGS[1])
 #id = ensemble[id_ind]
 #id = "H101"
-ens = EnsInfo(id, ens_db[id])
+ens = EnsInfo(id, ens_db_Mainz[id])
 
 path = "/home/asaez/cls_ens/data"
 
@@ -18,7 +18,7 @@ path = "/home/asaez/cls_ens/data"
 tm = [[2], [21]]
 tM = [[1], [74]]
 
-plt.ion()
+plt.ioff()
 
 w0, t0 = get_w0t0(path, ens, [25,70], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, npol=2, w0_guess=3.5)
 
