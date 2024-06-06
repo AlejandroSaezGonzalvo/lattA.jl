@@ -1699,6 +1699,10 @@ function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 ylabel("p-value")
                 bar(1:length(tdt2E_aux_i), pval, color="green")
 
+                mods = [string("[",tm[k][i],",",tM[k][j],"]") for k in 2:length(tm) for i in 1:length(tm[k]) for j in 1:length(tM[k])]
+
+                plt.xticks(1:length(tdt2E_aux_i), mods)
+
                 savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/tdt2E_",ens.id,".pdf"))
                 #close("all")
             end
