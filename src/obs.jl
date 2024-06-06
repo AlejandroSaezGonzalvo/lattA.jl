@@ -1355,7 +1355,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
 
                 mods = [string("[",tm[k][i],",",tM[k][j],"]") for k in 2:length(tm) for i in 1:length(tm[k]) for j in 1:length(tM[k])]
 
-                plt.xticks(1:length(tdt2E_aux_i), mods)
+                plt.xticks(1:length(pval), mods)
                 xticks(rotation=90)
 
                 tight_layout()
