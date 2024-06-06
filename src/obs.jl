@@ -1782,7 +1782,7 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
 
                     fig = figure("t2E")
                     errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
-                    ylabel(L"$t\frac{d}{dt}t^2E(x_0,t)$")
+                    ylabel(L"$tt^2E(x_0,t)$")
                     xlabel(L"$x_0$")
                     ylim(v-5*e, v+20*e)
                     tight_layout()
@@ -1793,12 +1793,12 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                     subplot(411)
                     fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
                     errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
-                    ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
+                    ylabel(L"$tt^2\left<E\right>$")
                     xlabel(L"$x_0$")
                     ylim(v-10*e, v+10*e)
 
                     subplot(412)
-                    ylabel(L"$\left(t\frac{d}{dt}t^2\left<E\right>\right)_i$")
+                    ylabel(L"$\left(t^2\left<E\right>\right)_i$")
                     fill_between(1:length(t2E_aux_i), v-e, v+e, color="green", alpha=0.5)
                     errorbar(1:length(t2E_aux_i), value.(t2E_aux_i), err.(t2E_aux_i), fmt="x", color="black")
 
@@ -1847,7 +1847,7 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
             fig = figure("t2E_vs_t")
             errorbar(x[1:length(t2E_i)], v, e, fmt="x")
             errorbar(value(t0), 0.3, xerr=err(t0), fmt="x")
-            ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
+            ylabel(L"$tt^2\left<E\right>$")
             xlabel(L"$t/a^2$")
             tight_layout()
             savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_",ens.id,".pdf"))

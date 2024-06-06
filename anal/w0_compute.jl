@@ -20,7 +20,7 @@ tM = [[1], [99]]
 
 plt.ioff()
 
-w0, t0 = get_w0t0(path, ens, [25,70], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, npol=2, w0_guess=7.0)
+w0, t0 = get_w0t0(path, ens, [40,60], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, npol=2, w0_guess=7.0)
 
 function write_w0t0()
     obs = [w0, t0]
