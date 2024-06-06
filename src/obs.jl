@@ -1637,7 +1637,7 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
 
 end
 
-function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
+function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, pl::Bool=false, 
     rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing,
@@ -1645,115 +1645,226 @@ function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
 
     y0 = 1 ## assumes this is the case, hardcoded, some ensembles will not fulfil !
     println("WARNING!: make sure t_src is 1 in this ensemble")
-
     t2YM, tdt2YM, W_obs, t = get_YM(path, ens, rw=rw, w0=w0_guess)
-    tdt2YM_guess = [plat_av(tdt2YM[:,i], plat) for i in 1:length(tdt2YM[1,:])]
-    nt0 = findmin(abs.(value.(tdt2YM_guess[2:end-1]) .- 0.3))[2]  
 
-    dt0 = iseven(npol) ? Int64(npol / 2) : Int64((npol+1) / 2)
-    x = t[nt0-dt0:nt0+dt0]
+    ## w0
+        tdt2YM_guess = [plat_av(tdt2YM[:,i], plat) for i in 1:length(tdt2YM[1,:])]
+        nt0 = findmin(abs.(value.(tdt2YM_guess[2:end-1]) .- 0.3))[2] + 1
 
-    xmax = size(tdt2YM, 1)
-    T = xmax - 1 - y0
+        dt0 = iseven(npol) ? Int64(npol / 2) : Int64((npol+1) / 2)
+        x = t[nt0-dt0:nt0+dt0]
 
-    isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
-    isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
-    @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
-    @.fit_const(x,p) = p[1] * x ^ 0
-    k1 = 5
-    k2 = 1
+        xmax = size(tdt2YM, 1)
+        T = xmax - 1 - y0
 
-    tdt2E_i = Array{uwreal,1}()
-    syst_i = Array{uwreal,1}()
-    for j in 1:2*dt0+1
-        i = Int(round(dt0+0.5))
-        dat = tdt2YM[:,nt0-dt0-1+j]
-        if j == i            
-            tdt2E_aux, syst_aux, tdt2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
-            if pl == true
-                isnothing(wpm) ? uwerr(tdt2E_aux) : uwerr(tdt2E_aux, wpm)                       
-                isnothing(wpm) ? uwerr.(dat) : [uwerr(dat[i], wpm) for i in 1:length(dat)]
-                isnothing(wpm) ? uwerr.(tdt2E_aux_i) : [uwerr(tdt2E_aux_i[i], wpm) for i in 1:length(tdt2E_aux_i)]
-                v = value(tdt2E_aux)
-                e = err(tdt2E_aux)
+        isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+        isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
+        @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
+        @.fit_const(x,p) = p[1] * x ^ 0
+        k1 = 5
+        k2 = 1
 
-                fig = figure("tdt2E")
-                errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
-                ylabel(L"$t\frac{d}{dt}t^2E(x_0,t)$")
-                xlabel(L"$x_0$")
-                ylim(v-5*e, v+20*e)
-                tight_layout()
+        tdt2E_i = Array{uwreal,1}()
+        syst_i = Array{uwreal,1}()
+        for j in 1:2*dt0+1
+            i = Int(round(dt0+0.5))
+            dat = tdt2YM[:,nt0-dt0-1+j]
+            if j == i            
+                tdt2E_aux, syst_aux, tdt2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+                if pl == true
+                    isnothing(wpm) ? uwerr(tdt2E_aux) : uwerr(tdt2E_aux, wpm)                       
+                    isnothing(wpm) ? uwerr.(dat) : [uwerr(dat[i], wpm) for i in 1:length(dat)]
+                    isnothing(wpm) ? uwerr.(tdt2E_aux_i) : [uwerr(tdt2E_aux_i[i], wpm) for i in 1:length(tdt2E_aux_i)]
+                    v = value(tdt2E_aux)
+                    e = err(tdt2E_aux)
 
-                savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/tdt2E_",ens.id,"_plat.pdf"))
-                
-                fig = figure("model av w0")
-                subplot(411)
-                fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
-                errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
-                ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
-                xlabel(L"$x_0$")
-                ylim(v-10*e, v+10*e)
+                    fig = figure("tdt2E")
+                    errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
+                    ylabel(L"$t\frac{d}{dt}t^2E(x_0,t)$")
+                    xlabel(L"$x_0$")
+                    ylim(v-5*e, v+20*e)
+                    tight_layout()
 
-                subplot(412)
-                ylabel(L"$\left(t\frac{d}{dt}t^2\left<E\right>\right)_i$")
-                fill_between(1:length(tdt2E_aux_i), v-e, v+e, color="green", alpha=0.5)
-                errorbar(1:length(tdt2E_aux_i), value.(tdt2E_aux_i), err.(tdt2E_aux_i), fmt="x", color="black")
+                    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/tdt2E_",ens.id,"_plat.pdf"))
+                    
+                    fig = figure("model av w0")
+                    subplot(411)
+                    fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
+                    errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
+                    ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
+                    xlabel(L"$x_0$")
+                    ylim(v-10*e, v+10*e)
 
-                subplot(413)
-                ylabel(L"$W_i$")
-                bar(1:length(tdt2E_aux_i), weight, color="green")
+                    subplot(412)
+                    ylabel(L"$\left(t\frac{d}{dt}t^2\left<E\right>\right)_i$")
+                    fill_between(1:length(tdt2E_aux_i), v-e, v+e, color="green", alpha=0.5)
+                    errorbar(1:length(tdt2E_aux_i), value.(tdt2E_aux_i), err.(tdt2E_aux_i), fmt="x", color="black")
 
-                subplot(414)
-                ylabel("p-value")
-                bar(1:length(tdt2E_aux_i), pval, color="green")
+                    subplot(413)
+                    ylabel(L"$W_i$")
+                    bar(1:length(tdt2E_aux_i), weight, color="green")
 
-                mods = [string("[",tm[k][i],",",tM[k][j],"]") for k in 2:length(tm) for i in 1:length(tm[k]) for j in 1:length(tM[k])]
+                    subplot(414)
+                    ylabel("p-value")
+                    bar(1:length(tdt2E_aux_i), pval, color="green")
 
-                plt.xticks(1:length(tdt2E_aux_i), mods)
-                xticks(rotation=90)
+                    mods = [string("[",tm[k][i],",",tM[k][j],"]") for k in 2:length(tm) for i in 1:length(tm[k]) for j in 1:length(tM[k])]
 
-                tight_layout()
+                    plt.xticks(1:length(tdt2E_aux_i), mods)
+                    xticks(rotation=90)
 
-                savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/tdt2E_",ens.id,".pdf"))
-                #close("all")
+                    tight_layout()
+
+                    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/tdt2E_",ens.id,".pdf"))
+                    #close("all")
+                end
+            else 
+                tdt2E_aux, syst_aux, tdt2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
             end
-        else 
-            tdt2E_aux, syst_aux, tdt2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+            push!(tdt2E_i, tdt2E_aux)
+            push!(syst_i, syst_aux)
         end
-        push!(tdt2E_i, tdt2E_aux)
-        push!(syst_i, syst_aux)
-    end
 
-    if tdt2E_i[end] < 0.30 || tdt2E_i[1] > 0.30
-        println("WARNING!: extrapolating w0/a")
-    end
+        if tdt2E_i[end] < 0.30 || tdt2E_i[1] > 0.30
+            println("WARNING!: extrapolating w0/a")
+        end
 
-    #uwerr.(tdt2E_i)
-    #uwerr.(syst_i)
-    #println("tdt2E_i = ", tdt2E_i)
-    #println("syst_i = ", syst_i)
-  
-    model(x, p) = get_model(x, p, npol)
+        #uwerr.(tdt2E_i)
+        #uwerr.(syst_i)
+        #println("tdt2E_i = ", tdt2E_i)
+        #println("syst_i = ", syst_i)
+    
+        model(x, p) = get_model(x, p, npol)
 
-    par, aux = fit_alg(model, x[1:length(tdt2E_i)], tdt2E_i, npol)
-    fmin(x, p) = model(x, p) .- 0.3
-    w0 = root_error(fmin, t[nt0], par)
+        par, aux = fit_alg(model, x[1:length(tdt2E_i)], tdt2E_i, npol)
+        fmin(x, p) = model(x, p) .- 0.3
+        w0 = root_error(fmin, t[nt0], par)
 
-    if pl == true
-        v = value.(tdt2E_i)
-        e = err.(tdt2E_i)
-        uwerr(w0)
+        if pl == true
+            v = value.(tdt2E_i)
+            e = err.(tdt2E_i)
+            uwerr(w0)
 
-	    fig = figure("tdt2E_vs_t")
-        errorbar(x[1:length(tdt2E_i)], v, e, fmt="x")
-        errorbar(value(w0), 0.3, xerr=err(w0), fmt="x")
-        ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
-        xlabel(L"$t/a^2$")
-        tight_layout()
-        savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/w0_",ens.id,".pdf"))
-        #close("all")
-    end
+            fig = figure("tdt2E_vs_t")
+            errorbar(x[1:length(tdt2E_i)], v, e, fmt="x")
+            errorbar(value(w0), 0.3, xerr=err(w0), fmt="x")
+            ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
+            xlabel(L"$t/a^2$")
+            tight_layout()
+            savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/w0_",ens.id,".pdf"))
+            #close("all")
+        end
+    ##
 
-    return w0
+    ## t0
+        t2YM_guess = [plat_av(t2YM[:,i], plat) for i in 1:length(t2YM[1,:])]
+        nt0 = findmin(abs.(value.(t2YM_guess[2:end-1]) .- 0.3))[2] + 1
+
+        dt0 = iseven(npol) ? Int64(npol / 2) : Int64((npol+1) / 2)
+        x = t[nt0-dt0:nt0+dt0]
+
+        xmax = size(t2YM, 1)
+        T = xmax - 1 - y0
+
+        isnothing(tm) ? tm = [[y0+10,y0+15,y0+20,y0+25,y0+30,y0+35,y0+40], [i for i in Int(round(T / 3)):Int(round(T / 3))+10]] : tm=tm
+        isnothing(tM) ? tM = [[T-10,T-15,T-20,T-25,T-30,T-35,T-40], [i for i in Int(round(2 * T / 3)):Int(round(2 * T / 3))+10]] : tM=tM
+        @.fit_exp(x,p) = p[1] + p[2] * exp(-p[3] * (x-y0)) + p[4] * exp(-p[5] * (T-x))
+        @.fit_const(x,p) = p[1] * x ^ 0
+        k1 = 5
+        k2 = 1
+
+        t2E_i = Array{uwreal,1}()
+        syst_i = Array{uwreal,1}()
+        for j in 1:2*dt0+1
+            i = Int(round(dt0+0.5))
+            dat = t2YM[:,nt0-dt0-1+j]
+            if j == i            
+                t2E_aux, syst_aux, t2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+                if pl == true
+                    isnothing(wpm) ? uwerr(t2E_aux) : uwerr(t2E_aux, wpm)                       
+                    isnothing(wpm) ? uwerr.(dat) : [uwerr(dat[i], wpm) for i in 1:length(dat)]
+                    isnothing(wpm) ? uwerr.(t2E_aux_i) : [uwerr(t2E_aux_i[i], wpm) for i in 1:length(t2E_aux_i)]
+                    v = value(t2E_aux)
+                    e = err(t2E_aux)
+
+                    fig = figure("t2E")
+                    errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
+                    ylabel(L"$t\frac{d}{dt}t^2E(x_0,t)$")
+                    xlabel(L"$x_0$")
+                    ylim(v-5*e, v+20*e)
+                    tight_layout()
+
+                    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t2E_",ens.id,"_plat.pdf"))
+                    
+                    fig = figure("model av t0")
+                    subplot(411)
+                    fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
+                    errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
+                    ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
+                    xlabel(L"$x_0$")
+                    ylim(v-10*e, v+10*e)
+
+                    subplot(412)
+                    ylabel(L"$\left(t\frac{d}{dt}t^2\left<E\right>\right)_i$")
+                    fill_between(1:length(t2E_aux_i), v-e, v+e, color="green", alpha=0.5)
+                    errorbar(1:length(t2E_aux_i), value.(t2E_aux_i), err.(t2E_aux_i), fmt="x", color="black")
+
+                    subplot(413)
+                    ylabel(L"$W_i$")
+                    bar(1:length(t2E_aux_i), weight, color="green")
+
+                    subplot(414)
+                    ylabel("p-value")
+                    bar(1:length(t2E_aux_i), pval, color="green")
+
+                    mods = [string("[",tm[k][i],",",tM[k][j],"]") for k in 2:length(tm) for i in 1:length(tm[k]) for j in 1:length(tM[k])]
+
+                    plt.xticks(1:length(t2E_aux_i), mods)
+                    xticks(rotation=90)
+
+                    tight_layout()
+
+                    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t2E_",ens.id,".pdf"))
+                    #close("all")
+                end
+            else 
+                t2E_aux, syst_aux, t2E_aux_i, weight, pval = model_av([fit_exp, fit_const], dat, 0.3, tm=tm, tM=tM, k=[k1,k2], wpm=wpm)
+            end
+            push!(t2E_i, t2E_aux)
+            push!(syst_i, syst_aux)
+        end
+
+        if t2E_i[end] < 0.30 || t2E_i[1] > 0.30
+            println("WARNING!: extrapolating t0/a")
+        end
+
+        #uwerr.(t2E_i)
+        #uwerr.(syst_i)
+        #println("t2E_i = ", t2E_i)
+        #println("syst_i = ", syst_i)
+    
+        model(x, p) = get_model(x, p, npol)
+
+        par, aux = fit_alg(model, x[1:length(t2E_i)], t2E_i, npol)
+        fmin(x, p) = model(x, p) .- 0.3
+        t0 = root_error(fmin, t[nt0], par)
+
+        if pl == true
+            v = value.(t2E_i)
+            e = err.(t2E_i)
+            uwerr(t0)
+
+            fig = figure("t2E_vs_t")
+            errorbar(x[1:length(t2E_i)], v, e, fmt="x")
+            errorbar(value(t0), 0.3, xerr=err(t0), fmt="x")
+            ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
+            xlabel(L"$t/a^2$")
+            tight_layout()
+            savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_",ens.id,".pdf"))
+            #close("all")
+        end
+    ##
+
+    return w0,t0
 
 end

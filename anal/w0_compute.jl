@@ -1,6 +1,7 @@
 #import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
-using Revise, lattA, juobs, ADerrors, BDIO
+using Revise, lattA, juobs, ADerrors, BDIO, PyPlot
+err = ADerrors.err
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -14,13 +15,16 @@ path = "/home/asaez/cls_ens/data"
 
 #tm = [[2], [28]]
 #tM = [[1], [150]]
-tm = [[2], collect(10:10:div(ens.T,2)-5)]
-tM = [[1], collect(ens.T-10:-10:div(ens.T,2)+5)]
+tm = [[2], [21]]
+tM = [[1], [74]]
 
-w0 = get_w0(path, ens, [40,60], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true)
-t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM, pl=true)
+plt.ion()
+
+w0, t0 = get_w0t0(path, ens, [25,70], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, npol=2, w0_guess=3.5)
 
 obs = [w0, t0]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/new_w0_t0_", ens.id, "_obs_wil_un.bdio"), "w")
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
+
+close("all")
