@@ -15,16 +15,20 @@ path = "/home/asaez/cls_ens/data"
 
 #tm = [[2], [28]]
 #tM = [[1], [150]]
-tm = [[2], [21]]
-tM = [[1], [74]]
+tm = [[2], [28]]
+tM = [[1], [99]]
 
 plt.ioff()
 
-w0, t0 = get_w0t0(path, ens, [25,70], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, npol=2, w0_guess=3.5)
+w0, t0 = get_w0t0(path, ens, [25,70], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, npol=2, w0_guess=7.0)
 
-obs = [w0, t0]
-fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/new_w0_t0_", ens.id, "_obs_wil_un.bdio"), "w")
-for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
-BDIO_close!(fb)
+function write_w0t0()
+    obs = [w0, t0]
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/new_w0_t0_", ens.id, "_obs_wil_un.bdio"), "w")
+    for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
+    BDIO_close!(fb)
+end
 
 close("all")
+
+#write_w0t0()

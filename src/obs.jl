@@ -1656,6 +1656,9 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     k1 = 5
     k2 = 1
 
+    model(x, p) = get_model(x, p, npol)
+    fmin(x, p) = model(x, p) .- 0.3
+
     ## w0
         tdt2YM_guess = [plat_av(tdt2YM[:,i], plat) for i in 1:length(tdt2YM[1,:])]
         nt0 = findmin(abs.(value.(tdt2YM_guess[2:end-1]) .- 0.3))[2] + 1
@@ -1734,11 +1737,8 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         #uwerr.(syst_i)
         #println("tdt2E_i = ", tdt2E_i)
         #println("syst_i = ", syst_i)
-    
-        model(x, p) = get_model(x, p, npol)
 
         par, aux = fit_alg(model, x[1:length(tdt2E_i)], tdt2E_i, npol)
-        fmin(x, p) = model(x, p) .- 0.3
         w0 = root_error(fmin, t[nt0], par)
 
         if pl == true
@@ -1836,10 +1836,7 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
         #println("t2E_i = ", t2E_i)
         #println("syst_i = ", syst_i)
     
-        model(x, p) = get_model(x, p, npol)
-
         par, aux = fit_alg(model, x[1:length(t2E_i)], t2E_i, npol)
-        fmin(x, p) = model(x, p) .- 0.3
         t0 = root_error(fmin, t[nt0], par)
 
         if pl == true
