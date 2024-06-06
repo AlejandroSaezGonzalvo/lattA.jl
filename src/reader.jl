@@ -371,7 +371,7 @@ function read_ens_csv(ens::EnsInfo)
     return pp_sym, ap_sym
 end
 
-function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerrors.wsg, w0::Union{Int64, Nothing}=nothing)
+function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerrors.wsg, w0::Union{Float64, Nothing}=nothing)
 
     path_ms = joinpath(path, ens.id, "gf")
     path_ms = filter(x->occursin(".dat", x), readdir(path_ms, join=true))
@@ -464,9 +464,10 @@ function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerro
             tdt2YM[i,2:end-1] = [(t2YM[i,j+1] - t2YM[i,j-1]) / (t[j+1] - t[j-1]) * t[j] for j in 2:length(t2YM[i,:])-1]
             tdt2YM[i,1] = tdt2YM[i,end] = t2YM[i,1]
         else
-            ix = findmin(abs.(t .- w0))[2]
+            ixm = findmin(abs.(t .- (w0-0.5)))[2]
+            ixM = findmin(abs.(t[1:end-1] .- (w0+0.5)))[2]
             tdt2YM[i,1:end] .= t2YM[i,1]
-            tdt2YM[i,ix-2:ix+2] = [(t2YM[i,j+1] - t2YM[i,j-1]) / (t[j+1] - t[j-1]) * t[j] for j in ix-2:ix+2]
+            tdt2YM[i,ixm:ixM] = [(t2YM[i,j+1] - t2YM[i,j-1]) / (t[j+1] - t[j-1]) * t[j] for j in ixm:ixM]
         end
     end
 

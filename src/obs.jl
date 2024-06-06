@@ -1641,7 +1641,7 @@ function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
     tm::Union{Vector{Vector{Int64}}, Nothing}=nothing, tM::Union{Vector{Vector{Int64}}, Nothing}=nothing, pl::Bool=false, 
     rw=false, npol::Int64=2, ws::ADerrors.wspace=ADerrors.wsg, 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing,
-    w0_guess::Union{Int64, Nothing}=nothing)
+    w0_guess::Union{Float64, Nothing}=nothing)
 
     y0 = 1 ## assumes this is the case, hardcoded, some ensembles will not fulfil !
     println("WARNING!: make sure t_src is 1 in this ensemble")
