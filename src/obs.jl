@@ -1704,6 +1704,8 @@ function get_w0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 plt.xticks(1:length(tdt2E_aux_i), mods)
                 xticks(rotation=90)
 
+                tight_layout()
+
                 savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/tdt2E_",ens.id,".pdf"))
                 #close("all")
             end
