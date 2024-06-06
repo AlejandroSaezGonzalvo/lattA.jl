@@ -399,7 +399,7 @@ m13_sh_JA = m13_sh_JA .* ZA ./ ZP
         param = [7]
         
         k = 3
-        for i in 1:length(models_y1)
+        for i in 1:length(models_y1_w)
             println("i = ", i)
             for j in 1:length(cuts_y1)
                 println("j = ", j)

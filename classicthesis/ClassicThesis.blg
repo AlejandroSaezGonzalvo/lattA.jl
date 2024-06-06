@@ -29,6 +29,7 @@ A level-1 auxiliary file: apendices/apendices_solvers.aux
 A level-1 auxiliary file: apendices/apendices_b.aux
 A level-1 auxiliary file: apendices/apendices_GEVP.aux
 A level-1 auxiliary file: apendices/apendices_c.aux
+A level-1 auxiliary file: apendices/apendices_qm.aux
 A level-1 auxiliary file: apendices/apendices_f.aux
 A level-1 auxiliary file: FrontBackmatter/Bibliography.aux
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -46,7 +47,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 23060 items from 5000.
+Reallocated field_info (elt_size=4) to 23200 items from 5000.
 Database file #1: ClassicThesis-blx.bib
 Database file #2: Bibliography.bib
 Database file #3: publications.bib
@@ -55,45 +56,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis" for entry Brown:2018jtv
 while executing---line 2815 of file biblatex.bst
-You've used 129 entries,
+You've used 130 entries,
             6399 wiz_defined-function locations,
-            2222 strings with 36361 characters,
-and the built_in function-call counts, 1199001 in all, are:
-= -- 97911
-> -- 15933
-< -- 3883
-+ -- 35345
-- -- 7432
-* -- 94691
-:= -- 140849
+            2229 strings with 36661 characters,
+and the built_in function-call counts, 1216606 in all, are:
+= -- 99456
+> -- 16157
+< -- 3932
++ -- 36032
+- -- 7552
+* -- 96088
+:= -- 143176
 add.period$ -- 0
-call.type$ -- 129
-change.case$ -- 128
+call.type$ -- 130
+change.case$ -- 129
 chr.to.int$ -- 83
-cite$ -- 256
-duplicate$ -- 123535
-empty$ -- 102665
-format.name$ -- 10243
-if$ -- 239334
+cite$ -- 258
+duplicate$ -- 125532
+empty$ -- 103946
+format.name$ -- 10398
+if$ -- 242680
 int.to.chr$ -- 0
-int.to.str$ -- 302
+int.to.str$ -- 305
 missing$ -- 0
-newline$ -- 5402
-num.names$ -- 5408
-pop$ -- 46907
+newline$ -- 5475
+num.names$ -- 5452
+pop$ -- 47368
 preamble$ -- 1
-purify$ -- 2159
+purify$ -- 2185
 quote$ -- 0
-skip$ -- 24659
+skip$ -- 24916
 stack$ -- 0
-substring$ -- 187930
-swap$ -- 22950
-text.length$ -- 4092
-text.prefix$ -- 128
+substring$ -- 190793
+swap$ -- 23225
+text.length$ -- 4148
+text.prefix$ -- 129
 top$ -- 1
-type$ -- 4372
+type$ -- 4406
 warning$ -- 0
-while$ -- 16999
+while$ -- 17307
 width$ -- 0
-write$ -- 5274
+write$ -- 5346
 (There was 1 error message)

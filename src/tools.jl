@@ -339,7 +339,7 @@ function pvalue(chisq::Function,
             Px[i,i] = W[i] + Px[i,i]
         end
 
-        C = cov(data) 
+        C = cov(data,wpm) 
         
         nu = sqrt(C) * Px * sqrt(C)
         
@@ -403,7 +403,7 @@ function pvalue(chisq::Function,
         hi   = LinearAlgebra.pinv(maux)
         Px   = W - hm' * hi * hm
         
-        C = cov(data) 
+        C = cov(data,wpm) 
         
         nu = sqrt(C) * Px * sqrt(C)
         

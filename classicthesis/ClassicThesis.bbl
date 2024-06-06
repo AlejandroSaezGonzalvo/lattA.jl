@@ -1120,6 +1120,80 @@
     \field{year}{2018}
   \endentry
 
+  \entry{qm}{article}{}
+    \name{author}{8}{}{%
+      {{hash=BM}{%
+         family={Bruno},
+         familyi={B\bibinitperiod},
+         given={Mattia},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CI}{%
+         family={Campos},
+         familyi={C\bibinitperiod},
+         given={Isabel},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Fritzsch},
+         familyi={F\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Koponen},
+         familyi={K\bibinitperiod},
+         given={Jonna},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Pena},
+         familyi={P\bibinitperiod},
+         given={Carlos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Preti},
+         familyi={P\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Ramos},
+         familyi={R\bibinitperiod},
+         given={Alberto},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=VA}{%
+         family={Vladikas},
+         familyi={V\bibinitperiod},
+         given={Anastassios},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM+1}
+    \strng{fullhash}{BMCIFPKJPCPDRAVA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1140/epjc/s10052-020-7698-z
+    \endverb
+    \verb{eprint}
+    \verb 1911.08025
+    \endverb
+    \field{number}{2}
+    \field{pages}{169}
+    \field{title}{{Light quark masses in ${N_\mathrm{f}=2+1}$ lattice QCD with
+  Wilson fermions}}
+    \field{volume}{80}
+    \field{journaltitle}{Eur. Phys. J. C}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2020}
+  \endentry
+
   \entry{Bruno:2017gxd}{article}{}
     \name{author}{9}{}{%
       {{hash=BM}{%

@@ -69,7 +69,8 @@
 \contentsline {chapter}{\numberline {H}{Least-squares fitting}}{135}{appendix.H}%
 \contentsline {chapter}{\numberline {I}{GEVP method}}{137}{appendix.I}%
 \contentsline {chapter}{\numberline {J}{Finite Volume Effects}}{141}{appendix.J}%
-\contentsline {chapter}{\numberline {K}{$\sqrt {t_0}$: Model variation}}{143}{appendix.K}%
+\contentsline {chapter}{\numberline {K}{Light-strange quark masses}}{143}{appendix.K}%
+\contentsline {chapter}{\numberline {L}{$\sqrt {t_0}$: Model variation}}{145}{appendix.L}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{153}{section*.38}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{155}{section*.39}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
