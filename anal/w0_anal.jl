@@ -141,7 +141,7 @@ x_plot = [i for i in 0.0:0.01:0.35]
 aux = model([x_plot [phi4_ph for i in 1:length(x_plot)]], uprm) ; uwerr.(aux)
 v = value.(aux)
 e = err.(aux)
-fill_between(x_plot, v-e, v+e, color="gray", alpha=0.5)
+#fill_between(x_plot, v-e, v+e, color="gray", alpha=0.5)
 legend()
 xlabel(L"$a^2/t_0$")
 ylabel(L"$\sqrt{t_0}/w_0$")
