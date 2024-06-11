@@ -47,7 +47,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 23200 items from 5000.
+Reallocated field_info (elt_size=4) to 23340 items from 5000.
 Database file #1: ClassicThesis-blx.bib
 Database file #2: Bibliography.bib
 Database file #3: publications.bib
@@ -56,45 +56,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis" for entry Brown:2018jtv
 while executing---line 2815 of file biblatex.bst
-You've used 130 entries,
+You've used 131 entries,
             6399 wiz_defined-function locations,
-            2229 strings with 36661 characters,
-and the built_in function-call counts, 1216606 in all, are:
-= -- 99456
-> -- 16157
-< -- 3932
-+ -- 36032
-- -- 7552
-* -- 96088
-:= -- 143176
+            2237 strings with 36994 characters,
+and the built_in function-call counts, 1238158 in all, are:
+= -- 101392
+> -- 16415
+< -- 3987
++ -- 36888
+- -- 7697
+* -- 97811
+:= -- 146075
 add.period$ -- 0
-call.type$ -- 130
-change.case$ -- 129
+call.type$ -- 131
+change.case$ -- 130
 chr.to.int$ -- 83
-cite$ -- 258
-duplicate$ -- 125532
-empty$ -- 103946
-format.name$ -- 10398
-if$ -- 242680
+cite$ -- 260
+duplicate$ -- 127943
+empty$ -- 105490
+format.name$ -- 10580
+if$ -- 246757
 int.to.chr$ -- 0
-int.to.str$ -- 305
+int.to.str$ -- 307
 missing$ -- 0
-newline$ -- 5475
-num.names$ -- 5452
-pop$ -- 47368
+newline$ -- 5559
+num.names$ -- 5493
+pop$ -- 47874
 preamble$ -- 1
-purify$ -- 2185
+purify$ -- 2215
 quote$ -- 0
-skip$ -- 24916
+skip$ -- 25191
 stack$ -- 0
-substring$ -- 190793
-swap$ -- 23225
-text.length$ -- 4148
-text.prefix$ -- 129
+substring$ -- 194453
+swap$ -- 23528
+text.length$ -- 4212
+text.prefix$ -- 130
 top$ -- 1
-type$ -- 4406
+type$ -- 4440
 warning$ -- 0
-while$ -- 17307
+while$ -- 17686
 width$ -- 0
-write$ -- 5346
+write$ -- 5429
 (There was 1 error message)

@@ -76,7 +76,7 @@ w0 = Array{uwreal,1}()
 t0 = Array{uwreal,1}()
 for id in ens
     obs = Array{uwreal,1}()
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/w0_t0_", id, "_obs_wil_un.bdio"), "r")
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/new_w0_t0_", id, "_obs_wil_un.bdio"), "r")
     BDIO_seek!(fb); push!(obs, read_uwreal(fb)); BDIO_seek!(fb, 2); push!(obs, read_uwreal(fb))
     BDIO_close!(fb)
     push!(w0,obs[1])

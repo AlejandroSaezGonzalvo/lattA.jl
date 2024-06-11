@@ -5234,6 +5234,91 @@
     \field{year}{2014}
   \endentry
 
+  \entry{Sommer:2023gap}{article}{}
+    \name{author}{10}{}{%
+      {{hash=SR}{%
+         family={Sommer},
+         familyi={S\bibinitperiod},
+         given={Rainer},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Conigli},
+         familyi={C\bibinitperiod},
+         given={Alessandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Frison},
+         familyi={F\bibinitperiod},
+         given={Julien},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Fritzsch},
+         familyi={F\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={G\'erardin},
+         familyi={G\bibinitperiod},
+         given={Antoine},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Heitger},
+         familyi={H\bibinitperiod},
+         given={Jochen},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=HG}{%
+         family={Herdoiza},
+         familyi={H\bibinitperiod},
+         given={Gregorio},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kuberski},
+         familyi={K\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Pena},
+         familyi={P\bibinitperiod},
+         given={Carlos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Simma},
+         familyi={S\bibinitperiod},
+         given={Hubert},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SR+1}
+    \strng{fullhash}{SRCAFJFPGAHJHGKSPCSH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.22323/1.453.0268
+    \endverb
+    \verb{eprint}
+    \verb 2312.09811
+    \endverb
+    \field{pages}{268}
+    \field{title}{{A strategy for B-physics observables in the continuum
+  limit}}
+    \field{volume}{LATTICE2023}
+    \field{journaltitle}{PoS}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2024}
+  \endentry
+
   \entry{Strassberger:2023xnj}{thesis}{}
     \name{author}{1}{}{%
       {{hash=SB}{%

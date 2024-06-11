@@ -39,19 +39,18 @@
 \contentsline {section}{\numberline {4.3}{Determination of $\sqrt {t_0}$ at the symmetric point}}{72}{section.4.3}%
 \contentsline {section}{\numberline {4.4}{Determination of the lattice spacing for CLS ensembles}}{80}{section.4.4}%
 \contentsline {section}{\numberline {4.5}{Determination of $t_0^*$}}{81}{section.4.5}%
-\contentsline {chapter}{\numberline {5}{Impact of the scale setting in hadronic computations}}{83}{chapter.5}%
-\contentsline {section}{\numberline {5.1}{Introduction}}{83}{section.5.1}%
-\contentsline {section}{\numberline {5.2}{Matching of the charm quark mass}}{83}{section.5.2}%
-\contentsline {section}{\numberline {5.3}{Determination of the charm quark mass}}{85}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}{Renormalized charm quark masses}}{85}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}{Charm quark mass chiral-continuum fits}}{86}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}{Results for the charm quark mass}}{88}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4}{Determination of decay constants of charmed mesons}}{93}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}{Computation of decay constants}}{93}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}{Direct determination of $f_{D_s}/f_D$}}{94}{subsection.5.4.2}%
-\contentsline {part}{\numberline {iv}{Conclusions}}{101}{part.4}%
-\contentsline {chapter}{Conclusions and outlook}{103}{part.4}%
-\contentsline {chapter}{Conclusiones y perspectivas}{107}{equation.5.4.25}%
+\contentsline {chapter}{\numberline {5}{Impact of the scale setting in Lattice QCD computations}}{83}{chapter.5}%
+\contentsline {section}{\numberline {5.1}{Matching of the charm quark mass}}{83}{section.5.1}%
+\contentsline {section}{\numberline {5.2}{Determination of the charm quark mass}}{85}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}{Renormalized charm quark masses}}{85}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}{Charm quark mass chiral-continuum fits}}{86}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}{Results for the charm quark mass}}{90}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}{Determination of decay constants of charmed mesons}}{91}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}{Computation of decay constants}}{91}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}{Direct determination of $f_{D_s}/f_D$}}{93}{subsection.5.3.2}%
+\contentsline {part}{\numberline {iv}{Conclusions}}{99}{part.4}%
+\contentsline {chapter}{Conclusions and outlook}{101}{part.4}%
+\contentsline {chapter}{Conclusiones y perspectivas}{105}{equation.5.3.25}%
 \contentsline {part}{\numberline {v}{Appendices}}{109}{part.5}%
 \contentsline {chapter}{\numberline {A}{Conventions}}{111}{appendix.A}%
 \contentsline {chapter}{\numberline {B}{Gell-Mann matrices and structure constants}}{113}{appendix.B}%
@@ -60,7 +59,7 @@
 \contentsline {chapter}{\numberline {E}{Simulation details}}{121}{appendix.E}%
 \contentsline {section}{\numberline {E.1}{Metropolis algorithm}}{122}{section.E.1}%
 \contentsline {section}{\numberline {E.2}{Hybrid Monte Carlo}}{123}{section.E.2}%
-\contentsline {section}{\numberline {E.3}{Reweighting}}{124}{section.E.3}%
+\contentsline {section}{\numberline {E.3}{Reweighting}}{125}{section.E.3}%
 \contentsline {chapter}{\numberline {F}{Error analysis}}{127}{appendix.F}%
 \contentsline {chapter}{\numberline {G}{Solvers}}{131}{appendix.G}%
 \contentsline {section}{\numberline {G.1}{Stochastic methods}}{131}{section.G.1}%
@@ -72,5 +71,5 @@
 \contentsline {chapter}{\numberline {K}{Light-strange quark masses}}{143}{appendix.K}%
 \contentsline {chapter}{\numberline {L}{$\sqrt {t_0}$: Model variation}}{145}{appendix.L}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{155}{section*.39}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{155}{section*.38}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

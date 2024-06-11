@@ -15,12 +15,12 @@ path = "/home/asaez/cls_ens/data"
 
 #tm = [[2], [28]]
 #tM = [[1], [150]]
-tm = [[2], [28]]
-tM = [[1], [99]]
+tm = [[2], [45]]
+tM = [[1], [145]]
 
 plt.ioff()
 
-w0, t0 = get_w0t0(path, ens, [40,60], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, npol=2, w0_guess=7.0)
+w0, t0 = get_w0t0(path, ens, [45,145], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, npol=2, w0_guess=19.8)
 
 function write_w0t0()
     obs = [w0, t0]

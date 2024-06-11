@@ -1,3 +1,41 @@
 \chapter*{Conclusiones y perspectivas}\addcontentsline{toc}{chapter}{Conclusiones y perspectivas}
 
-Blabla, semileptónicas
+En esta tesis doctoral hemos presentado un procedimiento de ajuste de escala o \textit{scale setting} en el contexto de QCD en el retículo que proporciona una nueva determinación de la escala $t_0$ y del espaciado reticular para configuraciones de campo gauge CLS. Una determinación precisa de la escala en el retículo es fundamental para alcanzar el nivel de precisión por debajo del $1\%$ requerido para algunos de los cálculos de QCD en el retículo destinados a mejorar la precisión de las predicciones del Modelo Estándar. Los resultados del \textit{scale setting} se están utilizando en un estudio en curso destinado a mejorar la determinación de las masas de los quarks y las constantes de desintegración de los mesones $D_{(s)}$. Estas cantidades son necesarias para mejorar la determinación de algunos de los parámetros fundamentales del Modelo Estándar y para reforzar las comprobaciones de consistencia de su validez.
+
+En este trabajo hemos empleado configuraciones de campo gauge en el retículo generadas por la iniciativa CLS~\citep{Bruno:2014jqa,Mohler:2017wnb} con espaciados reticulares que van desde $a\approx0,085$ fm a $a\approx0,038$ fm, y masas de piones desde $m_{\pi}\approx420$ MeV hasta el punto físico $m_{\pi}\approx130$ MeV. Hemos utilizado una regularización reticular con una acción mixta basada en configuraciones gauge CLS con $N_f=2+1$ sabores de quarks Wilson $\mathcal{O}(a)$ \textit{improved} en el mar y $N_f=2+1+1$ sabores de quarks Wilson \textit{twisted mass} en la valencia. Realizamos el ajuste de la acción mixta a través de las masas pseudoescalares de piones y kaones, igualando las masas físicas para los quarks \textit{up/down} y \textit{strange} en los sectores mar y valencia, tratando el quark \textit{charm} adicional como un sabor parcialmente \textit{quenched}. Esto asegura la unitariedad de la teoría en el límite al continuo. Además, ajustamos los parámetros del operador de Dirac Wilson \textit{twisted mass} para imponer \textit{maximal twist}, asegurando así un $\mathcal{O}(a)$ \textit{improvement} automático~\citep{Frezzotti:2003ni,Shindler:2007vp} para observables de valencia, salvo efectos de orden superior procedentes del mar.
+
+Empleamos el método--$\Gamma$ para calcular los errores de los datos Monte Carlo junto con herramientas de diferenciación automática para realizar una propagación de errores exacta a precisión de máquina. Esto permite considerar observables derivados arbitrariamente complejos, manteniendo un control adecuado de las autocorrelaciones. Estas técnicas se implementan dentro de la librería de Julia ADerrors.jl~\citep{Ramos:2018vgu,Ramos:2020scv}. 
+
+Para el procedimiento de \textit{scale setting} basado en una combinación de las regularizaciones de Wilson y Wilson \textit{twisted mass} empleamos las constantes de desintegración del pión y el kaón como \textit{input} físico. Obtenemos el siguiente resultado para $\sqrt{t_0}$
+\begin{equation}
+\sqrt{t_0}=0.1438(7)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm},\;[f_{\pi K}].
+\end{equation}
+El uso de la constante de desintegración del kaón para establecer la escala $t_0$ depende de la determinación del elemento de la matriz CKM $V_{us}$, que tiene una incertidumbre mayor que $V_{ud}$. La incertidumbre de $|V_{us}|$ asciende a aproximadamente $11\%$ del error total al cuadrado de $\sqrt{t_0}$. Además, $f_K$ recibe mayores correcciones provenientes de QED que $f_{\pi}$, cuya incertidumbre asciende a una contribución de $\sim3\%$ al error total al cuadrado. Por lo tanto, es deseable considerar también el caso en el que sólo la constante de desintegración del pión se utiliza como \textit{input} externo en el procedimiento de ajuste de escala. Se espera que el uso de configuraciones gauge simuladas a la masa física del pión con varios valores del espaciado reticular desempeñe un papel decisivo en dicho análisis. Esta sería una extensión natural del análisis presentado en este trabajo, junto con la determinación de las masas de los quarks \textit{up/down} y \textit{strange} a partir de una combinación de las regularizaciones unitaria y de acción mixta de Wilson, de las que proporcionamos un análisis preliminar en el Apéndice \ref{apex_light_qm}.
+
+
+Además, siguiendo nuestro trabajo en ~\citep{charm} hemos presentado el estado actual de la determinación de la masa física del quark \textit{charm} y las constantes de decaimiento de los mesones $D_{(s)}$ basados en esta acción mixta, explotando el $\mathcal{O}(a)$ \textit{improvement} automático para reducir los artefactos reticulares asociados a la masa del quark pesado. Utilizando nuestra determinación de la escala $t_0$ citamos como resultado para la masa del quark \textit{charm} RGI en la teoría de tres sabores
+\begin{equation}
+  M_c^{\mathrm{RGI}}(N_f=3) &=& 1.485(8)_{\textrm{stat}}(3)_{\textrm{syst}}(14)_{\textrm{RGI}}\ \mathrm{GeV}\,.
+\end{equation}
+Convirtiendo este resultado a la teoría de cuatro sabores para compararlo con la literatura obtenemos
+\begin{align}
+  &M_c^{{mathrm{RGI}}(N_f=4) = 1.493(8)(3)(14)_{{\textrm{RGI}}(4)_{\rm trunc.} \mathrm{GeV}\,,
+\end{align}
+donde el primer y segundo error citados corresponden a las incertidumbres estadística y sistemática respectivamente, esta última procedente de la variación sobre los modelos en las extrapolaciones al punto físico y al limite al contínuo. El error de la masa de quark RGI está completamente dominado por el cálculo no-perturbativo del factor de \textit{running} del grupo de renormalización, y por lo tanto, no se puede conseguir una mejora sustancial hasta que se obtenga un cálculo más preciso de esta cantidad. En particular, la incertidumbre en la escala $t_0$ representa $\sim3\%$ del error total al cuadrado en $M_c^{\mathrm{RGI}}(N_f=3)$.
+
+Para las constantes de desintegración $D_{(s)}$ citamos
+\begin{align}
+	f_D &= 211.1(1.8)_{\textrm{stat}}(0.5)_{\textrm{syst}} \ \mathrm{MeV},
+	\\
+	f_{D_s} &= 248.1(1.5)_{\textrm{stat}}(0.3)_{\textrm{syst}} \ \mathrm{MeV},
+\end{align}
+mientras que para el ratio
+\begin{align}
+	\frac{f_{D_s}}{f_D} = 1.1649(90)_{\textrm{stat}}(16)_{\textrm{syst}}.
+\end{align}
+En este caso, el error está completamente dominado por la incertidumbre estadística de las configuraciones gauge y las extrapolaciones al punto físico y el límite al continuo, mientras que en los resultados individuales para las constantes de decaimiento $f_{D_{(s)}}$ la escala $t_0$ supone la segunda mayor contribución.
+
+Los resultados obtenidos en este trabajo se obtuvieron en el límite de simetría de isospín de QCD, definido en~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}. A medida que la precisión de los resultados de QCD en el retículo continúe mejorando, la inclusión de interacciones de QED y los efectos de ruptura del isospín fuerte serán cada vez más relevantes para restringir los observables de la física de precisión. Otra vía para futuros desarrollos consiste en la extensión de la combinación de la regularización Wilson y de acción mixta para aproximarse al sector de quarks \textit{b}, siguiendo una estrategia de \textit{step-scaling} \cite{Sommer:2023gap}.
+
+
+
