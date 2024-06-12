@@ -228,7 +228,7 @@ After combining the results from our 128 fitting models through the model averag
 and using the running factor in eq.~(\ref{eq:rgi_running_factor}), we quote for the three-flavor theory
 the value for the RGI quark mass
 \begin{equation}
-  M_c^{\mathrm{RGI}}(N_f=3) &=& 1.485(8)_{\textrm{stat}}(3)_{\textrm{syst}}(14)_{\textrm{RGI}}\ \mathrm{GeV}\,,
+  M_c^{\mathrm{RGI}}(N_f=3) &=& 1.493(8)_{\textrm{stat}}(3)_{\textrm{syst}}(14)_{\textrm{RGI}}\ \mathrm{GeV}\,,
 	\label{eq:rgi_charm_mass_result}
 \end{equation}
 where the first error is statistical, including the uncertainty from  $t_0^{\mathrm{ph}}$,  the second accounts for the systematic uncertainty, derived from the model average, and the third is the error contribution from the RGI running factor in eq.~(\ref{eq:rgi_running_factor}). 
@@ -255,11 +255,16 @@ In order to quote results in the $\overline{\textrm{MS}}$ scheme, we use five-lo
 mass anomalous dimension~\cite{Baikov:2014qja,Luthe:2016xec,Baikov:2017ujl} and the beta function~\cite{Baikov:2016tgj,Herzog:2017ohr,Luthe:2017ttc}.
 The matching between the $N_f=3$ and $N_f=4$ theories uses the four-loop decoupling effects~\cite{Liu:2015fxa}
 incorporated into the RunDec package~\cite{Chetyrkin:2000yt,Schmidt:2012az,Herren:2017osy}. Renormalization group equations are solved using as input the value 
-$\Lambda^{(3)}_{\overline{\mathrm{MS}}} = 341(12)\ \mathrm{MeV}$ from~\cite{Bruno:2017gxd}. The correlation arising from the fact that a common subset of gauge field configuration ensembles were employed in the computation of $\Lambda^{(3)}_{\overline{\mathrm{MS}}}$ and the non-perturbative running factor in eq.~(\ref{eq:rgi_running_factor}) is taken into account. We thus arrive to the following result for the RGI charm quark masses in the 4-flavor theory,
-\begin{align}
-  &M_c^{\mathrm{RGI}}(N_f=4)=1.493(8)(3)(14)(4)_\Lambda(3)_{\rm trunc.} \ \mathrm{GeV},
-\end{align}
-where the first and second errors arise from the statistical and systematic errors, respectively, in the value of $M_c^{\mathrm{RGI}}(N_f=3)$ in eq.~(\ref{eq:rgi_charm_mass_result}), the third error is due to the non-perturbative running factor in eq.~(\ref{eq:rgi_running_factor}), the fourth error is related to the uncertainty in $\Lambda^{(3)}_{\overline{\mathrm{MS}}}$, and the fifth error is an estimate of the truncation uncertainty from the deviation between the 5-loop and 4-loop results. 
+$\Lambda^{(3)}_{\overline{\mathrm{MS}}} = 341(12)\ \mathrm{MeV}$ from~\cite{Bruno:2017gxd}. The correlation arising from the fact that a common subset of gauge field configuration ensembles were employed in the computation of $\Lambda^{(3)}_{\overline{\mathrm{MS}}}$ and the non-perturbative running factor in eq.~(\ref{eq:rgi_running_factor}) is taken into account. Our result is shown in Figure~\ref{fig:mc_comparison}, where we compare our determination of the charm quark mass in the $\overline{\textrm{MS}}$ scheme with the results from other lattice QCD calculations also based on $N_f=2+1$ dynamical simulations and with the corresponding FLAG average~\cite{FlavourLatticeAveragingGroupFLAG:2021npn}. We observe in particular a good agreement with the results from \cite{Heitger:2021apz} which are also based on CLS ensembles but employ Wilson fermions in the valence sector.
+
+\begin{figure}
+	\centering
+	\hspace{-0mm}
+	\includegraphics[scale=0.6]{./cap6/figs/mc/mc_comparison_3gev.pdf}
+	\caption{Comparison of our charm quark mass determinations in the $\overline{\textrm{MS}}$ scheme with the FLAG average~\cite{FlavourLatticeAveragingGroupFLAG:2021npn} and the results from other lattice QCD calculations based on $N_f=2+1$ dynamical simulations. In our results, shown in blue, we indicate both the total uncertainty and the error when excluding the uncertainty arising from $\Lambda^{(3)}_{\overline{\mathrm{MS}}}$. \textit{Top}: comparison for the  $\overline{m}_c(\mu=3\ \mathrm{GeV}, N_f=4)$. \textit{Bottom}: comparison for $\overline{m}_c(\mu=\overline{m}_c, N_f=4)$.  Starting from the bottom, results are taken from: PDG \cite{ParticleDataGroup:2022pth}, HPQCD 08B \cite{HPQCD:2008kxl}, HPQCD 10 \cite{McNeile:2010ji}, $\chi$QCD \cite{Yang:2014sea}, JLQCD 16 \cite{Nakayama:2016atf}, Maezawa 16 \cite{Maezawa:2016vgv}, Petreczky 19 \cite{Petreczky:2019ozv}, ALPHA 21 \cite{Heitger:2021apz}.
+       }
+	\label{fig:mc_comparison}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -394,12 +399,6 @@ the chiral limit and at the physical value of the heavy-quark mass. More concret
 Then, in order to arrive at our determination of $f_{D_s}/f_D$ we perform a model average among all the HM$\chi$PT and Taylor functional forms, considering all the possible combinations of non-vanishing fit parameters, for the two different matching conditions simultaneously. In Table~\ref{tab:ratio_res_all_matching} we report our results for the
 ratio of decay constants from the model average separately for each charm matching
 condition, as well as their combination. Also for the ratio we observe good agreement for the two different $\phi_H^{(i)}$ tested in this work. 
-Finally, for the  result combining the two matching conditions, we quote 
-\begin{equation}
-	\frac{f_{D_s}}{f_D} = 1.1649(90)_{\textrm{stat}}(16)_{\textrm{syst}},
-\end{equation}
-where  the first error is  statistical and the second is the systematic uncertainty based on  the model average procedure. 
-
 
 \begin{longtable}{c | c c c}
 \toprule
@@ -411,7 +410,7 @@ $f_{D_s}/f_D$   &  1.1651(91)(15)& 1.1650(91)(16) &  1.1649(90)(16) \\
 		\label{tab:ratio_res_all_matching}
 \end{longtable}
 
-  In Figure \ref{fig:fds_ratio_error}  we show the major error sources contributing to our final determination of the ratio, where we notice that the major contribution is given by the statistical and chiral-continuum error. Finally, in Figure \ref{fig:fds_over_fd_comparison} we show a comparison between our result for $f_{D_s}/f_D$, the FLAG21 average and results from other collaborations.
+  In Figure \ref{fig:fds_ratio_error}  we show the major error sources contributing to our final determination of the ratio, where we notice that the major contribution is given by the statistical and chiral-continuum error.
 
 
 \begin{figure}
@@ -429,17 +428,6 @@ $f_{D_s}/f_D$   &  1.1651(91)(15)& 1.1650(91)(16) &  1.1649(90)(16) \\
           }
 	    \label{fig:fds_ratio_error}
 \end{figure}
-
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.7]{./cap6/figs/fds/ratio_fds_comparison.pdf}
-	\caption{Comparison of our determination of $f_{D_s}/f_D$ with those of the other lattice QCD collaborations based on $N_f=2+1$ dynamical simulations as well as with the FLAG average~\cite{FlavourLatticeAveragingGroupFLAG:2021npn}. Only the results with filled symbols contribute to this average. Starting from the bottom, results are taken from:  PACS-CS 11 \cite{PACS-CS:2011ngu}, FNAL/MILC 11  \cite{FermilabLattice:2011njy}, HPQCD 12A \cite{Na:2012iu},  RBC/UKQCD 17 \cite{Boyle:2017jwu}, RBC/UKQCD 18A \cite{Boyle:2018knm},  $\chi$QCD 20A \cite{Chen:2020qma}, RQCD/ALPHA 24~\citep{Kuberski:2024pms}. }
-	\label{fig:fds_over_fd_comparison}
-\end{figure}
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
