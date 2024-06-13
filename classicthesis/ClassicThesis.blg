@@ -50,6 +50,10 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated field_info (elt_size=4) to 23340 items from 5000.
 Database file #1: ClassicThesis-blx.bib
 Database file #2: Bibliography.bib
+Repeated entry---line 2380 of file Bibliography.bib
+ : @article{BMW:2012hcm
+ :                     ,
+I'm skipping whatever remains of this entry
 Database file #3: publications.bib
 Biblatex version: 3.17
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
@@ -58,43 +62,43 @@ Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis
 while executing---line 2815 of file biblatex.bst
 You've used 131 entries,
             6399 wiz_defined-function locations,
-            2237 strings with 36994 characters,
-and the built_in function-call counts, 1238158 in all, are:
-= -- 101392
-> -- 16415
-< -- 3987
-+ -- 36888
-- -- 7697
-* -- 97811
-:= -- 146075
+            2239 strings with 37004 characters,
+and the built_in function-call counts, 1223790 in all, are:
+= -- 99947
+> -- 16285
+< -- 3956
++ -- 36368
+- -- 7633
+* -- 96585
+:= -- 144087
 add.period$ -- 0
 call.type$ -- 131
 change.case$ -- 130
-chr.to.int$ -- 83
+chr.to.int$ -- 77
 cite$ -- 260
-duplicate$ -- 127943
-empty$ -- 105490
-format.name$ -- 10580
-if$ -- 246757
+duplicate$ -- 126684
+empty$ -- 104442
+format.name$ -- 10490
+if$ -- 244006
 int.to.chr$ -- 0
 int.to.str$ -- 307
 missing$ -- 0
-newline$ -- 5559
+newline$ -- 5531
 num.names$ -- 5493
-pop$ -- 47874
+pop$ -- 47742
 preamble$ -- 1
-purify$ -- 2215
+purify$ -- 2204
 quote$ -- 0
-skip$ -- 25191
+skip$ -- 25090
 stack$ -- 0
-substring$ -- 194453
-swap$ -- 23528
-text.length$ -- 4212
+substring$ -- 191282
+swap$ -- 23443
+text.length$ -- 4177
 text.prefix$ -- 130
 top$ -- 1
 type$ -- 4440
 warning$ -- 0
-while$ -- 17686
+while$ -- 17467
 width$ -- 0
-write$ -- 5429
-(There was 1 error message)
+write$ -- 5401
+(There were 2 error messages)

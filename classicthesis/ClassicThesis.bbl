@@ -970,67 +970,6 @@
     \field{year}{2008}
   \endentry
 
-  \entry{Boyle:2018knm}{article}{}
-    \name{author}{7}{}{%
-      {{hash=BPA}{%
-         family={Boyle},
-         familyi={B\bibinitperiod},
-         given={Peter\bibnamedelima A.},
-         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=DDL}{%
-         family={Del\bibnamedelima Debbio},
-         familyi={D\bibinitperiod\bibinitdelim D\bibinitperiod},
-         given={Luigi},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=GN}{%
-         family={Garron},
-         familyi={G\bibinitperiod},
-         given={Nicolas},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=JA}{%
-         family={Juttner},
-         familyi={J\bibinitperiod},
-         given={Andreas},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=SA}{%
-         family={Soni},
-         familyi={S\bibinitperiod},
-         given={Amarjit},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=TJT}{%
-         family={Tsang},
-         familyi={T\bibinitperiod},
-         given={Justus\bibnamedelima Tobias},
-         giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
-      }}%
-      {{hash=WO}{%
-         family={Witzel},
-         familyi={W\bibinitperiod},
-         given={Oliver},
-         giveni={O\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{BPA+1}
-    \strng{fullhash}{BPADDLGNJASATJTWO1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \verb{eprint}
-    \verb 1812.08791
-    \endverb
-    \field{title}{{SU(3)-breaking ratios for $D_{(s)}$ and $B_{(s)}$ mesons}}
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{hep-lat}
-    \field{month}{12}
-    \field{year}{2018}
-  \endentry
-
   \entry{Boyle:2017jwu}{article}{}
     \name{author}{6}{}{%
       {{hash=BPA}{%
@@ -4419,6 +4358,41 @@
     \verb https://www.oxfordreference.com/view/10.1093/oi/authority.20110803100
     \verb 158288
     \endverb
+  \endentry
+
+  \entry{Miller:2020evg}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=MN}{%
+         family={Miller},
+         familyi={M\bibinitperiod},
+         given={Nolan},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MN+2}
+    \strng{fullhash}{MN+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.103.054511
+    \endverb
+    \verb{eprint}
+    \verb 2011.12166
+    \endverb
+    \field{number}{5}
+    \field{pages}{054511}
+    \field{title}{{Scale setting the M\"obius domain wall fermion on
+  gradient-flowed HISQ action using the omega baryon mass and the gradient-flow
+  scales $t_0$ and $w_0$}}
+    \field{volume}{103}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2021}
   \endentry
 
   \entry{Mohler:2020txx}{article}{}
