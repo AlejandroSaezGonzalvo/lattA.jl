@@ -8,32 +8,33 @@
 
 \section{Stochastic methods}
 
-For the computation of correlation functions of fermions on the lattice (e.g. a two-point function, see eq.~(\ref{ch_foundation:eq:path_int})) the inversion of the Dirac operator is required. In particular one needs to compute the inverse of $D(x,y)$ for all spatial positions $\vec{x},\vec{y}$. This is referred to as inverting the all-to-all Dirac operator. This is computationally very expensive, and stochastic methods can be employed to reduce the computational cost~\citep{Luscher:2010ae}. A set of stochastic noise sources $\eta$ are introduced such that
+For the computation of correlation functions of fermions on the lattice (e.g. a two-point function, see eq.~(\ref{ch_foundation:eq:path_int})) the inversion of the Dirac operator $D$ is required. In particular, it is desirable to compute the inverse of $D(x,y)$ from all the spatial points $\vec{y}$ on a given time $y_0$, to all points $x$. This is referred to as computing a time-slice-to-all quark propagator. An exact calculation would be prohibitively expensive but stochastic methods can be employed to reduce the computational cost~\citep{Luscher:2010ae}. A set of stochastic noise sources $\eta$ are introduced such that
 \begin{gather}
 \left<\eta_i(x)\right>_{\eta}=0, \quad \left<\eta_i^{\dagger}(x)\eta_j(y)\right>_{\eta}=\delta_{x,y}\delta_{i,j},
 \end{gather}
-with $\left<.\right>_{\eta}$ meaning average over the $N_{\eta}$ samples of some noise distribution. Some common choices are Gaussian, $Z_2$ or $U(1)$. From these we define
+with $\left<.\right>_{\eta}$ corresponding to average over the $N_{\eta}$ samples of some noise distribution. Some common choices are Gaussian, $Z_2$ or $U(1)$ stochastic noise vectors. The Dirac operator can the be inverted using $\eta$ as part of the source in the following way
 \begin{gather}
-\xi_i^q(x)=\sum_yD^{-1}_q(x,y)\eta_i(y), \quad \zeta_{i,B}^r(x)=\sum_yD^{-1}_r(x,y)\gamma_5\Gamma_B^{\dagger}\eta_i(y),
+\xi_i^q(x)=\sum_{\vec{y}}D^{-1}_q(x,y)\eta_i(\vec{y}), \quad \zeta_{i,B}^r(x)=\sum_{\vec{y}}D^{-1}_r(x,y)\gamma_5\Gamma_B^{\dagger}\eta_i(\vec{y}),
 \end{gather}
-with $\Gamma_B$ some Gamma matrix. Now, two-point functions like the one in eq.~(\ref{ch_foundation:eq:path_int}) can be expressed as
+with $\Gamma_B$ some Gamma matrix. The two-point functions in eq.~(\ref{ch_foundation:eq:path_int}) can be expressed as
 \begin{align}
 \left<O^{rq}_A(x_0)O^{qr}_B(y_0)\right>&\approx -\frac{a^6}{L^3}\frac{1}{N_{\eta}}\sum_{i=1}^{N_{\eta}}\sum_{\vec{x}}\left<(\Gamma_A\gamma_5\zeta^r_{i,B}(x))^{\dagger}\xi^q_i(x)\right>,
 \end{align}
-without the need to compute the all-to-all inverted Dirac operator, therefore reducing significantly the computational effort.
+where the requirement to invert the Dirac operator at every spatial point $\vec{y}$ has been traded by $N_\eta$ inversions over the stochastic noise vectors at the cost of introducing an additional contribution to the statistical uncertainty. 
 
 \section{Iterative solvers}
 
 The inversion of the Dirac operator is still needed to compute correlation functions. This means solving the Dirac equation
 \begin{equation}
-D_q(x,y)\psi_r(y)=\delta_{x,y}\delta_{q,r}\equiv\eta_{x,y,q,r},
+D(x,y)\psi(y)=\eta(x),
 \end{equation}
-where $q$ and $r$ are flavor indices. This is usually done by an iterative procedure. The basic idea is to start from an initial approximate solution $\psi_0$ and define the residue $\rho$ (we suppress indices for simplicity)
+for some source $\eta$. This is usually done by an iterative procedure. The basic idea is to start from an initial approximate solution $\psi_0$ and define the residue $\rho$ (we suppress indices for simplicity)
 \begin{equation}
 \rho=D\psi_0-\eta.
 \end{equation}
 Then, one solves
 \begin{equation}
+\label{eq:Dirac_eq}
 D\psi_1=\rho,
 \end{equation}
 finds the new residue and iterates the process. The algorithm stops when some convergence criterion is met
@@ -46,29 +47,29 @@ with the final approximate solution given by
 \end{equation}
 The difference between the true and approximate solutions is
 \begin{equation}
-|\psi-\psi_{\textrm{true}}|<\epsilon\kappa(D),
+|\psi-\psi_{\textrm{true}}|<\epsilon\kappa(D)|\psi_{\textrm{true}}|,
 \end{equation}
 with $\kappa(D)$ the condition number of matrix $D$
 \begin{equation}
 \kappa(D)=|D||D^{-1}|.
 \end{equation}
 
-The main solvers used in modern lattice simulations use the iterative procedure outlined above to solve the Dirac equation. Some popular choices are the CG, BiCGstab and GCR algorithms, which are all based on the Krylov subspace method and belong to the class of conjugate gradient solvers. For a pedagogical introduction we refer to ~\citep{Gattringer_Lang_2010,Luscher:2010ae}.
+The main solvers used in modern lattice simulations to compute eq.~(\ref{eq:Dirac_eq}) are based on the Krylov subspace method and belong to the class of conjugate gradient solvers. Some popular choices are the CG, BiCGstab and GCR algorithms. For a pedagogical introduction we refer to ~\citep{Gattringer_Lang_2010,Luscher:2010ae}.
 
 \section{Preconditioning}
 
-The smaller the condition number of the Dirac operator, the less iterative steps one needs to perform in order to find the solution to the Dirac equation. Thus, convergence can be improved by suitably transforming the system into one with a smaller $\kappa(D)$. This can be done by finding some similarity transformations easily invertible such that one can write
+The smaller the condition number of the Dirac operator, the less iterative steps one needs to perform in order to find the solution to the Dirac equation. Thus, convergence can be improved by suitably transforming the system into one with a smaller $\kappa(D)$. This can be done through a preconditioning procedure consisting in  finding some easily invertible similarity transformations such that 
 \begin{gather}
 LDR\psi'=L\eta, \quad \psi=R\psi'.
 \end{gather}
-This is called preconditioning, and there are many different variations. One of the most used is even-odd preconditioning~\citep{DEGRAND1988161}. Lattice sites can be categorized as even or odd depending on the sum of their space-time coordinates. If the points are ordered such that all the even ones come first, the Dirac operator takes the block form
+There are multiple types of preconditionings. One of the most commonly used is even-odd preconditioning~\citep{DEGRAND1988161}. Lattice sites can be categorized as even or odd depending on the sum of their space-time coordinates. If the points are ordered such that all the even ones come first, the Dirac operator takes the block form
 \begin{equation}
 D=\begin{pmatrix}
 D_{ee} & D_{eo} \\ 
 D_{oe} & D_{oo}
 \end{pmatrix},
 \end{equation}
-where $D_{eo}$ captures the terms which couple the odd to the even sites. The block on the diagonal do not couple different lattice sites, and as such $D_{ee,oo}$ are easily invertible. Choosing the preconditioners
+where $D_{eo}$ captures the terms which couple the odd to the even sites. For operators involving only nearest-neighbor interactions, the diagonal blocks $D_{ee}$ and $D_{oo}$ are diagonal matrices which are therefore easily invertible. Choosing as preconditioners
 \begin{gather}
 L=\begin{pmatrix}
 1 & -D_{eo}D_{oo}^{-1} \\ 
@@ -87,9 +88,9 @@ LDR=\begin{pmatrix}
 \end{pmatrix}, \quad
 \hat{D}=D_{ee}-D_{eo}D_{oo}^{-1}D_{oe}.
 \end{gather}
-The condition number of $\hat{D}$ is usually less than half that of $D$, and thus even-odd preconditioning leads to an acceleration of the solver by a factor $\geq2$.
+The condition number of $\hat{D}$ is usually less than half that of $D$, and thus even-odd preconditioning can lead to an acceleration of the solver by a factor $\geq2$.
 
-Another popular preconditioning which we use in the sector of charm physics is distance preconditioning, for which we refer to~\citep{deDivitiis:2010ya}. 
+As described in~\citep{deDivitiis:2010ya}, a different type of preconditioning method called distance preconditioning was used in the computation of charm-quark propagators to address  loss of  accuracy of the solvers at large Euclidean time separations. 
 
 
 

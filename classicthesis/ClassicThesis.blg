@@ -47,58 +47,54 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 23340 items from 5000.
+Reallocated field_info (elt_size=4) to 23760 items from 5000.
 Database file #1: ClassicThesis-blx.bib
 Database file #2: Bibliography.bib
-Repeated entry---line 2380 of file Bibliography.bib
- : @article{BMW:2012hcm
- :                     ,
-I'm skipping whatever remains of this entry
 Database file #3: publications.bib
 Biblatex version: 3.17
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Washington U., St. Louis, Washington U., St. Louis" for entry Brown:2018jtv
 while executing---line 2815 of file biblatex.bst
-You've used 131 entries,
+You've used 134 entries,
             6399 wiz_defined-function locations,
-            2239 strings with 37004 characters,
-and the built_in function-call counts, 1223790 in all, are:
-= -- 99947
-> -- 16285
-< -- 3956
-+ -- 36368
-- -- 7633
-* -- 96585
-:= -- 144087
+            2262 strings with 40992 characters,
+and the built_in function-call counts, 1627252 in all, are:
+= -- 141555
+> -- 18240
+< -- 4072
++ -- 52845
+- -- 8767
+* -- 126372
+:= -- 202724
 add.period$ -- 0
-call.type$ -- 131
-change.case$ -- 130
-chr.to.int$ -- 77
-cite$ -- 260
-duplicate$ -- 126684
-empty$ -- 104442
-format.name$ -- 10490
-if$ -- 244006
+call.type$ -- 134
+change.case$ -- 133
+chr.to.int$ -- 78
+cite$ -- 266
+duplicate$ -- 169311
+empty$ -- 134035
+format.name$ -- 12845
+if$ -- 317596
 int.to.chr$ -- 0
-int.to.str$ -- 307
+int.to.str$ -- 317
 missing$ -- 0
-newline$ -- 5531
-num.names$ -- 5493
-pop$ -- 47742
+newline$ -- 6805
+num.names$ -- 5653
+pop$ -- 52677
 preamble$ -- 1
-purify$ -- 2204
+purify$ -- 2661
 quote$ -- 0
-skip$ -- 25090
+skip$ -- 26742
 stack$ -- 0
-substring$ -- 191282
-swap$ -- 23443
-text.length$ -- 4177
-text.prefix$ -- 130
+substring$ -- 276163
+swap$ -- 26683
+text.length$ -- 4464
+text.prefix$ -- 133
 top$ -- 1
-type$ -- 4440
+type$ -- 4542
 warning$ -- 0
-while$ -- 17467
+while$ -- 24765
 width$ -- 0
-write$ -- 5401
-(There were 2 error messages)
+write$ -- 6672
+(There was 1 error message)

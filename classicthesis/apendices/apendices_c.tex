@@ -6,9 +6,9 @@
 \chapter{Finite Volume Effects}
 \label{apex_fv}
 
-Simulating QCD in a finite box introduces finite volume effects which can be a source for systematic uncertainties. In Table~\ref{apex_ensembles:tab:ens} we show the volume of each ensemble in terms of $m_{\pi}L$. It is conventional to consider finite volume effects under control and negligible if $m_{\pi}L\geq4$.
+Simulating QCD in a finite box introduces finite volume effects which can be a source of systematic uncertainties. In Table~\ref{apex_ensembles:tab:ens} we show the volume of each ensemble in terms of $m_{\pi}L$. In lattice QCD, for quantities that only receive exponential finite volume corrections in $m_{\pi,K,\eta}L$, it is customary to opt for the condition, $m_{\pi}L\geq4$, while also employing lattice sizes $L$ larger than $\sim2$ fm. This constraint can be complemented by explicit checks of residual finite volume effects through simulations in several volumes or by applying effective field theory corrections.
 
-ChPT provides us with formulae to account for these finite volume effects. In particular, to NLO the pion and kaon masses and decay constants receive the following corrections~\citep{Colangelo:2003hf,Colangelo:2005gd}
+ChPT can be used to study finite volume effects on certain class of observables. In particular, to NLO the pion and kaon masses and decay constants receive the following corrections~\citep{Colangelo:2003hf,Colangelo:2005gd}
 \begin{equation}
 X^{(\infty)}=X^{(L)}\frac{1}{1+R_X},
 \end{equation}
@@ -25,7 +25,7 @@ m_{\eta}^2&=\frac{4}{3}m_K^2-\frac{1}{3}m_{\pi}^2,
 \end{align}
 where $K_1(x)$ is a Bessel function of the second kind, and the multiplicities $m(n)$~\citep{Colangelo:2003hf} are listed in Table~\ref{apex_fv:tab:mn}. It is manifest that the lighter the pion mass and the smaller the volume, the stronger the volume corrections. We find these corrections to be less than half a standard deviation for the ensembles with the smallest volumes and lightest pion masses. We nonetheless apply the corrections to all the ensembles.
 
-PCAC quark masses are short distance observables and as such do not receive any infinite volume correction.
+PCAC quark masses being short distance observables and are less sensitive to finite volume effects.
 
 \vspace{2cm}
 

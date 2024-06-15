@@ -1,7 +1,7 @@
 \chapter{GEVP method}
 \label{apex_GEVP}
 
-For the extraction of meson masses involving heavy flavors (see Sec.~\ref{ch_charm}), we employ a generalized eigenvalue problem (GEVP) variational method defined as 
+For the extraction of meson masses involving heavy quark flavors (see Sec.~\ref{ch_charm}), we employ a generalized eigenvalue problem (GEVP) variational method defined as 
 \begin{equation}\label{eq:gevp_sec3}
  	\mathit{\mathbb{C}}_X(t) v_n(t,t_{\mathrm{ref}}) = \lambda_n(t,t_{\mathrm{ref}}) \mathit{\mathbb{C}}_X(t_{\mathrm{ref}})v_n(t,t_{\mathrm{ref}}) \qquad n=0,\ldots,N-1 ,
 \end{equation}
@@ -14,7 +14,7 @@ with $t>t_{\mathrm{ref}}$ and where $\mathit{\mathbb{C}}(t)_X$ is a $N\times N$ 
  	\end{matrix}\right) \,,
 \label{eq:gevp_matrix}
 \end{equation}
-where $C_P(t)\equiv C_P(t+y_0,y_0)$, $t=x_0-y_0$ and $\tau$ is the value of the time shift. Several values of the time shift have been tested, and we observe a mild dependence on small values of $\tau$ for the extraction of eigenvalues and eigenvectors. The GEVP  is solved in the regime  $t_{\mathrm{ref}} \geq t/2$, where a better control over excited state contributions is achieved \cite{Blossier:2009kd}. We refer to~\citep{charm} for a detailed discussion of our setup, together with sanity checks on the GEVP. In what follows we set $\tau=3a$. The ground state meson mass $m$ is extracted from the eigenvalues of the GEVP using 
+where $C_P(t)\equiv C_P(t+y_0,y_0)$, $t=x_0-y_0$ and $\tau$ is the value of the time shift. Several values of the time shift have been tested, and we observe a mild dependence on small values of $\tau$ for the extraction of eigenvalues and eigenvectors. Specifically, the value $\tau=3a$ was selected. The GEVP  is solved in the regime  $t_{\mathrm{ref}} \geq t/2$, where a better control over excited state contributions is achieved \cite{Blossier:2009kd}. We refer to~\citep{charm} for a detailed discussion of our setup, together with sanity checks on the GEVP. The ground state meson mass $m$ is extracted from the eigenvalues of the GEVP using 
 \begin{equation}\label{eq:eff_en_gevp}
 	am_{\mathrm{eff}}(t,t_{\mathrm{ref}})=\log\bigg(\frac{\lambda_0(t,t_{\mathrm{ref}})}{\lambda_0(t+a,t_{\mathrm{ref}})}\bigg).
 \end{equation}
@@ -40,13 +40,13 @@ in the regime where the condition $t_{\mathrm{ref}}\geq t/2$ is satisfied, where
 \begin{figure}
   	\centering
   	\includegraphics[scale=0.5]{./cap6/figs/matching/m8_plateau.pdf}
-  	\caption{Illustration of the extraction of the ground-state mass after applying a GEVP analysis, illustrated for the ensemble J303. We show the heavy-light pseudoscalar meson mass plateau with the two fit intervals with higher weights $W$ contributing to the model average introduced in Sec.~\ref{ch_observables:sec:MA}. We also indicate the range of variations allowed for the interval in Euclidean time where the plateau is taken. The shaded blue band  corresponds to the model average result.} 
+  	\caption{Illustration of the extraction of the ground-state mass after applying a GEVP analysis, illustrated for the ensemble J303. We show the heavy-light pseudoscalar meson mass plateau with the two fit intervals with higher weights $W$ contributing to the model average introduced in Sec.~\ref{ch_observables:sec:MA}. We also indicate the range of variations allowed for the interval in Euclidean time where the plateau is taken. The shaded blue and green bands corresponds to two specific plateau choices.} 
 \label{fig:meff_plateau} 
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.5]{./cap6/figs/fds/f8_plateau.pdf}
-	\caption{Illustration of the extraction of the heavy-light pseudoscalar decay constants, after applying a GEVP analysis, for ensemble J303. We show the plateau for the heavy-light pseudoscalar decay constant for the two fit intervals with higher weights in the model average introduced in Sec.~\ref{ch_observables:sec:MA}. The shaded blue band represents the model average result. }
+	\caption{Illustration of the extraction of the heavy-light pseudoscalar decay constants, after applying a GEVP analysis, for ensemble J303. We show the plateau for the heavy-light pseudoscalar decay constant for the two fit intervals with higher weights in the model average introduced in Sec.~\ref{ch_observables:sec:MA}. The shaded blue and green bands corresponds to two specific plateau choices. }
 	\label{fig:decay_plateau} 
 \end{figure}
