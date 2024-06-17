@@ -35,7 +35,7 @@ A_{\mu}^{ij}(x)&=\bar{\psi}^i(x)\gamma_{\mu}\gamma_5\psi^{j}(x),
 where $i,j$ are flavor indices. The Wilson term in the Wilson and Wilson tm fermion action breaks chiral symmetry explicitly, and as a result the Noether currents of the theory are no longer protected against renormalization. This means that both the pseudoscalar and axial currents get renormalized as
 \begin{align}
 \label{ch_observables:eq:corr_ren}
-P^{ij,{\textrm{R}}}&=Z_P(g_0^2,a\mu)\left(1+a\tilde{b}_Pm_{ij}+a\bar{b}_P{\textrm{tr}}\left(M_q\right)\right)P^{ij}, \\
+P^{ij,{\textrm{R}}}&=Z_P(g_0^2,\mu_{\textrm{ren}})\left(1+a\tilde{b}_Pm_{ij}+a\bar{b}_P{\textrm{tr}}\left(M_q\right)\right)P^{ij}, \\
 A_{\mu}^{ij,{\textrm{R}}}&=Z_A(g_0^2)\left(1+a\tilde{b}_Am_{ij}+a\bar{b}_A{\textrm{tr}}\left(M_q\right)\right)A_{\mu}^{ij},
 \end{align}
 where the $b$-counterterms are improvement coefficients for the renormalization constants. The renormalization constants are shown in Table~\ref{ch_observables:tab:Z}, while the improvement coefficients are in Table~\ref{ch_observables:tab:b}. For our purposes, we will only need the differences $\tilde{b}_A-\tilde{b}_P$, $\bar{b}_A-\bar{b}_P$ and $\tilde{b}_A$, the latter given in perturbation theory by~\citep{Taniguchi:1998pf}
@@ -46,7 +46,7 @@ where the $b$-counterterms are improvement coefficients for the renormalization 
 
 \begin{longtable}{c c c}
     \label{ch_observables:tab:Z}
-    $\beta$ & $Z_A$ & $Z_P$ \\
+    $\beta$ & $Z_A(g_0^2)$ & $Z_P(g_0^2,\mu_{\textrm{had}})$ \\
     \toprule
     3.40 & 0.75642(72) & 0.35121(56) \\
     3.46 & 0.76169(93) & 0.34941(44) \\
@@ -54,7 +54,7 @@ where the $b$-counterterms are improvement coefficients for the renormalization 
     3.70 & 0.78378(47) & 0.34732(63) \\
     3.85 & 0.79667(47) & 0.35014(73) \\
     \bottomrule
-    \caption{Renormalization constants $Z_A$ and $Z_P$ for different values of $\beta$. $Z_A$, which does not depend on the energy scale but only on the bare coupling $g_0^2$, is calculated non-perturbatively in~\citep{DallaBrida:2018tpn} using the chirally rotated Schrödinger functional. $Z_P$ is calculated non-perturbatively at the scale $\mu_{\textrm{had}}=233(8)$ MeV in~\citep{Campos:2018ahf}.}
+    \caption{Renormalization constants $Z_A(g_0^2)$ and $Z_P(g_0^2,\mu_{\textrm{ren}})$ for different values of $\beta$. $Z_A$, which does not depend on the energy scale but only on the bare coupling $g_0^2$, is calculated non-perturbatively in~\citep{DallaBrida:2018tpn} using the chirally rotated Schrödinger functional. $Z_P$ is calculated non-perturbatively at the renormalization scale $\mu_{\textrm{ren}}=\mu_{\textrm{had}}=233(8)$ MeV in~\citep{Campos:2018ahf}.}
 \end{longtable}
 
 \begin{longtable}{c c c c}
@@ -301,7 +301,7 @@ with the discrete second derivative given by
 Finally, from eq.~(\ref{ch_observables:eq:corr_ren}) we see that the PCAC quark mass renormalizes as
 \begin{align}
 \label{ch_observables:eq:mqR}
-m_{ij}^{\textrm{R}}&=\frac{Z_A}{Z_P}\left[1+a\left(\bar{b}_A-\bar{b}_P\right){\textrm{tr}}\left(M_q\right)+a\left(\tilde{b}_A-\tilde{b}_P\right)m_{ij}\right]m_{ij}.
+m_{ij}^{\textrm{R}}&=\frac{Z_A(g_0^2)}{Z_P(g_0^2,\mu_{\textrm{ren}})}\left[1+a\left(\bar{b}_A-\bar{b}_P\right){\textrm{tr}}\left(M_q\right)+a\left(\tilde{b}_A-\tilde{b}_P\right)m_{ij}\right]m_{ij}.
 \end{align}
 
 In the Wilson regularization, physical quark masses are determined from the PCAC masses, while in the Wilson tm regularization at maximal twist, the latter vanish and the former are given by the renormalized twisted masses in eq.~(\ref{ch_foundation:eq:muR}).
