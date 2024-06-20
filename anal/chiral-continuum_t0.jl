@@ -26,19 +26,30 @@ ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
 ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
 ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
 ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500", "J501"]
+ens_40_nosym = ["H102", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_41_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "J303", "E300", "J501"]
+ens_42_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "E300", "J501"]
+ind_sym = findall(x -> x in ens_sym, ens_av)
+ind_nosym = findall(x -> x in ens_nosym, ens_av)
+ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
 ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
 ens_346 = findall(x -> x in ["H400", "D450"], ens_av)
 ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200", "E250"], ens_av)
 ens_370 = findall(x -> x in ["N300", "N302", "J303", "E300"], ens_av)
-ens_385 = findall(x -> x in ["J500", "J501"], ens_av)#, "J501"]
-ind_sym = findall(x -> x in ens_sym, ens_av)
-ind_nosym = findall(x -> x in ens_nosym, ens_av)
-ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
+ens_385 = findall(x -> x in ["J500", "J501"], ens_av)
 ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "N200", "D200", "E250", "J303", "E300"], ens_av)
 ind_mL_40 = findall(x -> x in ens_40, ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
 ind_phi205 = [2,7,12,16]
+ens_340_nosym = findall(x -> x in ["H102", "H105"], ens_av)
+ens_346_nosym = findall(x -> x in ["D450"], ens_av)
+ens_355_nosym = findall(x -> x in ["N203", "N200", "D200", "E250"], ens_av)
+ens_370_nosym = findall(x -> x in ["N302", "J303", "E300"], ens_av)
+ens_385_nosym = findall(x -> x in ["J501"], ens_av)
+ind_mL_40_nosym = findall(x -> x in ens_40_nosym, ens_av)
+ind_mL_41_nosym = findall(x -> x in ens_41_nosym, ens_av)
+ind_mL_42_nosym = findall(x -> x in ens_42_nosym, ens_av)
 
 fpik_add = true
 
@@ -834,6 +845,170 @@ fpik_add = true
         end
     end
 
+    ## prepare data SU2 fk/fpi & fpik
+        uprm_plot_fkfpi = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        t0fkfpi_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        t0fpik_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+
+        x_ph = [0.0 (phi2_ph) (phi4_ph) (phi2_sym_ph)]
+
+        x = [1 ./ (8 .* t0_sh) phi2_sh phi4_sh phi2_sym]
+        x_355 = x[[ens_346; ens_355; ens_370; ens_385],:]
+        x_nosym = x[ind_nosym,:]
+        x_nosym355 = x[ind_nosym355,:]
+        x_mL_41 = x[ind_mL_41, :]
+        x_mL_42 = x[ind_mL_42, :]
+        x_3552 = x[[ens_355; ens_370; ens_385],:]
+        x_phi204 = x[ind_phi204,:]
+        x_fkfpi = x[ind_nosym,:]
+        x_fkfpi_355 = x[[ens_346_nosym; ens_355_nosym; ens_370_nosym; ens_385_nosym],:]
+        x_fkfpi_nosym355 = x[ind_nosym355,:]
+        x_fkfpi_mL_41 = x[ind_mL_41_nosym, :]
+        x_fkfpi_mL_42 = x[ind_mL_42_nosym, :]
+        x_fkfpi_3552 = x[[ens_355_nosym; ens_370_nosym; ens_385_nosym],:]
+        x_fkfpi_phi204 = x[ind_phi204,:]
+
+        x_combined = [x; x_fkfpi]
+        x_combined_355 = [x_355; x_fkfpi_355]
+        x_combined_355_only_Wil = [x_355; x_fkfpi]
+        x_combined_355_only_Wtm = [x; x_fkfpi_355]
+        x_combined_nosym = [x_nosym; x_fkfpi]
+        x_combined_nosym355 = [x_nosym355; x_fkfpi_nosym355]
+        x_combined_mL_41 = [x_mL_41; x_fkfpi_mL_41]
+        x_combined_mL_42 = [x_mL_42; x_fkfpi_mL_42]
+        x_combined_3552 = [x_3552; x_fkfpi_3552]
+        x_combined_phi204 = [x_phi204; x_fkfpi_phi204]
+        
+        t0fkfpi_sh = t0fk_sh ./ t0fpi_sh; uwerr.(t0fkfpi_sh)
+        t0fkfpi_st_sh = t0fk_st_sh ./ t0fpi_st_sh; uwerr.(t0fkfpi_st_sh)
+
+        fpik = t0fpik_sh
+        fpik_355 = t0fpik_sh[[ens_346; ens_355; ens_370; ens_385]]
+        fpik_3552 = t0fpik_sh[[ens_355; ens_370; ens_385]]
+        fpik_nosym = t0fpik_sh[ind_nosym]
+        fpik_nosym355 = t0fpik_sh[ind_nosym355]
+        fpik_phi204 = t0fpik_sh[ind_phi204]
+        fpik_mL_41 = t0fpik_sh[ind_mL_41]
+        fpik_mL_42 = t0fpik_sh[ind_mL_42]
+        fkfpi = t0fkfpi_sh[ind_nosym]
+        fkfpi_355 = t0fkfpi_sh[[ens_346_nosym; ens_355_nosym; ens_370_nosym; ens_385_nosym]]
+        fkfpi_3552 = t0fkfpi_sh[[ens_355_nosym; ens_370_nosym; ens_385_nosym]]
+        fkfpi_nosym355 = t0fkfpi_sh[ind_nosym355]
+        fkfpi_phi204 = t0fkfpi_sh[ind_phi204]
+        fkfpi_mL_41 = t0fkfpi_sh[ind_mL_41_nosym]
+        fkfpi_mL_42 = t0fkfpi_sh[ind_mL_42_nosym]
+        fpik_st = t0fpik_st_sh
+        fpik_st_355 = t0fpik_st_sh[[ens_346; ens_355; ens_370; ens_385]]
+        fpik_st_3552 = t0fpik_st_sh[[ens_355; ens_370; ens_385]]
+        fpik_st_nosym = t0fpik_st_sh[ind_nosym]
+        fpik_st_nosym355 = t0fpik_st_sh[ind_nosym355]
+        fpik_st_phi204 = t0fpik_st_sh[ind_phi204]
+        fpik_st_mL_41 = t0fpik_st_sh[ind_mL_41]
+        fpik_st_mL_42 = t0fpik_st_sh[ind_mL_42]
+        fkfpi_st = t0fkfpi_st_sh[ind_nosym]
+        fkfpi_st_355 = t0fkfpi_st_sh[[ens_346_nosym; ens_355_nosym; ens_370_nosym; ens_385_nosym]]
+        fkfpi_st_3552 = t0fkfpi_st_sh[[ens_355_nosym; ens_370_nosym; ens_385_nosym]]
+        fkfpi_st_nosym355 = t0fkfpi_st_sh[ind_nosym355]
+        fkfpi_st_phi204 = t0fkfpi_st_sh[ind_phi204]
+        fkfpi_st_mL_41 = t0fkfpi_st_sh[ind_mL_41_nosym]
+        fkfpi_st_mL_42 = t0fkfpi_st_sh[ind_mL_42_nosym]
+        
+        y = [fpik; fkfpi]
+        y_st = [fpik_st; fkfpi_st]
+        y_combined = [y_st; y]
+        y_355 = [fpik_355; fkfpi_355]
+        y_st_355 = [fpik_st_355; fkfpi_st_355]
+        y_combined_355 = [y_st_355; y_355]
+        y_3552 = [fpik_3552; fkfpi_3552]
+        y_st_3552 = [fpik_st_3552; fkfpi_st_3552]
+        y_combined_3552 = [y_st_3552; y_3552]
+        y_nosym = [fpik_nosym; fkfpi]
+        y_nosym355 = [fpik_nosym355; fkfpi_nosym355]
+        y_st_nosym = [fpik_st_nosym; fkfpi_st]
+        y_st_nosym355 = [fpik_st_nosym355; fkfpi_st_nosym355]
+        y_combined_nosym = [y_st_nosym; y_nosym]
+        y_combined_nosym355 = [y_st_nosym355; y_nosym355]
+        y_phi204 = [fpik_phi204; fkfpi_phi204]
+        y_st_phi204 = [fpik_st_phi204; fkfpi_st_phi204]
+        y_combined_phi204 = [y_st_phi204; y_phi204]
+        y_mL_41 = [fpik_mL_41; fkfpi_mL_41]
+        y_st_mL_41 = [fpik_st_mL_41; fkfpi_st_mL_41]
+        y_combined_mL_41 = [y_st_mL_41; y_mL_41]
+        y_mL_42 = [fpik_mL_42; fkfpi_mL_42]
+        y_st_mL_42 = [fpik_st_mL_42; fkfpi_st_mL_42]
+        y_combined_mL_42 = [y_st_mL_42; y_mL_42]
+
+        L = [length(fpik); length(fkfpi)]
+        L_355 = [length(fpik_355); length(fkfpi_355)]
+        L_3552 = [length(fpik_3552); length(fkfpi_3552)]
+        L_nosym = [length(fpik_nosym); length(fkfpi)]
+        L_nosym355 = [length(fpik_nosym355); length(fkfpi_nosym355)]
+        L_phi204 = [length(fpik_phi204); length(fkfpi_phi204)]
+        L_mL_41 = [length(fpik_mL_41); length(fkfpi_mL_41)]
+        L_mL_42 = [length(fpik_mL_42); length(fkfpi_mL_42)]
+
+
+        cuts_y = [y, y_355, y_3552, y_nosym, y_nosym355, y_phi204, y_mL_42]
+        cuts_y_st = [y_st, y_st_355, y_st_3552, y_st_nosym, y_st_nosym355, y_st_phi204, y_st_mL_42]
+        cuts_y_combined = [y_combined, y_combined_355, y_combined_3552, y_combined_nosym, y_combined_nosym355, y_combined_phi204, y_combined_mL_42]
+        global L_vec = [L, L_355, L_3552, L_nosym, L_nosym355, L_phi204, L_mL_42]
+
+        cuts_x = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_st = [x, x_355, x_3552, x_nosym, x_nosym355, x_phi204, x_mL_42]
+        cuts_x_combined = [x_combined, x_combined_355, x_combined_3552, x_combined_nosym, x_combined_nosym355, x_combined_phi204, x_combined_mL_42]
+        cuts_x_fkfpi = [x_fkfpi, x_fkfpi_355, x_fkfpi_3552, x_fkfpi, x_fkfpi_nosym355, x_fkfpi_phi204, x_fkfpi_mL_42]
+        cuts_x_fkfpi_st = [x_fkfpi, x_fkfpi_355, x_fkfpi_3552, x_fkfpi, x_fkfpi_nosym355, x_fkfpi_phi204, x_fkfpi_mL_42]
+
+        cuts_x = [[cuts_x[i]; cuts_x_fkfpi[i]] for i in 1:length(cuts_x)]
+        cuts_x_st = [[cuts_x_st[i]; cuts_x_fkfpi_st[i]] for i in 1:length(cuts_x_st)]
+        cuts_x_combined = [[cuts_x_combined[i]; cuts_x_combined[i]] for i in 1:length(cuts_x_combined)]
+
+        set_y = [cuts_y, cuts_y_st, cuts_y_combined]
+        set_x = [cuts_x, cuts_x_st, cuts_x_combined]
+        [[uwerr.(set_y[i][j]) for j in 1:length(set_y[i])] for i in 1:length(set_y)]
+        [[uwerr.(set_x[i][j]) for j in 1:length(set_x[i])] for i in 1:length(set_y)]
+
+    ##
+
+    models = [model_fkfpi_ChPT_a2]
+    models_combined = [model_fkfpi_ChPT_a2_combined]
+    models = [models, models, models_combined]
+    models_ph = [model_ph_fkfpi_ChPT_a2]
+    models_ph_combined = [model_ph_fkfpi_ChPT_a2_combined]
+    models_ph = [models_ph, models_ph, models_ph_combined]
+    param = [6]
+    param_combined = [8]
+    param = [param, param, param_combined]
+
+    for k in 1:length(set_y)
+        for i in 1:length(models[k])
+            for j in 1:length(cuts_y)
+                #if (k in [1,2] && j in [5,6] && i in [1,2,3] || k == 3 && j in [5,6] && i in [1,2,3,4,5]) == false
+                    println(i, " ", j, " ", k)
+                    x = set_x[k][j]
+                    y = set_y[k][j]
+                    global L1 = L_vec[j][1]
+                    global L2 = L_vec[j][2]
+                    guess = nothing #[0.32, 0.32, 0.32, 0.0, -0.4]
+                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i])
+                    push!(TIC[k], chi2 - 2 * chi_exp)
+                    push!(pval[k], pval_aux)
+                    if k == 3
+                        push!(t0fpik_ph_vec[k], models_ph[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[1])
+                        push!(t0fkfpi_ph_vec[k], models_ph[k][i]([x_ph;x_ph;x_ph;x_ph],uprm)[2])
+                    else
+                        push!(t0fpik_ph_vec[k], models_ph[k][i]([x_ph;x_ph],uprm)[1])
+                        push!(t0fkfpi_ph_vec[k], models_ph[k][i]([x_ph;x_ph],uprm)[2])
+                    end
+                    if i == 1 && j == 1 uprm_plot_fkfpi[k] = uprm end
+                #end
+            end
+        end
+    end
+    t0fpi_ph_vec_2 = [3/2 .* t0fpik_ph_vec[i] ./ (0.5 .+ t0fkfpi_ph_vec[i]) for i in 1:3]
+    a = [t0fpi_ph_vec_2[i] ./ Fpi * hc / sqrt(8) for i in 1:3]
+    [uwerr.(a[i]) for i in 1:3]
+    
     TIC = [TIC[k] .- minimum.(TIC)[k] for k in 1:length(TIC)]
     W = [exp.(-0.5 * TIC[k]) ./ sum(exp.(-0.5 * TIC[k])) for k in 1:length(TIC)]
     #t0fpik_ph_vec = [[t0fpik_ph_vec[k]; 2/3 * (t0fk_ph_vec .+ 0.5 * t0fpi_ph_vec)[k]] for k in 1:length(t0fpik_ph_vec)]
@@ -845,6 +1020,7 @@ fpik_add = true
     uwerr.(sqrt_t0_ph)
 
     #=
+    W = [exp.(-0.5 * TIC[k]) ./ sum(exp.(-0.5 * TIC[k])) for k in 1:length(TIC)]
     W_fpi = [W[k][end-length(t0fpi_ph_vec[k])+1:end] for k in 1:3]
     pval_fpi = [pval[k][end-length(t0fpi_ph_vec[k])+1:end] for k in 1:3]
     W_fpi = [W_fpi[k] ./ sum(W_fpi[k]) for k in 1:3]
@@ -905,7 +1081,9 @@ fpik_add = true
 
     uwerr(phi2_ph)
     [uwerr.(t0fpik_ph_vec[k]) for k in 1:length(TIC)]
+    [uwerr.(t0fkfpi_ph_vec[k]) for k in 1:length(TIC)]
     [uwerr.(t0fpi_ph_vec[k]) for k in 1:length(TIC)]
+    [uwerr.(t0fpi_ph_vec_2[k]) for k in 1:length(TIC)]
     [uwerr.(t0fk_ph_vec[k]) for k in 1:length(TIC)]
 
     #t0fpik SU3 only combined
@@ -1579,6 +1757,188 @@ fpik_add = true
         subplots_adjust(wspace=0.02)
 
         savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/SU2_fk.pdf")
+    ##
+
+    #fk/fpi only combined
+        uprm_combined = uprm_plot_fkfpi[3]
+        uprm_st = uprm_plot_fkfpi[2]
+        uprm = uprm_plot_fkfpi[1]
+
+        fig = figure("fkfpi")
+        rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+        rcParams["font.size"] = 15
+
+        color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
+
+        subplot(211)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fpik_st_sh[ens_340]), err.(t0fpik_st_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", mfc="none", label=L"$\beta=3.40$", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fpik_st_sh[ens_346]), err.(t0fpik_st_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", mfc="none", label=L"$\beta=3.46$", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fpik_st_sh[ens_355]), err.(t0fpik_st_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", mfc="none", label=L"$\beta=3.55$", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fpik_st_sh[ens_370]), err.(t0fpik_st_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", mfc="none", label=L"$\beta=3.70$", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fpik_st_sh[ens_385]), err.(t0fpik_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fpik_sh[ens_340]), err.(t0fpik_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fpik_sh[ens_346]), err.(t0fpik_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fpik_sh[ens_355]), err.(t0fpik_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fpik_sh[ens_370]), err.(t0fpik_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fpik_sh[ens_385]), err.(t0fpik_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", label=L"$\beta=3.85$", color="red")
+        xlabel(L"$\phi_2$")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            list = [1,2,3,4,7]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_fpik(x_plot,uprm_combined[list]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            #fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_fpik(x_plot,uprm_combined) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        i = 1
+        for ind in ind_sym
+            list = [1,2,3,4,5]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_fpik(x_plot,uprm_combined[list]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        errorbar(value(phi2_ph), value(t0fpik_ph_vec[3][1]), err(t0fpik_ph_vec[3][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+        ax = gca()
+        ax[:set_ylim]([0.283, 0.325])
+
+        subplot(212)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\frac{f_K}{f_{\pi}}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fkfpi_st_sh[ens_340]), err.(t0fkfpi_st_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", mfc="none", label=L"$\beta=3.40$", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fkfpi_st_sh[ens_346]), err.(t0fkfpi_st_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", mfc="none", label=L"$\beta=3.46$", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fkfpi_st_sh[ens_355]), err.(t0fkfpi_st_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", mfc="none", label=L"$\beta=3.55$", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fkfpi_st_sh[ens_370]), err.(t0fkfpi_st_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", mfc="none", label=L"$\beta=3.70$", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fkfpi_st_sh[ens_385]), err.(t0fkfpi_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fkfpi_sh[ens_340]), err.(t0fkfpi_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fkfpi_sh[ens_346]), err.(t0fkfpi_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fkfpi_sh[ens_355]), err.(t0fkfpi_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fkfpi_sh[ens_370]), err.(t0fkfpi_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fkfpi_sh[ens_385]), err.(t0fkfpi_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", label=L"$\beta=3.85$", color="red")
+        xlabel(L"$\phi_2$")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            list = [1,2,3,4,5,8]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_fkfpi(x_plot,uprm_combined[list]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            #fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_fkfpi(x_plot,uprm_combined) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        i = 1
+        for ind in ind_sym
+            list = [1,2,3,4,5,6]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_fkfpi(x_plot,uprm_combined[list]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        errorbar(value(phi2_ph), value(t0fkfpi_ph_vec[3][1]), err(t0fkfpi_ph_vec[3][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+        ax = gca()
+        
+        tight_layout()
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/fkfpi_comb.pdf")
+
+    ##
+
+    #fk/fpi only Wilson
+        uprm_combined = uprm_plot_fkfpi[3]
+        uprm_st = uprm_plot_fkfpi[2]
+        uprm = uprm_plot_fkfpi[1]
+
+        fig = figure("fkfpi")
+        rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+        rcParams["font.size"] = 15
+
+        color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
+
+        subplot(211)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fpik_st_sh[ens_340]), err.(t0fpik_st_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", mfc="none", label=L"$\beta=3.40$", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fpik_st_sh[ens_346]), err.(t0fpik_st_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", mfc="none", label=L"$\beta=3.46$", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fpik_st_sh[ens_355]), err.(t0fpik_st_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", mfc="none", label=L"$\beta=3.55$", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fpik_st_sh[ens_370]), err.(t0fpik_st_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", mfc="none", label=L"$\beta=3.70$", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fpik_st_sh[ens_385]), err.(t0fpik_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
+        xlabel(L"$\phi_2$")
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_fpik(x_plot,uprm_st) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        i = 1
+        for ind in ind_sym
+            list = [1,2,3,4,5]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_fpik(x_plot,uprm_st[list]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        errorbar(value(phi2_ph), value(t0fpik_ph_vec[2][1]), err(t0fpik_ph_vec[2][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+        ax = gca()
+        ax[:set_ylim]([0.283, 0.325])
+
+        subplot(212)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\frac{f_K}{f_{\pi}}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fkfpi_st_sh[ens_340]), err.(t0fkfpi_st_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", mfc="none", label=L"$\beta=3.40$", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fkfpi_st_sh[ens_346]), err.(t0fkfpi_st_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", mfc="none", label=L"$\beta=3.46$", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fkfpi_st_sh[ens_355]), err.(t0fkfpi_st_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", mfc="none", label=L"$\beta=3.55$", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fkfpi_st_sh[ens_370]), err.(t0fkfpi_st_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", mfc="none", label=L"$\beta=3.70$", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fkfpi_st_sh[ens_385]), err.(t0fkfpi_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
+        xlabel(L"$\phi_2$")
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_fkfpi(x_plot,uprm_st) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        i = 1
+        for ind in ind_sym
+            list = [1,2,3,4,5,6]
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_fkfpi(x_plot,uprm_st[list]) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        errorbar(value(phi2_ph), value(t0fkfpi_ph_vec[2][1]), err(t0fkfpi_ph_vec[2][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+        ax = gca()
+        
+        tight_layout()
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/fkfpi_Wil.pdf")
+
     ##
 
     uprm_combined = uprm_plot[3]
