@@ -13,6 +13,34 @@ function fit_defs(f::Function,x,W) ## uncorrelated fit
 	return chisq
 end
 
+function fit_alg_tol(f::Function, x::Union{Vector{Int64}, Vector{Float64}, Matrix{Float64}}, y::Vector{uwreal}, 
+    n::Int64, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)
+    
+    isnothing(wpm) ? uwerr.(y) : [uwerr(y[i], wpm) for i in 1:length(y)]
+    W = 1 ./ err.(y) .^ 2
+    chisq = fit_defs(f,x,W)
+    #lb = [-Inf for i in 1:n]
+	#ub = [+Inf for i in 1:n]
+    if guess == nothing
+        p0 = [.5 for i in 1:n]
+    else
+        p0 = [guess; [1. for i in 1:n-length(guess)]]
+        #lb[1] = .9 * guess  
+        #ub[1] = 1.1 * guess
+    end
+    #sol = optimize(min_fun, p0, Optim.Options(g_tol=1e-8, iterations=1000000)) 
+
+    fit = curve_fit(f,x,value.(y),W,p0,g_tol=1e-12)
+    if fit.converged == false
+        error("fit not converged")
+    end
+    chi2 = sum(fit.resid .^ 2)
+    isnothing(wpm) ? (up,chi_exp) = fit_error(chisq,coef(fit),y) : (up,chi_exp) = fit_error(chisq,coef(fit),y,wpm)
+    isnothing(wpm) ? pval = pvalue(chisq,chi2,value.(up),y) : pval = pvalue(chisq,chi2,value.(up),y,wpm=wpm)
+    return up, chi2, chi_exp, pval
+end
+
 function fit_alg(f::Function, x::Union{Vector{Int64}, Vector{Float64}, Matrix{Float64}}, y::Vector{uwreal}, 
     n::Int64, guess::Union{Float64, Vector{Float64}, Nothing}=nothing; 
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing}=nothing)

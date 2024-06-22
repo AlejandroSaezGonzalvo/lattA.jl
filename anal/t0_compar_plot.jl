@@ -99,3 +99,286 @@ ax = gca()
 ax[:set_xlim]([0.14, 0.154])
 tight_layout()
 savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_compar_FLAG.pdf")
+
+#===============================================================================================================#
+
+using juobs, BDIO, ADerrors
+err = ADerrors.err
+
+## read
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_1_0.0035_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_1_0035_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_1_0035_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_1_0035_21_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_0_0_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_0_0_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_0_0_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_0_0_21_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_10_0_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_10_0_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_10_0_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_10_0_21_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_10_0.0035_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_10_0035_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_10_0035_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_10_0035_21_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_10_10_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_10_10_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_10_10_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_10_10_21_c = read_uwreal(fb)
+
+
+
+
+
+
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_1_0.0035_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_1_0035_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_1_0035_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_1_0035_16_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_0_0_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_0_0_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_0_0_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_0_0_16_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_10_0_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_10_0_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_10_0_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_10_0_16_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_10_0.0035_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_10_0035_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_10_0035_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_10_0035_16_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_allens_10_10_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_all_10_10_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_all_10_10_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_all_10_10_16_c = read_uwreal(fb)
+
+
+
+
+
+
+
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_1_0.0035_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_1_0035_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_1_0035_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_1_0035_21_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_0_0_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_0_0_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_0_0_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_0_0_21_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_10_0_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_10_0_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_10_0_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_10_0_21_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_10_0.0035_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_10_0035_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_10_0035_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_10_0035_21_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_10_10_FLAG21.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_10_10_21_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_10_10_21_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_10_10_21_c = read_uwreal(fb)
+
+
+
+
+
+
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_1_0.0035_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_1_0035_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_1_0035_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_1_0035_16_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_0_0_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_0_0_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_0_0_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_0_0_16_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_10_0_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_10_0_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_10_0_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_10_0_16_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_10_0.0035_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_10_0035_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_10_0035_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_10_0035_16_c = read_uwreal(fb)
+
+        fb = BDIO_open("/home/asaez/cls_ens/results/t0_variations/t0_oldens_10_10_FLAG16.bdio", "r") 
+        BDIO_seek!(fb) 
+        t0_old_10_10_16_wtm = read_uwreal(fb)
+        BDIO_seek!(fb, 2)
+        t0_old_10_10_16_wil = read_uwreal(fb)
+        BDIO_seek!(fb, 2)  
+        t0_old_10_10_16_c = read_uwreal(fb)
+##
+
+t0 = [t0_all_1_0035_21_wtm, t0_all_1_0035_21_wil, t0_all_1_0035_21_c,
+      t0_all_0_0_21_wtm, t0_all_0_0_21_wil, t0_all_0_0_21_c,
+      t0_all_10_0_21_wtm, t0_all_10_0_21_wil, t0_all_10_0_21_c,
+      t0_all_10_0035_21_wtm, t0_all_10_0035_21_wil, t0_all_10_0035_21_c,
+      t0_all_10_10_21_wtm, t0_all_10_10_21_wil, t0_all_10_10_21_c,
+
+      t0_all_1_0035_16_wtm, t0_all_1_0035_16_wil, t0_all_1_0035_16_c,
+      t0_all_0_0_16_wtm, t0_all_0_0_16_wil, t0_all_0_0_16_c,
+      t0_all_10_0_16_wtm, t0_all_10_0_16_wil, t0_all_10_0_16_c,
+      t0_all_10_0035_16_wtm, t0_all_10_0035_16_wil, t0_all_10_0035_16_c,
+      t0_all_10_10_16_wtm, t0_all_10_10_16_wil, t0_all_10_10_16_c,
+
+      t0_old_1_0035_21_wtm, t0_old_1_0035_21_wil, t0_old_1_0035_21_c,
+      t0_old_0_0_21_wtm, t0_old_0_0_21_wil, t0_old_0_0_21_c,
+      t0_old_10_0_21_wtm, t0_old_10_0_21_wil, t0_old_10_0_21_c,
+      t0_old_10_0035_21_wtm, t0_old_10_0035_21_wil, t0_old_10_0035_21_c,
+      t0_old_10_10_21_wtm, t0_old_10_10_21_wil, t0_old_10_10_21_c,
+
+      t0_old_1_0035_16_wtm, t0_old_1_0035_16_wil, t0_old_1_0035_16_c,
+      t0_old_0_0_16_wtm, t0_old_0_0_16_wil, t0_old_0_0_16_c,
+      t0_old_10_0_16_wtm, t0_old_10_0_16_wil, t0_old_10_0_16_c,
+      t0_old_10_0035_16_wtm, t0_old_10_0035_16_wil, t0_old_10_0035_16_c,
+      t0_old_10_10_16_wtm, t0_old_10_10_16_wil, t0_old_10_10_16_c
+]
+
+sqrt_t0 = sqrt.(t0); uwerr.(sqrt_t0)
+sqrt_t0_wtm = sqrt_t0[1:3:end]
+sqrt_t0_wil = sqrt_t0[2:3:end]
+sqrt_t0_c = sqrt_t0[3:3:end]
+
+BKS = uwreal([0.1467,0.00158],1); uwerr(BKS)
+Bali = uwreal([0.4098 / sqrt(8), 0.0025 / sqrt(8)],1); uwerr(Bali)
+FLAG21 = uwreal([0.14464,0.00087],1); uwerr(FLAG21)
+Strass = uwreal([0.1441,0.0013],1); uwerr(Strass)
+UK15 = uwreal([0.1511,0.0022],1); uwerr(UK15)
+UK14 = uwreal([0.1439,0.0008],1); uwerr(UK14)
+BMW12 = uwreal([0.1465,0.0025],1); uwerr(BMW12)
+
+fig = figure("FLAG",figsize=(5,5))
+rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+rcParams["font.size"] = 10
+
+errorbar(value.([BMW12]), 1, [0], err.([BMW12]), fmt="s", color="blue")
+errorbar(value.([UK14]), 2, [0], err.([UK14]), fmt="s", color="blue")
+errorbar(value.([UK15]), 3, [0], err.([UK15]), fmt="s", color="blue")
+errorbar(value.([BKS]), 4, [0], err.([BKS]), fmt="s", color="blue")
+errorbar(value.([FLAG21]), 5, [0], err.([FLAG21]), fmt="s", color="black")
+errorbar(value.([Bali]), 6, [0], err.([Bali]), fmt="s", color="blue")
+errorbar(value.([Strass]), 7, [0], err.([Strass]), fmt="s", color="blue")
+for i in 1:length(sqrt_t0_c)
+        errorbar(value(sqrt_t0_c[i]), 7+i, 0, err(sqrt_t0_c[i]), fmt="s", color="deeppink")
+end
+v = [i for i in 1:1:28]
+fill_betweenx(v, value(FLAG21)-err(FLAG21), value(FLAG21)+err(FLAG21), color="lightsteelblue", alpha=0.40)
+
+yticks(collect(1:7+length(sqrt_t0_c)), 
+       [L"BMW '12 $[m_{\Omega}]$",
+        L"RBC/UKQCD '14 $[m_{\Omega}]$",
+        L"QCDSF/UKQCD '15 $[m_O,\;M_V]$",
+        L"Bruno et al. '16 $[f_{\pi K}]$",
+        "FLAG '21", 
+        L"Bali et al. '22 $[m_{\Xi}]$",
+        L"Strassberger '23 $[f_{\pi K}]$",
+
+        L"all, FLAG21, $c_{\beta}=1,\;c_{\phi_2}=0.0035$",
+        L"all, FLAG21, $c_{\beta}=c_{\phi_2}=0$",
+        L"all, FLAG21, $c_{\beta}=10,\;c_{\phi_2}=0$",
+        L"all, FLAG21, $c_{\beta}=10,\;c_{\phi_2}=0.0035$",
+        L"all, FLAG21, $c_{\beta}=10,\;c_{\phi_2}=10$",
+
+        L"all, FLAG16, $c_{\beta}=1,\;c_{\phi_2}=0.0035$",
+        L"all, FLAG16, $c_{\beta}=c_{\phi_2}=0$",
+        L"all, FLAG16, $c_{\beta}=10,\;c_{\phi_2}=0$",
+        L"all, FLAG16, $c_{\beta}=10,\;c_{\phi_2}=0.0035$",
+        L"all, FLAG16, $c_{\beta}=10,\;c_{\phi_2}=10$",
+
+        L"old, FLAG21, $c_{\beta}=1,\;c_{\phi_2}=0.0035$",
+        L"old, FLAG21, $c_{\beta}=c_{\phi_2}=0$",
+        L"old, FLAG21, $c_{\beta}=10,\;c_{\phi_2}=0$",
+        L"old, FLAG21, $c_{\beta}=10,\;c_{\phi_2}=0.0035$",
+        L"old, FLAG21, $c_{\beta}=10,\;c_{\phi_2}=10$",
+
+        L"old, FLAG16, $c_{\beta}=1,\;c_{\phi_2}=0.0035$",
+        L"old, FLAG16, $c_{\beta}=c_{\phi_2}=0$",
+        L"old, FLAG16, $c_{\beta}=10,\;c_{\phi_2}=0$",
+        L"old, FLAG16, $c_{\beta}=10,\;c_{\phi_2}=0.0035$",
+        L"old, FLAG16, $c_{\beta}=10,\;c_{\phi_2}=10$"
+        ])
+
+xlabel(L"$\sqrt{t_0}\;\rm{[fm]}$")
+ax = gca()
+ax[:set_xlim]([0.14, 0.154])
+plt.title("Combined")
+tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_variations_comb.pdf")
