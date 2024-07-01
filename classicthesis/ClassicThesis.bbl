@@ -5017,6 +5017,27 @@
     \field{year}{1988}
   \endentry
 
+  \entry{Gupta:1999du}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=LM}{%
+         family={Luscher},
+         familyi={L\bibinitperiod},
+         given={Martin},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LM1}
+    \strng{fullhash}{LM1}
+    \field{labelnamesource}{author}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{{Probing the standard model of particle interactions.
+  Proceedings, Summer School in Theoretical Physics, NATO Advanced Study
+  Institute, 68th session, Les Houches, France, July 28-September 5, 1997. Pt.
+  1, 2}}
+    \field{year}{1999}
+  \endentry
+
   \entry{Luscher:2010ae}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=LM}{%
@@ -6632,6 +6653,58 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2022}
+  \endentry
+
+  \entry{Symanzik:1983dc}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SK}{%
+         family={Symanzik},
+         familyi={S\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SK1}
+    \strng{fullhash}{SK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1016/0550-3213(83)90468-6
+    \endverb
+    \field{pages}{187\bibrangedash 204}
+    \field{title}{{Continuum Limit and Improved Action in Lattice Theories. 1.
+  Principles and $\varphi^4$ Theory}}
+    \field{volume}{226}
+    \field{journaltitle}{Nucl. Phys. B}
+    \field{year}{1983}
+  \endentry
+
+  \entry{Symanzik:1983gh}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SK}{%
+         family={Symanzik},
+         familyi={S\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SK1}
+    \strng{fullhash}{SK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1016/0550-3213(83)90469-8
+    \endverb
+    \field{pages}{205\bibrangedash 227}
+    \field{title}{{Continuum Limit and Improved Action in Lattice Theories. 2.
+  O(N) Nonlinear Sigma Model in Perturbation Theory}}
+    \field{volume}{226}
+    \field{journaltitle}{Nucl. Phys. B}
+    \field{year}{1983}
   \endentry
 
   \entry{Taniguchi:1998pf}{article}{}

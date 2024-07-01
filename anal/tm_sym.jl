@@ -12,11 +12,11 @@ ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
-const md_meas = false
+const md_meas = true
 
 #======== read correlators ===========#
 
-pp_sym, ap_sym, corrw, dSdm = read_ens_tm_sym(path, ens, legacy=true)
+pp_sym, ap_sym, corrw, dSdm, w = read_ens_tm_sym(path, ens, legacy=true)
 
 #======== compute observables ========#
 
@@ -70,6 +70,14 @@ end
 fk = fpi
 mk = mpi
 
+#======== compute t0/a² ===============#
+
+if ens.id in ["H102r001", "H102r002"]
+    t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm)
+else
+    t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)
+end
+
 #======== save BDIO ===================#
 
 obs = [mpi, m12, fpi]
@@ -82,6 +90,9 @@ end
 
 #============ get md ==================#
 
+phi2 = 8 * t0 * mpi[1] ^ 2
+phi4 = 8 * t0 * (mpi[1] ^ 2 + 0.5 * mpi[1] ^ 2)
+obs = [t0, phi2, phi4, sqrt(8 * t0) * m12[1], sqrt(8 * t0) * m12[1], sqrt(8 * t0) * fpi[1], sqrt(8 * t0) * fpi[1], sqrt(8 * t0) * 2/3 * (fpi[1] + 0.5 * fpi[1])]
 if md_meas == true
     obs_md = [Array{uwreal,1}() for a in obs]
     for i in 1:length(obs)
@@ -92,13 +103,12 @@ if md_meas == true
                 s1 += md_s[i][1]
                 s2 += md_s[i][2]
             end
-            push!(obs_md[i], 2*s1 + s2)
+            push!(obs_md[i], s2)
         end
     end
 
-
     for j in 1:length(obs_st)
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_st[j],"_md_tm.bdio"), "w")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_", obs_st[j],"_md_tm.bdio"), "w")
         for i in 1:length(obs[j]) write_uwreal(obs_md[j][i], fb, i) end
         BDIO_close!(fb)
     end

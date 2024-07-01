@@ -87,9 +87,13 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; info=false)
     path = joinpath(path, ens.id)
     path_sl = joinpath.(path, "sloppy")
     path_c = joinpath.(path, "correc")
-    path_rw = joinpath.(path, "rwf")
+    path_rw = joinpath(path, ens.id, "rwf_def")
     path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
-
+    if length(path_rw) == 0
+        path_rw = joinpath(path, ens.id, "rwf")
+        global path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+    end
+    
     pp_dat = read_mesons_multichunks(path_sl, ens.id, "G5", "G5")
     ap_dat = read_mesons_multichunks(path_sl, ens.id, "G5", "G0G5")
     pp_dat_c = read_mesons_correction_multichunks(path_c, ens.id, "G5", "G5")
@@ -146,8 +150,12 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; info=false)
 end
 
 function get_corr_TSM(path::String, ens::EnsInfo, g1::String, g2::String; rw=false, info=false, legacy=false, fs=false)
-    path_rw = joinpath(path, ens.id, "rwf")
+    path_rw = joinpath(path, ens.id, "rwf_def")
     path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+    if length(path_rw) == 0
+        path_rw = joinpath(path, ens.id, "rwf")
+        global path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+    end
     path_sl = joinpath(path, ens.id, "sloppy")
     path_sl = filter(x->occursin(".mesons.dat", x), readdir(path_sl, join=true))
     path_c = joinpath(path, ens.id, "correc")
@@ -170,15 +178,20 @@ function get_corr_TSM(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
 end
 
 function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=false, info=false, legacy=false, fs=false)
-    path_rw = joinpath(path, ens.id, "rwf")
+    path_rw = joinpath(path, ens.id, "rwf_def")
     path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+    if length(path_rw) == 0
+        path_rw = joinpath(path, ens.id, "rwf")
+        global path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+    end
     path = joinpath(path, ens.id, "wil")
     path = filter(x->occursin(".mesons.dat", x), readdir(path, join=true))
 
     if ens.id == "D200"
-        rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
-        rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
-        rwf = [hcat(rwf_1[1],rwf_2[1])]
+        #rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
+        #rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
+        #rwf = [hcat(rwf_1[1],rwf_2[1])]
+        rwf = read_ms1.(path_rw, v=ens.vrw)
         dat = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
         dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
         concat_data!(dat,dat_2)
@@ -201,8 +214,12 @@ function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
 end
 
 function get_corr_tm(path::String, ens::EnsInfo, g1::String, g2::String; rw=false, info=false, legacy=false, fs=false)
-    path_rw = joinpath(path, ens.id, "rwf")
+    path_rw = joinpath(path, ens.id, "rwf_def")
     path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+    if length(path_rw) == 0
+        path_rw = joinpath(path, ens.id, "rwf")
+        global path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+    end
     path = joinpath(path, ens.id, "tm")
     path = filter(x->occursin(".mesons.dat", x), readdir(path, join=true))
 
@@ -212,9 +229,10 @@ function get_corr_tm(path::String, ens::EnsInfo, g1::String, g2::String; rw=fals
         dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
         concat_data!(dat,dat_2)
     elseif ens.id == "D200"
-        rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
-        rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
-        rwf = [hcat(rwf_2[1],rwf_1[1])]
+        #rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
+        #rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
+        #rwf = [hcat(rwf_2[1],rwf_1[1])]
+        rwf = read_ms1.(path_rw, v=ens.vrw)
         dat = read_mesons([path[1]], g1, g2, legacy=legacy, id=ens.id)
         dat_2 = read_mesons([path[2]], g1, g2, legacy=legacy, id=ens.id)
         dat_3 = read_mesons([path[3]], g1, g2, legacy=legacy, id=ens.id)
@@ -306,7 +324,7 @@ function read_ens_tm_sym(path::String, ens::EnsInfo; legacy=false)
 
     corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
 
-    return pp_sym, ap_sym, corrw, dSdm
+    return pp_sym, ap_sym, corrw, dSdm, w
 end
 
 function read_ens_tm(path::String, ens::EnsInfo; legacy=false)
@@ -319,7 +337,7 @@ function read_ens_tm(path::String, ens::EnsInfo; legacy=false)
 
     corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
 
-    return pp_sym, ap_sym, corrw, dSdm
+    return pp_sym, ap_sym, corrw, dSdm, w
 end
 
 function read_ens_csv(ens::EnsInfo)
@@ -367,6 +385,8 @@ function read_ens_csv(ens::EnsInfo)
         i+=3
         j+=9
     end
+
+    #dSdm = get_dSdm(path, ens)
 
     return pp_sym, ap_sym
 end

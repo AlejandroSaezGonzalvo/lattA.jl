@@ -13,14 +13,14 @@ ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
-const md_meas = false
+const md_meas = true
 
 #======== read correlators ===========#
 
 if ens.id in ["H102r001", "H102r002", "H105", "H105r005", "N203", "N200"]
     pp_sym, ap_sym = read_ens_csv(ens)
 else
-    pp_sym, ap_sym, corrw, dSdm = read_ens_tm(path, ens, legacy=true)
+    pp_sym, ap_sym, corrw, dSdm, w = read_ens_tm(path, ens, legacy=true)
 end
 
 #======== compute observables ========#
@@ -77,6 +77,14 @@ for i in 4:15:length(pp_sym)
     end
 end
 
+#======== compute t0/a² ===============#
+
+if ens.id in ["H102r001", "H102r002"]
+    t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm)
+else
+    t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)
+end
+
 #======== save BDIO ===================#
 
 obs = [mpi, mk, m12, m13, fpi, fk]
@@ -89,6 +97,9 @@ end
 
 #============ get md ==================#
 
+phi2 = 8 * t0 * mpi[1] ^ 2
+phi4 = 8 * t0 * (mk[1] ^ 2 + 0.5 * mpi[1] ^ 2)
+obs = [t0, phi2, phi4, sqrt(8 * t0) * m12[1], sqrt(8 * t0) * m13[1], sqrt(8 * t0) * fpi[1], sqrt(8 * t0) * fk[1], sqrt(8 * t0) * 2/3 * (fk[1] + 0.5 * fpi[1])]
 if md_meas == true
     obs_md = [Array{uwreal,1}() for a in obs]
     for i in 1:length(obs)
@@ -99,13 +110,12 @@ if md_meas == true
                 s1 += md_s[i][1]
                 s2 += md_s[i][2]
             end
-            push!(obs_md[i], 2*s1 + s2)
+            push!(obs_md[i], s2)
         end
     end
 
-
     for j in 1:length(obs_st)
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_", obs_st[j],"_md_tm.bdio"), "w")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_", obs_st[j],"_md_tm.bdio"), "w")
         for i in 1:length(obs[j]) write_uwreal(obs_md[j][i], fb, i) end
         BDIO_close!(fb)
     end

@@ -12,7 +12,7 @@ ens = EnsInfo(id, ens_db[id])
 
 path = "/home/asaez/cls_ens/data"
 
-const md_meas = false
+const md_meas = true
 
 #tm = [[1], collect(div(ens.T,3)-4:div(ens.T,3)+4)]
 #tM = [[11], collect(div(2*ens.T,3)-4:div(2*ens.T,3)+4)]
@@ -64,12 +64,13 @@ fk = fpi
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 
-ZA = beta_ZA[ens.beta]
-bAtil = 1 + 0.0472 * (6 / ens.beta)
-fpi = ZA * (1 + bAtil * m12) * fpi
-fk = ZA * (1 + bAtil * m13) * fk
+#ZA = beta_ZA[ens.beta]
+#bAtil = 1 + 0.0472 * (6 / ens.beta)
+#fpi_un, fk_un = deepcopy(fpi), deepcopy(fk)
+#fpi = ZA * (1 + bAtil * m12) * fpi
+#fk = ZA * (1 + bAtil * m13) * fk
 
-m12_I = (1 + beta_bap[ens.beta] * m12) * m12
+#m12_I = (1 + beta_bap[ens.beta] * m12) * m12
 
 #======== compute t0/a² ===============#
 
@@ -103,6 +104,9 @@ fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/dm_", ens.id, "_phi
 write_uwreal(dm, fb, 1)
 BDIO_close!(fb)
 
+phi2 = 8 * t0 * mpi ^ 2
+phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
+obs = [t0, phi2, phi4, sqrt(8 * t0) * m12, sqrt(8 * t0) * m13, sqrt(8 * t0) * fpi, sqrt(8 * t0) * fk, sqrt(8 * t0) * 2/3 * (fk + 0.5 * fpi)]
 if md_meas == true
     obs_md = Array{uwreal,1}()
     for a in [phi4; obs]
@@ -117,26 +121,11 @@ if md_meas == true
         end
         s1 += md_s[end][1]
         s2 += md_s[end][2]
-        push!(obs_md, 2*s1 + s2 + v1 + v2)
-    end
-
-    ## now compute only strange derivatives wrt phi4 to interpolate as in Ben Strassberger's Thesis
-    phi2 = 8 * t0 * mpi ^ 2
-    t0fpik = sqrt(8 * t0) * 2/3 * (fk + 0.5 * fpi)
-    for a in [phi4; phi2; t0fpik]
-        md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
-        md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
-        v2 = s2 = 0
-        for i in 1:length(md_v)
-            v2 += md_v[i][2]
-            s2 += md_s[i][2]
-        end
-        s2 += md_s[end][2]
+        #push!(obs_md, 2*s1 + s2 + v1 + v2)
         push!(obs_md, s2 + v2)
     end
-    obs_md[end-1] = obs_md[end-1] / obs_md[end-2]; obs_md[end] = obs_md[end] / obs_md[end-2]
 
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/", ens.id, "_md_wil.bdio"), "w")
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_md_wil.bdio"), "w")
     for i in 1:length(obs_md) write_uwreal(obs_md[i], fb, i) end
     BDIO_close!(fb)
 end

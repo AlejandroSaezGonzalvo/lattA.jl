@@ -414,21 +414,22 @@ In order to compute meson observables we will use meson interpolators, which are
 \begin{equation}
 {O}_A^{ij}(x)=\bar{\psi}^i(x)\Gamma_A\psi^j(x),
 \end{equation}	
-with $\Gamma_A$ a Gamma matrix or product of matrices. This way, a meson two-point function reads
+with $\Gamma_A$ a Gamma matrix or product of matrices. Thus, a meson two-point function reads
 \begin{align}
 \label{ch_foundation:eq:path_int}
 \left<{O}_A^{ij}(x_1){O}_B^{ji}(x_2)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\notag\\
-&\times\left<\bar{\psi}^i(x_1)\Gamma_A\psi^j(x_1)\psi^i(x_2)\Gamma_B\bar{\psi}^j(x_2)\right>_{\textrm F}  \\
+&\times\left<\bar{\psi}^i(x_1)\Gamma_A\psi^j(x_1)\bar{psi}^j(x_2)\Gamma_B\psi^i(x_2)\right>_{\textrm F}  \\
 &=-\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}\notag\\
 &\times{\textrm{tr}}\left(\Gamma_AD_i^{-1}(x_1,x_2)\Gamma_BD_j^{-1}(x_2,x_1)\right),
 \end{align}
-where the trace is over spin indices and $D_i$ the massive Dirac operator for flavor $i$. In order to perform this integral numerically, using the connection with statistical mechanics, a finite set of $N_{\textrm{cnfg}}$ gauge configurations is generated with Boltzmann distribution $e^{-S_{\textrm G}[U]-S_{\textrm{eff}}[U]}$ following a Markov process (see Appendices~\ref{appex_simulations},~\ref{appex_errors}). Then, measurements of the quantity
+where the trace is over spin indices and $D_i$ is the massive Dirac operator for flavor $i$. The integral over the fields of eq.~(\ref{ch_foundation:eq:path_int}) is carried out by a Markov chain Monte Carlo process with a Boltzmann weight 
+$e^{-S_G[U]-S_{\textrm{eff}}[U]}$ (see Appendices~\ref{appex_simulations},~\ref{appex_errors}). The outcome is an ensemble  of $N_{\textrm{cnfg}}$ gauge field configurations. Subsequently, the desired quantity
 \begin{equation}
-P=-{\textrm{tr}}\left(\Gamma D_i^{-1}(x_1,x_2)\Gamma D_j^{-1}(x_2,x_1)\right),
+P=-{\textrm{tr}}\left(\Gamma_A D_i^{-1}(x_1,x_2)\Gamma_B D_j^{-1}(x_2,x_1)\right),
 \end{equation}
-are taken in each of these configurations, and the expectation value is computed as
+is measured in the gauge configurations of the considered ensemble, and the expectation value is computed as
 \begin{equation}
-\left<P\right>=\frac{1}{N_{\textrm{cnfg}}}\sum_{i}^{N_{\textrm{cnfg}}}P_i+\mathcal{O}\left(\frac{1}{\sqrt{N_{\textrm{cnfg}}}}\right).
+\left<P\right>=\frac{1}{N_{\textrm{cnfg}}}\sum_{i=1}^{N_{\textrm{cnfg}}}P_i+\mathcal{O}\left(\frac{1}{\sqrt{N_{\textrm{cnfg}}}}\right).
 \end{equation}
 
 
@@ -443,18 +444,19 @@ For the discussion in this subsection we follow~\citep{Hernandez:2009zz}. The la
 \label{ch_foundation:eq:ma0}
 m_{\textrm{phys}}a\rightarrow0,
 \end{equation}
-since this means that $m_{\textrm{phys}}$ remains finite in this limit. 
+since $m_{\textrm{phys}}$ remains finite in this limit. 
 
-Physical quantities are dependent on the couplings of the theory, $m_{\textrm{phys}}(g_0)$, and accordingly change with them. In turn, one can study how the couplings of the theory change on the lattice as one approaches the continuum limit by decreasing $a$. To do so and for simplicity, we assume a single coupling $g_0$, and write the most general local effective action at lattice spacing $a_1$
+Physical quantities depend on the couplings of the theory, $m_{\textrm{phys}}(g_0)$. In turn, one can study how the couplings of the theory change as one approaches the continuum limit by decreasing $a$. To do so and for simplicity, we assume a single coupling $g_0$, and write the most general local effective action at some lattice spacing $a_1$
 \begin{equation}
+\label{ch_foundations:eq:Sa}
 S(a_1)=g_0(a_1)\sum_i{O}_i,
 \end{equation}
-where ${O}_i$ are all possible local operators respecting the lattice symmetries. At a finer lattice spacing $a_2<a_1$ all the short-range extra degrees of freedom can be integrated out and reabsorbed into a redefinition of the coupling, obtaining an effective action at the original scale $a_1$, $S^{(2)}(a_1)$, that has the same generic form but with different couplings
+where ${O}_i$ are all possible local operators respecting the lattice symmetries. At a finer lattice spacing $a_2<a_1$ all the short-range extra degrees of freedom can be integrated out and reabsorbed into a redefinition of the coupling, obtaining an effective action at the original scale $a_1$, $S^{(2)}(a_1)$, that has the same generic form as in eq.~(\ref{ch_foundations:eq:Sa}) but with different couplings
 \begin{align}
 S^{(2)}(a_1)&=g_0^{(2)}(a_1)\sum_iO_i, \\
 g_0^{(2)}(a_1)&=R(g_0(a_1)).
 \end{align}
-$R$ here stands for the renormalization group (RG) transformation that defines the change in the couplings when varying the lattice spacing. It can be observed then that renormalizability corresponds to fixed points $g_0^*$ of the RG transformation
+$R$ here stands for the renormalization group (RG) transformation that defines the change in the coupling when varying the lattice spacing. It can be observed then that renormalizability corresponds to a fixed point $g_0^*$ of the RG transformation
 \begin{equation}
 R(g_0^*)=g_0^*.
 \end{equation}
@@ -464,7 +466,7 @@ In the context of $SU(N)$ Yang-Mills theory, perturbation theory shows that at a
 \label{ch_foundation:eq:beta-func}
 a\frac{\partial g_0}{\partial a}\equiv\beta(g_0)=-\beta_0g_0^3-\beta_1g_0^5+...,
 \end{equation}
-where $\beta_{0,1}$ are universal coefficients (do not depend on the renormalization scheme) and positive for $N=3$ colors and $N_f=6$ flavors, as in the case of QCD. This shows that $g_0=0$ is a fixed point of the RG transformations and thus corresponds to the continuum limit. As the fixed point is in the weak coupling regime, this perturbative argument is expected to be valid. Therefore, the continuum limit corresponds to
+where $\beta_{0,1}$ are universal coefficients (i.e. they do not depend on the renormalization scheme) and positive for $N=3$ colors and $N_f\leq6$ flavors, as in the case of QCD. This shows that $g_0=0$ is a fixed point of the RG transformations. Given that the fixed point is in the weak coupling regime, this perturbative argument is expected to be valid. Therefore, the continuum limit corresponds to
 \begin{equation}
 g_0\rightarrow0,
 \end{equation}
@@ -473,7 +475,7 @@ or in terms of the inverse coupling $\beta$
 \beta\rightarrow\infty.
 \end{equation}
 
-In practice, one cannot numerically simulate at infinite inverse coupling $\beta$. Therefore, physical observables are computed at several finite values of $\beta$. This introduces $\mathcal{O}(a^n)$ cutoff effects in the results, with some power $n$. To obtain results in the continuum, one parameterizes these cutoff effects with some function of the lattice spacing and extrapolates to $a\rightarrow 0$. However, this task is far from trivial, and it has been shown that spectral quantities receive logarithmic corrections on the lattice spacing~\citep{Husung:2022kvi} which could significantly complicate this task. To help in the continuum limit extrapolation, one can systematically reduce lattice artifacts, e.g. from $\mathcal{O}(a)$ to $\mathcal{O}(a^2)$ following the Symanzik improvement program. 
+In practice, the continuum limit is approached by simulations with smaller and smaller values of the lattice spacing $a$. At a given value of $a$, a lattice observable deviates from its continuum result due to discretization effects. The Symanzik Effective Field Theory (SYMEFT) allows to organize these cutoff effects into a power-series in the lattice spacing~\citep{Symanzik:1983dc, Symanzik:1983gh, Luscher:1984xn}, which also incorporates logarithmic corrections~\citep{Husung:2022kvi}. To improve the control of the continuum extrapolation of the lattice data, it is desirable to subtract the leading lattice artifacts of $\mathcal{O}(a)$ following the Symanzik improvement program (see Sec.~\ref{ch_foundation:sec:impr}). The systematic uncertainty associated with the remaining higher order discretization effects can be estimated by considering a set of functional forms derived from the SYMEFT and by applying cuts to data with the largest lattice spacing.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -481,29 +483,33 @@ In practice, one cannot numerically simulate at infinite inverse coupling $\beta
 \section{Symanzik improvement program}
 \label{ch_foundation:sec:impr}
 
+In general, the Symanzik improvement program requires the on-shell $\mathcal{O}(a)$ improvement of both the action and the observables.
+More specifically, in the case of mesonic matrix elements, the fermion bilinears need to be improved.
+
 Symanzik improvement requires improving both the action of the theory and the lattice interpolators that enter the different correlators. 
 
 In order to improve a lattice action, one can describe the target continuum theory in terms of an effective action in powers of the lattice spacing $a$
 \begin{equation}
-S_{\textrm{eff}}=\int d^4x\sum_kc_k\mathcal{L}_k(x)a^{k-4}.
+S_{\textrm{eff}}=\int d^4x\sum_{k\geq1}\mathcal{L}_k(x)a^{k}.
 \end{equation}
-Here $\mathcal{L}_0(x)$ is the discretized lattice Lagrangian unimproved, the higher-dimension terms $\mathcal{L}_k$(x) are all possible Lagrangians built from fermion and gluon field operators that preserve the symmetries of the regularized theory, i.e. the lattice theory, with mass dimension $4+k$, and $c_k$ are numerical coefficients.
+Here $\mathcal{L}_0(x)$ is the continuum QCD Lagrangian in eq.~(\ref{ch_foundation:eq:QCD}), which has mass dimension $4$, while the $\mathcal{L}_k$ terms are all possible Lagrangians built from fermion and gluon field operators that preserve the symmetries of the regularized, i.e. lattice, theory, with mass dimension $4+k$.
 
-In the case of Lattice QCD, we saw that in the Wilson gauge action in eq.~(\ref{ch_foundation:eq:YM-latt}) lattice artifacts appear at $\mathcal{O}(a^2)$, and therefore no $\mathcal{O}(a)$ improvement is required. However, these $\mathcal{O}(a^2)$ effects can be further reduced by adding all possible dimension $4+k=6$ operators that preserve the underlying symmetries of the gauge action. These dimension-6 operators are all three possible ways of writing a closed path in a rectangular lattice with 6 gauge links: planar, twisted and L-shaped rectangles. The action then reads
+In the case of Lattice QCD, we saw that in the Wilson gauge action in eq.~(\ref{ch_foundation:eq:YM-latt}) lattice artifacts appear at $\mathcal{O}(a^2)$. The leading $\mathcal{O}(a^2)$ effects can be reduced by adding all possible dimension $6$ operators that preserve the underlying symmetries of the gauge action. These dimension-6 operators are all three possible ways of writing a closed path in a rectangular lattice with 6 gauge links: planar, twisted and L-shaped rectangles. The action then reads
 \begin{equation}
 \label{ch_foundation:eq:SG_impr}
-S_G=\frac{\beta}{3}\sum_{\mu\nu}\left[c_0\sum_p{\textrm{Re}}\left({\textrm{tr}}\left(1-U_{\mu\nu}(p)\right)\right)+\sum_{i=1}^3c_i\sum_r{\textrm{Re}}\left({\textrm{tr}}\left(1-U^{(i)}(r)\right)\right)\right],
+S_G=\frac{\beta}{3}\sum_{\mu\nu}\left[c_0(g_0)\sum_p{\textrm{Re}}\left({\textrm{tr}}\left(1-U_{\mu\nu}(p)\right)\right)+\sum_{i=1}^3c_i(g_0)\sum_r{\textrm{Re}}\left({\textrm{tr}}\left(1-U^{(i)}(r)\right)\right)\right],
 \end{equation}
-with $U^{(i)}$ said dimension-6 operators. Tuning the coefficients $c_i$ properly leads to $\mathcal{O}(a^2)$ improvement. The CLS ensembles that we employ in this thesis (see Sec.~\ref{ch_ma:sec:Sea}) use the so called Lüscher-Weisz gauge action~\citep{Luscher:1984xn,Luscher:1985zq}, with these coefficients computed at tree-level
+with $U^{(i)}$ the above mentioned dimension-6 operators. A non-perturbative determination of the coefficients $c_i$ would lead to $\mathcal{O}(a^2)$ improvement. The CLS ensembles that we employ in this thesis (see Sec.~\ref{ch_ma:sec:Sea}) use the so called Lüscher-Weisz gauge action~\citep{Luscher:1984xn,Luscher:1985zq}, with these coefficients computed at tree-level $(g_0=0)$
 \begin{gather}
 \label{ch_foundation:eq:LW}
 c_0=\frac{5}{3}, \quad
 c_1=-\frac{1}{12}, \quad
-c_2=c_3=0.
+c_2=c_3=0,
 \end{gather}
-Thus, in the Lüscher-Weisz gauge action the only dimension-6 operators that survive are planar rectangles $U^{(1)}$.
+thus leading to tree-level improvement of the action. The only dimension-6 operators that survive are planar rectangles $U^{(1)}$.
 
-We also need to improve the fermion action. Wilson fermions have $\mathcal{O}(a)$ cutoff effects. In order to improve the Wilson fermion action to $\mathcal{O}(a^2)$ we need to look for all possible operators with dimension $4+k=5$ that preserve the lattice symmetries. These are
+Since Wilson fermions receive $\mathcal{O}(a)$ lattice artifacts, in addition to the gauge action the Symanzik improvement must be applied to the fermionic action in order 
+to achieve on-shell $\mathcal{O}(a)$ improvement. This requires identifying all dimension $5$ operators that preserve the symmetris of the lattice regularization. There are 5 such operators, two of which can be eliminated by the use of the equations of motion. This is referred to as on-shell improvement, and the leading $\mathcal{O}(a)$ correction can be spanned by 
 \begin{gather}
 \label{ch_foundation:eq:L1}
 \mathcal{L}_{k=1}^{(1)}=i\bar{\psi}(x)\sigma_{\mu\nu}\hat{F}_{\mu\nu}(x)\psi(x),\\
@@ -524,11 +530,11 @@ D_{\textrm W}+\boldsymbol{m}+c_{\textrm{sw}}a\frac{1}{2}\sum_{\mu<\nu}\sigma_{\m
 \end{equation}
 with $c_{\textrm{sw}}$ the Sheikholeslami-Wohlert coefficient determined non perturbatively in~\citep{Sheikholeslami:1985ij}.
 
-Improving the lattice action ensures improvement of on-shell quantities such as meson masses. However, if one is interested in matrix elements mediated by some current $\mathcal{J}_{\mu}$, it is also necessary to improve the lattice interpolators that enter into the definition of those currents. In analogy with the improvement of the action, a local operator $O$ is expressed in the Symanzik effective theory as
+On-shell improvement of the lattice action ensures improvement of spectral quantities such as meson masses. However, if one is interested in matrix elements mediated by some current $\mathcal{J}_{\mu}$, it is also necessary to improve the lattice definition of those currents. In analogy with the improvement of the action, a local operator $O$ is expressed in the Symanzik effective theory as
 \begin{equation}
-O_{\textrm{eff}}(x)=\sum_kc_kO_k(x)a^k.
+O_{\textrm{eff}}(x)=\sum_kO_k(x)a^k.
 \end{equation}
-Again, $O_k$ are gauge invariant local operators with the right mass dimensions and $c_k$ some parameter properly tuned to cancel $a^k$ cutoff effects. Following this, a generic n-point function reads
+Again, $O_k$ are combinations of gauge invariant local operators with the right mass dimensions. Consequently, a generic n-point function reads
 \begin{equation}
 \label{ch_foundation:eq:Oimpr}
 \left<\Phi\right>=\left<\Phi_0\right>-a\int d^4y\left<\Phi_0\mathcal{L}_1(y)\right>+a\left<\Phi_1\right>+...,
@@ -538,19 +544,23 @@ with
 \left<\Phi_0\right>&=\left<O_0(x_1)...O_0(x_n)\right>, \\
 \left<\Phi_1\right>&=\sum_{i=1}^n\left<O_0(x_1)...O_1(x_i)...O_0(x_n)\right>,
 \end{align}
-and vacuum expectation values taken in the continuum. In Sec~\ref{ch_observables} we discuss the details of operator improvement for the observables of interest.
+and vacuum expectation values taken in terms of the continuum action. In Sec~\ref{ch_observables} we discuss the details of operator improvement for the observables of interest.
 
 The $\mathcal{O}(a)$ improved Wilson tm fermion action is analogous to the Wilson case, with the improved Dirac operator given by 
 \begin{equation}
+\label{ch_foundations:eq:Wtm_csw}
 D_{\textrm W}+\boldsymbol{m}+i\gamma_5\boldsymbol{\mu}+c_{\textrm{sw}}a\frac{1}{2}\sum_{\mu<\nu}\sigma_{\mu\nu}\hat{F}_{\mu\nu}.
 \end{equation}
-The advantage of Wilson tm fermions is that at maximal twist (vanishing renormalized standard quark mass) one achieves automatic $\mathcal{O}(a)$ improvement~\citep{Frezzotti:2003ni,Shindler:2007vp}. This means that physical quantities are automatically improved without the need of any improvement coefficients for lattice operators. The following argument is based on the original work~\citep{Frezzotti:2003ni} to which we refer for a complete proof.
+When considering a unitary setup,  Wilson tm fermions 
+at maximal twist (i.e. for a vanishing standard quark mass) follow
+an automatic $\mathcal{O}(a)$ improvement of physical observables~\citep{Frezzotti:2003ni,Shindler:2007vp}. This implies  that physical quantities receive leading lattice artefacts of $\mathcal{O}(a^2)$ 
+ without the need of computing $\mathcal{O}(a)$ improvement coefficients. This statement holds also for a vanishing value of $c_{\textrm{sw}}$ in eq.~(\ref{ch_foundations:eq:Wtm_csw}). The following discussion is based on the original work~\citep{Frezzotti:2003ni} to which we refer for a complete proof.
 
-At maximal twist, the Wilson tm Dirac operator reads
+At maximal twist and vanishing $c_{\textrm{sw}}$, the Wilson tm Dirac operator reads
 \begin{equation}
 D_{\textrm W}+i\boldsymbol{\mu}\gamma_5.
 \end{equation}
-Working in the twisted basis, this action in the continuum is invariant under a discrete chiral symmetry 
+In the twisted basis, the continuum action is invariant under a discrete chiral symmetry 
 \begin{equation}
 \mathcal{R}_5^{1,2}=\left\{\begin{matrix}
 \psi(x)\rightarrow i\gamma_5\tau^{1,2}\psi(x) \\ 
@@ -561,29 +571,29 @@ while $\mathcal{L}_{k=1}^{(1)}$ in eq.~(\ref{ch_foundation:eq:L1}) is not
 \begin{equation}
 \mathcal{L}_{k=1}^{(1)}\rightarrow-\mathcal{L}_{k=1}^{(1)}.
 \end{equation}
-This is key for automatic $\mathcal{O}(a)$ improvement. For correlation functions like eq.~(\ref{ch_foundation:eq:Oimpr}), we have that operators may be even or odd under $\mathcal{R}_5$, $\left<\Phi_0\right>$ and $\left<\Phi_1\right>$ having opposite $\mathcal{R}_5$-chirality
+This is key for automatic $\mathcal{O}(a)$ improvement. For correlation functions such as those in eq.~(\ref{ch_foundation:eq:Oimpr}), operators can be even or odd under $\mathcal{R}_5$. In particular, $\left<\Phi_0\right>$ and $\left<\Phi_1\right>$ have $\mathcal{R}_5$-chirality opposite to each other
 \begin{gather}
 \left<\Phi_0\right>\rightarrow\pm\left<\Phi_0\right>, \quad \left<\Phi_1\right>\rightarrow\mp\left<\Phi_1\right>.
 \end{gather}
-This means that for even $\left<\Phi_0\right>$
+This implies that for even $\left<\Phi_0\right>$
 \begin{gather}
 \left<\Phi_0\right>=\left<\Phi_0\right>,
 \quad \left<\Phi_0\mathcal{L}^{(1)}_{k=1}\right>=-\left<\Phi_0\mathcal{L}^{(1)}_{k=1}\right>=0, \quad \\ \left<\Phi_1\right>=-\left<\Phi_1\right>=0,
 \end{gather}
-and thus even operators are automatically $\mathcal{O}(a)$ improved. On the other hand, for odd operators what we have is
+and thus even operators are automatically $\mathcal{O}(a)$ improved. On the other hand, for odd operators 
 \begin{gather}
 \left<\Phi_0\right>=-\left<\Phi_0\right>=0, \quad
 \left<\Phi_0\mathcal{L}^{(1)}_{k=1}\right>=\left<\Phi_0\mathcal{L}^{(1)}_{k=1}\right>, \quad \\ \left<\Phi_1\right>=\left<\Phi_1\right>,
 \end{gather}
-and thus they vanish in the continuum. Summing up, the only tuning required for Wilson tm fermions to achieve $\mathcal{O}(a)$ improvement is to set the bare quark mass $m$ to its critical value $m_{\textrm{cr}}$ in order to obtain maximal twist.
+and thus they vanish in the continuum. Therefore, the only tuning required for Wilson tm fermions to achieve $\mathcal{O}(a)$ improvement is that of the bare quark mass $m$, which must be set to zero in order to obtain maximal twist.
 
-In our particular case, we will be working with a mixed action setup employing standard Wilson quarks in the sea and fully twisted Wilson tm quarks in the valence (see Sec~\ref{ch_ma}). This means valence observables still get residual $\mathcal{O}(a)$ cutoff effects from the sea sector, and thus improvement is still needed. However, these effects are expected to be $\mathcal{O}(g_0^4)$ in perturbation theory.
+In our particular case, we will be working with a mixed action setup employing standard Wilson quarks in the sea and fully twisted Wilson tm quarks in the valence (see Sec~\ref{ch_ma}). This entails that valence-sector observables will receive residual $\mathcal{O}(a)$ cutoff effects proportional to the sea quark masses, and thus improvement is still needed. These effects are expected to be $\mathcal{O}\left(g_0^4{\textrm{tr}}\left(M_q^{\textrm{(s)}}\right)\right)$ in perturbation theory, with $M_q^{\textrm{(s)}}$ the sea quark mass matrix (see Sec.~\ref{ch_ma}).
 
 Finally, we also need to improve the bare gauge coupling, which at $\mathcal{O}(a)$ reads
 \begin{equation}
 \tilde{g}_0^2=g_0^2\left(1+ab_g{\textrm{tr}}\left(M_q^{\textrm{(s)}}\right)\right),
 \end{equation}
-with $M_q^{\textrm{(s)}}$ the sea quark mass matrix (see Sec.~\ref{ch_ma}), and $b_g$ the improvement coefficient, whose value at one-loop is given in~\citep{Luscher:1996sc}.
+with $b_g$ the improvement coefficient, whose value at one-loop is given in~\citep{Luscher:1996sc}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -591,7 +601,7 @@ with $M_q^{\textrm{(s)}}$ the sea quark mass matrix (see Sec.~\ref{ch_ma}), and 
 \section{Scale setting}
 \label{ch_foundation:sec:ss}
 
-on the lattice, all physical observables are computed in units of the lattice spacing $a$. Consequently, in order to make any prediction, it is necessary to determine $a$ in physical units. This task is called scale setting. It involves the precise determination of a reference observable, called the scale, in physical units, to which any other observable is compared to in order to extract the value of the latter in physical units. As mentioned in the introduction, in ``precision era'' lattice calculations, high precision scale setting is of the utmost importance in order to extract predictions whose uncertainty is not dominated by the scale. 
+On the lattice, all physical observables are computed in units of the lattice spacing $a$. Consequently, in order to make any prediction, it is necessary to determine $a$ in physical units. This task is called scale setting. It involves the precise determination of a reference observable, called the scale, in physical units, to which any other observable is compared to in order to extract the value of the latter in physical units. As mentioned in the introduction, in ``precision era'' lattice calculations, high precision scale setting is of the utmost importance in order to extract predictions whose uncertainty is not dominated by the scale. 
 
 As an example of the scale setting procedure, we could use the proton mass $m_{\textrm{proton}}$ as a reference scale, and calculate the ratio of it to a given mass $m_i$
 \begin{equation}
