@@ -37,7 +37,11 @@ for j in 1:length(obs_str)
 end
 mpi = obs[1]
 m12 = obs[2] ## not improved, not renormalized
-fpi = obs[3] ## improved & renormalized
+fpi = obs[3] ## not improved, not renormalized
+
+ZA = beta_ZA[ens.beta]
+bAtil = 1 + 0.0472 * (6 / ens.beta)
+fpi = ZA * (1 + bAtil * m12) * fpi
 
 phi2 = [8 * t0 * mpi[i] ^ 2 for i in 1:length(mpi)]
 phi4 = [8 * t0 * (mpi[i] ^ 2 + 0.5 * mpi[i] ^ 2) for i in 1:length(mpi)]

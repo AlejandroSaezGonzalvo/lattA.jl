@@ -87,13 +87,13 @@ end
 
 mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 
-ZA = beta_ZA[ens.beta]
-bAtil = 1 + 0.0472 * (6 / ens.beta)
-fpi = ZA * (1 + bAtil * m12) * fpi
-fk = ZA * (1 + bAtil * m13) * fk 
+#ZA = beta_ZA[ens.beta]
+#bAtil = 1 + 0.0472 * (6 / ens.beta)
+#fpi = ZA * (1 + bAtil * m12) * fpi
+#fk = ZA * (1 + bAtil * m13) * fk 
 
-m12_I = (1 + beta_bap[ens.beta] * m12) * m12
-m13_I = (1 + beta_bap[ens.beta] * m13) * m13
+#m12_I = (1 + beta_bap[ens.beta] * m12) * m12
+#m13_I = (1 + beta_bap[ens.beta] * m13) * m13
 
 #======== compute t0/a² ===============#
 

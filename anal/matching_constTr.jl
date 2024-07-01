@@ -39,8 +39,13 @@ mpi = obs[1]
 mk = obs[2]
 m12 = obs[3] ## not improved, not renormalized
 m13 = obs[4]
-fpi = obs[5] ## improved & renormalized
+fpi = obs[5] ## not improved, not renormalized
 fk = obs[6]
+
+ZA = beta_ZA[ens.beta]
+bAtil = 1 + 0.0472 * (6 / ens.beta)
+fpi = ZA * (1 + bAtil * m12) * fpi
+fk = ZA * (1 + bAtil * m13) * fk
 
 phi2 = [8 * t0 * mpi[i] ^ 2 for i in 1:length(mpi)]
 phi4 = Array{uwreal,1}()

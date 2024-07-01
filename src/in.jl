@@ -14,6 +14,7 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 #sqrt_t0_ph = sqrt(t0_ph)
 
 sqrt_t0_ph = uwreal([0.1438,0.0],"t0_ph")
+t0_ph = sqrt_t0_ph ^ 2
 
 phi4_ph = 8 * sqrt_t0_ph ^ 2 * (MK ^ 2 + 0.5 * Mpi ^ 2) / hc ^ 2
 phi2_ph = 8 * sqrt_t0_ph ^ 2 * Mpi ^ 2 / hc ^ 2
