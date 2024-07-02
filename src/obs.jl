@@ -1267,12 +1267,17 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
     Y_aux = Matrix{uwreal}(undef, xmax, 2*dt0+1)
 
     if rw
-        path_rw = joinpath(path, ens.id, "rwf")
+        path_rw = joinpath(path, ens.id, "rwf_def")
         path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+        if length(path_rw) == 0
+            path_rw = joinpath(path, ens.id, "rwf")
+            global path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+        end
         if ens.id == "D200"
-            rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
-            rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
-            rwf = [hcat(rwf_2[1],rwf_1[1])]
+            #rwf_1 = read_ms1.([path_rw[1]], v=ens.vrw)
+            #rwf_2 = read_ms1.([path_rw[2]], v=ens.vrw)
+            #rwf = [hcat(rwf_2[1],rwf_1[1])]
+            rwf = read_ms1.(path_rw, v=ens.vrw)
         elseif ens.id in ["E250", "E300", "J500", "J501", "D450"]
             rwf = [read_ms1(path_rw[i], v=ens.vrw[i]) for i in 1:length(ens.vrw)]
             [Ysl[k] = Ysl[k][1:size(rwf[k],2), :, :] for k in 1:length(Ysl)]
