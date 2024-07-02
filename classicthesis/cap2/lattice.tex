@@ -493,13 +493,14 @@ In order to improve a lattice action, one can describe the target continuum theo
 \begin{equation}
 S_{\textrm{eff}}=\int d^4x\sum_{k\geq1}\mathcal{L}_k(x)a^{k}.
 \end{equation}
-Here $\mathcal{L}_0(x)$ is the continuum QCD Lagrangian in eq.~(\ref{ch_foundation:eq:QCD}), which has mass dimension $4$, while the $\mathcal{L}_k$ terms are all possible Lagrangians built from fermion and gluon field operators that preserve the symmetries of the regularized, i.e. lattice, theory, with mass dimension $4+k$.
+Here $\mathcal{L}_0(x)$ is the continuum QCD Lagrangian, which has mass-dimension $4$, while the $\mathcal{L}_k$ terms are all possible Lagrangians built from fermion and gluon field operators that preserve the symmetries of the regularized, i.e. lattice, theory, with mass-dimension $4+k$.
 
 In the case of Lattice QCD, we saw that in the Wilson gauge action in eq.~(\ref{ch_foundation:eq:YM-latt}) lattice artifacts appear at $\mathcal{O}(a^2)$. The leading $\mathcal{O}(a^2)$ effects can be reduced by adding all possible dimension $6$ operators that preserve the underlying symmetries of the gauge action. These dimension-6 operators are all three possible ways of writing a closed path in a rectangular lattice with 6 gauge links: planar, twisted and L-shaped rectangles. The action then reads
-\begin{equation}
+\begin{align}
 \label{ch_foundation:eq:SG_impr}
-S_G=\frac{\beta}{3}\sum_{\mu\nu}\left[c_0(g_0)\sum_p{\textrm{Re}}\left({\textrm{tr}}\left(1-U_{\mu\nu}(p)\right)\right)+\sum_{i=1}^3c_i(g_0)\sum_r{\textrm{Re}}\left({\textrm{tr}}\left(1-U^{(i)}(r)\right)\right)\right],
-\end{equation}
+S_G=\frac{\beta}{3}\sum_{\mu\nu}&\left[c_0(g_0)\sum_p{\textrm{Re}}\left({\textrm{tr}}\left(1-U_{\mu\nu}(p)\right)\right)\right. \notag \\
+&\left.+\sum_{i=1}^3c_i(g_0)\sum_r{\textrm{Re}}\left({\textrm{tr}}\left(1-U^{(i)}(r)\right)\right)\right],
+\end{align}
 with $U^{(i)}$ the above mentioned dimension-6 operators. A non-perturbative determination of the coefficients $c_i$ would lead to $\mathcal{O}(a^2)$ improvement. The CLS ensembles that we employ in this thesis (see Sec.~\ref{ch_ma:sec:Sea}) use the so called Lüscher-Weisz gauge action~\citep{Luscher:1984xn,Luscher:1985zq}, with these coefficients computed at tree-level $(g_0=0)$
 \begin{gather}
 \label{ch_foundation:eq:LW}
@@ -521,6 +522,7 @@ with
 \begin{align}
 \label{ch_foundation:eq:dim5-op}
 \sigma_{\mu\nu}&=\frac{\left[\gamma_{\mu},\gamma_{\nu}\right]}{2i},\\
+\label{ch_foundation:eq:F_clover}
 \hat{F}_{\mu\nu}(x)&=\frac{-i}{8a^2}\left(Q_{\mu\nu}(x)-Q_{\nu\mu}(x)\right),\\
 Q_{\mu\nu}&=U_{\mu\nu}(x)+U_{\nu,-\mu}(x)+U_{-\mu,-\nu}(x)+U_{-\nu,\mu}(x).
 \end{align}
@@ -535,7 +537,7 @@ On-shell improvement of the lattice action ensures improvement of spectral quant
 \begin{equation}
 O_{\textrm{eff}}(x)=\sum_kO_k(x)a^k.
 \end{equation}
-Again, $O_k$ are combinations of gauge invariant local operators with the right mass dimensions. Consequently, a generic n-point function reads
+Again, $O_k$ are combinations of gauge invariant local operators with the right mass-dimensions. Consequently, a generic n-point function reads
 \begin{equation}
 \label{ch_foundation:eq:Oimpr}
 \left<\Phi\right>=\left<\Phi_0\right>-a\int d^4y\left<\Phi_0\mathcal{L}_1(y)\right>+a\left<\Phi_1\right>+...,
@@ -588,7 +590,7 @@ and thus even operators are automatically $\mathcal{O}(a)$ improved. On the othe
 \end{gather}
 and thus they vanish in the continuum. Therefore, the only tuning required for Wilson tm fermions to achieve $\mathcal{O}(a)$ improvement is that of the bare quark mass $m$, which must be set to zero in order to obtain maximal twist.
 
-In our particular case, we will be working with a mixed action setup employing standard Wilson quarks in the sea and fully twisted Wilson tm quarks in the valence (see Sec~\ref{ch_ma}). This entails that valence-sector observables will receive residual $\mathcal{O}(a)$ cutoff effects proportional to the sea quark masses, and thus improvement is still needed. These effects are expected to be $\mathcal{O}\left(g_0^4{\textrm{tr}}\left(M_q^{\textrm{(s)}}\right)\right)$ in perturbation theory, with $M_q^{\textrm{(s)}}$ the sea quark mass matrix (see Sec.~\ref{ch_ma}).
+In our particular case, we will be working with a mixed action setup employing standard Wilson quarks in the sea and fully twisted Wilson tm quarks in the valence (see Sec~\ref{ch_ma}). This entails that valence-sector observables will receive residual $\mathcal{O}(a)$ cutoff effects proportional to the sea-quark masses, and thus improvement is still needed. These effects are expected to be $\mathcal{O}\left(g_0^4{\textrm{tr}}\left(M_q^{\textrm{(s)}}\right)\right)$ in perturbation theory, with $M_q^{\textrm{(s)}}$ the sea-quark mass matrix (see Sec.~\ref{ch_ma}).
 
 Finally, we also need to improve the bare gauge coupling, which at $\mathcal{O}(a)$ reads
 \begin{equation}
@@ -602,45 +604,27 @@ with $b_g$ the improvement coefficient, whose value at one-loop is given in~\cit
 \section{Scale setting}
 \label{ch_foundation:sec:ss}
 
-On the lattice, all physical observables are computed in units of the lattice spacing $a$. Consequently, in order to make any prediction, it is necessary to determine $a$ in physical units. This task is called scale setting. It involves the precise determination of a reference observable, called the scale, in physical units, to which any other observable is compared to in order to extract the value of the latter in physical units. As mentioned in the introduction, in ``precision era'' lattice calculations, high precision scale setting is of the utmost importance in order to extract predictions whose uncertainty is not dominated by the scale. 
+On the lattice, all physical observables are computed in units of the lattice spacing $a$. A minimal set of external quantities is used as input to fix the values of the fundamental parameters of the theory. Through such a scale setting, it is possible to determine the value of the lattice spacing in physical units for each value of the bare gauge coupling considered in the simulations. In practice, it is beneficial to introduce an intermediate scale quantity -- such as the gradient flow scale $t_0$~\citep{Luscher:2010we,1006.4518} -- that allows one to construct dimensionless quantities from the minimal set of observables involved in the scale setting procedure. These dimensionless quantities are then used to define the constant physics lines and real quantities that are extrapolated to the continuum limit. By matching the extrapolated result to the continuum limit, at the physical values of the quark masses, with the external input, it is then possible to determine the physical value of the intermediate scale. The accuracy achieved in the intermediate scale determination can then be transferred to the accuracy of the the scale setting procedure. As discussed in the introduction, a sub-percent accuracy in scale setting is a necessary condition for some of the more precise lattice QCD calculations relevant to precision tests of the SM. 
 
-As an example of the scale setting procedure, we could use the proton mass $m_{\textrm{proton}}$ as a reference scale, and calculate the ratio of it to a given mass $m_i$
-\begin{equation}
-R_i=\frac{m_i}{m_{\textrm{proton}}}.
-\end{equation}
-After computing the continuum limit of $R_i$, we can extract the physical mass $m_i$ as
-\begin{equation}
-\label{ch_ss:eq:R}
-m_i^{\textrm{ph}}=R_i(a=0)\times m_{\textrm{proton}}^{\textrm{exp}}.
-\end{equation}
-Here, the proton mass is used as a reference scale, and comparing any lattice observable to it allows to extract the latter in physical units, once the continuum limit is performed. This procedure is equivalent to finding the value of the lattice spacing in physical units, since it can be extracted as 
-\begin{equation}
-a=\frac{(am_{\textrm{proton}})^{\textrm{latt}}}{m_{\textrm{proton}}^{\textrm{exp}}}.
-\end{equation}
-From eq.~(\ref{ch_ss:eq:R}) it is clear that when aiming for precise lattice calculations of any physical observable like $m_i$, a reliable and precise scale setting is of the utmost importance. In this example this means being able to determine $m_{\textrm{proton}}$ with high accuracy on the lattice in order to compute the ratios $R_i$, controlling the continuum limit of $R_i$ and having a high precision determination of $m_{\textrm{proton}}^{\textrm{exp}}$.
+In this context, baryon masses like the $\Xi$ or the $\Omega$ baryon mass are popular choices of external input to set the scale~\citep{BMW:2012hcm,Miller:2020evg,RQCD_scale}. The former is determined with high accuracy experimentally~\citep{ParticleDataGroup:2020ssz} but suffers from the signal-to-noise problem~\citep{Lepage:1989hd,Luscher:2010ae} on the lattice determination. This problem is also present in the $\Omega$ baryon mass, but to a somewhat reduced extent~\citep{BMW:2012hcm,Miller:2020evg}. Furthermore, the $\Omega$ baryon mass has a weak dependence on the light quark masses and a strong one in the strange quark mass. This makes it an interesting scale for chiral trajectories with constant strange quark mass. Another choice is using meson masses. The pion and kaon meson masses are generally used to define a line of constant physics to the continuum limit that matches the physical values of the $u$/$d$ and $s$ quark masses, and therefore are not available to set the scale. In the past, the $\rho$ meson mass was used to set the scale of quenched simulations~\citep{Mawhinney:1996jk,Irving:1998yu,Bornyakov:2015plz}, but  its large decay width makes it unsuitable for quark dynamical simulations. The $\Upsilon$ meson mass spectrum is also used~\citep{HPQCD:2011qw,Gray:2005ur} thanks to its precise experimental determination. However, it is still challenging to bring down the systematic uncertainties associated to $b$-physics computations to the level required in the scale setting procedure. Another popular choice~\citep{Brown:2018jtv,BMW:2012hcm,BMW:2012hcm,Bruno:2016plf,Strassberger:2023xnj} and the one used in this work is a linear combination of the pion and kaon decay constants. These exhibit large plateaux on the lattice, indicating that excited states contributions decay fast and therefore they can be determined to a high precision on the lattice. Furthermore, the pion decay constant does not suffer from the signal-to-noise problem, which is present in the kaon decay constant but to a very reduced extent. On the other hand, their experimental values are extracted from the weak processes $\pi/K\to l\nu$, which leads to the measurement of $V_{ud(us)}f_{\pi(K)}$, with $V_{ud,us}$ the CKM matrix elements. This leads to an increase in the uncertainty of the experimental values of $f_{\pi,K}$ coming from the determination of said CKM matrix elements~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}. This effect is more severe for the kaon than for the pion decay constant. In addition to this, in the $\pi/K\to l\nu$ processes there are QED effects that must be taken into account. When simulating pure QCD in the lattice, a theoretical prescription to remove QED effects from $f_{\pi,K}$ is needed in order to use these quantities as input to set the scale. Again, the kaon decay constant receives stronger QED corrections than in the pion case~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.
 
-In this context, baryon masses like the proton, the $\Xi$ or the $\Omega$ baryon mass are popular choices to set the scale~\citep{BMW:2012hcm,Miller:2020evg,RQCD_scale}. The former is determined with high accuracy experimentally~\citep{ParticleDataGroup:2020ssz} but suffers from the signal-to-noise problem~\citep{Lepage:1989hd,Luscher:2010ae} on the lattice determination. This problem is also present in the $\Omega$ baryon mass, but the statistical precision is better there~\citep{BMW:2012hcm,Miller:2020evg}. Furthermore, the $\Omega$ baryon mass has a weak dependence on the light quark masses and a strong one in the strange quark mass. This makes it an interesting scale for trajectories with constant strange quark mass. Another choice is using meson masses. The pion and kaon meson masses are used to define the line of constant physics along which the continuum limit is taken, and therefore are not available to set the scale. In the past, the $\rho$ meson mass was used to set the scale of quenched simulations~\citep{Mawhinney:1996jk,Irving:1998yu,Bornyakov:2015plz}, but it is not suited for dynamical quarks simulations. The $\Upsilon$ meson mass is also used~\citep{HPQCD:2011qw,Gray:2005ur} thanks to its precise experimental determination. However, large discretization effects due to the $b$ quark are expected. 
-
-Instead of using a phenomenological scale like the ones listed above, another choice is to use intermediate scales, like the gradient flow scale $t_0$~\citep{Luscher:2010we,1006.4518} this thesis is based on and that we introduce in Sec.~\ref{ch_observables:sec:Flow}. This quantity is a popular choice~\citep{Bruno:2016plf,Strassberger:2023xnj,RQCD_scale,Kostrzewa:2021syw,Hollwieser:2020qri,MILC:2015tqx} since it can be computed to a very high precision on the lattice, though it is not a physical quantity and as such cannot be measured experimentally. To obtain its value in the continuum and physical quark masses, one builds a dimensionless quantity $(\sqrt{t_0}\Lambda)^{\textrm{latt}}$ with some phenomenological quantity $\Lambda$ on the lattice. After performing the continuum limit, the physical value of $t_0$ can be extracted as
+We employ the gradient flow scale $t_0$~\citep{Luscher:2010we,1006.4518}, introduced in Sec.~\ref{ch_observables:sec:Flow}, as an intermediate quantity in the scale setting. This quantity can be calculated with high precision on the lattice. Since it is a gluonic observable its quark mass dependence arises solely from sea-quark effects. The smearing radius $\sqrt{8t_0} \approx 0.4$ fm  is such that finite volume effects are small on typical lattice sizes with $L > 2$ fm and $m_{\pi} L > 4$. Although it is not an experimentally accessible quantity its physical value can be determined on the lattice~\citep{Bruno:2016plf,Strassberger:2023xnj,RQCD_scale,Kostrzewa:2021syw,Hollwieser:2020qri,MILC:2015tqx}. To determine its value in the continuum and at physical quark masses, one constructs a dimensionless quantity $(\sqrt{t_0}\Lambda)^{\textrm{latt}}$, where $\Lambda$ is one of the the quantities previously described (e.g. $f_{\pi}$, $f_{\pi K}$, $m_{\Omega}$, ...) . After taking the continuum limit and extrapolating/interpolating to the physical point, the physical value of $t_0$ can be extracted as follows
 \begin{equation}
 \label{ch_foundation:eq:Lambda}
 \sqrt{t_0^{\textrm{ph}}}=\frac{\left.\begin{matrix}
 \left(\sqrt{t_0}\Lambda\right)^{\textrm{latt}}
 \end{matrix}\right|_{a=0}}{\Lambda^{\textrm{exp}}}.
 \end{equation}
-In addition to the continuum limit, on the lattice often unphysical quark masses are simulated since they are computationally cheaper. This means one needs to perform chiral extrapolations/interpolations of lattice observables to reach physical quark masses. Both chiral and continuum limits are discussed in Sec.~\ref{ch_ss} for the scale setting we perform in this thesis.
+As already anticipated, the approach to the physical values of the quark masses often requires some extrapolations/interpolations. This is because Lattice QCD simulations often include ensembles with unphysical values of the quark mass. At present, the simulations at the physical point are feasible but they are still computationally challenging due to the small value of the physical light quark masses and the necessity to keep the lattice size large enough to keep finite volume effects under control. This implies that additional simulations with heavier light quark masses provide important information to control the physical results and to estimate the systematic effects present in the computation. The chiral and continuum extrapolations considered in the scale setting procedure will be discussed in Sec.~\ref{ch_ss}.
 
-Once the physical value of $t_0$ is found, it can be used as an intermediate scale against which any other quantity $\Lambda'$ on the lattice can be compared in order to extract the latter in physical units. For this purpose, one performs a continuum extrapolation of $\sqrt{t_0}\Lambda'$ and obtains the physical value of $\Lambda'$ as
+Once $t_0$ has been determined, it can be used to predict any other quantity $\Lambda'$ (for simplificity assumed to be of mass-dimension one) in physical units. For this purpose, one performs a continuum extrapolation of $\sqrt{t_0}\Lambda'$ and obtains the physical value of $\Lambda'$ as
 \begin{equation}
 \Lambda^{\textrm{' ph}}=\frac{\left.\begin{matrix}
 \left(\sqrt{t_0}\Lambda'\right)^{\textrm{latt}}
 \end{matrix}\right|_{a=0}}{\sqrt{t_0^{\textrm{ph}}}}.
 \end{equation}
-This quantity is already a prediction of the lattice.
 
-A popular choice~\citep{Brown:2018jtv,BMW:2012hcm,BMW:2012hcm,Bruno:2016plf,Strassberger:2023xnj} for $\Lambda$ in eq.~(\ref{ch_foundation:eq:Lambda}) and the one used in this work is a linear combination of the pion and kaon decay constants. These exhibit large plateaux on the lattice, indicating that excited states contributions decay fast and therefore they can be determined to a high precision on the lattice. On the other hand, their experimental values are extracted from the weak processes $\pi/K\to l\nu$, which leads to the measurement of $V_{ud(us)}f_{\pi(K)}$, with $V_{ud,us}$ CKM matrix elements. This leads to an increase in the uncertainty of the experimental values of $f_{\pi,K}$ coming from the determination of said CKM matrix elements~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.
-
-Finally, other popular intermediate scales to $t_0$ are $\omega_0$~\citep{BMW:2012hcm,Kostrzewa:2021syw,MILC:2015tqx} which is closely related to $t_0$, and the force scale $r_0$~\citep{Sommer:1993ce,Necco:2001xg,Bernard:2000gd} which is derived from the static quark-antiquark potential extracted from the evaluation of Wilson loops. This potential shows early plateaux~\citep{Sommer:2014mea} which again indicates that excited states contributions are small.
+Finally, other popular intermediate scales to $t_0$ are $w_0$~\citep{BMW:2012hcm,Kostrzewa:2021syw,MILC:2015tqx} which is closely related to $t_0$, and the Sommer scale $r_0$~\citep{Sommer:1993ce,Necco:2001xg,Bernard:2000gd} which is derived from the static quark-antiquark potential extracted from Wilson loops. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

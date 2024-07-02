@@ -2239,6 +2239,32 @@
     \field{year}{2018}
   \endentry
 
+  \entry{Bruno:2015hfq}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=BM}{%
+         family={Bruno},
+         familyi={B\bibinitperiod},
+         given={Mattia},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM1}
+    \strng{fullhash}{BM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.18452/17516
+    \endverb
+    \field{title}{{The energy scale of the 3-flavour Lambda parameter}}
+    \list{institution}{1}{%
+      {Humboldt U., Berlin}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{2015}
+  \endentry
+
   \entry{qm}{article}{}
     \name{author}{8}{}{%
       {{hash=BM}{%
@@ -4228,6 +4254,51 @@
     \field{journaltitle}{Phys. Rev. D}
     \field{eprinttype}{arXiv}
     \field{year}{2005}
+  \endentry
+
+  \entry{hep-lat/9903040}{article}{}
+    \name{author}{4}{}{%
+      {{hash=GM}{%
+         family={Guagnelli},
+         familyi={G\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Heitger},
+         familyi={H\bibinitperiod},
+         given={Jochen},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Sommer},
+         familyi={S\bibinitperiod},
+         given={Rainer},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wittig},
+         familyi={W\bibinitperiod},
+         given={Hartmut},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GM+1}
+    \strng{fullhash}{GMHJSRWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1016/S0550-3213(99)00466-6
+    \endverb
+    \verb{eprint}
+    \verb arXiv:hep-lat/9903040
+    \endverb
+    \field{howpublished}{Nucl.Phys. B560 (1999) 465-481}
+    \field{title}{Hadron masses and matrix elements from the QCD Schr"odinger
+  functional}
+    \field{year}{1999}
   \endentry
 
   \entry{Hasenbusch:2001ne}{article}{}
@@ -6441,36 +6512,6 @@
     \field{journaltitle}{Nucl. Phys. B}
     \field{eprinttype}{arXiv}
     \field{year}{1994}
-  \endentry
-
-  \entry{Sommer:2014mea}{article}{}
-    \name{author}{1}{}{%
-      {{hash=SR}{%
-         family={Sommer},
-         familyi={S\bibinitperiod},
-         given={Rainer},
-         giveni={R\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{SR2}
-    \strng{fullhash}{SR2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \verb{doi}
-    \verb 10.22323/1.187.0015
-    \endverb
-    \verb{eprint}
-    \verb 1401.3270
-    \endverb
-    \field{pages}{015}
-    \field{title}{{Scale setting in lattice QCD}}
-    \field{volume}{LATTICE2013}
-    \field{journaltitle}{PoS}
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{hep-lat}
-    \field{year}{2014}
   \endentry
 
   \entry{Sommer:2023gap}{article}{}

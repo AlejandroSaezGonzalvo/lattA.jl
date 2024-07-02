@@ -18,7 +18,8 @@ const md_meas = true
 #======== read correlators ===========#
 
 if ens.id in ["H102r001", "H102r002", "H105", "H105r005", "N203", "N200"]
-    pp_sym, ap_sym = read_ens_csv(ens)
+    pp_sym, ap_sym, ppw, apw, dSdm = read_ens_csv(ens)
+    pp_sym_wil, ap_sym_wil, corr, corr_val, corrw, dSdm, w = read_ens_wil(path, ens, legacy=true)
 else
     pp_sym, ap_sym, corrw, dSdm, w = read_ens_tm(path, ens, legacy=true)
 end
@@ -56,7 +57,7 @@ for i in 1:15:length(pp_sym)
         elseif ens.id == "H102r001"
             fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=[[1], [20]], tM=[[10], [65]])
         else
-            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM, pl=true)
+            fpi_aux = get_f_tm(pp_sym[i+j], mpi[end], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM, pl=false)
         end
         push!(fpi, fpi_aux[1])
     end

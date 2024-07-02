@@ -333,7 +333,14 @@ function read_ens_tm(path::String, ens::EnsInfo; legacy=false)
     ap, apw, w = get_corr_tm(path, ens, "G5", "G0G5", rw=true, info=true, legacy=legacy);
     ap_sym = [corr_sym(ap[i], ap[i+24], -1) for i in 1:24];
 
-    dSdm = get_dSdm(path, ens)
+    if ens.id == "D200"
+        dSdm = get_dSdm(path, ens)
+        aux = [hcat(dSdm[3], dSdm[1])]
+        aux = [hcat(aux[1], dSdm[2])]
+        dSdm = aux
+    else
+        dSdm = get_dSdm(path, ens)
+    end
 
     corrw = [[ppw[i] for i in 1:length(pp)]; [apw[i] for i in 1:length(ap)]];
 
@@ -386,9 +393,9 @@ function read_ens_csv(ens::EnsInfo)
         j+=9
     end
 
-    #dSdm = get_dSdm(path, ens)
+    dSdm = get_dSdm(path, ens)
 
-    return pp_sym, ap_sym
+    return pp_sym, ap_sym, [pp_ll;pp_ls;pp_ss;pp_ll_2;pp_ls_2;pp_ss_2], [ap_ll;ap_ls;ap_ss;ap_ll_2;ap_ls_2;ap_ss_2], dSdm
 end
 
 function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerrors.wsg, w0::Union{Float64, Nothing}=nothing)

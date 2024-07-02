@@ -18,7 +18,7 @@ const md_meas = true
 #======== read correlators ===========#
 
 if ens.id in ["H102r001", "H102r002", "H105", "H105r005", "N203", "N200"]
-    pp_sym, ap_sym = read_ens_csv(ens)
+    pp_sym, ap_sym, dSdm = read_ens_csv(ens)
 else
     pp_sym, ap_sym, corrw, dSdm, w = read_ens_tm(path, ens, legacy=true)
 end

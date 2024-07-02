@@ -77,7 +77,7 @@ A_{\mu}^{ij}(x)\rightarrow A_{\mu}^{ij}(x)+ac_A\tilde{\partial}_{x_0}P^{ij}(x),
 \end{equation}
 where we defined the symmetric discrete time derivative
 \begin{align}
-\tilde{\partial}_{x_0}&=\frac{\hat{\partial}_{x_0}-\hat{\partial}_{x_0}^*}{2},\\
+\tilde{\partial}_{x_0}&=\frac{\hat{\partial}_{x_0}+\hat{\partial}_{x_0}^*}{2},\\
 \hat{\partial}_{x}f(x)&=\frac{f(x+a)-f(x)}{a},\\
 \hat{\partial}^*_{x}f(x)&=\frac{f(x)-f(x-a)}{a}.
 \end{align}
@@ -99,7 +99,7 @@ C_X(x_0,y_0)\to\frac{C_X(x_0,y_0)\pm C_X(T-x_0,T-y_0)}{2},
 \end{equation}
 with the $+$ sign for the $X=P$ case and $-$ sign for the $X=A$ case. On the other hand, when heavy flavors are involved (see Sec.~\ref{ch_charm}), the source position is fixed at $y_0\approx T/2$ in order to maximize the distance from the boundaries: when dealing with heavy-light and heavy-heavy flavor contents in the correlators, we observe that the region in which the signal for the considered two-point function is accessible lies entirely within the lattice bulk, and that the boundary effects are strongly suppressed\footnote{The numerical inversion of the quark propagator in the charm region is performed using distance preconditioning techniques~\cite{deDivitiis:2010ya,Collins:2017iud} in order to address  the signal deterioration at large Euclidean times separations.}.
 
-The spectral decomposition of the two-point functions $C_X$ allows to extract relevant hadronic observables such as the ground state meson masses and decay constants. In what follows we will consider the case of operators with pion quantum numbers, but similar steps apply for a different flavor content. Using the Transfer Matrix formalism and imposing as boundary conditions that the initial and final states are given by
+The spectral decomposition of the two-point functions $C_X$ allows to extract relevant hadronic observables such as the ground state meson masses and decay constants. In what follows we will consider the case of operators with pion quantum numbers, but similar steps apply for a different flavor content. We follow the discussion in~\citep{hep-lat/9903040,Bruno:2015hfq}. Using the Transfer Matrix formalism and imposing as boundary conditions that the initial and final states are given by
 \begin{gather}
 \left|\phi(0,\vec{x})\right>=\left|\phi_i\right>, \quad \left|\phi(T,\vec{x})\right>=\left|\phi_f\right>,
 \end{gather}
@@ -285,7 +285,7 @@ where $O$ is a interpolator chosen such that $\left<P^{ij}(x)O^{ji}(y)\right>$ d
 \begin{equation}
 m_{ij}=\frac{m_i+m_{j}}{2}.
 \end{equation}
-The subtracted quark mass $m_{i}-m_{\textrm{cr}}$ must agree, up to cutoff effects, with the corresponding PCAC quark mass for flavor $i$ after renormalization, so by using the latter we do not need to know a priori the additive mass renormalization. As in the decay constants case, we take $O^{ij}=P^{ij}$. Thus, the PCAC quark masses read
+The subtracted quark mass $m_{i}-m_{\textrm{cr}}$ must agree, after renormalization and up to cutoff effects, with the corresponding renormalized PCAC quark mass for mass-degenerate flavors $i,i'$, so by using the latter we do not need to know a priori the additive mass renormalization. As in the decay constants case, we take $O^{ij}=P^{ij}$. Thus, the PCAC quark masses read
 \begin{equation}
 \label{ch_observables:eq:mpcac}
 m_{ij}(x_0)=\frac{\tilde{\partial}_{x_0}C_A^{ij}(x_0,y_0)}{2C_P(x_0,y_0)}.
@@ -325,25 +325,24 @@ G_{\mu\nu}(x,t)=\partial_{\mu}B_{\nu}(x,t)-\partial_{\nu}B_{\mu}(x,t)+i\left[B_{
 \end{equation}
 with the covariant derivative acting on it in the adjoint representation
 \begin{equation}
-D_{\nu}G_{\mu\nu}=\partial_{\nu}G_{\mu\nu}+i\left[B_{\mu},G_{\mu\nu}\right].
+D_{\nu}G_{\mu\nu}=\partial_{\nu}G_{\mu\nu}+i\left[B_{\nu},G_{\mu\nu}\right].
 \end{equation}
 The flow equation can be rewritten as
 \begin{gather}
-\frac{dB_{\mu}(x,t)}{dt}=\frac{\delta S_{\textrm{YM}}[B]}{\delta B_{\mu}(x,t)}, \quad B_{\mu}(x,t=0)=A_{\mu}(x),
+\frac{dB_{\mu}(x,t)}{dt}=-g_0^2\{\partial_{x,\mu}S_{\textrm{YM}}\}B_{\mu}(x,t), \quad B_{\mu}(x,t=0)=A_{\mu}(x),
 \end{gather}
-with $S_{\textrm{YM}}$ the continuum Yang-Mills action in eq.~(\ref{ch_foundation:eq:SYM}) in terms of the flowed fields $B_{\mu}$. We can therefore see that the effect of integrating the flow equation of motion is to flow the gauge fields towards the local minima of the Yang-Mills action. By solving the flow equation to leading order in the bare coupling $g_0$
+with $S_{\textrm{YM}}$ the continuum Yang-Mills action in eq.~(\ref{ch_foundation:eq:SYM}) in terms of the flowed fields $B_{\mu}$ and $\partial_{x,\mu}S_{\textrm{YM}}$ the $su(3)$-valued differential operator with respect to the link variable $B_{\mu}(x,t)$. We can therefore see that the effect of integrating the flow equation of motion is to flow the gauge fields towards the local minima of the Yang-Mills action. By solving the flow equation to leading order in the bare coupling $g_0$
 \begin{equation}
 \label{ch_observables:eq:B}
 B_{\mu}(x,t)=\frac{g_0}{4\pi t^2}\int d^4y\;e^{-(x-y)^2/4t}A_{\mu}(y).
 \end{equation}
 The flowed field $B_{\mu}$ is thus smoothed over space-time with smearing radius $r_{\textrm{smear}}=2\sigma=\sqrt{8t}$, $\sigma$ being the variance of the distribution in eq.~(\ref{ch_observables:eq:B}), $\sigma^2=2t$.
 
-on the lattice, eq.~(\ref{ch_observables:eq:flow}) can be expressed as 
+On the lattice, eq.~(\ref{ch_observables:eq:flow}) can be expressed as 
 \begin{align}
-a^2\frac{dV_{\mu}(x,t)}{dt}&=-g_0^2\frac{\delta S_{\textrm{G}}[V]}{\delta V_{\mu}(x,t)}V_{\mu}(x,t),\\
-V_{\mu}(x,t=0)&=U_{\mu}(x),
+\frac{dV_{\mu}(x,t)}{dt}=-g_0^2\{\partial_{x,\mu}S_{\textrm{G}}\}V_{\mu}(x,t), \quad V_{\mu}(x,t=0)=U_{\mu}(x),
 \end{align}
-with $U_{\mu}$ the gauge links in eq.~(\ref{ch_foundation:eq:U}) and $S_{\textrm{G}}$ the lattice Yang-Mills action.
+with $U_{\mu}$ the gauge links in eq.~(\ref{ch_foundation:eq:U}) and $S_{\textrm{G}}$ the lattice Yang-Mills action. 
 
 After integrating the flow equation eq.~(\ref{ch_observables:eq:flow}), the action density at flow time $t$ takes the form
 \begin{equation}
@@ -351,14 +350,18 @@ E(x,t)=\frac{1}{2}{\textrm{tr}}\left({G}_{\mu\nu}(x,t){G}_{\mu\nu}(x,t)\right).
 \end{equation}
 On the lattice, this can be computed by
 \begin{equation}
-\label{ch_observables:eq:E}
 E(x,t)=\sum_{\mu,\nu}\textrm{Re tr}\left(1-V_{\mu\nu}(x,t)\right),
 \end{equation}
-which corresponds to eq.~(\ref{ch_foundation:eq:SG}) with the plaquette $U_{\mu\nu}(x)$ made out of the original gauge links $U_{\mu}(x)$ replaced by the plaquette $V_{\mu\nu}(x,t)$ of flowed fields $V_{\mu}(x,t)$. After averaging over the 4-dimensional volume
+which corresponds to eq.~(\ref{ch_foundation:eq:SG}) with the plaquette $U_{\mu\nu}(x)$ made out of the original gauge links $U_{\mu}(x)$ replaced by the plaquette $V_{\mu\nu}(x,t)$ of flowed fields $V_{\mu}(x,t)$. Another possibility is to use the clover definition of $E(x,t)$, which reads
+\begin{align}
+\label{ch_observables:eq:E}
+E(x,t)=\sum_{\mu\nu}{\textrm{tr}}\left(\hat{F}_{\mu\nu}(x)\hat{F}_{\mu\nu}(x)\right),
+\end{align}
+with $\hat{F}_{\mu\nu}$ given in eq.~(\ref{ch_foundation:eq:F_clover}) but again replacing the standard plaquettes $U_{\mu\nu}$ by the flowed ones $V_{\mu\nu}$. After averaging over the 4-dimensional volume
 \begin{equation}
 E(t)=\left<E(x,t)\right>_x,
 \end{equation}
-we are left with an average energy density that depends only on the flow time. This average is computed using the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be accurately calculated on the lattice, which makes it a suitable option to define a reference scale (see Sec.~\ref{ch_ss}). The scale $t_0$ is defined as the flow time that satisfies the following condition
+we are left with an average energy density that depends only on the flow time. When using OBC in the Euclidean time direction, boundary effects appear. When this is the case, the average in the temporal direction is performed using the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be accurately calculated on the lattice, which makes it a suitable option to define an intermediate scale in the scale setting procedure (see Sec.~\ref{ch_ss}). The scale $t_0$ is defined as the flow time that satisfies the following condition
 \begin{equation}
 \label{ch_observables:eq:t0}
 t^2E(t)|_{t=t_0}\equiv0.3.
@@ -372,45 +375,45 @@ It will be this gradient flow scale $t_0$ that will be used as an intermediate q
 \section{Ground state signals and model average}
 \label{ch_observables:sec:MA}
 
-So far, we have expressed all physical observables under study as functions of the Euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, these quantities are affected by boundary effects and excited states. In order to extract the ground state contribution of each observable, it is necessary to go to large source-sink separations and ensure sufficient distance from the boundaries. However, it is not clear how to decide when these conditions are met, and on the lattice community there are different approaches to address this issue, see e.g.~\citep{Strassberger:2023xnj,Bruno:2016plf,RQCD_scale}. Our choice is to employ model averaging techniques as proposed in~\citep{Neil:2022joj,Neil:2023pgt,Frison:2023jbv}.
+We have seen that the quantities of interest in general have a dependence on the Euclidean time $x_0$. As discussed in Sec.~\ref{ch_observables:sec:correlators}, this time dependence can introduce boundary effects and excited states contamination in the isolation of the target ground state. In order to extract the ground state contribution of each observable, it is necessary to find suitable plateau ranges which are free of these boundary effects and excited states contamination, which implies going to large Euclidean time separations. In addition to potential noise problems at large Euclidean time separations, the extraction of the ground state signal is thus also affected by systematic uncertainties related to the criteria to choose where to start such plateaux. Different approaches can be employed to address this problem, see e.g.~\citep{Strassberger:2023xnj,Bruno:2016plf,RQCD_scale}. In addition to the GEVP method employed for charm observables, we will also consider variations over fit intervals along with model averaging techniques as proposed in~\citep{Neil:2022joj,Neil:2023pgt,Frison:2023jbv}.
 
 The idea is to investigate multiple fit functions and/or several fit ranges and assign an Information Criterion ${\textrm{IC}}$ to each choice, which allows to compute a weight
 \begin{equation}
 \label{ch_observables:eq:weight}
 W_i\propto\exp\left(-\frac{1}{2}{\textrm{IC}}_i\right),
 \end{equation}
-for each choice $i$ of the ``model'', which refers to a specific fit function and fit range. Then one can compute a weighted average for a fit parameter $p$ that is common to all models as
+for each choice $i$ of the ``model'', corresponding to a specific fit function and fit range. A weighted model average (MA) can then be calculated for a fit parameter $p$ that is common to all models as follows
 \begin{equation}
 \left<{p}\right>_{\textrm{MA}}=\sum_i{p}_iW_i,
 \end{equation}
-where $p_i$ is the fit parameter result for model $i$, and add a systematic uncertainty related to the model variation as
+where $p_i$ is the fit parameter result for model $i$. The systematic uncertainty related to model variation is given by
 \begin{equation}
 \label{ch_observables:eq:syst}
 \sigma_{\textrm{syst}}^2[p]=\left<{p^2}\right>_{\textrm{MA}}-\left<p\right>^2_{\textrm{MA}}.
 \end{equation}
-For fitting we use a least-squares method that seeks to minimize a $\chi^2$ function by finding the best values of the fit parameters (for details see Appendix~\ref{apex_chisq}). As proposed in~\citep{Frison:2023jbv} we use the Takeuchi's Information Criterion (TIC)
+For fitting we use a least-squares method that minimizes a $\chi^2$ function to determine the best values of the fit parameters (for details see Appendix~\ref{apex_chisq}). As proposed in~\citep{Frison:2023jbv} we use the Takeuchi's Information Criterion (TIC)
 \begin{equation}
 \label{ch_observables:eq:TIC}
 {\textrm{TIC}}=\chi^2-2\left<\chi^2\right>,
 \end{equation}
-where $\left<\chi^2\right>$ is a measure of the expected value of the $\chi^2$~\citep{Bruno:2022mfy}. This IC is well-behaved for cases where fully correlated fits cannot be performed (see Appendix~\ref{apex_chisq} for details), which is our case when fitting observables along the Euclidean time direction. For a fully correlated fit, $\left<\chi^2\right>={\textrm{dof}}$, and thus the TIC reduces to the proposal in~\citep{Neil:2022joj}
+where $\left<\chi^2\right>$ is the expectation value of the $\chi^2$~\citep{Bruno:2022mfy}. This IC is well-suited for cases where fully correlated fits cannot be performed (see Appendix~\ref{apex_chisq} for details), which is the case when fitting observables over long Euclidean time separations. For a fully correlated fit it holds that $\left<\chi^2\right>={\textrm{dof}}$, and the TIC reduces to the proposal in~\citep{Neil:2022joj}
 \begin{equation}
 {\textrm{TIC}}=\chi^2+2n_{\textrm{param}}+2n_{\textrm{cut}},
 \end{equation}
-with $n_{\textrm{param}}$ the number of parameters of the fit and $n_{\textrm{cut}}$ the number of points left out of the fit. We see that this Information Criterion penalizes models with large number of parameters and big cuts in data, provided the minimization of the $\chi^2$ succeeds.
+where $n_{\textrm{param}}$ is the number of parameters of the fit and $n_{\textrm{cut}}$ is the number of data points discarded from the fit. This Information Criterion penalizes models with large number of parameters and large cuts in data.
 
-In practice, for the extraction of the ground state signals of lattice observables, the data is fitted to a constant plus two exponential signals for the OBC ensembles
+In practice, for the extraction of the ground state signals, the data is fitted to a constant plus two exponential terms for the OBC ensembles
 \begin{equation}
 \label{ch_observables:eq:fit}
 f(x_0)=A+Be^{-Cx_0}+De^{-E(T-x_0)},
 \end{equation}
-or for PBC ensembles
+and for PBC ensembles
 \begin{equation}
 f(x_0)=A+Be^{-Cx_0}+Be^{-C(T-x_0)},
 \end{equation}
-and we investigate the effects of varying the fit range. The result for the fit parameter $A$ corresponds to the ground state signal. An illustration of the method for the extraction of the ground state signal in the pion effective mass in Fig.~\ref{ch_observables:fig:meff} is shown in Fig.~\ref{ch_observables:fig:model_av}, where we selected only a subset of the fit ranges explored for visualization purposes.
+and we investigate the effects of varying the fit range. The result for the fit parameter $A$ corresponds to the ground state signal. An illustration of the method for the extraction of the ground state signal in the pion effective mass in Fig.~\ref{ch_observables:fig:meff} is shown in Fig.~\ref{ch_observables:fig:model_av}, where for visibility reasons we selected only a subset of the fit ranges explored.
 
-This model averaging technique will also be used for the chiral and continuum extrapolations needed to set the scale, but there we will also consider the variation of the fit functions and not only cutting data (variation of the fit range), see Sec.~\ref{ch_ss}.
+This type of model averaging technique will also be used for the chiral and continuum extrapolations in the scale setting analysis, but there we will also consider variations over the fit functions and not solely variations over the cuts in data, see Sec.~\ref{ch_ss}.
 
 \begin{figure}
     \centering
@@ -470,7 +473,7 @@ This model averaging technique will also be used for the chiral and continuum ex
 \begin{figure}
 \centering
 	\includegraphics[width=1.\textwidth]{./cap3/figs/m_H101_pion_wil.pdf}
-    \caption{Model variation for the extraction of the ground state signal of the pion effective mass of ensemble H101 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff}. From top to bottom we show the ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice, the weight associated to each choice according to eq.~(\ref{ch_observables:eq:weight}), and the goodness of fit measured through the p-values defined in~\citep{Bruno:2022mfy}. We see that the highest weights are associated to a compromise between good fits (in terms of p-values) and fits with large number of points. The right-most models in the plot are heavily penalized even though they have the best p-values, since they cut a large number of points and models with not so severe cuts get also good p-values. The band in the top figure indicates the final weighted average result with the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}) included.}
+    \caption{Model variation for the extraction of the ground state signal of the pion effective mass of ensemble H101 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff}. From top to bottom we show the ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice, the weight associated to each choice according to eq.~(\ref{ch_observables:eq:weight}), and the goodness of fit measured through the p-values defined in~\citep{Bruno:2022mfy}. We see that the highest weights are associated to a compromise between good fits (in terms of p-values) and fits with large number of points. The right-most models in the plot are heavily penalized even though they have the best p-values, since they cut a large number of points and models with not so severe cuts get also good p-values. The band in the top figure indicates the final weighted average result including the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}).}
     \label{ch_observables:fig:model_av}
 \end{figure}
 
