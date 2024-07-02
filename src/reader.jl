@@ -87,7 +87,7 @@ function get_corr_TSM_multichunks(path::String, ens::EnsInfo; info=false)
     path = joinpath(path, ens.id)
     path_sl = joinpath.(path, "sloppy")
     path_c = joinpath.(path, "correc")
-    path_rw = joinpath(path, ens.id, "rwf_def")
+    path_rw = joinpath(path, "rwf_def")
     path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
     if length(path_rw) == 0
         path_rw = joinpath(path, ens.id, "rwf")
