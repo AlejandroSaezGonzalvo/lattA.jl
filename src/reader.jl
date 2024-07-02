@@ -393,9 +393,7 @@ function read_ens_csv(ens::EnsInfo)
         j+=9
     end
 
-    dSdm = get_dSdm(path, ens)
-
-    return pp_sym, ap_sym, [pp_ll;pp_ls;pp_ss;pp_ll_2;pp_ls_2;pp_ss_2], [ap_ll;ap_ls;ap_ss;ap_ll_2;ap_ls_2;ap_ss_2], dSdm
+    return pp_sym, ap_sym, [pp_ll;pp_ls;pp_ss;pp_ll_2;pp_ls_2;pp_ss_2], [ap_ll;ap_ls;ap_ss;ap_ll_2;ap_ls_2;ap_ss_2]
 end
 
 function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerrors.wsg, w0::Union{Float64, Nothing}=nothing)
