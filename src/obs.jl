@@ -28,8 +28,8 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
 
         fig = figure("eff")
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
-        ylabel(L"$m_\mathrm{eff}$")
-        xlabel(L"$x_0$")
+        ylabel(L"$am_\mathrm{eff}$")
+        xlabel(L"$x_0/a$")
         ylim(v-7*e, v+20*e)
         tight_layout()
 
@@ -51,8 +51,8 @@ function get_m(corr::juobs.Corr, ens::EnsInfo, PS::String;
 	    subplot(411)
         fill_between(1:length(m_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
-        ylabel(L"$m_\mathrm{eff}$")
-        xlabel(L"$x_0$")
+        ylabel(L"$am_\mathrm{eff}$")
+        xlabel(L"$x_0/a$")
         ylim(v-10*e, v+20*e)
         ax = gca()
         setp(ax.get_xticklabels(),visible=false)
@@ -147,8 +147,8 @@ function get_m_ALPHA(corr::juobs.Corr, ens::EnsInfo, PS::String;
         fig = figure("eff")
         errorbar(1:length(m_dat), value.(m_dat), err.(m_dat), fmt="x", color="black")
         fill_between(tmin:tmax, v-e, v+e, color="green", alpha=0.5)
-        ylabel(L"$m_\mathrm{eff}$")
-        xlabel(L"$x_0$")
+        ylabel(L"$am_\mathrm{eff}$")
+        xlabel(L"$x_0/a$")
         ylim(v-7*e, v+20*e)
         tight_layout()
 
@@ -315,8 +315,8 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
 
         fig = figure("eff")
         errorbar(1:length(mpcac_dat), value.(mpcac_dat), err.(mpcac_dat), fmt="x", color="black")
-        ylabel(L"$m_\mathrm{pcac}$")
-        xlabel(L"$x_0$")
+        ylabel(L"$am_\mathrm{pcac}$")
+        xlabel(L"$x_0/a$")
         ylim(v-10*e, v+20*e)
         tight_layout()
 
@@ -326,8 +326,8 @@ function get_mpcac(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo, PS::S
 	    subplot(411)
         fill_between(1:length(mpcac_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(mpcac_dat), value.(mpcac_dat), err.(mpcac_dat), fmt="x", color="black")
-        ylabel(L"$m_\mathrm{pcac}$")
-        xlabel(L"$x_0$")
+        ylabel(L"$am_\mathrm{pcac}$")
+        xlabel(L"$x_0/a$")
         ylim(v-10*e, v+10*e)
 
         subplot(412)
@@ -416,8 +416,8 @@ function get_mpcac_ALPHA(corr_pp::juobs.Corr, corr_ap::juobs.Corr, ens::EnsInfo,
         fig = figure("eff")
         errorbar(1:length(mpcac_dat), value.(mpcac_dat), err.(mpcac_dat), fmt="x", color="black")
         fill_between(tmin:tmax, v-e, v+e, color="green", alpha=0.5)
-        ylabel(L"$m_\mathrm{pcac}$")
-        xlabel(L"$x_0$")
+        ylabel(L"$am_\mathrm{pcac}$")
+        xlabel(L"$x_0/a$")
         ylim(v-10*e, v+20*e)
         tight_layout()
 
@@ -470,7 +470,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
         fig = figure("eff")
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -481,7 +481,7 @@ function get_f_wil(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens::Ens
         fill_between(1:length(R_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-10*e, v+10*e)
 
         subplot(412)
@@ -548,7 +548,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
         fig = figure("eff")
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -559,7 +559,7 @@ function get_f_wil(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::juobs.C
         fill_between(1:length(R_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-10*e, v+10*e)
 
         subplot(412)
@@ -655,7 +655,7 @@ function get_f_wil_ALPHA(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, en
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         fill_between(tmin:tmax, v-e, v+e, color="green", alpha=0.5)
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -742,7 +742,7 @@ function get_f_wil_ALPHA(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, corr_apL::j
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         fill_between(tmin:tmax, v-e, v+e, color="green", alpha=0.5)
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -854,7 +854,7 @@ function get_f_wil_pbc(corr_pp::juobs.Corr, corr_ap::juobs.Corr, m::uwreal, ens:
         figure()
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -899,7 +899,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         fig = figure("eff")
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -910,7 +910,7 @@ function get_f_tm(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         fill_between(1:length(R_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-10*e, v+10*e)
 
         subplot(412)
@@ -966,7 +966,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
         fig = figure("eff")
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -977,7 +977,7 @@ function get_f_tm(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, ens::En
         fill_between(1:length(R_dat), v-e, v+e, color="green", alpha=0.5)
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-10*e, v+10*e)
 
         subplot(412)
@@ -1064,7 +1064,7 @@ function get_f_tm_ALPHA(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         fill_between(tmin:tmax, v-e, v+e, color="green", alpha=0.5)
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -1140,7 +1140,7 @@ function get_f_tm_ALPHA(corr_ppL::juobs.Corr, corr_ppR::juobs.Corr, m::uwreal, e
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         fill_between(tmin:tmax, v-e, v+e, color="green", alpha=0.5)
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         ylim(v-20*e, v+20*e)
         tight_layout()
 
@@ -1196,7 +1196,7 @@ function get_f_tm_pbc(corr_pp::juobs.Corr, m::uwreal, ens::EnsInfo, PS::String;
         errorbar(1:length(R_dat), value.(R_dat), err.(R_dat), fmt="x", color="black")
         fill_between(x, v-e, v+e, color="gray", alpha=0.75)
         ylabel(L"$R_\mathrm{PS}$")
-        xlabel(L"$x_0$")
+        xlabel(L"$x_0/a$")
         #ylim(1e-8, 1e-7)
         #xlim(0,length(R_dat))
         yscale("log")
@@ -1331,8 +1331,10 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 fig = figure("t2E")
                 errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
                 ylabel(L"$t^2E(x_0,t)$")
-                xlabel(L"$x_0$")
-                ylim(v-5*e, v+20*e)
+                xlabel(L"$x_0/a$")
+                xlim(1,188)
+                ylim(v-7*e, v+20*e)
+                fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
                 tight_layout()
 
                 savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/t2E_",ens.id,"_plat.pdf"))
@@ -1342,7 +1344,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                 fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
                 errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
                 ylabel(L"$t^2\left<E\right>$")
-                xlabel(L"$x_0$")
+                xlabel(L"$x_0/a$")
                 ylim(v-10*e, v+10*e)
 
                 subplot(412)
@@ -1562,7 +1564,7 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
                 errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
                 fill_between(tmin:tmax, v-e, v+e, color="green", alpha=0.5)
                 ylabel(L"$t^2\left<E\right>$")
-                xlabel(L"$x_0$")
+                xlabel(L"$x_0/a$")
                 ylim(v-5*e, v+20*e)
                 tight_layout()
 
@@ -1690,7 +1692,7 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                     fig = figure("tdt2E")
                     errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
                     ylabel(L"$t\frac{d}{dt}t^2E(x_0,t)$")
-                    xlabel(L"$x_0$")
+                    xlabel(L"$x_0/a$")
                     ylim(v-5*e, v+20*e)
                     tight_layout()
 
@@ -1701,7 +1703,7 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                     fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
                     errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
                     ylabel(L"$t\frac{d}{dt}t^2\left<E\right>$")
-                    xlabel(L"$x_0$")
+                    xlabel(L"$x_0/a$")
                     ylim(v-10*e, v+10*e)
 
                     subplot(412)
@@ -1788,7 +1790,7 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                     fig = figure("t2E")
                     errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
                     ylabel(L"$tt^2E(x_0,t)$")
-                    xlabel(L"$x_0$")
+                    xlabel(L"$x_0/a$")
                     ylim(v-5*e, v+20*e)
                     tight_layout()
 
@@ -1799,7 +1801,7 @@ function get_w0t0(path::String, ens::EnsInfo, plat::Vector{Int64};
                     fill_between(1:length(dat), v-e, v+e, color="green", alpha=0.5)
                     errorbar(1:length(dat), value.(dat), err.(dat), fmt="x", color="black")
                     ylabel(L"$tt^2\left<E\right>$")
-                    xlabel(L"$x_0$")
+                    xlabel(L"$x_0/a$")
                     ylim(v-10*e, v+10*e)
 
                     subplot(412)
