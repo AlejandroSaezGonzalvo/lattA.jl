@@ -15,7 +15,7 @@
 \section{Introduction}
 \label{ch_observables:sec:general}
 
-In this Chapter we discuss the technical details on the extraction of physical observables from the lattice. In Sec.~\ref{ch_observables:sec:correlators} we define the two-point functions required for extracting the physical observables needed in the analysis of the scale setting. In Sec.~\ref{ch_observables:sec:meson_mass} we discuss how to extract meson masses while Sec.~\ref{ch_observables:sec:dec_const} covers the extraction of decay constants, their improvement and renormalization. In  Sec.~\ref{ch_observables:sec:quark_mass} we define the PCAC quark masses which will be used to tune Wilson tm quarks at maximal twist. In Sec.~\ref{ch_observables:sec:Flow} we discuss the gradient flow scale $t_0$ which we will use as the reference scale for the scale setting. Finally, in Sec.~\ref{ch_observables:sec:MA} we discuss the model averaging technology which we employ in order to find the ground state signals from all these lattice observables.
+In this Chapter we discuss the technical details on the extraction of physical observables from the lattice. In Sec.~\ref{ch_observables:sec:correlators} we define the two-point mesonic correlation functions required for extracting the physical observables needed in the analysis of the scale setting. In Sec.~\ref{ch_observables:sec:meson_mass} we discuss how to extract ground state meson masses from the corresponding correlation functions, while Sec.~\ref{ch_observables:sec:dec_const} covers the determination of decay constants, their improvement and renormalization. In  Sec.~\ref{ch_observables:sec:quark_mass} we define the PCAC quark masses which will be used to tune Wilson tm quarks to maximal twist. In Sec.~\ref{ch_observables:sec:Flow} we discuss the gradient flow scale $t_0$ which we will use as the reference scale for the scale setting. Finally, in Sec.~\ref{ch_observables:sec:MA} we discuss the model averaging technique employed to estimate the uncertainties involved in the isolation of the ground state signal from the various  lattice observables under consideration.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -25,20 +25,20 @@ In this Chapter we discuss the technical details on the extraction of physical o
 \section{Correlation functions}
 \label{ch_observables:sec:correlators}
 
-For the extraction of the physical observables of interest for this work we need two-point functions involving the pseudoscalar and axial currents, defined as
+The masses and decay constants of the pseudoscalar mesons can be calculated from two-point correlation functions involving the pseudoscalar density and the axial current, defined as 
 \begin{align}
 \label{ch_observables:eq:P}
 P^{ij}(x)&=\bar{\psi}^{i}(x)\gamma_5\psi^{j}(x),\\
 \label{ch_observables:eq:A}
 A_{\mu}^{ij}(x)&=\bar{\psi}^i(x)\gamma_{\mu}\gamma_5\psi^{j}(x),
 \end{align}
-where $i,j$ are flavor indices. The Wilson term in the Wilson and Wilson tm fermion action breaks chiral symmetry explicitly, and as a result the Noether currents of the theory are no longer protected against renormalization. This means that both the pseudoscalar and axial currents get renormalized as
+where $i,j$ are flavor indices. The pseudoscalar density $P$ in eq.~(\ref{ch_observables:eq:P}) renormalizes with the renormalization factor $Z_P(g_0^2,\mu_{\textrm{ren}})$, which is a function of the renormalization scale $\mu_{\textrm{ren}}$. As we will see when writing the PCAC relation, the running of $P$ is related to the running of the quark mass.  On the other hand, the axial current $A_{\mu}$ in eq.~(\ref{ch_observables:eq:A}) only receives a finite renormalization through the renormalization factor $Z_A(g_0^2)$. When  a mass-independent renormalization scheme is employed, the quarks are to be considered massless. In this limit, the Dirac operators of the Wilson and  Wilson tm regularizations coincide. It is therefore possible to employ the same set of renormalization factor for the two regularizations. The renormalized pseudoscalar density and axial currents thus read
 \begin{align}
 \label{ch_observables:eq:corr_ren}
 P^{ij,{\textrm{R}}}&=Z_P(g_0^2,\mu_{\textrm{ren}})\left(1+a\tilde{b}_Pm_{ij}+a\bar{b}_P{\textrm{tr}}\left(M_q\right)\right)P^{ij}, \\
 A_{\mu}^{ij,{\textrm{R}}}&=Z_A(g_0^2)\left(1+a\tilde{b}_Am_{ij}+a\bar{b}_A{\textrm{tr}}\left(M_q\right)\right)A_{\mu}^{ij},
 \end{align}
-where the $b$-counterterms are improvement coefficients for the renormalization constants. The renormalization constants are shown in Table~\ref{ch_observables:tab:Z}, while the improvement coefficients are in Table~\ref{ch_observables:tab:b}. For our purposes, we will only need the differences $\tilde{b}_A-\tilde{b}_P$, $\bar{b}_A-\bar{b}_P$ and $\tilde{b}_A$, the latter given in perturbation theory by~\citep{Taniguchi:1998pf}
+where the $b$-counterterms are improvement coefficients for the quark bilinears in eqs.~(\ref{ch_observables:eq:P}-\ref{ch_observables:eq:A}). The renormalization constants are reported in Table~\ref{ch_observables:tab:Z}, while the improvement coefficients are in Table~\ref{ch_observables:tab:b}. For our purposes, we will only need to consider the differences $\tilde{b}_A-\tilde{b}_P$, $\bar{b}_A-\bar{b}_P$ and $\tilde{b}_A$, the latter given at one-loop in perturbation theory by~\citep{Taniguchi:1998pf}
 \begin{equation}
 \label{ch_observables:eq:bA}
 \tilde{b}_A=1+0.0472g_0^2+\mathcal{O}(g_0^4).
@@ -54,7 +54,7 @@ where the $b$-counterterms are improvement coefficients for the renormalization 
     3.70 & 0.78378(47) & 0.34732(63) \\
     3.85 & 0.79667(47) & 0.35014(73) \\
     \bottomrule
-    \caption{Renormalization constants $Z_A(g_0^2)$ and $Z_P(g_0^2,\mu_{\textrm{ren}})$ for different values of $\beta$. $Z_A$, which does not depend on the energy scale but only on the bare coupling $g_0^2$, is calculated non-perturbatively in~\citep{DallaBrida:2018tpn} using the chirally rotated Schrödinger functional. $Z_P$ is calculated non-perturbatively at the renormalization scale $\mu_{\textrm{ren}}=\mu_{\textrm{had}}=233(8)$ MeV in~\citep{Campos:2018ahf}.}
+    \caption{Renormalization constants $Z_A(g_0^2)$ and $Z_P(g_0^2,\mu_{\textrm{ren}})$ for the values of $\beta$ considered in this work. $Z_A$, which does not depend on the energy scale but only on the bare coupling $g_0^2$, is calculated non-perturbatively in~\citep{DallaBrida:2018tpn} using the chirally rotated Schrödinger functional. $Z_P$ is calculated non-perturbatively in the Schrödinger functional scheme at the renormalization scale $\mu_{\textrm{ren}}=\mu_{\textrm{had}}=233(8)$ MeV in~\citep{Campos:2018ahf}.}
 \end{longtable}
 
 \begin{longtable}{c c c c}
@@ -67,10 +67,10 @@ where the $b$-counterterms are improvement coefficients for the renormalization 
     3.70 & -0.119(14) & $\mathcal{O}(g_0^4)$ & 1.2467 \\
     3.85 & -0.073(12) & $\mathcal{O}(g_0^4)$ & 1.2371 \\
     \bottomrule
-    \caption{Summary of improvement coefficients at CLS $\beta$ values. $\tilde{b}_A-\tilde{b}_P$ is taken from LCP-1 results in~\citep{deDivitiis:2017vvw}, while $\bar{b}_A-\bar{b}_P$ are computed in perturbation theory. $\tilde{b}_A$ is computed in perturbation theory in~\citep{Taniguchi:1998pf} and given by eq.~(\ref{ch_observables:eq:bA})}
+    \caption{Summary of employed improvement coefficients for the $\beta$ values employed in this work. $\tilde{b}_A-\tilde{b}_P$ is taken from LCP-1 results in~\citep{deDivitiis:2017vvw}, while $\bar{b}_A-\bar{b}_P$ start at $\mathcal{O}(g_0^4)$. $\tilde{b}_A$ is computed in perturbation theory in~\citep{Taniguchi:1998pf} and given by eq.~(\ref{ch_observables:eq:bA}).}
 \end{longtable}
 
-To achieve $\mathcal{O}(a)$ improvement in the Wilson regularization, we need to improve the axial current as part of the Symanzik improvement program as follows
+In addition to the mass dependent improvement $b$-terms, the axial current also requires the inclusion of a mass-indepentdent $\mathcal{O}(a)$ improvement term as follows
 \begin{equation}
 \label{ch_observables:eq:axial_impr}
 A_{\mu}^{ij}(x)\rightarrow A_{\mu}^{ij}(x)+ac_A\tilde{\partial}_{x_0}P^{ij}(x),
@@ -81,7 +81,7 @@ where we defined the symmetric discrete time derivative
 \hat{\partial}_{x}f(x)&=\frac{f(x+a)-f(x)}{a},\\
 \hat{\partial}^*_{x}f(x)&=\frac{f(x)-f(x-a)}{a}.
 \end{align}
-The improvement coefficient $c_A$ is given non-perturbatively by~\citep{Bulava:2015bxa}
+The non-perturbative determination of the improvement coefficient $c_A$ can be parametrized as follows ~\citep{Bulava:2015bxa}
 \begin{equation}
 c_A(g_0^2)=-0.006033g_0^2\left[1+\exp\left(9.2056-\frac{13.9847}{g_0^2}\right)\right].
 \end{equation}
@@ -93,17 +93,17 @@ C_P^{ij}(x_0,y_0)&=\frac{a^6}{L^3}\sum_{\vec{x},\vec{y}}\left<P^{ij}(x)P^{ji}(y)
 C_A^{ij}(x_0,y_0)&=\frac{a^6}{L^3}\sum_{\vec{x},\vec{y}}\left<A_0^{ij}(x)P^{ji}(y)\right>.
 \end{align}
 
-When only light and strange flavors are involved, the measurements of the two-point functions (see Appendix~\ref{appex_solvers}) are taken at fixed source times $y_0,\;T-y_0$, with $y_0=a$, and evaluated at all sink times $x_0$. In order to increase statistics the average
+When only light and strange flavors are involved, the measurements of the two-point functions (see Appendix~\ref{appex_solvers}) are taken at fixed source times $y_0,\;T-y_0$, with $y_0=a$, and evaluated at all sink times $x_0$. Profiting from time-reversal symmetry, from the statistical point of view it is convenient to combine the correlators as follows
 \begin{equation}
 C_X(x_0,y_0)\to\frac{C_X(x_0,y_0)\pm C_X(T-x_0,T-y_0)}{2},
 \end{equation}
-is taken, with the $+$ sign for the $X=P$ case and $-$ sign for the $X=A$ case. On the other hand, when heavy flavors are involved (see Sec.~\ref{ch_charm}), the source position is fixed at $y_0=T/2$ in order to maximize the distance from the boundaries: when dealing with heavy-light and heavy-heavy flavor contents in the correlators, we observe that the region in which the signal for the considered two-point function is accessible lies entirely within the lattice bulk, and that the boundary effects are strongly suppressed\footnote{The numerical inversion of the quark propagator in the charm region is performed using distance preconditioning techniques~\cite{deDivitiis:2010ya,Collins:2017iud} in order to reduce signal deterioration and enhance accuracy at large  Euclidean times.}.
+with the $+$ sign for the $X=P$ case and $-$ sign for the $X=A$ case. On the other hand, when heavy flavors are involved (see Sec.~\ref{ch_charm}), the source position is fixed at $y_0\approx T/2$ in order to maximize the distance from the boundaries: when dealing with heavy-light and heavy-heavy flavor contents in the correlators, we observe that the region in which the signal for the considered two-point function is accessible lies entirely within the lattice bulk, and that the boundary effects are strongly suppressed\footnote{The numerical inversion of the quark propagator in the charm region is performed using distance preconditioning techniques~\cite{deDivitiis:2010ya,Collins:2017iud} in order to address  the signal deterioration at large Euclidean times separations.}.
 
-The spectral decomposition of the two-point functions $C_X$ allows to extract relevant hadronic observables such as the meson masses and decay constants. In what follows we restrict to the case of the pion, but the same applies to any other flavor content. Using the Transfer Matrix formalism and imposing as boundary conditions that the initial and final states are given by
+The spectral decomposition of the two-point functions $C_X$ allows to extract relevant hadronic observables such as the ground state meson masses and decay constants. In what follows we will consider the case of operators with pion quantum numbers, but similar steps apply for a different flavor content. Using the Transfer Matrix formalism and imposing as boundary conditions that the initial and final states are given by
 \begin{gather}
 \left|\phi(0,\vec{x})\right>=\left|\phi_i\right>, \quad \left|\phi(T,\vec{x})\right>=\left|\phi_f\right>,
 \end{gather}
-we can express a generic two-point function by
+we can express a generic two-point function as
 \begin{align}
 \label{ch_observables:eq:spectral}
 \left<O(x)O(y)\right>&=\mathcal{Z}^{-1}\left<\phi_f\right|e^{-(T-x_0)\hat{H}}\hat{O}(\vec{x})e^{-(x_0-y_0)\hat{H}}\hat{O}(\vec{y})e^{-y_0\hat{H}}\left|\phi_i\right>, \\
@@ -127,32 +127,32 @@ The partition function reads
 \end{align}
 with the notation
 \begin{equation}
-\left|0\right>\left<0\right|\equiv\frac{1}{2E_0L^3}\left|\vec{0},0\right>\left<\vec{0},0\right|.
+\left|0\right>\left<0\right|\equiv\frac{1}{2E_0L^3}\left|\vec{0},0\right>\left<\vec{0},0\right|,
 \end{equation}
-We assume that the boundary states $\left|\phi_{i,f}\right>$ are the same and denoted by $\left|\Omega\right>$, and share the same quantum numbers of the vacuum $\left|0\right>$. This is true when using open boundary conditions (OBC) in time, which will be the case for most of the ensembles under study (see Table~\ref{apex_ensembles:tab:ens}).
+and $E_0$ the lowest energy level. We assume that the two boundary states $\left|\phi_{i,f}\right>$ are the same and denote them by $\left|\Omega\right>$. They share the same quantum numbers as the vacuum $\left|0\right>$. This is the case when using open boundary conditions (OBC) in time, which will be the case for most of the ensembles under study (see Table~\ref{apex_ensembles:tab:ens}).
 
-We will label the quantum states as $\left|\vec{0},\alpha,n\right>$, with $n$ labeling the energy level and $\alpha$ the other quantum numbers, and using the fact that we are projecting to zero momentum $\vec{p}=\vec{0}$ we employ the shorthand notation 
+The quantum states are labelled as $\left|\vec{0},\alpha,n\right>$, with $n$ labeling the energy level and $\alpha$ the other quantum numbers, and using the fact that we are projecting to zero momentum $\vec{p}=\vec{0}$ we employ the shorthand notation 
 \begin{equation}
 \left|\alpha,n\right>\left<\alpha,n\right|\equiv\frac{1}{2E_n^{\alpha}L^3}\left|\vec{0},\alpha,n\right>\left<\vec{0},\alpha,n\right|.
 \end{equation}
-With all this, the two-point function can be written as
+Combining these elements, the two-point function can be written as
 \begin{align}
 \left<O(x)O(y)\right>&=\sum_{\alpha,\beta,\gamma}\sum_{n,m,l}\frac{\left<\Omega|\beta,m\right>}{\left<\Omega|0,0\right>}e^{-(T-x_0)E_m^{\beta}} \notag \\
 &\times\left<\beta,m\right|\hat{O}(\vec{x})\left|\alpha,n\right>e^{-(x_0-y_0)E_n^{\alpha}} \notag \\
-&\times\left<\alpha,n\right|\hat{O}(\vec{y})\left|\gamma,l\right>e^{-y_0}E_s^{\gamma}\frac{\left<\gamma,l|\Omega\right>}{\left<0,0|\Omega\right>},
+&\times\left<\alpha,n\right|\hat{O}(\vec{y})\left|\gamma,l\right>e^{-y_0E_s}^{\gamma}\frac{\left<\gamma,l|\Omega\right>}{\left<0,0|\Omega\right>},
 \end{align}
 where we absorbed the $e^{-TE_0}$ term coming from the partition function into the energy levels
 \begin{equation}
 E_n^{\alpha}\rightarrow E_n^{\alpha}-E_0,
 \end{equation}
-such that $E_0^0=0$.
+such that the vaccum state has $E_0^0=0$.
 
 For sufficiently large source-sink separation $x_0-y_0\rightarrow\infty$, only the pion state $\left|\pi,0\right>$ propagates between $O(x)$ and $O(y)$. On the other hand, we made the assumption that the boundary states only overlap with the vacuum, so we are left with
 \begin{align}
 \left<O(x)O(y)\right>&=\sum_{m,l}\frac{\left<\Omega|0,m\right>}{\left<\Omega|0,0\right>}e^{-(T-x_0)E_m^{0}}\left<0,m\right|\hat{O}(\vec{x})\left|\pi,0\right> \notag \\
-&\times e^{-(x_0-y_0)m_{\pi}}\left<\pi,0\right|\hat{O}(\vec{y})\left|0,l\right>e^{-y_0E_l^{0}}\frac{\left<0,l|\Omega\right>}{\left<0,0|\Omega\right>}.
+&\times e^{-(x_0-y_0)m_{\pi}}\left<\pi,0\right|\hat{O}(\vec{y})\left|0,l\right>e^{-y_0E_l^{0}}\frac{\left<0,l|\Omega\right>}{\left<0,0|\Omega\right>},
 \end{align}
-Finally, far away from the boundaries $T-x_0,y_0\rightarrow\infty$ the first relevant contribution from them is the one with energy $E_1^0$
+where we substituted the pion ground state energy $E^{\pi}_0$ by the pion mass $m_{\pi}$, since we are projecting to zero momentum $\vec{p}=0$. Finally, far away from the boundaries $T-x_0,y_0\rightarrow\infty$ the first higher order contribution is the one with energy $E_1^0$
 \begin{align}
 \label{ch_foundation:eq:2pt_spec}
 \left<O(x)O(y)\right>&=\left<0,0\right|\hat{O}(\vec{x})\left|\pi,0\right>e^{-(x_0-y_0)m_{\pi}}\left<\pi,0\right|\hat{O}(\vec{y})\left|0,0\right> \notag \\
@@ -164,13 +164,13 @@ with
 \eta_y&=\frac{\left<\Omega|0,1\right>\left<\pi,0\right|O(y)\left|0,1\right>}{\left<\Omega|0,0\right>\left<\pi,0\right|O(y)\left|0,0\right>}.
 \end{align}
 
-So far we have assumed OBC in time. In the case with periodic boundary conditions (PBC), the pseudoscalar and axial correlators are periodic in time and identical (up to a relative minus sign for the axial) in $x_0$ and $T-x_0$. Considering the first excited state we can write them as
+So far we have assumed OBC in time. In the case with periodic boundary conditions (PBC), the pseudoscalar and axial correlators take the following generic form, when restrinting the attention to the ground state and the first excited states,
 \begin{align}
 \label{ch_observables:eq:corrs_PBC}
 C_X(x_0,y_0)&=a_X\left(e^{-m_{\pi}(x_0-y_0)}\pm e^{-m_{\pi}(T-x_0+y_0)}\right) \notag \\
 &+b_X\left(e^{-m'(x_0-y_0)}\pm e^{-m'(T-x_0+y_0)}\right),
 \end{align}
-where the $+$ sign corresponds to the pseudoscalar correlator $X=P$ and the $-$ sign for the axial $X=A$,  $a_P=|\left<0,0\right|P^{ud}\left|\pi,0\right>|^2$ and $a_A=\left<0,0\right|A_0^{ud}\left|\pi,0\right>\left<0,0\right|P^{ud}\left|\pi,0\right>$, $b_X$ the same matrix elements for the first excited state. 
+where the $+$ sign corresponds to the pseudoscalar correlator $X=P$ and the $-$ sign for the axial $X=A$,  $a_P=|\left<0,0\right|P^{ud}\left|\pi,0\right>|^2$ and $a_A=\left<0,0\right|A_0^{ud}\left|\pi,0\right>\left<0,0\right|P^{ud}\left|\pi,0\right>$, $b_X$ are similar matrix elements for the first excited state. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -192,11 +192,11 @@ In the case of PBC, to extract the pion mass one can alternatively build the qua
 \label{ch_observables:eq:meff_PBC}
 \frac{C_P(x_0,y_0)}{C_P(x_0+a,y_0)}=\frac{{\textrm{cosh}}(am_{\pi}(x_0/a-y_0/a-T/2a))}{{\textrm{cosh}}(am_{\pi}(x_0/a-y_0/a+a-T/2a))},
 \end{equation}
-and fit $am_{\pi}$.
+and solve for $am_{\pi}$.
 
-The pion mass for one of the ensembles under study is shown in Fig.~\ref{ch_observables:fig:meff}.
+An illustration of the pion effective mass from the Wilson and Wilson tm correlators is shown in Fig.~\ref{ch_observables:fig:meff}.
 
-For the study of mesons involving heavy flavors (see Sec.~\ref{ch_charm}), we will employ a generalized eigenvalue problem (GEVP) variational method, the details of which we give in Appendix~\ref{apex_GEVP}.
+For the study of mesons involving heavy flavors (see Sec.~\ref{ch_charm}), we will employ a generalized eigenvalue problem (GEVP) variational method, which is presented in Appendix~\ref{apex_GEVP}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -211,7 +211,7 @@ Meson decay constants are given by the vacuum-to-meson matrix elements. The matr
 \label{ch_observables:eq:axial_matrix_element}
 \left<0,0\right|A_0^{ud}\left|\pi,0\right>=f_{\pi}\sqrt{\frac{m_{\pi}}{2L^3}},
 \end{equation}
-where $f_{\pi}$ is the bare pion decay constant. To extract this matrix element, we must remove the matrix element $\left<0,0\right|P^{ud}\left|\pi,0\right>$ from the axial two-point function $C_A(x_0,y_0)$ in eq.~(\ref{ch_observables:eq:corrs}). To achieve this, when only light and strange flavors are involved, we compute the ratio
+where $f_{\pi}$ is the bare pion decay constant and the factor $L$ is coming from the normalization of the  two-point correlation function projected to zero spatial momentum. When considering Wilson fermions with OBC, to isolate this matrix element from the ground-state signal  of the two-point correlation function $C_A(x_0 , y_0)$ in eq.~(\ref{ch_observables:eq:corrs}), we construct the ratio
 \begin{equation}
 \label{ch_observables:eq:R}
 R(x_0)=\sqrt{\frac{\left|C_A(x_0,y_0)C_A(x_0,T-y_0)\right|}{C_P(x_0=T-a,y_0)}},
@@ -230,27 +230,27 @@ Following eq.~(\ref{ch_observables:eq:corr_ren}), the pion decay constant in the
 \begin{align}
 f_{\pi}^{\textrm{R}}&=Z_A(g_0^2)\left[1+a\bar{b}_A{\textrm{tr}}\left(M_q\right)+a\tilde{b}_Am_{ud}\right]f_{\pi}.
 \end{align}
-We assumed improvement of the axial current according to eq.~(\ref{ch_observables:eq:axial_impr}).
+We assume that the axial current has been improved according to eq.~(\ref{ch_observables:eq:axial_impr}).
 
-In the Wilson tm regularization at maximal twist, the chiral rotation in eq.~(\ref{ch_foundation:eq:chiral_rot}) rotates the axial to the vector current when going from the physical to the twisted basis
+In the Wilson tm regularization at maximal twist, the chiral rotation in eq.~(\ref{ch_foundation:eq:chiral_rot}) rotates the axial current into the vector current when going from the physical to the twisted basis
 \begin{equation}
-A_{\mu}^{ij}\rightarrow iV_{\mu}^{ij},
+A_{\mu}^{ij}\rightarrow iV_{\mu}^{ij}.
 \end{equation}
-which allows to compute the decay constant from the vector current in the twisted basis following
+In this way, the decay constant can be computed from the vector current in the twisted basis following
 \begin{equation}
 \label{ch_observables:eq:vector_matrix_element}
 \left<0,0\right|V_0^{ud}\left|\pi,0\right>=-if_{\pi}\sqrt{\frac{m_{\pi}}{2L^3}}.
 \end{equation}
-The advantage of this is that the vector current is protected against renormalization (see eq.~(\ref{ch_foundation:eq:ZV=1})) and thus so is $f_{\pi}$. Furthermore, in the twisted basis we can use the PCVC Ward-Takahashi identity in eq.~(\ref{ch_foundation:eq:WTI_V})
+Without loss of generality, the vector current in eq.~(\ref{ch_observables:eq:vector_matrix_element}) can, formally, be considered to be the point-split conserved vector current in eq.~(\ref{ch_foundation:eq:V_split}). The PCVC Ward-Takahashi identity in eq.~(\ref{ch_foundation:eq:WTI_V}) reads,
 \begin{equation}
 \left<\left(\partial_0^*V_0^{ij}(x)\right)O^{ji}(y)\right>=i\left(\eta_i\mu_i-\eta_{j}\mu_{j}\right)\left<P^{ij}(x)O^{ji}(y)\right>,
 \end{equation}
-where $O$ is any interpolator chosen such that $\left<P^{ij}(x)O^{ji}(y)\right>$ does not vanish and $\eta_i$ are given by the maximal twist condition in eq.~(\ref{ch_foundation:eq:mte}), in order to write the decay constant as
+where $O$ is any interpolator chosen such that $\left<P^{ij}(x)O^{ji}(y)\right>$ does not vanish and $\eta_i$ are given by the maximal twist condition in eq.~(\ref{ch_foundation:eq:mte}). Using the PCVC relation with the point-split current allows to rewrite eq.~(\ref{ch_observables:eq:vector_matrix_element}) to obtain the desired expression for the decay constant
 \begin{equation}
 \label{ch_observables:eq:f_OBC}
 f_{\pi}=\sqrt{\frac{2L^3}{m_{\pi}^3}}\left(|\mu_u|+|\mu_{d}|\right)\left|\left<0,0\right|P^{ud}\left|\pi,0\right>\right|.
 \end{equation}
-Different choices of the interpolator $O$ will lead to different values of the decay constants due to cutoff effects. We choose to use the pseudoscalar density $P^{ij}$ since it enhances the signal. To extract the matrix element $\left<0,0\right|P^{ud}\left|\pi,0\right>$, analogously to the Wilson case, when only light and strange flavors are involved we can estimate it by the plateau value of the ratio
+Different choices of the interpolator $O$ will lead to estimators for the decay constant with different cutoff effects. We choose to use the pseudoscalar density $P^{ij}$ for its favorable signal properties. To extract the matrix element $\left<0,0\right|P^{ud}\left|\pi,0\right>$, analogously to the Wilson case, we consider the ratio
 \begin{equation}
 \label{ch_observables:eq:R_tm}
 R(x_0)=\sqrt{\frac{C_P(x_0,y_0)C_P(x_0,T-y_0)}{C_P(x_0=T-a,y_0)}}.
@@ -262,11 +262,11 @@ For PBC, using again the PCVC relation, the decay constant reads
 f_{\pi}=\sqrt{\frac{2L^3}{m_{\pi}^3}}\sqrt{a_P}.
 \end{equation}
 
-Since working at maximal twist, no improvement is needed in the computation of eqs.~(\ref{ch_observables:eq:f_OBC}-\ref{ch_observables:eq:f_PBC}).
+At maximal twist, the expression in eqs.~(\ref{ch_observables:eq:f_OBC},\ref{ch_observables:eq:f_PBC}) do not require the inclusion of $\mathcal{O}(a)$ improvement terms.
 
 The ratios defined in this section for the extraction of decay constants are shown for the case of one of the ensembles under study in Fig.~\ref{ch_observables:fig:R}.
 
-In the case of meson decay constants involving heavy quarks (see Sec.~\ref{ch_charm}), we employ again the GEVP method to extract the ground state signal of the relevant matrix elements (see Appendix~\ref{apex_GEVP}).
+In the case of meson decay constants involving heavy quarks (see Sec.~\ref{ch_charm}), we employ a GEVP method to extract the ground state signal of the relevant matrix elements (see Appendix~\ref{apex_GEVP}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -276,21 +276,21 @@ In the case of meson decay constants involving heavy quarks (see Sec.~\ref{ch_ch
 \section{Quark masses}
 \label{ch_observables:sec:quark_mass}
 
-For the quark masses we use the Partially Conserved Axial Current (PCAC) Ward-Takahashi identity
+For the computation of quark masses we use the Partially Conserved Axial Current (PCAC) Ward-Takahashi identity
 \begin{equation}
 \label{ch_observables:eq:PCAC}
 \left<\left(\partial_{\mu}A^{ij}_{\mu}(x)\right)O^{ji}(y)\right>=2m_{ij}\left<P^{ij}(x)O^{ji}(y)\right>,
 \end{equation}
-where $O$ is any interpolator chosen such that $\left<P^{ij}(x)O^{ji}(y)\right>$ does not vanish, and $m_{ij}$ is the so called PCAC quark mass, where the flavor indices indicate combinations of the individual quark masses
+where $O$ is a interpolator chosen such that $\left<P^{ij}(x)O^{ji}(y)\right>$ does not vanish, and $m_{ij}$ is the so called PCAC quark mass, where the flavor indices indicate combinations of the individual quark masses
 \begin{equation}
 m_{ij}=\frac{m_i+m_{j}}{2}.
 \end{equation}
-The subtracted quark mass $m_{i}-m_{\textrm{cr}}$ must agree, up to cutoff effects, with the corresponding PCAC quark mass for flavor $i$ after renormalization, so by using the latter we do not need to know a priori the additive mass renormalization. As in the decay constants case, we take $O^{ij}=P^{ij}$ since we find the signal to be enhanced. Thus, the PCAC quark masses read
+The subtracted quark mass $m_{i}-m_{\textrm{cr}}$ must agree, up to cutoff effects, with the corresponding PCAC quark mass for flavor $i$ after renormalization, so by using the latter we do not need to know a priori the additive mass renormalization. As in the decay constants case, we take $O^{ij}=P^{ij}$. Thus, the PCAC quark masses read
 \begin{equation}
 \label{ch_observables:eq:mpcac}
 m_{ij}(x_0)=\frac{\tilde{\partial}_{x_0}C_A^{ij}(x_0,y_0)}{2C_P(x_0,y_0)}.
 \end{equation}
-As seen above, the axial current needs to be improved, and the numerator in eq.~(\ref{ch_observables:eq:mpcac}) becomes
+Including the improvement term for the axial current proportional to $c_A$, the numerator in eq.~(\ref{ch_observables:eq:mpcac}) becomes
 \begin{equation}
 \tilde{\partial}_{x_0}C_A^{ij}(x_0,y_0)+ac_A\hat{\partial}_{x_0}\hat{\partial}^*_{x_0}C_P^{ij}(x_0,y_0)
 \end{equation}
@@ -304,7 +304,7 @@ Finally, from eq.~(\ref{ch_observables:eq:corr_ren}) we see that the PCAC quark 
 m_{ij}^{\textrm{R}}&=\frac{Z_A(g_0^2)}{Z_P(g_0^2,\mu_{\textrm{ren}})}\left[1+a\left(\bar{b}_A-\bar{b}_P\right){\textrm{tr}}\left(M_q\right)+a\left(\tilde{b}_A-\tilde{b}_P\right)m_{ij}\right]m_{ij}.
 \end{align}
 
-In the Wilson regularization, physical quark masses are determined from the PCAC masses, while in the Wilson tm regularization at maximal twist, the latter vanish and the former are given by the renormalized twisted masses in eq.~(\ref{ch_foundation:eq:muR}).
+In the Wilson regularization, physical quark masses are determined from the PCAC masses, while in the Wilson tm regularization at maximal twist, the latter are used to fix the maximal twist condition by imposing that they vanish, and the physical quark masses are given by the renormalized twisted masses in eq.~(\ref{ch_foundation:eq:muR}).
 
 In Fig.~\ref{ch_observables:fig:mpcac} we show the dependence of the PCAC quark mass for one of the ensembles under study.
 
@@ -319,7 +319,7 @@ For the scale setting, we will use the gradient flow scale $t_0$ as an intermedi
 \label{ch_observables:eq:flow}
 \frac{dB_{\mu}(x,t)}{dt}=D_{\nu}G_{\mu\nu}(x,t), \quad B_{\mu}(x,t=0)=A_{\mu}(x),
 \end{gather}
-with $A_{\mu}$ the usual algebra-valued gauge fields. In this equation $t$ is a new fictitious dimension called flow time. The associated field strength tensor $G_{\mu\nu}$ is defined by
+with $A_{\mu}$ the algebra-valued gauge fields. In this equation $t$ is a new fictitious dimension called flow time. The associated field strength tensor $G_{\mu\nu}$ is defined by
 \begin{equation}
 G_{\mu\nu}(x,t)=\partial_{\mu}B_{\nu}(x,t)-\partial_{\nu}B_{\mu}(x,t)+i\left[B_{\mu}(x,t),B_{\nu}(x,t)\right],
 \end{equation}
@@ -331,39 +331,39 @@ The flow equation can be rewritten as
 \begin{gather}
 \frac{dB_{\mu}(x,t)}{dt}=\frac{\delta S_{\textrm{YM}}[B]}{\delta B_{\mu}(x,t)}, \quad B_{\mu}(x,t=0)=A_{\mu}(x),
 \end{gather}
-with $S_{\textrm{YM}}$ the continuum Yang-Mills action in eq.~(\ref{ch_foundation:eq:SYM}) in terms of the flow fields $B_{\mu}$. From this we can see that the effect of integrating this equation of motion is to flow the gauge fields towards the local minima of the Yang-Mills action. By solving the flow equation to leading order in the bare coupling $g_0$
+with $S_{\textrm{YM}}$ the continuum Yang-Mills action in eq.~(\ref{ch_foundation:eq:SYM}) in terms of the flowed fields $B_{\mu}$. We can therefore see that the effect of integrating the flow equation of motion is to flow the gauge fields towards the local minima of the Yang-Mills action. By solving the flow equation to leading order in the bare coupling $g_0$
 \begin{equation}
 \label{ch_observables:eq:B}
 B_{\mu}(x,t)=\frac{g_0}{4\pi t^2}\int d^4y\;e^{-(x-y)^2/4t}A_{\mu}(y).
 \end{equation}
-The flow field $B_{\mu}$ is thus smoothed over space-time with smearing radius $r_{\textrm{smear}}=2\sigma=\sqrt{8t}$, $\sigma$ being the variance of the distribution in eq.~(\ref{ch_observables:eq:B}), $\sigma^2=2t$.
+The flowed field $B_{\mu}$ is thus smoothed over space-time with smearing radius $r_{\textrm{smear}}=2\sigma=\sqrt{8t}$, $\sigma$ being the variance of the distribution in eq.~(\ref{ch_observables:eq:B}), $\sigma^2=2t$.
 
 on the lattice, eq.~(\ref{ch_observables:eq:flow}) can be expressed as 
 \begin{align}
 a^2\frac{dV_{\mu}(x,t)}{dt}&=-g_0^2\frac{\delta S_{\textrm{G}}[V]}{\delta V_{\mu}(x,t)}V_{\mu}(x,t),\\
 V_{\mu}(x,t=0)&=U_{\mu}(x),
 \end{align}
-with $U_{\mu}$ the gauge links in eq.~(\ref{ch_foundation:eq:U}) and $S_{\textrm{G}}$ the Wilson gauge action in eq.~(\ref{ch_foundation:eq:SG}).
+with $U_{\mu}$ the gauge links in eq.~(\ref{ch_foundation:eq:U}) and $S_{\textrm{G}}$ the lattice Yang-Mills action.
 
-After integrating the flow equation eq.~(\ref{ch_observables:eq:flow}), the action density at flow time $t$ can be defined as
+After integrating the flow equation eq.~(\ref{ch_observables:eq:flow}), the action density at flow time $t$ takes the form
 \begin{equation}
 E(x,t)=\frac{1}{2}{\textrm{tr}}\left({G}_{\mu\nu}(x,t){G}_{\mu\nu}(x,t)\right).
 \end{equation}
-on the lattice, this can be computed by
+On the lattice, this can be computed by
 \begin{equation}
 \label{ch_observables:eq:E}
 E(x,t)=\sum_{\mu,\nu}\textrm{Re tr}\left(1-V_{\mu\nu}(x,t)\right),
 \end{equation}
-which is just eq.~(\ref{ch_foundation:eq:SG}) but with the plaquette $U_{\mu\nu}(x)$ of gauge links $U_{\mu}(x)$ replaced by the plaquette $V_{\mu\nu}(x,t)$ of flow fields $V_{\mu}(x,t)$. After averaging over the 4-dimensional volume
+which corresponds to eq.~(\ref{ch_foundation:eq:SG}) with the plaquette $U_{\mu\nu}(x)$ made out of the original gauge links $U_{\mu}(x)$ replaced by the plaquette $V_{\mu\nu}(x,t)$ of flowed fields $V_{\mu}(x,t)$. After averaging over the 4-dimensional volume
 \begin{equation}
 E(t)=\left<E(x,t)\right>_x,
 \end{equation}
-we are left with an average energy density that depends only on the flow time. This average is computed using the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be precisely calculated on the lattice, making it a suitable choice for setting the scale (see Sec.~\ref{ch_ss}). To this end, the scale $t_0$ is defined as the flow time which satisfies
+we are left with an average energy density that depends only on the flow time. This average is computed using the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be accurately calculated on the lattice, which makes it a suitable option to define a reference scale (see Sec.~\ref{ch_ss}). The scale $t_0$ is defined as the flow time that satisfies the following condition
 \begin{equation}
 \label{ch_observables:eq:t0}
 t^2E(t)|_{t=t_0}\equiv0.3.
 \end{equation}
-It will be this gradient flow scale $t_0$ which we will use as an intermediate scale to convert lattice results to physical units. Fig.~\ref{ch_observables:fig:t2E} shows the extraction of $t_0/a^2$ for one of the ensembles under study.
+It will be this gradient flow scale $t_0$ that will be used as an intermediate quantity in the scale setting procedure. Fig.~\ref{ch_observables:fig:t2E} shows the extraction of $t_0/a^2$ for one of the ensembles under study.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

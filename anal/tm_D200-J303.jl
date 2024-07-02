@@ -108,7 +108,7 @@ phi2 = 8 * t0 * mpi[1] ^ 2
 phi4 = 8 * t0 * (mk[1] ^ 2 + 0.5 * mpi[1] ^ 2)
 obs = [t0, phi2, phi4, sqrt(8 * t0) * m12[1], sqrt(8 * t0) * m13[1], sqrt(8 * t0) * fpi[1], sqrt(8 * t0) * fk[1], sqrt(8 * t0) * 2/3 * (fk[1] + 0.5 * fpi[1])]
 if md_meas == true
-    obs_md = [Array{uwreal,1}() for a in obs]
+    obs_md = Array{uwreal,1}()
     for i in 1:length(obs)
         for a in obs[i]
             md_s = [md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]
@@ -121,11 +121,9 @@ if md_meas == true
         end
     end
 
-    for j in 1:length(obs_st)
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_", obs_st[j],"_md_tm.bdio"), "w")
-        for i in 1:length(obs[j]) write_uwreal(obs_md[j][i], fb, i) end
-        BDIO_close!(fb)
-    end
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/", ens.id, "_md_tm.bdio"), "w")
+    for i in 1:length(obs_md) write_uwreal(obs_md[i], fb, i) end
+    BDIO_close!(fb)
 end
 
 

@@ -21,10 +21,10 @@
 \contentsline {chapter}{\numberline {2}{On the extraction of physical observables}}{43}{chapter.2}%
 \contentsline {section}{\numberline {2.1}{Introduction}}{43}{section.2.1}%
 \contentsline {section}{\numberline {2.2}{Correlation functions}}{43}{section.2.2}%
-\contentsline {section}{\numberline {2.3}{Meson masses}}{47}{section.2.3}%
+\contentsline {section}{\numberline {2.3}{Meson masses}}{48}{section.2.3}%
 \contentsline {section}{\numberline {2.4}{Decay constants}}{48}{section.2.4}%
-\contentsline {section}{\numberline {2.5}{Quark masses}}{49}{section.2.5}%
-\contentsline {section}{\numberline {2.6}{Gradient flow}}{50}{section.2.6}%
+\contentsline {section}{\numberline {2.5}{Quark masses}}{50}{section.2.5}%
+\contentsline {section}{\numberline {2.6}{Gradient flow}}{51}{section.2.6}%
 \contentsline {section}{\numberline {2.7}{Ground state signals and model average}}{52}{section.2.7}%
 \contentsline {part}{\numberline {iii}{Precision Physics from a Lattice QCD Mixed Action}}{59}{part.3}%
 \contentsline {chapter}{\numberline {3}{Mixed action setup}}{61}{chapter.3}%

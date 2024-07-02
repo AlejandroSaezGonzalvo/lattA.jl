@@ -3501,7 +3501,7 @@
   \endentry
 
   \entry{deDivitiis:2017vvw}{article}{}
-    \name{author}{5}{}{%
+    \name{author}{6}{}{%
       {{hash=dDGM}{%
          prefix={de},
          prefixi={d\bibinitperiod},
@@ -3510,11 +3510,11 @@
          given={Giulia\bibnamedelima Maria},
          giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
       }}%
-      {{hash=FM}{%
-         family={Firrotta},
+      {{hash=FP}{%
+         family={Fritzsch},
          familyi={F\bibinitperiod},
-         given={Maurizio},
-         giveni={M\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
       }}%
       {{hash=HJ}{%
          family={Heitger},
@@ -3528,6 +3528,12 @@
          given={Carl\bibnamedelima Christian},
          giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
       }}%
+      {{hash=KS}{%
+         family={Kuberski},
+         familyi={K\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
       {{hash=VA}{%
          family={Vladikas},
          familyi={V\bibinitperiod},
@@ -3535,52 +3541,29 @@
          giveni={A\bibinitperiod},
       }}%
     }
-    \name{editor}{4}{}{%
-      {{hash=DMM}{%
-         family={Della\bibnamedelima Morte},
-         familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod},
-         given={M.},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=FP}{%
-         family={Fritzsch},
-         familyi={F\bibinitperiod},
-         given={P.},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=GSE}{%
-         family={G\'amiz\bibnamedelima S\'anchez},
-         familyi={G\bibinitperiod\bibinitdelim S\bibinitperiod},
-         given={E.},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=PRC}{%
-         family={Pena\bibnamedelima Ruano},
-         familyi={P\bibinitperiod\bibinitdelim R\bibinitperiod},
-         given={C.},
-         giveni={C\bibinitperiod},
-      }}%
-    }
     \strng{namehash}{DGMd+1}
-    \strng{fullhash}{DGMdFMHJKCCVA1}
+    \strng{fullhash}{DGMdFPHJKCCKSVA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{sortinit}{D}
     \field{sortinithash}{D}
     \verb{doi}
-    \verb 10.1051/epjconf/201817510008
+    \verb 10.1140/epjc/s10052-019-7287-1
     \endverb
     \verb{eprint}
-    \verb 1710.07020
+    \verb 1906.03445
     \endverb
-    \field{pages}{10008}
-    \field{title}{{Non-perturbative determination of improvement
-  $b$-coefficients in $N_f=3$}}
-    \field{volume}{175}
-    \field{journaltitle}{EPJ Web Conf.}
+    \field{number}{9}
+    \field{pages}{797}
+    \field{title}{{Non-perturbative determination of improvement coefficients
+  $b_\mathrm{m}$ and $b_\mathrm{A}-b_\mathrm{P}$ and normalisation factor
+  $Z_\mathrm{m}Z_\mathrm{P}/Z_\mathrm{A}$ with $N_\mathrm{f}= 3$ Wilson
+  fermions}}
+    \field{volume}{79}
+    \field{journaltitle}{Eur. Phys. J. C}
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
-    \field{year}{2018}
+    \field{year}{2019}
   \endentry
 
   \entry{Donald:2012ga}{article}{}
@@ -5015,27 +4998,6 @@
     \field{volume}{295}
     \field{journaltitle}{Nucl. Phys. B}
     \field{year}{1988}
-  \endentry
-
-  \entry{Gupta:1999du}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=LM}{%
-         family={Luscher},
-         familyi={L\bibinitperiod},
-         given={Martin},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{LM1}
-    \strng{fullhash}{LM1}
-    \field{labelnamesource}{author}
-    \field{sortinit}{L}
-    \field{sortinithash}{L}
-    \field{booktitle}{{Probing the standard model of particle interactions.
-  Proceedings, Summer School in Theoretical Physics, NATO Advanced Study
-  Institute, 68th session, Les Houches, France, July 28-September 5, 1997. Pt.
-  1, 2}}
-    \field{year}{1999}
   \endentry
 
   \entry{Luscher:2010ae}{inproceedings}{}
