@@ -98,7 +98,7 @@ mpi, mk, m12, m13, fpi, fk = mpi[1], mk[1], m12[1], m13[1], fpi[1], fk[1]
 
 #======== compute t0/a² ===============#
 
-if ens.id in ["H102r001", "H102r002"]
+if ens.id in ["H102r002"]
     t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm)
 else
     t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)

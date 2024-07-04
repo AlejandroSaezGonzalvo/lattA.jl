@@ -80,7 +80,7 @@ end
 
 #======== compute t0/a² ===============#
 
-if ens.id in ["H102r001", "H102r002"]
+if ens.id in ["H102r002"]
     t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm)
 else
     t0, YW, WY = get_t0(path, ens, [40,60], rw=true, info=true, wpm=wpm, tm=tm, tM=tM)

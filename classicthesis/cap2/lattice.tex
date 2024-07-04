@@ -317,7 +317,7 @@ By rotating the fields
 \bar{\psi}~\to~\bar{\psi}' = \bar{\psi} e^{-i\frac{\pi}{2}\gamma_5 \frac{T}{2}}, \quad \\
 T = {\textrm{diag}}(\eta_u,\eta_d,\eta_s,\eta_c),
 \end{gather}
-with $\alpha_i\equiv\frac{\pi}{2}\eta_i$ the so called twist angles. The latter can be defined in the renomalized theory in terms of the ratio of the renormalized standard and twisted quark masses as
+with $\alpha_i\equiv\frac{\pi}{2}\eta_i$ the so-called twist angles. The latter can be defined in the renormalized theory in terms of the ratio of the renormalized standard and twisted quark masses as
 \begin{equation}
 {\textrm{cot}}\;\alpha_i=\frac{m_i^{\textrm{R}}}{\mu_i^{\textrm{R}}},
 \end{equation}
@@ -325,7 +325,7 @@ one retrieves the usual physical (standard) formulation with real fermionic mass
 \begin{equation}
 M_i=\sqrt{m_i^2+\mu_i^2},
 \end{equation}
-and a chirally rotated Wilson term. The rotated fields $\psi',\bar{\psi}'$ define the so called physical basis, while the unrotated ones $\psi,\bar{\psi}$ define the twisted basis.
+and a chirally rotated Wilson term. The rotated fields $\psi',\bar{\psi}'$ define the so-called physical basis, while the unrotated ones $\psi,\bar{\psi}$ define the twisted basis.
 
 In practice we will be working with Wilson tm fermions at maximal twist
 \begin{equation}
@@ -511,7 +511,7 @@ c_2=c_3=0,
 thus leading to tree-level improvement of the action. The only dimension-6 operators that survive are planar rectangles $U^{(1)}$.
 
 Since Wilson fermions receive $\mathcal{O}(a)$ lattice artifacts, in addition to the gauge action the Symanzik improvement must be applied to the fermionic action in order 
-to achieve on-shell $\mathcal{O}(a)$ improvement. This requires identifying all dimension $5$ operators that preserve the symmetris of the lattice regularization. There are 5 such operators, two of which can be eliminated by the use of the equations of motion. This is referred to as on-shell improvement, and the leading $\mathcal{O}(a)$ correction can be spanned by 
+to achieve on-shell $\mathcal{O}(a)$ improvement. This requires identifying all dimension $5$ operators that preserve the symmetries of the lattice regularization. There are 5 such operators, two of which can be eliminated by the use of the equations of motion. This is referred to as on-shell improvement, and the leading $\mathcal{O}(a)$ correction can be spanned by 
 \begin{gather}
 \label{ch_foundation:eq:L1}
 \mathcal{L}_{k=1}^{(1)}=i\bar{\psi}(x)\sigma_{\mu\nu}\hat{F}_{\mu\nu}(x)\psi(x),\\
@@ -556,7 +556,7 @@ D_{\textrm W}+\boldsymbol{m}+i\gamma_5\boldsymbol{\mu}+c_{\textrm{sw}}a\frac{1}{
 \end{equation}
 When considering a unitary setup,  Wilson tm fermions 
 at maximal twist (i.e. for a vanishing standard quark mass) follow
-an automatic $\mathcal{O}(a)$ improvement of physical observables~\citep{Frezzotti:2003ni,Shindler:2007vp}. This implies  that physical quantities receive leading lattice artefacts of $\mathcal{O}(a^2)$ 
+an automatic $\mathcal{O}(a)$ improvement of physical observables~\citep{Frezzotti:2003ni,Shindler:2007vp}. This implies  that physical quantities receive leading lattice artifacts of $\mathcal{O}(a^2)$ 
  without the need of computing $\mathcal{O}(a)$ improvement coefficients. This statement holds also for a vanishing value of $c_{\textrm{sw}}$ in eq.~(\ref{ch_foundations:eq:Wtm_csw}). The following discussion is based on the original work~\citep{Frezzotti:2003ni} to which we refer for a complete proof.
 
 At maximal twist and vanishing $c_{\textrm{sw}}$, the Wilson tm Dirac operator reads
@@ -608,7 +608,7 @@ On the lattice, all physical observables are computed in units of the lattice sp
 
 In this context, baryon masses like the $\Xi$ or the $\Omega$ baryon mass are popular choices of external input to set the scale~\citep{BMW:2012hcm,Miller:2020evg,RQCD_scale}. The former is determined with high accuracy experimentally~\citep{ParticleDataGroup:2020ssz} but suffers from the signal-to-noise problem~\citep{Lepage:1989hd,Luscher:2010ae} on the lattice determination. This problem is also present in the $\Omega$ baryon mass, but to a somewhat reduced extent~\citep{BMW:2012hcm,Miller:2020evg}. Furthermore, the $\Omega$ baryon mass has a weak dependence on the light quark masses and a strong one in the strange quark mass. This makes it an interesting scale for chiral trajectories with constant strange quark mass. Another choice is using meson masses. The pion and kaon meson masses are generally used to define a line of constant physics to the continuum limit that matches the physical values of the $u$/$d$ and $s$ quark masses, and therefore are not available to set the scale. In the past, the $\rho$ meson mass was used to set the scale of quenched simulations~\citep{Mawhinney:1996jk,Irving:1998yu,Bornyakov:2015plz}, but  its large decay width makes it unsuitable for quark dynamical simulations. The $\Upsilon$ meson mass spectrum is also used~\citep{HPQCD:2011qw,Gray:2005ur} thanks to its precise experimental determination. However, it is still challenging to bring down the systematic uncertainties associated to $b$-physics computations to the level required in the scale setting procedure. Another popular choice~\citep{Brown:2018jtv,BMW:2012hcm,BMW:2012hcm,Bruno:2016plf,Strassberger:2023xnj} and the one used in this work is a linear combination of the pion and kaon decay constants. These exhibit large plateaux on the lattice, indicating that excited states contributions decay fast and therefore they can be determined to a high precision on the lattice. Furthermore, the pion decay constant does not suffer from the signal-to-noise problem, which is present in the kaon decay constant but to a very reduced extent. On the other hand, their experimental values are extracted from the weak processes $\pi/K\to l\nu$, which leads to the measurement of $V_{ud(us)}f_{\pi(K)}$, with $V_{ud,us}$ the CKM matrix elements. This leads to an increase in the uncertainty of the experimental values of $f_{\pi,K}$ coming from the determination of said CKM matrix elements~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}. This effect is more severe for the kaon than for the pion decay constant. In addition to this, in the $\pi/K\to l\nu$ processes there are QED effects that must be taken into account. When simulating pure QCD in the lattice, a theoretical prescription to remove QED effects from $f_{\pi,K}$ is needed in order to use these quantities as input to set the scale. Again, the kaon decay constant receives stronger QED corrections than in the pion case~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.
 
-We employ the gradient flow scale $t_0$~\citep{Luscher:2010we,1006.4518}, introduced in Sec.~\ref{ch_observables:sec:Flow}, as an intermediate quantity in the scale setting. This quantity can be calculated with high precision on the lattice. Since it is a gluonic observable its quark mass dependence arises solely from sea-quark effects. The smearing radius $\sqrt{8t_0} \approx 0.4$ fm  is such that finite volume effects are small on typical lattice sizes with $L > 2$ fm and $m_{\pi} L > 4$. Although it is not an experimentally accessible quantity its physical value can be determined on the lattice~\citep{Bruno:2016plf,Strassberger:2023xnj,RQCD_scale,Kostrzewa:2021syw,Hollwieser:2020qri,MILC:2015tqx}. To determine its value in the continuum and at physical quark masses, one constructs a dimensionless quantity $(\sqrt{t_0}\Lambda)^{\textrm{latt}}$, where $\Lambda$ is one of the the quantities previously described (e.g. $f_{\pi}$, $f_{\pi K}$, $m_{\Omega}$, ...) . After taking the continuum limit and extrapolating/interpolating to the physical point, the physical value of $t_0$ can be extracted as follows
+We employ the gradient flow scale $t_0$~\citep{Luscher:2010we,1006.4518}, introduced in Sec.~\ref{ch_observables:sec:Flow}, as an intermediate quantity in the scale setting. This quantity can be calculated with high precision on the lattice. Since it is a gluonic observable its quark mass dependence arises solely from sea-quark effects. The smearing radius $\sqrt{8t_0} \approx 0.4$ fm  is such that finite volume effects are small on typical lattice sizes with $L > 2$ fm and $m_{\pi} L > 4$. Although it is not an experimentally accessible quantity its physical value can be determined on the lattice~\citep{Bruno:2016plf,Strassberger:2023xnj,RQCD_scale,Kostrzewa:2021syw,Hollwieser:2020qri,MILC:2015tqx}. To determine its value in the continuum and at physical quark masses, one constructs a dimensionless quantity $(\sqrt{t_0}\Lambda)^{\textrm{latt}}$, where $\Lambda$ is one of the quantities previously described (e.g. $f_{\pi}$, $f_{\pi K}$, $m_{\Omega}$, ...) . After taking the continuum limit and extrapolating/interpolating to the physical point, the physical value of $t_0$ can be extracted as follows
 \begin{equation}
 \label{ch_foundation:eq:Lambda}
 \sqrt{t_0^{\textrm{ph}}}=\frac{\left.\begin{matrix}
@@ -617,7 +617,7 @@ We employ the gradient flow scale $t_0$~\citep{Luscher:2010we,1006.4518}, introd
 \end{equation}
 As already anticipated, the approach to the physical values of the quark masses often requires some extrapolations/interpolations. This is because Lattice QCD simulations often include ensembles with unphysical values of the quark mass. At present, the simulations at the physical point are feasible but they are still computationally challenging due to the small value of the physical light quark masses and the necessity to keep the lattice size large enough to keep finite volume effects under control. This implies that additional simulations with heavier light quark masses provide important information to control the physical results and to estimate the systematic effects present in the computation. The chiral and continuum extrapolations considered in the scale setting procedure will be discussed in Sec.~\ref{ch_ss}.
 
-Once $t_0$ has been determined, it can be used to predict any other quantity $\Lambda'$ (for simplificity assumed to be of mass-dimension one) in physical units. For this purpose, one performs a continuum extrapolation of $\sqrt{t_0}\Lambda'$ and obtains the physical value of $\Lambda'$ as
+Once $t_0$ has been determined, it can be used to predict any other quantity $\Lambda'$ (for simplicity assumed to be of mass-dimension one) in physical units. For this purpose, one performs a continuum extrapolation of $\sqrt{t_0}\Lambda'$ and obtains the physical value of $\Lambda'$ as
 \begin{equation}
 \Lambda^{\textrm{' ph}}=\frac{\left.\begin{matrix}
 \left(\sqrt{t_0}\Lambda'\right)^{\textrm{latt}}

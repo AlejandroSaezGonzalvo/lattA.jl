@@ -70,7 +70,7 @@ where the $b$-counterterms are improvement coefficients for the quark bilinears 
     \caption{Summary of employed improvement coefficients for the $\beta$ values employed in this work. $\tilde{b}_A-\tilde{b}_P$ is taken from LCP-1 results in~\citep{deDivitiis:2017vvw}, while $\bar{b}_A-\bar{b}_P$ start at $\mathcal{O}(g_0^4)$. $\tilde{b}_A$ is computed in perturbation theory in~\citep{Taniguchi:1998pf} and given by eq.~(\ref{ch_observables:eq:bA}).}
 \end{longtable}
 
-In addition to the mass dependent improvement $b$-terms, the axial current also requires the inclusion of a mass-indepentdent $\mathcal{O}(a)$ improvement term as follows
+In addition to the mass dependent improvement $b$-terms, the axial current also requires the inclusion of a mass-independent $\mathcal{O}(a)$ improvement term as follows
 \begin{equation}
 \label{ch_observables:eq:axial_impr}
 A_{\mu}^{ij}(x)\rightarrow A_{\mu}^{ij}(x)+ac_A\tilde{\partial}_{x_0}P^{ij}(x),
@@ -145,7 +145,7 @@ where we absorbed the $e^{-TE_0}$ term coming from the partition function into t
 \begin{equation}
 E_n^{\alpha}\rightarrow E_n^{\alpha}-E_0,
 \end{equation}
-such that the vaccum state has $E_0^0=0$.
+such that the vacuum state has $E_0^0=0$.
 
 For sufficiently large source-sink separation $x_0-y_0\rightarrow\infty$, only the pion state $\left|\pi,0\right>$ propagates between $O(x)$ and $O(y)$. On the other hand, we made the assumption that the boundary states only overlap with the vacuum, so we are left with
 \begin{align}
@@ -164,7 +164,7 @@ with
 \eta_y&=\frac{\left<\Omega|0,1\right>\left<\pi,0\right|O(y)\left|0,1\right>}{\left<\Omega|0,0\right>\left<\pi,0\right|O(y)\left|0,0\right>}.
 \end{align}
 
-So far we have assumed OBC in time. In the case with periodic boundary conditions (PBC), the pseudoscalar and axial correlators take the following generic form, when restrinting the attention to the ground state and the first excited states,
+So far we have assumed OBC in time. In the case with periodic boundary conditions (PBC), the pseudoscalar and axial correlators take the following generic form, when restricting the attention to the ground state and the first excited states,
 \begin{align}
 \label{ch_observables:eq:corrs_PBC}
 C_X(x_0,y_0)&=a_X\left(e^{-m_{\pi}(x_0-y_0)}\pm e^{-m_{\pi}(T-x_0+y_0)}\right) \notag \\
@@ -264,7 +264,7 @@ f_{\pi}=\sqrt{\frac{2L^3}{m_{\pi}^3}}\sqrt{a_P}.
 
 At maximal twist, the expression in eqs.~(\ref{ch_observables:eq:f_OBC},\ref{ch_observables:eq:f_PBC}) do not require the inclusion of $\mathcal{O}(a)$ improvement terms.
 
-The ratios defined in this section for the extraction of decay constants are shown for the case of one of the ensembles under study in Fig.~\ref{ch_observables:fig:R}.
+The ratios defined in this section for the extraction of decay constants are shown for the case of one of the ensembles under study in Fig.~\ref{ch_observables:fig:meff}.
 
 In the case of meson decay constants involving heavy quarks (see Sec.~\ref{ch_charm}), we employ a GEVP method to extract the ground state signal of the relevant matrix elements (see Appendix~\ref{apex_GEVP}).
 
@@ -306,7 +306,7 @@ m_{ij}^{\textrm{R}}&=\frac{Z_A(g_0^2)}{Z_P(g_0^2,\mu_{\textrm{ren}})}\left[1+a\l
 
 In the Wilson regularization, physical quark masses are determined from the PCAC masses, while in the Wilson tm regularization at maximal twist, the latter are used to fix the maximal twist condition by imposing that they vanish, and the physical quark masses are given by the renormalized twisted masses in eq.~(\ref{ch_foundation:eq:muR}).
 
-In Fig.~\ref{ch_observables:fig:mpcac} we show the dependence of the PCAC quark mass for one of the ensembles under study.
+In Fig.~\ref{ch_observables:fig:meff} we show the dependence of the PCAC quark mass for one of the ensembles under study.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -355,7 +355,7 @@ E(x,t)=\sum_{\mu,\nu}\textrm{Re tr}\left(1-V_{\mu\nu}(x,t)\right),
 which corresponds to eq.~(\ref{ch_foundation:eq:SG}) with the plaquette $U_{\mu\nu}(x)$ made out of the original gauge links $U_{\mu}(x)$ replaced by the plaquette $V_{\mu\nu}(x,t)$ of flowed fields $V_{\mu}(x,t)$. Another possibility is to use the clover definition of $E(x,t)$, which reads
 \begin{align}
 \label{ch_observables:eq:E}
-E(x,t)=\sum_{\mu\nu}{\textrm{tr}}\left(\hat{F}_{\mu\nu}(x)\hat{F}_{\mu\nu}(x)\right),
+E(x,t)=a^4\sum_{\mu\nu}{\textrm{tr}}\left(\hat{F}_{\mu\nu}(x)\hat{F}_{\mu\nu}(x)\right),
 \end{align}
 with $\hat{F}_{\mu\nu}$ given in eq.~(\ref{ch_foundation:eq:F_clover}) but again replacing the standard plaquettes $U_{\mu\nu}$ by the flowed ones $V_{\mu\nu}$. After averaging over the 4-dimensional volume
 \begin{equation}
@@ -441,7 +441,7 @@ This type of model averaging technique will also be used for the chiral and cont
     	\includegraphics[width=\textwidth]{./cap3/figs/J501_mpcac_tm.pdf}
     	\caption{}
     \end{subfigure}
-    \caption{(a): Pion effective mass $m_{\textrm{eff}}$ in eq.~(\ref{ch_observables:eq:meff}) in the Wilson regularization. (b): The same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. (c): Vacuum-to-pion axial matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R}) in the Wilson regularization. (d): Vacuum-to-pion pseudoscalar matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R_tm}) in the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. (e): Up/down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}) in the Wilson regularization. (f): The same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. At maximal twist this quantity must vanish. In all cases, the green horizontal band is the result coming form the model average over different fit range choices. Results for ensemble J501.}
+    \caption{(a): Pion effective mass $m_{\textrm{eff}}$ in eq.~(\ref{ch_observables:eq:meff}) in the Wilson regularization. (b): The same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. (c): Vacuum-to-pion axial matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R}) in the Wilson regularization. (d): Vacuum-to-pion pseudoscalar matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R_tm}) in the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. (e): Up/down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}) in the Wilson regularization. (f): The same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. At maximal twist this quantity must vanish. In all cases, the green horizontal band is the result coming from the model average over different fit range choices. Results for ensemble J501.}
         \label{ch_observables:fig:meff}
 \end{figure}
 
@@ -454,14 +454,14 @@ This type of model averaging technique will also be used for the chiral and cont
     	\includegraphics[width=\textwidth]{./cap3/figs/t0_J501.pdf}
     	\caption{}
     \end{subfigure}
-    \caption{(a): $t^2E(x_0,t)$ for one value of the flow time $t/a^2$ near $t_0/a^2$ as a function of the Euclidean time $x_0/a$, with $E(x_0,t)$ the space volume averaged energy density. The latter is defined in eq.~(\ref{ch_observables:eq:E}). The green horizontal band is the result coming form the model average over different fit range choices. (b): Euclidean-time averaged values of $t^2\left<E(x_0,t)\right>_{x_0}$ for several flow times $t/a^2$ (blue points) near $t_0/a^2$ (defined in eq.~(\ref{ch_observables:eq:t0})) and the interpolated result for $t_0/a^2$ (orange point). Results for ensemble J501.}
+    \caption{(a): $t^2E(x_0,t)$ for one value of the flow time $t/a^2$ near $t_0/a^2$ as a function of the Euclidean time $x_0/a$, with $E(x_0,t)$ the space volume averaged energy density. The latter is defined in eq.~(\ref{ch_observables:eq:E}). The green horizontal band is the result coming from the model average over different fit range choices. (b): Euclidean-time averaged values of $t^2\left<E(x_0,t)\right>_{x_0}$ for several flow times $t/a^2$ (blue points) near $t_0/a^2$ (defined in eq.~(\ref{ch_observables:eq:t0})) and the interpolated result for $t_0/a^2$ (orange point). Results for ensemble J501.}
         \label{ch_observables:fig:t2E}
 \end{figure}
 
 \begin{figure}
 \centering
-	\includegraphics[width=.8\textwidth]{./cap3/figs/m_H101_pion_wil.pdf}
-    \caption{Model variation for the extraction of the ground state signal of the pion effective mass of ensemble H101 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff} (a). From top to bottom we show the ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice (whose minimal and maximal Euclidean times are displayed in the ticks of the x-axis), the weight associated to each choice according to eq.~(\ref{ch_observables:eq:weight}), and the goodness of fit measured through the p-values defined in~\citep{Bruno:2022mfy}. We see that the highest weights are associated to a compromise between good fits (in terms of p-values) and fits with large number of points. The right-most models in the plot are heavily penalized even though they have the best p-values, since they cut a large number of points and models with not so severe cuts get also good p-values. The band in the top figure indicates the final weighted average result including the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}).}
+	\includegraphics[width=1.\textwidth]{./cap3/figs/meff_ma_J501.pdf}
+    \caption{Model variation for the extraction of the ground state signal of the pion effective mass of ensemble J501 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff} (a). {\it Top}: ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice (whose minimal and maximal Euclidean times are displayed in the ticks of the x-axis). The band indicates the final weighted average result including the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}). {\it Bottom}: model weights associated to each choice according to eq.~(\ref{ch_observables:eq:weight}). The highest weights are associated to a compromise between good fits (in terms of p-values~\citep{Bruno:2022mfy}) and fits with large number of points.}
     \label{ch_observables:fig:model_av}
 \end{figure}
 

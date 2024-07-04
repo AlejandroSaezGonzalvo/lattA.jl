@@ -26,6 +26,10 @@ phi4_w = 8 * t0 * (mk_w ^ 2 + 0.5 * mpi_w ^ 2)
 phi2_w = 8 * t0 * mpi_w ^ 2
 uwerr(phi2_w)
 uwerr(phi4_w)
+ZA = beta_ZA[ens.beta]
+bAtil = 1 + 0.0472 * (6 / ens.beta)
+fpi_w = ZA * (1 + bAtil * m12_w) * fpi_w
+fk_w = fpi_w
 
 obs = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 obs_str = ["mpi", "m12", "fpi"]
@@ -37,11 +41,7 @@ for j in 1:length(obs_str)
 end
 mpi = obs[1]
 m12 = obs[2] ## not improved, not renormalized
-fpi = obs[3] ## not improved, not renormalized
-
-ZA = beta_ZA[ens.beta]
-bAtil = 1 + 0.0472 * (6 / ens.beta)
-fpi = ZA * (1 + bAtil * m12) * fpi
+fpi = obs[3] 
 
 phi2 = [8 * t0 * mpi[i] ^ 2 for i in 1:length(mpi)]
 phi4 = [8 * t0 * (mpi[i] ^ 2 + 0.5 * mpi[i] ^ 2) for i in 1:length(mpi)]

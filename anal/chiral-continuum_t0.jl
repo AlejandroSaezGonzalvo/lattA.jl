@@ -10,10 +10,10 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
 new = true
 if new == true
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
-    ens_new = ["D450", "E250", "N302", "E300", "J500", "J501"]
-    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
+    ens_new = ["D450", "E250", "N302", "E300", "J500"]#, "J501"]
+    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
 else
     ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
     ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
@@ -21,14 +21,14 @@ else
     ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
 end
 ens_sym = ["H101", "H400", "N202", "N300", "J500"]
-ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500", "J501"]
-ens_40_nosym = ["H102", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_41_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "J303", "E300", "J501"]
-ens_42_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "E300", "J501"]
+ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
+ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
+ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500"]#, "J501"]
+ens_40_nosym = ["H102", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
+ens_41_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "J303", "E300"]#, "J501"]
+ens_42_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "E300"]#, "J501"]
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
@@ -203,10 +203,10 @@ fpik_add = true
                     " & ", round(value(t0_sh[i]), digits=4), "(", Int(round(err(t0_sh[i]) * 1e4, digits=0)), ")", 
                     " & ", round(value(phi2_sh[i]), digits=4), "(", Int(round(err(phi2_sh[i]) * 1e4, digits=0)), ")",
                     " & ", round(value(phi4_sh[i]), digits=4), "(", Int(round(err(phi4_sh[i]) * 1e4, digits=0)), ")",
-                    " & ", round(value(mul[i]), digits=6), "(", Int(round(err(mul[i]) * 1e5, digits=0)), ")",
-                    " & ", round(value(muls[i]), digits=6), "(", Int(round(err(muls[i]) * 1e5, digits=0)), ")",
-                    " & ", round(value(fpi_matched[i]), digits=5), "(", Int(round(err(fpi_matched[i]) * 1e6, digits=0)), ")",
-                    " & ", round(value(fk_matched[i]), digits=5), "(", Int(round(err(fk_matched[i]) * 1e6, digits=0)), ") \\\\"
+                    " & ", round(value(mul[i]), digits=6), "(", Int(round(err(mul[i]) * 1e6, digits=0)), ")",
+                    " & ", round(value(muls[i]), digits=6), "(", Int(round(err(muls[i]) * 1e6, digits=0)), ")",
+                    " & ", round(value(fpi_matched[i]), digits=5), "(", Int(round(err(fpi_matched[i]) * 1e5, digits=0)), ")",
+                    " & ", round(value(fk_matched[i]), digits=5), "(", Int(round(err(fk_matched[i]) * 1e5, digits=0)), ") \\\\"
                     )
         println(bla_sh)
     end
@@ -1014,7 +1014,7 @@ fpik_add = true
     #t0fpik_ph_vec = [[t0fpik_ph_vec[k]; 2/3 * (t0fk_ph_vec .+ 0.5 * t0fpi_ph_vec)[k]] for k in 1:length(t0fpik_ph_vec)]
     t0fpik_ph = [sum(t0fpik_ph_vec[k] .* W[k]) for k in 1:length(TIC)]
     syst = [sqrt(sum(t0fpik_ph_vec[k] .^ 2 .* W[k]) - (sum(t0fpik_ph_vec[k] .* W[k])) ^ 2) for k in 1:length(TIC)]
-    t0fpik_ph = t0fpik_ph .+ [uwreal([0.0, value(syst[k])], string("syst chiral ", k, " 3rd")) for k in 1:length(TIC)]
+    t0fpik_ph = t0fpik_ph .+ [uwreal([0.0, value(syst[k])], string("syst chiral ", k, " 4")) for k in 1:length(TIC)]
     uwerr.(t0fpik_ph)
     sqrt_t0_ph = [t0fpik_ph[k] / (sqrt(8) * fpik_exp) for k in 1:length(TIC)]
     uwerr.(sqrt_t0_ph)
@@ -1065,7 +1065,7 @@ fpik_add = true
     sqrt_t0_ph_vec[ixx][c]
 
     #=
-    fb = BDIO_open("/home/asaez/cls_ens/results/t0_3rd.bdio", "w")
+    fb = BDIO_open("/home/asaez/cls_ens/results/t0_4_newrw.bdio", "w")
     write_uwreal(sqrt_t0_ph[1] ^ 2, fb, 1)
     write_uwreal(sqrt_t0_ph[2] ^ 2, fb, 2)
     write_uwreal(sqrt_t0_ph[3] ^ 2, fb, 3)

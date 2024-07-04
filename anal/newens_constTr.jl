@@ -50,6 +50,7 @@ end
 
 if ens.id == "J501"
     mpi = get_m(pp_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[1], [20,30,40,50,60]], tM=[[180], [130,140,150,160]])
+    #mpi = get_m(pp_sym[1], ens, "pion_wil", pl=true, wpm=wpm, tm=[[2], [48,50,52,54,56,58,60]], tM=[[1], [125,127,129,130,132,140,145]])
     mk = get_m(pp_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[1], [20,30,40,50,60]], tM=[[180], [130,140,150,160]])
     m12 = get_mpcac(pp_sym[1], ap_sym[1], ens, "pion_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
     m13 = get_mpcac(pp_sym[2], ap_sym[2], ens, "kaon_wil", pl=false, wpm=wpm, tm=[[10], [12,16,25]], tM=[[11], [150,160,175]])
