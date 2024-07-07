@@ -76,7 +76,7 @@ end
 #========== mass shift =============#
 
 par = Array{uwreal,1}()
-fb = BDIO_open("/home/asaez/cls_ens/results/derivatives/der_1q.bdio", "r")
+fb = BDIO_open("/home/asaez/cls_ens/results/derivatives/der_1q_newrw.bdio", "r")
 BDIO_seek!(fb); push!(par, read_uwreal(fb))
 while BDIO_seek!(fb, 2) == true push!(par, read_uwreal(fb)) end 
 BDIO_close!(fb)

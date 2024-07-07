@@ -682,6 +682,58 @@ end
 
 
 
+
+
+
+function model_plot_fpik(x,p)
+    return [(p[1] / (4 * pi)) * (1 + p[2] - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2))) + p[5] * x[i,1] for i in 1:length(x[:,1])]
+end
+
+function model_plot_fk(x,p)
+    return [(p[3] + p[4] * (x[i,3] - 0.5 * x[i,2]) - 3/4 * (x[i,2] / p[1] ^ 2 * log(x[i,2] / p[1] ^ 2) + 2 * (x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2 * log((x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2) + (4/3 * x[i,3] - x[i,2]) / p[1] ^ 2 * log((4/3 * x[i,3] - x[i,2]) / p[1] ^ 2))) + p[6] * x[i,1] for i in 1:length(x[:,1])]
+end
+
+function model_fpik_fk_ChPT_a2(x,p) 
+    fpik = [(p[1] / (4 * pi)) * (1 + p[2] - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2))) + p[5] * x[i,1] for i in 1:div(length(x[:,1]),2)]
+    fk = [(p[3] + p[4] * (x[i,3] - 0.5 * x[i,2]) - 3/4 * (x[i,2] / p[1] ^ 2 * log(x[i,2] / p[1] ^ 2) + 2 * (x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2 * log((x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2) + (4/3 * x[i,3] - x[i,2]) / p[1] ^ 2 * log((4/3 * x[i,3] - x[i,2]) / p[1] ^ 2)))  + p[6] * x[i,1] for i in div(length(x[:,1]),2)+1:length(x[:,1])]
+    return [fpik;fk]
+end
+
+function model_fpik_fk_ChPT_a2_combined(x,p)
+    #Wilson:
+    fpik = [(p[1] / (4 * pi)) * (1 + p[2] - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2))) + p[5] * x[i,1] for i in 1:div(length(x[:,1]),4)]
+    fk = [(p[3] + p[4] * (x[i,3] - 0.5 * x[i,2]) - 3/4 * (x[i,2] / p[1] ^ 2 * log(x[i,2] / p[1] ^ 2) + 2 * (x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2 * log((x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2) + (4/3 * x[i,3] - x[i,2]) / p[1] ^ 2 * log((4/3 * x[i,3] - x[i,2]) / p[1] ^ 2)))  + p[6] * x[i,1] for i in div(length(x[:,1]),4)+1:div(length(x[:,1]),2)]
+    #Wtm:
+    fpik_tm = [(p[1] / (4 * pi)) * (1 + p[2] - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2))) + p[7] * x[i,1] for i in div(length(x[:,1]),2)+1:3*div(length(x[:,1]),4)]
+    fk_tm = [(p[3] + p[4] * (x[i,3] - 0.5 * x[i,2]) - 3/4 * (x[i,2] / p[1] ^ 2 * log(x[i,2] / p[1] ^ 2) + 2 * (x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2 * log((x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2) + (4/3 * x[i,3] - x[i,2]) / p[1] ^ 2 * log((4/3 * x[i,3] - x[i,2]) / p[1] ^ 2)))  + p[8] * x[i,1] for i in 3*div(length(x[:,1]),4)+1:length(x[:,1])]
+    return [fpik;fk;fpik_tm;fk_tm]
+end
+
+function model_ph_fpik_fk_ChPT_a2(x,p) 
+    fpik = [(p[1] / (4 * pi)) * (1 + p[2] - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2))) + p[5] * x[i,1] for i in 1:1]
+    fk = [(p[3] + p[4] * (x[i,3] - 0.5 * x[i,2]) - 3/4 * (x[i,2] / p[1] ^ 2 * log(x[i,2] / p[1] ^ 2) + 2 * (x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2 * log((x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2) + (4/3 * x[i,3] - x[i,2]) / p[1] ^ 2 * log((4/3 * x[i,3] - x[i,2]) / p[1] ^ 2)))  + p[6] * x[i,1] for i in 2:2]
+    return [fpik;fk]
+end
+
+function model_ph_fpik_fk_ChPT_a2_combined(x,p)
+    #Wilson:
+    fpik = [(p[1] / (4 * pi)) * (1 + p[2] - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2))) + p[5] * x[i,1] for i in 1:1]
+    fk = [(p[3] + p[4] * (x[i,3] - 0.5 * x[i,2]) - 3/4 * (x[i,2] / p[1] ^ 2 * log(x[i,2] / p[1] ^ 2) + 2 * (x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2 * log((x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2) + (4/3 * x[i,3] - x[i,2]) / p[1] ^ 2 * log((4/3 * x[i,3] - x[i,2]) / p[1] ^ 2)))  + p[6] * x[i,1] for i in 2:2]
+    #Wtm:
+    fpik_tm = [(p[1] / (4 * pi)) * (1 + p[2] - 7/6 * (x[i,2]/p[1]^2*log(x[i,2]/p[1]^2)) - 4/3 * ((x[i,3]-1/2*x[i,2])/p[1]^2*log((x[i,3]-1/2*x[i,2])/p[1]^2)) - 1/2 * ((4/3*x[i,3]-x[i,2])/p[1]^2*log((4/3*x[i,3]-x[i,2])/p[1]^2))) + p[7] * x[i,1] for i in 3:3]
+    fk_tm = [(p[3] + p[4] * (x[i,3] - 0.5 * x[i,2]) - 3/4 * (x[i,2] / p[1] ^ 2 * log(x[i,2] / p[1] ^ 2) + 2 * (x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2 * log((x[i,3] - 0.5 * x[i,2]) / p[1] ^ 2) + (4/3 * x[i,3] - x[i,2]) / p[1] ^ 2 * log((4/3 * x[i,3] - x[i,2]) / p[1] ^ 2)))  + p[8] * x[i,1] for i in 4:4]
+    return [fpik;fk;fpik_tm;fk_tm]
+end
+
+
+
+
+
+
+
+
+
+
 function model2_ChPT2_a2(x,p) 
     pion = [p[1] * x[i,2] + p[2] / (4 * pi) * (1 - 2 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[3] + p[7] * x[i,1] for i in 1:div(length(x[:,2]),2)]
     kaon = [p[4] * x[i,2] + p[5]  + p[6] / (4 * pi) * (1 - 3/4 * x[i,2] / p[2] ^ 2 * log(x[i,2] / p[2] ^ 2)) + p[8] * x[i,1] for i in 1:div(length(x[:,2]),2)]

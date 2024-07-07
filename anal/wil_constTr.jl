@@ -113,10 +113,17 @@ BDIO_close!(fb)
 
 #============ get md & dm =============#
 
+## need to find which correlators have strange in the valence, only use those for mass derivative of the valence
+
+kappa = [corr[i].kappa[1] for i in 1:length(corr)]
+kappa_M = maximum(kappa)
+kappa_m = minimum(kappa)
+ind_s = findall([getfield(corr[i],:kappa) == [kappa_M,kappa_m] for i in 1:length(corr)])
+
 phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
 a = phi4
 md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
-md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
+md_v = [md_val(a, corr[i], corr_val[i]) for i in ind_s]
 v1 = v2 = s1 = s2 = 0
 for i in 1:length(md_v)
     v1 += md_v[i][1]
@@ -134,21 +141,21 @@ BDIO_close!(fb)
 
 phi2 = 8 * t0 * mpi ^ 2
 phi4 = 8 * t0 * (mk ^ 2 + 0.5 * mpi ^ 2)
-obs = [t0, phi2, phi4, sqrt(8 * t0) * m12, sqrt(8 * t0) * m13, sqrt(8 * t0) * fpi, sqrt(8 * t0) * fk, sqrt(8 * t0) * 2/3 * (fk + 0.5 * fpi)]
+obs = [phi4, t0, phi2, sqrt(8 * t0) * m12, sqrt(8 * t0) * m13, sqrt(8 * t0) * fpi, sqrt(8 * t0) * fk, sqrt(8 * t0) * 2/3 * (fk + 0.5 * fpi)]
 if md_meas == true
     obs_md = Array{uwreal,1}()
-    for a in [phi4; obs]
+    for a in obs
         md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
-        md_v = [md_val(a, corr[i], corr_val[i]) for i in 1:length(corr)]
+        md_v = [md_val(a, corr[i], corr_val[i]) for i in ind_s]
         v1 = v2 = s1 = s2 = 0
         for i in 1:length(md_v)
             v1 += md_v[i][1]
             v2 += md_v[i][2]
+        end
+        for i in 1:length(md_s)
             s1 += md_s[i][1]
             s2 += md_s[i][2]
         end
-        s1 += md_s[end][1]
-        s2 += md_s[end][2]
         #push!(obs_md, 2*s1 + s2 + v1 + v2)
         push!(obs_md, s2 + v2)
     end

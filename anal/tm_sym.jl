@@ -97,7 +97,7 @@ if md_meas == true
     obs_md = Array{uwreal,1}()
     for i in 1:length(obs)
         for a in obs[i]
-            md_s = [md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]
+            md_s = [[md_sea(a, dSdm, corrw[i], w) for i in 1:length(corrw)]; md_sea(a, dSdm, YW, WY)]
             s1 = s2 = 0
             for i in 1:length(md_s)
                 s1 += md_s[i][1]

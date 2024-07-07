@@ -1,5 +1,7 @@
 ## CODES
 
+## UPDATE, THIS IS OLD, CHECK CODES
+
 0) obs.jl
     observables as a function of euclidean time x0 and model average. Hardcoded to explore two fit functions in model av: constant (plateau) and exponential + constant. You need to give two set of lower bounds and upper bounds fit interval (one for exponential and other for plateau), e.g. tm=[[1,2,3], [1,2,3]], tM=[[100,101,102], [100,101,102]]. First comes the exponential + constant fit, then the plateau fit.
     Model av returns systematic uncertainty squared!, just in case it is negative
