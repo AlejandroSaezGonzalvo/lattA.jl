@@ -314,6 +314,75 @@ end
 function pvalue(chisq::Function,
     chi2::Float64,
     xp::Vector{Float64}, 
+    data::Vector{uwreal},
+    W::Array{Float64,2};
+    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} =  Dict{Int64,Vector{Float64}}(),
+    nmc::Int64 = 5000)
+
+    n = length(xp)   # Number of fit parameters
+    m = length(data) # Number of data
+
+    xav = zeros(Float64, n+m)
+    for i in 1:n
+        xav[i] = xp[i]
+    end
+    for i in n+1:n+m
+        xav[i] = data[i-n].mean
+    end
+    ccsq(x::Vector) = chisq(view(x, 1:n), view(x, n+1:n+m)) 
+    if (n+m < 4)
+        cfg = ForwardDiff.HessianConfig(ccsq, xav, ADerrors.Chunk{1}());
+    else
+        cfg = ForwardDiff.HessianConfig(ccsq, xav, ADerrors.Chunk{4}());
+    end
+        
+    hess = Array{Float64}(undef, n+m, n+m)
+    ForwardDiff.hessian!(hess, ccsq, xav, cfg)
+
+    if (m-n > 0)
+        m = length(data)
+        n = size(hess, 1) - m
+        
+        Lm = LinearAlgebra.cholesky(LinearAlgebra.Symmetric(W))
+        Li = LinearAlgebra.inv(Lm.L)
+        
+        hm = view(hess, 1:n, n+1:n+m)
+        sm = hm * Li'
+        
+        maux = sm * sm'
+        hi   = LinearAlgebra.pinv(maux)
+        Px   = W - hm' * hi * hm
+        
+        try
+            isnothing(wpm) ? C = cov(data) : C = cov(data,wpm) 
+            
+            nu = sqrt(C) * Px * sqrt(C)
+            
+            N = length(nu[1,:])
+            z = randn(N, nmc)
+
+            eig = abs.(eigvals(nu))
+            eps = 1e-14 * maximum(eig)
+            eig = eig .* (eig .> eps)
+
+            aux = eig' * (z .^ 2)
+            global Q = 1.0 - juobs.mean(aux .< chi2)
+
+            x = chi2 .- eig[2:end]' * (z[2:end,:].^2)
+            x = x / eig[1]
+        catch
+            @warn "cov failed, fake pvalue"
+            global Q = 1.0
+        end
+        #dQ = juobs.mean((x .> 0) .* exp.(-x * 0.5) * 0.5 ./ sqrt.(abs.(x)))
+        #dQ = err(cse)/value(cse) * dQ
+    end
+    return Q
+end
+
+function pvalue(chisq::Function,
+    chi2::Float64,
+    xp::Vector{Float64}, 
     data::Vector{uwreal};
     wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} =  Dict{Int64,Vector{Float64}}(),
     nmc::Int64 = 5000)
@@ -367,86 +436,27 @@ function pvalue(chisq::Function,
             Px[i,i] = W[i] + Px[i,i]
         end
 
-        C = cov(data,wpm) 
-        
-        nu = sqrt(C) * Px * sqrt(C)
-        
-        N = length(nu[1,:])
-        z = randn(N, nmc)
+        try
+            isnothing(wpm) ? C = cov(data) : C = cov(data,wpm) 
+            
+            nu = sqrt(C) * Px * sqrt(C)
+            
+            N = length(nu[1,:])
+            z = randn(N, nmc)
 
-        eig = abs.(eigvals(nu))
-        eps = 1e-14 * maximum(eig)
-        eig = eig .* (eig .> eps)
+            eig = abs.(eigvals(nu))
+            eps = 1e-14 * maximum(eig)
+            eig = eig .* (eig .> eps)
 
-        aux = eig' * (z .^ 2)
-        global Q = 1.0 - juobs.mean(aux .< chi2)
+            aux = eig' * (z .^ 2)
+            global Q = 1.0 - juobs.mean(aux .< chi2)
 
-        x = chi2 .- eig[2:end]' * (z[2:end,:].^2)
-        x = x / eig[1]
-        #dQ = juobs.mean((x .> 0) .* exp.(-x * 0.5) * 0.5 ./ sqrt.(abs.(x)))
-        #dQ = err(cse)/value(cse) * dQ
-    end
-    return Q
-end
-
-function pvalue(chisq::Function,
-    chi2::Float64,
-    xp::Vector{Float64}, 
-    data::Vector{uwreal},
-    W::Array{Float64,2};
-    wpm::Union{Dict{Int64,Vector{Float64}},Dict{String,Vector{Float64}}, Nothing} =  Dict{Int64,Vector{Float64}}(),
-    nmc::Int64 = 5000)
-
-    n = length(xp)   # Number of fit parameters
-    m = length(data) # Number of data
-
-    xav = zeros(Float64, n+m)
-    for i in 1:n
-        xav[i] = xp[i]
-    end
-    for i in n+1:n+m
-        xav[i] = data[i-n].mean
-    end
-    ccsq(x::Vector) = chisq(view(x, 1:n), view(x, n+1:n+m)) 
-    if (n+m < 4)
-        cfg = ForwardDiff.HessianConfig(ccsq, xav, ADerrors.Chunk{1}());
-    else
-        cfg = ForwardDiff.HessianConfig(ccsq, xav, ADerrors.Chunk{4}());
-    end
-        
-    hess = Array{Float64}(undef, n+m, n+m)
-    ForwardDiff.hessian!(hess, ccsq, xav, cfg)
-
-    if (m-n > 0)
-        m = length(data)
-        n = size(hess, 1) - m
-        
-        Lm = LinearAlgebra.cholesky(LinearAlgebra.Symmetric(W))
-        Li = LinearAlgebra.inv(Lm.L)
-        
-        hm = view(hess, 1:n, n+1:n+m)
-        sm = hm * Li'
-        
-        maux = sm * sm'
-        hi   = LinearAlgebra.pinv(maux)
-        Px   = W - hm' * hi * hm
-        
-        C = cov(data,wpm) 
-        
-        nu = sqrt(C) * Px * sqrt(C)
-        
-        N = length(nu[1,:])
-        z = randn(N, nmc)
-
-        eig = abs.(eigvals(nu))
-        eps = 1e-14 * maximum(eig)
-        eig = eig .* (eig .> eps)
-
-        aux = eig' * (z .^ 2)
-        global Q = 1.0 - juobs.mean(aux .< chi2)
-
-        x = chi2 .- eig[2:end]' * (z[2:end,:].^2)
-        x = x / eig[1]
+            x = chi2 .- eig[2:end]' * (z[2:end,:].^2)
+            x = x / eig[1]
+        catch
+            @warn "cov failed, fake pvalue"
+            global Q = 1.0
+        end
         #dQ = juobs.mean((x .> 0) .* exp.(-x * 0.5) * 0.5 ./ sqrt.(abs.(x)))
         #dQ = err(cse)/value(cse) * dQ
     end

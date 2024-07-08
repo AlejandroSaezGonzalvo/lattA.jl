@@ -499,6 +499,127 @@ function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerro
     return t2YM, tdt2YM, W_obs, t
 end
 
+function get_YM_dYM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerrors.wsg, w0::Union{Float64, Nothing}=nothing, tau::Union{Float64, Nothing}=nothing)
+
+    path_ms = joinpath(path, ens.id, "gf")
+    path_ms = filter(x->occursin(".dat", x), readdir(path_ms, join=true))
+    Y = read_ms.(path_ms, dtr=ens.dtr) 
+
+    truncate_data!(Y, ens.cnfg)
+
+    nr = length(Y)
+    Ysl = getfield.(Y, :obs)
+    t = getfield.(Y, :t)
+    t = t[1]
+    id = getfield.(Y, :id)
+    replica = size.(Ysl, 1)
+
+    L = ens.L
+    id = ens.id
+    #T = length(Y[:,1]) - y0
+    y0 = 1 ## assumes this is the case, hardcoded, some ensembles will not fulfil !
+    println("WARNING!: make sure t_src is 1 in this ensemble")
+
+    #Truncation
+    if id in keys(ADerrors.wsg.str2id)
+        n_ws = findfirst(x-> x == ws.str2id[id], ws.map_nob)
+        if !isnothing(n_ws)
+            ivrep_ws = ws.fluc[n_ws].ivrep
+
+            if length(replica) != length(ivrep_ws)
+                error("Different number of replicas")
+            end
+
+            for k = 1:length(replica)
+                if replica[k] > ivrep_ws[k]
+                    println("Automatic truncation in Ysl ", ivrep_ws[k], " / ", replica[k], ". R = ", k)
+                    Ysl[k] = Ysl[k][1:ivrep_ws[k], :, :]
+                elseif replica[k] < ivrep_ws[k]
+                    error("Automatic truncation failed. R = ", replica[k], "\nTry using truncate_data!")
+                end
+            end
+            replica = size.(Ysl, 1)
+        end
+    end
+    
+    tmp = Ysl[1]
+    [tmp = cat(tmp, Ysl[k], dims=1) for k = 2:nr]
+    xmax = size(tmp, 2)
+    T = xmax - 1 - y0
+
+    Y_aux = Matrix{uwreal}(undef, xmax, length(t))
+
+    if rw
+        path_rw = joinpath(path, ens.id, "rwf")
+        path_rw = filter(x->occursin(".dat", x), readdir(path_rw, join=true))
+        if ens.id in ["H105", "J500", "J501"]
+            rwf = [read_ms1(path_rw[i], v=ens.vrw[i]) for i in 1:length(ens.vrw)]
+            [Ysl[k] = Ysl[k][1:size(rwf[k],2), :, :] for k in 1:length(Ysl)]
+        else
+            rwf = read_ms1.(path_rw, v=ens.vrw)
+        end
+
+        Ysl_r, W = juobs.apply_rw(Ysl, rwf)
+        tmp_r = Ysl_r[1]
+        tmp_W = W[1]
+        [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]
+        [tmp_W = cat(tmp_W, W[k], dims=1) for k = 2:nr]
+        W_obs = uwreal(tmp_W, id, replica, collect(1:length(tmp_W)), sum(replica))
+        WY_aux = Matrix{uwreal}(undef, xmax, length(t))
+    end
+    for i = 1:xmax
+        k = 1
+        for j = 1:length(t)
+            if !rw
+                Y_aux[i, k] = uwreal(tmp[:, i, j], id, replica)
+            else
+                WY_aux[i, k] = uwreal(tmp_r[:, i, j], id, replica, collect(1:length(tmp_W)), sum(replica))
+                Y_aux[i, k] = WY_aux[i, k] / W_obs
+            end
+            k = k + 1
+        end
+    end
+
+    if tau == nothing
+        t2YM = similar(Y_aux)
+        tdt2YM = Matrix{uwreal}(undef,size(t2YM)[1],size(t2YM)[2]-2)
+    else
+        tau_ind = Int64(div(tau, t[2]-t[1]))
+        if tau >= 0.0
+            global t = t[1:end-tau_ind]
+        elseif tau < 0.0
+            global t = t[1-tau_ind:end]
+        end
+        t2YM = Matrix{uwreal}(undef,size(Y_aux)[1],length(t))
+        tdt2YM = Matrix{uwreal}(undef,size(t2YM)[1],size(t2YM)[2]-2)
+    end
+    for i in 1:length(Y_aux[:,1])
+        if tau == nothing
+            t2YM[i,:] = Y_aux[i,:] .* t .^ 2 ./ L ^ 3
+        else
+            if tau >= 0.0
+                t2YM[i,1:end] = Y_aux[i,1+tau_ind:end] .* t .^ 2 ./ L ^ 3
+            elseif tau < 0.0
+                t2YM[i,1:end] = Y_aux[i,1:end+tau_ind] .* t .^ 2 ./ L ^ 3
+            end
+        end
+    end
+    for i in 1:length(t2YM[:,1])
+        if isnothing(w0)
+            tdt2YM[i,1:end] = [(t2YM[i,j+1] - t2YM[i,j-1]) / (t[j+1] - t[j-1]) * t[j] for j in 2:length(t2YM[i,:])-1]
+            global t_aux = t[2:end-1]
+        else
+            global t_aux = t[2:end-1]
+            ixm = findmin(abs.(t_aux .- (w0-0.5)))[2]
+            ixM = findmin(abs.(t_aux[1:end-1] .- (w0+0.5)))[2]
+            tdt2YM[i,1:ixm-1] .= t2YM[i,2]
+            tdt2YM[i,ixm:end] = [(t2YM[i,j+1] - t2YM[i,j-1]) / (t[j+1] - t[j-1]) * t[j] for j in ixm+1:length(t2YM[i,:])-1]
+        end
+    end
+
+    return t2YM, tdt2YM, W_obs, t, t_aux
+end
+
 function concat_data!(data1::Vector{juobs.CData}, data2::Vector{juobs.CData})
     N = length(data1)
     if length(data1) != length(data2) 
