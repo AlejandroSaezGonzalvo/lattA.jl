@@ -1,6 +1,6 @@
 #import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
-using Revise, lattA, juobs, ADerrors, BDIO, PyPlot, LsqFit, LinearAlgebra
+using Revise, lattA, juobs, ADerrors, BDIO, PyPlot, PyCall, LsqFit, LinearAlgebra
 using ADerrors: err
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
@@ -10,10 +10,10 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
 new = true
 if new == true
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]#, "J501"]
-    ens_new = ["D450", "E250", "N302", "E300", "J500"]#, "J501"]
-    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
+    ens_new = ["D450", "E250", "N302", "E300", "J500", "J501"]
+    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
 else
     ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
     ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
@@ -21,14 +21,14 @@ else
     ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
 end
 ens_sym = ["H101", "H400", "N202", "N300", "J500"]
-ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
-ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
-ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
-ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500"]#, "J501"]
-ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500"]#, "J501"]
-ens_40_nosym = ["H102", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300"]#, "J501"]
-ens_41_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "J303", "E300"]#, "J501"]
-ens_42_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "E300"]#, "J501"]
+ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
+ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500", "J501"]
+ens_40_nosym = ["H102", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_41_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "J303", "E300", "J501"]
+ens_42_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "E300", "J501"]
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
@@ -350,7 +350,7 @@ fpik_add = true
 
     fig = figure("pyplot_subplot_column10")
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
-    rcParams["font.size"] = 20
+    rcParams["font.size"] = 15
     errorbar(value(x[1]), value(y[1]), err(y[1]), err(x[1]), fmt="s", label=L"$\beta=3.40$", color="rebeccapurple")
     errorbar(value(x[2]), value(y[2]), err(y[2]), err(x[2]), fmt="o",  label=L"$\beta=3.46$", color="green")
     errorbar(value(x[3]), value(y[3]), err(y[3]), err(x[3]), fmt="<",  label=L"$\beta=3.55$", color="blue")
@@ -368,10 +368,10 @@ fpik_add = true
     aux_st = model_continuum(x_plot, up_st) ; uwerr.(aux_st)
     v = value.(aux)
     e = err.(aux)
-    fill_between(x_plot, v-e, v+e, color="fuchsia", alpha=0.1)
+    fill_between(x_plot, v-e, v+e, color="gray", alpha=0.3)
     v_2 = value.(aux_st)
     e_2 = err.(aux_st)
-    fill_between(x_plot, v_2-e_2, v_2+e_2, color="fuchsia", alpha=0.2)
+    fill_between(x_plot, v_2-e_2, v_2+e_2, color="gray", alpha=0.3)
     ax = gca()
     #ax[:set_ylim]([0.295, 0.325])
     legend()
@@ -553,7 +553,7 @@ fpik_add = true
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
                     global L2 = length(set_y[1][j])
-                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst_corr[k][j])
+                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst_corr[k][j], wpm=wpm)
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])

@@ -88,7 +88,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}f_{\pi K}^{\rm W}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}f_{\pi K}^{\rm W}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -120,7 +120,10 @@ errorbar(value(phi2[6]), value(y[6]), err(y[6]), fmt="x", color="green", label=L
 errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blue", label=L"\beta=3.55")
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
+ylim(-0.01,0.06)
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0fpik.pdf")
 
 ## t0fpi
 
@@ -134,7 +137,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}f_{\pi}^{\rm W}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}f_{\pi}^{\rm W}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -166,7 +169,10 @@ errorbar(value(phi2[6]), value(y[6]), err(y[6]), fmt="x", color="green", label=L
 errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blue", label=L"\beta=3.55")
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
+ylim(-0.02,0.06)
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0fpi.pdf")
 
 ## t0fk
 
@@ -180,7 +186,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}f_{K}^{\rm W}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}f_{K}^{\rm W}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -212,7 +218,10 @@ errorbar(value(phi2[6]), value(y[6]), err(y[6]), fmt="x", color="green", label=L
 errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blue", label=L"\beta=3.55")
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
+ylim(-0.02,0.06)
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0fk.pdf")
 
 ## phi2
 
@@ -260,6 +269,8 @@ errorbar(value.(phi2[11:end]), value.(der_phi2[11:end]), err.(der_phi2[11:end]),
 legend()
 tight_layout()
 
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_phi2.pdf")
+
 ## t0/a^2
 
 x = value.([phi2 1 ./ t0])
@@ -272,7 +283,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{dt_0^{\rm W}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{dt_0}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -305,6 +316,8 @@ errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blu
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0.pdf")
 
 ## t0/a^2 alternative
 
@@ -371,7 +384,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}f_{\pi K}^{\rm tm}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}f_{\pi K}^{\rm tm}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -403,7 +416,10 @@ errorbar(value(phi2[6]), value(y[6]), err(y[6]), fmt="x", color="green", label=L
 errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blue", label=L"\beta=3.55")
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
+ylim(-0.03,0.015)
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0fpik.pdf")
 
 ## t0fpi tm
 
@@ -417,7 +433,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}f_{\pi}^{\rm tm}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}f_{\pi}^{\rm tm}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -449,7 +465,11 @@ errorbar(value(phi2[6]), value(y[6]), err(y[6]), fmt="x", color="green", label=L
 errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blue", label=L"\beta=3.55")
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
+ylim(-0.04,0.018)
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0fpi.pdf")
+
 
 ## t0fk tm
 
@@ -463,7 +483,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}f_{K}^{\rm tm}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}f_{K}^{\rm tm}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -495,7 +515,10 @@ errorbar(value(phi2[6]), value(y[6]), err(y[6]), fmt="x", color="green", label=L
 errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blue", label=L"\beta=3.55")
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
+ylim(-0.04,0.018)
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0fk.pdf")
 
 ## phi2 tm
 
@@ -543,6 +566,8 @@ errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", colo
 legend()
 tight_layout()
 
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_phi2.pdf")
+
 ## phi4 tm
 
 x = value.([phi2 1 ./ t0])
@@ -589,6 +614,8 @@ errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", colo
 legend()
 tight_layout()
 
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_phi4.pdf")
+
 ## t0m12 tm
 
 x = value.([phi2 1 ./ t0])
@@ -601,7 +628,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}m_{12}^{\rm tm,R}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}m_{12}^{\rm tm,R}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = funn(x_plot, uprm) ; uwerr.(aux)
@@ -634,6 +661,8 @@ errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blu
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0m12.pdf")
 
 
 ## t0m13 tm
@@ -648,7 +677,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}m_{12}^{\rm tm,R}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}m_{12}^{\rm tm,R}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = funn(x_plot, uprm) ; uwerr.(aux)
@@ -681,6 +710,8 @@ errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blu
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0m13.pdf")
 
 #=
 
@@ -697,7 +728,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}m_{12}^{\rm W,R}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}m_{12}^{\rm W,R}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -744,7 +775,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}m_{13}^{\rm W,R}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}m_{13}^{\rm W,R}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = fun(x_plot, uprm) ; uwerr.(aux)
@@ -791,7 +822,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}m_{12}^{\rm W,R}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}m_{12}^{\rm W,R}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = funn(x_plot, uprm) ; uwerr.(aux)
@@ -824,6 +855,8 @@ errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blu
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0m12.pdf")
 
 ## t0m13
 
@@ -837,7 +870,7 @@ fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{t_0}m_{13}^{\rm W,R}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}m_{13}^{\rm W,R}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = funn(x_plot, uprm) ; uwerr.(aux)
@@ -870,6 +903,8 @@ errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blu
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
 legend()
 tight_layout()
+
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0m13.pdf")
 
 close("all")
 

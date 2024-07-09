@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  3 JUL 2024 17:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  9 JUL 2024 13:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1878,54 +1878,54 @@ Chapter 3.
 
 
 ] [60] [61] [62] [63] [64]
-Overfull \hbox (8.57481pt too wide) in alignment at lines 161--179
+Overfull \hbox (8.57481pt too wide) in alignment at lines 157--175
  [] [] [] [] [] [] 
  []
 
-<./cap4/figs/dt0fpik_w.pdf, id=1382, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0fpik_w.pdf, id=1384, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0fpik_w.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0fpik_w.pdf>
-Package pdftex.def Info: ./cap4/figs/dt0fpik_w.pdf  used on input line 183.
+Package pdftex.def Info: ./cap4/figs/dt0fpik_w.pdf  used on input line 179.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dphi2_w.pdf, id=1387, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi2_w.pdf, id=1389, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi2_w.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi2_w.pdf>
-Package pdftex.def Info: ./cap4/figs/dphi2_w.pdf  used on input line 190.
+Package pdftex.def Info: ./cap4/figs/dphi2_w.pdf  used on input line 186.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dt0fpik_tm.pdf, id=1392, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0fpik_tm.pdf, id=1394, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0fpik_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0fpik_tm.pdf>
-Package pdftex.def Info: ./cap4/figs/dt0fpik_tm.pdf  used on input line 197.
+Package pdftex.def Info: ./cap4/figs/dt0fpik_tm.pdf  used on input line 193.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dt0m12_tm.pdf, id=1397, 462.52798pt x 346.89601pt>
+<./cap4/figs/dt0m12_tm.pdf, id=1399, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dt0m12_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dt0m12_tm.pdf>
-Package pdftex.def Info: ./cap4/figs/dt0m12_tm.pdf  used on input line 204.
+Package pdftex.def Info: ./cap4/figs/dt0m12_tm.pdf  used on input line 200.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dphi2_tm.pdf, id=1402, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi2_tm.pdf, id=1404, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi2_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi2_tm.pdf>
-Package pdftex.def Info: ./cap4/figs/dphi2_tm.pdf  used on input line 211.
+Package pdftex.def Info: ./cap4/figs/dphi2_tm.pdf  used on input line 207.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/dphi4_tm.pdf, id=1407, 462.52798pt x 346.89601pt>
+<./cap4/figs/dphi4_tm.pdf, id=1409, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/dphi4_tm.pdf Graphic file (type pdf)
 <use ./cap4/figs/dphi4_tm.pdf>
-Package pdftex.def Info: ./cap4/figs/dphi4_tm.pdf  used on input line 218.
+Package pdftex.def Info: ./cap4/figs/dphi4_tm.pdf  used on input line 214.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 [65 <./cap4/figs/dt0fpik_w.pdf>] [66 <./cap4/figs/dphi2_w.pdf> <./cap4/figs/dt0
 fpik_tm.pdf>] [67 <./cap4/figs/dt0m12_tm.pdf> <./cap4/figs/dphi2_tm.pdf>]
 [68 <./cap4/figs/dphi4_tm.pdf>]
-<./cap4/figs/matching_H105.pdf, id=1657, 462.52798pt x 346.89601pt>
+<./cap4/figs/matching_H105.pdf, id=1659, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/matching_H105.pdf Graphic file (type pdf)
 <use ./cap4/figs/matching_H105.pdf>
-Package pdftex.def Info: ./cap4/figs/matching_H105.pdf  used on input line 265.
+Package pdftex.def Info: ./cap4/figs/matching_H105.pdf  used on input line 261.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/interp_fpik_H105.pdf, id=1658, 462.52798pt x 224.7597pt>
+<./cap4/figs/interp_fpik_H105.pdf, id=1660, 462.52798pt x 224.7597pt>
 File: ./cap4/figs/interp_fpik_H105.pdf Graphic file (type pdf)
 <use ./cap4/figs/interp_fpik_H105.pdf>
 Package pdftex.def Info: ./cap4/figs/interp_fpik_H105.pdf  used on input line 2
-72.
+68.
 (pdftex.def)             Requested size: 336.0pt x 163.28441pt.
 ) [69] [70 <./cap4/figs/matching_H105.pdf> <./cap4/figs/interp_fpik_H105.pdf
 
@@ -1981,13 +1981,13 @@ l.108 \end{align}
                  
 ? 
 [73] [74] [75] [76] [77]
-<./cap5/figs/continuum_sym.pdf, id=1903, 553.58823pt x 470.4777pt>
+<./cap5/figs/continuum_sym.pdf, id=1901, 553.58823pt x 470.4777pt>
 File: ./cap5/figs/continuum_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/continuum_sym.pdf>
 Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 210.
 
 (pdftex.def)             Requested size: 336.0pt x 285.56238pt.
-<./cap5/figs/SU3_comb.pdf, id=1904, 462.52798pt x 677.89258pt>
+<./cap5/figs/SU3_comb.pdf, id=1902, 462.52798pt x 677.89258pt>
 File: ./cap5/figs/SU3_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/SU3_comb.pdf>
 Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 217.
@@ -1996,7 +1996,7 @@ Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 217.
 
 LaTeX Warning: Float too large for page by 15.13307pt on input line 220.
 
-<./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf, id=1907, 462.52798pt x 656.93428p
+<./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf, id=1905, 462.52798pt x 656.93428p
 t>
 File: ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf>
@@ -2006,7 +2006,7 @@ nput line 224.
 
 LaTeX Warning: Float too large for page by 73.20326pt on input line 227.
 
-<./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf, id=1914, 462.52798pt x 620.07661
+<./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf, id=1912, 462.52798pt x 620.07661
 pt>
 File: ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf>
@@ -2016,7 +2016,7 @@ input line 231.
 
 LaTeX Warning: Float too large for page by 46.42674pt on input line 234.
 
-<./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf, id=1921, 462.52798pt x 650.43p
+<./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf, id=1919, 462.52798pt x 650.43p
 t>
 File: ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf>
@@ -2026,13 +2026,13 @@ n input line 238.
 
 LaTeX Warning: Float too large for page by 68.478pt on input line 241.
 
-<./cap5/figs/t0_compar_FLAG.pdf, id=1928, 668.4975pt x 389.5353pt>
+<./cap5/figs/t0_compar_FLAG.pdf, id=1926, 668.4975pt x 389.5353pt>
 File: ./cap5/figs/t0_compar_FLAG.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_compar_FLAG.pdf>
 Package pdftex.def Info: ./cap5/figs/t0_compar_FLAG.pdf  used on input line 245
 .
 (pdftex.def)             Requested size: 336.0pt x 195.79544pt.
-<./cap5/figs/t0_compar.pdf, id=1965, 668.4975pt x 389.5353pt>
+<./cap5/figs/t0_compar.pdf, id=1963, 668.4975pt x 389.5353pt>
 File: ./cap5/figs/t0_compar.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_compar.pdf>
 Package pdftex.def Info: ./cap5/figs/t0_compar.pdf  used on input line 252.
@@ -2057,7 +2057,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf>] [81 <./cap5/figs/BMA_tm_subav_c=1_cphi
 =0.0035.pdf>] [82 <./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf>] [83 <./cap5
 /figs/t0_compar_FLAG.pdf>] [84 <./cap5/figs/t0_compar.pdf>]
-<./cap5/figs/t0_sym.pdf, id=2411, 462.52798pt x 346.89601pt>
+<./cap5/figs/t0_sym.pdf, id=2409, 462.52798pt x 346.89601pt>
 File: ./cap5/figs/t0_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_sym.pdf>
 Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 290.
@@ -2095,19 +2095,19 @@ Chapter 5.
 
 
 ] [88] [89] [90] [91]
-<./cap6/figs/mc/mc_cl_all_cat.pdf, id=2569, 722.7pt x 433.62pt>
+<./cap6/figs/mc/mc_cl_all_cat.pdf, id=2567, 722.7pt x 433.62pt>
 File: ./cap6/figs/mc/mc_cl_all_cat.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/mc_cl_all_cat.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/mc_cl_all_cat.pdf  used on input line 1
 97.
 (pdftex.def)             Requested size: 325.21199pt x 195.1272pt.
-<./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf, id=2570, 722.7pt x 433.62pt>
+<./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf, id=2568, 722.7pt x 433.62pt>
 File: ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf  used on input 
 line 209.
 (pdftex.def)             Requested size: 303.53192pt x 182.11916pt.
-<./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf, id=2571, 722.7pt x 433.62pt>
+<./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf, id=2569, 722.7pt x 433.62pt>
 File: ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf  used on
@@ -2128,7 +2128,7 @@ l.233   M_c^{\mathrm{RGI}}(N_f=3) &=&
                                       1.486(8)_{\textrm{stat}}(3)_{\textrm{s...
 
 ? 
-<./cap6/figs/mc/mc_error_pie.pdf, id=2578, 462.52798pt x 346.89601pt>
+<./cap6/figs/mc/mc_error_pie.pdf, id=2576, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/mc/mc_error_pie.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/mc_error_pie.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/mc_error_pie.pdf  used on input line 24
@@ -2136,7 +2136,7 @@ Package pdftex.def Info: ./cap6/figs/mc/mc_error_pie.pdf  used on input line 24
 (pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
 [92] [93 <./cap6/figs/mc/mc_cl_all_cat.pdf> <./cap6/figs/mc/fit_phi2_muc_fl_ave
 .pdf>] [94 <./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf>]
-<./cap6/figs/mc/mc_comparison_3gev.pdf, id=2709, 462.52798pt x 346.89601pt>
+<./cap6/figs/mc/mc_comparison_3gev.pdf, id=2707, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/mc/mc_comparison_3gev.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/mc_comparison_3gev.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/mc_comparison_3gev.pdf  used on input l
@@ -2149,19 +2149,19 @@ Overfull \hbox (6.53487pt too wide) in paragraph at lines 277--277
  []
 
 [96 <./cap6/figs/mc/mc_comparison_3gev.pdf>] [97]
-<././cap6/figs/fds/error_pie_fd.pdf, id=2822, 462.52798pt x 346.89601pt>
+<././cap6/figs/fds/error_pie_fd.pdf, id=2820, 462.52798pt x 346.89601pt>
 File: ././cap6/figs/fds/error_pie_fd.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_fd.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_fd.pdf  used on input line
  339.
 (pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
-<././cap6/figs/fds/error_pie_fds.pdf, id=2823, 462.52798pt x 346.89601pt>
+<././cap6/figs/fds/error_pie_fds.pdf, id=2821, 462.52798pt x 346.89601pt>
 File: ././cap6/figs/fds/error_pie_fds.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_fds.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_fds.pdf  used on input lin
 e 343.
 (pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
-<./cap6/figs/fds/fds_comparison.pdf, id=2826, 462.52798pt x 346.89601pt>
+<./cap6/figs/fds/fds_comparison.pdf, id=2824, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/fds/fds_comparison.pdf Graphic file (type pdf)
 <use ./cap6/figs/fds/fds_comparison.pdf>
 Package pdftex.def Info: ./cap6/figs/fds/fds_comparison.pdf  used on input line
@@ -2201,14 +2201,14 @@ l.369 point of our $\phi_4={\rm
 ? 
 [98] [99 <././cap6/figs/fds/error_pie_fd.pdf> <././cap6/figs/fds/error_pie_fds.
 pdf>] [100 <./cap6/figs/fds/fds_comparison.pdf>]
-<././cap6/figs/fds/error_pie_ratio_fds.pdf, id=2926, 242.72252pt x 260.16803pt>
+<././cap6/figs/fds/error_pie_ratio_fds.pdf, id=2924, 242.72252pt x 260.16803pt>
 
 File: ././cap6/figs/fds/error_pie_ratio_fds.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_ratio_fds.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_ratio_fds.pdf  used on inp
 ut line 423.
 (pdftex.def)             Requested size: 134.39795pt x 144.05751pt.
-<././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf, id=2927, 462.52798pt x 346
+<././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf, id=2925, 462.52798pt x 346
 .89601pt>
 File: ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf Graphic file (type pdf
 )
@@ -2382,7 +2382,7 @@ LaTeX Font Info:    Trying to load font information for U+fplmbb on input line
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-<./cap6/figs/matching/m8_plateau.pdf, id=3287, 722.7pt x 542.025pt>
+<./cap6/figs/matching/m8_plateau.pdf, id=3285, 722.7pt x 542.025pt>
 File: ./cap6/figs/matching/m8_plateau.pdf Graphic file (type pdf)
 <use ./cap6/figs/matching/m8_plateau.pdf>
 Package pdftex.def Info: ./cap6/figs/matching/m8_plateau.pdf  used on input lin
@@ -2400,7 +2400,7 @@ Overfull \hbox (25.3491pt too wide) in paragraph at lines 42--43
 
 
 ]
-<./cap6/figs/fds/f8_plateau.pdf, id=3303, 722.7pt x 542.025pt>
+<./cap6/figs/fds/f8_plateau.pdf, id=3301, 722.7pt x 542.025pt>
 File: ./cap6/figs/fds/f8_plateau.pdf Graphic file (type pdf)
 <use ./cap6/figs/fds/f8_plateau.pdf>
 Package pdftex.def Info: ./cap6/figs/fds/f8_plateau.pdf  used on input line 49.
@@ -2509,7 +2509,7 @@ Appendix L.
 
 
 ] [155]
-<./apendices/figs_appex/mR_ratios_comb.pdf, id=3553, 665.60669pt x 346.89601pt>
+<./apendices/figs_appex/mR_ratios_comb.pdf, id=3555, 665.60669pt x 346.89601pt>
 
 File: ./apendices/figs_appex/mR_ratios_comb.pdf Graphic file (type pdf)
 <use ./apendices/figs_appex/mR_ratios_comb.pdf>
@@ -2894,10 +2894,10 @@ Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36322 strings out of 478287
- 713705 string characters out of 5849289
- 1723413 words of memory out of 5000000
- 51839 multiletter control sequences out of 15000+600000
+ 36320 strings out of 478287
+ 713676 string characters out of 5849289
+ 1723481 words of memory out of 5000000
+ 51838 multiletter control sequences out of 15000+600000
  648829 words of font info for 939 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,24n,125p,10608b,2463s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2926,10 +2926,10 @@ onts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
 /uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
 >
-Output written on ClassicThesis.pdf (188 pages, 1656007 bytes).
+Output written on ClassicThesis.pdf (188 pages, 1655747 bytes).
 PDF statistics:
- 4449 PDF objects out of 5155 (max. 8388607)
+ 4451 PDF objects out of 5155 (max. 8388607)
  3296 compressed objects within 33 object streams
- 838 named destinations out of 1000 (max. 500000)
+ 837 named destinations out of 1000 (max. 500000)
  167713 words of extra memory for PDF output out of 184870 (max. 10000000)
 
