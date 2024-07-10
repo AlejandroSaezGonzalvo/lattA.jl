@@ -402,6 +402,12 @@ const FK = uwreal([157.2,0.2],"fk exp") + uwreal([0.0,0.2],"fk QED") + uwreal([0
 #const Fpi = uwreal([130.4,0.2],"fpi exp")
 #const FK = uwreal([156.2,0.7],"fk exp")
 
+#Antonin Portelli
+#const Mpi = uwreal([135.0,0.0],"mpi PDG") ## in MeV
+#const MK = uwreal([494.6,0.0],"mk PDG") ## MeV
+#const Fpi = uwreal([130.5,0.0],"fpi exp")
+#const FK = uwreal([157.2,0.2],"fk exp") + uwreal([0.0,0.2],"fk QED") + uwreal([0.0,0.4],"fk Vus") #MeV FLAG21
+
 mods = [L"$[\chi SU(3)][a^2][-]$", 
         L"$[\chi SU(3)][a^2][\beta>3.40]$",
         L"$[\chi SU(3)][a^2][\beta>3.46]$", 
