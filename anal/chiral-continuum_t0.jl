@@ -64,12 +64,12 @@ fpik_add = true
         while BDIO_seek!(fb, 2) == true push!(obs[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_FLAG21/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_AP/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_FLAG21/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_AP/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_tm_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_tm_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
@@ -1158,7 +1158,7 @@ fpik_add = true
     #t0fpik_ph_vec = [[t0fpik_ph_vec[k]; 2/3 * (t0fk_ph_vec .+ 0.5 * t0fpi_ph_vec)[k]] for k in 1:length(t0fpik_ph_vec)]
     t0fpik_ph = [sum(t0fpik_ph_vec[k] .* W[k]) for k in 1:length(TIC)]
     syst = [sqrt(sum(t0fpik_ph_vec[k] .^ 2 .* W[k]) - (sum(t0fpik_ph_vec[k] .* W[k])) ^ 2) for k in 1:length(TIC)]
-    t0fpik_ph = t0fpik_ph .+ [uwreal([0.0, value(syst[k])], string("syst chiral ", k, " 4")) for k in 1:length(TIC)]
+    t0fpik_ph = t0fpik_ph .+ [uwreal([0.0, value(syst[k])], string("syst chiral ", k, " 3 AP")) for k in 1:length(TIC)]
     uwerr.(t0fpik_ph)
     sqrt_t0_ph = [t0fpik_ph[k] / (sqrt(8) * fpik_exp) for k in 1:length(TIC)]
     uwerr.(sqrt_t0_ph)
@@ -1209,7 +1209,7 @@ fpik_add = true
     sqrt_t0_ph_vec[ixx][c]
 
     #=
-    fb = BDIO_open("/home/asaez/cls_ens/results/t0_4_newrw.bdio", "w")
+    fb = BDIO_open("/home/asaez/cls_ens/results/t0_3_newrw_AP.bdio", "w")
     write_uwreal(sqrt_t0_ph[1] ^ 2, fb, 1)
     write_uwreal(sqrt_t0_ph[2] ^ 2, fb, 2)
     write_uwreal(sqrt_t0_ph[3] ^ 2, fb, 3)
@@ -2221,24 +2221,24 @@ fpik_add = true
     x_aux = deepcopy(x)
     y = y[list]
     x = x[list,:]
-    Wm = inv(Symmetric(cov(y)))
+    Wm = inv(Symmetric(cov(y,wpm)))
     Wm = convert(Matrix{Float64}, Wm)
 
     function fun(x,p)
         return [sqrt(1 + p[1] * (x[i,2] - x[i,4])) for i in 1:length(x[:,1])]
     end
-    uprm, chi_exp, chi2, pval_aux, doff = fit_alg(fun, value.(x), y, 1, diagm(diag(Wm)))
+    uprm, chi_exp, chi2, pval_aux, doff = fit_alg(fun, value.(x), y, 1, diagm(diag(Wm)), wpm=wpm)
 
     ix = 3
     x_ph_aux = [0.0 8 * sqrt_t0_ph[ix] ^ 2 * Mpi ^ 2 / hc ^ 2 phi4_ph phi2_sym[1]]
     sqrt_t0_star = sqrt_t0_ph[ix] / fun(x_ph_aux,uprm)[1]; uwerr(sqrt_t0_star)
-    details(sqrt_t0_star, string("syst chiral ",ix," 3rd")); sqrt(1-54/100) * err(sqrt_t0_star)
+    details(sqrt_t0_star, string("syst chiral ",ix," 6")); sqrt(1-54/100) * err(sqrt_t0_star)
 
     R = 1 / fun(x_ph_aux,uprm)[1]
 
     a = sqrt_t0_ph[ix] * R ./ sqrt.(t0_sh_sym[ind_sym]); uwerr.(a)
     i = 1
-    for i in 1:5 details(a[i], string("syst chiral ",ix," 3rd")); println(sqrt(1-20.5/100) * err(a[i])); println(" ") end
+    for i in 1:5 details(a[i], string("syst chiral ",ix," 6")); println(sqrt(1-20.5/100) * err(a[i])); println(" ") end
 
     fig = figure()
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")

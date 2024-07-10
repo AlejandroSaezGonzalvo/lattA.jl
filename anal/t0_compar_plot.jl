@@ -9,14 +9,19 @@ UK15 = uwreal([0.1511,0.0022],1); uwerr(UK15)
 UK14 = uwreal([0.1439,0.0008],1); uwerr(UK14)
 BMW12 = uwreal([0.1465,0.0025],1); uwerr(BMW12)
 
-sqrt_t0_st = uwreal([0.1433,0.0010],""); uwerr(sqrt_t0_st)
-sqrt_t0_tm = uwreal([0.1442,0.0011],""); uwerr(sqrt_t0_tm)
-sqrt_t0_comb = uwreal([0.1438,0.0008],""); uwerr(sqrt_t0_comb)
+sqrt_t0_st = uwreal([0.1436,0.0009],""); uwerr(sqrt_t0_st)
+sqrt_t0_tm = uwreal([0.1444,0.0010],""); uwerr(sqrt_t0_tm)
+sqrt_t0_comb = uwreal([0.1441,0.0007],""); uwerr(sqrt_t0_comb)
 
-sqrt_t0_st_16 = uwreal([0.1437,0.0011],""); uwerr(sqrt_t0_st_16)
-sqrt_t0_tm_16 = uwreal([0.1450,0.0011],""); uwerr(sqrt_t0_tm_16)
-sqrt_t0_comb_16 = uwreal([0.1436,0.0009],""); uwerr(sqrt_t0_comb_16)
+sqrt_t0_st_16 = uwreal([0.1443,0.0011],""); uwerr(sqrt_t0_st_16)
+sqrt_t0_tm_16 = uwreal([0.1450,0.0012],""); uwerr(sqrt_t0_tm_16)
+sqrt_t0_comb_16 = uwreal([0.1449,0.0008],""); uwerr(sqrt_t0_comb_16)
 
+sqrt_t0_st_AP = uwreal([0.1437,0.0010],""); uwerr(sqrt_t0_st_AP)
+sqrt_t0_tm_AP = uwreal([0.1446,0.0010],""); uwerr(sqrt_t0_tm_AP)
+sqrt_t0_comb_AP = uwreal([0.1443,0.0007],""); uwerr(sqrt_t0_comb_AP)
+
+#=
 sqrt_t0_st_old = uwreal([0.1444,0.0009],""); uwerr(sqrt_t0_st_old)
 sqrt_t0_tm_old = uwreal([0.1445,0.0013],""); uwerr(sqrt_t0_tm_old)
 sqrt_t0_comb_old = uwreal([0.1448,0.0007],""); uwerr(sqrt_t0_comb_old)
@@ -24,6 +29,7 @@ sqrt_t0_comb_old = uwreal([0.1448,0.0007],""); uwerr(sqrt_t0_comb_old)
 sqrt_t0_st_old_16 = uwreal([0.1449,0.0010],""); uwerr(sqrt_t0_st_old_16)
 sqrt_t0_tm_old_16 = uwreal([0.1449,0.0013],""); uwerr(sqrt_t0_tm_old_16)
 sqrt_t0_comb_old_16 = uwreal([0.1453,0.0008],""); uwerr(sqrt_t0_comb_old_16)
+=#
 
 fig = figure("",figsize=(5,5))
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
@@ -101,6 +107,40 @@ tight_layout()
 savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_compar_FLAG.pdf")
 
 #===============================================================================================================#
+
+fig = figure("FLAG",figsize=(5,5))
+rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+rcParams["font.size"] = 20
+
+errorbar(value.([sqrt_t0_st_16]), 1, [0], err.([sqrt_t0_st_16]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_st_AP]), 2, [0], err.([sqrt_t0_st_AP]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_st]), 3, [0], err.([sqrt_t0_st]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_tm_16]), 7, [0], err.([sqrt_t0_tm_16]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_tm_AP]), 8, [0], err.([sqrt_t0_tm_AP]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_tm]), 9, [0], err.([sqrt_t0_tm]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_comb_16]), 13, [0], err.([sqrt_t0_comb_16]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_comb_AP]), 14, [0], err.([sqrt_t0_comb_AP]), fmt="s", color="deeppink")
+errorbar(value.([sqrt_t0_comb]), 15, [0], err.([sqrt_t0_comb]), fmt="s", color="deeppink")
+#errorbar(value.([BKS]), 19, [0], err.([BKS]), fmt="s", color="blue")
+errorbar(value.([FLAG21]), 19, [0], err.([FLAG21]), fmt="s", color="black")
+
+xlabel(L"$\sqrt{t_0}\;\rm{[fm]}$")
+yticks([1,7,13,19], 
+       [L"This work, Wilson $[f_{\pi K}]$", 
+        L"This work, Wtm $[f_{\pi K}]$",  
+        L"This work, Combined $[f_{\pi K}]$",
+        "FLAG '21"])
+x_plot = [FLAG21 for i in 1:1:22]
+v = [i for i in 1:1:22]
+
+fill_betweenx(v, value(FLAG21)-err(FLAG21), value(FLAG21)+err(FLAG21), color="lightsteelblue", alpha=0.40)
+ax = gca()
+ax[:set_xlim]([0.14, 0.154])
+tight_layout()
+savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0_compar_FLAG_AP.pdf")
+
+#===============================================================================================================#
+
 
 using juobs, BDIO, ADerrors, PyPlot
 err = ADerrors.err

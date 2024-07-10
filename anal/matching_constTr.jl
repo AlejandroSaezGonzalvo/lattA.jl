@@ -135,7 +135,7 @@ if ens.id in ["H102r001", "H102r002"]
     ub = [kappa[2], mul[2], mus[2], Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf]
     p0 = [kappa[2], mul[2], mus[2], 0.31773171018397933, -0.000264588017236073, 70.35615274515222, 158.39403084751487, -0.04214173704892017, -0.12252811003970752, 2.712514933784784, 85.2047801509684]
     up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,lb,ub,p0,wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
-elseif ens.id in ["H105r005"]
+elseif ens.id in ["H105", "H105r005"]
     up, chi2, chi_exp, pv = fit_alg_LBFGS([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
 else
     up, chi2, chi_exp, pv = fit_alg([match_m12, match_phi2, match_phi4],x,y,11,[kappa[2], mul[2], mus[2]],wpm=wpm) ##kappa->up[1], mul->up[2], mus->up[3]
