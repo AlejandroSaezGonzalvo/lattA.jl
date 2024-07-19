@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  10 JUL 2024 16:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  11 JUL 2024 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1613,7 +1613,7 @@ Package biblatex Info: Reference section=0 on input line 13.
 Package tocbasic Info: character protrusion at toc deactivated on input line 11
 .
  (./ClassicThesis.toc
-Overfull \hbox (3.64137pt too wide) in paragraph at lines 42--42
+Overfull \hbox (3.64137pt too wide) in paragraph at lines 43--43
  [][] []\T1/pplj/m/n/10.95 (-20) Impact of the scale set-ting in Lat-tice QCD c
 om-pu-ta-tions []  
  []
@@ -1623,7 +1623,7 @@ om-pu-ta-tions []
 
 
 ]
-Overfull \hbox (18.61737pt too wide) in paragraph at lines 48--48
+Overfull \hbox (18.61737pt too wide) in paragraph at lines 49--49
  [][] []\T1/pplj/m/n/10.95 (-20) Determination of de-cay con-stants of charmed 
 mesons []  
  []
@@ -1746,48 +1746,48 @@ Overfull \hbox (4.69324pt too wide) detected at line 305
  []
 
 [50] [51] [52] [53]
-<./cap3/figs/J501_meff.pdf, id=983, 462.52798pt x 346.89601pt>
+<./cap3/figs/J501_meff.pdf, id=985, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/J501_meff.pdf Graphic file (type pdf)
 <use ./cap3/figs/J501_meff.pdf>
 Package pdftex.def Info: ./cap3/figs/J501_meff.pdf  used on input line 421.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap3/figs/J501_meff_tm.pdf, id=984, 462.52798pt x 346.89601pt>
+<./cap3/figs/J501_meff_tm.pdf, id=986, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/J501_meff_tm.pdf Graphic file (type pdf)
 <use ./cap3/figs/J501_meff_tm.pdf>
 Package pdftex.def Info: ./cap3/figs/J501_meff_tm.pdf  used on input line 425.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap3/figs/J501_R.pdf, id=985, 462.52798pt x 346.89601pt>
+<./cap3/figs/J501_R.pdf, id=987, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/J501_R.pdf Graphic file (type pdf)
 <use ./cap3/figs/J501_R.pdf>
 Package pdftex.def Info: ./cap3/figs/J501_R.pdf  used on input line 429.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap3/figs/J501_R_tm.pdf, id=986, 462.52798pt x 346.89601pt>
+<./cap3/figs/J501_R_tm.pdf, id=988, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/J501_R_tm.pdf Graphic file (type pdf)
 <use ./cap3/figs/J501_R_tm.pdf>
 Package pdftex.def Info: ./cap3/figs/J501_R_tm.pdf  used on input line 433.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap3/figs/J501_mpcac.pdf, id=987, 462.52798pt x 346.89601pt>
+<./cap3/figs/J501_mpcac.pdf, id=989, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/J501_mpcac.pdf Graphic file (type pdf)
 <use ./cap3/figs/J501_mpcac.pdf>
 Package pdftex.def Info: ./cap3/figs/J501_mpcac.pdf  used on input line 437.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap3/figs/J501_mpcac_tm.pdf, id=988, 462.52798pt x 346.89601pt>
+<./cap3/figs/J501_mpcac_tm.pdf, id=990, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/J501_mpcac_tm.pdf Graphic file (type pdf)
 <use ./cap3/figs/J501_mpcac_tm.pdf>
 Package pdftex.def Info: ./cap3/figs/J501_mpcac_tm.pdf  used on input line 441.
 
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap3/figs/J501_t2E.pdf, id=1003, 462.52798pt x 346.89601pt>
+<./cap3/figs/J501_t2E.pdf, id=1005, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/J501_t2E.pdf Graphic file (type pdf)
 <use ./cap3/figs/J501_t2E.pdf>
 Package pdftex.def Info: ./cap3/figs/J501_t2E.pdf  used on input line 450.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap3/figs/t0_J501.pdf, id=1004, 462.52798pt x 346.89601pt>
+<./cap3/figs/t0_J501.pdf, id=1006, 462.52798pt x 346.89601pt>
 File: ./cap3/figs/t0_J501.pdf Graphic file (type pdf)
 <use ./cap3/figs/t0_J501.pdf>
 Package pdftex.def Info: ./cap3/figs/t0_J501.pdf  used on input line 454.
 (pdftex.def)             Requested size: 164.64185pt x 123.47977pt.
-<./cap3/figs/meff_ma_J501.pdf, id=1009, 667.0521pt x 346.89601pt>
+<./cap3/figs/meff_ma_J501.pdf, id=1011, 667.0521pt x 346.89601pt>
 File: ./cap3/figs/meff_ma_J501.pdf Graphic file (type pdf)
 <use ./cap3/figs/meff_ma_J501.pdf>
 Package pdftex.def Info: ./cap3/figs/meff_ma_J501.pdf  used on input line 463.
@@ -1882,34 +1882,34 @@ Overfull \hbox (23.17114pt too wide) in alignment at lines 157--175
  [] [] [] [] [] [] 
  []
 
-<./cap4/figs/der_t0fpik.pdf, id=1384, 462.52798pt x 346.89601pt>
+<./cap4/figs/der_t0fpik.pdf, id=1386, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_t0fpik.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_t0fpik.pdf>
 Package pdftex.def Info: ./cap4/figs/der_t0fpik.pdf  used on input line 179.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/der_phi2.pdf, id=1389, 462.52798pt x 346.89601pt>
+<./cap4/figs/der_phi2.pdf, id=1391, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_phi2.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_phi2.pdf>
 Package pdftex.def Info: ./cap4/figs/der_phi2.pdf  used on input line 186.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/der_sea_t0fpik.pdf, id=1394, 462.52798pt x 346.89601pt>
+<./cap4/figs/der_sea_t0fpik.pdf, id=1396, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_sea_t0fpik.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_sea_t0fpik.pdf>
 Package pdftex.def Info: ./cap4/figs/der_sea_t0fpik.pdf  used on input line 193
 .
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/der_sea_t0m12.pdf, id=1399, 462.52798pt x 346.89601pt>
+<./cap4/figs/der_sea_t0m12.pdf, id=1401, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_sea_t0m12.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_sea_t0m12.pdf>
 Package pdftex.def Info: ./cap4/figs/der_sea_t0m12.pdf  used on input line 200.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/der_sea_phi2.pdf, id=1404, 462.52798pt x 346.89601pt>
+<./cap4/figs/der_sea_phi2.pdf, id=1406, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_sea_phi2.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_sea_phi2.pdf>
 Package pdftex.def Info: ./cap4/figs/der_sea_phi2.pdf  used on input line 207.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/der_sea_phi4.pdf, id=1409, 462.52798pt x 346.89601pt>
+<./cap4/figs/der_sea_phi4.pdf, id=1411, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_sea_phi4.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_sea_phi4.pdf>
 Package pdftex.def Info: ./cap4/figs/der_sea_phi4.pdf  used on input line 214.
@@ -1924,21 +1924,21 @@ multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./cap4/figs/der_sea_phi2.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
 >] [68 <./cap4/figs/der_sea_phi4.pdf>]
-<./cap4/figs/matching_H105.pdf, id=1664, 462.52798pt x 346.89601pt>
-File: ./cap4/figs/matching_H105.pdf Graphic file (type pdf)
-<use ./cap4/figs/matching_H105.pdf>
-Package pdftex.def Info: ./cap4/figs/matching_H105.pdf  used on input line 261.
+<./cap4/figs/matching_N200.pdf, id=1666, 462.52798pt x 346.89601pt>
+File: ./cap4/figs/matching_N200.pdf Graphic file (type pdf)
+<use ./cap4/figs/matching_N200.pdf>
+Package pdftex.def Info: ./cap4/figs/matching_N200.pdf  used on input line 261.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap4/figs/interp_fpik_H105.pdf, id=1665, 462.52798pt x 224.7597pt>
-File: ./cap4/figs/interp_fpik_H105.pdf Graphic file (type pdf)
-<use ./cap4/figs/interp_fpik_H105.pdf>
-Package pdftex.def Info: ./cap4/figs/interp_fpik_H105.pdf  used on input line 2
+<./cap4/figs/interp_fpik_N200.pdf, id=1667, 462.52798pt x 283.29839pt>
+File: ./cap4/figs/interp_fpik_N200.pdf Graphic file (type pdf)
+<use ./cap4/figs/interp_fpik_N200.pdf>
+Package pdftex.def Info: ./cap4/figs/interp_fpik_N200.pdf  used on input line 2
 68.
-(pdftex.def)             Requested size: 336.0pt x 163.28441pt.
-) [69] [70 <./cap4/figs/matching_H105.pdf> <./cap4/figs/interp_fpik_H105.pdf
+(pdftex.def)             Requested size: 336.0pt x 205.81186pt.
+) [69] [70 <./cap4/figs/matching_N200.pdf> <./cap4/figs/interp_fpik_N200.pdf
 
-pdfTeX warning: pdflatex (file ./cap4/figs/interp_fpik_H105.pdf): PDF inclusion
+pdfTeX warning: pdflatex (file ./cap4/figs/interp_fpik_N200.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
 >]
 \openout2 = `cap5/cap5_new.aux'.
@@ -1990,130 +1990,153 @@ l.108 \end{align}
                  
 ? 
 [73] [74] [75] [76] [77]
-<./cap5/figs/continuum_sym.pdf, id=1906, 462.52798pt x 346.89601pt>
+<./cap5/figs/continuum_sym.pdf, id=1909, 462.52798pt x 346.89601pt>
 File: ./cap5/figs/continuum_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/continuum_sym.pdf>
-Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 210.
+Package pdftex.def Info: ./cap5/figs/continuum_sym.pdf  used on input line 212.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
-<./cap5/figs/SU3_comb.pdf, id=1907, 462.52798pt x 514.56241pt>
+<./cap5/figs/SU3_comb.pdf, id=1910, 462.52798pt x 514.56241pt>
 File: ./cap5/figs/SU3_comb.pdf Graphic file (type pdf)
 <use ./cap5/figs/SU3_comb.pdf>
-Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 217.
+Package pdftex.def Info: ./cap5/figs/SU3_comb.pdf  used on input line 219.
 (pdftex.def)             Requested size: 336.0pt x 373.82158pt.
-<./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf, id=1910, 462.52798pt x 572.37839p
+<./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf, id=1913, 462.52798pt x 572.37839p
 t>
 File: ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf  used on i
-nput line 224.
+nput line 226.
 (pdftex.def)             Requested size: 336.0pt x 415.82397pt.
 
 
-LaTeX Warning: Float too large for page by 11.77472pt on input line 227.
+LaTeX Warning: Float too large for page by 11.77472pt on input line 229.
 
-<./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf, id=1917, 462.52798pt x 573.10112
+<./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf, id=1920, 462.52798pt x 573.10112
 pt>
 File: ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf  used on 
-input line 231.
+input line 233.
 (pdftex.def)             Requested size: 336.0pt x 416.34903pt.
 
-LaTeX Warning: Float too large for page by 12.29977pt on input line 234.
+LaTeX Warning: Float too large for page by 12.29977pt on input line 236.
 
-<./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf, id=1924, 462.52798pt x 650.43p
+<./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf, id=1927, 462.52798pt x 650.43p
 t>
 File: ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf Graphic file (type pdf)
 <use ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf>
 Package pdftex.def Info: ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf  used o
-n input line 238.
+n input line 240.
 (pdftex.def)             Requested size: 336.0pt x 472.52725pt.
 
-LaTeX Warning: Float too large for page by 68.478pt on input line 241.
+LaTeX Warning: Float too large for page by 68.478pt on input line 243.
 
-<./cap5/figs/t0_compar_FLAG.pdf, id=1931, 668.4975pt x 389.5353pt>
-File: ./cap5/figs/t0_compar_FLAG.pdf Graphic file (type pdf)
-<use ./cap5/figs/t0_compar_FLAG.pdf>
-Package pdftex.def Info: ./cap5/figs/t0_compar_FLAG.pdf  used on input line 245
-.
-(pdftex.def)             Requested size: 336.0pt x 195.79544pt.
-<./cap5/figs/t0_compar.pdf, id=1968, 668.4975pt x 389.5353pt>
+<./cap5/figs/t0_compar.pdf, id=1934, 646.81653pt x 361.35pt>
 File: ./cap5/figs/t0_compar.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_compar.pdf>
-Package pdftex.def Info: ./cap5/figs/t0_compar.pdf  used on input line 252.
-(pdftex.def)             Requested size: 336.0pt x 195.79544pt.
+Package pdftex.def Info: ./cap5/figs/t0_compar.pdf  used on input line 247.
+(pdftex.def)             Requested size: 336.0pt x 187.7101pt.
+<./cap5/figs/t0_iter.pdf, id=1953, 462.52798pt x 346.89601pt>
+File: ./cap5/figs/t0_iter.pdf Graphic file (type pdf)
+<use ./cap5/figs/t0_iter.pdf>
+Package pdftex.def Info: ./cap5/figs/t0_iter.pdf  used on input line 254.
+(pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 257.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 257.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 257.
+(hyperref)                removing `math shift' on input line 259.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 257.
+(hyperref)                removing `\@ifnextchar' on input line 259.
 
-[78 <./cap5/figs/continuum_sym.pdf>] [79 <./cap5/figs/SU3_comb.pdf>] [80 <./cap
-5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf>] [81 <./cap5/figs/BMA_tm_subav_c=1_cphi
-=0.0035.pdf>] [82 <./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf>] [83 <./cap5
-/figs/t0_compar_FLAG.pdf>] [84 <./cap5/figs/t0_compar.pdf>]
-<./cap5/figs/t0_sym.pdf, id=2414, 462.52798pt x 388.08992pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 259.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 259.
+
+[78] [79 <./cap5/figs/continuum_sym.pdf>] [80 <./cap5/figs/SU3_comb.pdf>]
+[81 <./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf>] [82 <./cap5/figs/BMA_tm_suba
+v_c=1_cphi=0.0035.pdf>] [83 <./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf>]
+<./cap5/figs/t0_sym.pdf, id=2253, 462.52798pt x 388.08992pt>
 File: ./cap5/figs/t0_sym.pdf Graphic file (type pdf)
 <use ./cap5/figs/t0_sym.pdf>
-Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 290.
+Package pdftex.def Info: ./cap5/figs/t0_sym.pdf  used on input line 292.
 (pdftex.def)             Requested size: 336.0pt x 281.94127pt.
- [85 <./cap5/figs/t0_sym.pdf>]
-Overfull \hbox (1.11617pt too wide) in alignment at lines 309--320
+
+[84 <./cap5/figs/t0_compar.pdf>] [85 <./cap5/figs/t0_iter.pdf>]
+Overfull \hbox (1.11617pt too wide) in alignment at lines 311--322
  [] [] [] [] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 322.
+(hyperref)                removing `math shift' on input line 324.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 322.
+(hyperref)                removing `subscript' on input line 324.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 322.
+(hyperref)                removing `superscript' on input line 324.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 322.
+(hyperref)                removing `math shift' on input line 324.
 
-[86]) [87]
+[86 <./cap5/figs/t0_sym.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 344.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 344.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 344.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 344.
+
+[87]
+<./cap5/figs/t0_compar_FLAG_AP.pdf, id=2464, 665.60669pt x 361.35pt>
+File: ./cap5/figs/t0_compar_FLAG_AP.pdf Graphic file (type pdf)
+<use ./cap5/figs/t0_compar_FLAG_AP.pdf>
+Package pdftex.def Info: ./cap5/figs/t0_compar_FLAG_AP.pdf  used on input line 
+387.
+(pdftex.def)             Requested size: 336.0pt x 182.41138pt.
+) [88] [89 <./cap5/figs/t0_compar_FLAG_AP.pdf>]
 \openout2 = `cap6/cap6_new.aux'.
 
  (./cap6/cap6_new.tex
 Chapter 5.
-[88
+[90
 
 
 
 
 
-] [89] [90] [91] [92] [93]
-<./cap6/figs/mc/mc_cl_all_cat.pdf, id=2580, 722.7pt x 433.62pt>
+] [91] [92] [93] [94] [95]
+<./cap6/figs/mc/mc_cl_all_cat.pdf, id=2651, 722.7pt x 433.62pt>
 File: ./cap6/figs/mc/mc_cl_all_cat.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/mc_cl_all_cat.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/mc_cl_all_cat.pdf  used on input line 1
 97.
 (pdftex.def)             Requested size: 325.21199pt x 195.1272pt.
-<./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf, id=2581, 722.7pt x 433.62pt>
+<./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf, id=2652, 722.7pt x 433.62pt>
 File: ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf  used on input 
 line 209.
 (pdftex.def)             Requested size: 303.53192pt x 182.11916pt.
-<./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf, id=2582, 722.7pt x 433.62pt>
+<./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf, id=2653, 722.7pt x 433.62pt>
 File: ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf  used on
@@ -2134,40 +2157,40 @@ l.233   M_c^{\mathrm{RGI}}(N_f=3) &=&
                                       1.486(8)_{\textrm{stat}}(3)_{\textrm{s...
 
 ? 
-<./cap6/figs/mc/mc_error_pie.pdf, id=2589, 462.52798pt x 346.89601pt>
+<./cap6/figs/mc/mc_error_pie.pdf, id=2660, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/mc/mc_error_pie.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/mc_error_pie.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/mc_error_pie.pdf  used on input line 24
 9.
 (pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-[94] [95 <./cap6/figs/mc/mc_cl_all_cat.pdf> <./cap6/figs/mc/fit_phi2_muc_fl_ave
-.pdf>] [96 <./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf>]
-<./cap6/figs/mc/mc_comparison_3gev.pdf, id=2720, 462.52798pt x 346.89601pt>
+[96] [97 <./cap6/figs/mc/mc_cl_all_cat.pdf> <./cap6/figs/mc/fit_phi2_muc_fl_ave
+.pdf>] [98 <./cap6/figs/mc/fit_phih_interp_muc_fl_ave.pdf>]
+<./cap6/figs/mc/mc_comparison_3gev.pdf, id=2792, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/mc/mc_comparison_3gev.pdf Graphic file (type pdf)
 <use ./cap6/figs/mc/mc_comparison_3gev.pdf>
 Package pdftex.def Info: ./cap6/figs/mc/mc_comparison_3gev.pdf  used on input l
 ine 265.
 (pdftex.def)             Requested size: 277.51892pt x 208.1392pt.
- [97 <./cap6/figs/mc/mc_error_pie.pdf>]
+ [99 <./cap6/figs/mc/mc_error_pie.pdf>]
 Overfull \hbox (6.53487pt too wide) in paragraph at lines 277--277
 |[]\T1/pplj/m/sc/10.95/80ls (-20) determination of de-cay con-stants of charmed
  mesons| 
  []
 
-[98 <./cap6/figs/mc/mc_comparison_3gev.pdf>] [99]
-<././cap6/figs/fds/error_pie_fd.pdf, id=2834, 462.52798pt x 346.89601pt>
+[100 <./cap6/figs/mc/mc_comparison_3gev.pdf>] [101]
+<././cap6/figs/fds/error_pie_fd.pdf, id=2905, 462.52798pt x 346.89601pt>
 File: ././cap6/figs/fds/error_pie_fd.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_fd.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_fd.pdf  used on input line
  339.
 (pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
-<././cap6/figs/fds/error_pie_fds.pdf, id=2835, 462.52798pt x 346.89601pt>
+<././cap6/figs/fds/error_pie_fds.pdf, id=2906, 462.52798pt x 346.89601pt>
 File: ././cap6/figs/fds/error_pie_fds.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_fds.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_fds.pdf  used on input lin
 e 343.
 (pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
-<./cap6/figs/fds/fds_comparison.pdf, id=2838, 462.52798pt x 346.89601pt>
+<./cap6/figs/fds/fds_comparison.pdf, id=2909, 462.52798pt x 346.89601pt>
 File: ./cap6/figs/fds/fds_comparison.pdf Graphic file (type pdf)
 <use ./cap6/figs/fds/fds_comparison.pdf>
 Package pdftex.def Info: ./cap6/figs/fds/fds_comparison.pdf  used on input line
@@ -2205,16 +2228,16 @@ l.369 point of our $\phi_4={\rm
                                 const.}$ trajectory. We can thus perform a f...
 
 ? 
-[100] [101 <././cap6/figs/fds/error_pie_fd.pdf> <././cap6/figs/fds/error_pie_fd
-s.pdf>] [102 <./cap6/figs/fds/fds_comparison.pdf>]
-<././cap6/figs/fds/error_pie_ratio_fds.pdf, id=2937, 242.72252pt x 260.16803pt>
+[102] [103 <././cap6/figs/fds/error_pie_fd.pdf> <././cap6/figs/fds/error_pie_fd
+s.pdf>] [104 <./cap6/figs/fds/fds_comparison.pdf>]
+<././cap6/figs/fds/error_pie_ratio_fds.pdf, id=3010, 242.72252pt x 260.16803pt>
 
 File: ././cap6/figs/fds/error_pie_ratio_fds.pdf Graphic file (type pdf)
 <use ././cap6/figs/fds/error_pie_ratio_fds.pdf>
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_ratio_fds.pdf  used on inp
 ut line 423.
 (pdftex.def)             Requested size: 134.39795pt x 144.05751pt.
-<././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf, id=2938, 462.52798pt x 346
+<././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf, id=3011, 462.52798pt x 346
 .89601pt>
 File: ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf Graphic file (type pdf
 )
@@ -2222,18 +2245,18 @@ File: ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf Graphic file (type pdf
 Package pdftex.def Info: ././cap6/figs/fds/error_pie_ratio_fds_statonly.pdf  us
 ed on input line 427.
 (pdftex.def)             Requested size: 268.80103pt x 201.60739pt.
-) [103] [104 <././cap6/figs/fds/error_pie_ratio_fds.pdf> <././cap6/figs/fds/err
-or_pie_ratio_fds_statonly.pdf>] [105
+) [105] [106 <././cap6/figs/fds/error_pie_ratio_fds.pdf> <././cap6/figs/fds/err
+or_pie_ratio_fds_statonly.pdf>] [107
 
 
 
 
 
 
-] [106]
+] [108]
 \openout2 = `conclusions/conclusions.aux'.
 
- (./conclusions/conclusions.tex [107
+ (./conclusions/conclusions.tex [109
 
 
 
@@ -2248,10 +2271,10 @@ l.19   M_c^{\mathrm{RGI}}(N_f=3) &=&
                                      1.486(8)_{\textrm{stat}}(3)_{\textrm{sy...
 
 ? 
-) [108]
+) [110]
 \openout2 = `conclusions/conclusiones.aux'.
 
- (./conclusions/conclusiones.tex [109
+ (./conclusions/conclusiones.tex [111
 
 
 
@@ -2268,15 +2291,15 @@ l.18   M_c^{\mathrm{RGI}}(N_f=3) &=&
                                      1.486(8)_{\textrm{stat}}(3)_{\textrm{sy...
 
 ? 
-[110]) [111] [112
+[112]) [113] [114
 
 
 
 
-] [113
+] [115
 
 
-] [114]
+] [116]
 \openout2 = `apendices/apendices_conventions.aux'.
 
  (./apendices/apendices_conventions.tex
@@ -2285,11 +2308,11 @@ LaTeX Font Info:    Trying to load font information for TS1+pplj on input line
 19.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-) [115
+) [117
 
 
 
-]) [116]
+]) [118]
 \openout2 = `apendices/apendices_SU3.aux'.
 
 
@@ -2300,7 +2323,7 @@ Overfull \hbox (1.2082pt too wide) detected at line 54
 []
  []
 
-) [117
+) [119
 
 
 
@@ -2311,7 +2334,7 @@ Overfull \hbox (1.2082pt too wide) detected at line 54
 
  (./apendices/apendices_simulations.tex
 Appendix C.
-[118
+[120
 
 
 
@@ -2326,7 +2349,7 @@ Overfull \hbox (10.12854pt too wide) detected at line 18
 /n/10.95 ] + \OMS/zplm/m/n/10.95 O [] \OT1/pplx/m/n/10.95 ,$  
  []
 
-[119]
+[121]
 Overfull \hbox (3.62988pt too wide) detected at line 54
  $\OML/zplm/m/it/10.95 T\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 U[] \OMS/zplm
 /m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10.95 ) = \OML/zplm/m/it/10.
@@ -2340,45 +2363,45 @@ m/m/it/10.95 U[] \OMS/zplm/m/n/10.95 ! \OML/zplm/m/it/10.95 U[]\OT1/zplm/m/n/10
 .95 j\OT1/zplm/m/n/10.95 ))\OT1/pplx/m/n/10.95 .$  
  []
 
-[120] [121] [122]
+[122] [123] [124]
 Overfull \hbox (10.74318pt too wide) detected at line 120
 []
  []
 
-[123]) [124]
+[125]) [126]
 \openout2 = `apendices/apendices_solvers.aux'.
 
  (./apendices/apendices_solvers.tex
 Appendix D.
-[125
+[127
 
 
 
 
 
-] [126]) [127]
+] [128]) [129]
 \openout2 = `apendices/apendices_errors.aux'.
 
  (./apendices/apendices_errors.tex
 Appendix E.
-[128
+[130
 
 
 
 
 
-] [129] [130]) [131]
+] [131] [132]) [133]
 \openout2 = `apendices/apendices_b.aux'.
 
  (./apendices/apendices_b.tex
 Appendix F.
-[132
+[134
 
 
 
 
 
-] [133]) [134]
+] [135]) [136]
 \openout2 = `apendices/apendices_GEVP.aux'.
 
  (./apendices/apendices_GEVP.tex
@@ -2388,7 +2411,7 @@ LaTeX Font Info:    Trying to load font information for U+fplmbb on input line
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-<./cap6/figs/matching/m8_plateau.pdf, id=3299, 722.7pt x 542.025pt>
+<./cap6/figs/matching/m8_plateau.pdf, id=3373, 722.7pt x 542.025pt>
 File: ./cap6/figs/matching/m8_plateau.pdf Graphic file (type pdf)
 <use ./cap6/figs/matching/m8_plateau.pdf>
 Package pdftex.def Info: ./cap6/figs/matching/m8_plateau.pdf  used on input lin
@@ -2399,14 +2422,14 @@ Overfull \hbox (25.3491pt too wide) in paragraph at lines 42--43
  [][] 
  []
 
-[135
+[137
 
 
 
 
 
 ]
-<./cap6/figs/fds/f8_plateau.pdf, id=3315, 722.7pt x 542.025pt>
+<./cap6/figs/fds/f8_plateau.pdf, id=3388, 722.7pt x 542.025pt>
 File: ./cap6/figs/fds/f8_plateau.pdf Graphic file (type pdf)
 <use ./cap6/figs/fds/f8_plateau.pdf>
 Package pdftex.def Info: ./cap6/figs/fds/f8_plateau.pdf  used on input line 49.
@@ -2417,13 +2440,13 @@ Overfull \hbox (25.3491pt too wide) in paragraph at lines 49--50
  [][] 
  []
 
-) [136 <./cap6/figs/matching/m8_plateau.pdf>] [137 <./cap6/figs/fds/f8_plateau.
+) [138 <./cap6/figs/matching/m8_plateau.pdf>] [139 <./cap6/figs/fds/f8_plateau.
 pdf>]
 \openout2 = `apendices/apendices_a.aux'.
 
  (./apendices/apendices_a.tex
 Appendix H.
-[138
+[140
 
 
 
@@ -2434,29 +2457,29 @@ Overfull \hbox (130.31204pt too wide) in alignment at lines 9--37
  [] [] [] [] [] [] [] [] [] [] 
  []
 
-) [139]
+) [141]
 \openout2 = `apendices/apendices_obs.aux'.
 
  (./apendices/apendices_obs.tex
 Appendix I.
-[140
+[142
 
 
 
 
 
-] [141] [142]) [143] [144]
+] [143] [144]) [145] [146]
 \openout2 = `apendices/apendices_c.aux'.
 
  (./apendices/apendices_c.tex
 Appendix J.
-[145
+[147
 
 
 
 
 
-]) [146]
+]) [148]
 \openout2 = `apendices/apendices_f.aux'.
 
  (./apendices/apendices_f.tex
@@ -2487,46 +2510,46 @@ Overfull \hbox (36.42177pt too wide) in alignment at lines 36--113
  [] [] [] [] 
  []
 
-[147
+[149
 
 
 
 
 
-] [148]
+] [150]
 Overfull \hbox (36.42177pt too wide) in alignment at lines 117--194
  [] [] [] [] 
  []
 
-[149] [150] [151]
+[151] [152] [153]
 Overfull \hbox (76.0454pt too wide) in alignment at lines 198--317
  [] [] [] [] 
  []
 
-[152] [153] [154]) [155]
+[154] [155] [156]) [157]
 \openout2 = `apendices/apendices_qm.aux'.
 
  (./apendices/apendices_qm.tex
 Appendix L.
-[156
+[158
 
 
 
 
 
-] [157]
-<./apendices/figs_appex/mR_ratios_comb.pdf, id=3569, 665.60669pt x 346.89601pt>
+] [159]
+<./apendices/figs_appex/mR_ratios_comb.pdf, id=3643, 665.60669pt x 346.89601pt>
 
 File: ./apendices/figs_appex/mR_ratios_comb.pdf Graphic file (type pdf)
 <use ./apendices/figs_appex/mR_ratios_comb.pdf>
 Package pdftex.def Info: ./apendices/figs_appex/mR_ratios_comb.pdf  used on inp
 ut line 48.
 (pdftex.def)             Requested size: 332.80252pt x 173.44757pt.
-) [158 <./apendices/figs_appex/mR_ratios_comb.pdf>]
+) [160 <./apendices/figs_appex/mR_ratios_comb.pdf>]
 \openout2 = `FrontBackmatter/Bibliography.aux'.
 
 
-(./FrontBackmatter/Bibliography.tex [159
+(./FrontBackmatter/Bibliography.tex [161
 
 
 
@@ -2534,14 +2557,14 @@ ut line 48.
 
 
 
-] [160]
+] [162]
 ! Undefined control sequence.
 <argument> \NF 
                =2+1
 l.15 \printbibliography[heading=bibintoc]
                                          
 ? 
-[161] [162]
+[163] [164]
 
 ! Class scrreprt Error: undefined old font command `\rm'.
 
@@ -2552,27 +2575,27 @@ Type  H <return>  for immediate help.
 l.15 \printbibliography[heading=bibintoc]
                                          
 ? 
-[163]
+[165]
 Overfull \hbox (2.00424pt too wide) in paragraph at lines 15--15
 \T1/fvm/m/n/10.95 sciencedirect . com / science / article / pii / 0010465588901
 804$[][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-[164]
+[166]
 Overfull \hbox (17.5535pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 
 10 . 1103 / PhysRevD . 102 . 054511$[][]\T1/pplj/m/n/10.95 (-20) . arXiv: [][]$
 \T1/fvm/m/n/10.95 2005 . 01845$ [hep-lat][][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-[165]
+[167]
 Overfull \hbox (6.31654pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/n/10.95 (-20) fermions.^^Q In: \T1/pplj/m/it/10.95 (-20) JHEP \T1/pp
 lj/m/n/10.95 (-20) 02 (2017), p. 090. \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n
 /10.95 (-20) : [][]$\T1/fvm/m/n/10.95 10 . 1007 / JHEP02(2017 )
  []
 
-[166]
+[168]
 
 ! Class scrreprt Error: undefined old font command `\rm'.
 
@@ -2596,7 +2619,7 @@ Overfull \hbox (6.383pt too wide) in paragraph at lines 15--15
 tions and reweight-
  []
 
-[167] [168]
+[169] [170]
 Overfull \hbox (57.76984pt too wide) in paragraph at lines 15--15
 []\T1/pplj/m/it/10.95 (-20) Millennium Prize prob-lems\T1/pplj/m/n/10.95 (-20) 
 . \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.9
@@ -2610,14 +2633,14 @@ Overfull \hbox (8.7476pt too wide) in paragraph at lines 15--15
 lat-tice with Möbius
  []
 
-[169] [170] [171]
+[171] [172] [173]
 Overfull \hbox (6.3472pt too wide) in paragraph at lines 15--15
 \T1/pplj/m/sc/10.95 (-20) doi\T1/pplj/m/n/10.95 (-20) : [][]$\T1/fvm/m/n/10.95 
 10 . 1103 / PhysRevD . 92 . 034517$[][]\T1/pplj/m/n/10.95 (-20) . arXiv: [][]$\
 T1/fvm/m/n/10.95 1410 . 3343$ [hep-lat][][]\T1/pplj/m/n/10.95 (-20) . 
  []
 
-) [172] (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
+) [174] (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
 (./FrontBackmatter/Titleback.aux) (./FrontBackmatter/Dedication_2.aux)
 (./FrontBackmatter/Dedication.aux) (./FrontBackmatter/Abstract.aux)
 (./FrontBackmatter/Publications.aux) (./FrontBackmatter/Acknowledgments.aux)
@@ -2840,17 +2863,18 @@ cap4/cap4.tex
 ./cap4/figs/der_sea_t0m12.pdf
 ./cap4/figs/der_sea_phi2.pdf
 ./cap4/figs/der_sea_phi4.pdf
-./cap4/figs/matching_H105.pdf
-./cap4/figs/interp_fpik_H105.pdf
+./cap4/figs/matching_N200.pdf
+./cap4/figs/interp_fpik_N200.pdf
 cap5/cap5_new.tex
 ./cap5/figs/continuum_sym.pdf
 ./cap5/figs/SU3_comb.pdf
 ./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf
 ./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf
 ./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf
-./cap5/figs/t0_compar_FLAG.pdf
 ./cap5/figs/t0_compar.pdf
+./cap5/figs/t0_iter.pdf
 ./cap5/figs/t0_sym.pdf
+./cap5/figs/t0_compar_FLAG_AP.pdf
 cap6/cap6_new.tex
 ./cap6/figs/mc/mc_cl_all_cat.pdf
 ./cap6/figs/mc/fit_phi2_muc_fl_ave.pdf
@@ -2897,11 +2921,11 @@ Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36319 strings out of 478287
- 713821 string characters out of 5849289
- 1723609 words of memory out of 5000000
- 51840 multiletter control sequences out of 15000+600000
- 648548 words of font info for 935 fonts, out of 8000000 for 9000
+ 36362 strings out of 478287
+ 714800 string characters out of 5849289
+ 1724415 words of memory out of 5000000
+ 51867 multiletter control sequences out of 15000+600000
+ 648552 words of font info for 935 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,24n,125p,10608b,2463s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -2929,10 +2953,10 @@ onts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
 /uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
 >
-Output written on ClassicThesis.pdf (190 pages, 1656902 bytes).
+Output written on ClassicThesis.pdf (192 pages, 1672761 bytes).
 PDF statistics:
- 4465 PDF objects out of 5155 (max. 8388607)
- 3306 compressed objects within 34 object streams
- 839 named destinations out of 1000 (max. 500000)
- 167713 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 4549 PDF objects out of 5155 (max. 8388607)
+ 3364 compressed objects within 34 object streams
+ 854 named destinations out of 1000 (max. 500000)
+ 167726 words of extra memory for PDF output out of 184870 (max. 10000000)
 

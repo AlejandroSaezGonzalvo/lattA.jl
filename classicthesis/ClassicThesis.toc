@@ -36,40 +36,41 @@
 \contentsline {chapter}{\numberline {4}{Scale setting}}{71}{chapter.4}%
 \contentsline {section}{\numberline {4.1}{Motivation}}{71}{section.4.1}%
 \contentsline {section}{\numberline {4.2}{Determination of $\sqrt {t_0}$ at the physical point}}{72}{section.4.2}%
-\contentsline {section}{\numberline {4.3}{Determination of $\sqrt {t_0}$ at the symmetric point}}{84}{section.4.3}%
-\contentsline {section}{\numberline {4.4}{Determination of the lattice spacing for CLS ensembles}}{86}{section.4.4}%
-\contentsline {section}{\numberline {4.5}{Determination of $t_0^*$}}{86}{section.4.5}%
-\contentsline {chapter}{\numberline {5}{Impact of the scale setting in Lattice QCD computations}}{89}{chapter.5}%
-\contentsline {section}{\numberline {5.1}{Matching of the charm quark mass}}{89}{section.5.1}%
-\contentsline {section}{\numberline {5.2}{Determination of the charm quark mass}}{91}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}{Renormalized charm quark masses}}{91}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}{Charm quark mass chiral-continuum fits}}{92}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}{Results for the charm quark mass}}{94}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}{Determination of decay constants of charmed mesons}}{98}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}{Computation of decay constants}}{98}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}{Direct determination of $f_{D_s}/f_D$}}{100}{subsection.5.3.2}%
-\contentsline {part}{\numberline {iv}{Conclusions}}{105}{part.4}%
-\contentsline {chapter}{Conclusions and outlook}{107}{part.4}%
-\contentsline {chapter}{Conclusiones y perspectivas}{109}{equation.5.3.21}%
-\contentsline {part}{\numberline {v}{Appendices}}{113}{part.5}%
-\contentsline {chapter}{\numberline {A}{Conventions}}{115}{appendix.A}%
-\contentsline {chapter}{\numberline {B}{Gell-Mann matrices and structure constants}}{117}{appendix.B}%
-\contentsline {chapter}{\numberline {C}{Simulation details}}{119}{appendix.C}%
-\contentsline {section}{\numberline {C.1}{Metropolis algorithm}}{120}{section.C.1}%
-\contentsline {section}{\numberline {C.2}{Hybrid Monte Carlo}}{121}{section.C.2}%
-\contentsline {section}{\numberline {C.3}{Reweighting}}{123}{section.C.3}%
-\contentsline {chapter}{\numberline {D}{Solvers}}{125}{appendix.D}%
-\contentsline {section}{\numberline {D.1}{Stochastic methods}}{125}{section.D.1}%
-\contentsline {section}{\numberline {D.2}{Iterative solvers}}{125}{section.D.2}%
-\contentsline {section}{\numberline {D.3}{Preconditioning}}{126}{section.D.3}%
-\contentsline {chapter}{\numberline {E}{Error analysis}}{129}{appendix.E}%
-\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{133}{appendix.F}%
-\contentsline {chapter}{\numberline {G}{GEVP method}}{135}{appendix.G}%
-\contentsline {chapter}{\numberline {H}{Lattice ensembles}}{139}{appendix.H}%
-\contentsline {chapter}{\numberline {I}{Lattice observables}}{141}{appendix.I}%
-\contentsline {chapter}{\numberline {J}{Finite Volume Effects}}{145}{appendix.J}%
-\contentsline {chapter}{\numberline {K}{$\sqrt {t_0}$: Model variations}}{147}{appendix.K}%
-\contentsline {chapter}{\numberline {L}{Light and strange quark masses}}{157}{appendix.L}%
+\contentsline {section}{\numberline {4.3}{Determination of $\sqrt {t_0}$ at the symmetric point}}{78}{section.4.3}%
+\contentsline {section}{\numberline {4.4}{Determination of the lattice spacing for CLS ensembles}}{84}{section.4.4}%
+\contentsline {section}{\numberline {4.5}{Determination of $t_0^*$}}{87}{section.4.5}%
+\contentsline {section}{\numberline {4.6}{Impact of the physical input on $\sqrt {t_0}$}}{87}{section.4.6}%
+\contentsline {chapter}{\numberline {5}{Impact of the scale setting in Lattice QCD computations}}{91}{chapter.5}%
+\contentsline {section}{\numberline {5.1}{Matching of the charm quark mass}}{91}{section.5.1}%
+\contentsline {section}{\numberline {5.2}{Determination of the charm quark mass}}{93}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}{Renormalized charm quark masses}}{93}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}{Charm quark mass chiral-continuum fits}}{94}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}{Results for the charm quark mass}}{96}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}{Determination of decay constants of charmed mesons}}{100}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}{Computation of decay constants}}{100}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}{Direct determination of $f_{D_s}/f_D$}}{102}{subsection.5.3.2}%
+\contentsline {part}{\numberline {iv}{Conclusions}}{107}{part.4}%
+\contentsline {chapter}{Conclusions and outlook}{109}{part.4}%
+\contentsline {chapter}{Conclusiones y perspectivas}{111}{equation.5.3.21}%
+\contentsline {part}{\numberline {v}{Appendices}}{115}{part.5}%
+\contentsline {chapter}{\numberline {A}{Conventions}}{117}{appendix.A}%
+\contentsline {chapter}{\numberline {B}{Gell-Mann matrices and structure constants}}{119}{appendix.B}%
+\contentsline {chapter}{\numberline {C}{Simulation details}}{121}{appendix.C}%
+\contentsline {section}{\numberline {C.1}{Metropolis algorithm}}{122}{section.C.1}%
+\contentsline {section}{\numberline {C.2}{Hybrid Monte Carlo}}{123}{section.C.2}%
+\contentsline {section}{\numberline {C.3}{Reweighting}}{125}{section.C.3}%
+\contentsline {chapter}{\numberline {D}{Solvers}}{127}{appendix.D}%
+\contentsline {section}{\numberline {D.1}{Stochastic methods}}{127}{section.D.1}%
+\contentsline {section}{\numberline {D.2}{Iterative solvers}}{127}{section.D.2}%
+\contentsline {section}{\numberline {D.3}{Preconditioning}}{128}{section.D.3}%
+\contentsline {chapter}{\numberline {E}{Error analysis}}{131}{appendix.E}%
+\contentsline {chapter}{\numberline {F}{Least-squares fitting}}{135}{appendix.F}%
+\contentsline {chapter}{\numberline {G}{GEVP method}}{137}{appendix.G}%
+\contentsline {chapter}{\numberline {H}{Lattice ensembles}}{141}{appendix.H}%
+\contentsline {chapter}{\numberline {I}{Lattice observables}}{143}{appendix.I}%
+\contentsline {chapter}{\numberline {J}{Finite Volume Effects}}{147}{appendix.J}%
+\contentsline {chapter}{\numberline {K}{$\sqrt {t_0}$: Model variations}}{149}{appendix.K}%
+\contentsline {chapter}{\numberline {L}{Light and strange quark masses}}{159}{appendix.L}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\numberline {}{Bibliography}}{159}{section*.36}%
+\contentsline {chapter}{\numberline {}{Bibliography}}{161}{section*.37}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

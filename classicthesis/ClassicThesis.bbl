@@ -4795,6 +4795,37 @@
     \field{year}{2022}
   \endentry
 
+  \entry{Kuberski:2023zky}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KS}{%
+         family={Kuberski},
+         familyi={K\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KS1}
+    \strng{fullhash}{KS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.1016/j.cpc.2024.109173
+    \endverb
+    \verb{eprint}
+    \verb 2306.02385
+    \endverb
+    \field{pages}{109173}
+    \field{title}{{Low-mode deflation for twisted-mass and RHMC reweighting in
+  lattice QCD}}
+    \field{volume}{300}
+    \field{journaltitle}{Comput. Phys. Commun.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2024}
+  \endentry
+
   \entry{Kuberski:2024bcj}{article}{}
     \name{author}{7}{}{%
       {{hash=KS}{%
@@ -6241,6 +6272,31 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2019}
+  \endentry
+
+  \entry{AP}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=PA}{%
+         family={Portelli},
+         familyi={P\bibinitperiod},
+         given={Antonin},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PA1}
+    \strng{fullhash}{PA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{{QCD+QED Workshop, Edinburgh, UK, May 29, 2023}}
+    \verb{eprint}
+    \verb https://indico.ph.ed.ac.uk/event/257/contributions/2442/attachments/1
+    \verb 189/1688/portelli.pdf
+    \endverb
+    \field{title}{{Prescriptions for the definition of isospin-breaking
+  effects}}
+    \field{year}{2023}
   \endentry
 
   \entry{Ramos:2018vgu}{article}{}

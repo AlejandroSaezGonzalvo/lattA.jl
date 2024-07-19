@@ -129,7 +129,9 @@ where on the right-hand-side the expectation values are evaluated with a lattice
 W=\textrm{det}\left(Q^{\dagger}Q\left(Q^{\dagger}Q+2\mu_0^2\right)\left(Q^{\dagger}Q+\mu_0^2\right)^{-2}\right).
 \end{equation}
 
-In addition to twisted mass reweighting, a reweighting procedure is also applied to remove the rational approximation introduced by the use of the RHMC algorithm to simulate the strange quark determinant~\citep{Kennedy:1998cu,Clark:2006fx}. As mentioned in the previous section, in~\citep{Mohler:2020txx} it was found that a subset of the gauge configurations of some of the ensembles considered in this work have negative values of the strange quark determinant. This effect can corrected by the application of a reweighting factor that flips the sign of the configurations which were identified to have a negative sign of strange quark fermionic determinant. 
+In addition to twisted mass reweighting, a reweighting procedure is also applied to remove the rational approximation introduced by the use of the RHMC algorithm to simulate the strange quark determinant~\citep{Kennedy:1998cu,Clark:2006fx}. In practice, we employ the reweighting factors computed with the low-mode deflation method in~\citep{Kuberski:2023zky}.
+
+As mentioned in the previous section, in~\citep{Mohler:2020txx} it was found that a subset of the gauge configurations of some of the ensembles considered in this work have negative values of the strange quark determinant. This effect can corrected by the application of a reweighting factor that flips the sign of the configurations which were identified to have a negative sign of strange quark fermionic determinant. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

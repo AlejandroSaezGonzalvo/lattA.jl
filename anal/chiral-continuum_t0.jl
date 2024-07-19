@@ -64,12 +64,12 @@ fpik_add = true
         while BDIO_seek!(fb, 2) == true push!(obs[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_AP/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_FLAG21/", ens[i], "_obs_wil_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
 
-        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_AP/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
+        fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_FLAG21/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_tm_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_tm_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
@@ -215,6 +215,26 @@ fpik_add = true
 
 #============================== plots =========================================================================================#
 
+    phi2 = 8 .* t0 .* mpi .^ 2
+    phi4 = 8 .* t0 .* (mk .^ 2 .+ 0.5 * mpi .^ 2)
+    uwerr.(phi4)
+    uwerr.(phi2)
+    uwerr(phi4_ph)
+    fig = figure()
+    rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+    rcParams["font.size"] = 15
+    xlabel(L"$\phi_2$")
+    ylabel(L"$\phi_4$")
+    errorbar(value.(phi2[ens_340]), value.(phi4[ens_340]), err.(phi4[ens_340]), err.(phi2[ens_340]), label=L"\beta=3.40", fmt="s", color="rebeccapurple")
+    errorbar(value.(phi2[ens_346]), value.(phi4[ens_346]), err.(phi4[ens_346]), err.(phi2[ens_346]), label=L"\beta=3.46", fmt="o", color="green")
+    errorbar(value.(phi2[ens_355]), value.(phi4[ens_355]), err.(phi4[ens_355]), err.(phi2[ens_355]), label=L"\beta=3.55", fmt="<", color="blue")
+    errorbar(value.(phi2[ens_370]), value.(phi4[ens_370]), err.(phi4[ens_370]), err.(phi2[ens_370]), label=L"\beta=3.70", fmt=">", color="darkorange")
+    errorbar(value.(phi2[ens_385]), value.(phi4[ens_385]), err.(phi4[ens_385]), err.(phi2[ens_385]), label=L"\beta=3.85", fmt="^", color="red")
+    fill_between(collect(0:0.1:0.8), value(phi4_ph)-err(phi4_ph), value(phi4_ph)+err(phi4_ph), color="gray", alpha=0.3)
+    legend()
+    tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/phi2_phi4.pdf")
+
     uwerr.(t0fpik_sh)
     uwerr.(phi2_sh)
     fig = figure()
@@ -250,6 +270,39 @@ fpik_add = true
     #legend()
     tight_layout()
     savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fpik_st.pdf")
+
+    phi2 = 8 .* t0 .* mpi .^ 2; uwerr.(phi2)
+    beta = [EnsInfo(ens[i], ens_db[ens[i]]).beta for i in 1:length(ens)]
+    beta = [beta[1:3]; beta[6:end]]
+    ZA = [beta_ZA[i] for i in beta]
+    bAtil = 1 .+ 0.0472 .* (6 ./ beta)
+    fpi_un = ZA .* (1 .+ bAtil .* m12) .* fpi
+    fk_un = ZA .* (1 .+ bAtil .* m13) .* fk
+    t0fpik_un = sqrt.(8 * t0) .* 2/3 .* (fk_un .+ 0.5 .* fpi_un); uwerr.(t0fpik_un)
+    t0fpik_sh_1q = t0fpik_st_sh
+    uwerr.(t0fpik_sh_1q)
+    fig = figure()
+    rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+    rcParams["font.size"] = 15
+    xlabel(L"$\phi_2$")
+    ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
+    errorbar(value.(phi2[ens_340]), value.(t0fpik_un[ens_340]), err.(t0fpik_un[ens_340]), err.(phi2[ens_340]), label=L"$\beta=3.40$", fmt="s", mfc="none", color="purple", capsize=3.0)
+    errorbar(value.(phi2[ens_346]), value.(t0fpik_un[ens_346]), err.(t0fpik_un[ens_346]), err.(phi2[ens_346]), label=L"$\beta=3.46$", fmt="o", mfc="none", color="green", capsize=3.0)
+    errorbar(value.(phi2[ens_355]), value.(t0fpik_un[ens_355]), err.(t0fpik_un[ens_355]), err.(phi2[ens_355]), label=L"$\beta=3.55$", fmt="<", mfc="none", color="blue", capsize=3.0)
+    errorbar(value.(phi2[ens_370]), value.(t0fpik_un[ens_370]), err.(t0fpik_un[ens_370]), err.(phi2[ens_370]), label=L"$\beta=3.70$", fmt=">", mfc="none", color="orange", capsize=3.0)
+    errorbar(value.(phi2[ens_385]), value.(t0fpik_un[ens_385]), err.(t0fpik_un[ens_385]), err.(phi2[ens_385]), label=L"$\beta=3.85$", fmt="^", mfc="none", color="red", capsize=3.0)
+    errorbar(value.(phi2_sh[ens_340]), value.(t0fpik_sh_1q[ens_340]), err.(t0fpik_sh_1q[ens_340]), err.(phi2_sh[ens_340]), label="", fmt="s", color="purple", capsize=3.0)
+    errorbar(value.(phi2_sh[ens_346]), value.(t0fpik_sh_1q[ens_346]), err.(t0fpik_sh_1q[ens_346]), err.(phi2_sh[ens_346]), label="", fmt="o", color="green", capsize=3.0)
+    errorbar(value.(phi2_sh[ens_355]), value.(t0fpik_sh_1q[ens_355]), err.(t0fpik_sh_1q[ens_355]), err.(phi2_sh[ens_355]), label="", fmt="<", color="blue", capsize=3.0)
+    errorbar(value.(phi2_sh[ens_370]), value.(t0fpik_sh_1q[ens_370]), err.(t0fpik_sh_1q[ens_370]), err.(phi2_sh[ens_370]), label="", fmt=">", color="orange", capsize=3.0)
+    errorbar(value.(phi2_sh[ens_385]), value.(t0fpik_sh_1q[ens_385]), err.(t0fpik_sh_1q[ens_385]), err.(phi2_sh[ens_385]), label="", fmt="^", color="red", capsize=3.0)
+    for i in 1:length(phi2)
+        #arrow(value(phi2[i]), value(t0fpik_un[i]), value(phi2_sh[i])-value(phi2[i]), value(t0fpik_sh_1q[i])-value(t0fpik_un[i]), width=0.0002, color="black", alpha=1, ec="None", ls="--")
+        plot(value.([phi2[i], phi2_sh[i]]), value.([t0fpik_un[i], t0fpik_sh_1q[i]]), color="black", ls="--")
+    end
+    legend()
+    tight_layout()
+    savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fpik_st_un_sh.pdf")
 
     #t0fpi_st_sh = sqrt.(t0_sh) .* fpi_sh
     uwerr.(t0fpi_st_sh)
@@ -706,7 +759,7 @@ fpik_add = true
                     global L1 = length(set_y[1][j])
                     global L2 = length(set_y[1][j])
                     guess = [-0.0444296314923108, 3.796947061303699, -0.03833005555955292, -0.061035272307122856, 4.5724975563203465, 0.023977601747406707, 0.10344587769896242]
-                    uprm, chi2, chi_exp, pval_aux = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j], guess=guess)
+                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j], guess=guess, wpm=wpm)
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     if k == 3
@@ -1158,7 +1211,7 @@ fpik_add = true
     #t0fpik_ph_vec = [[t0fpik_ph_vec[k]; 2/3 * (t0fk_ph_vec .+ 0.5 * t0fpi_ph_vec)[k]] for k in 1:length(t0fpik_ph_vec)]
     t0fpik_ph = [sum(t0fpik_ph_vec[k] .* W[k]) for k in 1:length(TIC)]
     syst = [sqrt(sum(t0fpik_ph_vec[k] .^ 2 .* W[k]) - (sum(t0fpik_ph_vec[k] .* W[k])) ^ 2) for k in 1:length(TIC)]
-    t0fpik_ph = t0fpik_ph .+ [uwreal([0.0, value(syst[k])], string("syst chiral ", k, " 3 AP")) for k in 1:length(TIC)]
+    t0fpik_ph = t0fpik_ph .+ [uwreal([0.0, value(syst[k])], string("syst chiral ", k, " 6")) for k in 1:length(TIC)]
     uwerr.(t0fpik_ph)
     sqrt_t0_ph = [t0fpik_ph[k] / (sqrt(8) * fpik_exp) for k in 1:length(TIC)]
     uwerr.(sqrt_t0_ph)
@@ -1209,7 +1262,7 @@ fpik_add = true
     sqrt_t0_ph_vec[ixx][c]
 
     #=
-    fb = BDIO_open("/home/asaez/cls_ens/results/t0_3_newrw_AP.bdio", "w")
+    fb = BDIO_open("/home/asaez/cls_ens/results/t0_6_newrw.bdio", "w")
     write_uwreal(sqrt_t0_ph[1] ^ 2, fb, 1)
     write_uwreal(sqrt_t0_ph[2] ^ 2, fb, 2)
     write_uwreal(sqrt_t0_ph[3] ^ 2, fb, 3)
@@ -1268,7 +1321,7 @@ fpik_add = true
         errorbar(value.(phi2_sh[ens_385]), value.(t0fpik_sh[ens_385]), err.(t0fpik_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", label=L"$\beta=3.85$", color="red")
         xlabel(L"$\phi_2$")
         i = 1
-        x_prime = [i for i in 0.01:0.05:0.85]
+        x_prime = [i for i in 0.01:0.01:0.85]
         for ind in ind_sym
             list = [1,2,4]
             x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
@@ -1279,7 +1332,7 @@ fpik_add = true
             #fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
             i += 1
         end
-        x_prime = [i for i in 0.01:0.05:0.85]
+        x_prime = [i for i in 0.01:0.01:0.85]
         x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
         aux = model_plot(x_plot,uprm_combined) ; uwerr.(aux)
         v = value.(aux)

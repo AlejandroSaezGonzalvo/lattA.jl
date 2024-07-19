@@ -205,6 +205,8 @@ The statistical uncertainty in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}
     \caption{Different contributions to total uncertainty for $\sqrt{t_0}$ for the combined analysis of both Wilson and mixed action lattice data in eq.~(\ref{ch_ss:eq:t0ph_c}).}
 \end{longtable}
 
+The results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) steem from the iterative procedure explained at the end of Sec. \ref{ch_ma:sec:chiral_traj} and in the introduction to this Chapter. The convergence on the result of $\sqrt{t_0}$ using this iterative analysis is shown in Fig.~\ref{ch_ss:fig:iter}.
+
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/continuum_sym.pdf}
@@ -242,16 +244,16 @@ The statistical uncertainty in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}
 
 \begin{figure}
     \centering
-    \includegraphics[width=1.\textwidth]{./cap5/figs/t0_compar_FLAG.pdf}
-    \caption{Comparison of our determination of $\sqrt{t_0}$ at the physical point with Bruno et al. `16~\citep{Bruno:2016plf}. For our determination, in each label of the panel we show three variations, from top to bottom: using the complete set of ensembles listed in Table~\ref{apex_ensembles:tab:ens}, with physical input from~\citep{FlavourLatticeAveragingGroupFLAG:2021npn} quoted in eqs.~(\ref{ch_ss:eq:isoQCD}-\ref{ch_ss:eq:isoQCD_fk}), and the systematic term in eq.~(\ref{ch_ss:eq:Wpenal}) added when doing the model average (results quoted in eqs.~(\ref{ch_ss:eq:t0ph_w})-\ref{ch_ss:eq:t0ph_c}); using the complete set of ensembles but removing the systematic term in eq.~(\ref{ch_ss:eq:Wpenal}) from the analysis, and using physical input from~\citep{FLAG16}; and using the set of ensembles that is common between the ones listed in Table~\ref{apex_ensembles:tab:ens} and the ones in~\citep{Bruno:2016plf}, without the systematic term in eq.~(\ref{ch_ss:eq:Wpenal}), and using physical input from~\citep{FLAG16}. The latest variation corresponds to an analysis following what was done in Bruno et al.~\citep{Bruno:2016plf}, and we observe an upwards drift of the central values in $\sqrt{t_0}$ in our results, approaching the determination of $\sqrt{t_0}$ in~\citep{Bruno:2016plf}. The remaining difference between our determination and that of~\citep{Bruno:2016plf} might be explained by our use of the model average technique and by the higher amount of statistics available for ensembles D200 and J303 with respect to~\citep{Bruno:2016plf}.}
-    \label{ch_ss:fig:FLAG}
+    \includegraphics[width=1.\textwidth]{./cap5/figs/t0_compar.pdf}
+    \caption{Comparison of our results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) with other determinations of $\sqrt{t_0}$ in the literature using $N_f=2+1$ flavors of dynamical quarks. We specify between brackets the physical input used in each case to set the scale. BMW `12 refers to~\citep{BMW:2012hcm}. RBC/UKQCD `14 refers to \citep{UK14} and QCDSF/UKQCD `15 to~\citep{UK15}. Bruno et al. `16 refers to~\citep{Bruno:2016plf}, Bali et al. `22 to~\citep{RQCD_scale}, Strassberger `23 to~\citep{Strassberger:2023xnj}, and FLAG `21 to~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.}
+    \label{ch_ss:fig:t0_compar}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=1.\textwidth]{./cap5/figs/t0_compar.pdf}
-    \caption{Comparison of our results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) with other determinations of $\sqrt{t_0}$ in the literature using $N_f=2+1$ flavors of dynamical quarks. We specify between brackets the physical input used in each case to set the scale. BMW `12 refers to~\citep{BMW:2012hcm}. RBC/UKQCD `14 refers to \citep{UK14} and QCDSF/UKQCD `15 to~\citep{UK15}. Bruno et al. `16 refers to~\citep{Bruno:2016plf}, Bali et al. `22 to~\citep{RQCD_scale}, Strassberger `23 to~\citep{Strassberger:2023xnj}, and FLAG `21 to~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}.}
-    \label{ch_ss:fig:t0_compar}
+    \includegraphics[width=1.\textwidth]{./cap5/figs/t0_iter.pdf}
+    \caption{Convergence of the determination of $\sqrt{t_0}$ employing the iterative procedure explained at the end of Sec. \ref{ch_ma:sec:chiral_traj} and in the introduction to this Chapter. We show results for the Wilson, Mixed Action (Wtm) and Combined analysis. The iterative procedure starts with a guess value $\sqrt{t_0}=0.1438$ with no error which defines the physical point to which the chiral extrapolation is performed. With each iterative step, this value is updated with the new determination of $\sqrt{t_0}$ obtained from the Combined analysis. After a few iterative steps convergence is achieved for the three types of analysis, corresponding to the results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}).}
+    \label{ch_ss:fig:iter}
 \end{figure}
 
 \section{Determination of $\sqrt{t_0}$ at the symmetric point}
@@ -338,6 +340,55 @@ The values we find for $\sqrt{t_0^*}$ in physical units for the Wilson, mixed ac
 \sqrt{t_0^*}&=0.1442(10)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm, Mixed action}, \\
 \sqrt{t_0^*}&=0.1438(7)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm, Combined}.
 \end{align}
+
+\section{Impact of the physical input on $\sqrt{t_0}$}
+
+In this Section we test the impact on $\sqrt{t_0}$ of changing the prescription to define the isoQCD limit of the pion and kaon masses and decay constants. In eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) we provided results for $\sqrt{t_0}$ using as physical input the values in eqs.~(\ref{ch_ss:eq:isoQCD}-\ref{ch_ss:eq:isoQCD_fk}) recommended by~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}. Another prescription of the isoQCD limit is that of \citep{FLAG16}
+\begin{align}
+\label{ch_ss:eq:FLAG16}
+m_{\pi}^{\textrm{isoQCD}}&=134.8(3)\;\textrm{MeV}, \notag\\
+m_K^{\textrm{isoQCD}}&=494.2(3)\;\textrm{MeV}, \notag\\
+f_{\pi}^{\textrm{isoQCD}}&=130.4(2)\;\textrm{MeV}, \notag\\
+f_K^{\textrm{isoQCD}}&=156.2(7)\;\textrm{MeV},
+\end{align}
+for which we find
+\begin{align}
+\label{ch_ss:eq:t0ph_w_16}
+\sqrt{t_0^{\textrm{ph}}}&=0.1444(9)_{\textrm{stat}}(6)_{\textrm{syst}}\;\textrm{fm, Wilson}, \\
+\label{ch_ss:eq:t0ph_tm_16}
+\sqrt{t_0^{\textrm{ph}}}&=0.1450(9)_{\textrm{stat}}(5)_{\textrm{syst}}\;\textrm{fm, Mixed action}, \\
+\label{ch_ss:eq:t0ph_c_16}
+\sqrt{t_0^{\textrm{ph}}}&=0.1449(6)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm, Combined}.
+\end{align}
+Yet another alternative prescription is that discussed in \citep{AP}, in which the pion and kaon masses, in addition to the pion decay constant, are given with no errors as
+\begin{align}
+\label{ch_ss:eq:AP}
+m_{\pi}^{\textrm{isoQCD}}&=135.0\;\textrm{MeV}, \notag\\
+m_K^{\textrm{isoQCD}}&=494.6\;\textrm{MeV}, \notag\\
+f_{\pi}^{\textrm{isoQCD}}&=130.5\;\textrm{MeV}.
+\end{align}
+To set the scale as explained in the previous sections, we need also input for the kaon decay constant. Using the recommended value in~\citep{FlavourLatticeAveragingGroupFLAG:2021npn}
+\begin{equation}
+f_{K}^{\textrm{isoQCD}}=157.2(2)_{\textrm{exp}}(2)_{\textrm{QED}}(4)_{|V_{us}|}\;{\textrm{MeV}},
+\end{equation}
+we get
+\begin{align}
+\label{ch_ss:eq:t0ph_w_AP}
+\sqrt{t_0^{\textrm{ph}}}&=0.1437(9)_{\textrm{stat}}(6)_{\textrm{syst}}\;\textrm{fm, Wilson}, \\
+\label{ch_ss:eq:t0ph_tm_AP}
+\sqrt{t_0^{\textrm{ph}}}&=0.1446(9)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm, Mixed action}, \\
+\label{ch_ss:eq:t0ph_c_AP}
+\sqrt{t_0^{\textrm{ph}}}&=0.1443(6)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm, Combined}.
+\end{align}
+The three variations considered for the physical input are shown in Fig.~\ref{ch_ss:fig:FLAG}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{./cap5/figs/t0_compar_FLAG_AP.pdf}
+    \caption{Comparison of our determination of $\sqrt{t_0}$ at the physical point when varying the physical input for the definition of the isoQCD values of the pion and kaon masses and decay constants. For each analysis (Wilson, Mixed Action or Wtm, Combined) we show, from top to bottom: using the recommended values by~\citep{FlavourLatticeAveragingGroupFLAG:2021npn} in eqs.~(\ref{ch_ss:eq:isoQCD}-\ref{ch_ss:eq:isoQCD_fk}), using the recommended values by~\citep{AP} in eq.~(\ref{ch_ss:eq:AP}) and eq.~(\ref{ch_ss:eq:isoQCD_fk}), and using the recommended values by~\citep{FLAG16} in eq.~(\ref{ch_ss:eq:FLAG16}). The first case corresponds to the results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}), the second to the results in eqs.~(\ref{ch_ss:eq:t0ph_w_AP}-\ref{ch_ss:eq:t0ph_c_AP}), and the third to the results in eqs.~(\ref{ch_ss:eq:t0ph_w_16}-\ref{ch_ss:eq:t0ph_c_16}).}
+    \label{ch_ss:fig:FLAG}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
