@@ -165,7 +165,7 @@ function get_corr_TSM(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
     dat_sl = read_mesons([path_sl[i] for i in 1:length(path_sl)], g1, g2, legacy=legacy, id=ens.id)
     dat_c = read_mesons_correction([path_c[i] for i in 1:length(path_c)], g1, g2, legacy=legacy, id=ens.id)
 
-    rw ? corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat_sl)] : corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=ens.L, info=info, flag_strange=fs) for i in 1:length(dat_sl)]
+    rw ? corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat_sl)] : corr = [corr_obs_TSM(dat_sl[i], dat_c[i], L=ens.L, info=info) for i in 1:length(dat_sl)]
 
     if info == false
         return corr
@@ -201,7 +201,7 @@ function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
         truncate_data!(dat,ens.cnfg)
     end
 
-    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=ens.L, info=info, flag_strange=fs) for i in 1:length(dat)]
+    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=ens.L, info=info) for i in 1:length(dat)]
 
     if info == false
         return corr
@@ -250,7 +250,7 @@ function get_corr_tm(path::String, ens::EnsInfo, g1::String, g2::String; rw=fals
         truncate_data!(dat,ens.cnfg)
     end
 
-    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=ens.L, info=info, flag_strange=fs) for i in 1:length(dat)]
+    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=ens.L, info=info) for i in 1:length(dat)]
 
     if info == false
         return corr

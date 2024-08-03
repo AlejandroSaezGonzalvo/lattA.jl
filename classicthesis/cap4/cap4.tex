@@ -70,7 +70,7 @@ As discussed in Sec.~\ref{ch_foundation:subsec:tm}, imposing full twist means th
 \begin{equation}
 {\textrm{cot}}\;\alpha_i=\frac{m_i^{\textrm{R}}}{\mu_i^{\textrm{R}}}=0.
 \end{equation}
-To do so, it is enough to impose that the PCAC quark masses in eq.~(\ref{ch_observables:eq:PCAC}) vanish. When this is the case, automatic $\mathcal{O}(a)$ improvement of valence observables is obtained, up to $\mathcal{O}(a\textrm{tr}\left(M_q\right))$ cutoff effects due to the sea-quark masses. However, these effects are expected to appear at $\mathcal{O}(g_0^4)$ in perturbation theory.
+To do so, it is enough to impose that the PCAC quark masses in eq.~(\ref{ch_observables:eq:PCAC}) vanish in the light-quark sector. When this is the case, automatic $\mathcal{O}(a)$ improvement of valence observables is obtained, up to $\mathcal{O}(a\textrm{tr}\left(M_q\right))$ cutoff effects due to the sea-quark masses. However, these effects are expected to appear at $\mathcal{O}(g_0^4)$ in perturbation theory.
 
 In order to set the valence parameters for which sea and valence physical quark masses are matched  while simultaneously ensuring that the maximal twist condition is met, we employ a grid of valence parameter values $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)}}$ around an estimate of the target point in order to perform small interpolations that allow us to reach the target point $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)*}}$.
 
@@ -85,7 +85,7 @@ In order to set the valence parameters for which sea and valence physical quark 
 The set of CLS ensembles that we use are generated along the trajectory in the quark mass plane defined by a constant trace of the bare sea ``(s)'' quark mass matrix
 \begin{equation}
 \label{ch_ma:eq:chiral_traj}
-{\textrm{tr}}\left(M_q^{\textrm{(s)}}\right)=2m_l^{\textrm{(s)}}+m_s^{\textrm{(s)}}={\textrm{cnst}}.
+{\textrm{tr}}\left(M_q^{\textrm{(s)}}\right)=2m_{l}^{\textrm{(s)}}+m_{s}^{\textrm{(s)}}={\textrm{cnst}}.
 \end{equation}
 This trajectory ensures that at a given value of the lattice spacing, the improved bare coupling 
 \begin{equation}
@@ -98,7 +98,7 @@ remains constant as we vary the sea-quark masses to approach the physical point.
 \label{ch_ma:eq:phi4}
 \phi_4&=8t_0\left(m_K^2+\frac{1}{2}m_{\pi}^2\right),
 \end{align}
-which at leading order (LO) ChPT are proportional to the renormalized quark masses
+which at leading order (LO) in ChPT are proportional to the renormalized quark masses
 \begin{align}
 \phi_2&\propto m_l^{\textrm{R}},\\
 \phi_4&\propto2m_l^{\textrm{R}}+m_s^{\textrm{R}}={\textrm{tr}}\left(M_q^{\textrm{R}}\right).
@@ -107,7 +107,7 @@ The trace of the renormalized quark mass matrix ${\textrm{tr}}\left(M_q^{\textrm
 \begin{equation}
 {\textrm{tr}}\left(M_q^{\textrm{R}}\right)=Z_mr_m\left[\left(1+a\bar{d}_m{\textrm{tr}}\left(M_q\right)\right){\textrm{tr}}\left(M_q\right)+ad_m{\textrm{tr}}\left(M_q^2\right)\right].
 \end{equation}
-Thus, setting the sea value of $\phi_4$ to its physical value for all ensembles ensures that eq.~(\ref{ch_ma:eq:chiral_traj}) holds and goes through the physical point, up to small mistunings due to higher terms in the chiral expansion and to cutoff effects. 
+By setting the sea value of $\phi_4$ to its physical value for all ensembles one thus imposes that the trace of the renormalized quark mass matrix is constant up to residual lattice artifacts and higher order effects in ChPT.
 
 To correct for these mistunings, we perform small mass shifts~\citep{Bruno:2016plf} in the bare sea-quark masses by Taylor expanding lattice observables at first order as follows
 \begin{equation}
@@ -119,7 +119,7 @@ with the total derivative given by
 \label{ch_ma:eq:md}
 \frac{d{O}}{dm_q^{\textrm{(s)}}}=\sum_i\frac{\partial{O}}{\partial \left<P_i\right>}\left[\left<\frac{\partial P_i}{\partial m_q^{\textrm{(s)}}}\right>-\left<P_i\frac{\partial S}{\partial m_q^{\textrm{(s)}}}\right>+\left<P_i\right>\left<\frac{\partial S}{\partial m_q^{\textrm{(s)}}}\right>\right].
 \end{equation}
-Here $O=O\left(\{P_i\}\right)$ is an arbitrary lattice observable and $\{P_i\}_{i=1,2,...}$ is the set of primary observables on which it depends, in our case the corresponding mesonic two-point functions and the flow action density. The first term within the square brackets in the right-hand side of this equation corresponds to the valence contribution to the derivative, while the two subsequent terms involving the action $S$ correspond to the sea contributions. Note that for the Wilson unitary setup, all terms contribute in fermionic observables, while for the mixed action setup, since the two-point functions $\{P_i\}$ do not depend explicitly on $m_q^{\textrm{(s)}}$, the first term in the right-hand side of eq.~(\ref{ch_ma:eq:md}) vanishes in fermionic observables. For the gradient flow scale $t_0$, only the terms involving the action $S$ in eq.~(\ref{ch_ma:eq:md}) contribute.
+Here $O=O\left(\left<P_i\right>\right)$ is an arbitrary lattice observable and $\{P_i\}_{i=1,2,...}$ is the set of primary observables on which it depends, in our case the corresponding mesonic two-point functions and the gradient flow action density. The first term within the square brackets in the right-hand side of this equation corresponds to the valence contribution to the derivative, while the two subsequent terms involving the action $S$ correspond to the sea contributions. Note that for the Wilson unitary setup, all terms contribute in fermionic observables, while for the mixed action setup, since the two-point functions $\{P_i\}$ do not depend explicitly on $m_q^{\textrm{(s)}}$, the first term in the right-hand side of eq.~(\ref{ch_ma:eq:md}) vanishes in fermionic observables. For the gradient flow scale $t_0$, only the terms involving the action $S$ in eq.~(\ref{ch_ma:eq:md}) contribute.
 
 In particular, the sum over $q$ in eq.~(\ref{ch_ma:eq:mass_shift}) can be done in any direction of the quark mass plane, and following~\citep{Strassberger:2021tsu} we choose to mass shift only the strange quark. For practical purposes, since for each ensemble we mass shift all relevant observables to the physical value of $\phi_4$ in the sea sector $\phi_4^{\textrm{(s)}}=\phi_4^{\textrm{ph}}={\textrm{const.}}$, following~\citep{Strassberger:2023xnj} we rewrite the Taylor expansion at first order as
 \begin{equation}
@@ -145,11 +145,11 @@ for all choices of ${O}$ except for the light PCAC quark mass in the mixed actio
 F=A+B\phi_2+C\phi_2^2+(D+E\phi_2)\frac{a^2}{t_0}.
 \end{equation}
 
-In the case of $d\phi_2/d\phi_4^{\textrm{(s)}}$ in the Wilson unitary setup, we exclude the symmetric point ensembles from the fit to eq.~(\ref{ch_ma:eq:md_1}) since in this setup $\phi_2^{\textrm{sym}}=\frac{2}{3}\phi_4$ by construction. Thus, in this case we will use this relation directly to mass shift $\phi_2$.
+In the case of $d\phi_2/d\phi_4^{\textrm{(s)}}$ in the Wilson unitary setup, we exclude the symmetric point ensembles from the fit to eq.~(\ref{ch_ma:eq:md_1}) since in this setup $\phi_2^{\textrm{sym}}=\frac{2}{3}\phi_4$ by construction. Thus, for symmetric point ensembles we will use this relation directly to mass shift $\phi_2$.
 
 Results for the fit parameters of eqs.~(\ref{ch_ma:eq:md_1}-\ref{ch_ma:eq:md_2}) are presented in Table~\ref{ch_ma:tab:md}, while plots are shown in Figs.~\ref{ch_ma:fig:dfpik_w}-\ref{ch_ma:fig:dphi4_tm}.
 
-The mass shifts have to be performed to the physical value of $\phi_4$ in eq.~(\ref{ch_ma:eq:phi4}). However, in order to determine it we first need to input the physical value of the intermediate scale $t_0$, which is the target of the analysis. Thus, we start the process with an educated guess of $t_0^{\textrm{ph}}$, which can be selected as a value without error and that provides an initial guess for $\phi_4^{\textrm{ph}}$. Once the scale setting procedure is carried out, a new determination of $t_0$ is obtained with an error, the latter keeping all the correlations with the lattice data entering the analysis. This determination of $t_0^{\textrm{ph}}$ determines the value of $\phi_4^{\textrm{ph}}$ to which we perform the mass shifts in the subsequent iterative step, the input values for physical $m_{\pi}$ and $m_K$ given in eq.~(\ref{ch_ss:eq:isoQCD}). After a few iterative steps of the analysis, convergence in $t_0^{\textrm{ph}}$ is obtained arriving to the results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}).
+The mass shifts have to be performed to the physical value of $\phi_4$ in eq.~(\ref{ch_ma:eq:phi4}). However, in order to determine it we first need to input the physical value of the intermediate scale $t_0$, which is the target of the analysis. Thus, we start the process with an educated guess of $t_0^{\textrm{ph}}$, which can be selected as a value without error and that provides an initial guess for $\phi_4^{\textrm{ph}}$. Once the scale setting procedure is carried out, a new determination of $t_0$ is obtained with an error, the latter keeping all the correlations with the lattice data entering the analysis. This determination of $t_0^{\textrm{ph}}$ determines the value of $\phi_4^{\textrm{ph}}$ to which we perform the mass shifts in the subsequent iterative step, using the input values for physical $m_{\pi}$ and $m_K$ given in eq.~(\ref{ch_ss:eq:isoQCD}). After a few iterative steps of the analysis, convergence in $t_0^{\textrm{ph}}$ is obtained arriving to the results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}).
 
 
 \newpage
@@ -184,7 +184,7 @@ The mass shifts have to be performed to the physical value of $\phi_4$ in eq.~(\
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap4/figs/der_phi2.pdf}
-    \caption{Derivative $d\phi_2/d\phi_4^{\textrm{(s)}}$ for the Wilson unitary setup. For the fit eq.~(\ref{ch_ma:eq:md_1}) was used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}. The points around $\phi_\sim0.7$ correspond to the symmetric point at which by construction $\phi_2=\frac{2}{3}\phi_4$.}
+    \caption{Derivative $d\phi_2/d\phi_4^{\textrm{(s)}}$ for the Wilson unitary setup. For the fit eq.~(\ref{ch_ma:eq:md_1}) was used. Results for the fit parameters are presented in Table~\ref{ch_ma:tab:md}. The points around $\phi_2\sim0.7$ correspond to the symmetric point at which by construction $\phi_2=\frac{2}{3}\phi_4$.}
     \label{ch_ma:fig:dphi2_w}
 \end{figure}
 
@@ -225,13 +225,13 @@ The mass shifts have to be performed to the physical value of $\phi_4$ in eq.~(\
 \section{Matching and tuning to full twist}
 \label{ch_ma:sec:matching}
 
-As explained in Sec.~\ref{ch_ma:sec:Valence}, when working with a mixed action, after performing the mass shifts in Sec.~\ref{ch_ma:sec:chiral_traj}, we need to match the physical quark masses of the sea and valence sectors. To do this, we use a grid of valence parameter values to find the target point through small interpolations. In order to know the values of the relevant observables in the sea, we use measurements in the fully Wilson unitary setup. In practice, to compute the physical values (renormalized and improved) of quark masses we need the relevant improvement coefficients. In order not to rely on these for the matching procedure, instead of matching the physical quark masses we choose to use the pion and kaon masses in units of the gradient flow scale $t_0$
+As explained in Sec.~\ref{ch_ma:sec:Valence}, when working with a mixed action, after performing the mass shifts in Sec.~\ref{ch_ma:sec:chiral_traj}, we need to match the physical quark masses of the sea and valence sectors. To do this, we use a grid of valence parameter values to find the target point through small interpolations. For the values of the relevant observables in the sea sector, we employ measurements in the fully Wilson unitary setup. In practice, to compute the physical values (renormalized and improved) of quark masses we need the relevant improvement coefficients. In order not to rely on these for the matching procedure, instead of matching the physical quark masses we choose to use the pion and kaon masses in units of the gradient flow scale $t_0$
 \begin{align}
 \label{ch_ma:eq:matching}
 \phi_2^{\textrm{(s)}}&=\phi_2^{\textrm{(v)}},\\
 \phi_4^{\textrm{(s)}}&=\phi_4^{\textrm{(v)}}.
 \end{align}
-since these quantities are proportional to the physical quark masses at LO ChPT (see eqs.~(\ref{ch_ma:eq:phi2}-\ref{ch_ma:eq:phi4})).
+since these quantities are proportional to the renormalized quark masses at LO in ChPT (see eqs.~(\ref{ch_ma:eq:phi2}-\ref{ch_ma:eq:phi4})).
 
 Furthermore, we need to tune the Wilson tm action to full twist, which means setting the valence light PCAC quark mass to zero
 \begin{equation}
@@ -259,14 +259,14 @@ The interpolation for the decay constants combination $f_{\pi K}$ defined in eq.
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap4/figs/matching_N200.pdf}
-    \caption{Matching of sea (gray horizontal band) and valence values of $\phi_2$ (lower panels) and tuning to full twist $am_{12}^{\textrm{(v)}}=0$ (upper panels) along the grid of valence parameters values for the ensemble H105. Each point represents a different measurement in the valence along the grid, and the orange band represents the interpolation. The black point is the target result $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)*}}$. Here we only show the matching of $\phi_2^{\textrm{(v)}}$ and $am_{12}^{\textrm{(v)}}$, though the matching of $\phi_4^{\textrm{(v)}}$ is done simultaneously.}
+    \caption{Matching of sea (gray horizontal band) and valence values of $\phi_2$ (lower panels) and tuning to full twist $am_{12}^{\textrm{(v)}}=0$ (upper panels) along the grid of valence parameters values for the ensemble N200. Each point represents a different measurement in the valence along the grid, and the orange band represents the interpolation. The black point is the target result $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)*}}$. Here we only show the matching of $\phi_2^{\textrm{(v)}}$ and $am_{12}^{\textrm{(v)}}$, though the matching of $\phi_4^{\textrm{(v)}}$ is done simultaneously.}
     \label{ch_ma:fig:match}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap4/figs/interp_fpik_N200.pdf}
-    \caption{Interpolation of $\sqrt{t_0}f_{\pi K}$ (see eq.~(\ref{ch_ss:eq:fpik})) along the valence grid to the target point $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)*}}$ for the ensemble H105. The points with different colors represent measurements at different values of the valence parameters.}
+    \caption{Interpolation of $\sqrt{t_0}f_{\pi K}$ (see eq.~(\ref{ch_ss:eq:fpik})) along the valence grid to the target point $\left(\kappa,\mu_l,\mu_s\right)^{\textrm{(v)*}}$ for the ensemble N200. The points with different colors represent measurements at different values of the valence parameters.}
     \label{ch_ma:fig:fpik_interp}
 \end{figure}
 

@@ -71,7 +71,8 @@ The expectation values can be computed using
 \end{equation}
 Now the classical equations of motion read
 \begin{gather}
-\dot{\pi}_{\mu}(x)=-F_{\mu}(x), \quad F_{\mu}(x)=\left.\frac{\partial S[e^{\omega}U]}{\partial\omega}\right|_{\omega=0}, \quad \omega\in su(N), \\
+\dot{\pi}_{\mu}(x)=-F_{\mu}(x)=-F_{\mu}^a(x)T^a, \\
+F_{\mu}^a(x)=\left.\frac{\partial S[e^{\omega T^a}U]}{\partial\omega}\right|_{\omega=0}, \quad a=1,...,8, \\
 \dot{U}_{\mu}(x)=\pi_{\mu}(x)U_{\mu}(x),
 \end{gather}
 where the dot notation ``$\dot{a}$'' stands for the derivative with respect to MC time. By starting from an initial configuration and a randomly generated 
@@ -103,7 +104,7 @@ S_{\textrm{pf}}[U,\Phi]=\Phi^{\dagger}\left(D_l^{\dagger}D_l\right)^{-1}\Phi.
 We have listed the basic ingredients needed for HMC sampling with dynamical fermions. First, one samples randomly a set of conjugate momenta $\pi_{\mu}$ and pseudo-fermion fields $\Phi$ with Gaussian distribution $\propto\exp\left(-\frac{1}{2}\pi_{\mu}\pi_{\mu}-S_{\textrm{pf}}\right)$. Together with an initial gauge field configuration $U_{i}$, the classical equations of motion are integrated up to some later time. At this point one implements the accept-reject step and updates the gauge configuration to $U_{i+1}$.
 
 This far we assumed two degenerate flavors of quarks to compute the effective fermion action. The inclusion of a strange quark, as in
-the case of the CLS ensembles we use in this work,  requires the computation of $\textrm{det}(D_s)$. Contrary to the case of two degenerate quark flavors, $\textrm{det}(D_s)$ is not ensured to remain positive, since the breaking of chiral symmetry by the Wilson term implies that the low-lying spectrum of the Wilson Dirac operator does not have a strict gap, associated to the quark mass, at finite values of the lattice spacing. This is of particular relevance because if the strange quark determinant gets a negative value one cannot interpret the factor $e^{-S_{\textrm{G}}-S_{\textrm{eff}}}$ appearing in the path integral as a probability. Therefore, possible changes in the sign of the strange quark determinant must be monitored throughout the Monte Carlo simulation. In the generation of CLS ensembles, the strange quark determinant is evaluated by the Rational Hybrid Monte Carlo algorithm~\citep{Kennedy:1998cu,Clark:2006fx}. In~\citep{Mohler:2020txx} it was found that on some ensembles, a subset of the gauge field configurations  were affected by a negative sign of the strange quark determinant. A reweighting procedure, discussed in the following section, can be used to correct for this effect.
+the case of the CLS ensembles that we use in this work, requires the computation of $\textrm{det}(D_s)$. Contrary to the case of two degenerate quark flavors, $\textrm{det}(D_s)$ is not ensured to remain positive, since the breaking of chiral symmetry by the Wilson term implies that the low-lying spectrum of the Wilson Dirac operator does not have a strict gap, associated to the quark mass, at finite values of the lattice spacing. Therefore, possible changes in the sign of the strange quark determinant must be monitored throughout the Monte Carlo simulation. In the generation of CLS ensembles, the strange quark determinant is evaluated by the Rational Hybrid Monte Carlo algorithm~\citep{Kennedy:1998cu,Clark:2006fx}. In~\citep{Mohler:2020txx} it was found that on some ensembles, a subset of the gauge field configurations  were affected by a negative sign of the strange quark determinant. A reweighting procedure, discussed in the following section, can be used to correct for this effect.
 
 \section{Reweighting}
 

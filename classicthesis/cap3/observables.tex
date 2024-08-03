@@ -41,8 +41,9 @@ A_{\mu}^{ij,{\textrm{R}}}&=Z_A(g_0^2)\left(1+a\tilde{b}_Am_{ij}+a\bar{b}_A{\text
 where the $b$-counterterms are improvement coefficients for the quark bilinears in eqs.~(\ref{ch_observables:eq:P}-\ref{ch_observables:eq:A}). The renormalization constants are reported in Table~\ref{ch_observables:tab:Z}, while the improvement coefficients are in Table~\ref{ch_observables:tab:b}. For our purposes, we will only need to consider the differences $\tilde{b}_A-\tilde{b}_P$, $\bar{b}_A-\bar{b}_P$ and $\tilde{b}_A$, the latter given at one-loop in perturbation theory by~\citep{Taniguchi:1998pf}
 \begin{equation}
 \label{ch_observables:eq:bA}
-\tilde{b}_A=1+0.0472g_0^2+\mathcal{O}(g_0^4).
+\tilde{b}_A=1+0.0472g_0^2+\mathcal{O}(g_0^4),
 \end{equation}
+while $\bar{b}_A-\bar{b}_P$ starts at $\mathcal{O}(g_0^4)$, and its contribution is considered to be negligible in the light-quark sector.
 
 \begin{longtable}{c c c}
     \label{ch_observables:tab:Z}
@@ -59,27 +60,27 @@ where the $b$-counterterms are improvement coefficients for the quark bilinears 
 
 \begin{longtable}{c c c c}
     \label{ch_observables:tab:b}
-    $\beta$ & $\tilde{b}_A-\tilde{b}_P$ & $\bar{b}_A-\bar{b}_P$ & $\tilde{b}_A$ \\
+    $\beta$ & $\tilde{b}_A-\tilde{b}_P$ & $\tilde{b}_A$ \\
     \toprule
-    3.40 & -0.324(17) & $\mathcal{O}(g_0^4)$ & 1.2684 \\
-    3.46 & -0.265(14) & $\mathcal{O}(g_0^4)$ & 1.2638 \\
-    3.55 & -0.196(14) & $\mathcal{O}(g_0^4)$ & 1.2571 \\
-    3.70 & -0.119(14) & $\mathcal{O}(g_0^4)$ & 1.2467 \\
-    3.85 & -0.073(12) & $\mathcal{O}(g_0^4)$ & 1.2371 \\
+    3.40 & -0.324(17) & 1.2684 \\
+    3.46 & -0.265(14) & 1.2638 \\
+    3.55 & -0.196(14) & 1.2571 \\
+    3.70 & -0.119(14) & 1.2467 \\
+    3.85 & -0.073(12) & 1.2371 \\
     \bottomrule
-    \caption{Summary of employed improvement coefficients for the $\beta$ values employed in this work. $\tilde{b}_A-\tilde{b}_P$ is taken from LCP-1 results in~\citep{deDivitiis:2017vvw}, while $\bar{b}_A-\bar{b}_P$ start at $\mathcal{O}(g_0^4)$. $\tilde{b}_A$ is computed in perturbation theory in~\citep{Taniguchi:1998pf} and given by eq.~(\ref{ch_observables:eq:bA}).}
+    \caption{Summary of employed improvement coefficients for the $\beta$ values considered in this work. $\tilde{b}_A-\tilde{b}_P$ is taken from LCP-1 results in~\citep{deDivitiis:2017vvw}, while $\bar{b}_A-\bar{b}_P$ start at $\mathcal{O}(g_0^4)$. $\tilde{b}_A$ is computed in perturbation theory in~\citep{Taniguchi:1998pf} and given by eq.~(\ref{ch_observables:eq:bA}).}
 \end{longtable}
 
 In addition to the mass dependent improvement $b$-terms, the axial current also requires the inclusion of a mass-independent $\mathcal{O}(a)$ improvement term as follows
 \begin{equation}
 \label{ch_observables:eq:axial_impr}
-A_{\mu}^{ij}(x)\rightarrow A_{\mu}^{ij}(x)+ac_A\tilde{\partial}_{x_0}P^{ij}(x),
+A_{\mu}^{ij}(x)\rightarrow A_{\mu}^{ij}(x)+ac_A\tilde{\partial}_{\mu}P^{ij}(x),
 \end{equation}
 where we defined the symmetric discrete time derivative
 \begin{align}
-\tilde{\partial}_{x_0}&=\frac{\hat{\partial}_{x_0}+\hat{\partial}_{x_0}^*}{2},\\
-\hat{\partial}_{x}f(x)&=\frac{f(x+a)-f(x)}{a},\\
-\hat{\partial}^*_{x}f(x)&=\frac{f(x)-f(x-a)}{a}.
+\tilde{\partial}_{\mu}&=\frac{\hat{\partial}_{\mu}+\hat{\partial}_{\mu}^*}{2},\\
+\hat{\partial}_{\mu}f(x)&=\frac{f(x+a\hat{\mu})-f(x)}{a},\\
+\hat{\partial}^*_{\mu}f(x)&=\frac{f(x)-f(x-a\hat{\mu})}{a}.
 \end{align}
 The non-perturbative determination of the improvement coefficient $c_A$ can be parametrized as follows ~\citep{Bulava:2015bxa}
 \begin{equation}
@@ -97,7 +98,7 @@ When only light and strange flavors are involved, the measurements of the two-po
 \begin{equation}
 C_X(x_0,y_0)\to\frac{C_X(x_0,y_0)\pm C_X(T-x_0,T-y_0)}{2},
 \end{equation}
-with the $+$ sign for the $X=P$ case and $-$ sign for the $X=A$ case. On the other hand, when heavy flavors are involved (see Sec.~\ref{ch_charm}), the source position is fixed at $y_0\approx T/2$ in order to maximize the distance from the boundaries: when dealing with heavy-light and heavy-heavy flavor contents in the correlators, we observe that the region in which the signal for the considered two-point function is accessible lies entirely within the lattice bulk, and that the boundary effects are strongly suppressed\footnote{The numerical inversion of the quark propagator in the charm region is performed using distance preconditioning techniques~\cite{deDivitiis:2010ya,Collins:2017iud} in order to address  the signal deterioration at large Euclidean times separations.}.
+with the $+$ sign for the $X=P$ case and $-$ sign for the $X=A$ case. On the other hand, when heavy flavors are involved (see Sec.~\ref{ch_charm}), the source position is fixed at $y_0\approx T/2$ in order to maximize the distance from the boundaries: indeed, in this case, when considering heavy-light and heavy-heavy flavor contents in the correlators, we observe that the ground state signal can be isolated within the bulk in a region where  boundary effects are strongly suppressed.\footnote{The numerical inversion of the quark propagator in the charm region is performed using distance preconditioning techniques~\cite{deDivitiis:2010ya,Collins:2017iud} in order to address  the signal deterioration at large Euclidean times separations.}.
 
 The spectral decomposition of the two-point functions $C_X$ allows to extract relevant hadronic observables such as the ground state meson masses and decay constants. In what follows we will consider the case of operators with pion quantum numbers, but similar steps apply for a different flavor content. We follow the discussion in~\citep{hep-lat/9903040,Bruno:2015hfq}. Using the Transfer Matrix formalism and imposing as boundary conditions that the initial and final states are given by
 \begin{gather}
@@ -139,7 +140,7 @@ Combining these elements, the two-point function can be written as
 \begin{align}
 \left<O(x)O(y)\right>&=\sum_{\alpha,\beta,\gamma}\sum_{n,m,l}\frac{\left<\Omega|\beta,m\right>}{\left<\Omega|0,0\right>}e^{-(T-x_0)E_m^{\beta}} \notag \\
 &\times\left<\beta,m\right|\hat{O}(\vec{x})\left|\alpha,n\right>e^{-(x_0-y_0)E_n^{\alpha}} \notag \\
-&\times\left<\alpha,n\right|\hat{O}(\vec{y})\left|\gamma,l\right>e^{-y_0E_s}^{\gamma}\frac{\left<\gamma,l|\Omega\right>}{\left<0,0|\Omega\right>},
+&\times\left<\alpha,n\right|\hat{O}(\vec{y})\left|\gamma,l\right>e^{-y_0E_l}^{\gamma}\frac{\left<\gamma,l|\Omega\right>}{\left<0,0|\Omega\right>},
 \end{align}
 where we absorbed the $e^{-TE_0}$ term coming from the partition function into the energy levels
 \begin{equation}
@@ -285,19 +286,20 @@ where $O$ is a interpolator chosen such that $\left<P^{ij}(x)O^{ji}(y)\right>$ d
 \begin{equation}
 m_{ij}=\frac{m_i+m_{j}}{2}.
 \end{equation}
-The subtracted quark mass $m_{i}-m_{\textrm{cr}}$ must agree, after renormalization and up to cutoff effects, with the corresponding renormalized PCAC quark mass for mass-degenerate flavors $i,i'$, so by using the latter we do not need to know a priori the additive mass renormalization. As in the decay constants case, we take $O^{ij}=P^{ij}$. Thus, the PCAC quark masses read
+The renormalized quark mass of a given flavor determined from the subtracted quark mass, $m_q = m_0 - m_{\textrm{cr}}$, and that determined from the PCAC quark mass, must coincide in the continuum limit. The latter, however, does not imply an a priori determination of the additive mass renormalization parameter $m_{\textrm{cr}}$. As in the decay constants case, we take $O^{ij}=P^{ij}$. Thus, the PCAC quark masses read
 \begin{equation}
 \label{ch_observables:eq:mpcac}
-m_{ij}(x_0)=\frac{\tilde{\partial}_{x_0}C_A^{ij}(x_0,y_0)}{2C_P(x_0,y_0)}.
+m_{ij}(x_0)=\frac{\tilde{\partial}_{\hat{x}_0}C_A^{ij}(x_0,y_0)}{2C_P(x_0,y_0)}.
 \end{equation}
 Including the improvement term for the axial current proportional to $c_A$, the numerator in eq.~(\ref{ch_observables:eq:mpcac}) becomes
 \begin{equation}
-\tilde{\partial}_{x_0}C_A^{ij}(x_0,y_0)+ac_A\hat{\partial}_{x_0}\hat{\partial}^*_{x_0}C_P^{ij}(x_0,y_0)
+\tilde{\partial}_{\hat{x}_0}C_A^{ij}(x_0,y_0)+ac_A\hat{\partial}_{\hat{x}_0}\hat{\partial}^*_{\hat{x}_0}C_P^{ij}(x_0,y_0)
 \end{equation}
 with the discrete second derivative given by
-\begin{equation}
-\hat{\partial}_{x}\hat{\partial}^*_xf(x)=\frac{f(x+a)+f(x-a)-2f(x)}{a^2}+\mathcal{O}(a^2).
-\end{equation}
+\begin{align}
+\hat{\partial}_{\hat{x}_0}\hat{\partial}^*_{\hat{x}_0}C_P^{ij}(x_0,y_0)&=\frac{C_P^{ij}(x_0+a,y_0)+C_P^{ij}(x_0-a,y_0)-2C_P^{ij}(x_0,y_0)}{a^2}\notag\\
+&+\mathcal{O}(a^2).
+\end{align}
 Finally, from eq.~(\ref{ch_observables:eq:corr_ren}) we see that the PCAC quark mass renormalizes as
 \begin{align}
 \label{ch_observables:eq:mqR}
@@ -327,22 +329,22 @@ with the covariant derivative acting on it in the adjoint representation
 \begin{equation}
 D_{\nu}G_{\mu\nu}=\partial_{\nu}G_{\mu\nu}+i\left[B_{\nu},G_{\mu\nu}\right].
 \end{equation}
-The flow equation can be rewritten as
+The flow equation can be expressed as~\citep{Fritzsch:2013je}
 \begin{gather}
-\frac{dB_{\mu}(x,t)}{dt}=-g_0^2\{\partial_{x,\mu}S_{\textrm{YM}}\}B_{\mu}(x,t), \quad B_{\mu}(x,t=0)=A_{\mu}(x),
+\frac{dB_{\mu}(x,t)}{dt}=-\frac{\delta S_{\textrm{YM}}[B]}{\delta B_{\mu}(x,t)}, \quad B_{\mu}(x,t=0)=A_{\mu}(x),
 \end{gather}
-with $S_{\textrm{YM}}$ the continuum Yang-Mills action in eq.~(\ref{ch_foundation:eq:SYM}) in terms of the flowed fields $B_{\mu}$ and $\partial_{x,\mu}S_{\textrm{YM}}$ the $su(3)$-valued differential operator with respect to the link variable $B_{\mu}(x,t)$. We can therefore see that the effect of integrating the flow equation of motion is to flow the gauge fields towards the local minima of the Yang-Mills action. By solving the flow equation to leading order in the bare coupling $g_0$
+with $\delta S_{\textrm{YM}}[B]$ the variation of the continuum Yang-Mills action expressed in terms of the flowed fields $B_{\mu}(x,t)$ under $B_{\mu}\to B_{\mu}+\delta B_{\mu}$. We can therefore see that the effect of integrating the flow equation is to bring the gauge fields towards the local minima of the Yang-Mills action. By solving the flow equation to leading order in the bare coupling $g_0$
 \begin{equation}
 \label{ch_observables:eq:B}
 B_{\mu}(x,t)=\frac{g_0}{4\pi t^2}\int d^4y\;e^{-(x-y)^2/4t}A_{\mu}(y).
 \end{equation}
-The flowed field $B_{\mu}$ is thus smoothed over space-time with smearing radius $r_{\textrm{smear}}=2\sigma=\sqrt{8t}$, $\sigma$ being the variance of the distribution in eq.~(\ref{ch_observables:eq:B}), $\sigma^2=2t$.
+The flowed field $B_{\mu}$ is thus smoothed over space-time with smearing radius $r_{\textrm{smear}}=\sqrt{8t}$.
 
 On the lattice, eq.~(\ref{ch_observables:eq:flow}) can be expressed as 
 \begin{align}
 \frac{dV_{\mu}(x,t)}{dt}=-g_0^2\{\partial_{x,\mu}S_{\textrm{G}}\}V_{\mu}(x,t), \quad V_{\mu}(x,t=0)=U_{\mu}(x),
 \end{align}
-with $U_{\mu}$ the gauge links in eq.~(\ref{ch_foundation:eq:U}) and $S_{\textrm{G}}$ the lattice Yang-Mills action. 
+with $U_{\mu}$ the gauge links in eq.~(\ref{ch_foundation:eq:U}), $V_{\mu}$ the flowed gauge links, $S_{\textrm{G}}$ a lattice discretization of the Yang-Mills action, and $\partial_{x,\mu}S_{\textrm{G}}$ the $su(3)$-valued differential operator with respect to the link variable $V_{\mu}(x,t)$.
 
 After integrating the flow equation eq.~(\ref{ch_observables:eq:flow}), the action density at flow time $t$ takes the form
 \begin{equation}
@@ -361,7 +363,7 @@ with $\hat{F}_{\mu\nu}$ given in eq.~(\ref{ch_foundation:eq:F_clover}) but again
 \begin{equation}
 E(t)=\left<E(x,t)\right>_x,
 \end{equation}
-we are left with an average energy density that depends only on the flow time. When using OBC in the Euclidean time direction, boundary effects appear. When this is the case, the average in the temporal direction is performed using the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA}. The quantity $t^2E(t)$ can be accurately calculated on the lattice, which makes it a suitable option to define an intermediate scale in the scale setting procedure (see Sec.~\ref{ch_ss}). The scale $t_0$ is defined as the flow time that satisfies the following condition
+we are left with an average energy density that depends only on the flow time. In the presence of open boundary conditions (OBC) in the Euclidean time direction, the action density is averaged over a region sufficiently distant from the boundaries to avoid boundary effects. We employ the model averaging technique detailed in Sec.~\ref{ch_observables:sec:MA} to explore the effect of the variation over the time intervals. The quantity $t^2E(t)$ can be accurately calculated on the lattice, which makes it a suitable option to define an intermediate scale in the scale setting procedure (see Sec.~\ref{ch_ss}). The scale $t_0$ is defined as the flow time that satisfies the following condition
 \begin{equation}
 \label{ch_observables:eq:t0}
 t^2E(t)|_{t=t_0}\equiv0.3.
@@ -441,27 +443,27 @@ This type of model averaging technique will also be used for the chiral and cont
     	\includegraphics[width=\textwidth]{./cap3/figs/J501_mpcac_tm.pdf}
     	\caption{}
     \end{subfigure}
-    \caption{(a): Pion effective mass $m_{\textrm{eff}}$ in eq.~(\ref{ch_observables:eq:meff}) in the Wilson regularization. (b): The same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. (c): Vacuum-to-pion axial matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R}) in the Wilson regularization. (d): Vacuum-to-pion pseudoscalar matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R_tm}) in the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. (e): Up/down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}) in the Wilson regularization. (f): The same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. At maximal twist this quantity must vanish. In all cases, the green horizontal band is the result coming from the model average over different fit range choices. Results for ensemble J501.}
+    \caption{(a): Pion effective mass $am_{\textrm{eff}}$ in eq.~(\ref{ch_observables:eq:meff}) in the Wilson regularization. (b): The same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. (c): Vacuum-to-pion axial matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R}) in the Wilson regularization. (d): Vacuum-to-pion pseudoscalar matrix element $R_{\pi}$ from eq.~(\ref{ch_observables:eq:R_tm}) in the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. (e): Up/down PCAC quark mass in eq.~(\ref{ch_observables:eq:PCAC}) in the Wilson regularization. (f): The same but for the mixed action regularization for one point in our valence parameters grid, see Sec.~\ref{ch_ma}. At maximal twist the latter quantity must vanish. In all cases, the green horizontal band is the result coming from the model average over different fit range choices. The measurements are based on the ensemble J501.}
         \label{ch_observables:fig:meff}
 \end{figure}
 
 \begin{figure}
     \begin{subfigure}{.49\textwidth}
-    	\includegraphics[width=\textwidth]{./cap3/figs/J501_t2E.pdf}
+    	\includegraphics[width=\textwidth]{./cap3/figs/t2E_J501_plat.pdf}
     	\caption{}
     \end{subfigure}
     \begin{subfigure}{.49\textwidth}
     	\includegraphics[width=\textwidth]{./cap3/figs/t0_J501.pdf}
     	\caption{}
     \end{subfigure}
-    \caption{(a): $t^2E(x_0,t)$ for one value of the flow time $t/a^2$ near $t_0/a^2$ as a function of the Euclidean time $x_0/a$, with $E(x_0,t)$ the space volume averaged energy density. The latter is defined in eq.~(\ref{ch_observables:eq:E}). The green horizontal band is the result coming from the model average over different fit range choices. (b): Euclidean-time averaged values of $t^2\left<E(x_0,t)\right>_{x_0}$ for several flow times $t/a^2$ (blue points) near $t_0/a^2$ (defined in eq.~(\ref{ch_observables:eq:t0})) and the interpolated result for $t_0/a^2$ (orange point). Results for ensemble J501.}
+    \caption{(a): Determination of $t^2E(x_0,t)$ for one value of the flow time $t/a^2$ near $t_0/a^2$ as a function of the Euclidean time $x_0/a$, with $E(x_0,t)$ the  energy density averaged over the spatial volume. The latter is defined in eq.~(\ref{ch_observables:eq:E}). The green horizontal band is the result coming from the model average over different fit range choices. (b): Euclidean-time averaged values of $t^2\left<E(x_0,t)\right>_{x_0}$ for several flow times $t/a^2$ (blue points) near $t_0/a^2$ (defined in eq.~(\ref{ch_observables:eq:t0})) and the interpolated result for $t_0/a^2$ (orange point). The measurements are based on the ensemble J501.}
         \label{ch_observables:fig:t2E}
 \end{figure}
 
 \begin{figure}
 \centering
 	\includegraphics[width=1.\textwidth]{./cap3/figs/meff_ma_J501.pdf}
-    \caption{Model variation for the extraction of the ground state signal of the pion effective mass of ensemble J501 in the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff} (a). {\it Top}: ground state signal result from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice (whose minimal and maximal Euclidean times are displayed in the ticks of the x-axis). The band indicates the final weighted average result including the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}). {\it Bottom}: model weights associated to each choice according to eq.~(\ref{ch_observables:eq:weight}). The highest weights are associated to a compromise between good fits (in terms of p-values~\citep{Bruno:2022mfy}) and fits with large number of points.}
+    \caption{Model variation for the extraction of the ground state signal of the pion effective mass for the ensemble J501 with the Wilson regularization, shown in Fig.~\ref{ch_observables:fig:meff} (a). {\it Top}: ground state signal result for $am_{\pi}$ from a fit to eq.~(\ref{ch_observables:eq:fit}) for each fit interval choice (whose minimal and maximal Euclidean times are displayed in the ticks of the x-axis). The band indicates the weighted average result including the systematic uncertainty in eq.~(\ref{ch_observables:eq:syst}). {\it Bottom}: model weights associated to each choice according to eq.~(\ref{ch_observables:eq:weight}). The highest weights are associated to a balance between the goodness-of-fit (in terms of p-values~\citep{Bruno:2022mfy}) and the considered number of data points.}
     \label{ch_observables:fig:model_av}
 \end{figure}
 

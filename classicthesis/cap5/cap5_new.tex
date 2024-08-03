@@ -15,20 +15,20 @@
 \section{Motivation}
 \label{ch_ss:sec:introduction}
 
-The scale setting involves the precise determination of one reference observable, the scale, in physical units, to which any other observable is compared in order to extract the value of the latter in physical units. 
+The scale setting is the process of determining the values of the lattice spacing in physical units. It requires the use of physical input to set the bare parameters of the theory. An intermediate dimensionful scale is often used to construct dimensionless quantities out of lattice observables, which are naturally obtained in units of the lattice spacing. The scale setting procedure allows to determine the physical value of this intermediate scale. 
 
 We will use the gradient flow scale $t_0$ introduced in Sec.~\ref{ch_observables:sec:Flow} as an intermediate reference scale since it can be computed on the lattice with high precision. Following the discussion in Sec.~\ref{ch_foundation:sec:ss}, we choose for the phenomenological input the linear combination of the decay constants of the pion and kaon~\citep{Bruno:2016plf}
 \begin{equation}
 \label{ch_ss:eq:fpik}
 \Lambda\equiv f_{\pi K}=\frac{2}{3}\left(f_K+\frac{1}{2}f_{\pi}\right).
 \end{equation}
-After measuring $\sqrt{t_0}f_{\pi K}$ for each ensemble, one must perform a chiral-continuum extrapolation in order to extract its value at physical values of the quark masses and in the continuum. To define the physical point we use the pion and kaon physical masses, or equivalently the dimensionless quantities $\phi_2$ and $\phi_4$ in eqs.~(\ref{ch_ma:eq:phi2}-\ref{ch_ma:eq:phi4}). Thanks to the mass shifting procedure in Sec.~\ref{ch_ma:sec:chiral_traj}, the value of $\phi_4$ is kept fixed to its physical value along our trajectory in the quark mass plane, and as a result the chiral extrapolation needs to be done in $\phi_2$ only. For the determination of the physical value of the latter we employ the iterative procedure explained at the end of Sec. \ref{ch_ma:sec:chiral_traj}. The latter relies on the physical input in eq.~(\ref{ch_ss:eq:isoQCD}) and an educated guess for the physical value of $t_0$, which is updated at each iterative step with the new determination of $t_0^{\textrm{ph}}$ coming from the scale setting analysis. Thus, with each iterative step both the values of $\phi_2$ to which we perform the chiral extrapolation and the value of $\phi_4$ to which we shift our observables are updated until convergence in $t_0^{\textrm{ph}}$ is obtained, which happens after a few iterative steps.
+After measuring $\sqrt{t_0}f_{\pi K}$ for each ensemble, one must perform a chiral-continuum extrapolation in order to extract its value at physical values of the quark masses and in the continuum. To define the physical point we use the pion and kaon physical masses, or more specifically the dimensionless quantities $\phi_2$ and $\phi_4$ in eqs.~(\ref{ch_ma:eq:phi2}-\ref{ch_ma:eq:phi4}). Thanks to the mass shifting procedure in Sec.~\ref{ch_ma:sec:chiral_traj}, the value of $\phi_4$ is kept fixed to its physical value along the chiral trajectory in the quark mass plane, and as a result the chiral extrapolation needs to be done in $\phi_2$ only. For the determination of the physical value of the latter we employ the iterative procedure explained at the end of Sec. \ref{ch_ma:sec:chiral_traj}. The latter relies on the physical input in eq.~(\ref{ch_ss:eq:isoQCD}) and an educated guess for the physical value of $t_0$, which is updated at each iterative step with the new determination of $t_0^{\textrm{ph}}$ coming from the scale setting analysis. Thus, with each iterative step both the values of $\phi_2$ to which we perform the chiral extrapolation and the value of $\phi_4$ to which we shift our observables are updated until convergence in $t_0^{\textrm{ph}}$ is obtained, which in practice occurs after a few iterative steps.
 
 We employ an $\mathcal{O}(a)$ improved lattice action. Furthermore, in the calculation of $\sqrt{8t_0}f_{\pi K}$ we  employ the relevant improvement coefficients to remove $\mathcal{O}(a)$ lattice artifacts for the Wilson unitary setup. On the other hand, in the mixed action setup, we employ all known improvement coefficients in addition to relying on the $\mathcal{O}(a)$ improvement mechanism at maximal twist. Therefore, we expect lattice artifacts to start at $\mathcal{O}(a^2)$ for $\sqrt{t_0}f_{\pi K}$.
 
-In order to perform the chiral-continuum limit, we explore different ways of parameterizing the dependence on $\phi_2$ ($\phi_4$ is constant thanks to the mass shifting procedure of Sec.~\ref{ch_ma:sec:chiral_traj}) and on the lattice spacing $a$, and employ the model averaging techniques introduced in Sec.~\ref{ch_observables:sec:MA}.
+In order to perform the chiral-continuum limit extrapolation, we explore different ways of parameterizing the dependence on $\phi_2$ ($\phi_4$ is constant thanks to the mass shifting procedure of Sec.~\ref{ch_ma:sec:chiral_traj}) and on the lattice spacing $a$, and employ the model averaging techniques introduced in Sec.~\ref{ch_observables:sec:MA}.
 
-After performing the chiral-continuum limit, using as external physical input the values of the pion and kaon decay constants we can determine the value of the scale $t_0$ as
+After performing the chiral-continuum limit extrapolation, using as external physical input the values of the pion and kaon decay constants we can determine the value of the scale $t_0$ as
 \begin{equation}
 \sqrt{t_0^{\textrm{ph}}}=\frac{\left.\left(\sqrt{t_0}f_{\pi K}\right)^{\textrm{latt}}\right|_
 {\phi_2^{\textrm{ph}},\;a=0}}{f_{\pi K}^{\textrm{exp}}}.
@@ -74,7 +74,7 @@ m_{\pi}^2&=2B_0m_l, \\
 m_K^2&=B_0(m_l+m_s), \\
 m_{\eta}^2&=\frac{4}{3}m_K^2-\frac{1}{3}m_{\pi}^2.
 \end{align}
-This way, the combination $\sqrt{8t_0}f_{\pi K}$ reads
+Thus, the combination $\sqrt{8t_0}f_{\pi K}$ reads
 \begin{align}
 \label{ch_ss:eq:SU3ChPT}
 F_{\chi SU(3),\pi K}^{\textrm{cont}}(\phi_2)&\equiv\left(\sqrt{8t_0}f_{\pi K}\right)^{\textrm{cont}}= \notag \\
@@ -133,7 +133,7 @@ We assign the labels $[a^2]$, $[a^2\alpha_S^{\Gamma}]$ and $[a^2+a^2\phi_2]$ to 
 
 Since it is not feasible to include several independent fitting parameters to characterize these logarithmic corrections, we chose to include a single such term. We vary the choice of $\Gamma_i$ by monitoring its impact on the extracted value of $t_0^{\textrm{phys}}$ after averaging over the set of models. As $t_0^{\textrm{phys}}$ is observed to be independent of the choice of $\Gamma_i$, we restrict ourselves to the smallest value, $\Gamma_i=-0.111$, in the model average. 
 
-The systematic uncertainty in the extraction of $\sqrt{t_0^{\textrm{ph}}}$ is assessed by the model variation using the TIC introduced in Sec.~\ref{ch_observables:sec:MA}. We vary over the different ways of performing the chiral-continuum limits introduced above, as well as over the possibility of performing data cuts. In particular, we consider the following cuts (in addition to the ``no cut'' choice)
+The systematic uncertainty in the extraction of $\sqrt{t_0^{\textrm{ph}}}$ is assessed by the model variation using the TIC introduced in Sec.~\ref{ch_observables:sec:MA}. We vary over the different ways of performing the chiral-continuum limit extrapolation introduced above, as well as over the possibility of performing data cuts. In particular, we consider the following cuts (in addition to the ``no cut'' choice)
 \begin{align}
 \label{ch_ss:eq:cuts}
 \beta&>3.40, \\
@@ -143,7 +143,7 @@ m_{\pi}&<350\;\textrm{MeV}, \\
 \beta&>3.40\;\&\;\phi_2<0.6, \\
 m_{\pi}L&>4.1,
 \end{align}
-meaning that for each cut we keep only ensembles satisfying the corresponding condition above. With these cut choices, we explore the systematic uncertainty associated with performing lattice simulations at coarse lattice spacings, pion masses significantly heavier than in Nature, and small volumes that may introduce finite volume effects.
+which means that for each cut we keep only ensembles satisfying the corresponding condition above. With these cut choices, we explore the systematic uncertainty associated with performing lattice simulations at coarse lattice spacings, pion masses significantly heavier than in Nature, and small volumes that may introduce finite volume effects.
 
 In general, the models included in the model average correspond to good fits in terms of their p-values (see Tables~\ref{apex_ma:tab:w}-\ref{apex_ma:tab:comb}). This means that the TIC will tend to heavily penalize any cut in the data, since the lattice data can be well described by the fit functions explored without performing any cuts. As a result, we observe that data points with the coarsest value of lattice spacing and/or with heavier pion masses -- which tend to have smaller uncertainties than those closer to the continuum and the physical point -- strongly constrain the model selection based on the TIC. In addition, the systematic effects associated with, for instance, the removal of the coarsest lattice spacing or of heaviest pion mass data are not always satisfactorily explored in such a model averaging framework. We therefore wish to extend the model averaging approach to introduce information on the regime of parameters in which the effective theories involved in the chiral-continuum extrapolations are known to perform best. For the case of the Symanzik expansion, this corresponds to the regime of smaller values of the lattice spacing, while for chiral perturbation theory it corresponds to the smaller values of the pion mass. The idea~\citep{DallaBrida:2016kgh} is to supplement the weight matrix $\mathcal{W}$ appearing in the definition of the $\chi^2$ of the fit (see Appendix~\ref{apex_chisq}) with a systematic error penalization for small values of the inverse coupling $\beta$ and heavy pions, according to 
 \begin{equation}
@@ -153,7 +153,7 @@ In general, the models included in the model average correspond to good fits in 
 where $C_{ij}$ is the element of the covariance matrix of the lattice data of $\sqrt{8t_0}f_{\pi K}$ for the ensembles $i$ and $j$, and $c_i$ is a penalization factor given by
 \begin{equation}
 \label{ch_ss:eq:penal}
-c_i^2=c_{\beta}^2\left(\frac{a^2}{8t_0}\right)^4+c_{\phi_2}^2\phi_2^4,
+c_i^2=c_{\beta}^2\left(\frac{a^4}{t_0^2}\right)^2+c_{\phi_2}^2\left(\phi_2^2\right)^2,
 \end{equation}
 which is motivated by the fact that at coarse lattice spacings we expect $\mathcal{O}(a^4)$ cutoff effects to be relevant, and for heavy pions we expect that higher order effects of $\mathcal{O}(m_{\pi}^4)$ in the chiral expansion could play a role. More specifically, the penalization in $\beta$ will only be applied in $\beta=3.40$ ensembles, while the penalization in $\phi_2$ acts only on symmetric point ensembles $\phi_2\sim0.73$. The coefficients $c_{\beta,\phi_2}$ in eq.~(\ref{ch_ss:eq:penal}) are chosen such that the elements of the weight matrix $\mathcal{W}$ appearing in the $\chi^2$ function (see Appendix~\ref{apex_chisq}) for ensembles at the symmetric point or at the coarsest lattice spacing, are no longer significantly enhanced with respect to those  lying closer to the continuum or at the physical pion mass. We remark that the determination of the expectation value of the $\chi^2$ allows to determine the p-value of a fit based on a generic weight matrix $\mathcal{W}$~\citep{Bruno:2022mfy} such as that in eq.~(\ref{ch_ss:eq:Wpenal}). As expected, in the presence of an additional term in the $\chi^2$ that suppresses the relative weights of the coarsest lattice spacing and the heaviest pion masses, we observe that the p-values of the fits without cuts are similar to those of the fits implementing the cuts $\beta>3.40$ and $m_{\pi}<420$ MeV. Moreover, the weights in the model average are more evenly distributed compared to the case in which we do not include systematic effects in the $\chi^2$ function. Setting any of the $c_{\beta,\phi_2}$ coefficients to infinity is equivalent to performing the cut $\beta>3.40$ or $m_{\pi}<420$ MeV, while setting them to zero corresponds to the absence of cut.
 
@@ -191,21 +191,21 @@ The statistical uncertainty in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}
 \label{ch_ss:tab:stat}
 	Contributions to total error squared of $\sqrt{t_0}$ [Combined] & \\
 	\toprule
-	Model variation (systematic) & $35.9\%$ \\
+	Model variation (systematic effects) & $35.9\%$ \\
 	Gauge ensembles & $53.35\%$ \\
 	Renormalization and improvement & $0.66\%$ \\
 	$\left|V_{ud}\right|$ & $<0.01\%$ \\
 	$\left|V_{us}\right|$ & $6.54\%$ \\
 	QED corrections to $f_{\pi}$ & $0.17\%$ \\
 	QED corrections to $f_K$ & $1.64\%$ \\
-	Experimental input for $f_{\pi}$ & $<0.01\%$ \\
-	Experimental input for $f_K$ & $1.64\%$ \\
+	Physical input for $f_{\pi}$ & $<0.01\%$ \\
+	Physical input for $f_K$ & $1.64\%$ \\
 	IsoQCD pion and kaon meson masses & $<0.01\%$ \\
     \bottomrule
     \caption{Different contributions to total uncertainty for $\sqrt{t_0}$ for the combined analysis of both Wilson and mixed action lattice data in eq.~(\ref{ch_ss:eq:t0ph_c}).}
 \end{longtable}
 
-The results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) steem from the iterative procedure explained at the end of Sec. \ref{ch_ma:sec:chiral_traj} and in the introduction to this Chapter. The convergence on the result of $\sqrt{t_0}$ using this iterative analysis is shown in Fig.~\ref{ch_ss:fig:iter}.
+The results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) are the outcome of the iterative procedure explained at the end of Sec. \ref{ch_ma:sec:chiral_traj} and in the introduction to this Chapter. The convergence of the result of $\sqrt{t_0}$ using this iterative analysis is shown in Fig.~\ref{ch_ss:fig:iter}.
 
 \begin{figure}
     \centering
@@ -217,28 +217,28 @@ The results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) steem from the
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth, angle=0]{./cap5/figs/SU3_comb.pdf}
-    \caption{\textit{Top}: Light quark mass-dependence of $\sqrt{8t_0}f_{\pi K}$ for the $SU(3)$ ChPT model with pure $\mathcal{O}(a^2)$ cutoff effects and absence of cuts in data, corresponding to the label: $[SU(3)\chi PT][a^2][-]$. We show the result of the combined fit of both Wilson (empty) and mixed action (filled) results. The colored bands represent the pion mass dependence for each lattice spacing for the Wilson results, while the dashed lines represent the dependence for the mixed action results. In the latter case we only plot the central value of the corresponding bands for visualization purposes. \textit{Bottom}: the same model, with points projected to the physical pion mass $\phi_2^{\textrm{ph}}$ using the fit result for the continuum mass dependence $F(\phi_2)^{\textrm{cont}}$. In this plot we show the lattice spacing dependence of our ensembles. The  additional systematic effect terms in the $\chi^2$ (see eq.~(\ref{ch_ss:eq:penal})) were included. The p-value of this fit is $0.5532$.}
+    \caption{\textit{Top}: Light quark mass-dependence of $\sqrt{8t_0}f_{\pi K}$ for the $SU(3)$ ChPT model with pure $\mathcal{O}(a^2)$ cutoff effects and absence of cuts in data, corresponding to the label: $[SU(3)\chi PT][a^2][-]$. We show the result of the combined fit of both Wilson (empty) and mixed action (filled) results. The colored bands represent the pion mass dependence for each lattice spacing for the Wilson results, while the dashed lines represent the dependence for the mixed action results. In the latter case we only plot the central value of the corresponding bands for visualization purposes. \textit{Bottom}: the same model, with points projected to the physical pion mass $\phi_2^{\textrm{ph}}$ using the fit result for the continuum mass dependence $F(\phi_2)^{\textrm{cont}}$. In this plot we show the lattice spacing dependence of our ensembles. The  additional systematic effect terms in the $\chi^2$ (see eq.~(\ref{ch_ss:eq:penal})) were included. The p-value of this fit is $0.55$.}
     \label{ch_ss:fig:SU3a2}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_w_subav_c=1_cphi=0.0035.pdf}
-    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point based only on Wilson lattice data and $f_{\pi K}$ as physical input. \textit{Top}: model average over cuts in the data, the model weight defined in eq.~(\ref{ch_ss:eq:W}). For each label of the cut performed to the data displayed in the panel, an average according to the model weights was taken over the various fit forms employed to perform the chiral-continuum extrapolation. The label ``[-]'' refers to the case in which no cuts are applied to the data. In all models the penalization of eq.~(\ref{ch_ss:eq:penal}) was included, so even in the ``[-]'' models points at $\beta=3.40$ and $m_{\pi}=420$ MeV are penalized in the fit. \textit{Bottom}: model average over different fit forms employed in  the chiral-continuum extrapolation. For each label of the fit form displayed in the panel, an average was taken over the various data cuts according to the model weights. The blue vertical band shows the result of the model average over the full set of considered models with systematic and statistical uncertainties added in quadrature. We provide Tables connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}, as well as results of $\sqrt{t_0}$, model weight and p-value for each individual model.}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point based only on Wilson lattice data and $f_{\pi K}$ as physical input. \textit{Top}: model average over cuts in the data, the model weight W in the right plot defined in eq.~(\ref{ch_ss:eq:W}). For each label of the cut performed to the data displayed in the panel, an average according to the model weights was taken over the various fit forms employed to perform the chiral-continuum extrapolation. The label ``[-]'' refers to the case in which no cuts are applied to the data. In all models the penalization of eq.~(\ref{ch_ss:eq:penal}) was included, so even in the ``[-]'' models points at $\beta=3.40$ and $m_{\pi}=420$ MeV are penalized in the fit. \textit{Bottom}: model average over different fit forms employed in  the chiral-continuum extrapolation. For each label of the fit form displayed in the panel, an average was taken over the various data cuts according to the model weights. The blue vertical band shows the result of the model average over the full set of considered models with systematic and statistical uncertainties added in quadrature. We provide Tables connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}, as well as results of $\sqrt{t_0}$, model weight and p-value for each individual model.}
     \label{ch_ss:fig:BMA_w}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_tm_subav_c=1_cphi=0.0035.pdf}
-    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point based only on mixed action lattice data and $f_{\pi K}$ as physical input. \textit{Top}: model average over cuts in the data, the model weight defined in eq.~(\ref{ch_ss:eq:W}). For each label of the cut performed to the data displayed in the panel, an average according to the model weights was taken over the various fit forms employed to perform the chiral-continuum extrapolation. The label ``[-]'' refers to the case in which no cuts are applied to the data. In all models the penalization of eq.~(\ref{ch_ss:eq:penal}) was included, so even in the ``[-]'' models points at $\beta=3.40$ and $m_{\pi}=420$ MeV are penalized in the fit. \textit{Bottom}: model average over different fit forms employed in  the chiral-continuum extrapolation. For each label of the fit form displayed in the panel, an average was taken over the various data cuts according to the model weights. The blue vertical band shows the result of the model average over the full set of considered models with systematic and statistical uncertainties added in quadrature. We provide Tables connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}, as well as results of $\sqrt{t_0}$, model weight and p-value for each individual model.}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point based only on mixed action lattice data and $f_{\pi K}$ as physical input. \textit{Top}: model average over cuts in the data, the model weight W in the right plot defined in eq.~(\ref{ch_ss:eq:W}). For each label of the cut performed to the data displayed in the panel, an average according to the model weights was taken over the various fit forms employed to perform the chiral-continuum extrapolation. The label ``[-]'' refers to the case in which no cuts are applied to the data. In all models the penalization of eq.~(\ref{ch_ss:eq:penal}) was included, so even in the ``[-]'' models points at $\beta=3.40$ and $m_{\pi}=420$ MeV are penalized in the fit. \textit{Bottom}: model average over different fit forms employed in  the chiral-continuum extrapolation. For each label of the fit form displayed in the panel, an average was taken over the various data cuts according to the model weights. The blue vertical band shows the result of the model average over the full set of considered models with systematic and statistical uncertainties added in quadrature. We provide Tables connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}, as well as results of $\sqrt{t_0}$, model weight and p-value for each individual model.}
     \label{ch_ss:fig:BMA_tm}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/BMA_comb_subav_c=1_cphi=0.0035.pdf}
-    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point based on the combination of Wilson and mixed action lattice data and $f_{\pi K}$ as physical input. \textit{Top}: model average over cuts in the data, the model weight defined in eq.~(\ref{ch_ss:eq:W}). For each label of the cut performed to the data displayed in the panel, an average according to the model weights was taken over the various fit forms employed to perform the chiral-continuum extrapolation. The label ``[-]'' refers to the case in which no cuts are applied to the data. In all models the penalization of eq.~(\ref{ch_ss:eq:penal}) was included, so even in the ``[-]'' models points at $\beta=3.40$ and $m_{\pi}=420$ MeV are penalized in the fit. \textit{Bottom}: model average over different fit forms employed in  the chiral-continuum extrapolation. For each label of the fit form displayed in the panel, an average was taken over the various data cuts according to the model weights. The blue vertical band shows the result of the model average over the full set of considered models with systematic and statistical uncertainties added in quadrature. We provide Tables connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}, as well as results of $\sqrt{t_0}$, model weight and p-value for each individual model.}
+    \caption{Model average results for the determination of $\sqrt{t_0}$ at the physical point based on the combination of Wilson and mixed action lattice data and $f_{\pi K}$ as physical input. \textit{Top}: model average over cuts in the data, the model weight W in the right plot defined in eq.~(\ref{ch_ss:eq:W}). For each label of the cut performed to the data displayed in the panel, an average according to the model weights was taken over the various fit forms employed to perform the chiral-continuum extrapolation. The label ``[-]'' refers to the case in which no cuts are applied to the data. In all models the penalization of eq.~(\ref{ch_ss:eq:penal}) was included, so even in the ``[-]'' models points at $\beta=3.40$ and $m_{\pi}=420$ MeV are penalized in the fit. \textit{Bottom}: model average over different fit forms employed in  the chiral-continuum extrapolation. For each label of the fit form displayed in the panel, an average was taken over the various data cuts according to the model weights. The blue vertical band shows the result of the model average over the full set of considered models with systematic and statistical uncertainties added in quadrature. We provide Tables connecting each label to the corresponding fit models in Appendix~\ref{apex_model_av_t0}, as well as results of $\sqrt{t_0}$, model weight and p-value for each individual model.}
     \label{ch_ss:fig:BMA_comb}
 \end{figure}
 
@@ -252,7 +252,7 @@ The results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}) steem from the
 \begin{figure}
     \centering
     \includegraphics[width=1.\textwidth]{./cap5/figs/t0_iter.pdf}
-    \caption{Convergence of the determination of $\sqrt{t_0}$ employing the iterative procedure explained at the end of Sec. \ref{ch_ma:sec:chiral_traj} and in the introduction to this Chapter. We show results for the Wilson, Mixed Action (Wtm) and Combined analysis. The iterative procedure starts with a guess value $\sqrt{t_0}=0.1438$ with no error which defines the physical point to which the chiral extrapolation is performed. With each iterative step, this value is updated with the new determination of $\sqrt{t_0}$ obtained from the Combined analysis. After a few iterative steps convergence is achieved for the three types of analysis, corresponding to the results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}).}
+    \caption{Convergence of the determination of $\sqrt{t_0}$ employing the iterative procedure explained at the end of Sec. \ref{ch_ma:sec:chiral_traj} and in the introduction to this Chapter. We show results for the Wilson, Mixed Action (Wtm) and Combined analysis. The iterative procedure starts with a guess value $\sqrt{t_0}=0.1438$ fm with no error which defines the physical point to which the chiral extrapolation is performed. With each iterative step, this value is updated with the new determination of $\sqrt{t_0}$ obtained from the Combined analysis. After a few iterative steps convergence is achieved for the three types of analysis, corresponding to the results in eqs.~(\ref{ch_ss:eq:t0ph_w}-\ref{ch_ss:eq:t0ph_c}).}
     \label{ch_ss:fig:iter}
 \end{figure}
 
@@ -268,9 +268,10 @@ and the chiral trajectory in eq.~(\ref{ch_ma:eq:chiral_traj}) intersect. In term
 \end{equation}
 where $\phi_4$ is given by its physical value after the iterative procedure to find $t_0^{\textrm{ph}}$ and after mass shifting (see Sec.~\ref{ch_ma:sec:chiral_traj}). In order to extract $t_0^{\textrm{sym}}=t_0(\phi_2^{\textrm{sym}},\phi_4^{\textrm{ph}})$, following~\citep{Strassberger:2023xnj} we build the ratio
 \begin{equation}
+\label{ch_ss:eq:ratio}
 \frac{\sqrt{t_0/a^2}}{\sqrt{t_0^{\textrm{sym}}/a^2}},
 \end{equation}
-where $\sqrt{t_0/a^2}$ is the measurement of the gradient flow scale in each ensemble while $\sqrt{t_0^{\textrm{sym}}/a^2}$ is the corresponding lattice determination, at the same value of the inverse coupling $\beta$, but using a symmetric point ensemble. Following~\citep{Strassberger:2023xnj} we fit this ratio to
+where $\sqrt{t_0/a^2}$ is the measurement of the gradient flow scale in each ensemble while $\sqrt{t_0^{\textrm{sym}}/a^2}$ is the corresponding lattice determination, at the same value of the inverse coupling $\beta$, but using a symmetric point ensemble. Following~\citep{Strassberger:2023xnj} we fit the ratio in eq.~(\ref{ch_ss:eq:ratio}) to
 \begin{equation}
 \label{ch_ss:eq:fit_t0_sym}
 F(\phi_2)=\sqrt{1+p(\phi_2-\phi_2^{\textrm{sym}})}.
@@ -360,7 +361,7 @@ for which we find
 \label{ch_ss:eq:t0ph_c_16}
 \sqrt{t_0^{\textrm{ph}}}&=0.1449(6)_{\textrm{stat}}(4)_{\textrm{syst}}\;\textrm{fm, Combined}.
 \end{align}
-Yet another alternative prescription is that discussed in \citep{AP}, in which the pion and kaon masses, in addition to the pion decay constant, are given with no errors as
+Yet another alternative prescription is that recently proposed in the workshop ``Converging on QCD+QED prescriptions'' \citep{AP}, in which the isoQCD pion and kaon masses, in addition to the pion decay constant, are defined with no errors as
 \begin{align}
 \label{ch_ss:eq:AP}
 m_{\pi}^{\textrm{isoQCD}}&=135.0\;\textrm{MeV}, \notag\\

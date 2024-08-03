@@ -12,7 +12,7 @@ For the computation of correlation functions of fermions on the lattice (e.g. a 
 \begin{gather}
 \left<\eta_i(x)\right>_{\eta}=0, \quad \left<\eta_i^{\dagger}(x)\eta_j(y)\right>_{\eta}=\delta_{x,y}\delta_{i,j},
 \end{gather}
-with $\left<.\right>_{\eta}$ corresponding to average over the $N_{\eta}$ samples of some noise distribution. Some common choices are Gaussian, $Z_2$ or $U(1)$ stochastic noise vectors. The Dirac operator can the be inverted using $\eta$ as part of the source in the following way
+with $\left<.\right>_{\eta}$ corresponding to the average over the $N_{\eta}$ samples of some noise distribution. Some common choices are Gaussian, $Z_2$ or $U(1)$ stochastic noise vectors. The Dirac operator can the be inverted using $\eta$ as part of the source in the following way
 \begin{gather}
 \xi_i^q(x)=\sum_{\vec{y}}D^{-1}_q(x,y)\eta_i(\vec{y}), \quad \zeta_{i,B}^r(x)=\sum_{\vec{y}}D^{-1}_r(x,y)\gamma_5\Gamma_B^{\dagger}\eta_i(\vec{y}),
 \end{gather}
@@ -32,12 +32,12 @@ for some source $\eta$. This is usually done by an iterative procedure. The basi
 \begin{equation}
 \rho=D\psi_0-\eta.
 \end{equation}
-Then, one solves
+Then, one needs to solve
 \begin{equation}
 \label{eq:Dirac_eq}
 D\psi_1=\rho,
 \end{equation}
-finds the new residue and iterates the process. The algorithm stops when some convergence criterion is met
+The main solvers used in modern lattice simulations to compute eq.~(\ref{eq:Dirac_eq}) are based on the Krylov subspace method and belong to the class of conjugate gradient solvers. Some popular choices are the CG, BiCGstab and GCR algorithms. For a pedagogical introduction we refer to ~\citep{Gattringer_Lang_2010,Luscher:2010ae}. Once a new approximate solution $\psi_1$ to eq.~(\ref{eq:Dirac_eq}) has been found, a new residue is found. The algorithm stops when some convergence criterion is met
 \begin{equation}
 |\rho|<\epsilon,
 \end{equation}
@@ -53,8 +53,6 @@ with $\kappa(D)$ the condition number of matrix $D$
 \begin{equation}
 \kappa(D)=|D||D^{-1}|.
 \end{equation}
-
-The main solvers used in modern lattice simulations to compute eq.~(\ref{eq:Dirac_eq}) are based on the Krylov subspace method and belong to the class of conjugate gradient solvers. Some popular choices are the CG, BiCGstab and GCR algorithms. For a pedagogical introduction we refer to ~\citep{Gattringer_Lang_2010,Luscher:2010ae}.
 
 \section{Preconditioning}
 

@@ -10,7 +10,7 @@ In this Appendix we describe the methods employed for the data analysis of
 observables extracted
 from the lattice QCD Monte Carlo simulations.
 
-As described in Appendix~\ref{appex_simulations}, lattice data stems from a Markov chain Monte Carlo process. Expectation values of physical observables are defined in terms of functions depending on estimators of primary observables, obtained by averaging over measurements performed on the gauge field configurations of the Markov chain. A central aspect of the analysis is to properly take into account the statistical correlations and autocorrelations present in the lattice data, and to estimate the various sources of systematic uncertainties. As discussed in a previous section, autocorrelations arise from the fact that in a Markov chain, any subsequent configuration is obtained from the previous one. A popular method to deal with autocorrelations consists in binning the elements of the Markov chain, in combination with resampling methods such as bootstrap or the jack-knife.
+As described in Appendix~\ref{appex_simulations}, lattice data stems from a Markov chain Monte Carlo process. Expectation values of physical observables are defined in terms of functions depending on estimators of primary observables, obtained by averaging over measurements performed on the gauge field configurations of the Markov chain. A central aspect of the analysis is to properly take into account the statistical correlations and autocorrelations present in the lattice data, and to estimate the various sources of systematic uncertainties. As discussed in a previous section, autocorrelations arise from the fact that in a Markov chain, any subsequent configuration is obtained from the previous one. A popular method to deal with autocorrelations consists in binning the elements of the Markov chain, in combination with resampling methods such as bootstrap or jack-knife~\citep{doi:10.1137/1.9781611970319,Efron:1986hys,10.1093/biomet/61.1.1}.
 
 The analysis of the observables considered in this work is based on the $\Gamma$-method~\citep{Wolff:2003sm,Schaefer:2010hu,Ramos:2018vgu}, which explicitly computes the autocorrelation function to estimate the statistical uncertainty.
 
@@ -26,11 +26,7 @@ Fluctuations over the MC time can be computed as
 \begin{equation}
 \delta_i^{\alpha}(k)=p_i^{\alpha}(k)-\bar{p}_i^{\alpha}.
 \end{equation}
-The Central Limit theorem ensures that the distribution of $\bar{p}_i^{\alpha}$ converges to a Gaussian distribution independently of the distribution of $p_i^{\alpha}(k)$, and so the statistical uncertainty associated to $\bar{p}_i^{\alpha}$ is given by the standard deviation $\sigma_i^{\alpha}$,
-\begin{equation}
-P_i^{\alpha}\approx\bar{p}_i^{\alpha}\pm\sigma_i^{\alpha}.
-\end{equation}
-This standard deviation can be computed from the autocorrelation $\Gamma$ function
+The Central Limit theorem ensures that the distribution of $\bar{p}_i^{\alpha}$ converges to a Gaussian distribution independently of the distribution of $p_i^{\alpha}(k)$, and so the statistical uncertainty associated to $\bar{p}_i^{\alpha}$ is given by the standard deviation $\sigma_i^{\alpha}$. The latter can be computed from the autocorrelation $\Gamma$ function
 \begin{equation}
 (\sigma_i^{\alpha})^2=\frac{1}{N_{\alpha}}\sum_{k=-\infty}^{\infty}\Gamma_{ii}^{\alpha\alpha}(k),
 \end{equation}
@@ -68,15 +64,17 @@ To estimate it, a truncation in the sum over the index $k$, spanning over the se
 \begin{equation}
 \Gamma(k)\approx\sum_{n=0}^{\infty}a_ne^{-k/\tau_n}.
 \end{equation}
-The slowest mode $\tau_0\equiv\tau_{\textrm{exp}}$ is called the exponential autocorrelation time and it gives the asymptotic decay rate of $\Gamma(k)$. Truncating eq.~(\ref{app_errors:eq:taui}) at a MC time separation $k=W_F^{\alpha}$ introduces an estimated systematic uncertainty of $\mathcal{O}(\exp(-W_F^{\alpha}/\tau_{\textrm{exp}}^{\alpha}))$. The $\Gamma$-method proposes as optimal window that which minimizes the sum of statistical (estimated in~\citep{Madras:1988ei}) and systematic contributions
+The slowest mode $\tau_0\equiv\tau_{\textrm{exp}}$ corresponds to the exponential autocorrelation time and it controls the asymptotic decay rate of $\Gamma(k)$. Truncating eq.~(\ref{app_errors:eq:taui}) at a MC time separation $k=W_F^{\alpha}$ introduces a systematic uncertainty of $\mathcal{O}(\exp(-W_F^{\alpha}/\tau_{\textrm{exp}}^{\alpha}))$. The $\Gamma$-method proposes a window selection that minimizes the sum of statistical (as estimated in~\citep{Madras:1988ei}) and systematic contributions
 \begin{equation}
+\label{eq:WF}
 W_F^{\alpha}=\textrm{min}_W\left(\sqrt{\frac{2(2W+1)}{N_{\alpha}}}+e^{-W/\tau_{\textrm{exp}}^{\alpha}}\right).
 \end{equation}
-In~\citep{Wolff:2003sm} it was proposed to use $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$, with $S_{\tau}$ some value between 2 and 5. One can also vary $W_F^{\alpha}$ until observing a stability regime of $\tau_{\textrm{int}}^{\alpha}$. Finally, it was also proposed to add an exponential tail~\citep{Schaefer:2010hu}
+In~\citep{Wolff:2003sm} it was proposed to use $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$ to estimate the exponential autocorrelation time, where the parameter $S_{\tau}$ 
+is set so that the integrated autocorrelation time exhibits a plateau around the value of $W_F^\alpha$ in eq.~(\ref{eq:WF}). Similarly, one can also vary $W_F^{\alpha}$ until observing a stability regime of $\tau_{\textrm{int}}^{\alpha}$. Finally, it was also proposed to add an exponential tail~\citep{Schaefer:2010hu}
 \begin{equation}
 \tau_{\textrm{exp}}^{\alpha}\frac{\Gamma_F^{\alpha}(W_F^{\alpha}+1)}{\Gamma_F^{\alpha}(0)},
 \end{equation}
-to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of truncating the sum over MC time. An estimate of $\tau_{\textrm{exp}}^{\alpha}$ is needed for each ensemble. In the case of CLS ensembles the following estimate has been considered~\citep{Bruno:2014jqa}
+to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of truncating the sum over MC time. In this case, an estimate of $\tau_{\textrm{exp}}^{\alpha}$ can be obtained by direct inspection of the slowest modes observed in the simulations at a given value of the lattice spacing. In the case of CLS ensembles the following estimate has been considered~\citep{Bruno:2014jqa}
 \begin{equation}
 \tau_{\textrm{exp}}^{\alpha}=14(3)\frac{t_0}{a^2}.
 \end{equation}

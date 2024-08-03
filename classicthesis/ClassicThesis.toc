@@ -14,14 +14,14 @@
 \contentsline {subsection}{\numberline {1.3.1}{Naive fermions}}{28}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}{Wilson fermions}}{30}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}{Wilson twisted mass fermions}}{31}{subsection.1.3.3}%
-\contentsline {section}{\numberline {1.4}{Path integral regularization}}{33}{section.1.4}%
+\contentsline {section}{\numberline {1.4}{Path integral formulation}}{33}{section.1.4}%
 \contentsline {section}{\numberline {1.5}{Continuum limit}}{34}{section.1.5}%
 \contentsline {section}{\numberline {1.6}{Symanzik improvement program}}{36}{section.1.6}%
 \contentsline {section}{\numberline {1.7}{Scale setting}}{39}{section.1.7}%
 \contentsline {chapter}{\numberline {2}{On the extraction of physical observables}}{43}{chapter.2}%
 \contentsline {section}{\numberline {2.1}{Introduction}}{43}{section.2.1}%
 \contentsline {section}{\numberline {2.2}{Correlation functions}}{43}{section.2.2}%
-\contentsline {section}{\numberline {2.3}{Meson masses}}{48}{section.2.3}%
+\contentsline {section}{\numberline {2.3}{Meson masses}}{47}{section.2.3}%
 \contentsline {section}{\numberline {2.4}{Decay constants}}{48}{section.2.4}%
 \contentsline {section}{\numberline {2.5}{Quark masses}}{50}{section.2.5}%
 \contentsline {section}{\numberline {2.6}{Gradient flow}}{51}{section.2.6}%
@@ -36,10 +36,10 @@
 \contentsline {chapter}{\numberline {4}{Scale setting}}{71}{chapter.4}%
 \contentsline {section}{\numberline {4.1}{Motivation}}{71}{section.4.1}%
 \contentsline {section}{\numberline {4.2}{Determination of $\sqrt {t_0}$ at the physical point}}{72}{section.4.2}%
-\contentsline {section}{\numberline {4.3}{Determination of $\sqrt {t_0}$ at the symmetric point}}{78}{section.4.3}%
-\contentsline {section}{\numberline {4.4}{Determination of the lattice spacing for CLS ensembles}}{84}{section.4.4}%
+\contentsline {section}{\numberline {4.3}{Determination of $\sqrt {t_0}$ at the symmetric point}}{84}{section.4.3}%
+\contentsline {section}{\numberline {4.4}{Determination of the lattice spacing for CLS ensembles}}{87}{section.4.4}%
 \contentsline {section}{\numberline {4.5}{Determination of $t_0^*$}}{87}{section.4.5}%
-\contentsline {section}{\numberline {4.6}{Impact of the physical input on $\sqrt {t_0}$}}{87}{section.4.6}%
+\contentsline {section}{\numberline {4.6}{Impact of the physical input on $\sqrt {t_0}$}}{88}{section.4.6}%
 \contentsline {chapter}{\numberline {5}{Impact of the scale setting in Lattice QCD computations}}{91}{chapter.5}%
 \contentsline {section}{\numberline {5.1}{Matching of the charm quark mass}}{91}{section.5.1}%
 \contentsline {section}{\numberline {5.2}{Determination of the charm quark mass}}{93}{section.5.2}%

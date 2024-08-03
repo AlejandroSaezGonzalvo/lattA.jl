@@ -608,6 +608,7 @@ fpik_add = true
                     global L2 = length(set_y[1][j])
                     uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst_corr[k][j], wpm=wpm)
                     push!(TIC[k], chi2 - 2 * chi_exp)
+                    #push!(TIC[k], chi2 + 2 * param[k][i] - length(set_y[k][j]))
                     push!(pval[k], pval_aux)
                     push!(t0fpik_ph_vec[k], models[k][i]([x_ph;x],uprm)[1])
                     if i == j == 1 uprm_plot[k] = uprm end

@@ -1707,6 +1707,51 @@
     \field{year}{2016}
   \endentry
 
+  \entry{Benayoun:2019zwh}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BM}{%
+         family={Benayoun},
+         familyi={B\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DL}{%
+         family={Delbuono},
+         familyi={D\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=JF}{%
+         family={Jegerlehner},
+         familyi={J\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BMDLJF1}
+    \strng{fullhash}{BMDLJF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1140/epjc/s10052-020-7611-9
+    \endverb
+    \verb{eprint}
+    \verb 1903.11034
+    \endverb
+    \field{note}{[Erratum: Eur.Phys.J.C 80, 244 (2020)]}
+    \field{number}{2}
+    \field{pages}{81}
+    \field{title}{{BHLS$_2$, a New Breaking of the HLS Model and its
+  Phenomenology}}
+    \field{volume}{80}
+    \field{journaltitle}{Eur. Phys. J. C}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2020}
+  \endentry
+
   \entry{Muong-2:2006rrc}{article}{}
     \true{moreauthor}
     \true{morelabelname}
@@ -1912,6 +1957,92 @@
     \field{year}{2009}
   \endentry
 
+  \entry{RBC:2018dos}{article}{}
+    \name{author}{10}{}{%
+      {{hash=BT}{%
+         family={Blum},
+         familyi={B\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=BPA}{%
+         family={Boyle},
+         familyi={B\bibinitperiod},
+         given={P.\bibnamedelima A.},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=GV}{%
+         family={G\"ulpers},
+         familyi={G\bibinitperiod},
+         given={V.},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=IT}{%
+         family={Izubuchi},
+         familyi={I\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=JL}{%
+         family={Jin},
+         familyi={J\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=JC}{%
+         family={Jung},
+         familyi={J\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={J\"uttner},
+         familyi={J\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LC}{%
+         family={Lehner},
+         familyi={L\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Portelli},
+         familyi={P\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=TJT}{%
+         family={Tsang},
+         familyi={T\bibinitperiod},
+         given={J.\bibnamedelima T.},
+         giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BT+1}
+    \strng{fullhash}{BTBPAGVITJLJCJALCPATJT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1103/PhysRevLett.121.022003
+    \endverb
+    \verb{eprint}
+    \verb 1801.07224
+    \endverb
+    \field{number}{2}
+    \field{pages}{022003}
+    \field{title}{{Calculation of the hadronic vacuum polarization contribution
+  to the muon anomalous magnetic moment}}
+    \field{volume}{121}
+    \field{journaltitle}{Phys. Rev. Lett.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2018}
+  \endentry
+
   \entry{UK14}{article}{}
     \true{moreauthor}
     \true{morelabelname}
@@ -1943,6 +2074,34 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-lat}
     \field{year}{2016}
+  \endentry
+
+  \entry{Boccaletti:2024guq}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=BA}{%
+         family={Boccaletti},
+         familyi={B\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BA+2}
+    \strng{fullhash}{BA+2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{eprint}
+    \verb 2407.10913
+    \endverb
+    \field{title}{{High precision calculation of the hadronic vacuum
+  polarisation contribution to the muon anomaly}}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{month}{07}
+    \field{year}{2024}
   \endentry
 
   \entry{Bornyakov:2015plz}{inproceedings}{}
@@ -2631,7 +2790,7 @@
          giveni={J\bibinitperiod},
       }}%
     }
-    \strng{namehash}{BA+2}
+    \strng{namehash}{BA+3}
     \strng{fullhash}{BACAFJHGPCPDSAUJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -2756,6 +2915,40 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-ph}
     \field{year}{2023}
+  \endentry
+
+  \entry{Ce:2022kxy}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=CM}{%
+         family={C\`e},
+         familyi={C\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CM+1}
+    \strng{fullhash}{CM+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.106.114502
+    \endverb
+    \verb{eprint}
+    \verb 2206.06582
+    \endverb
+    \field{number}{11}
+    \field{pages}{114502}
+    \field{title}{{Window observable for the hadronic vacuum polarization
+  contribution to the muon g-2 from lattice QCD}}
+    \field{volume}{106}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2022}
   \endentry
 
   \entry{Chen:2020qma}{article}{}
@@ -3443,6 +3636,42 @@
     \field{year}{2010}
   \endentry
 
+  \entry{FermilabLattice:2019ugu}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=DCTH}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={C.\bibnamedelima T.\bibnamedelima H.},
+         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DCTH+1}
+    \strng{fullhash}{DCTH+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.101.034512
+    \endverb
+    \verb{eprint}
+    \verb 1902.04223
+    \endverb
+    \field{number}{3}
+    \field{pages}{034512}
+    \field{title}{{Hadronic-vacuum-polarization contribution to the
+  muon\textquoteright{}s anomalous magnetic moment from four-flavor lattice
+  QCD}}
+    \field{volume}{101}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2020}
+  \endentry
+
   \entry{DEGRAND1988161}{article}{}
     \name{author}{1}{}{%
       {{hash=DTA}{%
@@ -3480,6 +3709,93 @@
     \field{volume}{52}
     \field{journaltitle}{Computer Physics Communications}
     \field{year}{1988}
+  \endentry
+
+  \entry{DellaMorte:2017dyu}{article}{}
+    \name{author}{10}{}{%
+      {{hash=DMM}{%
+         family={Della\bibnamedelima Morte},
+         familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Francis},
+         familyi={F\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=GV}{%
+         family={G\"ulpers},
+         familyi={G\bibinitperiod},
+         given={V.},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=HG}{%
+         family={Herdo\'\i{}za},
+         familyi={H\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=vHG}{%
+         prefix={von},
+         prefixi={v\bibinitperiod},
+         family={Hippel},
+         familyi={H\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Horch},
+         familyi={H\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=JB}{%
+         family={J\"ager},
+         familyi={J\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MHB}{%
+         family={Meyer},
+         familyi={M\bibinitperiod},
+         given={H.\bibnamedelima B.},
+         giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=NA}{%
+         family={Nyffeler},
+         familyi={N\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wittig},
+         familyi={W\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DMM+1}
+    \strng{fullhash}{DMMFAGVHGHGvHHJBMHBNAWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1007/JHEP10(2017)020
+    \endverb
+    \verb{eprint}
+    \verb 1705.01775
+    \endverb
+    \field{pages}{020}
+    \field{title}{{The hadronic vacuum polarization contribution to the muon
+  $g-2$ from lattice QCD}}
+    \field{volume}{10}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2017}
   \endentry
 
   \entry{deDivitiis:2010ya}{article}{}
@@ -3740,6 +4056,67 @@
     \field{volume}{195}
     \field{journaltitle}{Phys. Lett. B}
     \field{year}{1987}
+  \endentry
+
+  \entry{Efron:1986hys}{article}{}
+    \name{author}{2}{}{%
+      {{hash=EB}{%
+         family={Efron},
+         familyi={E\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=TR}{%
+         family={Tibshirani},
+         familyi={T\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{EBTR1}
+    \strng{fullhash}{EBTR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{number}{1}
+    \field{pages}{54\bibrangedash 75}
+    \field{title}{{An introduction to the bootstrap}}
+    \field{volume}{57}
+    \field{journaltitle}{Statist. Sci.}
+    \field{year}{1986}
+  \endentry
+
+  \entry{doi:10.1137/1.9781611970319}{book}{}
+    \name{author}{1}{}{%
+      {{hash=EB}{%
+         family={Efron},
+         familyi={E\bibinitperiod},
+         given={Bradley},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Society for Industrial}%
+      {Applied Mathematics}%
+    }
+    \strng{namehash}{EB1}
+    \strng{fullhash}{EB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \verb{doi}
+    \verb 10.1137/1.9781611970319
+    \endverb
+    \verb{eprint}
+    \verb https://epubs.siam.org/doi/pdf/10.1137/1.9781611970319
+    \endverb
+    \field{title}{The Jackknife, the Bootstrap and Other Resampling Plans}
+    \verb{url}
+    \verb https://epubs.siam.org/doi/abs/10.1137/1.9781611970319
+    \endverb
+    \field{year}{1982}
   \endentry
 
   \entry{deForcrand:2004ia}{article}{}
@@ -4052,6 +4429,73 @@
     \field{year}{2023}
   \endentry
 
+  \entry{Fritzsch:2013je}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FP}{%
+         family={Fritzsch},
+         familyi={F\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Ramos},
+         familyi={R\bibinitperiod},
+         given={Alberto},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FPRA1}
+    \strng{fullhash}{FPRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \verb{doi}
+    \verb 10.1007/JHEP10(2013)008
+    \endverb
+    \verb{eprint}
+    \verb 1301.4388
+    \endverb
+    \field{pages}{008}
+    \field{title}{{The gradient flow coupling in the Schr\"odinger functional}}
+    \field{volume}{10}
+    \field{journaltitle}{JHEP}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Gasser:1986vb}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GJ}{%
+         family={Gasser},
+         familyi={G\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LH}{%
+         family={Leutwyler},
+         familyi={L\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GJLH1}
+    \strng{fullhash}{GJLH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1016/0370-2693(87)90492-8
+    \endverb
+    \field{pages}{83\bibrangedash 88}
+    \field{title}{{Light Quarks at Low Temperatures}}
+    \field{volume}{184}
+    \field{journaltitle}{Phys. Lett. B}
+    \field{year}{1987}
+  \endentry
+
   \entry{Gattringer_Lang_2010}{book}{}
     \name{author}{2}{}{%
       {{hash=GC}{%
@@ -4109,6 +4553,88 @@
     \field{year}{1990}
   \endentry
 
+  \entry{Gerardin:2019rua}{article}{}
+    \name{author}{9}{}{%
+      {{hash=GA}{%
+         family={G\'erardin},
+         familyi={G\bibinitperiod},
+         given={Antoine},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CM}{%
+         family={C\`e},
+         familyi={C\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=vHG}{%
+         prefix={von},
+         prefixi={v\bibinitperiod},
+         family={Hippel},
+         familyi={H\bibinitperiod},
+         given={Georg},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={H\"orz},
+         familyi={H\bibinitperiod},
+         given={Ben},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MHB}{%
+         family={Meyer},
+         familyi={M\bibinitperiod},
+         given={Harvey\bibnamedelima B.},
+         giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Mohler},
+         familyi={M\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=OK}{%
+         family={Ottnad},
+         familyi={O\bibinitperiod},
+         given={Konstantin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Wilhelm},
+         familyi={W\bibinitperiod},
+         given={Jonas},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wittig},
+         familyi={W\bibinitperiod},
+         given={Hartmut},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GA+1}
+    \strng{fullhash}{GACMHGvHBMHBMDOKWJWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.100.014510
+    \endverb
+    \verb{eprint}
+    \verb 1904.03120
+    \endverb
+    \field{number}{1}
+    \field{pages}{014510}
+    \field{title}{{The leading hadronic contribution to $(g-2)_\mu$ from
+  lattice QCD with $N_{\rm f}=2+1$ flavours of O($a$) improved Wilson quarks}}
+    \field{volume}{100}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2019}
+  \endentry
+
   \entry{Ginsparg:1981bj}{article}{}
     \name{author}{2}{}{%
       {{hash=GPH}{%
@@ -4138,6 +4664,62 @@
     \field{volume}{25}
     \field{journaltitle}{Phys. Rev. D}
     \field{year}{1982}
+  \endentry
+
+  \entry{Giusti:2019xct}{article}{}
+    \name{author}{5}{}{%
+      {{hash=GD}{%
+         family={Giusti},
+         familyi={G\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=LV}{%
+         family={Lubicz},
+         familyi={L\bibinitperiod},
+         given={V.},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=MG}{%
+         family={Martinelli},
+         familyi={M\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SF}{%
+         family={Sanfilippo},
+         familyi={S\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Simula},
+         familyi={S\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GD+1}
+    \strng{fullhash}{GDLVMGSFSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.99.114502
+    \endverb
+    \verb{eprint}
+    \verb 1901.10462
+    \endverb
+    \field{number}{11}
+    \field{pages}{114502}
+    \field{title}{{Electromagnetic and strong isospin-breaking corrections to
+  the muon $g - 2$ from Lattice QCD+QED}}
+    \field{volume}{99}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-lat}
+    \field{year}{2019}
   \endentry
 
   \entry{Gottlieb:1987mq}{article}{}
@@ -4236,7 +4818,7 @@
          giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{GA+1}
+    \strng{namehash}{GA+2}
     \strng{fullhash}{GAAIDCTHDELGPSJWM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -4694,6 +5276,44 @@
     \field{year}{1998}
   \endentry
 
+  \entry{Jegerlehner:2017lbd}{article}{}
+    \name{author}{1}{}{%
+      {{hash=JF}{%
+         family={Jegerlehner},
+         familyi={J\bibinitperiod},
+         given={Fred},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=DDA}{%
+         family={Di\bibnamedelima Domenico},
+         familyi={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JF1}
+    \strng{fullhash}{JF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \verb{doi}
+    \verb 10.1051/epjconf/201816600022
+    \endverb
+    \verb{eprint}
+    \verb 1705.00263
+    \endverb
+    \field{pages}{00022}
+    \field{title}{{Muon g \textendash{} 2 theory: The hadronic part}}
+    \field{volume}{166}
+    \field{journaltitle}{EPJ Web Conf.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2018}
+  \endentry
+
   \entry{Kennedy:1998cu}{article}{}
     \name{author}{3}{}{%
       {{hash=KAD}{%
@@ -4760,6 +5380,50 @@
     \field{journaltitle}{Nucl. Phys. B Proc. Suppl.}
     \field{eprinttype}{arXiv}
     \field{year}{1999}
+  \endentry
+
+  \entry{Keshavarzi:2019abf}{article}{}
+    \name{author}{3}{}{%
+      {{hash=KA}{%
+         family={Keshavarzi},
+         familyi={K\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=ND}{%
+         family={Nomura},
+         familyi={N\bibinitperiod},
+         given={Daisuke},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=TT}{%
+         family={Teubner},
+         familyi={T\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KANDTT1}
+    \strng{fullhash}{KANDTT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.101.014029
+    \endverb
+    \verb{eprint}
+    \verb 1911.00367
+    \endverb
+    \field{number}{1}
+    \field{pages}{014029}
+    \field{title}{{$g-2$ of charged leptons, $\alpha (M^2_Z)$ , and the
+  hyperfine splitting of muonium}}
+    \field{volume}{101}
+    \field{journaltitle}{Phys. Rev. D}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-ph}
+    \field{year}{2020}
   \endentry
 
   \entry{Kostrzewa:2021syw}{article}{}
@@ -5509,6 +6173,47 @@
     \field{howpublished}{JHEP 1008:071,2010}
     \field{title}{Properties and uses of the Wilson flow in lattice QCD}
     \field{year}{2010}
+  \endentry
+
+  \entry{10.1093/biomet/61.1.1}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MRG}{%
+         family={MILLER},
+         familyi={M\bibinitperiod},
+         given={RUPERT\bibnamedelima G.},
+         giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MRG1}
+    \strng{fullhash}{MRG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{abstract}{%
+    {Research on the jackknife technique since its introduction by Quenouille
+  and Tukey is reviewed. Both its role in bias reduction and in robust interval
+  estimation are treated. Some speculations and suggestions about future
+  research are made. The bibliography attempts to include all published work on
+  jackknife methodology.}%
+    }
+    \verb{doi}
+    \verb 10.1093/biomet/61.1.1
+    \endverb
+    \verb{eprint}
+    \verb https://academic.oup.com/biomet/article-pdf/61/1/1/734663/61-1-1.pdf
+    \endverb
+    \field{issn}{0006-3444}
+    \field{number}{1}
+    \field{pages}{1\bibrangedash 15}
+    \field{title}{{The jackknife-a review}}
+    \verb{url}
+    \verb https://doi.org/10.1093/biomet/61.1.1
+    \endverb
+    \field{volume}{61}
+    \field{journaltitle}{Biometrika}
+    \field{month}{04}
+    \field{year}{1974}
   \endentry
 
   \entry{Madras:1988ei}{article}{}
@@ -6274,31 +6979,6 @@
     \field{year}{2019}
   \endentry
 
-  \entry{AP}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=PA}{%
-         family={Portelli},
-         familyi={P\bibinitperiod},
-         given={Antonin},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{PA1}
-    \strng{fullhash}{PA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{P}
-    \field{sortinithash}{P}
-    \field{booktitle}{{QCD+QED Workshop, Edinburgh, UK, May 29, 2023}}
-    \verb{eprint}
-    \verb https://indico.ph.ed.ac.uk/event/257/contributions/2442/attachments/1
-    \verb 189/1688/portelli.pdf
-    \endverb
-    \field{title}{{Prescriptions for the definition of isospin-breaking
-  effects}}
-    \field{year}{2023}
-  \endentry
-
   \entry{Ramos:2018vgu}{article}{}
     \name{author}{1}{}{%
       {{hash=RA}{%
@@ -7044,6 +7724,33 @@
     \field{volume}{2020}
     \field{journaltitle}{PTEP}
     \field{year}{2020}
+  \endentry
+
+  \entry{AP}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=cpE}{%
+         prefix={consensus},
+         prefixi={c\bibinitperiod},
+         family={proposal},
+         familyi={p\bibinitperiod},
+         given={Edinburgh},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{pEc1}
+    \strng{fullhash}{pEc1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{{QCD+QED Workshop, Edinburgh, UK, May 29, 2023}}
+    \verb{eprint}
+    \verb https://indico.ph.ed.ac.uk/event/257/contributions/2442/attachments/1
+    \verb 189/1688/portelli.pdf
+    \endverb
+    \field{title}{{Prescriptions for the definition of isospin-breaking
+  effects}}
+    \field{year}{2023}
   \endentry
 \enddatalist
 \endinput
