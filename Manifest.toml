@@ -1,6 +1,8 @@
 # This file is machine-generated - editing it directly is not advised
 
+julia_version = "1.10.1"
 manifest_format = "2.0"
+project_hash = "c797cc2e3515926a87b4346422524e1de0c92481"
 
 [[deps.ADerrors]]
 deps = ["BDIO", "FFTW", "FastGaussQuadrature", "ForwardDiff", "LaTeXStrings", "LinearAlgebra", "Nettle", "PGFPlotsX", "Plots", "Printf", "QuadGK", "Roots", "Statistics", "Test", "UnicodePlots"]
@@ -1597,7 +1599,7 @@ version = "3.1.1+0"
 
 [[deps.juobs]]
 deps = ["ADerrors", "BDIO", "ForwardDiff", "LaTeXStrings", "LinearAlgebra", "LsqFit", "Optim", "PyPlot", "Statistics"]
-git-tree-sha1 = "2bd88ac8d55ee8829548144f7177e422421da981"
+git-tree-sha1 = "c8003e7a9c69863a38f6c82a248bd92ead249ddc"
 repo-rev = "alejandro"
 repo-url = "/home/asaez/cls_ens/codes/juobs"
 uuid = "3399d769-80ea-4938-a2f8-b7fb0ead32c9"
