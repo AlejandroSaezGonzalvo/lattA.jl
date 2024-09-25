@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  2 AUG 2024 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.24)  23 SEP 2024 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1220,19 +1220,6 @@ Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 183.
 
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 183.
 Package hyperref Info: Option `hypertexnames' set `true' on input line 183.
-
-! Undefined control sequence.
-<argument> \textcopyright \ \myName , \myUni 
-                                             , \myFaculty 
-l.183 }
-       
-? 
-! Undefined control sequence.
-<argument> ...ght \ \myName , \myUni , \myFaculty 
-                                                  
-l.183 }
-       
-? 
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1240,12 +1227,12 @@ Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'american'.
 LaTeX Font Info:    Trying to load font information for T1+pplj on input line 6
 6.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pplj.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pplj.fd
 File: t1pplj.fd 2004/09/06 font definitions for T1/pplj.
-)
-(./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux)
-(./FrontBackmatter/Titleback.aux) (./FrontBackmatter/Dedication_2.aux)
-(./FrontBackmatter/Dedication.aux) (./FrontBackmatter/Abstract.aux
+) (./ClassicThesis.aux (./FrontBackmatter/Titlepage.aux) (./FrontBackmatter/Tit
+leback.aux)
+(./FrontBackmatter/Dedication_2.aux) (./FrontBackmatter/Dedication.aux)
+(./FrontBackmatter/Abstract.aux
 (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
 Package babel Info: Importing basic data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
@@ -1694,18 +1681,18 @@ Overfull \hbox (0.12099pt too wide) detected at line 189
  []
 
 [28] [29] [30] [31]
-Overfull \hbox (14.79276pt too wide) detected at line 369
+Overfull \hbox (14.79276pt too wide) detected at line 370
  $[] \OT1/zplm/m/n/10.95 = [] [] \OT1/pplx/m/n/10.95 .$  
  []
 
 [32] [33] [34] [35]
-Overfull \hbox (13.33754pt too wide) in paragraph at lines 499--501
+Overfull \hbox (13.33754pt too wide) in paragraph at lines 500--502
 \T1/pplj/m/n/10.95 (-20) with $\OML/zplm/m/it/10.95 U[]$ \T1/pplj/m/n/10.95 (-2
 0) the above men-tioned dimension-6 op-er-a-tors. A non-perturbative
  []
 
 
-Overfull \hbox (8.318pt too wide) in paragraph at lines 506--508
+Overfull \hbox (8.318pt too wide) in paragraph at lines 507--509
 \T1/pplj/m/n/10.95 (-20) thus lead-ing to tree-level im-prove-ment of the ac-ti
 on. The only dimension-
  []
@@ -1721,20 +1708,7 @@ Chapter 2.
 
 
 
-] [43] [44] [45]
-! Double superscript.
-<argument> ...\left |\gamma ,l\right >e^{-y_0E_l}^
-                                                  {\gamma }\frac {\left <\ga...
-l.144 \end{align}
-                 
-? 
-! Double superscript.
-<argument> ...\left |\gamma ,l\right >e^{-y_0E_l}^
-                                                  {\gamma }\frac {\left <\ga...
-l.144 \end{align}
-                 
-? 
-[46] [47]
+] [43] [44] [45] [46] [47]
 Overfull \hbox (0.13058pt too wide) in paragraph at lines 225--226
 []\T1/pplj/m/n/10.95 (-20) In the PBC case, in or-der to iso-late the ma-trix e
 l-e-ment $[] \OML/zplm/m/it/10.95 A[] []$
@@ -1873,41 +1847,41 @@ Chapter 3.
 
 
 ] [60] [61] [62] [63] [64]
-Overfull \hbox (23.17114pt too wide) in alignment at lines 157--175
+Overfull \hbox (23.17114pt too wide) in alignment at lines 166--184
  [] [] [] [] [] [] 
  []
 
 <./cap4/figs/der_t0fpik.pdf, id=1408, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_t0fpik.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_t0fpik.pdf>
-Package pdftex.def Info: ./cap4/figs/der_t0fpik.pdf  used on input line 179.
+Package pdftex.def Info: ./cap4/figs/der_t0fpik.pdf  used on input line 188.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 <./cap4/figs/der_phi2.pdf, id=1413, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_phi2.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_phi2.pdf>
-Package pdftex.def Info: ./cap4/figs/der_phi2.pdf  used on input line 186.
+Package pdftex.def Info: ./cap4/figs/der_phi2.pdf  used on input line 195.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 <./cap4/figs/der_sea_t0fpik.pdf, id=1418, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_sea_t0fpik.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_sea_t0fpik.pdf>
-Package pdftex.def Info: ./cap4/figs/der_sea_t0fpik.pdf  used on input line 193
+Package pdftex.def Info: ./cap4/figs/der_sea_t0fpik.pdf  used on input line 202
 .
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 <./cap4/figs/der_sea_t0m12.pdf, id=1423, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_sea_t0m12.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_sea_t0m12.pdf>
-Package pdftex.def Info: ./cap4/figs/der_sea_t0m12.pdf  used on input line 200.
+Package pdftex.def Info: ./cap4/figs/der_sea_t0m12.pdf  used on input line 209.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 <./cap4/figs/der_sea_phi2.pdf, id=1428, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_sea_phi2.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_sea_phi2.pdf>
-Package pdftex.def Info: ./cap4/figs/der_sea_phi2.pdf  used on input line 207.
+Package pdftex.def Info: ./cap4/figs/der_sea_phi2.pdf  used on input line 216.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 <./cap4/figs/der_sea_phi4.pdf, id=1433, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/der_sea_phi4.pdf Graphic file (type pdf)
 <use ./cap4/figs/der_sea_phi4.pdf>
-Package pdftex.def Info: ./cap4/figs/der_sea_phi4.pdf  used on input line 214.
+Package pdftex.def Info: ./cap4/figs/der_sea_phi4.pdf  used on input line 223.
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 [65 <./cap4/figs/der_t0fpik.pdf>] [66 <./cap4/figs/der_phi2.pdf> <./cap4/figs/d
 er_sea_t0fpik.pdf
@@ -1922,14 +1896,14 @@ ltiple pdfs with page group included in a single page
 <./cap4/figs/matching_N200.pdf, id=1688, 462.52798pt x 346.89601pt>
 File: ./cap4/figs/matching_N200.pdf Graphic file (type pdf)
 <use ./cap4/figs/matching_N200.pdf>
-Package pdftex.def Info: ./cap4/figs/matching_N200.pdf  used on input line 261.
+Package pdftex.def Info: ./cap4/figs/matching_N200.pdf  used on input line 270.
 
 (pdftex.def)             Requested size: 336.0pt x 252.01454pt.
 <./cap4/figs/interp_fpik_N200.pdf, id=1689, 462.52798pt x 283.29839pt>
 File: ./cap4/figs/interp_fpik_N200.pdf Graphic file (type pdf)
 <use ./cap4/figs/interp_fpik_N200.pdf>
 Package pdftex.def Info: ./cap4/figs/interp_fpik_N200.pdf  used on input line 2
-68.
+77.
 (pdftex.def)             Requested size: 336.0pt x 205.81186pt.
 ) [69] [70 <./cap4/figs/matching_N200.pdf> <./cap4/figs/interp_fpik_N200.pdf
 
@@ -2401,7 +2375,7 @@ Appendix F.
 
  (./apendices/apendices_GEVP.tex
 Appendix G.
-<./cap6/figs/matching/m8_plateau.pdf, id=3409, 722.7pt x 542.025pt>
+<./cap6/figs/matching/m8_plateau.pdf, id=3412, 722.7pt x 542.025pt>
 File: ./cap6/figs/matching/m8_plateau.pdf Graphic file (type pdf)
 <use ./cap6/figs/matching/m8_plateau.pdf>
 Package pdftex.def Info: ./cap6/figs/matching/m8_plateau.pdf  used on input lin
@@ -2419,7 +2393,7 @@ Overfull \hbox (25.3491pt too wide) in paragraph at lines 42--43
 
 
 ]
-<./cap6/figs/fds/f8_plateau.pdf, id=3423, 722.7pt x 542.025pt>
+<./cap6/figs/fds/f8_plateau.pdf, id=3426, 722.7pt x 542.025pt>
 File: ./cap6/figs/fds/f8_plateau.pdf Graphic file (type pdf)
 <use ./cap6/figs/fds/f8_plateau.pdf>
 Package pdftex.def Info: ./cap6/figs/fds/f8_plateau.pdf  used on input line 49.
@@ -2528,7 +2502,7 @@ Appendix L.
 
 
 ] [159]
-<./apendices/figs_appex/mR_ratios_comb.pdf, id=3680, 665.60669pt x 346.89601pt>
+<./apendices/figs_appex/mR_ratios_comb.pdf, id=3683, 665.60669pt x 346.89601pt>
 
 File: ./apendices/figs_appex/mR_ratios_comb.pdf Graphic file (type pdf)
 <use ./apendices/figs_appex/mR_ratios_comb.pdf>
@@ -2924,13 +2898,13 @@ Package logreq Info: Writing requests to 'ClassicThesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36387 strings out of 478287
- 717000 string characters out of 5849289
- 1725723 words of memory out of 5000000
- 51891 multiletter control sequences out of 15000+600000
+ 36389 strings out of 478287
+ 717022 string characters out of 5849289
+ 1724575 words of memory out of 5000000
+ 51892 multiletter control sequences out of 15000+600000
  645296 words of font info for 922 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,24n,125p,10608b,2463s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,24n,125p,10608b,2465s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -2956,10 +2930,10 @@ ve/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist
 /urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palati
 no/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.p
 fb>
-Output written on ClassicThesis.pdf (194 pages, 1714526 bytes).
+Output written on ClassicThesis.pdf (194 pages, 1714695 bytes).
 PDF statistics:
- 4638 PDF objects out of 5155 (max. 8388607)
- 3453 compressed objects within 35 object streams
- 871 named destinations out of 1000 (max. 500000)
+ 4641 PDF objects out of 5155 (max. 8388607)
+ 3456 compressed objects within 35 object streams
+ 872 named destinations out of 1000 (max. 500000)
  156462 words of extra memory for PDF output out of 184870 (max. 10000000)
 

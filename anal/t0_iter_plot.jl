@@ -89,7 +89,7 @@ errorbar((x.+0.2), value.(y), err.(y), fmt="<", label="Wtm", color="darkorange")
 y = sqrt_t0_st_vec[1:end]
 errorbar((x.+0.1), value.(y), err.(y), fmt=">", label="Wilson", color="green")
 xlabel("iteration")
-ylabel(L"$\sqrt{t_0}\;\;[fm]$")
+ylabel(L"$\sqrt{t_0^{\rm phys}}\;\;[fm]$")
 xticks(rotation=0)
 tight_layout()
 legend()  

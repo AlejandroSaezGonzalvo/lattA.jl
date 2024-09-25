@@ -24,7 +24,7 @@ w0, t0 = get_w0t0(path, ens, [45,145], rw=true, wpm=wpm, tm=tm, tM=tM, pl=true, 
 
 function write_w0t0()
     obs = [w0, t0]
-    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted/new_w0_t0_", ens.id, "_obs_wil_un.bdio"), "w")
+    fb = BDIO_open(string("/home/asaez/cls_ens/results/unshifted_w0/new_w0_t0_", ens.id, "_obs_wil_un.bdio"), "w")
     for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
     BDIO_close!(fb)
 end

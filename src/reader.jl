@@ -201,7 +201,7 @@ function get_corr_wil(path::String, ens::EnsInfo, g1::String, g2::String; rw=fal
         truncate_data!(dat,ens.cnfg)
     end
 
-    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=ens.L, info=info) for i in 1:length(dat)]
+    rw ? corr = [corr_obs(dat[i], L=ens.L, rw=rwf, info=info, flag_strange=fs) for i in 1:length(dat)] : corr = [corr_obs(dat[i], L=ens.L, info=info) for i in 1:length(dat)]
 
     if info == false
         return corr
@@ -458,7 +458,7 @@ function get_YM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=ADerro
             rwf = read_ms1.(path_rw, v=ens.vrw)
         end
 
-        Ysl_r, W = juobs.apply_rw(Ysl, rwf)
+        Ysl_r, W = juobs.apply_rw(Ysl, rwf, id=id)
         tmp_r = Ysl_r[1]
         tmp_W = W[1]
         [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]
@@ -559,7 +559,7 @@ function get_YM_dYM(path::String, ens::EnsInfo; rw=false, ws::ADerrors.wspace=AD
             rwf = read_ms1.(path_rw, v=ens.vrw)
         end
 
-        Ysl_r, W = juobs.apply_rw(Ysl, rwf)
+        Ysl_r, W = juobs.apply_rw(Ysl, rwf, id=id)
         tmp_r = Ysl_r[1]
         tmp_W = W[1]
         [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]

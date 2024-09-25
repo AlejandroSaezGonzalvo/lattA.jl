@@ -1285,7 +1285,7 @@ function get_t0(path::String, ens::EnsInfo, plat::Vector{Int64};
             rwf = read_ms1.(path_rw, v=ens.vrw)
         end
 
-        Ysl_r, W = juobs.apply_rw(Ysl, rwf)
+        Ysl_r, W = juobs.apply_rw(Ysl, rwf, id=id)
         tmp_r = Ysl_r[1]
         tmp_W = W[1]
         [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]
@@ -1485,7 +1485,7 @@ function get_t0_ALPHA(path::String, ens::EnsInfo, plat::Vector{Int64};
             rwf = read_ms1.(path_rw, v=ens.vrw)
         end
 
-        Ysl_r, W = juobs.apply_rw(Ysl, rwf)
+        Ysl_r, W = juobs.apply_rw(Ysl, rwf, id=id)
         tmp_r = Ysl_r[1]
         tmp_W = W[1]
         [tmp_r = cat(tmp_r, Ysl_r[k], dims=1) for k = 2:nr]

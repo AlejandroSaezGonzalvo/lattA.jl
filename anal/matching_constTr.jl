@@ -2,6 +2,7 @@
 
 using Revise, lattA, juobs, ADerrors, BDIO, PyPlot
 using ADerrors: err
+using lattA: fit_alg, fve
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");

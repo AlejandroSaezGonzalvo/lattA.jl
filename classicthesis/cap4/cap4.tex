@@ -39,9 +39,18 @@ The Chapter is structured as follows. In Sec.~\ref{ch_ma:sec:Sea} we discuss the
 \section{Sea sector}
 \label{ch_ma:sec:Sea}
 
-The gauge ensembles that we employ are CLS ensembles~\citep{Bruno:2014jqa,Mohler:2017wnb} with $N_f=2+1$ non-perturbatively $\mathcal{O}(a)$ improved Wilson fermions (see eq.~(\ref{ch_foundation:eq:DW_impr})). They use the Lüscher-Weisz gauge action~\citep{Luscher:1985zq} defined in eqs.~(\ref{ch_foundation:eq:SG_impr}-\ref{ch_foundation:eq:LW}) which, following the Symanzik improvement program, is  tree-level improved at $\mathcal{O}(a^2)$.
+The gauge ensembles that we employ are CLS ensembles~\citep{Bruno:2014jqa,Mohler:2017wnb} with $N_f=2+1$ non-perturbatively $\mathcal{O}(a)$ improved Wilson fermionsn (see eq.~(\ref{ch_foundation:eq:DW_impr})). They use the Lüscher-Weisz gauge action~\citep{Luscher:1985zq} defined in eqs.~(\ref{ch_foundation:eq:SG_impr}-\ref{ch_foundation:eq:LW}) which, following the Symanzik improvement program, is  tree-level improved at $\mathcal{O}(a^2)$.
 
-For most of the ensembles, open boundary conditions (OBC) in time are used for the gauge fields, since it has been observed that the use of periodic boundary conditions (PBC) leads to a steep dependence in the scaling of  the autocorrelation times as one approaches the continuum limit, a problem known as critical slowing down. This is related to the existence of topologically disconnected sectors in gauge field space, which prevents the algorithm to sample correctly different topological sectors. In contrast to this, OBC let the topological charge flow through the boundaries and thus improves the sampling of topological sectors. All ensembles use PBC in the spatial directions.
+For most of the ensembles, open boundary conditions (OBC) in time are
+used for the gauge fields, since it has been observed that the use of
+periodic boundary conditions (PBC) leads to a steep dependence in the
+scaling of  the autocorrelation times as one approaches the continuum
+limit, a problem known as critical slowing down. This is related to
+the existence of topologically disconnected sectors in gauge field
+space, which prevents the algorithm to sample correctly different
+topological sectors. In contrast to this, OBC let the topological
+charge flow through the boundaries and thus avoids the problem of
+topology freezing as one approaches the continuum. All ensembles use PBC in the spatial directions.
 
 The ensembles we consider have 5 different values of the lattice spacing, and for each of them there is one ensemble at the symmetric point, which is defined as $m_l=m_s$, or equivalently for the hopping parameter $\kappa$ (see eq.~(\ref{ch_foundation:eq:kappa})) as $\kappa_l=\kappa_s$. As we will see, all the ensembles, reported in Table~\ref{apex_ensembles:tab:ens}, follow the chiral trajectory defined in eq.~(\ref{ch_ma:eq:chiral_traj}) below.
 

@@ -78,7 +78,7 @@ function matching_sym_plot()
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux")]
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$\mu_l^{\rm(v)}$")   
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
     vect = match_phi2_sym(xp, up) .+ 2/3 .* [phi4_ph for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
@@ -248,7 +248,7 @@ function matching_constTr_plot()
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$\mu_l^{\rm(v)}$")   
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
     vect = match_phi4(xp, up) .+ [phi4_ph for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
@@ -358,7 +358,7 @@ function matching_D200_J303_plot()
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$\mu_l^{\rm(v)}$")   
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
     vect =  match_phi2(xp, up) .+ [phi2_w_sh for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
@@ -463,7 +463,7 @@ function matching_newens_sym_plot()
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux")]
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$\mu_l^{\rm(v)}$")   
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
     vect = match_phi2_sym(xp, up) .+ 2/3 .* [phi4_ph for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
@@ -627,7 +627,7 @@ function matching_newens_constTr_plot()
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$\mu_l^{\rm(v)}$")   
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
     vect = match_phi4(xp, up) .+ [phi4_ph for i in 1:length(xp[:,1])]
     uwerr.(vect)
     v = value.(vect)
@@ -683,7 +683,7 @@ function interp_fpik_sym_plot()
     xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux")]
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$\mu_l^{\rm(v)}$")   
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
     vect = interp_fpik_sym(xp, up_fpik) 
     uwerr.(vect)
     v = value.(vect)
@@ -737,7 +737,7 @@ function interp_fpik_constTr_plot()
     [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
     [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
     #ylabel(L"$\phi_2^{\rm (v)}$")  
-    xlabel(L"$\mu_l^{\rm(v)}$")   
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
     vect = interp_fpik_constTr(xp, up_fpik) 
     uwerr.(vect)
     v = value.(vect)

@@ -1,0 +1,1126 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdftex 2024.3.24)  24 AUG 2024 02:37
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**classicthesis-config.tex
+(./classicthesis-config.tex
+./classicthesis-config.tex:19: Undefined control sequence.
+l.19 \PassOptionsToPackage
+                          {utf8}{inputenc}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:20: Undefined control sequence.
+l.20   \usepackage
+                  {inputenc}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:22: Undefined control sequence.
+l.22 \PassOptionsToPackage
+                          {T1}{fontenc} % T2A for cyrillics
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:23: Undefined control sequence.
+l.23   \usepackage
+                  {fontenc}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:31: Undefined control sequence.
+l.31 \PassOptionsToPackage
+                          {
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:48: Undefined control sequence.
+l.48 \newcommand
+                {\myTitle}{Hadronic physics and scale setting from Lattice Q...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:48: Undefined control sequence.
+l.48 \newcommand{\myTitle
+                         }{Hadronic physics and scale setting from Lattice Q...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:48: Undefined control sequence.
+l.48 ...ttice QCD with Wilson-type fermions\xspace
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:49: Undefined control sequence.
+l.49 \newcommand
+                {\myName}{Alejandro SÃ¡ez Gonzalvo\xspace}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:49: Undefined control sequence.
+l.49 \newcommand{\myName
+                        }{Alejandro SÃ¡ez Gonzalvo\xspace}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¡ in font cmr10!
+./classicthesis-config.tex:49: Undefined control sequence.
+l.49 ...d{\myName}{Alejandro SÃ¡ez Gonzalvo\xspace
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:50: Undefined control sequence.
+l.50 \newcommand
+                {\myTime}{2024\xspace}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:50: Undefined control sequence.
+l.50 \newcommand{\myTime
+                        }{2024\xspace}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:50: Undefined control sequence.
+l.50 \newcommand{\myTime}{2024\xspace
+                                     }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:51: Undefined control sequence.
+l.51 \newcommand
+                {\myVersion}{\classicthesis}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:51: Undefined control sequence.
+l.51 \newcommand{\myVersion
+                           }{\classicthesis}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:51: Undefined control sequence.
+l.51 \newcommand{\myVersion}{\classicthesis
+                                           }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:56: Undefined control sequence.
+l.56 \providecommand
+                    {\mLyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:56: Undefined control sequence.
+l.56 \providecommand{\mLyX
+                          }{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:56: Undefined control sequence.
+l.56 ...-.1667em\lower.25em\hbox{Y}\kern-.125emX\@
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:57: Undefined control sequence.
+l.57 \newcommand
+                {\ie}{i.\,e.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:57: Undefined control sequence.
+l.57 \newcommand{\ie
+                    }{i.\,e.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:57: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \mskip 
+\,->\mskip 
+           \thinmuskip 
+l.57 \newcommand{\ie}{i.\,
+                          e.}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./classicthesis-config.tex:57: Extra }, or forgotten $.
+l.57 \newcommand{\ie}{i.\,e.}
+                             
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./classicthesis-config.tex:58: Undefined control sequence.
+l.58 \newcommand
+                {\Ie}{I.\,e.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:58: Undefined control sequence.
+l.58 \newcommand{\Ie
+                    }{I.\,e.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:59: Undefined control sequence.
+l.59 \newcommand
+                {\eg}{e.\,g.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:59: Undefined control sequence.
+l.59 \newcommand{\eg
+                    }{e.\,g.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:60: Undefined control sequence.
+l.60 \newcommand
+                {\Eg}{E.\,g.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:60: Undefined control sequence.
+l.60 \newcommand{\Eg
+                    }{E.\,g.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:62: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.62 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./classicthesis-config.tex:70: Undefined control sequence.
+l.70 \PassOptionsToPackage
+                          {ngerman,american}{babel} % change this to your la...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:73: Undefined control sequence.
+l.73     \usepackage
+                    {babel}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:75: Undefined control sequence.
+l.75 \usepackage
+                {csquotes}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:76: Undefined control sequence.
+l.76 \PassOptionsToPackage
+                          {%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:88: Undefined control sequence.
+l.88     \usepackage
+                    {biblatex}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (3.30162pt too wide) in paragraph at lines 75--89
+[]\tenrm csquotes backend=bibtex8,bibencoding=ascii,language=auto,style=numeric
+-comp,sorting=nyt, maxbib-|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm c
+.\tenrm s
+.\tenrm q
+.\tenrm u
+.etc.
+
+./classicthesis-config.tex:90: Undefined control sequence.
+l.90 \PassOptionsToPackage
+                          {fleqn}{amsmath}       % math environments and mor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:91: Undefined control sequence.
+l.91   \usepackage
+                  {amsmath}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:96: Undefined control sequence.
+l.96 \usepackage
+                {graphicx} %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:97: Undefined control sequence.
+l.97 \usepackage
+                {scrhack} % fix warnings when using KOMA with listings package
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:98: Undefined control sequence.
+l.98 \usepackage
+                {xspace} % to get the spacing after macros right
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:99: Undefined control sequence.
+l.99 \PassOptionsToPackage
+                          {printonlyused,smaller}{acronym}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:100: Undefined control sequence.
+l.100   \usepackage
+                   {acronym} % nice macros for handling all acronyms in the ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:117: Undefined control sequence.
+l.117 \usepackage
+                 {tabularx} % better tables
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:118: Undefined control sequence.
+l.118   \setlength
+                  {\extrarowheight}{3pt} % increase table row height
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:118: Undefined control sequence.
+l.118   \setlength{\extrarowheight
+                                  }{3pt} % increase table row height
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:119: Undefined control sequence.
+l.119 \newcommand
+                 {\tableheadline}[1]{\multicolumn{1}{l}{\spacedlowsmallcaps{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:119: Undefined control sequence.
+l.119 \newcommand{\tableheadline
+                                }[1]{\multicolumn{1}{l}{\spacedlowsmallcaps{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:119: Undefined control sequence.
+l.119 \newcommand{\tableheadline}[1]{\multicolumn
+                                                 {1}{l}{\spacedlowsmallcaps{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:119: Undefined control sequence.
+l.119 ...1]{\multicolumn{1}{l}{\spacedlowsmallcaps
+                                                  {#1}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:119: You can't use `macro parameter character #' in 
+horizontal mode.
+l.119 ...{\multicolumn{1}{l}{\spacedlowsmallcaps{#
+                                                  1}}}
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./classicthesis-config.tex:120: Undefined control sequence.
+l.120 \newcommand
+                 {\myfloatalign}{\centering} % to be used with each float fo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:120: Undefined control sequence.
+l.120 \newcommand{\myfloatalign
+                               }{\centering} % to be used with each float fo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:120: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.120 \newcommand{\myfloatalign}{\centering}
+                                             % to be used with each float fo...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./classicthesis-config.tex:120: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.120 \newcommand{\myfloatalign}{\centering}
+                                             % to be used with each float fo...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+./classicthesis-config.tex:121: Undefined control sequence.
+l.121 \usepackage
+                 {subfig}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:128: Undefined control sequence.
+l.128 \usepackage
+                 {listings}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:130: Undefined control sequence.
+l.130 \lstset
+             {language=[LaTeX]Tex,%C++,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:132: Undefined control sequence.
+l.132   keywordstyle=\color
+                           {RoyalBlue},%\bfseries,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:133: Undefined control sequence.
+l.133   basicstyle=\small
+                         \ttfamily,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:133: Undefined control sequence.
+l.133   basicstyle=\small\ttfamily
+                                  ,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:135: Undefined control sequence.
+l.135   commentstyle=\color
+                           {Green}\ttfamily,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:135: Undefined control sequence.
+l.135   commentstyle=\color{Green}\ttfamily
+                                           ,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:136: Undefined control sequence.
+l.136   stringstyle=\rmfamily
+                             ,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:138: Undefined control sequence.
+l.138   numberstyle=\scriptsize
+                               ,%\tiny
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:147: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.147 }
+       
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./classicthesis-config.tex:147: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.147 }
+       
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+Overfull \hbox (87.0794pt too wide) in paragraph at lines 128--149
+[]\tenrm listings lan-guage=[LaTeX]Tex,morekeywords=PassOptionsToPackage,select
+language, key-word-style=RoyalBlue,basicstyle=,|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm l
+.\tenrm i
+.\tenrm s
+.\tenrm t
+.etc.
+
+./classicthesis-config.tex:159: Undefined control sequence.
+l.159 \usepackage
+                 {classicthesis}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:165: Undefined control sequence.
+l.165 \hypersetup
+                 {%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:177: Undefined control sequence.
+l.177   pdftitle={\myTitle
+                          },%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:178: Undefined control sequence.
+l.178   pdfauthor={\textcopyright
+                                 \ \myName, \myUni, \myFaculty},%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:178: Undefined control sequence.
+l.178   pdfauthor={\textcopyright\ \myName
+                                          , \myUni, \myFaculty},%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:178: Undefined control sequence.
+l.178   pdfauthor={\textcopyright\ \myName, \myUni
+                                                  , \myFaculty},%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:178: Undefined control sequence.
+l.178 ...extcopyright\ \myName, \myUni, \myFaculty
+                                                  },%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (122.35751pt too wide) in paragraph at lines 167--184
+[]\tenrm colorlinks=true, link-toc-page=true, pdf-s-tart-page=3, pdf-s-tartview
+=FitV,breaklinks=true, pagean-chor=true,pdfpagemode=UseNone,|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm c
+.\tenrm o
+.\tenrm l
+.\tenrm o
+.etc.
+
+
+Overfull \hbox (1.44066pt too wide) in paragraph at lines 167--184
+\tenrm plain-pages=false, book-mark-snum-bered, book-mark-sopen=true, book-mark
+-sopen-level=1,hypertexnames=true,|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm p
+.\tenrm l
+.\tenrm a
+.\tenrm i
+.\tenrm n
+.etc.
+
+./classicthesis-config.tex:195: Undefined control sequence.
+l.195 \makeatletter
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:196: Undefined control sequence.
+l.196 \@
+        ifpackageloaded{babel}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:198: Undefined control sequence.
+l.198     \addto
+                \extrasamerican{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:198: Undefined control sequence.
+l.198     \addto\extrasamerican
+                               {%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:199: Undefined control sequence.
+l.199       \renewcommand
+                         *{\figureautorefname}{Figure}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:199: Undefined control sequence.
+l.199       \renewcommand*{\figureautorefname
+                                             }{Figure}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:200: Undefined control sequence.
+l.200       \renewcommand
+                         *{\tableautorefname}{Table}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:200: Undefined control sequence.
+l.200       \renewcommand*{\tableautorefname
+                                            }{Table}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:201: Undefined control sequence.
+l.201       \renewcommand
+                         *{\partautorefname}{Part}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:201: Undefined control sequence.
+l.201       \renewcommand*{\partautorefname
+                                           }{Part}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:202: Undefined control sequence.
+l.202       \renewcommand
+                         *{\chapterautorefname}{Chapter}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:202: Undefined control sequence.
+l.202       \renewcommand*{\chapterautorefname
+                                              }{Chapter}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:203: Undefined control sequence.
+l.203       \renewcommand
+                         *{\sectionautorefname}{Section}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:203: Undefined control sequence.
+l.203       \renewcommand*{\sectionautorefname
+                                              }{Section}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:204: Undefined control sequence.
+l.204       \renewcommand
+                         *{\subsectionautorefname}{Section}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:204: Undefined control sequence.
+l.204       \renewcommand*{\subsectionautorefname
+                                                 }{Section}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:205: Undefined control sequence.
+l.205       \renewcommand
+                         *{\subsubsectionautorefname}{Section}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:205: Undefined control sequence.
+l.205 ... \renewcommand*{\subsubsectionautorefname
+                                                  }{Section}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:207: Undefined control sequence.
+l.207     \addto
+                \extrasngerman{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:207: Undefined control sequence.
+l.207     \addto\extrasngerman
+                              {%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:208: Undefined control sequence.
+l.208       \renewcommand
+                         *{\paragraphautorefname}{Absatz}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:208: Undefined control sequence.
+l.208       \renewcommand*{\paragraphautorefname
+                                                }{Absatz}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:209: Undefined control sequence.
+l.209       \renewcommand
+                         *{\subparagraphautorefname}{Unterabsatz}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:209: Undefined control sequence.
+l.209 ...  \renewcommand*{\subparagraphautorefname
+                                                  }{Unterabsatz}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:210: Undefined control sequence.
+l.210       \renewcommand
+                         *{\footnoteautorefname}{Fu\"snote}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:210: Undefined control sequence.
+l.210       \renewcommand*{\footnoteautorefname
+                                               }{Fu\"snote}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:211: Undefined control sequence.
+l.211       \renewcommand
+                         *{\FancyVerbLineautorefname}{Zeile}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:211: Undefined control sequence.
+l.211 ... \renewcommand*{\FancyVerbLineautorefname
+                                                  }{Zeile}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:212: Undefined control sequence.
+l.212       \renewcommand
+                         *{\theoremautorefname}{Theorem}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:212: Undefined control sequence.
+l.212       \renewcommand*{\theoremautorefname
+                                              }{Theorem}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:213: Undefined control sequence.
+l.213       \renewcommand
+                         *{\appendixautorefname}{Anhang}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:213: Undefined control sequence.
+l.213       \renewcommand*{\appendixautorefname
+                                               }{Anhang}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:214: Undefined control sequence.
+l.214       \renewcommand
+                         *{\equationautorefname}{Gleichung}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:214: Undefined control sequence.
+l.214       \renewcommand*{\equationautorefname
+                                               }{Gleichung}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:215: Undefined control sequence.
+l.215       \renewcommand
+                         *{\itemautorefname}{Punkt}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:215: Undefined control sequence.
+l.215       \renewcommand*{\itemautorefname
+                                           }{Punkt}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:218: Undefined control sequence.
+l.218       \providecommand
+                           {\subfigureautorefname}{\figureautorefname}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:218: Undefined control sequence.
+l.218       \providecommand{\subfigureautorefname
+                                                 }{\figureautorefname}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:218: Undefined control sequence.
+l.218 ...\subfigureautorefname}{\figureautorefname
+                                                  }%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./classicthesis-config.tex:220: Undefined control sequence.
+l.220 \makeatother
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (200.62144pt too wide) in paragraph at lines 196--221
+[]\tenrm ifpackageloadedbabel*Figure*Table*Part*Chapter*Section*Section*Section
+*Absatz*Unterabsatz*Fu^^?snote*Zeile*Theorem*Anhang*Gleichung*Punkt |
+
+\hbox(7.5+1.94444)x469.75499
+.\hbox(0.0+0.0)x20.0
+.\tenrm i
+.\tenrm f
+.\tenrm p
+.\tenrm a
+.etc.
+
+./classicthesis-config.tex:226: Undefined control sequence.
+l.226 \listfiles
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+! Emergency stop.
+<*> classicthesis-config.tex
+                            
+*** (job aborted, no legal \end found)
+
+!  ==> Fatal error occurred, no output PDF file produced!

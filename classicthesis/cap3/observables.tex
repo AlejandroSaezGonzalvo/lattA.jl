@@ -32,7 +32,7 @@ P^{ij}(x)&=\bar{\psi}^{i}(x)\gamma_5\psi^{j}(x),\\
 \label{ch_observables:eq:A}
 A_{\mu}^{ij}(x)&=\bar{\psi}^i(x)\gamma_{\mu}\gamma_5\psi^{j}(x),
 \end{align}
-where $i,j$ are flavor indices. The pseudoscalar density $P$ in eq.~(\ref{ch_observables:eq:P}) renormalizes with the renormalization factor $Z_P(g_0^2,\mu_{\textrm{ren}})$, which is a function of the renormalization scale $\mu_{\textrm{ren}}$. As we will see when writing the PCAC relation, the running of $P$ is related to the running of the quark mass.  On the other hand, the axial current $A_{\mu}$ in eq.~(\ref{ch_observables:eq:A}) only receives a finite renormalization through the renormalization factor $Z_A(g_0^2)$. When  a mass-independent renormalization scheme is employed, the quarks are to be considered massless. In this limit, the Dirac operators of the Wilson and  Wilson tm regularizations coincide. It is therefore possible to employ the same set of renormalization factor for the two regularizations. The renormalized pseudoscalar density and axial currents thus read
+where $i,j$ are flavor indices. The pseudoscalar density $P$ in eq.~(\ref{ch_observables:eq:P}) renormalizes with the renormalization factor $Z_P(g_0^2,\mu_{\textrm{ren}})$, which is a function of the renormalization scale $\mu_{\textrm{ren}}$. As we will see when writing the PCAC relation, the running of $P$ is related to the running of the quark mass.  On the other hand, the axial current $A_{\mu}$ in eq.~(\ref{ch_observables:eq:A}) only receives a finite renormalization through the renormalization factor $Z_A(g_0^2)$. When  a mass-independent renormalization scheme is employed, the quarks are to be considered massless. In this limit, the Dirac operators of the Wilson and  Wilson tm regularizations coincide. It is therefore possible to employ the same set of renormalization factors for the two regularizations. The renormalized pseudoscalar density and axial currents thus read
 \begin{align}
 \label{ch_observables:eq:corr_ren}
 P^{ij,{\textrm{R}}}&=Z_P(g_0^2,\mu_{\textrm{ren}})\left(1+a\tilde{b}_Pm_{ij}+a\bar{b}_P{\textrm{tr}}\left(M_q\right)\right)P^{ij}, \\
@@ -140,7 +140,7 @@ Combining these elements, the two-point function can be written as
 \begin{align}
 \left<O(x)O(y)\right>&=\sum_{\alpha,\beta,\gamma}\sum_{n,m,l}\frac{\left<\Omega|\beta,m\right>}{\left<\Omega|0,0\right>}e^{-(T-x_0)E_m^{\beta}} \notag \\
 &\times\left<\beta,m\right|\hat{O}(\vec{x})\left|\alpha,n\right>e^{-(x_0-y_0)E_n^{\alpha}} \notag \\
-&\times\left<\alpha,n\right|\hat{O}(\vec{y})\left|\gamma,l\right>e^{-y_0E_l}^{\gamma}\frac{\left<\gamma,l|\Omega\right>}{\left<0,0|\Omega\right>},
+&\times\left<\alpha,n\right|\hat{O}(\vec{y})\left|\gamma,l\right>e^{-y_0E_l^{\gamma}}\frac{\left<\gamma,l|\Omega\right>}{\left<0,0|\Omega\right>},
 \end{align}
 where we absorbed the $e^{-TE_0}$ term coming from the partition function into the energy levels
 \begin{equation}
@@ -186,7 +186,7 @@ Meson masses involving the light and strange quarks can be extracted from the ps
 \label{ch_observables:eq:meff}
 am_{\textrm{eff}}(x_0)={\textrm{log}}\left(\frac{C_P(x_0,y_0)}{C_P(x_0+a,y_0)}\right).
 \end{equation}
-For sufficiently large source-sink separation $x_0\gg 1$ this effective mass $m_{\textrm{eff}}(x_0)$ tends to a plateau as can be seen from the spectral decomposition of the two-point function eq.~(\ref{ch_foundation:eq:2pt_spec}).
+For sufficiently large source-sink separation $x_0\gg a$ this effective mass $m_{\textrm{eff}}(x_0)$ tends to a plateau as can be seen from the spectral decomposition of the two-point function eq.~(\ref{ch_foundation:eq:2pt_spec}).
 
 In the case of PBC, to extract the pion mass one can alternatively build the quantity
 \begin{equation}

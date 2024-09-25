@@ -72,6 +72,7 @@ W_F^{\alpha}=\textrm{min}_W\left(\sqrt{\frac{2(2W+1)}{N_{\alpha}}}+e^{-W/\tau_{\
 In~\citep{Wolff:2003sm} it was proposed to use $\tau_{\textrm{exp}}=S_{\tau}\tau_{\textrm{int}}$ to estimate the exponential autocorrelation time, where the parameter $S_{\tau}$ 
 is set so that the integrated autocorrelation time exhibits a plateau around the value of $W_F^\alpha$ in eq.~(\ref{eq:WF}). Similarly, one can also vary $W_F^{\alpha}$ until observing a stability regime of $\tau_{\textrm{int}}^{\alpha}$. Finally, it was also proposed to add an exponential tail~\citep{Schaefer:2010hu}
 \begin{equation}
+  \label{eq:tail}
 \tau_{\textrm{exp}}^{\alpha}\frac{\Gamma_F^{\alpha}(W_F^{\alpha}+1)}{\Gamma_F^{\alpha}(0)},
 \end{equation}
 to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of truncating the sum over MC time. In this case, an estimate of $\tau_{\textrm{exp}}^{\alpha}$ can be obtained by direct inspection of the slowest modes observed in the simulations at a given value of the lattice spacing. In the case of CLS ensembles the following estimate has been considered~\citep{Bruno:2014jqa}
@@ -79,8 +80,18 @@ to eq.~(\ref{app_errors:eq:taui}) to account for the systematic effect of trunca
 \tau_{\textrm{exp}}^{\alpha}=14(3)\frac{t_0}{a^2}.
 \end{equation}
 
-In this work we have used the $\Gamma$-method explained above as implemented in the ADerrors.jl julia package~\citep{Ramos:2020scv}.
-
+In this work we have used the $\Gamma$-method explained above as
+implemented in the ADerrors.jl julia package~\citep{Ramos:2020scv}. In
+particular, we do not add the exponential tail in eq.~(\ref{eq:tail}),
+and by default we follow the proposal in~\citep{Wolff:2003sm} of setting
+\
+\begin{equation}
+\label{eq:Stau}
+\tau_{\textrm{exp}}^{\alpha}=S\tau_{\textrm{int}}^{\alpha},
+\end{equation}
+with $S=4$. Nonetheless, we always make sure that
+$\tau_{\textrm{int}}^{\alpha}$ has reached a plateau behaviour in the chosen
+window $W_{F}^{\alpha}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

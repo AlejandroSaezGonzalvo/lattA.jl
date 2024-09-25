@@ -103,7 +103,7 @@
 
     ax = fig.add_subplot(element(0,0))
     y = collect(1:1:length(mods))
-    xlabel(L"$\sqrt{t_0}\;\;[fm]$")   
+    xlabel(L"$\sqrt{t_0^{\rm phys}}\;\;\rm [fm]$")   
     v = [value(sqrt_t0) for i in 1:length(sqrt_t0_vec_sub)]
     e = [err(sqrt_t0) for i in 1:length(sqrt_t0_vec_sub)]
     fill_betweenx(y, v-e, v+e, color="deepskyblue", alpha=0.75)
@@ -142,7 +142,7 @@
 
     ax = fig.add_subplot(element(slice(1,3),0))
     y = collect(1:1:length(mods))
-    xlabel(L"$\sqrt{t_0}\;\;[fm]$")   
+    xlabel(L"$\sqrt{t_0^{\rm phys}}\;\;\rm [fm]$")   
     v = [value(sqrt_t0) for i in 1:length(sqrt_t0_vec_sub)]
     e = [err(sqrt_t0) for i in 1:length(sqrt_t0_vec_sub)]
     fill_betweenx(y, v-e, v+e, color="deepskyblue", alpha=0.75)

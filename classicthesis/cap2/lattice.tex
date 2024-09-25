@@ -17,7 +17,7 @@
 
 The gauge theory that describes the strong interaction between quarks and gluons is called Quantum Chromodynamics or QCD. 
 
-The underlying symmetry of QCD is associated with the non-abelian $SU(N=3)$ Lie group. The elements of this group are non-commuting, traceless unitary matrices $\Omega$ with unit determinant $\textrm{det}\;\Omega=1$. When considering a gauge theory the group elements must depend on space-time coordinates. The map
+The underlying symmetry of QCD is associated with the non-abelian $SU(N=3)$ Lie group. The elements of this group are non-commuting, unitary matrices $\Omega$ with unit determinant $\textrm{det}\;\Omega=1$. When considering a gauge theory the group elements must depend on space-time coordinates. The map
 \begin{equation}
 \Omega(x)=e^{i\alpha^{(a)}(x)T^{(a)}},
 \end{equation}
@@ -313,15 +313,16 @@ By rotating the fields
 \bar{\psi}~\to~\bar{\psi}' = \bar{\psi} e^{-i\frac{\pi}{2}\gamma_5 \frac{T}{2}}, \quad \\
 T = {\textrm{diag}}(\eta_u,\eta_d,\eta_s,\eta_c),
 \end{gather}
-with $\alpha_i\equiv\frac{\pi}{2}\eta_i$ the so-called twist angles. The latter can be defined in the renormalized theory in terms of the ratio of the renormalized standard and twisted quark masses as
-\begin{equation}
-{\textrm{cot}}\;\alpha_i=\frac{m_i^{\textrm{R}}}{\mu_i^{\textrm{R}}},
-\end{equation}
+with $\alpha_i\equiv\frac{\pi}{2}\eta_i$ the so-called twist angles,
 one retrieves the usual physical (standard) formulation with real fermionic mass
 \begin{equation}
 M_i=\sqrt{m_i^2+\mu_i^2},
 \end{equation}
-and a chirally rotated Wilson term. The rotated fields $\psi',\bar{\psi}'$ define the so-called physical basis, while the unrotated ones $\psi,\bar{\psi}$ define the twisted basis.
+and a chirally rotated Wilson term. The twist angles can be defined in the renormalized theory in terms of the ratio of the renormalized standard and twisted quark masses as
+\begin{equation}
+{\textrm{cot}}\;\alpha_i=\frac{m_i^{\textrm{R}}}{\mu_i^{\textrm{R}}}.
+\end{equation}
+The rotated fields $\psi',\bar{\psi}'$ define the so-called physical basis, while the unrotated ones $\psi,\bar{\psi}$ define the twisted basis.
 
 In practice we will be working with Wilson tm fermions at maximal twist
 \begin{equation}
@@ -394,7 +395,7 @@ This is equivalent to expectation values in statistical mechanics with a Boltzma
 \begin{align}
 \left<{O}(x_1,...,x_n)\right>&=\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\notag \\
 &\times\frac{1}{\mathcal{Z}_{\textrm F}}\left[\int\mathcal{D}[\psi,\bar{\psi}]{O}(x_1,...,x_n)e^{-S_{\textrm F}[\psi,\bar{\psi}]}\right] \\
-&equiv\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\left<{O}(x_1,...,x_n)\right>_{\textrm F},
+&\equiv\frac{1}{\mathcal{Z}}\int\mathcal{D}[U]e^{-S_{\textrm G}[U]}\mathcal{Z}_{\textrm F}\left<{O}(x_1,...,x_n)\right>_{\textrm F},
 \end{align}
 with 
 \begin{align}
@@ -628,3 +629,8 @@ Finally, in addition to $t_0$, other intermediate scales considered on the latti
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../ClassicThesis"
+%%% End:

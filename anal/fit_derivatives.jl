@@ -81,7 +81,7 @@ end
 x = value.([phi2 1 ./ t0])
 y = der_t0fpik
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0fpik, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0fpik, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0fpik
 
 fig = figure()
@@ -119,7 +119,7 @@ errorbar(value.(phi2[1:5]), value.(y[1:5]), err.(y[1:5]), fmt="x", color="rebecc
 errorbar(value(phi2[6]), value(y[6]), err(y[6]), fmt="x", color="green", label=L"\beta=3.46")
 errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blue", label=L"\beta=3.55")
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
-legend()
+legend(fontsize=13)
 ylim(-0.01,0.06)
 tight_layout()
 
@@ -377,7 +377,7 @@ tight_layout()
 x = value.([phi2 1 ./ t0])
 y = der_sea_t0fpik
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0fpik_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0fpik_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0fpik_sea
 
 fig = figure()
@@ -415,8 +415,8 @@ errorbar(value.(phi2[1:5]), value.(y[1:5]), err.(y[1:5]), fmt="x", color="rebecc
 errorbar(value(phi2[6]), value(y[6]), err(y[6]), fmt="x", color="green", label=L"\beta=3.46")
 errorbar(value.(phi2[7:10]), value.(y[7:10]), err.(y[7:10]), fmt="x", color="blue", label=L"\beta=3.55")
 errorbar(value.(phi2[11:end]), value.(y[11:end]), err.(y[11:end]), fmt="x", color="darkorange", label=L"\beta=3.70")
-legend()
-ylim(-0.03,0.015)
+legend(fontsize=13, loc="lower right")
+ylim(-0.03,0.018)
 tight_layout()
 
 savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0fpik.pdf")

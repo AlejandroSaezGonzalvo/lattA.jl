@@ -76,6 +76,12 @@
 %*******************************************************
 \include{FrontBackmatter/Titlepage}
 \include{FrontBackmatter/Titleback}
+
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+
 \cleardoublepage\include{FrontBackmatter/Dedication_2}
 \cleardoublepage\include{FrontBackmatter/Dedication}
 \cleardoublepage\include{FrontBackmatter/Abstract}
@@ -139,3 +145,8 @@
 %*******************************************************
 \end{document}
 % ********************************************************************
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,46 @@
+;; -*- lexical-binding: t; -*-
+
+(TeX-add-style-hook
+ "cap5"
+ (lambda ()
+   (LaTeX-add-labels
+    "ch_ss"
+    "ch_ss:sec:introduction"
+    "ch_ss:eq:fpik"
+    "ch_ss:eq:isoQCD"
+    "ch_ss:eq:isoQCD_fpi"
+    "ch_ss:eq:isoQCD_fk"
+    "ch_ss:sec:Results"
+    "ch_ss:eq:SU3ChPT"
+    "ch_ss:eq:log"
+    "ch_ss:eq:Tay"
+    "ch_ss:eq:Tay4"
+    "ch_ss:eq:a2"
+    "ch_ss:eq:aas"
+    "ch_ss:eq:a2phi2"
+    "ch_ss:eq:W"
+    "ch_ss:eq:t0ph_w"
+    "ch_ss:eq:t0ph_tm"
+    "ch_ss:eq:t0ph_c"
+    "ch_ss:tab:stat"
+    "ch_ss:eq:SU2pi"
+    "ch_ss:eq:SU2k"
+    "ch_ss:eq:t0ph_fpi"
+    "ch_ss:fig:universality"
+    "ch_ss:fig:SU3a2"
+    "ch_ss:fig:BMA_w"
+    "ch_ss:fig:BMA_tm"
+    "ch_ss:fig:BMA_comb"
+    "ch_ss:fig:SU2_comb"
+    "ch_ss:fig:BMA_w_SU2"
+    "ch_ss:fig:BMA_tm_SU2"
+    "ch_ss:fig:BMA_comb_SU2"
+    "ch_ss:eq:fit_t0_sym"
+    "ch_ss:eq:t0_sym"
+    "ch_ss:fig:t0_sym"
+    "ch_ss:sec:t0_sym"
+    "ch_ss:eq:a"
+    "ch_ss:tab:a"
+    "ch_ss:eq:t0*"))
+ :latex)
+

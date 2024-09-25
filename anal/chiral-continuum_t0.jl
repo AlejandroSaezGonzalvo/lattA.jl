@@ -2,6 +2,7 @@
 
 using Revise, lattA, juobs, ADerrors, BDIO, PyPlot, PyCall, LsqFit, LinearAlgebra
 using ADerrors: err
+using lattA: fit_alg
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -68,7 +69,7 @@ fpik_add = true
         BDIO_seek!(fb); push!(obs_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_sh[i], read_uwreal(fb)) end
         BDIO_close!(fb)
-
+        
         fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted_FLAG21/", ens[i], "_obs_tm_sh_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "r")
         BDIO_seek!(fb); push!(obs_tm_sh[i], read_uwreal(fb))
         while BDIO_seek!(fb, 2) == true push!(obs_tm_sh[i], read_uwreal(fb)) end
@@ -223,14 +224,19 @@ fpik_add = true
     fig = figure()
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
     rcParams["font.size"] = 15
-    xlabel(L"$\phi_2$")
-    ylabel(L"$\phi_4$")
-    errorbar(value.(phi2[ens_340]), value.(phi4[ens_340]), err.(phi4[ens_340]), err.(phi2[ens_340]), label=L"\beta=3.40", fmt="s", color="rebeccapurple")
-    errorbar(value.(phi2[ens_346]), value.(phi4[ens_346]), err.(phi4[ens_346]), err.(phi2[ens_346]), label=L"\beta=3.46", fmt="o", color="green")
-    errorbar(value.(phi2[ens_355]), value.(phi4[ens_355]), err.(phi4[ens_355]), err.(phi2[ens_355]), label=L"\beta=3.55", fmt="<", color="blue")
-    errorbar(value.(phi2[ens_370]), value.(phi4[ens_370]), err.(phi4[ens_370]), err.(phi2[ens_370]), label=L"\beta=3.70", fmt=">", color="darkorange")
-    errorbar(value.(phi2[ens_385]), value.(phi4[ens_385]), err.(phi4[ens_385]), err.(phi2[ens_385]), label=L"\beta=3.85", fmt="^", color="red")
+    xlabel(L"$\phi_2^{(s)}$")
+    ylabel(L"$\phi_4^{(s)}$")
+    errorbar(value.(phi2[ens_340]), value.(phi4[ens_340]), err.(phi4[ens_340]), err.(phi2[ens_340]), label=L"\beta=3.40", fmt="s", mfc="none", color="rebeccapurple")
+    errorbar(value.(phi2[ens_346]), value.(phi4[ens_346]), err.(phi4[ens_346]), err.(phi2[ens_346]), label=L"\beta=3.46", fmt="o", mfc="none", color="green")
+    errorbar(value.(phi2[ens_355]), value.(phi4[ens_355]), err.(phi4[ens_355]), err.(phi2[ens_355]), label=L"\beta=3.55", fmt="<", mfc="none", color="blue")
+    errorbar(value.(phi2[ens_370]), value.(phi4[ens_370]), err.(phi4[ens_370]), err.(phi2[ens_370]), label=L"\beta=3.70", fmt=">", mfc="none", color="darkorange")
+    errorbar(value.(phi2[ens_385]), value.(phi4[ens_385]), err.(phi4[ens_385]), err.(phi2[ens_385]), label=L"\beta=3.85", fmt="^", mfc="none", color="red")
     fill_between(collect(0:0.1:0.8), value(phi4_ph)-err(phi4_ph), value(phi4_ph)+err(phi4_ph), color="gray", alpha=0.3)
+    uwerr(phi2_ph)
+    vlines(value(phi2_ph)-err(phi2_ph), 1.0, 1.5, label="", color="black", linestyle="--")
+    vlines(value(phi2_ph)+err(phi2_ph), 1.0, 1.5, label="", color="black", linestyle="--")
+    ylim(1.08,1.2)
+    xlim(0.0,0.8)
     legend()
     tight_layout()
     savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/phi2_phi4.pdf")
@@ -284,8 +290,8 @@ fpik_add = true
     fig = figure()
     rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
     rcParams["font.size"] = 15
-    xlabel(L"$\phi_2$")
-    ylabel(L"$\sqrt{8t_0}f_{\pi K}$")
+    xlabel(L"$\phi_2^{(s)}$")
+    ylabel(L"$\sqrt{8t_0}f_{\pi K}^{(s)}$")
     errorbar(value.(phi2[ens_340]), value.(t0fpik_un[ens_340]), err.(t0fpik_un[ens_340]), err.(phi2[ens_340]), label=L"$\beta=3.40$", fmt="s", mfc="none", color="purple", capsize=3.0)
     errorbar(value.(phi2[ens_346]), value.(t0fpik_un[ens_346]), err.(t0fpik_un[ens_346]), err.(phi2[ens_346]), label=L"$\beta=3.46$", fmt="o", mfc="none", color="green", capsize=3.0)
     errorbar(value.(phi2[ens_355]), value.(t0fpik_un[ens_355]), err.(t0fpik_un[ens_355]), err.(phi2[ens_355]), label=L"$\beta=3.55$", fmt="<", mfc="none", color="blue", capsize=3.0)
@@ -300,6 +306,11 @@ fpik_add = true
         #arrow(value(phi2[i]), value(t0fpik_un[i]), value(phi2_sh[i])-value(phi2[i]), value(t0fpik_sh_1q[i])-value(t0fpik_un[i]), width=0.0002, color="black", alpha=1, ec="None", ls="--")
         plot(value.([phi2[i], phi2_sh[i]]), value.([t0fpik_un[i], t0fpik_sh_1q[i]]), color="black", ls="--")
     end
+    uwerr(phi2_ph)
+    vlines(value(phi2_ph)-err(phi2_ph), 0.28, 0.33, label="", color="black", linestyle="--")
+    vlines(value(phi2_ph)+err(phi2_ph), 0.28, 0.33, label="", color="black", linestyle="--")
+    xlim(0.0,0.8)
+    ylim(0.287,0.325)
     legend()
     tight_layout()
     savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/t0fpik_st_un_sh.pdf")
@@ -427,6 +438,8 @@ fpik_add = true
     fill_between(x_plot, v_2-e_2, v_2+e_2, color="gray", alpha=0.3)
     ax = gca()
     #ax[:set_ylim]([0.295, 0.325])
+    text(0.033, 0.3, "Wilson")
+    text(0.03, 0.322, "Mixed Action")
     legend()
     tight_layout()
     savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/continuum_sym.pdf")
@@ -1352,6 +1365,8 @@ fpik_add = true
         errorbar(value(phi2_ph), value(t0fpik_ph_vec[3][1]), err(t0fpik_ph_vec[3][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
         ax = gca()
         ax[:set_ylim]([0.283, 0.325])
+        uwerr(phi2_ph)
+        vlines(value(phi2_ph), 0.28, 0.33, label="", color="black", linestyle="--")
 
         subplot(212)
         errorbar(value.(a2t0[ens_340]), value.(y_aux[ens_340]), err.(y_aux[ens_340]), err.(a2t0[ens_340]), fmt="s", label=L"$\beta=3.40$", color="rebeccapurple")
