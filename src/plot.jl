@@ -613,7 +613,9 @@ function matching_newens_constTr_plot()
     fill_between(1 ./ xp[:,1], v-e, v+e, color="orange", alpha=0.5)
     fill_between(1 ./ xp[:,1], v2-e2, v2+e2, color="gray", alpha=0.5)
     errorbar(1 ./ x_s[1:4:8,1], value.(phi4_sh[1:4:8]), err.(phi4_sh[1:4:8]), fmt="x", color="purple", label=L"$a\mu_l^{\rm(v)}=???$") ## mus is fixed
-    errorbar(1 ./ x_s[3:4:8,1], value.(phi4_sh[3:4:8]), err.(phi4_sh[3:4:8]), fmt="x", color="green", label=L"$a\mu_l^{\rm(v)}=???$")
+    errorbar(1 ./ x_s[2:4:8,1], value.(phi4_sh[2:4:8]), err.(phi4_sh[2:4:8]), fmt="x", color="green", label=L"$a\mu_l^{\rm(v)}=???$")
+    errorbar(1 ./ x_s[3:4:8,1], value.(phi4_sh[3:4:8]), err.(phi4_sh[3:4:8]), fmt="x", color="blue", label=L"$a\mu_l^{\rm(v)}=???$") ## mus is fixed
+    errorbar(1 ./ x_s[4:4:8,1], value.(phi4_sh[4:4:8]), err.(phi4_sh[4:4:8]), fmt="x", color="red", label=L"$a\mu_l^{\rm(v)}=???$")
     kappa_target = 1 / up[1]; uwerr(kappa_target)
     errorbar(value(kappa_target), value(phi4_target[1]), err(phi4_target[1]), err(kappa_target), fmt="x", color="black")
     ax[:set_ylim]([value(phi4_sh[1])*0.97, value(phi4_sh[end])*1.03])
@@ -640,7 +642,9 @@ function matching_newens_constTr_plot()
     fill_between(xp[:,2], v-e, v+e, color="orange", alpha=0.5)
     fill_between(xp[:,2], v2-e2, v2+e2, color="gray", alpha=0.5)
     errorbar(x_s[1:2:4,2], value.(phi4_sh[1:2:4]), err.(phi4_sh[1:2:4]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$") ## mus is fixed
-    errorbar(x_s[5:2:8,2], value.(phi4_sh[5:2:8]), err.(phi4_sh[5:2:8]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[2:2:5,2], value.(phi4_sh[2:2:5]), err.(phi4_sh[2:2:5]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[5:2:8,2], value.(phi4_sh[5:2:8]), err.(phi4_sh[5:2:8]), fmt="x", color="blue", label=L"$\kappa^{\rm(v)}=???$") ## mus is fixed
+    errorbar(x_s[6:2:8,2], value.(phi4_sh[6:2:8]), err.(phi4_sh[6:2:8]), fmt="x", color="red", label=L"$\kappa^{\rm(v)}=???$")
     mul_target = up[2]; uwerr(mul_target)
     errorbar(value(mul_target), value(phi4_target[1]), err(phi4_target[1]), err(mul_target), fmt="x", color="black")
     ax[:set_ylim]([value(phi4_sh[1])*0.97, value(phi4_sh[end])*1.03])
