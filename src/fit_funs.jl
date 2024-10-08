@@ -37,3 +37,7 @@ end
 function interp_fpik_constTr(x,p)
     return [p[1] + p[2] * x[i,2] + p[3] * x[i,3] + p[4] / x[i,1] + p[5] / x[i,1] ^ 2 for i in 1:length(x[:,1])]
 end
+
+function interp_m13(x,p)
+    return [p[1] + p[2] * x[i,2] + p[3] * x[i,2] ^ 2 + p[4] / x[i,1] + p[5] / x[i,1] ^ 2 + p[6] * x[i,3] + p[7] * x[i,3] ^ 2 for i in 1:length(x[:,1])]
+end

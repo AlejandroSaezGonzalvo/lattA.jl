@@ -764,6 +764,90 @@ function interp_fpik_constTr_plot()
     #close("all")
 end
 
+function interp_m13_plot()
+    subplot(131) # Create the 1st axis of a 3x1 array of axes
+    ax = gca() # Get the handle of the current axis
+    delta = (kappa[2]-kappa[1])/10
+    xp = collect(kappa[1]-2*delta:delta:kappa[end]+2*delta) .* [uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
+    ylabel(L"$\sqrt{t_0}m_{13}^{\rm (v)}$")  
+    xlabel(L"$1/\kappa^{\rm(v)}$")   
+    vect = interp_m13(xp, up_m13) 
+    uwerr.(vect)
+    v = value.(vect)
+    e = err.(vect)
+    xp = value.(xp)
+    fill_between(1 ./ xp[:,1], v-e, v+e, color="orange", alpha=0.5)
+    errorbar(1 ./ x_s[1:9:27,1], value.(m13_sh[1:9:27]), err.(m13_sh[1:9:27]), fmt="x", color="purple", label=L"$a\mu_l^{\rm(v)}=???$") ## mus is fixed
+    errorbar(1 ./ x_s[4:9:27,1], value.(m13_sh[4:9:27]), err.(m13_sh[4:9:27]), fmt="x", color="green", label=L"$a\mu_l^{\rm(v)}=???$")
+    errorbar(1 ./ x_s[7:9:27,1], value.(m13_sh[7:9:27]), err.(m13_sh[7:9:27]), fmt="x", color="blue", label=L"$a\mu_l^{\rm(v)}=???$")
+    kappa_target = 1 / up[1]; uwerr(kappa_target)
+    errorbar(value(kappa_target), value(m13_matched), err(m13_matched), err(kappa_target), fmt="x", color="black")
+    ax[:set_ylim]([value(m13_sh[end])*0.8, value(m13_sh[1])*1.2])
+    ylim(minimum(value.(m13_sh))*1.05, maximum(value.(m13_sh))*1.05)
+    xticks(rotation=60)
+    #legend()
+
+    subplot(132) 
+    ax = gca() 
+    delta = (mul[2]-mul[1])/10
+    xp = collect(mul[1]-2*delta:delta:mul[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux") uwreal([0.0,0.0], "aux")]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
+    [xp[i,3] = up[3] for i in 1:length(xp[:,1])]
+    #ylabel(L"$\phi_2^{\rm (v)}$")  
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
+    vect = interp_m13(xp, up_m13) 
+    uwerr.(vect)
+    v = value.(vect)
+    e = err.(vect)
+    xp = value.(xp)
+    fill_between(xp[:,2], v-e, v+e, color="orange", alpha=0.5)
+    errorbar(x_s[1:3:9,2], value.(m13_sh[1:3:9]), err.(m13_sh[1:3:9]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$") ## mus is fixed
+    errorbar(x_s[10:3:18,2], value.(m13_sh[10:3:18]), err.(m13_sh[10:3:18]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[19:3:27,2], value.(m13_sh[19:3:27]), err.(m13_sh[19:3:27]), fmt="x", color="blue", label=L"$\kappa^{\rm(v)}=???$")
+    mul_target = up[2]; uwerr(mul_target)
+    errorbar(value(mul_target), value(m13_matched), err(m13_matched), err(mul_target), fmt="x", color="black")
+    ylim(minimum(value.(m13_sh))*1.05, maximum(value.(m13_sh))*1.05)
+    setp(ax.get_yticklabels(),visible=false)
+    xticks(rotation=60)
+
+    subplot(133) 
+    ax = gca() 
+    delta = (mus[2]-mus[1])/10
+    xp = collect(mus[1]-2*delta:delta:mus[end]+2*delta) .* [uwreal([0.0,0.0], "aux") uwreal([0.0,0.0], "aux") uwreal([1.0,0.0], "aux")]
+    [xp[i,1] = up[1] for i in 1:length(xp[:,1])]
+    [xp[i,2] = up[2] for i in 1:length(xp[:,1])]
+    #ylabel(L"$\phi_2^{\rm (v)}$")  
+    xlabel(L"$a\mu_l^{\rm(v)}$")   
+    vect = interp_m13(xp, up_m13) 
+    uwerr.(vect)
+    v = value.(vect)
+    e = err.(vect)
+    xp = value.(xp)
+    fill_between(xp[:,3], v-e, v+e, color="orange", alpha=0.5)
+    errorbar(x_s[1:3,3], value.(m13_sh[1:3]), err.(m13_sh[1:3]), fmt="x", color="cyan", label=L"$\kappa^{\rm(v)}=???$") ## mus is fixed
+    errorbar(x_s[4:6,3], value.(m13_sh[4:6]), err.(m13_sh[4:6]), fmt="x", color="brown", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[7:9,3], value.(m13_sh[7:9]), err.(m13_sh[7:9]), fmt="x", color="pink", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[10:12,3], value.(m13_sh[10:12]), err.(m13_sh[10:12]), fmt="x", color="purple", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[13:15,3], value.(m13_sh[13:15]), err.(m13_sh[13:15]), fmt="x", color="blue", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[16:18,3], value.(m13_sh[16:18]), err.(m13_sh[16:18]), fmt="x", color="green", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[19:21,3], value.(m13_sh[19:21]), err.(m13_sh[19:21]), fmt="x", color="yellow", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[22:24,3], value.(m13_sh[22:24]), err.(m13_sh[22:24]), fmt="x", color="orange", label=L"$\kappa^{\rm(v)}=???$")
+    errorbar(x_s[25:27,3], value.(m13_sh[25:27]), err.(m13_sh[25:27]), fmt="x", color="red", label=L"$\kappa^{\rm(v)}=???$")
+    mus_target = up[3]; uwerr(mus_target)
+    errorbar(value(mus_target), value(m13_matched), err(m13_matched), err(mus_target), fmt="x", color="black")
+    ylim(minimum(value.(m13_sh))*1.05, maximum(value.(m13_sh))*1.05)
+    setp(ax.get_yticklabels(),visible=false)
+    xticks(rotation=60)
+
+    #legend(bbox_to_anchor=(0.5, 0.7))
+
+    tight_layout()
+    savefig(string("/home/asaez/cls_ens/codes/lattA.jl/plots/interp_m13_",id,".pdf"))
+    #close("all")
+end
+
 function t0_model_av(ix::Int64) ## ix -> 1: Wtm, 2:Wilson, 3:combined
     #mods = mods_346
 

@@ -1,6 +1,7 @@
 #import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO, PyPlot, LsqFit, LinearAlgebra
+using lattA: fit_alg
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -130,7 +131,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0fpik.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_t0fpi
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0fpi, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0fpi, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0fpi
 
 fig = figure()
@@ -179,7 +180,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0fpi.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_t0fk
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0fk, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0fk, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0fk
 
 fig = figure()
@@ -228,7 +229,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0fk.pdf")
 x = [value.([phi2[2:5] 1 ./ t0[2:5]]); value.([phi2[8:10] 1 ./ t0[8:10]]); value.([phi2[12] 1 / t0[12]])]
 y = [der_phi2[2:5]; der_phi2[8:10]; der_phi2[12]]
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_phi2, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_phi2, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_phi2
 
 fig = figure()
@@ -276,7 +277,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_phi2.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_t0
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0
 
 fig = figure()
@@ -426,7 +427,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0fpik.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_sea_t0fpi
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0fpi_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0fpi_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0fpi_sea
 
 fig = figure()
@@ -476,7 +477,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0fpi.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_sea_t0fk
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0fk_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0fk_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0fk_sea
 
 fig = figure()
@@ -525,7 +526,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0fk.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_sea_phi2
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_phi2_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_phi2_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_phi2_sea
 
 fig = figure()
@@ -573,7 +574,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_phi2.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_sea_phi4
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_phi4_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_phi4_sea, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_phi4_sea
 
 fig = figure()
@@ -621,7 +622,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_phi4.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_sea_m12
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_m12_sea, chi_exp, chi2, pval_aux, doff = fit_alg(funn, x, y, 5, Wm)
+uprm_m12_sea, chi_exp, chi2, pval_aux, doff = fit_alg(funn, x, y, 5, Wm, wpm=wpm)
 uprm = uprm_m12_sea
 
 fig = figure()
@@ -670,14 +671,14 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_sea_t0m12.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_sea_m13
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_m13_sea, chi_exp, chi2, pval_aux, doff = fit_alg(funn, x, y, 5, Wm)
+uprm_m13_sea, chi_exp, chi2, pval_aux, doff = fit_alg(funn, x, y, 5, Wm, wpm=wpm)
 uprm = uprm_m13_sea
 
 fig = figure()
 rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
 rcParams["font.size"] = 15
 xlabel(L"$\phi_2$")
-ylabel(L"\frac{d\sqrt{8t_0}m_{12}^{\rm tm,R}}{d\phi_4^{\rm (s)}}")
+ylabel(L"\frac{d\sqrt{8t_0}m_{13}^{\rm tm,R}}{d\phi_4^{\rm (s)}}")
 auxx = collect(0.00:0.005:0.8)
 x_plot = [[i for i in auxx] [1 / value(t0[1]) for i in 1:length(auxx)]]
 aux = funn(x_plot, uprm) ; uwerr.(aux)
@@ -721,7 +722,7 @@ x = [value.([phi2[2:5] 1 ./ t0[2:5]]); value.([phi2[8:10] 1 ./ t0[8:10]]); value
 y = [der_t0m12[2:5]; der_t0m12[8:10]; der_t0m12[12]]
 #up = fit_routine(fun,x,y,3)
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0m12, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0m12, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0m12
 
 fig = figure()
@@ -768,7 +769,7 @@ x = [value.([phi2[2:5] 1 ./ t0[2:5]]); value.([phi2[8:10] 1 ./ t0[8:10]]); value
 y = [der_t0m13[2:5]; der_t0m13[8:10]; der_t0m13[12]]
 #up = fit_routine(fun,x,y,3)
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0m13, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm)
+uprm_t0m13, chi_exp, chi2, pval_aux, doff = fit_alg(fun, x, y, 3, Wm, wpm=wpm)
 uprm = uprm_t0m13
 
 fig = figure()
@@ -815,7 +816,7 @@ tight_layout()
 x = value.([phi2 1 ./ t0])
 y = der_t0m12
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0m12, chi_exp, chi2, pval_aux, doff = fit_alg(funn, x, y, 5, Wm)
+uprm_t0m12, chi_exp, chi2, pval_aux, doff = fit_alg(funn, x, y, 5, Wm, wpm=wpm)
 uprm = uprm_t0m12
 
 fig = figure()
@@ -863,7 +864,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0m12.pdf")
 x = value.([phi2 1 ./ t0])
 y = der_t0m13
 Wm = inv(Symmetric(cov(y))); Wm = convert(Matrix{Float64}, Wm)
-uprm_t0m13, chi_exp, chi2, pval_aux, doff = fit_alg(funn, x, y, 5, Wm)
+uprm_t0m13, chi_exp, chi2, pval_aux, doff = fit_alg(funn, x, y, 5, Wm, wpm=wpm)
 uprm = uprm_t0m13
 
 fig = figure()
@@ -908,7 +909,7 @@ savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/der_t0m13.pdf")
 
 close("all")
 
-der = [uprm_t0fpik; uprm_phi2; uprm_t0; uprm_t0fpik_sea; uprm_phi2_sea; uprm_phi4_sea; uprm_m12_sea; uprm_t0fpi; uprm_t0fk; uprm_t0m12; uprm_t0m13; uprm_t0fpi_sea; uprm_t0fk_sea; uprm_t0_alt; uprm_m13_sea]
+der = [uprm_t0fpik; uprm_phi2; uprm_t0; uprm_t0fpik_sea; uprm_phi2_sea; uprm_phi4_sea; uprm_m12_sea; uprm_t0fpi; uprm_t0fk; uprm_t0m12; uprm_t0m13; uprm_t0fpi_sea; uprm_t0fk_sea; uprm_m13_sea]
 fb = BDIO_open(string("/home/asaez/cls_ens/results/derivatives/der_1q_newrw.bdio"), "w")
 for i in 1:length(der)
     write_uwreal(der[i], fb, i)

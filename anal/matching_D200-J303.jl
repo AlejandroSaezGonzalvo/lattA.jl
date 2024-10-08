@@ -178,6 +178,13 @@ while cc == 0
     end
 end
 
+y = m13_sh
+up_m13, chi2, chi_exp, pv = fit_alg(interp_m13,x_s,y,7,rand(7),wpm=wpm) 
+m13_matched = interp_m13([up[1] up[2] up[3]],up_m13)[1]
+uwerr(m13_matched)
+
+interp_m13_D200_plot()
+
 #========= save bdio ===============#
 
 obs = [t0_sh, phi2_w_sh, m12_w_sh_I, m13_w_sh_I, fpi_w_sh, fk_w_sh, fpik_w_sh]
@@ -190,7 +197,9 @@ fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/",
 for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
-
+fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens.id, "_m13_matched_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
+write_uwreal(m13_matched, fb)
+BDIO_close!(fb)
 
 
 
