@@ -3,7 +3,7 @@ mutable struct EnsInfo
     L::Int64
     T::Int64
     beta::Float64
-    ca::Float64
+    ca::uwreal
     dtr::Int64
     vrw::Union{String, Vector{String}}
     cnfg::Vector{Int64}
