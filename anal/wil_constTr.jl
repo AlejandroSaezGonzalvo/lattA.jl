@@ -1,6 +1,7 @@
 #import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO
+using lattA: EnsInfo, read_ens_wil, get_mpcac, get_m, get_f_wil
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
