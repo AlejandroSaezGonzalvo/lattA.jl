@@ -181,8 +181,8 @@ fk_matched = interp_fpik_constTr([up[1] up[2] up[3]],up_fk)[1]
 uwerr(fk_matched)
 
 y = m13_sh
-up_m13, chi2, chi_exp, pv = fit_alg(interp_m13,x_s,y,7,rand(7),wpm=wpm) 
-m13_matched = interp_m13([up[1] up[2] up[3]],up_m13)[1]
+up_m13, chi2, chi_exp, pv = fit_alg(interp_m13_newens,x_s,y,4,rand(4),wpm=wpm) 
+m13_matched = interp_m13_newens([up[1] up[2] up[3]],up_m13)[1]
 uwerr(m13_matched)
 
 interp_m13_newens_plot()
@@ -200,7 +200,7 @@ for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
 fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens.id, "_m13_matched_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
-write_uwreal(m13_matched, fb)
+write_uwreal(m13_matched, fb, 1)
 BDIO_close!(fb)
 
 

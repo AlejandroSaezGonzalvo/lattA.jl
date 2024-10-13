@@ -18,7 +18,7 @@ include("tools.jl")
 export model_av, pvalue, get_model, fve, fve_inv, fit_alg, fit_alg_tol, fit_alg_LBFGS, fit_defs, corr_sym_E250, corr_sym_D450
 
 include("fit_funs.jl")
-export md_1, md_2, match_m12_sym, match_phi2_sym, match_m12, match_phi2, match_phi4, interp_fpik_sym, interp_fpik_constTr, interp_m13
+export md_1, md_2, match_m12_sym, match_phi2_sym, match_m12, match_phi2, match_phi4, interp_fpik_sym, interp_fpik_constTr, interp_m13, interp_m13_newens
 
 include("csv_tools.jl")
 export csv2Corr

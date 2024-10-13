@@ -20,7 +20,10 @@ mutable struct EnsInfo
         p1 = -13.9847
         g2 = 6 ./ beta 
         ca = - 0.006033 .* g2 .*( 1 .+exp.(p0 .+ p1./g2)) 
-        return new(id, L, T, beta, ca, dtr, vrw, cnfg)
+        err_ca = 0.08 * ca
+        ca_uw = uwreal([ca, err_ca], string("ca-",ens_id))
+        #return new(id, L, T, beta, ca, dtr, vrw, cnfg)
+        return new(id, L, T, beta, ca_uw, dtr, vrw, cnfg)
     end
 end
     

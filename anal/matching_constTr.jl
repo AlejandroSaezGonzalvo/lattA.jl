@@ -209,9 +209,8 @@ for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
 fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens.id, "_m13_matched_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
-write_uwreal(m13_matched, fb)
+write_uwreal(m13_matched, fb, 1)
 BDIO_close!(fb)
-
 
 
 

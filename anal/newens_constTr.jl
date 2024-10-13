@@ -1,6 +1,7 @@
 #import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO
+using lattA: EnsInfo, fve, read_ens_tm, get_mpcac, read_ens_csv, read_ens_wil, read_ens_TSM
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -195,35 +196,35 @@ for i in 3:8:length(pp_tm)
         if ens.id == "N302"
             mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
             push!(mk, mk_aux[1])
-            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM, pl=true)
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
             push!(fk, fk_aux[1])
         elseif ens.id == "E250"
             mk_aux = get_m_pbc(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=[10,15,20,30,40,50], tM=[60,70,80,96], method="corr")
             push!(mk, mk_aux[1])
-            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm_pbc(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[5,10,15], tM=[70,80,96], pl=false)
             push!(fk, fk_aux[1])
         elseif ens.id == "D450"
             mk_aux = get_m_pbc(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=[5,10,15,20,25,30], tM=[40,50,64], method="cosh")
             push!(mk, mk_aux[1])
-            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm, tM=tM)
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm_pbc(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[5,10,15,20,30], tM=[40,50,64], pl=false)
             push!(fk, fk_aux[1])
         elseif ens.id == "J501"
             mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=[[1], [36,69]], tM=[[10], [127,164]], pl=false)
             push!(mk, mk_aux[1])
-            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_m13[ens.id], tM=tM_m13[ens.id])
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm_m13[ens.id], tM=tM_m13[ens.id])
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[[1], [40,62,73]], tM=[[10], [124,132,155,169]], pl=false)
             push!(fk, fk_aux[1])
         else
             mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm_mk[ens.id], tM=tM_mk[ens.id], pl=false)
             push!(mk, mk_aux[1])
-            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "pion_tm", wpm=wpm, tm=tm_m13[ens.id], tM=tM_m13[ens.id])
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm_m13[ens.id], tM=tM_m13[ens.id])
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm_fk[ens.id], tM=tM_fk[ens.id], pl=false)
             push!(fk, fk_aux[1])

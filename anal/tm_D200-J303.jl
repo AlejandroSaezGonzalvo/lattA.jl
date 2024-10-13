@@ -1,6 +1,7 @@
 #import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO
+using lattA: EnsInfo, fve, read_ens_tm, get_mpcac
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/path_csv.jl");
@@ -76,7 +77,7 @@ for i in 3:8:length(pp_sym)
         else
             mk_aux = get_m(pp_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=[[1], [50,55,]], tM=[[11], [111,135,155]])
             push!(mk, mk_aux[1])
-            m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "pion_tm", wpm=wpm, tm=[[10], [30,40,50]], tM=[[11], [70,80,90,110]])
+            m13_aux = get_mpcac(pp_sym[i+j], ap_sym[i+j], ens, "kaon_tm", wpm=wpm, tm=[[10], [65,70,75]], tM=[[11], [120,130,135,140]])
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm(pp_sym[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[[1], [66,73,79]], tM=[[10], [120,125,140,160]])
             push!(fk, fk_aux[1])

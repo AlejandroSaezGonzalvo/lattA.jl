@@ -2,6 +2,7 @@
 
 using Revise, lattA, juobs, ADerrors, BDIO, PyPlot
 using ADerrors: err
+using lattA: EnsInfo, fve, fit_alg
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -108,12 +109,14 @@ fk_sh = [fk[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[43:45]) for i in 1:
 phi2_sh = [phi2[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[13:15]) for i in 1:length(phi2)]
 phi4_sh = [phi4[i] + (phi4_ph - phi4_w) * md_1(phi2_w, 1/t0, par[16:18]) for i in 1:length(phi4)]
 m12_sh = [m12[i] + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[19:23]) * ZP / sqrt(t0) / ZA for i in 1:length(m12)]
+m13_sh = [m13[i] + (phi4_ph - phi4_w) * md_2(phi2_w, 1/t0, par[46:50]) * ZP / sqrt(t0) / ZA for i in 1:length(m13)]
 uwerr.(fpik_sh)
 uwerr.(fpi_sh)
 uwerr.(fk_sh)
 uwerr.(phi2_sh)
 uwerr.(phi4_sh)
 uwerr.(m12_sh)
+uwerr.(m13_sh)
 
 #======== match & full twist =======#
 
@@ -179,8 +182,8 @@ while cc == 0
 end
 
 y = m13_sh
-up_m13, chi2, chi_exp, pv = fit_alg(interp_m13,x_s,y,7,rand(7),wpm=wpm) 
-m13_matched = interp_m13([up[1] up[2] up[3]],up_m13)[1]
+up_m13, chi2, chi_exp, pv = fit_alg(interp_m13_newens,x_s,y,4,rand(4),wpm=wpm) 
+m13_matched = interp_m13_newens([up[1] up[2] up[3]],up_m13)[1]
 uwerr(m13_matched)
 
 interp_m13_D200_plot()
@@ -198,7 +201,7 @@ for i in 1:length(obs) write_uwreal(obs[i], fb, i) end
 BDIO_close!(fb)
 
 fb = BDIO_open(string("/home/asaez/cls_ens/results/new_plateaux_noexp/shifted/", ens.id, "_m13_matched_phi4=", round(value(phi4_ph), digits=5), ".bdio"), "w")
-write_uwreal(m13_matched, fb)
+write_uwreal(m13_matched, fb, 1)
 BDIO_close!(fb)
 
 
