@@ -11,41 +11,41 @@ include("/home/asaez/cls_ens/codes/lattA.jl/src/chiral-continuum_fits.jl");
 
 new = true
 if new == true
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303", "J501"]
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "D450", "N202", "N203", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "D200", "N300", "J303", "J501"]
     ens_new = ["D450", "E250", "N302", "E300", "J500", "J501"]
-    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+    ens_av = ["H101", "H102", "H105", "H400", "D450", "N202", "N203", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
 else
-    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
-    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "D200", "N300", "J303"]
+    ens_old = ["H101", "H102r001", "H102r002", "H105", "H105r005", "H400", "N202", "N203", "D200", "N300", "J303"]
     ens_new = [""]
-    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "N200", "D200", "N300", "J303"]
+    ens_av = ["H101", "H102", "H105", "H400", "N202", "N203", "D200", "N300", "J303"]
 end
 ens_sym = ["H101", "H400", "N202", "N300", "J500"]
-ens_nosym = ["H102", "H105", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_nosym355 = ["N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
-ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "N200", "D200", "N300", "N302", "E300", "J500", "J501"]
-ens_40_nosym = ["H102", "D450", "N203", "N200", "D200", "E250", "N302", "J303", "E300", "J501"]
-ens_41_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "J303", "E300", "J501"]
-ens_42_nosym = ["H102", "D450", "N203", "N200", "D200", "N302", "E300", "J501"]
+ens_nosym = ["H102", "H105", "D450", "N203", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_nosym355 = ["N203", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_40 = ["H101", "H102", "H400", "D450", "N202", "N203", "D200", "E250", "N300", "N302", "J303", "E300", "J500", "J501"]
+ens_41 = ["H101", "H102", "H400", "D450", "N202", "N203", "D200", "N300", "N302", "J303", "E300", "J500", "J501"]
+ens_42 = ["H101", "H102", "H400", "D450", "N202", "N203", "D200", "N300", "N302", "E300", "J500", "J501"]
+ens_40_nosym = ["H102", "D450", "N203", "D200", "E250", "N302", "J303", "E300", "J501"]
+ens_41_nosym = ["H102", "D450", "N203", "D200", "N302", "J303", "E300", "J501"]
+ens_42_nosym = ["H102", "D450", "N203", "D200", "N302", "E300", "J501"]
 ind_sym = findall(x -> x in ens_sym, ens_av)
 ind_nosym = findall(x -> x in ens_nosym, ens_av)
 ind_nosym355 = findall(x -> x in ens_nosym355, ens_av)
 ens_340 = findall(x -> x in ["H101", "H102", "H105"], ens_av)
 ens_346 = findall(x -> x in ["H400", "D450"], ens_av)
-ens_355 = findall(x -> x in ["N202", "N203", "N200", "D200", "E250"], ens_av)
+ens_355 = findall(x -> x in ["N202", "N203", "D200", "E250"], ens_av)
 ens_370 = findall(x -> x in ["N300", "N302", "J303", "E300"], ens_av)
 ens_385 = findall(x -> x in ["J500", "J501"], ens_av)
-ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "N200", "D200", "E250", "J303", "E300"], ens_av)
+ind_phi204 = findall(x -> x in ["H105", "H105r005", "D450", "D200", "E250", "J303", "E300"], ens_av)
 ind_mL_40 = findall(x -> x in ens_40, ens_av)
 ind_mL_41 = findall(x -> x in ens_41, ens_av)
 ind_mL_42 = findall(x -> x in ens_42, ens_av)
 ind_phi205 = [2,7,12,16]
 ens_340_nosym = findall(x -> x in ["H102", "H105"], ens_av)
 ens_346_nosym = findall(x -> x in ["D450"], ens_av)
-ens_355_nosym = findall(x -> x in ["N203", "N200", "D200", "E250"], ens_av)
+ens_355_nosym = findall(x -> x in ["N203", "D200", "E250"], ens_av)
 ens_370_nosym = findall(x -> x in ["N302", "J303", "E300"], ens_av)
 ens_385_nosym = findall(x -> x in ["J501"], ens_av)
 ind_mL_40_nosym = findall(x -> x in ens_40_nosym, ens_av)
@@ -169,5 +169,34 @@ beta = [3.4,3.4,3.4,3.46,3.46,3.55,3.55,3.55,3.55,3.55,3.7,3.7,3.7,3.7,3.85,3.85
     errorbar(value.(phi2_sh[ens_355]), value.(rat[ens_355]), err.(rat[ens_355]), fmt="x", color="blue")
     errorbar(value.(phi2_sh[ens_370]), value.(rat[ens_370]), err.(rat[ens_370]), fmt="x", color="orange")
     errorbar(value.(phi2_sh[ens_385]), value.(rat[ens_385]), err.(rat[ens_385]), fmt="x", color="red")
+    ylabel(L"$2Z_Am_{13}^{Wtm}/\mu_s$")
+    xlabel(L"$\phi_2$")
+    tight_layout()
+
+#=============================================================#
+
+#========================= fit ===============================#
+
+    function f(x,p)
+        return [p[1] + p[2] * x[i,2] + p[3] * x[i,2] ^ 2 + p[4] * x[i,1] for i in 1:length(x[:,1])]
+    end
+
+    x = [1 ./ value.(t0_sh[ind_nosym]) value.(phi2_sh[ind_nosym])]
+    y = rat[ind_nosym]
+    uwerr.(y)
+
+    up, chi2, chi_exp, pv = fit_alg(f,x,y,4)
+
+    errorbar(value.(phi2_sh[ens_340]), value.(rat[ens_340]), err.(rat[ens_340]), fmt="x", color="purple")
+    errorbar(value.(phi2_sh[ens_346]), value.(rat[ens_346]), err.(rat[ens_346]), fmt="x", color="green")
+    errorbar(value.(phi2_sh[ens_355]), value.(rat[ens_355]), err.(rat[ens_355]), fmt="x", color="blue")
+    errorbar(value.(phi2_sh[ens_370]), value.(rat[ens_370]), err.(rat[ens_370]), fmt="x", color="orange")
+    errorbar(value.(phi2_sh[ens_385]), value.(rat[ens_385]), err.(rat[ens_385]), fmt="x", color="red")
+
+    
+
+    ylabel(L"$2Z_Am_{13}^{Wtm}/\mu_s$")
+    xlabel(L"$\phi_2$")
+    tight_layout()
 
 #=============================================================#

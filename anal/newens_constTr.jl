@@ -1,7 +1,7 @@
 #import Pkg; Pkg.activate("/home/asaez/cls_ens/codes/lattA.jl")
 
 using Revise, lattA, juobs, ADerrors, BDIO
-using lattA: EnsInfo, fve, read_ens_tm, get_mpcac, read_ens_csv, read_ens_wil, read_ens_TSM
+using lattA: EnsInfo, fve, read_ens_tm, get_mpcac, read_ens_csv, read_ens_wil, read_ens_TSM, get_corr_TSM_multichunks
 
 include("/home/asaez/cls_ens/codes/lattA.jl/src/const.jl");
 include("/home/asaez/cls_ens/codes/lattA.jl/src/in.jl");
@@ -196,14 +196,14 @@ for i in 3:8:length(pp_tm)
         if ens.id == "N302"
             mk_aux = get_m(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
             push!(mk, mk_aux[1])
-            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM, pl=true)
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM, pl=false)
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
             push!(fk, fk_aux[1])
         elseif ens.id == "E250"
             mk_aux = get_m_pbc(pp_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=[10,15,20,30,40,50], tM=[60,70,80,96], method="corr")
             push!(mk, mk_aux[1])
-            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=tm, tM=tM)
+            m13_aux = get_mpcac(pp_tm[i+j], ap_tm[i+j], ens, "kaon_tm", wpm=wpm, tm=[[10], [20,25,30,35,40]], tM=[[11], [94]])
             push!(m13, m13_aux[1])
             fk_aux = get_f_tm_pbc(pp_tm[i+j], mk[end], ens, "kaon_tm", wpm=wpm, tm=[5,10,15], tM=[70,80,96], pl=false)
             push!(fk, fk_aux[1])

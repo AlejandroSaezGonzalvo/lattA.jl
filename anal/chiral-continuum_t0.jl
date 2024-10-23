@@ -633,6 +633,7 @@ fpik_add = true
 
     ## prepare data SU2 fpi & fk
         uprm_plot_SU2 = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
+        uprm_plot_SU3 = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         t0fk_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
         t0fpi_ph_vec = [Array{uwreal,1}(), Array{uwreal,1}(), Array{uwreal,1}()]
 
@@ -772,8 +773,10 @@ fpik_add = true
                     y = set_y[k][j]
                     global L1 = length(set_y[1][j])
                     global L2 = length(set_y[1][j])
-                    guess = [-0.0444296314923108, 3.796947061303699, -0.03833005555955292, -0.061035272307122856, 4.5724975563203465, 0.023977601747406707, 0.10344587769896242]
-                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j], guess=guess, wpm=wpm)
+                    #guess = [-0.0444296314923108, 3.79694706,-0.0383300,-0.061035272307122856,4.5724975563203465, 0.023977601747406707, 0.10344587769896242]
+                    guess = [-0.013897041559729756, 4.491220512979256, -0.15817294353890565, 0.5, -0.172030418489417,-0.3709119262245872,-0.38377652212702296]
+                    
+                    uprm, chi2, chi_exp, pval_aux, doff = fit_alg(models[k][i], value.(x), y, param[k][i], Wm_syst[k][j], guess=nothing, wpm=wpm)
                     push!(TIC[k], chi2 - 2 * chi_exp)
                     push!(pval[k], pval_aux)
                     if k == 3
@@ -784,6 +787,8 @@ fpik_add = true
                         push!(t0fk_ph_vec[k], models[k][i]([x_ph;x_ph],uprm)[2])
                     end
                     if i == 1 && j == 1 uprm_plot_SU2[k] = uprm end
+                    if i == 4 && j == 1 && k != 3 uprm_plot_SU3[k] = uprm end
+                    if i == 6 && j == 1 && k == 3 uprm_plot_SU3[k] = uprm end
                 end
             end
         end
@@ -1629,6 +1634,236 @@ fpik_add = true
         tight_layout()
 
         savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/SU2_w_tm_fpi.pdf")
+
+    ##
+
+    #t0fpi SU3 W+Wtm
+        uprm_combined = uprm_plot_SU3[3]
+        uprm_st = uprm_plot_SU3[2]
+        uprm = uprm_plot_SU3[1]
+
+        Fph = model_plot_SU3_pi([0 ./ t0_sh ./ 8 [phi2_ph for i in 1:length(t0_sh)] phi4_sh], uprm)
+        Fphi2 = model_plot_SU3_pi([0 ./ t0_sh ./ 8 phi2_sh phi4_sh], uprm)
+        y_aux = t0fpi_sh .- (Fphi2 .- Fph)
+        Fph_st = model_plot_SU3_pi([0 ./ t0_sh ./ 8 [phi2_ph for i in 1:length(t0_sh)] phi4_sh], uprm_st)
+        Fphi2_st = model_plot_SU3_pi([0 ./ t0_sh ./ 8 phi2_sh phi4_sh], uprm_st)
+        y_aux_st = t0fpi_st_sh .- (Fphi2_st .- Fph_st)
+        uwerr.(y_aux)
+        a2t0 = 1 ./ t0_sh ./ 8
+        uwerr.(a2t0)
+
+        fig = figure("SU3")
+        rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+        rcParams["font.size"] = 15
+
+        color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
+
+        subplot(211)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\sqrt{8t_0}f_{\pi}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fpi_st_sh[ens_340]), err.(t0fpi_st_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", mfc="none", label=L"$\beta=3.40$", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fpi_st_sh[ens_346]), err.(t0fpi_st_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", mfc="none", label=L"$\beta=3.46$", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fpi_st_sh[ens_355]), err.(t0fpi_st_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", mfc="none", label=L"$\beta=3.55$", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fpi_st_sh[ens_370]), err.(t0fpi_st_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", mfc="none", label=L"$\beta=3.70$", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fpi_st_sh[ens_385]), err.(t0fpi_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fpi_sh[ens_340]), err.(t0fpi_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fpi_sh[ens_346]), err.(t0fpi_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fpi_sh[ens_355]), err.(t0fpi_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fpi_sh[ens_370]), err.(t0fpi_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fpi_sh[ens_385]), err.(t0fpi_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", label=L"$\beta=3.85$", color="red")
+        xlabel(L"$\phi_2$")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_SU3_pi(x_plot,uprm) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            #fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_SU3_pi(x_plot,uprm) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        errorbar(value(phi2_ph), value(t0fpi_ph_vec[1][1]), err(t0fpi_ph_vec[1][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+        i = 1
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_SU3_pi(x_plot,uprm_st) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_SU3_pi(x_plot,uprm_st) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        errorbar(value(phi2_ph), value(t0fpi_ph_vec[2][1]), err(t0fpi_ph_vec[2][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+            ax = gca()
+        #ax[:set_ylim]([0.283, 0.325])
+
+        subplot(212)
+        errorbar(value.(a2t0[ens_340]), value.(y_aux[ens_340]), err.(y_aux[ens_340]), err.(a2t0[ens_340]), fmt="s", label=L"$\beta=3.40$", color="rebeccapurple")
+        errorbar(value.(a2t0[ens_346]), value.(y_aux[ens_346]), err.(y_aux[ens_346]), err.(a2t0[ens_346]), fmt="o", label=L"$\beta=3.46$", color="green")
+        errorbar(value.(a2t0[ens_355]), value.(y_aux[ens_355]), err.(y_aux[ens_355]), err.(a2t0[ens_355]), fmt="<", label=L"$\beta=3.55$", color="blue")
+        errorbar(value.(a2t0[ens_370]), value.(y_aux[ens_370]), err.(y_aux[ens_370]), err.(a2t0[ens_370]), fmt=">", label=L"$\beta=3.70$", color="darkorange")
+        errorbar(value.(a2t0[ens_385]), value.(y_aux[ens_385]), err.(y_aux[ens_385]), err.(a2t0[ens_385]), fmt="^", label=L"$\beta=3.85$", color="red")
+        xlabel(L"$a^2/8t_0$")
+        ylabel(L"$\sqrt{8t_0}f_{\pi}$")
+        x_prime = [i for i in 0.0:0.001:0.05]
+        x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_SU3_pi(x_plot,uprm) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,1], v-e, v+e, color="gray", alpha=0.75)
+        uwerr.(y_aux_st)
+        a2t0 = 1 ./ t0_sh ./ 8
+        uwerr.(a2t0)
+        errorbar(value.(a2t0[ens_340]), value.(y_aux_st[ens_340]), err.(y_aux_st[ens_340]), err.(a2t0[ens_340]), fmt="s", mfc="none", color="rebeccapurple")
+        errorbar(value.(a2t0[ens_346]), value.(y_aux_st[ens_346]), err.(y_aux_st[ens_346]), err.(a2t0[ens_346]), fmt="o", mfc="none", color="green")
+        errorbar(value.(a2t0[ens_355]), value.(y_aux_st[ens_355]), err.(y_aux_st[ens_355]), err.(a2t0[ens_355]), fmt="<", mfc="none", color="blue")
+        errorbar(value.(a2t0[ens_370]), value.(y_aux_st[ens_370]), err.(y_aux_st[ens_370]), err.(a2t0[ens_370]), fmt=">", mfc="none", color="darkorange")
+        errorbar(value.(a2t0[ens_385]), value.(y_aux_st[ens_385]), err.(y_aux_st[ens_385]), err.(a2t0[ens_385]), fmt="^", mfc="none", color="red")
+        xlabel(L"$a^2/8t_0$")
+        x_prime = [i for i in 0.0:0.001:0.05]
+        x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_SU3_pi(x_plot,uprm_st) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,1], v-e, v+e, color="gray", alpha=0.5)
+
+        errorbar(0, value(t0fpi_ph_vec[1][1]), err(t0fpi_ph_vec[1][1]), 0, fmt="x", label="ph. point Wtm", color="black")
+        errorbar(0, value(t0fpi_ph_vec[2][1]), err(t0fpi_ph_vec[2][1]), 0, fmt="x", label="ph. point W", color="black")
+        #errorbar(-0.001, value(t0fpik_ph[3]), err(t0fpik_ph[3]), 0, fmt="*", label="ph. point model av", color="black")
+        ax = gca()
+        #ax[:set_ylim]([0.283, 0.325])
+        #setp(ax.get_yticklabels(),visible=false)
+        legend(loc="lower center", bbox_to_anchor=(-.05,-.45), ncol=3)
+        tight_layout()
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/SU3_w_tm_fpi.pdf")
+
+    ##
+
+    #t0fk SU3 W+Wtm
+        uprm_combined = uprm_plot_SU3[3]
+        uprm_st = uprm_plot_SU3[2]
+        uprm = uprm_plot_SU3[1]
+
+        Fph = model_plot_SU3_k([0 ./ t0_sh ./ 8 [phi2_ph for i in 1:length(t0_sh)] phi4_sh], uprm)
+        Fphi2 = model_plot_SU3_k([0 ./ t0_sh ./ 8 phi2_sh phi4_sh], uprm)
+        y_aux = t0fk_sh .- (Fphi2 .- Fph)
+        Fph_st = model_plot_SU3_k([0 ./ t0_sh ./ 8 [phi2_ph for i in 1:length(t0_sh)] phi4_sh], uprm_st)
+        Fphi2_st = model_plot_SU3_k([0 ./ t0_sh ./ 8 phi2_sh phi4_sh], uprm_st)
+        y_aux_st = t0fk_st_sh .- (Fphi2_st .- Fph_st)
+        uwerr.(y_aux)
+        a2t0 = 1 ./ t0_sh ./ 8
+        uwerr.(a2t0)
+
+        fig = figure("SU3")
+        rcParams = PyPlot.PyDict(PyPlot.matplotlib."rcParams")
+        rcParams["font.size"] = 15
+
+        color_beta = ["rebeccapurple", "green", "blue", "darkorange", "red"]
+
+        subplot(211)
+        xlabel(L"$\phi_2$")
+        ylabel(L"$\sqrt{8t_0}f_{K}$")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fk_st_sh[ens_340]), err.(t0fk_st_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", mfc="none", label=L"$\beta=3.40$", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fk_st_sh[ens_346]), err.(t0fk_st_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", mfc="none", label=L"$\beta=3.46$", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fk_st_sh[ens_355]), err.(t0fk_st_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", mfc="none", label=L"$\beta=3.55$", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fk_st_sh[ens_370]), err.(t0fk_st_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", mfc="none", label=L"$\beta=3.70$", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fk_st_sh[ens_385]), err.(t0fk_st_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", mfc="none", label=L"$\beta=3.85$", color="red")
+        errorbar(value.(phi2_sh[ens_340]), value.(t0fk_sh[ens_340]), err.(t0fk_sh[ens_340]), err.(phi2_sh[ens_340]), fmt="s", color="rebeccapurple")
+        errorbar(value.(phi2_sh[ens_346]), value.(t0fk_sh[ens_346]), err.(t0fk_sh[ens_346]), err.(phi2_sh[ens_346]), fmt="o", color="green")
+        errorbar(value.(phi2_sh[ens_355]), value.(t0fk_sh[ens_355]), err.(t0fk_sh[ens_355]), err.(phi2_sh[ens_355]), fmt="<", color="blue")
+        errorbar(value.(phi2_sh[ens_370]), value.(t0fk_sh[ens_370]), err.(t0fk_sh[ens_370]), err.(phi2_sh[ens_370]), fmt=">", color="darkorange")
+        errorbar(value.(phi2_sh[ens_385]), value.(t0fk_sh[ens_385]), err.(t0fk_sh[ens_385]), err.(phi2_sh[ens_385]), fmt="^", label=L"$\beta=3.85$", color="red")
+        xlabel(L"$\phi_2$")
+        i = 1
+        x_prime = [i for i in 0.01:0.05:0.85]
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_SU3_k(x_plot,uprm) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            plot(x_plot[:,2], v, color=color_beta[i], alpha=0.6, linestyle="--")
+            #fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_SU3_k(x_plot,uprm) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        errorbar(value(phi2_ph), value(t0fk_ph_vec[1][1]), err(t0fk_ph_vec[1][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+        i = 1
+        for ind in ind_sym
+            x_plot = [[value(1 / (8 * t0_sh[ind])) for i in 1:length(x_prime)] x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+            aux = model_plot_SU3_k(x_plot,uprm_st) ; uwerr.(aux)
+            v = value.(aux)
+            e = err.(aux)
+            fill_between(x_plot[:,2], v-e, v+e, color=color_beta[i], alpha=0.3)
+            i += 1
+        end
+        x_prime = [i for i in 0.01:0.05:0.85]
+        x_plot = [0.0 * x_prime x_prime [value(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_SU3_k(x_plot,uprm_st) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,2], v-e, v+e, color="gray", alpha=0.75)
+        errorbar(value(phi2_ph), value(t0fk_ph_vec[2][1]), err(t0fk_ph_vec[2][1]), err(phi2_ph), fmt="x", label="ph. point", color="black")
+            ax = gca()
+        #ax[:set_ylim]([0.283, 0.325])
+
+        subplot(212)
+        errorbar(value.(a2t0[ens_340]), value.(y_aux[ens_340]), err.(y_aux[ens_340]), err.(a2t0[ens_340]), fmt="s", label=L"$\beta=3.40$", color="rebeccapurple")
+        errorbar(value.(a2t0[ens_346]), value.(y_aux[ens_346]), err.(y_aux[ens_346]), err.(a2t0[ens_346]), fmt="o", label=L"$\beta=3.46$", color="green")
+        errorbar(value.(a2t0[ens_355]), value.(y_aux[ens_355]), err.(y_aux[ens_355]), err.(a2t0[ens_355]), fmt="<", label=L"$\beta=3.55$", color="blue")
+        errorbar(value.(a2t0[ens_370]), value.(y_aux[ens_370]), err.(y_aux[ens_370]), err.(a2t0[ens_370]), fmt=">", label=L"$\beta=3.70$", color="darkorange")
+        errorbar(value.(a2t0[ens_385]), value.(y_aux[ens_385]), err.(y_aux[ens_385]), err.(a2t0[ens_385]), fmt="^", label=L"$\beta=3.85$", color="red")
+        xlabel(L"$a^2/8t_0$")
+        ylabel(L"$\sqrt{8t_0}f_{K}$")
+        x_prime = [i for i in 0.0:0.001:0.05]
+        x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_SU3_k(x_plot,uprm) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,1], v-e, v+e, color="gray", alpha=0.75)
+        uwerr.(y_aux_st)
+        a2t0 = 1 ./ t0_sh ./ 8
+        uwerr.(a2t0)
+        errorbar(value.(a2t0[ens_340]), value.(y_aux_st[ens_340]), err.(y_aux_st[ens_340]), err.(a2t0[ens_340]), fmt="s", mfc="none", color="rebeccapurple")
+        errorbar(value.(a2t0[ens_346]), value.(y_aux_st[ens_346]), err.(y_aux_st[ens_346]), err.(a2t0[ens_346]), fmt="o", mfc="none", color="green")
+        errorbar(value.(a2t0[ens_355]), value.(y_aux_st[ens_355]), err.(y_aux_st[ens_355]), err.(a2t0[ens_355]), fmt="<", mfc="none", color="blue")
+        errorbar(value.(a2t0[ens_370]), value.(y_aux_st[ens_370]), err.(y_aux_st[ens_370]), err.(a2t0[ens_370]), fmt=">", mfc="none", color="darkorange")
+        errorbar(value.(a2t0[ens_385]), value.(y_aux_st[ens_385]), err.(y_aux_st[ens_385]), err.(a2t0[ens_385]), fmt="^", mfc="none", color="red")
+        xlabel(L"$a^2/8t_0$")
+        x_prime = [i for i in 0.0:0.001:0.05]
+        x_plot = [x_prime [phi2_ph for i in 1:length(x_prime)] [(phi4_ph) for i in 1:length(x_prime)] [value(phi2_sym_ph) for i in 1:length(x_prime)]]
+        aux = model_plot_SU3_k(x_plot,uprm_st) ; uwerr.(aux)
+        v = value.(aux)
+        e = err.(aux)
+        fill_between(x_plot[:,1], v-e, v+e, color="gray", alpha=0.5)
+
+        errorbar(0, value(t0fk_ph_vec[1][1]), err(t0fk_ph_vec[1][1]), 0, fmt="x", label="ph. point Wtm", color="black")
+        errorbar(0, value(t0fk_ph_vec[2][1]), err(t0fk_ph_vec[2][1]), 0, fmt="x", label="ph. point W", color="black")
+        #errorbar(-0.001, value(t0fkk_ph[3]), err(t0fkk_ph[3]), 0, fmt="*", label="ph. point model av", color="black")
+        ax = gca()
+        #ax[:set_ylim]([0.283, 0.325])
+        #setp(ax.get_yticklabels(),visible=false)
+        legend(loc="lower center", bbox_to_anchor=(-.05,-.45), ncol=3)
+        tight_layout()
+
+        savefig("/home/asaez/cls_ens/codes/lattA.jl/plots/SU3_w_tm_fk.pdf")
 
     ##
 
